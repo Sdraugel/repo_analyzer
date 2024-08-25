@@ -1,0 +1,99 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>createAreaDictionary.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>createAreaDictionary.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a larger software system developed by Raytheon Company. The script is primarily concerned with creating an area dictionary specific to a site, which is a process that has been somewhat ported from a previous system, AWIPS-I.
+
+The script begins by importing necessary modules and defining a dictionary, `CityLocationDict`.
+
+The script then defines several functions:
+
+1. `getRealTimeZone(tzstring)`: This function takes a time zone string as an argument and returns the corresponding real time zone string from a predefined dictionary.
+
+2. `makeCityList(dictRecord)`: This function takes a dictionary record as an argument and creates a list of cities based on population. It also creates a dictionary of city locations.
+
+3. `checkMarineState(ugcCode)`: This function checks if a given UGC (Universal Geographic Code) code corresponds to a marine state. If it does, it returns the description of the marine state.
+
+4. `createAreaDictionary(outputDir, mapDict)`: This function creates the area dictionary based on map background data. It iterates through the map dictionary, extracting and processing relevant data to create the area dictionary.
+
+The script also contains a software history section that tracks changes made to the script over time, such as bug fixes, feature additions, and code improvements. 
+
+Note that this script is not intended to be overridden, as stated in the comment near the end of the script.
+
+The provided code is part of a larger script that seems to be processing some sort of geographic data, possibly related to weather forecasting or similar applications. 
+
+The code is checking if certain keys exist in a dictionary object `att` and if they do, it adds them to another dictionary `d` with specific key names. For example, if `att` contains a key 'name', it is added to `d` as 'ugcName'. 
+
+The code also checks if the 'ugcCode' exists in two other dictionaries, `zonedata` and `fipsdata`. If 'ugcCode' is found in either of these dictionaries, it retrieves additional information such as 'partOfState', 'wfo', and 'fullStateName' and adds them to `d`.
+
+If 'ugcCode' is not found in either `zonedata` or `fipsdata`, it checks if it's a marine state using the `checkMarineState` function.
+
+The code also seems to be handling some sort of error checking. If the 'ugcCode' is already in the `areadict` and the new data `d` is different from the existing data, it logs a problem. If there is no problem, it adds the new data to `areadict`.
+
+The large comment block at the end of the provided code appears to be a template or example of what the final 'AreaDictionary' should look like, along with explanations of what each field represents. It's likely that `areadict` is intended to eventually match this format.
+
+The code provided is a Python script that creates a dictionary (TCV_AreaDictionary) for a given area. This dictionary contains information about potential impacts of various threats (like wind, storm surge, flooding rain, or tornado) in different zones of the area. 
+
+The script first checks if a file named "TCVAreaDictionary.py" exists in the specified output directory. If the file exists, it reads the existing dictionary from the file. If the file does not exist, it logs a message and continues with an empty dictionary.
+
+Then, for each zone in the area, the script checks if the zone already exists in the dictionary. If it does, it updates the existing entries and removes any entries that are no longer needed. If the zone does not exist in the dictionary, it adds a new entry for the zone with a skeleton content.
+
+The skeleton content for a zone includes:
+- 'locationsAffected': a list of locations affected in the zone.
+- 'potentialImpactsStatements': a dictionary of potential impacts statements for different threat levels.
+- 'infoSection': a list of additional information that will be displayed at the end of the segment.
+
+Finally, the script formats the updated dictionary and writes it to the "TCVAreaDictionary.py" file in the output directory. If there is any error during the process, it logs the error message.
+
+This code is a part of a larger Python script that is used to generate and format dictionaries and lists, and to create a city location dictionary. 
+
+The `_getZones(siteID)` function reads a file named "EditAreas_PublicZones_" + siteID + ".py" and executes its contents in a new namespace. It then returns the value of 'EASourceMap' key from the namespace dictionary. If any error occurs during this process, it logs the error and returns an empty list.
+
+The `_formatDictionary(dictionary, tabLevel, output="")` and `_formatList(theList, tabLevel, output="")` functions are used to format a dictionary and a list respectively. They recursively format the nested dictionaries and lists with proper indentation.
+
+The `createCityLocation(outputDir, mapDict)` function is used to create a city location dictionary. It iterates over the mapDict dictionary, and for each 'Cities' key, it extracts the attributes and adds them to the citydict dictionary. If the citydict dictionary does not have a key for a particular FIP (Federal Information Processing Standards code), it creates a new dictionary for that FIP. It then tries to convert the latitude and longitude values to float and adds them to the citydict dictionary. If any error occurs during this process, it logs the error. 
+
+Finally, it formats the citydict dictionary using the `pprint` module and writes it to a file named "DefaultCityLocation.py" in the specified output directory. If the output directory does not exist, it creates it. It writes the formatted citydict dictionary to a temporary file first, changes the file permissions, and then renames it to "DefaultCityLocation.py". If any error occurs during this process, it logs the error.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

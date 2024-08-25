@@ -1,0 +1,214 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>NDFD_QPF_Checks.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>NDFD_QPF_Checks.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is not actually executable code, but rather a detailed comment section that provides information about the software and its version history. 
+
+The first part of the comment provides information about the software's development, including the company that developed it (Raytheon Company), the contract under which it was developed, and the address of the company. It also mentions that the software contains export-restricted data, meaning it can't be freely shared outside of the U.S. without proper authorization.
+
+The second part of the comment states that the software is in the public domain, meaning it's freely available for anyone to use. However, it comes with no warranty or technical support.
+
+The third part of the comment provides a detailed changelog or version history of the software. The software is named NDFD_QPF_Checks and was originally named SnowAmtQPFPoPWxCheck. The author is Jay Smith from WFO Fairbanks. The changelog provides a detailed account of the changes made to the software in each version, from its initial version (1.0.0) released on September 14, 2006, to its current state. 
+
+The software appears to be related to weather forecasting, as it mentions terms like "SnowAmt", "QPF" (Quantitative Precipitation Forecast), "PoP" (Probability of Precipitation), and "Wx" (Weather). The changes made to the software over time involve adjustments to how these weather-related variables are checked and handled.
+
+The provided code appears to be a detailed commentary or documentation for a procedure in a weather forecasting program. The procedure seems to be performing several checks on weather parameters such as SnowAmt6hr, QPF6hr, and PoP12hr. These parameters likely represent 6-hour snow amount, 6-hour Quantitative Precipitation Forecast (QPF), and 12-hour Probability of Precipitation (PoP) respectively.
+
+Here are the checks being performed:
+
+1. If SnowAmt6hr is present and >= 0.5 inches, then corresponding QPF6hr grids must be >= 0.01 inches.
+2. If SnowAmt6hr >= 0.1 inches then at least one of the corresponding Wx grids must have S, SW, or IP.
+3. If QPF6hr > 0.0, then at least one of the corresponding PoP grids must be > 0.
+4. If QPF6hr > 0.0 then at least one of the corresponding Wx grids must have R, RW, S, SW, RS, IP, L, ZR, ZL.
+5. If PoP12hr >= 50%, then at least one of the corresponding QPF6hr grids must be >= 0.0.
+
+The code also mentions that if these initial thresholds are not exceeded, then the two grids are considered consistent.
+
+The procedure also checks the time constraints of the PoP12hr, QPF6hr, and SnowAmt6hr grids. If any grid violates the time constraint, it is not checked.
+
+The documentation also mentions that the procedure is optimized to minimize memory usage, which may impact the speed of the procedure. It also mentions that the procedure serves as an example for other developers on how to write and document code.
+
+The last line seems to indicate that this is an absolute override file, which typically means that this file has a higher priority and will override the settings or data of a similar file with lower priority. However, the text is cut off, so the full context is not clear.
+
+This Python script appears to be part of a larger system, possibly a weather forecasting system, given the variable names and comments. It is designed to perform checks and cleanup actions on weather-related data, specifically data related to snow amount, precipitation forecast, and weather conditions.
+
+The script starts by defining a menu item and a list of variables that are used for various checks and cleanup actions. These variables are tuples containing information about the check or cleanup action, the default value, the type of control (radio button or checkbox), and the possible values.
+
+The script then defines some configuration variables. These include tolerance values for comparing floating point numbers (used for the precipitation forecast and snow amount data), colors for highlighting inconsistent and temporary grids, and the name of a specific area to run the procedure over.
+
+The script then imports two libraries: SmartScript, which seems to be a custom library, and numpy, a popular library for numerical computations in Python.
+
+The script defines a class named Procedure, which inherits from SmartScript.SmartScript. This class has an initialization method, a cleanup method, and a method to check the types of the configuration values. The cleanup method removes temporary grids and turns off any previous highlighting. The check method ensures that the configuration values are of the correct type (float for the tolerance values, string for the colors and area name).
+
+The script seems to be incomplete, as it ends abruptly in the middle of a method.
+
+This is a Python script that seems to be part of a larger system, likely a weather forecasting system. It contains several methods that perform various checks and operations:
+
+1. The first method checks if the variables `empGridColor` and `cwaEditArea` are defined as string values. If not, it sets `badValues` to True and sends a message to the status bar, then cancels the operation.
+
+2. The `__checkLockedStatus` method checks if the elements in a given list are locked by the current user or by another user. It returns a list of boolean values indicating the lock status.
+
+3. The `__getMsgSeverity` method is used to determine the severity of a message. If the `_quiet` attribute is True, it returns 'R', otherwise it returns the input severity.
+
+4. The `__checkTC` method checks if the time constraints for certain weather elements (QPF6hr, SnowAmt6hr, and PoP12hr) are met. It returns True if the constraints are met, and False otherwise.
+
+5. The `_runSnowAmt6hrQPF6hrCheck` method checks if the SnowAmt6hr is greater than or equal to 0.5, then QPF6hr must be greater than or equal to 0.01. It also checks if there are any locks on the SnowAmt6hr and QPF6hr grids, and if there are, it sends a message and returns.
+
+The script uses several methods from a class or module named `SmartScript`, such as `statusBarMsg`, `lockedByMe`, `lockedByOther`, and `getGridInfo`. These methods are likely part of a larger system or framework.
+
+This Python code is part of a weather forecasting system, specifically dealing with snow amount and precipitation forecasts. It is designed to minimize memory usage by only loading one grid of data into memory at a time. 
+
+The code is iterating over a list of 'SnowAmt6hr' grids, which represent 6-hour snowfall amounts. For each grid, it checks if the grid meets its time constraints. If it doesn't, a message is displayed on the status bar and the loop continues to the next grid.
+
+The snow amount grid is then rounded to the nearest whole number and a mask is created where the snow amount is greater than or equal to 0.5. 
+
+Next, it retrieves a list of 'QPF6hr' grids, which represent 6-hour Quantitative Precipitation Forecasts. If there are no QPF6hr grids, a message is displayed on the status bar and the loop continues to the next grid. If there are QPF6hr grids, the first one is loaded into memory and checked for its time constraints. If it doesn't meet its time constraints, a message is displayed on the status bar and the loop continues to the next grid.
+
+The QPF6hr grid is then rounded to the nearest whole number and a mask is created where the QPF is less than 0.01. 
+
+A consistency mask is then created by performing a logical AND operation on the snow amount mask and the QPF mask. This mask is then modified by the 'cwaMask', which presumably represents a mask of the County Warning Area (CWA). 
+
+Finally, if any values in the consistency mask are true (indicating a discrepancy between the snow amount and QPF), the loop presumably takes some action, although this action is not shown in the provided code.
+
+The provided code seems to be a part of a larger script, possibly written in Python, which is used for weather forecasting. The script appears to be checking for inconsistencies in weather data and highlighting them if found.
+
+1. The first part of the code checks for inconsistencies in the 6-hour snow amount (SnowAmt6hr) and 6-hour precipitation forecast (QPF6hr) grids. If inconsistencies are found, the grids are highlighted and a new grid is created to mark these inconsistencies.
+
+2. The second part of the code is a method that checks if the SnowAmt6hr is greater than or equal to 0.1. If it is, the weather (Wx) grid must contain S (Snow), SW (Snow showers), or IP (Ice pellets), regardless of whether there is any freezing or liquid types. The method also checks for locked grids and posts urgent messages if any are found.
+
+3. The method then checks if there are any SnowAmt6hr grids in the specified time range. If there aren't any, it posts a message and returns from the method.
+
+4. For each SnowAmt6hr grid in the time range, it checks if the grid meets the time constraints. If it doesn't, it posts a message and continues to the next grid.
+
+5. The method then checks if the SnowAmt6hr grid is greater than or equal to 0.1. If it is, it checks for a Wx grid in the same time range. If there isn't a Wx grid, it posts a message and continues to the next grid.
+
+6. For each Wx grid in the time range, it checks if the grid contains S, SW, or IP. If it doesn't, it marks the grid as inconsistent.
+
+The code appears to be part of a larger script that checks for inconsistencies in weather forecast data. 
+
+The first part of the code checks for inconsistencies between the 'SnowAmt6hr' and 'Wx' grids. It uses logical operations to create a mask that identifies inconsistencies. If any inconsistencies are found, it highlights the problematic grids and creates a new grid that marks the inconsistencies. If no inconsistencies are found, it breaks the loop and moves on.
+
+The second part of the code checks for inconsistencies between 'QPF6hr' and 'PoP' grids. 'QPF6hr' stands for Quantitative Precipitation Forecast for 6 hours, and 'PoP' stands for Probability of Precipitation. The code first checks if any of these grids are locked. If they are, it posts urgent messages and returns from the method. Then it retrieves the 'QPF6hr' grids and checks if there are any in the specified time range. If there aren't, it posts a message and returns. Then it loops over the 'QPF6hr' grids, checks their time constraints, and creates a mask that identifies inconsistencies with the 'PoP' grids. If any inconsistencies are found, it highlights the problematic grids and creates a new grid that marks the inconsistencies. If no inconsistencies are found, it continues to the next 'QPF6hr' grid.
+
+The code uses methods from the Numeric module for logical operations and methods from the SmartScript module to interact with the grids.
+
+This Python code is part of a larger script that appears to be used for weather forecasting, specifically for checking the consistency of weather grid data. 
+
+The first part of the code checks if there are inconsistencies in the weather grid data. If there are inconsistencies, it creates a grid with the inconsistencies and highlights them. If a grid point is inconsistent, it is marked as 'Bad' (1), otherwise it is marked as 'Good' (0). The grid is created using the `createGrid` method and highlighted using the `highlightGrids` method, both from SmartScript.
+
+The second part of the code, the `_runQPF6hrWxCheck` method, checks if there is a non-zero QPF6hr (Quantitative Precipitation Forecast for 6 hours) value, then the corresponding Wx (Weather) grids must contain a precipitable Wx type. It checks for locked status and if there are locks, it posts urgent messages and returns from the method. 
+
+It then retrieves the QPF6hr grids for a given time range and checks if they meet certain time constraints. If the grids do not meet the constraints or if there are no grids, it posts a message to the status bar and continues to the next grid.
+
+For each QPF6hr grid, it checks if there are corresponding Wx grids. If there are no Wx grids, it posts a message to the status bar and continues to the next grid. If there are Wx grids, it checks if the Wx grids contain a precipitable Wx type. If the QPF6hr value is greater than or equal to 0.01 and the Wx grid does not contain a precipitable Wx type, it marks it as a bad result. If the QPF6hr value is less than 0.01 and the Wx grid contains a precipitable Wx type, it marks it as a good result. 
+
+The code uses several methods from SmartScript and Numeric, such as `getGridInfo`, `getGrids`, `wxMask`, `logical_or`, `logical_not`, and `greater_equal`.
+
+This code is part of a larger system, likely a weather forecasting system, that checks for inconsistencies in weather prediction grids. It appears to be written in Python and uses methods from the Numeric and SmartScript libraries.
+
+The first block of code checks if there are any inconsistencies between the Wx (weather) grids and the QPF6hr (Quantitative Precipitation Forecast for 6 hours) grid. If there are no inconsistencies, it breaks the loop. If there are inconsistencies and the loop runs to completion, it highlights the appropriate grids and creates a new grid to represent the inconsistencies.
+
+The second block of code, `_runPoP12hrQPF6hrCheck`, checks if any PoP12hr (Probability of Precipitation for 12 hours) grid is >= 50%, then at least one of the two corresponding QPF6hr grids must be non zero. It first checks if there are any locks on the QPF6hr or PoP12hr grids. If there are, it posts urgent messages and returns from the method. 
+
+Then it checks if there are any PoP12hr grids in the time range. If there aren't, it posts a message and returns. It does the same for QPF6hr grids. If the end time for the QPF6hr grid is earlier than the end time for the PoP12hr grid, it adjusts the time range to match the QPF6hr grid's time range.
+
+If the new time range spans a gap in the PoP12hr grids, it checks for grid existence again. If there are no grids, it posts a message. The method seems to be incomplete as it is cut off.
+
+This code appears to be part of a larger system, possibly a weather forecasting system, that analyzes and compares different weather forecast grids. The main purpose of this part of the code is to check for inconsistencies between two types of weather forecast grids: 'PoP12hr' (Probability of Precipitation for 12 hours) and 'QPF6hr' (Quantitative Precipitation Forecast for 6 hours).
+
+The code first checks if the 'QPF6hr' grids exist for the given time range. If they don't, it sends a message to the status bar and continues to the next 'PoP12hr' grid. It also checks the time constraints of both 'PoP12hr' and 'QPF6hr' grids.
+
+Then, it creates a mask for 'PoP12hr' grids that have a value greater or equal to 50 and another mask for 'QPF6hr' grids that have a value less than 0.01. These masks are used to create a consistency mask, which is used to update an inconsistency grid.
+
+If there are no inconsistencies between the 'QPF6hr' grids and the 'PoP12hr' grid, it breaks the loop. If there are inconsistencies, it highlights the inconsistent grids and creates a new grid called 'PoP12hrQPF6hrInconsistent'.
+
+The '_makeLockMsgs' function seems to be a helper function that creates messages for some kind of locking mechanism in the system. It's used to reduce code repetition by abstracting common code into a callable method.
+
+The provided code appears to be a part of a larger Python script. It contains three methods: an unnamed method, `_msgDict`, and `_getMsg`.
+
+1. The unnamed method checks the boolean values of `lockMe1`, `lockMe2`, `lockOther1`, and `lockOther2`. If any of these are `True`, it generates a message using the `_getMsg` method and displays it on the status bar. The severity of the message is fetched by the `__getMsgSeverity` method with 'U' as the input. The method returns nothing.
+
+2. The `_msgDict` method returns a dictionary of error messages. These messages can contain placeholders for string formatting. The comments indicate that the author chose to separate these messages into a different method due to their verbosity and to maintain the indentation of the main code.
+
+3. The `_getMsg` method is used to fetch and format the error messages from the `_msgDict` method. It takes a `key` as a mandatory parameter and `timeRange`, `method`, and `element` as optional parameters. Depending on the `key` provided, it formats the corresponding message with the provided parameters and returns it. If the `key` is not found in the dictionary, it returns an empty string.
+
+In summary, this part of the code is responsible for generating and displaying error messages based on certain conditions. The messages are stored separately in a dictionary and are formatted with specific details before being displayed.
+
+This Python code defines a method named `execute` which appears to be part of a larger class. The method takes two arguments: `timeRange` and `varDict`.
+
+1. The first part of the method checks if the code is running in 'quiet' mode. If the 'Quiet' key in the `varDict` dictionary is set to `True`, it will suppress pop-up error messages. If the 'Quiet' key is not found in the dictionary, it defaults to `False`.
+
+2. The method then checks if the configuration values are of the correct types by calling the `__checkConfigValueTypes` method.
+
+3. It creates a time range from 0 to 240 hours, and retrieves the value of the 'Check_Cleanup' key from `varDict`.
+
+4. If the 'Check_Cleanup' key is set to 'Cleanup', it sends a 'complete' message to the status bar and cancels the operation.
+
+5. It then loads parameters for several elements ('PoP', 'QPF', 'Wx', 'SnowAmt', 'QPF6hr', 'SnowAmt6hr', 'PoP12hr') from a forecast surface ('Fcst', 'SFC').
+
+6. If the time range is less than an hour, it sets the time range to the 0-240 hour range created earlier.
+
+7. If the user has selected a different time range, it sends an informational message to the status bar.
+
+8. It creates a time range from 0 to 1 hour and sets a flag for inconsistent grids to `False`.
+
+9. If a 'cwaEditArea' exists, it encodes that area as a Numeric Python mask. If the encoding fails, it sets the edit area to the domain. If 'cwaEditArea' does not exist, it creates a mask with all values set to one.
+
+10. Finally, it seems to prepare for running checks based on the user's input, but the code snippet ends before these checks are defined.
+
+This code seems to be part of a larger system, possibly related to weather forecasting, given the variables and comments related to time ranges, forecasts, and grid information.
+
+This part of the code is checking certain conditions in a dictionary called `varDict` and based on these conditions, it is calling different methods. 
+
+The `varDict` dictionary contains keys such as 'Run SnowAmt6hr/QPF6hr Check?', 'Run SnowAmt6hr/Wx Check?', 'Run QPF6hr/PoP Check?', 'Run QPF6hr/Wx Check?', and 'Run PoP12hr/QPF6hr Check?'. The values associated with these keys are lists, which are either empty (`[]`) or contain the string "Yes" (`["Yes"]`). 
+
+In Python, an empty list is considered as `False` when used in a condition, and a non-empty list is considered as `True`. Therefore, if the list associated with a key in `varDict` is not empty (i.e., it contains "Yes"), the condition in the `if` statement is `True` and the corresponding method is called. 
+
+For example, if `varDict['Run SnowAmt6hr/QPF6hr Check?']` is `["Yes"]`, the `_runSnowAmt6hrQPF6hrCheck(timeRange)` method is called.
+
+After checking all these conditions, the code checks if the `inconsistent` attribute of the `self` object is `True`. If it is, it calls the `statusBarMsg` method with certain arguments. If `inconsistent` is `False`, it calls the `statusBarMsg` method with a different set of arguments. 
+
+In summary, this part of the code is running a series of checks based on the values in the `varDict` dictionary and updating the status bar message based on whether there are any inconsistencies.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

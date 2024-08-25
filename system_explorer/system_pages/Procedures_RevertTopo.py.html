@@ -1,0 +1,66 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>RevertTopo.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>RevertTopo.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that is part of a Geographic Information System (GIS) software. The script is designed to restore the GFE (Gridded Forecast Editor) Topography data from the most recent backup in the PrevTopo database.
+
+The script starts by importing necessary modules and defining a class named Procedure that inherits from the SmartScript class. 
+
+The `__init__` method initializes the SmartScript superclass with the provided database session.
+
+The `execute` method is where the main functionality of the script lies. It takes a time range as an argument and performs the following steps:
+
+1. It checks if the current mutable database is the "EditTopo_Topo" database. If not, it displays an error message and exits the method.
+
+2. It checks if a "PrevTopo" grid exists in the "EditTopo_BaseTerrain" database. If not, it displays an error message and exits the method.
+
+3. It asks the user for confirmation to revert the GFE Topo data to the last saved state. If the user declines, it exits the method.
+
+4. If the user confirms, it retrieves the "PrevTopo" grid from the "EditTopo_BaseTerrain" database and replaces the current "Topo" grid in the "EditTopo_Topo" database with it.
+
+5. Finally, it saves the changes and displays a success message.
+
+The script is designed to be used in a menu, as indicated by the `MenuItems` list at the beginning of the script. The `VariableList` is empty, indicating that no additional variables are expected to be provided when the script is run.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,75 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>RTMA.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>RTMA.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code file appears to be part of a weather forecasting software developed by Raytheon Company. The code defines a class `RTMAForecaster` that inherits from a base class `Forecaster`. The `RTMAForecaster` class is used to transform RTMA D2D grids into corresponding GFE RTMA grids.
+
+The class contains methods to calculate and transform various weather parameters such as wind speed, wind direction, precipitation, sky condition, temperature, dew point, relative humidity, and their uncertainties. These calculations involve unit conversions (e.g., from meters per second to knots, from Kelvin to Fahrenheit, from millimeters to inches), clipping values to a certain range, and computing maximum and minimum values.
+
+Here are some specific methods and their functions:
+
+- `calcWind(self, wind_FHAG10)`: This method calculates wind speed and direction, converting the speed from meters per second to knots.
+- `calcQPE(self, tp_SFC)`: This method calculates the Quantitative Precipitation Estimate (QPE), converting the value from millimeters to inches and clipping values greater than 1000mm to 0.
+- `calcSky(self, tcc_EA)`: This method calculates the sky condition, clipping the values between 0 and 100.
+- `calcT(self, t_FHAG2)`: This method calculates the temperature, converting the value from Kelvin to Fahrenheit.
+- `calcRH(self, T, Td)`: This method calculates the Relative Humidity (RH) from temperature and dew point.
+- `calcMaxRH(self, RH, MaxRH)`: This method calculates the maximum relative humidity.
+- `calcTUnc(self, terranl_FHAG2)`: This method calculates the temperature analysis uncertainty, converting the value from Kelvin to Fahrenheit.
+- `calcPressUnc(self, perranl_SFC)`: This method calculates the pressure analysis uncertainty.
+
+The code also contains some legal and contractual information at the beginning, including export control restrictions, contractor details, and licensing information.
+
+This Python code file appears to be part of a larger program, possibly related to weather forecasting given the methods and variable names. 
+
+The first two methods, `calcVis(self, vis_SFC)` and `calcVisUnc(self, viserranl_SFC)`, are used to calculate visibility and its uncertainty, respectively. They both call a method `convertMtoSM()` which likely converts the visibility from meters to statute miles.
+
+The `calcPressure(self, p_SFC)` method simply returns the surface pressure as it is, without any calculations or conversions.
+
+The next three methods are commented out, which means they are not currently active in the program. These methods seem to be used for calculating the dew point temperature. 
+
+The `dewFromTandRH(self,T,RH)` method calculates the dew point temperature from the temperature and relative humidity. The `calcTdAft(self,MaxT,MinRH,TdAft,stopo)` and `calcTdMrn(self,MinT,MaxRH,TdMrn,stopo)` methods calculate the dew point temperature for the afternoon and morning, respectively, using the maximum temperature and minimum relative humidity for the afternoon, and the minimum temperature and maximum relative humidity for the morning.
+
+Finally, the `main()` function calls the `run()` method on an instance of the `RTMAForecaster` class, which is not defined in this part of the code. This suggests that this is the main entry point of the program.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

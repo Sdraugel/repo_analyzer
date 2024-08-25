@@ -1,0 +1,100 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>MarinePhrases.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>MarinePhrases.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code file, named `MarinePhrases.py`, is part of a larger software system developed by Raytheon Company. It contains a class `MarinePhrases` which inherits from four other classes: `ScalarPhrases`, `VectorRelatedPhrases`, `WxPhrases`, and `DiscretePhrases`. 
+
+The `MarinePhrases` class is used for generating text forecasts based on some statistical analysis. It contains methods that define how certain marine-related phrases are constructed, particularly those related to wind and wave conditions. 
+
+The methods in this class return flags, thresholds, and phrases related to marine conditions. For example, the `marine_wind_flag` method returns a flag that determines whether the wind wording will reflect significant thresholds such as gales. The `waveHeight_wind_threshold` method returns a threshold value above which waveHeight is reported versus wind waves. 
+
+The class also contains methods that return dictionaries, which are used to set up and construct phrases related to marine wind and wave conditions. 
+
+The code also includes a disclaimer stating that the software is in the public domain, provided "as is", without technical support, and with no warranty. It also includes information about the contractor (Raytheon Company) and export control restrictions. 
+
+This code is not intended to be overridden, as stated in the comment.
+
+This code appears to be part of a larger system that deals with wave data, possibly for a weather or oceanographic application. It defines several methods for setting up, analyzing, and describing wave data.
+
+1. The first method returns a dictionary with three methods related to wave setup, word method, and phrase methods.
+
+2. The `wave_withPeriods_setUp` method is a setup method for wave data that includes periods.
+
+3. The `wave_setUp` method sets up wave data based on the given tree and node. It checks if the current area contains inland waters or seas and sets the descriptor accordingly. It also sets up the wave element and, if the period flag is set, the period element.
+
+4. The `seasFlag` method checks if the wave data should report combined seas or wind waves. It does this by checking the wind speed and the wave and swell heights against certain thresholds.
+
+5. The `wave_words` method returns a phrase describing the wave and optionally the period for the given subphrase. It checks the wave stats and, if they exist, it formats a string with the wave range and units. If the period stats also exist, it adds the dominant period to the string.
+
+6. The `waveHeight_phrase` method returns a dictionary with methods related to wave height setup, word method, and phrase methods.
+
+7. The `waveHeight_setUp` method sets up wave height data based on the given tree and node.
+
+8. The `waveHeight_words` method creates a phrase for waves. It gets the wave height stats and, if they exist, it creates a phrase. If they don't exist, it creates a no data phrase.
+
+This code appears to be part of a larger program that generates phrases based on certain conditions related to weather, specifically related to water conditions. 
+
+The first function `wave_range` calculates the wave range based on the average wave value. It uses a predefined table to map the average wave height to a descriptive phrase.
+
+The `chop_phrase` function and related methods generate phrases describing the "chop" or roughness of the water based on wind conditions. It checks the maximum wind speed and assigns a descriptive phrase based on predefined ranges.
+
+The `swell_phrase` function and related methods generate phrases describing the "swell" or large waves in the water. It checks if the area is inland or not, and if the area is inland, it does not report swells. It also checks if it should report combined seas or not. If it should, it does not report swells. It also checks if it should include the period of the swells in the phrase.
+
+The `swell_words` function creates a phrase for the swell based on a given set of statistics. It checks if there's only one swell or two and generates the phrase accordingly. If the period flag is set, it includes the period in the phrase.
+
+This code appears to be part of a larger program that generates weather forecasts, specifically related to marine conditions. It includes methods for generating phrases related to swells and periods, checking for mixed swells, and abbreviating text in the forecast. Here's a brief description of some of the methods:
+
+1. `getStats(statDict, period)`: This method is not defined in the provided code, but it seems to retrieve statistical data for a given period from a dictionary.
+
+2. `checkMixedSwell(tree, node, statDict)`: This method checks for mixed swell conditions. If the direction difference between two swells is greater than or equal to 90 degrees and the magnitude of the second swell is more than half of the first swell, it returns 1 (indicating mixed swell conditions). Otherwise, it returns 0.
+
+3. `embedded_period_phrase(tree, node, periodStats)`: This method generates a phrase related to the period to be embedded with a Swell phrase. It retrieves the period value and its units and returns a string in the format " at [period] [units]".
+
+4. `marine_abbreviateText(fcst)`: This method takes a forecast string as input and abbreviates certain words or phrases. For example, it replaces 'north' with 'N', 'south' with 'S', 'knots' with 'kt', 'feet' with 'ft', and so on.
+
+5. `period_phrase()`, `period_setUp(tree, node)`, `period_words(tree, node)`: These methods are used to set up and generate phrases related to the period.
+
+The code also includes some conditional logic to handle different scenarios when generating the swell phrase. For example, if both sub-phrases are not empty, they are joined with " and ". If only one of them is not empty, that one is used. If both are empty, "null" is used.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,274 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>BOIVerifyInfo.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>BOIVerifyInfo.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that is part of a larger software system. The script is version 2.0.5 of a module named "BOIVerifyInfo". It was originally implemented in 2007 by Tim Barker and later ported to AWIPS II in 2010 by Ryu.
+
+The script appears to be a utility for managing and manipulating grids in a database, possibly related to weather forecasting. It allows for changes to forecaster numbers and updates any current records to match the new numbers. It also provides the ability to delete grids from the archived database, which could be useful for removing bad or erroneous grids.
+
+The script uses several libraries including numpy, math, tkinter (for GUI), time, and a few custom modules named SmartScript and BOIVerifyUtility.
+
+The main classes defined in the script are Procedure and Dialog. 
+
+The Procedure class inherits from SmartScript.SmartScript and seems to be responsible for starting a non-modal dialog box (a dialog box that allows users to interact with other windows while it's open). It uses tkinter to create and manage the GUI elements of this dialog box.
+
+The Dialog class inherits from tkinter.Toplevel and appears to be a basic dialog box class that can be customized for different purposes. It includes methods for managing the dialog box's buttons and their actions, as well as validating user input.
+
+The script also defines a list of menu items, a program name, and lists of months, days, and colors. These are likely used in the GUI elements of the software.
+
+This Python code defines a dialog box for changing a forecaster's number, ID, or name. The dialog box is implemented as a class named `ChangeCancelDialog` which inherits from a `Dialog` class.
+
+The `ChangeCancelDialog` class has the following methods:
+
+1. `__init__`: This is the constructor method that initializes the dialog box with the forecaster's current number, ID, and name. It also sets up other necessary parameters such as the parent widget, dialog name, callback method, and modality.
+
+2. `buttonbox`: This method creates a frame with two buttons, "Change" and "Cancel". The "Change" button is connected to the `changeCB` method, and the "Cancel" button is connected to the `cancelCB` method.
+
+3. `body`: This method creates the body of the dialog box, which includes labels and entry fields for the forecaster's number, ID, and name.
+
+4. `changeCB`: This method is called when the "Change" button is clicked. It validates the new forecaster number, ID, and name entered by the user. If the input is valid and different from the old values, the changes are applied. If the input is invalid, an error message is displayed and the corresponding entry field is focused for the user to correct their input. If the input is the same as the old values, the method treats it as a cancel operation.
+
+The code provided ends abruptly, so it's unclear what happens when the forecaster number changes. However, it seems that additional operations are performed in this case, and the user is asked for confirmation before proceeding.
+
+This Python code appears to be part of a larger program that manages forecasters in some sort of system, possibly related to weather forecasting. 
+
+The code includes several methods within a class:
+
+1. The first method constructs a message to the user, asking them to confirm if they want to change the forecaster number from an old number to a new one. If the user does not confirm, the method calls a callback method with "Change" as an argument and cancels the operation. If the user confirms, the method proceeds to make the changes. It first checks if the new number is different from the old one, and if so, calls the `changeNumbers` method. It then updates the forecaster names and IDs, saves the changes, and calls a callback method with "Change" as an argument before cancelling the operation.
+
+2. The `cancelCB` method is called when the user clicks on Cancel when making changes. It calls a callback method with "Cancel" as an argument and cancels the operation.
+
+3. The `changeNumbers` method is called if the user really wants to change the numbers for a forecaster. It goes through all official data files and changes all grids associated with the old number to the new number. It then updates the forecaster names and IDs, deletes the old names and IDs, saves the changes, and returns.
+
+4. The `AddCancelDialog` class is used when the user wants to add a new forecaster. It has methods for initializing the dialog, creating a button box with Add and Cancel buttons, creating the body of the dialog with the current number, username, and display name shown, and a method called `addCB` which is called when the user clicks on Add. This method validates the input to make sure the changes are okay.
+
+The code uses the `tkinter` library for creating the graphical user interface, and it seems to be part of a larger system, as it references other methods and variables that are not defined within the provided code.
+
+The code appears to be part of a larger Python application that uses the Tkinter library for creating a graphical user interface (GUI). The code involves several classes and methods that handle various aspects of the application's functionality.
+
+1. The first part of the code seems to be handling the validation and processing of user inputs for a new user or forecaster. It checks if the entered number, username, and display name are not already in use. If any of these checks fail, an error message is displayed and the user is prompted to enter the information again.
+
+2. The `cancelCB` method appears to be a callback for a cancel button. If a cancel action is triggered, it calls a callback method (if one exists) with the string "Cancel".
+
+3. The `doneDialog` class seems to be a generic dialog box with a single "Done" button. It has a callback for the "Done" button that calls a callback method (if one exists) with the string "Done".
+
+4. The `ListDialog` class appears to extend the `doneDialog` class and is used to display a list of forecasts made by a specified forecaster number. It includes a scrollbar and a text area to display the forecasts. It also calculates and displays some statistics about the forecasts.
+
+5. The last part of the code seems to be incomplete, but it appears to be adding text to the `txt` Text widget, presumably to display information about the forecasts.
+
+This Python code is part of a larger system that seems to be dealing with weather forecasting data. It is using the Tkinter library to create a graphical user interface (GUI) and display information about the data.
+
+The first part of the code is inserting text into a Tkinter Text widget, sorting and reversing a list of bases (which seem to be keys in a dictionary of forecasts), and then formatting and inserting more text based on these bases and their associated data. The text includes dates and times, which are formatted using the time.gmtime() function.
+
+The second part of the code defines a class called InfoDialog, which inherits from a class called doneDialog. The InfoDialog class seems to be a custom dialog box that displays information about a specific grid of weather data. The __init__ method initializes the dialog with various parameters, and the body method sets up the dialog's appearance and functionality.
+
+The body method creates a scrollbar and a text box, then checks if a file related to a certain parameter and model can be read. If it can, it retrieves and processes data from the file, including calculating minimum, maximum, sum, and standard deviation values. It also formats and inserts various pieces of text into the text box, including information about the grid's time period, valid time, archive time, and forecasters.
+
+This code is written in Python and is part of a larger GUI application using the Tkinter library. It seems to be part of a weather forecasting application or a similar system that deals with models and parameters.
+
+The first part of the code is appending formatted strings to the 'text' variable, which includes statistics like minimum, maximum, average, and standard deviation values. These values are formatted as strings and appended to the 'text' variable. The 'text' variable is then inserted into a Tkinter Text widget named 'txt', and the widget is disabled to prevent further user input.
+
+The second part of the code defines a class named 'VerifInfo' which inherits from 'doneDialog'. This class seems to be a dialog box in a GUI application. It has several attributes related to the display, such as font height, box width, scroll increments, and others. It also has methods for handling events like choosing a new model from a list, ordering parameters, and redisplaying data.
+
+The 'newModel' method is called when a new model is selected from a list. It fetches the new model name and sets up a message window. It then tries to get new parameters and put them in order, get the time being shown for the current model, get new base times for the new model, and find the index with the base time closest to the base time we had before. If an error occurs during this process, it simply passes and continues. Finally, it destroys the message window and displays the data for the new model.
+
+The 'orderParms' method sorts the input parameters in a specific order defined by 'PARMINFO_ORDER'. Any additional parameters are sorted alphabetically and appended after the parameters in 'PARMINFO_ORDER'.
+
+The 'redisplayDate' method seems to be incomplete as the code is cut off. It appears to be getting the current canvas location and percentage within the scrolling areas, but it's unclear what it does next without the rest of the code.
+
+This code is part of a larger program that seems to be dealing with some sort of graphical user interface (GUI) that displays data related to dates and times. The code is written in Python and uses Tkinter, a standard Python interface to the Tk GUI toolkit.
+
+Here's a breakdown of what the code does:
+
+1. `changeDate` function: This function checks if the currently selected date is the same as the one being displayed. If it is, it re-displays the current date. If it isn't, it displays the new date. This prevents the display from scrolling off to a different location within the current dates forecasts.
+
+2. `displayDate` function: This function displays timeblocks for the date currently selected in the "tl" timelist. It retrieves the base time and sets up a message window. It then clears the canvas of any previous data and starts a loop over parameters to display. 
+
+   Inside this loop, it checks if the model is not in the list of observed models. If it isn't, it retrieves forecast records for the parameter and model. If it is, it checks the file for the parameter and model and retrieves the records. 
+
+   For each record, it retrieves the start and end times and checks if they are valid (not 'zero'). If they are, it updates the minimum and maximum times. 
+
+   If the model is "Official", it finds the color/pattern based on forecaster numbers. If the model is anything else, it sets the color to white and the stipple type to empty. 
+
+   Finally, it sets up tags with the record number, parameter name, and original color.
+
+3. The code also contains several calls to `xview` and `yview` methods on what appear to be canvas objects (`self.cGrd`, `self.cTim`, `self.cLab`). These methods are typically used in Tkinter to scroll to a specific location in the canvas.
+
+4. The code also contains a call to `after_cancel` method on a canvas object (`self.cGrd`). This method is used in Tkinter to cancel a scheduled event.
+
+5. The code also contains a call to `delete` method on canvas objects (`self.cGrd`, `self.cTim`). This method is used in Tkinter to delete all elements from the canvas.
+
+The specific functionality of this code would be clearer with more context, especially understanding what the GUI is supposed to display and how it uses the data it retrieves.
+
+The code provided is written in Python and is a part of a larger program that appears to be a graphical user interface (GUI) for managing and visualizing time-based data, possibly related to forecasting or scheduling.
+
+The code starts by calculating the coordinates of a box based on time and a row index. The time is converted to hours and then used to calculate the x-coordinates of the box. The row index is used to calculate the y-coordinates of the box.
+
+Next, a polygon (presumably representing a time block) is created on a grid canvas with the calculated coordinates. The polygon is filled and outlined with a specified color and a stipple pattern is applied. The polygon is also tagged for later reference.
+
+The code then updates the maximum and minimum pixel values based on the calculated x-coordinates of the box.
+
+The next section sets up event bindings for the grid boxes. Depending on the model used, different mouse button events are bound to different methods. For example, if the model is "Official", a right-click event (Button-3) will trigger the postPopGrid method, a middle-click event (Button-2) will trigger the extract method, and a left-click event (Button-1) will trigger the buttonstart method.
+
+The code then configures the scrolling regions for the grid canvas and a time label canvas based on the min and max pixel values.
+
+The next section of the code moves the view to the start of the base time and creates time marks at hourly intervals from the minimum time to the maximum time. If the hour is 0 or a multiple of 6, additional actions are performed such as creating a line on the grid canvas and adding text to the time label canvas.
+
+The code then updates the color boxes next to forecaster names, checks if the 'set combo' button can be made active, and sets the baseDisplayed time.
+
+The code then has a try-except block to handle any exceptions that might occur during the execution of the above code. If an exception occurs, the code simply passes and continues execution.
+
+The code ends by closing a message window and returning from the current method.
+
+The rest of the code appears to be part of a different method that sets up the GUI, but it is cut off and not fully visible.
+
+This Python script appears to be part of a larger application that uses the Tkinter library for creating a graphical user interface (GUI). 
+
+The first part of the code is creating a top frame in the GUI with various widgets including labels, buttons, and a combo list (dropdown menu). The combo list items are models and date/cycle options. The buttons are used to navigate through different cycles.
+
+The second part of the code is creating a bottom frame in the GUI. This frame contains horizontal and vertical scrollbars, a canvas for each of labels, time, and grid, and a frame for forecasters. The grid canvas is set up to respond to mouse button presses and motion. The forecaster frame is updated with buttons. The scrollbars are configured to scroll both canvases in the X or Y direction. The widgets are then arranged in the frame using the grid layout manager.
+
+The third part of the code is creating a button to add a new forecaster and another button to set forecasters for selected grids. The bottom frame is then packed to fill the entire window and a method is called to draw parameter names.
+
+The last part of the code is a method named `setCombo` that sets the forecaster number info on the currently selected grids with the forecasters currently "ON" in the checkboxes. It first gets the forecaster numbers of those that are "ON". If there are too many forecasters in the combination, it shows an error message. Then it loops through selected grids and checks if a file exists for the selected grid model. If it does, it modifies the forecaster numbers for the selected grids.
+
+The provided code appears to be written in Python and seems to be part of a larger application, possibly a GUI-based application given the usage of tkinter library. Here's a breakdown of what each section does:
+
+1. `updateFcstrButtons(self)`: This function updates the display of forecaster buttons. It first gets the current on/off states for each number and stores them in a dictionary. It then deletes any widgets currently in the frame. After that, it gets the updated names/numbers/IDs and creates a new set of buttons with the updated information. The buttons are created as check buttons and are packed into a frame. The function also sets a new minimum size for the dialog based on the requested width/height.
+
+2. `nextCycle(self)`: This function moves to the next basetime in the "tl" self.times list of basetimes. It first gets the current index of time and if the index is greater than 0, it sets the current index to be one less than the current index and then changes the date.
+
+3. `prevCycle(self)`: This function moves to the previous basetime in the "tl" self.times list of basetimes. It first gets the current index of time and if the index is less than the length of the times list minus one, it sets the current index to be one more than the current index and then changes the date.
+
+4. `postPopGrid(self, event)`: This function posts a popup that allows users to get info on a grid, or delete a grid. It first finds the current grid and gets its tags. It then posts the popup at the root x and y coordinates of the event.
+
+5. `gridInfo(self)`: This function posts a dialog with info about the particular grid. It is called from the popGrid popup menu.
+
+6. `gridDelete`: The code for this function is incomplete, but it appears to delete the specified grid, with a chance for the user to cancel the operation. It is likely called from a popup menu or a button click event.
+
+The provided Python code appears to be part of a larger application that manages and manipulates grid-based data. The code contains three methods: `gridDelete`, `postPopFcstr`, and `editFcstr`.
+
+1. `gridDelete`: This method is responsible for deleting a grid. It first checks if the grid file can be opened. If it can't, it shows an error message. If the grid is an observed grid, it generates a specific warning message. If it's a forecast grid, it generates a different warning message. In both cases, it warns the user that the deletion is irreversible. It then asks for user confirmation before proceeding with the deletion. If the deletion is successful, it refreshes the display.
+
+2. `postPopFcstr`: This method is responsible for handling an event that triggers a popup menu. The popup menu allows the user to edit information about a forecaster, list forecasts made by a forecaster, or delete a forecaster. The method captures the event's details and displays the popup menu at the event's coordinates.
+
+3. `editFcstr`: This method is responsible for posting a dialog where the forecaster's number, ID, and name can be changed. It updates the forecaster's details and then updates the forecaster buttons.
+
+The code snippet ends partway through a fourth method, `deleteFcstr`, which appears to be responsible for deleting a forecaster from the list of forecasters. It first checks if the forecaster is the 'unknown' forecaster, which cannot be deleted. It then checks how many grids are attributed to this forecaster. If there are any, it warns the user and gives them a chance to back out of the deletion. If the user confirms the deletion, it proceeds to delete the forecaster and reassigns all their grids to the 'unknown' forecaster.
+
+The provided code appears to be part of a larger Python application, likely a GUI (Graphical User Interface) application using the Tkinter library. Here's a high-level summary of what each function does:
+
+1. `listFcstr`: This function posts a dialog where all the forecasts made by a forecaster are displayed. It's called by the `PopFcstr` popup menu.
+
+2. `addFcstr`: This function posts a dialog where a new forecaster can be added. It's also called by the `PopFcstr` popup menu.
+
+3. `drawParmNames`: This function clears the parameter name list and draws new names. It seems to be used in a canvas widget to display parameter names.
+
+4. `scrollBothX` and `scrollBothY`: These functions are used to scroll horizontally and vertically respectively. They seem to be controlling the scrolling of a grid canvas and a timebar or parameter labels.
+
+5. `buttonstart`: This function is triggered when a mouse button is pushed down. It stores the current location and the starting location. It also sets up to call 'scrtest' (to test for auto-scrolling) if the button is still down after a few milliseconds.
+
+6. `drag`: This function is triggered when a mouse button is held down while moving. It gets the new location and draws a selection box from the starting location to the new location. It also handles the selection of grid items within the selection box.
+
+Please note that the code is incomplete and some parts are missing, so the exact functionality might differ slightly.
+
+The provided code seems to be a part of a larger Python script that uses the Tkinter library for creating a GUI. It appears to be part of a class that manages a grid of items, where each item can be selected or deselected. 
+
+1. The first part of the code checks for grid items inside a selection box that are not currently in the selected list. If such items are found, they are set to selected and their color is changed to yellow.
+
+2. The next part checks for items that are currently selected but are no longer in the selection box. For these items, their color is changed back to their original color.
+
+3. The `scrtest` function seems to handle auto-scrolling when the pointer is within a certain range of the edge of the canvas. If scrolling occurs, the highlighted area is updated.
+
+4. The `buttonstop` function appears to handle the event when button 1 is released. It saves the final position, removes the selection box, and updates the selected and highlighted items.
+
+5. The `checkSetButton` function checks whether the "Set Forecasters for Selected Grids" button can be enabled. It requires that there be some selected grids and some selected forecasters.
+
+6. The `extract` function seems to extract forecasters for a selected grid, but the code is incomplete, so the exact functionality is unclear.
+
+This script seems to be part of a larger application, possibly for managing tasks or resources in a grid-like structure.
+
+The provided code is written in Python and it seems to be part of a larger program, possibly a GUI-based application using the tkinter library.
+
+The first part of the code appears to be setting up some variables related to a grid and performing some checks on a file. It is checking if the strings "rec" and "parm" are found in the variable `tag`, and if they are, it is extracting parts of `tag` and assigning them to `self.gridRecord` and `self.gridParm` respectively. It then gets the current selection from a model and checks the file using the `checkFile` method. If the check is successful, it performs some operations on forecasters and sets some states.
+
+The second part of the code defines a custom widget class named `comboList`. This widget is a type of dropdown menu where the user can select an entry from a list. The class is a subclass of the tkinter Frame class, meaning it inherits all the properties and methods of a tkinter Frame.
+
+The `comboList` class has several methods:
+
+- `__init__`: This is the constructor method that initializes the widget. It sets up the widget's properties and layout, including a listbox and a popup chooser.
+
+- `postPopup`: This method is responsible for displaying the popup when the user clicks on the widget.
+
+- `popClick`: This method checks if the user's click is within the list. If it's not, it closes the popup without choosing.
+
+- `removePopup`: This method is called when the user chooses an item from the list. It updates the current selection and calls a callback method.
+
+The `comboList` widget seems to be a custom implementation of a dropdown list, with additional features like a popup chooser and a scrollbar for long lists.
+
+The provided code appears to be written in Python and seems to be a part of a GUI application, possibly using the Tkinter library for creating the user interface. Here's a breakdown of what each part does:
+
+1. `closePopup(self,event)`: This function is used to close a popup window. It releases the grab, unbinds the left mouse button click event, and hides the popup window.
+
+2. `getCurrentSelection(self)`: This function returns the currently selected text.
+
+3. `getCurrentIndex(self)`: This function returns the index of the currently selected text.
+
+4. `delIndex(self,index)`: This function deletes the specified index from the entries. It checks if the index is within the valid range, deletes the corresponding entry, and updates the current selection and index.
+
+5. `setCurrentIndex(self,index)`: This function sets the current selection to the specified index in the entries. It validates the index, updates the current index and selection, and updates a Tkinter widget.
+
+6. `setCurrentSelection(self,selection)`: This function sets the current selection to the specified entry. It checks if the entry is in the list of entries, updates the current index and selection, and updates a Tkinter widget.
+
+7. `delValue(self,value)`: This function deletes the specified entry. It checks if the value exists in the entries and deletes it.
+
+8. `newEntries(self,newList,newDef)`: This function replaces all the entries with a new list of entries. If the currently selected entry is in the new list, it selects it; otherwise, it selects the first entry.
+
+9. `messageWindow(message,parent=None)`: This function creates a basic 'message window' indicating that something is happening. It calculates the position of the window to be in the center of the parent window.
+
+10. `GenericCallback(callback, *firstArgs, **firstKWArgs)`: This function supports a callback with a pre-known variable. It returns an instance of either `GC` or `GCNoKWArgs` class based on whether keyword arguments are provided or not.
+
+11. `GC` and `GCNoKWArgs` classes: These classes are used to handle callbacks. They store the callback function and its arguments during initialization and call the function with the stored and additional arguments when an instance of the class is called.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

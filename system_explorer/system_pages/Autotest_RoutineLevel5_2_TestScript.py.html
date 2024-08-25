@@ -1,0 +1,142 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>RoutineLevel5_2_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>RoutineLevel5_2_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be part of a larger system, possibly for weather forecasting or environmental monitoring. It includes two main sections: `humRec` and `localHazard`.
+
+The `humRec` section seems to be focused on calculating and reporting various weather-related parameters, particularly those related to humidity and temperature. It includes methods for generating phrase lists for different weather conditions, creating local effect lists, and triggering certain actions based on specific conditions. It also includes methods for handling data related to temperature and humidity in different geographical areas (e.g., valleys and ridges).
+
+The `localHazard` section defines a method `allowedHazards` that returns a list of allowed hazard actions for a specific hazard type 'LocalHazard1' under the category 'Convective'. This could be part of a system for issuing weather warnings or alerts.
+
+The `hazardHook` section appears to be incomplete, as the code is cut off. It seems to define a method that might be used as a hook or callback in the context of handling hazards, but without the rest of the code, it's hard to determine its exact purpose.
+
+The code also contains a lot of comments, including licensing information, authorship, and a description of the software's purpose. It's worth noting that the software was developed or modified by Raytheon Company under a US Government contract and contains export-restricted data.
+
+This code appears to be a part of a larger script that is used for weather forecasting. 
+
+The code defines a series of dictionaries, each representing a different forecast scenario. Each dictionary contains the following keys:
+
+- "name": A unique identifier for the scenario.
+- "commentary": A brief description of the scenario.
+- "productType": The type of weather forecast product that the scenario pertains to. In this case, all scenarios are for "FWF" (Fire Weather Forecast) products.
+- "comboFlag": A flag that may be used to indicate whether or not this scenario should be combined with others.
+- "orderStrings": A flag that may be used to indicate whether or not the strings in the forecast should be ordered in a certain way.
+- "checkStrings": A list of strings that are expected to be present in the forecast for this scenario.
+- "createGrids": A list of tuples, each representing a grid of forecast data to be created for this scenario. Each tuple contains the following elements:
+  - The type of forecast data to be created ("Fcst").
+  - The specific weather element to be forecasted (e.g., "LAL" for Lightning Activity Level, "PoP" for Probability of Precipitation, "Wx" for Weather).
+  - The type of data to be used in the grid ("SCALAR" for numerical data, "WEATHER" for categorical data).
+  - The start and end times for the forecast period.
+  - The forecast value.
+  - The area for which the forecast is valid ("all").
+  - A flag that may be used to indicate whether or not this grid should be created.
+
+Each scenario seems to be related to different levels of Lightning Activity Level (LAL) and Probability of Precipitation (PoP), and the presence of different types of weather (e.g., rain showers, thunderstorms). 
+
+The code also includes some method definitions, but without the full context, it's hard to determine their exact purpose. They seem to be related to creating time ranges and generating phrases for the forecast.
+
+This code appears to be a series of JSON-like objects, likely used for configuration or data representation. Each object represents a forecast with specific parameters. These parameters include:
+
+1. `name`: The unique identifier for the forecast.
+2. `commentary`: A human-readable description of the forecast.
+3. `productType`: The type of product that the forecast represents. In this case, all forecasts are of type "FWF".
+4. `comboFlag` and `orderStrings`: These are likely flags or settings used within the application, but without more context, it's hard to determine their exact purpose.
+5. `checkStrings`: An array of strings that may be used for validation or display purposes.
+6. `createGrids`: An array of tuples that represent the forecast data. Each tuple includes the type of forecast ("Fcst"), the forecast category (like "LAL", "PoP", "Wx"), the data type ("SCALAR", "WEATHER"), the start and end times for the forecast, the forecast value, and some additional parameters.
+
+The code includes multiple forecasts, each with different parameters. Some forecasts are simple, with static parameters, while others are more complex, with parameters that change over time. For example, the forecast named "FWF_LAL15" changes from a LAL of 1 to 2, a PoP of 0 to 20, and from no weather to isolated thunderstorms after 0900.
+
+The provided code appears to be a part of a larger script related to weather forecasting. It seems to be written in Python, and it's defining a series of dictionaries that represent different weather scenarios. Each dictionary has several key-value pairs that provide information about a specific weather forecast scenario.
+
+Here's a breakdown of some of the keys and their values:
+
+- "name": This key appears to be an identifier for the weather scenario.
+- "commentary": This is a description of the weather scenario.
+- "productType": This key appears to indicate the type of weather product being forecasted. In this case, it's "FWF" which might stand for Fire Weather Forecast.
+- "comboFlag", "orderStrings": These keys seem to be flags or settings related to the weather scenario.
+- "checkStrings": This key holds a list of strings that seem to be weather descriptions or conditions.
+- "createGrids": This key holds a list of tuples. Each tuple seems to represent a specific weather forecast parameter. The parameters include forecast type ("Fcst"), the parameter being forecasted (like "LAL", "PoP", "Wx"), the type of the parameter ("SCALAR", "WEATHER"), the forecast period, the forecast value, and other details.
+
+"LAL" might stand for Lightning Activity Level, "PoP" could be Probability of Precipitation, and "Wx" might be Weather conditions. The "SCALAR" type could mean that the parameter is a single numerical value, while "WEATHER" could mean that the parameter is a weather condition description.
+
+The code seems to be defining these scenarios for use elsewhere in the program, possibly for generating weather forecasts or for testing a weather forecast system.
+
+This code appears to be a series of dictionaries in Python, each representing a different forecast or weather condition. Each dictionary has several key-value pairs that provide information about the forecast or condition.
+
+1. "name" - The name of the forecast or condition.
+2. "productType" - The type of product.
+3. "commentary" - A commentary or description of the forecast or condition.
+4. "comboFlag" - A flag that may be used to indicate whether or not to combine this forecast with others.
+5. "orderStrings" - An indicator for ordering strings.
+6. "checkStrings" - A list of strings to check for in the forecast.
+7. "createGrids" - A list of tuples, each representing a grid of forecast data. Each tuple contains information about the forecast, such as the type of forecast ("Fcst"), the variable being forecasted (e.g., "LAL", "PoP", "Wx"), the type of data (e.g., "SCALAR", "WEATHER"), the start and end times of the forecast, the forecast value, the area for which the forecast applies, and a flag.
+8. "fileChanges" - A list of tuples, each representing a change to be made to a file. Each tuple contains information about the file to be changed, the utility to use to make the change, the type of change to make, the content to add or delete, and the action to take if the change needs to be undone.
+9. "gridsStartTime" - The start time for the grids.
+10. "drtTime" - The DRT (Differential Runtime) time.
+
+The code seems to be related to weather forecasting, possibly for a weather application or service. The "createGrids" key suggests that the data might be used to create forecast grids for different areas and times. The "checkStrings" key suggests that the code might be checking for certain conditions or phrases in the forecast data.
+
+This code appears to be a part of a larger script that is used for generating weather forecasts. It contains several blocks, each of which seems to define a different type of forecast or forecast setting.
+
+1. The first two blocks, named "EditAreaSuffix5" and "EditAreaSuffix6", seem to be related to generating forecasts for local hazards. They both contain a list of strings to check for in the forecast (e.g. "...LOCAL HAZARD IN EFFECT THROUGH THIS AFTERNOON..."), and a list of grids to create for the forecast, which include forecasted probability of precipitation, sky conditions, and hazards.
+
+2. The third block, named "LowerCaseHeadlines", appears to be a setting for generating forecasts where the headlines are in lowercase. It also contains a list of strings to check for and grids to create, similar to the first two blocks.
+
+3. The fourth block, named "LowerCaseHazards", seems to be a setting for generating forecasts where the hazard warnings are in lowercase.
+
+4. The last two blocks, named "FWF_HumRecLE1" and "FWF_HumRecLE2", appear to be related to generating forecasts for fire weather, specifically forecasts that include information about humidity recovery. They contain a list of strings to check for in the forecast (e.g. "Humidity recovery...Poor") and a list of grids to create for the forecast, which include forecasted maximum relative humidity.
+
+Each block also contains information about file changes to be made, the start time for the grids, and the drtTime, which might be the time the forecast is due to be released.
+
+This code seems to be part of a larger Python script related to weather forecasting. 
+
+The first part of the code is creating tuples with forecast data. Each tuple contains information about the forecast type ("Fcst"), the forecast variable ("MaxRH" which might stand for Maximum Relative Humidity), the data type ("SCALAR"), the start and end times for the forecast, a value (10 or 75), the location of the forecast (either "Valleys" or "Ridges"), and a final value (1).
+
+The `fileChanges` line is specifying changes to be made to a file named "FWF_<site>_Overrides" in the "TextUtility" section, specifically to add a record (`humRec`) and delete something (it's not clear from this snippet what is being deleted).
+
+The second part of the code is defining a dictionary with keys like "name", "commentary", "productType", "deleteGrids", "gridsStartTime". This dictionary seems to be a configuration or setting for a test script.
+
+The `testScript` function is defining a series of operations to be performed on the data. It sets some default command line variables, gets absolute times from local times, and then iterates over a list of scripts. If the start time of a script is "6am Local", it sets the start time to the absolute time equivalent. If the "drtTime" of a script is "4am Local", it sets the "drtTime" to the absolute time equivalent of 6am (although the comment questions if this should be set to the absolute time equivalent of 4am instead). Finally, it seems to run a general test script with the data manager, scripts, and defaults as arguments.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

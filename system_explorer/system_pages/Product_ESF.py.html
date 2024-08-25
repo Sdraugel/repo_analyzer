@@ -1,0 +1,68 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ESF.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ESF.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code file appears to be a Python script for generating a hydrologic outlook report, which is a type of weather forecast that provides information about expected water conditions. The script is part of a system developed by the National Weather Service (NWS).
+
+The script defines a class `TextProduct` that extends `GenericReport.TextProduct`. This class is designed to generate a text-based hydrologic outlook report. It includes several methods that are used to preprocess the product, preprocess the area, make the product, and post-process the product. These methods are overridden versions of the methods in the `GenericReport.TextProduct` class.
+
+The `TextProduct` class also includes a `Definition` dictionary that contains various settings and parameters for generating the report. These include the type of area (FIPS or ZONES), the product name, the station ID, the WMO code, the location of the WFO, the product PIL, the language, the line length, and many other settings.
+
+The script also includes a conditional block of code that sets the area type to "ZONES" for certain sites. If the area type is "FIPS", the map name for creating combinations is set to "FIPS_<site>", otherwise it is set to "Zones_<site>".
+
+The `_preProcessProduct` method removes string manipulation from the forecast, the `_preProcessArea` method handles the product name, the `_makeProduct` method creates a placeholder tag or imports a previous version of the product.
+
+The `__init__` method is used to initialize instances of the `TextProduct` class, and it simply calls the initializer of the superclass.
+
+The script imports the `re` module, which provides regular expression matching operations, and the `GenericReport` module, which presumably provides the `GenericReport.TextProduct` class that this script extends.
+
+This part of the code file is defining the behavior of a system that processes and formats text products, possibly for weather forecasts. 
+
+The first part of the code is checking if a setting (`self._includeOldText`) is set to "Yes". If it is, the system retrieves a previous product using the method `self.getPreviousProduct(self._textdbPil)`. If a previous product is found, it extracts a specific part of the product using a regular expression, and appends this to the current forecast (`fcst`).
+
+The second part of the code is a method (`_postProcessProduct`) that post-processes the forecast. It first removes any extra line feeds (consecutive newlines) in the forecast using a regular expression. Then, it formats the forecast to a certain line length and adds an endline. It also sets the progress of the task to 100% and displays a completion message. 
+
+In summary, this part of the code is responsible for including information from previous forecasts (if a certain setting is enabled) and for formatting the forecast text.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

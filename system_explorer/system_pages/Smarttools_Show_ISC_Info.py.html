@@ -1,0 +1,76 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Show_ISC_Info.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Show_ISC_Info.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code appears to be a part of a larger software system developed by Raytheon Company for the US Government. The software is subject to US export control laws due to the presence of export-restricted data.
+
+The specific part of the code you've provided is a Python script for a tool named "Show_ISC_Info". This tool creates a graphical user interface (GUI) window using the Tkinter library to display information about ISC (Inter-Service Support Agreement) discrepancies for each surrounding CWA (County Warning Area). The information displayed includes the average discrepancy, the average threshold, the number of points considered, the number of individual points that failed, and a color-coded highlight indicating whether the border passed or failed.
+
+The tool can optionally check multiple parameters when run on certain grids. For example, when run on RH (Relative Humidity) grids, it also checks T (Temperature) and Td (Dew Point Temperature) grids.
+
+The script also includes a configuration section, and it imports and uses functionalities from two other modules: ISC_Utility_Local and SmartScript. The Tool class defined in the script inherits from the SmartScript class in the SmartScript module.
+
+The script also includes a GUI setup for displaying the results of the ISC discrepancy check in a window. The window includes a "Close" button and a scrollbar.
+
+Please note that there are comments in the code indicating that the software is in the public domain and provided "as is", without warranty or technical support. There are also multiple version history comments detailing changes made to the software over time.
+
+This code is part of a GUI application, possibly in Tkinter, a standard Python interface to the Tk GUI toolkit. It is responsible for creating a text widget, configuring it, and handling the text display with certain conditions.
+
+Here's a breakdown of what the code does:
+
+1. `self.text=Text(self.chk,width=100,height=25, yscrollcommand=self.scrollbar.set)`: This line creates a text widget with a width of 100, a height of 25, and a vertical scrollbar.
+
+2. `self.text.tag_config("extreme",foreground="purple4")` and similar lines: These lines configure different tags that can be applied to the text in the widget. Each tag changes the color of the text. For example, text tagged with "extreme" will be purple.
+
+3. `self.text.pack(fill=BOTH,expand=1)`: This line packs the text widget into the window, allowing it to expand and fill the window.
+
+4. The `try` block: This block splits the `outtext` string into lines and iterates over them. Depending on the last word of each line, it applies a different tag to that word and inserts the line into the text widget. If an error occurs during this process, it destroys the widget and raises the error.
+
+5. The `else` block: If no error occurred in the `try` block, this block disables editing of the text widget, configures the scrollbar to scroll the text widget, starts the main event loop, and attempts to destroy the widget when the loop is done. If an error occurs during destruction, it is ignored.
+
+6. The `execute` method: This is a placeholder method that currently does nothing but return. The comment suggests that it should show discrepancies for each neighbor in the ISC (International Seismological Centre) data. 
+
+Overall, this code is responsible for creating a text display in a GUI, where the text color changes based on the status of each line.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

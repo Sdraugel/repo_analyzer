@@ -1,0 +1,70 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TAF_Site.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TAF_Site.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script seems to be part of a larger system, likely related to a product or service named "TAF". The script is designed to import and manage various definitions and overrides for this product, which are likely stored in separate modules or files. 
+
+Here's a breakdown of what the script does:
+
+1. It imports necessary modules, including `TAF`, `sys`, `copy`, and `importlib`.
+
+2. It constructs the names of the definition and override TextUtilities for a specific site and region. These names are stored in `siteDefinition`, `siteOverrides`, and `regionOverrides`.
+
+3. It uses `importlib.import_module()` to dynamically import the local site's Product Definition specifications, Overrides, and Regional Overrides. The imported modules are stored in `siteDefModule`, `siteOverridesModule`, and `regionModule`.
+
+4. It imports a module named `Patch_Overrides`.
+
+5. It retrieves the class objects for the region and site overrides classes from the imported modules and stores them in `regionOverrides_object` and `siteOverrides_object`.
+
+6. It retrieves the region and site definitions from the imported modules and stores them in `localDefinition` and `regionDefinition`.
+
+7. It defines a new class, `TextProduct`, which inherits from the override classes and the `TAF.TextProduct` class. This class has a `Definition` attribute, which is a deep copy of `TAF.TextProduct.Definition`. It then updates this `Definition` with the region and site definitions.
+
+8. It tries to get the `VariableList` from the region and site modules. If these attributes don't exist in the modules, it simply passes and continues.
+
+9. It defines an `__init__` method for the `TextProduct` class, which simply calls the `__init__` method of the `TAF.TextProduct` class.
+
+The script is designed to be flexible and adaptable, allowing for different definitions and overrides to be used depending on the specific site and region. It also provides a mechanism for patching or updating the product with the `Patch_Overrides` module.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

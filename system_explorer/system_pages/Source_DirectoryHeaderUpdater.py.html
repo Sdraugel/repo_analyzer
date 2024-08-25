@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>DirectoryHeaderUpdater.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>DirectoryHeaderUpdater.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to update the headers of files in a specified directory. The script is developed by Raytheon Company under a contract with the US Government and contains export-restricted data.
+
+The script starts by importing necessary libraries and modules. It then defines a version number for this script.
+
+The main function of the script is defined as `main()`. This function starts by setting up an OptionParser object, which is used to parse command line options. It adds several options to the parser, such as `--filters` to filter the files in the directory according to a given filter file, `--file-log` to keep a log of (filtered) files found and fed to the header updater, and a group option to specify a directory containing files to update.
+
+The script then checks if the user has provided a directory as an argument. If not, it throws an error.
+
+If a directory is provided, the script creates a FileFilter object with the filter file provided by the user (if any). It then uses the `subprocess` module to run a shell command (`find`) that finds all files in the specified directory. The output of this command (a list of file paths) is then filtered using the FileFilter object.
+
+If the user has specified a log file to keep track of the found files, the script writes the list of filtered file paths to this log file.
+
+Finally, the script loops over each file in the filtered list, and calls the `main()` function of the `HeaderUpdater` module on each file. This function presumably updates the header of the file.
+
+The script is designed to be run as a standalone program, as indicated by the `if __name__ == "__main__":` line at the end. If the script is run directly (rather than being imported as a module), it calls the `main()` function.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

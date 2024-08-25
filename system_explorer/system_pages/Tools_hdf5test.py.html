@@ -1,0 +1,66 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>hdf5test.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>hdf5test.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to analyze HDF5 (.h5) files in a given directory and log keys that have the same value across all files. HDF5 is a data model, library, and file format for storing and managing data. It supports an unlimited variety of datatypes and is designed for flexible and efficient I/O and for high volume and complex data.
+
+Here's a breakdown of what the script does:
+
+1. It defines two functions: `arrEquality` and `walkfiles`. `arrEquality` checks if two arrays are equal in length and content. `walkfiles` iterates over all the keys in the HDF5 files and checks if the values for each key are the same across all files.
+
+2. The script opens a log file named 'log_hdf5test_all.txt' in append mode.
+
+3. It sets the print options for numpy arrays to print the entire array, regardless of its size.
+
+4. The script then iterates over all the command line arguments, treating each as a directory. For each directory, it logs the start time and directory name.
+
+5. It collects all the .h5 files in the directory and opens them using the h5py library.
+
+6. The `walkfiles` function is called with the list of all opened .h5 files. This function checks each key in the files to see if the values are the same across all files. If they are, it logs the key and its value. If there's an error processing a key, it logs the error.
+
+7. Finally, the log file is closed.
+
+Please note that this script is designed to be run from the command line, with directories as arguments. For example: `./hd5test.py /awips2/edex/data/hdf5/goessounding/`.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

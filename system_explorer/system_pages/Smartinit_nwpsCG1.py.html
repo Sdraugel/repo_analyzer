@@ -1,0 +1,86 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>nwpsCG1.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>nwpsCG1.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code file, `nwpsCG1.py`, is a module that calculates surface weather elements from the nwpsCG1 model output. The nwpsCG1 model seems to be a weather forecasting model, and this module is used to extract and manipulate data from that model. The module is designed to be subclassed, meaning other classes can inherit from it to override or extend its behavior.
+
+The module contains a class `nwpsCG1Forecaster` which inherits from a parent class `Forecaster`. This class has several methods, each of which is designed to calculate a specific weather element from the nwpsCG1 model output. 
+
+Here are the methods and their functionalities:
+
+1. `calcWaveHeight`: Calculates wave height and converts it from meters to feet.
+2. `calcPeakWaveDir`: Calculates significant wave height vector and clips its value between 0 and 360.
+3. `calcSwanSwell`: Calculates Swan Swell and converts it from meters to feet.
+4. `calcPeriod`: Calculates the period and clips its value between 0 and 25.
+5. `calcRipProb`: Calculates the probability of rip currents and clips its value between 0 and 100.
+6. `calcErosionProb`: Calculates the probability of dune erosion and clips its value between 0 and 100.
+7. `calcOverwashProb`: Calculates the probability of dune overwash and clips its value between 0 and 100.
+8. `calcTwlWaves`: Calculates total water level due to tides, wind, and waves, and converts it from meters to feet.
+9. `calcRunUp`: Calculates total water level increase due to waves and converts it from meters to feet.
+10. `calcSetUp`: Calculates mean total water level increase due to waves and converts it from meters to feet.
+11. `calcSwash`: Calculates time-varying total water level increase due to waves and converts it from meters to feet.
+12. `calcTwlDT`: Calculates total water level above dune toe and converts it from meters to feet.
+13. `calcTwlDC`: Calculates total water level above dune crest and converts it from meters to feet.
+
+The methods use the `clip` function to limit the values within a certain range, and the `* 3.281` operation to convert values from meters to feet. The `calcPeakWaveDir` method uses the `where` function to apply a condition to the input data.
+
+This code defines two functions: `notifyGFE` and `main`.
+
+The `notifyGFE` function does the following:
+
+1. It defines a file and its directory (`chkfile` and `chkfiledir` respectively).
+
+2. It tries to create the directory `chkfiledir`. If the directory already exists (which would raise an `OSError`), it simply passes and does nothing.
+
+3. It checks if the file `chkfile` exists. If it does not, it creates the file and then executes a system command (`os.system`). This command seems to send a message indicating that "SWAN WAVE GRIDS ARE NOW IN GFE" for a specific `siteId`.
+
+4. It gets the modification time of the file `chkfile`.
+
+5. It calculates the time two minutes ago from the current time.
+
+6. If the file `chkfile` was modified more than two minutes ago, it updates the access and modification times of the file to the current time. Then, it sends the same message as in step 3.
+
+The `main` function simply runs the `run` method of an instance of the `nwpsCG1Forecaster` class. Without more code, it's hard to say exactly what this does, but it seems to start some sort of forecasting process.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

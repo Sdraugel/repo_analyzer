@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Smooth.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Smooth.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a part of a software developed by Raytheon Company. It appears to be a Python script named 'Smooth.py', authored by 'njensen' and 'chammack'. 
+
+The script is subject to U.S. export controls due to the presence of export-restricted data. The script is also noted to be in the public domain, provided without warranty or technical support.
+
+The main functionality of the script is to smooth a given parameter over a specified time range and area. This is done in the 'Tool' class, which inherits from the 'SmartScript' class. 
+
+The 'Tool' class has two methods: 
+1. '__init__': This is the constructor method which initializes the 'Tool' object. It takes 'dbss' as an argument and passes it to the 'SmartScript' constructor.
+2. 'execute': This method takes three arguments - 'WEname', 'editArea', and 'GridTimeRange'. It retrieves a parameter by the expression 'WEname' using the 'getParmByExpr' method, gets the start time of the 'GridTimeRange', and then smooths the parameter over the given 'editArea' at the specified 'time'.
+
+The 'ToolType' is set to "numeric" and 'WeatherElementEdited' is set to "variableElement". The script also imports the entire 'numpy' library, the 'math' library, and the 'SmartScript' module.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

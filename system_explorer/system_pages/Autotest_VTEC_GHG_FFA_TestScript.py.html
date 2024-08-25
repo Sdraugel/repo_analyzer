@@ -1,0 +1,175 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>VTEC_GHG_FFA_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>VTEC_GHG_FFA_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a part of a larger software system developed by Raytheon Company. It appears to be setting up and testing geographical area definitions and hazard scenarios for different locations, likely for some sort of weather or hazard prediction or monitoring system.
+
+The code is divided into several sections:
+
+1. The first section is a legal disclaimer and copyright notice from Raytheon, stating that the software was developed under a specific contract with the US Government. It also includes export control information, stating that the software contains export-restricted data and its dissemination requires an export license or other authorization.
+
+2. The second section is a software disclaimer, stating that the software is in the public domain, furnished "as is", without technical support, and with no warranty, express or implied, as to its usefulness for any purpose.
+
+3. The third section is setting up a dictionary called `AreaDictionary` with area codes as keys. Each key maps to another dictionary that contains information about the full state name, the part of the state, and in some cases, a specific location name within that state. This is done in three different scenarios (`areaT1`, `areaT2`, `areaT3`), each with slightly different data.
+
+4. The last section sets up a list of scripts, each represented as a dictionary. Each script has a name, commentary, and other properties. It seems like these scripts are used for testing purposes, as they involve clearing out hazard tables and grids, and setting up new hazard scenarios. The exact functionality of these scripts would depend on the rest of the software system.
+
+This code appears to be part of a larger script related to weather forecasting, specifically for flood alerts. It contains a series of dictionaries, each representing a different state of a flood alert.
+
+Each dictionary has the following keys:
+
+- "commentary": A brief description of the alert state.
+- "name": The name of the alert state.
+- "drtTime": The date and time of the alert in the format YYYYMMDD_HHMM.
+- "productType": The type of weather alert, in this case, a local Flood Flash Alert (FFA).
+- "cmdLineVars": Command line variables, including the reason for the flood.
+- "createGrids": A list of tuples representing grids for the forecast. Each tuple includes the forecast type, hazard type, whether it's discrete or continuous, the start and end times, the hazard code, and the areas affected.
+- "checkStrings": A list of strings that seem to be parts of a weather alert message to be broadcasted.
+
+The code seems to be a part of a larger system that generates and manages weather alerts, specifically flood alerts. The different dictionaries represent different states or stages of an alert, such as issuing a new alert, continuing an existing alert, expanding an alert to new areas, cancelling an alert, and so on.
+
+This code appears to be a part of a larger system that is used for creating and managing weather forecasts, specifically related to flood warnings. It seems to be written in a format similar to JSON, which is a common data interchange format.
+
+The code is divided into three main sections, each representing a different forecast scenario. Each section contains the following keys:
+
+- "commentary": This is a brief description of the scenario.
+- "name": This is the name of the scenario.
+- "drtTime": This is the date and time of the scenario.
+- "productType": This is the type of product, which appears to be a local flood forecast.
+- "cmdLineVars": This is a dictionary that contains a tuple as a key and a string as a value. The tuple seems to represent a flood reason.
+- "createGrids": This is a list of tuples. Each tuple represents a forecast grid and contains information such as the type of forecast, the range of the forecast, and the areas affected by the forecast.
+- "checkStrings": This is a list of strings that appear to be messages or alerts related to the forecast.
+
+Each scenario seems to represent a different stage or condition of a flood event, with different messages and alerts being issued depending on the scenario. The code seems to be a part of a system that generates these forecasts and alerts based on the provided data.
+
+This code appears to be a part of a larger system that is used for issuing weather warnings, specifically flood watches. It seems to be written in Python and uses dictionaries to store information about different flood watch events. 
+
+Each dictionary represents a different flood watch event and contains the following keys:
+
+- "commentary": A brief description of the event.
+- "name": The name of the event.
+- "drtTime": The time of the event.
+- "productType": The type of the event, which is "Hazard_FFA_Local" in all cases.
+- "cmdLineVars": A dictionary that contains a tuple as a key and a string as a value. The tuple represents the flood reason.
+- "createGrids": A list of tuples that represent different parameters of the flood watch event.
+- "checkStrings": A list of strings that appear to be used for generating the actual flood watch message.
+
+For example, the first dictionary represents a flood watch event that is described as "joining two events". The flood watch is for a portion of south central Florida, including Highlands, and it will be in effect from this evening through Sunday afternoon. The flood reason is represented by the string 'IC '. The "createGrids" list contains tuples that represent different parameters of the flood watch event, such as the forecast, hazards, and the area affected by the flood watch. The "checkStrings" list contains strings that are used for generating the actual flood watch message. 
+
+The other dictionaries follow a similar structure and represent different flood watch events.
+
+This code appears to be a part of a larger script that is used for generating and managing hazard warnings, specifically flood watches, for various areas. The script is structured as a list of dictionaries, each representing a different operation or event related to hazard warnings.
+
+1. The first dictionary represents an event where a flood watch is cancelled. It includes details like the event name, the time it was cancelled, the type of product (Hazard_FFA_Local), and some command line variables. It also includes a list of strings under "checkStrings" that seem to be used for generating the cancellation message.
+
+2. The second dictionary represents an operation to delete hazard grids. It has a flag "clearHazardsTable" set to 1, which probably triggers the deletion.
+
+3. The third dictionary represents a flood watch event for a single area without a specific location. It includes details like the event name, the time it was issued, the type of product, and some command line variables. It also includes a list of strings under "checkStrings" that seem to be used for generating the flood watch message.
+
+4. The fourth dictionary is similar to the third, but it represents a flood watch event for a single area with a specific location.
+
+5. The fifth dictionary represents a flood watch event for multiple areas without a specific location. It includes details similar to the third and fourth dictionaries, but the "createGrids" list and the "checkStrings" list are longer, probably to accommodate the additional areas.
+
+In each dictionary, the "createGrids" list seems to represent the areas that the event applies to, and the "checkStrings" list seems to be used for generating the event message. The "cmdLineVars" dictionary probably represents some options or settings for the event.
+
+The given code appears to be part of a larger program related to weather forecasting, specifically for issuing flood watches. It seems to be written in Python and contains a series of dictionaries, each representing a different flood watch scenario.
+
+Each dictionary contains the following keys:
+
+- `commentary`: A brief description of the scenario.
+- `name`: The name of the scenario.
+- `drtTime`: The time the scenario is set to occur.
+- `productType`: The type of weather alert being issued.
+- `cmdLineVars`: Variables that can be passed through the command line, in this case, the reason for the flood.
+- `decodeVTEC`: A flag to decode VTEC (Valid Time Event Code), a system used by the National Weather Service for encoding warning information.
+- `vtecMode`: The mode of VTEC operation.
+- `fileChanges`: Changes made to the file, including the area affected by the flood watch.
+- `createGrids`: Information about the forecast grids created for the scenario.
+- `checkStrings`: Strings to be included in the flood watch message.
+
+Each scenario represents a different combination of areas affected by the flood watch, and the messages to be broadcasted to those areas. The messages include details about the flood watch, the areas it affects, the time it's in effect, and precautionary actions to be taken.
+
+This code appears to be part of a larger system for issuing weather alerts, specifically flood watches. Each block of code represents a different scenario for issuing a flood watch, with different areas and conditions.
+
+Each block contains:
+
+- A commentary: This is a brief description of the scenario.
+- A name: This is a unique identifier for the scenario.
+- drtTime: This seems to be a timestamp of when the scenario was created or last updated.
+- productType: This is the type of weather alert being issued.
+- cmdLineVars: This is a dictionary of variables that can be used in the alert.
+- decodeVTEC: This seems to be a flag to indicate whether or not to decode VTEC (Valid Time Event Code), a system used by the National Weather Service for encoding weather warnings.
+- vtecMode: This is the mode of the VTEC, which could be "O" for Operational or "T" for Test.
+- fileChanges: This is a list of changes to be made to the system files for this scenario.
+- createGrids: This is a list of grids to be created for this scenario, with each grid representing a different area and condition.
+- checkStrings: This is a list of strings to be included in the alert.
+
+The strings in the checkStrings list include the alert message, the areas affected, the time the alert is in effect, and the actions people should take. The strings also include placeholders (e.g., "|*Overview headline (must edit)*|") that need to be filled in with specific information when the alert is issued.
+
+The provided code seems to be a part of a larger system that generates weather alerts, specifically flood watches. The code is structured into different sections, each representing a different alert scenario. Each section contains the following information:
+
+1. "commentary": This is a brief description of the alert scenario.
+2. "name": This is the identifier of the alert scenario.
+3. "drtTime": This represents the time the alert is issued.
+4. "productType": This indicates the type of alert being issued.
+5. "cmdLineVars": This contains command line variables used in the alert.
+6. "decodeVTEC": This is a flag to decode VTEC (Valid Time Event Code), a system used by the National Weather Service for encoding weather warnings.
+7. "vtecMode": This indicates the mode of VTEC.
+8. "fileChanges": This lists changes made to the files.
+9. "createGrids": This is used to create grids for the forecast.
+10. "checkStrings": This contains the actual text of the alert that will be issued.
+
+The alert text includes information about the areas affected by the flood watch, the timing of the watch, and precautionary/preparedness actions that should be taken. The code also seems to support the ability to edit certain parts of the alert text, as indicated by the "|*Overview headline (must edit)*|" and "|*Overview (must edit)*|" strings.
+
+This code appears to be a part of a weather alert system, specifically for flood warnings. The first part of the code is a list of strings that seems to be a template for a flood watch alert. It includes placeholders for the areas affected, the time the alert is in effect, and the potential impacts of flooding.
+
+The second part of the code is a Python function named `testScript`. This function takes two arguments: `self` and `dataMgr`. `self` is a common convention in Python and refers to the instance of the class where this function is defined. `dataMgr` is likely a data manager that handles the data related to the weather forecasts and alerts.
+
+Within the `testScript` function, a dictionary named `defaults` is defined. This dictionary contains key-value pairs that seem to be default settings or parameters for the test script. Some of these settings include the database name, whether to publish grids, whether to decode VTEC (which is a coding system used by the National Weather Service for severe weather warnings), the start time for the grids, and whether to order strings.
+
+The function returns the result of calling `TestScript.generalTestScript` with `self`, `dataMgr`, `scripts`, and `defaults` as arguments. `TestScript` is likely a module that has been imported, and `generalTestScript` is a function defined in that module. The `scripts` variable is not defined in the provided code, but it's likely defined elsewhere in the program and contains the scripts to be tested.
+
+In summary, this code is testing a part of a weather alert system, specifically the scripts that generate flood watch alerts.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

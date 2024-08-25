@@ -1,0 +1,64 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>GLERL.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>GLERL.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is a part of a larger software system developed by Raytheon Company. The script is designed to calculate surface weather elements based on the output from the GLERL (Great Lakes Environmental Research Laboratory) model. 
+
+The script includes a class `GLERLForecaster` which is a subclass of the `Forecaster` class (presumably defined in the `Init` module that is imported at the beginning of the script). 
+
+The `GLERLForecaster` class has several methods:
+
+- `__init__`: This is the constructor method that initializes the `GLERLForecaster` object with the name and model "GLERL".
+
+- `calcWaveHeight`: This method calculates the wave height based on the GLERL model output. It converts the wave height from meters to feet. If the calculated wave height is greater or equal to 50.0, it sets it to 0.0.
+
+- `calcSwell`: This method calculates the primary swell based on the GLERL model output. It uses the wave height for magnitude since that information is not available. It also clips the wave direction to be between 0 and 359.5.
+
+- `calcPeriod`: This method calculates the primary period based on the GLERL model output. It clips the wave period to be between 0 and 60.
+
+The `main` function at the end of the script creates an instance of the `GLERLForecaster` class and runs it. 
+
+The script also includes licensing and export control information, as well as the contractor's name and address. The script is not intended to be overridden but can be subclassed to change its behavior.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

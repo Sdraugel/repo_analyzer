@@ -1,0 +1,138 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TafGen.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TafGen.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is written in Python and appears to be part of a larger software application developed by Raytheon Company. This specific part of the code seems to be handling configuration and data manipulation for some kind of weather or atmospheric data, possibly related to flight or aviation (as suggested by the 'Avn' prefix in some of the imported modules and the use of terms like 'fltCat' and 'grpTaf').
+
+The first part of the code is a header that includes legal and contract information, as well as a history of changes made to the software. It also specifies that the software contains export-restricted data, and its export/transfer/disclosure is restricted by U.S. law.
+
+The actual code starts with importing necessary modules, including 'logging' and 'math', as well as some custom modules like 'Avn', 'AvnConfigParser', 'AvnLib', and 'AvnParser'.
+
+A logger named '_Logger' is then created using the 'Avn.CATEGORY' as the name.
+
+A function 'fixPcp' is defined which seems to manipulate a list of weather conditions or phenomena ('plist'), possibly related to precipitation. It appears to prioritize certain conditions ('TS' and 'FZ') and merge the list into a single string.
+
+A class 'Config' is defined with methods for handling configuration data. The '__init__' method initializes the class with a site identifier and a model. The 'grpTaf' method reads configuration data from a file and returns a dictionary of configuration parameters. The 'fltCat' method, which is not fully shown, seems to be doing something similar but for a different set of configuration data.
+
+The code seems to be well-structured and includes error handling, but without more context or documentation, it's difficult to understand exactly what the application does or how this part of the code fits into the larger system.
+
+The provided code defines two classes, `Projection` and `LampProjection`, which are used to handle and manipulate forecast data.
+
+The `Projection` class has the following attributes:
+- `siteId`: The ID of the site for which the forecast is made.
+- `startTime` and `endTime`: The start and end times of the forecast.
+- `itime`: An additional time parameter, the purpose of which is not clear from the provided code.
+- `wind`, `vis`, `sky`, `obv`, `grpTaf`, `fltCat`, `pcp`, `tstm`, `tempo`, `prob30`: Various parameters related to the forecast, such as wind, visibility, sky conditions, etc.
+
+The `Projection` class also includes several methods for manipulating these attributes, such as `getCat`, `mkVisCat`, `mkCigCat`, `mkPcp`, `mkTstm`, `mkTempo`, `mkProb30`, and `getData`. These methods are used to categorize visibility and cloud cover, create precipitation, thunderstorm, and tempo data, and get the data in a specific format.
+
+The `LampProjection` class inherits from the `Projection` class and overrides its `__init__` method to add two additional attributes, `pcat` and `tcat`, which are related to precipitation and temperature categories. The purpose of the `csky` attribute is unclear as the code is incomplete. 
+
+The code also includes a try-except block that logs an exception if the flight category configuration file cannot be read.
+
+Please note that the exact purpose of these classes and their methods would be clearer with more context or comments in the code.
+
+This code appears to be part of a larger program that processes and compares weather forecast data. 
+
+The first part of the code is defining a class with methods to process forecast data. It retrieves data, checks for precipitation, and creates categories for visibility and cloud cover. It also handles exceptions when certain data fields are not available. 
+
+The methods `mkPcp`, `mkcVisCat`, `mkcCigCat`, `mkTempo`, and `mkProb30` are used to process and categorize the forecast data. For example, `mkPcp` seems to be creating a precipitation string based on the forecast data, and `mkcVisCat` and `mkcCigCat` are creating visibility and cloud cover categories respectively.
+
+The `mkTempo` and `mkProb30` methods seem to be creating strings for weather conditions and their probabilities, with specific handling for thunderstorms.
+
+The second part of the code defines a `Comparison` class. This class is used to compare two sets of forecast data (`proj1` and `proj2`). It has methods to compare visibility, cloud cover, wind, precipitation, thunderstorms, and other weather conditions. 
+
+For example, the `compVis` method compares the visibility category of the two data sets and returns 1 if they are the same. Similarly, `compCig`, `compWind`, `compPcp`, `compTstm`, and `compTempo` compare cloud cover, wind, precipitation, thunderstorms, and other weather conditions respectively. 
+
+The code is cut off at the end, so it's unclear what the final method `compTempo` is doing.
+
+This Python code appears to be part of a larger system for processing and summarizing weather data. It contains two classes: an unnamed class and a class named "Summarize".
+
+The unnamed class has several methods for comparing different weather data attributes between two data sets, dataA and dataB. It checks if certain attributes are the same in both data sets and returns 1 if they are. The `isSame` method checks if all the attributes are the same using the other comparison methods.
+
+The "Summarize" class is initialized with a group of Terminal Aerodrome Forecasts (TAFs) and a list of weather data. It extracts various weather attributes from the list and stores them in instance variables. It also has several methods for summarizing different aspects of the weather data:
+
+- `summTime`: Returns the start and end times of the weather data.
+- `summVis`: Calculates and returns the minimum visibility.
+- `summSky`: Returns the minimum cloud ceiling.
+- `summObv`: Summarizes the weather phenomena (like fog or mist).
+- `varWind`: Checks if the wind direction varies and if so, returns the average wind speed.
+- `summWind`: Summarizes the wind data, including direction, speed, and gusts.
+- `summPcp`: Summarizes the precipitation data, including thunderstorms.
+- `summOcnlTime`: Returns the start and end times of occasional weather phenomena.
+- `summOcnl`: Summarizes occasional weather phenomena, including type, precipitation, time, sky condition, and visibility.
+
+The code is incomplete, as it cuts off in the middle of the `summOcnl` method.
+
+This code appears to be part of a larger system for generating Terminal Aerodrome Forecasts (TAFs), which are weather forecasts for the area around an airport. 
+
+The `returnPrd` function is creating a dictionary `prd` with various weather parameters. It checks if these parameters have a string representation and if they do, it adds them to the dictionary. If `summOcnl` is true, it returns a dictionary with `prev` and `ocnl` keys, otherwise it just returns `prev`.
+
+The `TafGen` class is initialized with a model ID, a forecast, a TAF type, and a TAF time. It sets up various attributes related to the forecast and the TAF, including start and end times, flight categories, and TAF duration. It also creates a subset of the forecast data based on the TAF duration.
+
+The `getTafPrd` function calculates the start and end times for the TAF period based on the TAF duration.
+
+The `meetThrshds` function seems to be checking if certain thresholds are met in the forecast data. If they are, it returns 1.
+
+The `isSingleton` function checks if a certain period is short enough to be a singleton and returns the singleton's index if it is.
+
+The `filterSingleton` function filters out singletons from a group list.
+
+The `Brk4Tempo` function checks if a forecast can be combined with the last group in a list based on its duration and whether it's a 'tempo' forecast.
+
+The `checkOcnl` function seems to be creating indexes that mark the locations of 'tempo' & 'prob30' in a group index, but the code is cut off.
+
+This code appears to be part of a larger Python class that is used to process and analyze some form of project data (`self.projData`). The exact nature of this data is not clear from the provided code, but it seems to be related to some form of temporal data, possibly weather forecasts or similar time-series data.
+
+The code contains three methods:
+
+1. `formNewDic(self, noGrp)`: This method processes the project data, either by summarizing each data point into a period (if `noGrp` is True), or by grouping similar data points together, checking for occasional data points, filtering out singletons, and summarizing each group into a period (if `noGrp` is False). The method returns a list of these periods.
+
+2. `checkOcnl(self, grpInd)`: This method seems to be checking for certain conditions in the project data and then creating a binary list based on these conditions. It also creates a new index list based on the binary list and the original group index list. The method returns this new index list.
+
+3. `createTaf(self, noGrp=1)`: This method uses the `formNewDic` method to create a new dictionary from the project data, and then uses this dictionary to create a TAF (Terminal Aerodrome Forecast) using the `AvnLib` library. The TAF is then indented and returned.
+
+Without more context, it's difficult to provide a more detailed explanation. However, it seems that the overall purpose of this code is to process and analyze the project data, and then use this analysis to create a formatted TAF.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

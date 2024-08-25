@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>LAL_Tool.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>LAL_Tool.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a tool that assigns a Lightning Activity Level (LAL) based on weather conditions, probability of precipitation (PoP), and Quantitative Precipitation Forecast (QPF). The tool is written in Python and uses numpy for mathematical operations and SmartScript for some specific functions.
+
+The code first sets up some initial configurations and imports necessary modules. It then defines a class `Tool` that inherits from `SmartScript.SmartScript`. This class has an `__init__` method for initialization and an `execute` method that does the main work.
+
+In the `execute` method, it first initializes LAL to 1. It then creates a mask for QPF less than 0.10, a mask for weather conditions with thunder, and a mask for dry thunderstorms (where both the QPF is less than 0.10 and there is thunder).
+
+Next, it creates masks for LAL values 2 to 6 based on the PoP and weather conditions. The comments in the code indicate that the tool uses a range of PoP values to assign different LAL values. For example, if the PoP is between 10 and 20, LAL is 2; if the PoP is between 20 and 35, LAL is 3, and so on.
+
+Finally, it assigns the LAL values based on the masks created, and assigns LAL 6 where there are dry thunderstorms and the LAL is greater than or equal to 3. The new LAL value is then returned.
+
+This tool appears to be used for weather forecasting, specifically for predicting lightning activity based on various weather parameters.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

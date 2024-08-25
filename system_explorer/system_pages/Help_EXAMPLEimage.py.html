@@ -1,0 +1,66 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>EXAMPLEimage.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>EXAMPLEimage.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code appears to be a configuration file for a weather data visualization software developed by Raytheon Company. The software is likely part of the AWIPS II (Advanced Weather Interactive Processing System) suite, as indicated by the reference to the "AWIPS II Master Rights File".
+
+Here's a breakdown of what each part of the code does:
+
+1. The initial comments provide legal information about the software, including export control restrictions and the contractor's details.
+
+2. The code then imports necessary modules from `gfeConfig`, which is likely a module containing configuration settings for the Graphical Forecast Editor (GFE) within AWIPS II.
+
+3. `Png_parms` is a list that defines the weather elements to be displayed in the image. In this case, it's surface temperature ('T_SFC') and surface wind ('Wind_SFC') from the 'Official' database.
+
+4. `Png_image` specifies that the image should represent the temperature ('T').
+
+5. `Png_localTime` is set to 1, indicating that the time displayed in the legend should be local time, not Coordinated Universal Time (Zulu time).
+
+6. `MapBackgrounds_default` is set to 'States', suggesting that the default map background should display U.S. states.
+
+7. `BOU_mask` is set to "BOU", which might refer to an edit area or a specific region on the map (possibly Boulder, Colorado, given the 'BOU' code).
+
+8. `T_maxColorTableValue` and `T_minColorTableValue` set the range of the color table for the temperature data to be between 20 and 90, likely representing temperature in degrees Fahrenheit or Celsius.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

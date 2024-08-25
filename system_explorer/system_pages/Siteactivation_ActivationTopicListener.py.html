@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ActivationTopicListener.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ActivationTopicListener.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a larger software developed by Raytheon Company. It is designed to listen for and print site activation messages.
+
+The script imports several modules: threading, datetime, traceback, dynamicserialize, and QpidSubscriber from awips. It also imports ClusterActivationNotification from dynamicserialize.dstypes.com.raytheon.uf.common.site.notify.
+
+The main class in this script is ActivationTopicListener, which is a subclass of threading.Thread. This means that an instance of this class will run in its own thread.
+
+In the __init__ method, the class is initialized with host, port, topic, and program parameters, all of which have default values. It also initializes a QpidSubscriber object to None and calls the __init__ method of the superclass.
+
+The run method is where the thread's activity is defined. It creates a QpidSubscriber object with the provided host, port, and program parameters, and subscribes to a topic with a callback function receivedMessage.
+
+The stop method is used to close the QpidSubscriber connection.
+
+The receivedMessage method is the callback function that is called when a message is received. It deserializes the received message and prints it along with the current date and time. If the type of the deserialized object is ClusterActivationNotification, it stops the thread.
+
+The script also contains a software history, which documents changes made to the script over time.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

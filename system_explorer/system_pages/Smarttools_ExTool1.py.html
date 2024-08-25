@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ExTool1.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ExTool1.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a Python script for a software developed by Raytheon Company. It appears to be a part of a weather-related software, possibly for forecasting or analyzing weather data.
+
+The script begins with a legal notice and information about the software's development and export restrictions. It also provides the contractor's name and address.
+
+The actual code begins with the declaration of two variables: `ToolType` and `WeatherElementEdited`. `ToolType` is set to "numeric", which might be indicating the type of data the tool is expected to work with. `WeatherElementEdited` is set to "SnowAmt", which suggests that the tool is designed to work with data related to snowfall amounts.
+
+The script then imports all functions from the numpy library, which is a popular Python library for numerical computations. It also imports a module named `SmartScript`.
+
+The main part of the script is a class named `Tool` that inherits from `SmartScript.SmartScript`. The class has an `__init__` method that initializes the parent class with a `dbss` argument. The `execute` method takes a parameter `QPF` (which might stand for Quantitative Precipitation Forecast), multiplies it by 10, and assigns the result to a variable `SnowAmt`. The method then returns this value.
+
+In summary, this script defines a tool that takes a precipitation forecast value, multiplies it by 10 (possibly converting it to a snow amount), and returns the result.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

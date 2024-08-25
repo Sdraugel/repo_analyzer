@@ -1,0 +1,98 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>HeadlinesTiming_Watch_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>HeadlinesTiming_Watch_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code appears to be a part of a testing script for a weather forecasting system, specifically for issuing different types of weather warnings. The script contains a list of dictionaries, each representing a test case for a different scenario of issuing a Winter Storm Watch.
+
+Each dictionary in the list contains the following keys:
+
+- "commentary": A brief description of the test case.
+- "name": The name of the test case.
+- "drtTime": The time at which the test case is set to run. This is not present in all the test cases.
+- "productType": The type of weather warning being issued. This is not present in all the test cases.
+- "clearHazardsTable": A flag indicating whether to clear the Hazards Table before running the test case. This is not present in all the test cases.
+- "createGrids": A list of tuples representing the grids to be created for the test case. Each tuple contains the forecast type, hazard type, range, and other details.
+- "checkStrings": A list of strings that are expected to be present in the output when the test case is run.
+
+The test cases seem to be designed to check the system's ability to issue a Winter Storm Watch under different conditions, such as at different times and for different durations.
+
+This code appears to be part of a testing suite for a weather forecasting application, specifically testing the generation of winter storm watch messages. Each test case is defined as a dictionary with several key-value pairs:
+
+- "commentary" provides a description of the test case.
+- "name" is the unique identifier for the test case.
+- "drtTime" is likely the simulated current time for the test case.
+- "productType" is the type of weather warning being issued.
+- "createGrids" is a list of tuples that likely define the parameters for the forecast, including the type of hazard, the forecast method, the duration of the event, and the areas affected.
+- "checkStrings" is a list of strings that the test case is expected to generate. These strings are the actual weather warning messages that would be issued to the public.
+
+Each test case seems to simulate a different scenario, such as a winter storm watch being in effect through late tonight, Saturday morning, Saturday afternoon, etc. The test cases are designed to ensure that the application correctly generates the appropriate warning messages for each scenario.
+
+The provided code appears to be a part of a larger weather forecasting system. It contains several objects, each representing a different scenario for issuing a Winter Storm Watch by the National Weather Service in Tampa Bay Ruskin, Florida. 
+
+Each object has several properties:
+
+- "commentary": A brief description of the scenario.
+- "name": A unique identifier for the scenario.
+- "drtTime": The date and time of the forecast, likely in the format YYYYMMDD_HHMM.
+- "productType": The type of weather hazard, in this case, a local Winter Storm Watch ("Hazard_WSW_Local").
+- "createGrids": An array of tuples, likely representing forecast data. The tuples seem to include a forecast type, a hazard type, a mode (DISCRETE), start and end times, a hazard code, and a location code.
+- "checkStrings": An array of strings that form the actual weather alert message.
+
+The scenarios vary based on the timing of the storm's start and end relative to the issuance of the forecast. For example, in one scenario, the storm is expected to start less than 3 hours from the forecast issuance and end within 12 hours. In another, the storm is expected to start more than 12 hours from the forecast issuance and also end more than 12 hours after the forecast issuance.
+
+This code appears to be a part of a weather forecasting application, specifically for issuing weather hazard warnings. It uses a test script to simulate different scenarios and check the output.
+
+The code includes three dictionaries, each representing a different scenario:
+
+1. The first dictionary represents a scenario where a winter storm watch is in effect from 1 PM to 6 PM. It includes a forecast grid for the hazard and a string that will be checked to ensure the warning message is correctly generated.
+
+2. The second dictionary represents a similar scenario but the winter storm watch is in effect until 6 PM. It also includes a forecast grid and a check string.
+
+3. The third dictionary represents a cleanup scenario where the hazards table is cleared.
+
+The `testScript` function at the end of the code uses these dictionaries (referred to as 'scripts') to run a general test script. It sets up some default parameters, such as the database name, whether to publish grids, and the start time for the grids. It then calls `TestScript.generalTestScript` with these parameters and the scripts to run the test. 
+
+The purpose of this code is to test the system's ability to correctly generate and display weather hazard warnings based on different forecast scenarios.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,176 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Aviation_Populate.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Aviation_Populate.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be part of a larger software system, possibly related to aviation weather forecasting or similar meteorological applications. The script is named "Aviation_Populate" and was last modified on November 14, 2018.
+
+The script imports several libraries, including time, SmartScript, math, numpy, tkinter, AbsTime, TimeRange, and a configuration file named Aviation_EDASConfig.
+
+The main class in this script is "Procedure", which inherits from SmartScript.SmartScript. This class has several methods:
+
+- `__init__`: Initializes the class with a database session (dbss).
+- `cancelCommand`: Destroys the tkinter master window.
+- `runCommand`: Calls the `populateAviationGrids` method.
+- `runDismissCommand`: Calls both `populateAviationGrids` and `cancelCommand` methods.
+- `calcCloudBaseRH`: Calculates the cloud base relative humidity using various parameters like model name, version, topography, and time range. It fetches the data from a D2D database and creates a grid of cloud base relative humidity values.
+- `copyGridsFromOtherElement`: Fetches the grid from a specified element and copies it to another element for a specified database.
+- `populateAviationGrids`: The main method that copies grids and performs calculations. It calculates the time range for generic elements, copies and interpolates the generic elements over the selected time range, and populates the convective elements if needed.
+
+There are also some global variables defined at the top of the script, such as `MenuItems` and `VariableList`.
+
+The script appears to be part of a weather forecasting system, possibly for aviation purposes, and it is used to populate and manipulate weather data grids.
+
+The provided code appears to be written in Python and uses the Tkinter library for creating a graphical user interface (GUI). The code seems to be part of a larger application, possibly related to weather forecasting based on the use of terms like 'grid', 'cloudBaseGrids', 'obsSource', etc.
+
+Here's a breakdown of what the code does:
+
+1. It checks if a certain algorithm is selected (CloudBaseRH). If it is, it performs a series of operations including updating a label, calculating cloud base grids, deleting previous grids, and creating new ones.
+
+2. If the selected algorithm is not CloudBaseRH, it deletes previous grids and copies grids from another element. It also checks if any grids were found and displays a status message if none were found.
+
+3. It then performs an interpolation command on the selected grids.
+
+4. It sets up a time range and copies observation data into the forecast.
+
+5. It creates a GUI frame with three buttons: Run, Run/Dismiss, and Cancel.
+
+6. It defines a function to fetch the currently selected time range.
+
+7. It defines a function that is called when the cursor enters the GUI. This function fetches the current time range and updates the GUI accordingly.
+
+8. It defines a function that is triggered when an element button is selected. This function checks if the selected element is supported and toggles its state.
+
+9. It defines a function to create element buttons in the GUI.
+
+Without the full context or the entire code, it's difficult to provide a more detailed explanation. However, it seems to be a part of a weather forecasting application where users can select different algorithms and elements, and the application performs calculations and updates the GUI accordingly.
+
+The provided code is written in Python and uses the Tkinter library to create a graphical user interface (GUI). Here's a breakdown of what each part of the code does:
+
+1. The first part of the code creates a label and a series of check buttons for each element in the `self._config["genElementList"]` list. Each button is bound to the `genElementSelected` method which is triggered when the button is released. If the element is in the `self._config["genElementDefaultList"]`, the button is selected by default.
+
+2. The `prevCurSelected` method is a placeholder for when the "Previous" or "Current" version buttons are selected. It doesn't do anything currently.
+
+3. The `makePrevCurrentButtons` method creates a frame and a label, and then a series of radio buttons for each item in the `buttonList` ("Previous" and "Current"). Each button is bound to the `prevCurSelected` method. The button that matches the `self._config["prevCurDefault"]` is selected by default.
+
+4. The `genSourceButtonClicked` method updates the selected generic source and enables or disables the element buttons based on the elements the selected model supports.
+
+5. The `makeGenSourceRadioButtons` method creates a frame and a label, and then a series of radio buttons for each item in the `self._config["genSources"]` list. Each button is bound to the `genSourceButtonClicked` method. The button that matches the `self._config["defaultGenSource"]` is selected by default.
+
+6. The `makeTimeStr` method formats the time string for display.
+
+7. The `updateStartEndTimeLabels` method updates the start and end time labels in the GUI.
+
+8. The last comment indicates a method that is called when the generic start time is moved, but the method itself is not included in the provided code.
+
+This code is written in Python and is part of a GUI (Graphical User Interface) application, likely built using the Tkinter library. It appears to be part of a larger program that manages time intervals for some kind of process or event. The code contains several methods that are used to handle user interactions with the GUI and to manage the state of the application.
+
+1. `genStartChanged(self, event)`: This method is called when the start time of a generic time interval is changed. It updates the start time and ensures it does not exceed the total number of start hours. If the start time is greater than or equal to the end time, it adjusts the end time accordingly.
+
+2. `genEndChanged(self, event)`: This method is called when the end time of a generic time interval is changed. It updates the end time and ensures it does not exceed the total number of end hours and is not less than or equal to zero. If the end time is less than or equal to the start time, it adjusts the start time accordingly.
+
+3. `timeButtonSelected(self)`: This method is called when a time selector button is selected. It toggles the state of the time scales based on the selected button.
+
+4. `toggleTimeScaleState(self, activate)`: This method toggles the state of the time scales to active or disabled.
+
+5. `makeGenTimeScales(self, frame)`: This method creates the generic time scales on the GUI.
+
+6. `toggleGenFrame(self, active)`: This method toggles the widgets in the generic frame on or off based on the passed boolean value.
+
+7. `toggleConvectiveFrame(self, active)`: This method toggles on or off all the convective widgets based on the passed boolean value.
+
+8. `convButtonSelected(self, e)`: This method is called when the convective button is selected. However, the implementation of this method is not provided in the given code.
+
+The code also includes several Tkinter widgets such as frames, labels, scales, and radio buttons to create a user-friendly interface for managing time intervals.
+
+This code is written in Python and uses the Tkinter library to create a graphical user interface (GUI). The GUI appears to be part of a larger application that deals with convective elements and sources, possibly related to weather or climate modeling. 
+
+Here's a breakdown of what each function does:
+
+1. `convButtonSelected`: This function handles the event when a button named "Alternative Cloud Base" is clicked. It changes the state of the button from "On" to "Off" or vice versa and modifies the button's appearance accordingly. It also calls the `toggleConvectiveFrame` function and `setAlgorithmButtonState` function.
+
+2. `makeConvectiveButton`: This function creates the "Alternative Cloud Base" button in the GUI. It sets the button's font based on the current state, binds the button to the `convButtonSelected` function, and places the button in a grid layout.
+
+3. `setAlgorithmButtonState`: This function changes the state of algorithm buttons based on the selected convective source. If the selected source is "CONSShort", it disables the "CloudBaseRH" button. Otherwise, it enables all algorithm buttons.
+
+4. `conSourceButtonClicked`: This function updates the selected convective source when a source button is clicked and resets the algorithm state.
+
+5. `makeConSourceRadioButtons`: This function creates a group of radio buttons for selecting the convective source. It disables buttons for sources not found and sets the default source.
+
+6. `conElementSelected`: This function updates the selected convective element when an element button is clicked.
+
+7. `makeConElementButtons`: This function creates a group of radio buttons for selecting the convective element. It sets the default element and enables all element buttons.
+
+This Python code appears to be part of a larger program that creates a graphical user interface (GUI) using the Tkinter library. Here's a breakdown of what each part does:
+
+1. `w + 1`: This line of code increments the variable `w` by 1. However, without additional context, it's unclear what `w` represents.
+
+2. `labelFrame = tk.Frame(conElementFrame, relief=tk.GROOVE, bd=3, bg=self._bgColor)`: This creates a new frame (a container for other widgets) with a groove border, a border width of 3, and a background color specified by `self._bgColor`.
+
+3. `algButtonClicked(self)`: This method sets the selected algorithm to the value of the selected radio button.
+
+4. `makeAlgRadioButtons(self, frame)`: This method creates a set of radio buttons for selecting an algorithm. The radio buttons are added to a frame, and each button corresponds to an algorithm choice from `self._config["algChoices"]`.
+
+5. `setUpUI(self)`: This method sets up the main user interface. It creates a new window, sets the window title, and creates various widgets (like radio buttons and frames) for the interface.
+
+6. `makeDatabaseIDDict(self, modelList)`: This method returns a dictionary where the keys are model names and the values are lists of database IDs for the specified models. It skips all D2D databases.
+
+7. `getWEInventory(self, modelName, weName, level, timeRange=None)`: This method fetches the inventory in the form of a time range list for a given model name, weather element name, and level.
+
+8. `makeModelWEDict(self, modelList, weList)`: This method creates a dictionary where the keys are model names and the values are lists of weather element names for the specified models. It skips all D2D databases.
+
+This code appears to be part of a larger Python script that is used to manage and execute a specific procedure, likely related to aviation data population. Here's a breakdown of what each method does:
+
+1. `calcBaseTime`: This method calculates the base time in hours from the Unix epoch (1 January 1970) and stores it in the `_baseTime` attribute of the object.
+
+2. `dialogPrompt`: This method creates a temporary dialog box using the tkinter library, asking the user if they want to continue the operation if the "Aviation_Populate" procedure is already running. It returns a boolean value based on the user's choice.
+
+3. `lockProcedure`: This method checks if the "Aviation_Populate" procedure is already running. If it is, it prompts the user with a dialog box to decide whether to continue. If the procedure is not running, it saves an object to indicate that the procedure has started. This method is used to prevent the procedure from being executed multiple times simultaneously, which could cause the system to hang.
+
+4. `unlockProcedure`: This method removes the object that indicates the "Aviation_Populate" procedure is running. It is likely called when the procedure has finished executing.
+
+5. `execute`: This is the main method that sets up the GUI and enters the event loop. It performs several tasks such as setting up configurations, locking the procedure to prevent multiple executions, setting up constants, calculating the base time, configuring elements and sources, identifying missing models, making a dictionary of database IDs, setting up the GUI, and finally, unlocking the procedure after execution. 
+
+The code seems to be part of a larger system, possibly a weather forecasting or aviation management system, as it references elements like "Aviation_Populate", "genSources", "conSources", and "conElementDefault".</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

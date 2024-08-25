@@ -1,0 +1,86 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>SubscriptionManager.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>SubscriptionManager.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a software developed by Raytheon Company. It provides a command line interface to the EDEX Subscription Service end-point. The script is designed to run as a command line executable, with execution controlled via command line flags. The subscription script is entered via standard input (STDIN). 
+
+The script imports several libraries and modules, including os, sys, CommandLine, InputOutput, Util, SMConfig, collections, ThriftClient, Message, Header, and SubscriptionRequest.
+
+The script defines a class named SubscriptionManager. This class has an initializer method that sets up some basic properties like script, args, commands, and name. 
+
+The class also includes two private methods: __readCommandLine and __validateArgs. The __readCommandLine method is used to read the command line, parse it, and perform any necessary validation. The __validateArgs method is used to validate the command line options. 
+
+The script also includes detailed comments that explain the purpose of the script, how to use it, and the history of software updates. 
+
+The script seems to be part of a larger system, as it imports several modules and uses them in its methods. The script is designed to be used in a Unix-like environment, as it mentions the use of file redirection and command line flags. 
+
+The script is also subject to U.S. export control laws, as it contains technical data that is restricted by U.S. law.
+
+This code is part of a larger program that manages subscriptions. It validates commands and arguments, reads scripts, and processes requests. 
+
+The code first validates the commands and arguments provided by the user. There are different validation rules for different operations such as 'add', 'read', 'delete', and 'update'. For example, if the operation is 'add', it checks if 'update' and 'index' are in the commands, and if the count of arguments is less than 3, it raises an error. Similar validation checks are done for 'read' and 'delete' operations. If the operation is 'update', it checks if 'index' and 'update' are in the commands.
+
+The code also has a method `__hasScript` to check if the requested operation includes a script to read. If the operation is 'add' and an external script file has not been specified, it returns True.
+
+The `__readScript` method reads a script from standard input and stores the results in the 'script' attribute.
+
+The `__processRequest` method performs the steps necessary to submit a subscription request. It creates a message, gets the host and port from the environment variables, creates a Thrift client, and sends a subscription request.
+
+This Python script appears to be a part of a larger system that sends, receives, and processes requests to/from a server, specifically for managing subscriptions. Here's a breakdown of what each part of the code does:
+
+1. `resp = tClient.sendRequest(req)`: This line sends a request (`req`) to a server using a client (`tClient`), and stores the server's response in `resp`.
+
+2. `retVal = self.__processResponse(resp)`: This line processes the server's response using the `__processResponse` method, and stores the result in `retVal`.
+
+3. `return retVal`: This line returns the result of processing the server's response.
+
+4. `__processResponse(self,msg)`: This method processes the server's response. It reads properties from the response header, and if an error is found in the 'STDERR' property, it sets the status to 1 (indicating an error) and writes the error message to the standard error output. Otherwise, it writes the property's value to the standard output. It returns 0 if there were no errors, and 1 if there was an error.
+
+5. `__createMessage(self)`: This method creates a request message to be sent to the server. It constructs a multimap from the command properties, and if a script is present, it adds it to the 'script' property of the multimap. It then returns a Message object with the constructed multimap as its header.
+
+6. `execute(self)`: This is the main method of the class. It reads and processes command line arguments, reads a script if one is present, and processes a request. It returns 0 if the execution was successful, and 1 if it was unsuccessful.
+
+7. The `if __name__ == "__main__":` block allows the script to be run as a standalone application. It creates an instance of the `SubscriptionManager` class and calls its `execute` method. The script then exits with the status returned by the `execute` method.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

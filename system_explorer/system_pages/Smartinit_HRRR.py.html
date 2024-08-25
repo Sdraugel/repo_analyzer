@@ -1,0 +1,93 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>HRRR.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>HRRR.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is part of a weather forecasting software developed by the Raytheon Company. It defines a class `HRRRForecaster` which inherits from a base class `Forecaster`. The `HRRRForecaster` class contains methods for calculating various weather-related parameters.
+
+Here is a brief description of the methods:
+
+- `__init__`: This is the constructor method that initializes the `HRRRForecaster` object with the name "HRRR".
+
+- `calcVis`: This method calculates visibility from surface visibility data.
+
+- `calcT` and `calcTd`: These methods convert temperature and dew point temperature from Kelvin to Fahrenheit.
+
+- `calcRH`: This method calculates relative humidity given temperature and dew point.
+
+- `dewFromTandRH`: This method calculates dew point given temperature and relative humidity.
+
+- `calcQPF`, `calcQPF6`, and `calcQPF12`: These methods calculate Quantitative Precipitation Forecast (QPF) for different periods.
+
+- `calcWind` and `calcWindGust`: These methods calculate wind speed and wind gust, converting from m/s to knots.
+
+- `calcSnowAmt`: This method calculates snow amount based on temperature and QPF.
+
+- `calcSky`: This method calculates sky cover based on total cloud cover.
+
+Some methods are commented out and not currently in use, such as `calcClgHgt`, `calcMaxT`, `calcMinT`, `calcSky`, and `calcPoP`. 
+
+The code also includes some information about the software's history, licensing, and export restrictions.
+
+This Python code defines a function `calcWx` within a class (not shown in the provided code). The function is designed to calculate weather conditions based on several input parameters:
+
+- `T`: Temperature
+- `QPF`: Quantitative Precipitation Forecast
+- `crain_SFC`: Categorical Rain at Surface
+- `csnow_SFC`: Categorical Snow at Surface
+- `cicep_SFC`: Categorical Ice Pellets at Surface
+- `bli_BL0180`: Boundary Layer Inversion at 180 meters
+- `cfrzr_SFC`: Categorical Freezing Rain at Surface
+- `refc_EA`: Reflectivity 
+
+The function uses these parameters to generate a weather condition key `wx` which is an array of integers. The values in this array are determined by various conditions checked in the code (e.g., if QPF is greater than 0.02 and temperature is greater than 35, the corresponding value in `wx` is set to 2).
+
+The function also generates a list of keys (strings) that represent different weather conditions. It then modifies this list by adding new keys that represent thunder conditions.
+
+Finally, the function sets all `wx` values to 0 where QPF is less than 0.01 (indicating no precipitation forecast) and returns the modified `wx` array and the list of keys.
+
+The commented out code at the top appears to be a different algorithm for calculating PoP (Probability of Precipitation) based on QPF, but it's not used in the function `calcWx`.
+
+The `main` function at the end calls the `run` method of an instance of the `HRRRForecaster` class, which is not defined in the provided code.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

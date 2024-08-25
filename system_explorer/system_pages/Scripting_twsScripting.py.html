@@ -1,0 +1,82 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>twsScripting.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>twsScripting.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be part of a larger software system developed by Raytheon Company. The code is a base file and not intended to be overridden. It provides a set of functions to interact with a text editor window, presumably as part of a larger application. 
+
+The script starts by importing a module from the 'com.raytheon.viz.texteditor.scripting.runner' package and initializing some global variables. 
+
+The script then defines a series of functions:
+
+1. `initCmds()`: This function initializes the 'cmds' object by setting its observer.
+
+2. `cancel()`: This function raises a 'ScriptCancelled' exception, which is defined at the end of the script.
+
+3. `repeat(count, body="")`: This function repeats a command a specified number of times.
+
+4. `accum(flag)`: This function turns accumulation on or off in the text editor window.
+
+5. `clear()`: This function clears the text editor window.
+
+6. `wait(opt="", time="")`: This function implements a wait command with several options.
+
+7. `load(pid)`, `loadawips(aid)`, `readdb(pid, filename)`, `readdbawips(aid, filename)`, `writedb(pid, filename)`, `writedbawips(pid, filename)`: These functions load, read, and write data to and from a database or file.
+
+8. `run(filename)`: This function runs a script from a file.
+
+9. `setScriptPath(path)`: This function sets the script path.
+
+The script also defines two classes, `writer` and `errwriter`, which are used to write text and errors, respectively, to the system's standard output and error streams. 
+
+Finally, the script defines a custom exception class, `ScriptCancelled`, which is used to indicate that the user has cancelled the script.
+
+This piece of code is a method definition in Python, specifically for the `__repr__` method. 
+
+The `__repr__` method in Python represents the "official" string representation of an object and is meant to be unambiguous. This method is called by built-in functions and operators when they need to convert the object into a string for display. 
+
+In this specific code, the `__repr__` method is returning the result of the `__str__` method of the same object. The `__str__` method in Python represents the "informal" or nicely printable string representation of an object. 
+
+So, in essence, this code is making the "official" string representation of an object the same as its "informal" string representation. This is often done when the developer wants the output of `print(obj)` and `repr(obj)` to be the same.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

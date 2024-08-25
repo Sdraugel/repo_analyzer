@@ -1,0 +1,56 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>_update_fssobs_slp_values.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>_update_fssobs_slp_values.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to convert sea level pressure values from Pascals (Pa) to hectopascals (hPa) in an HDF5 file. HDF5 is a data model, library, and file format for storing and managing data. It supports an unlimited variety of datatypes, and is designed for flexible and efficient I/O and for high volume and complex data.
+
+The script takes one argument, which is the name of the HDF5 file to be processed. If the script is run without exactly one argument, it prints a usage message and exits with an error code.
+
+The script opens the HDF5 file in read/write mode. If the file contains a dataset named 'seaLevelPress', the script iterates over this dataset. For each value in the dataset that is greater than 10000 (assumed to be a pressure value in Pascals), it divides the value by 100 to convert it to hectopascals and updates the value in the file. If at least one value is updated, the script sets a flag `didstuff` to True.
+
+If an exception occurs while processing the file (for example, if the file does not exist or is not a valid HDF5 file), the script prints an error message and exits with an error code.
+
+Finally, the script prints a message indicating whether or not it updated any values in the file. If the `didstuff` flag is True, it prints a message saying that the file was updated; otherwise, it prints a message saying that no update was needed.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

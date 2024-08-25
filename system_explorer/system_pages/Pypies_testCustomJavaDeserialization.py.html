@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>testCustomJavaDeserialization.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>testCustomJavaDeserialization.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is dealing with serialization and deserialization of data, specifically Java AWT Points. 
+
+The script imports necessary modules and classes at the beginning. The `dynamicserialize` module is used for serialization and deserialization of data. The `Point` class from `java.awt` package and `PointTest` class from `com.raytheon.uf.common.pypies` package are also imported.
+
+The `readObject` function opens a file named 'javaPoints' located in the '/tmp' directory, reads its content, and returns it. This function is used to read serialized data from a file.
+
+The `writeObject` function creates a `PointTest` object and two `Point` objects with specified x and y coordinates. These points are added to a list and set to the `PointTest` object. The `PointTest` object is then serialized using the `dynamicserialize.serialize` function and written to a file named 'pythonPoints' in the '/tmp' directory. 
+
+The `main` function first reads the serialized data from the 'javaPoints' file using the `readObject` function, then deserializes this data using the `dynamicserialize.deserialize` function. It prints the deserialized object and the points contained in this object. After that, it calls the `writeObject` function to write the serialized `PointTest` object to a file.
+
+The script is executed from the `main` function if it is run as a standalone program (not imported as a module).</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

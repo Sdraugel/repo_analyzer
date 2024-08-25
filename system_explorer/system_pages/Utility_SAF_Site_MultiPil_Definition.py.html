@@ -1,0 +1,82 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>SAF_Site_MultiPil_Definition.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>SAF_Site_MultiPil_Definition.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code file appears to be a configuration file for a software product developed by Raytheon Company. The software product is related to the Advanced Weather Interactive Processing System (AWIPS II), as mentioned in the comments. 
+
+The code is written in Python and sets up various configurations for a formatter, likely used for formatting weather data. The formatter seems to be specific to a site and is not intended to be overridden. 
+
+The code includes several definitions and configurations:
+
+1. `Definition`: A dictionary that is used to store various configuration settings. It is declared twice in the code with a comment indicating that no changes should be made to it. However, the second declaration is redundant and might be an error as it resets the dictionary.
+
+2. `VariableList`: A list of tuples that define various variables and their possible values. These variables include "Issuance Type", "Number of Periods", and potentially others that are commented out like "Flooding?" and "Include Tropical?".
+
+3. `Definition['displayName']`, `Definition["mapNameForCombinations"]`, `Definition["textdbPil"]`, `Definition["awipsWANPil"]`, `Definition["outputFile"]`, `Definition["autoSend"]`, `Definition["autoSendAddress"]`, `Definition["autoStore"]`, `Definition["autoWrite"]`: These are various configuration settings stored in the `Definition` dictionary. They define things like display name, map name for combinations, product ID for storing to AWIPS text database and transmitting to AWIPS WAN, output file, and automatic functions like sending, storing, and writing the product.
+
+4. `Definition["lacList"]`, `Definition["defaultEditAreas"]`, `Definition["lacAreaDict"]`, `Definition["pilDict"]`: These are also configuration settings stored in the `Definition` dictionary. They define things like listening area codes (LACs), default edit areas, a dictionary associating each default edit area with its LAC, and a dictionary with keys of the LAC IDs and values of the CRS ID to be put in the CRS header.
+
+The code also contains comments indicating that certain parts of the code are required, while others are optional. The comments provide instructions on how to modify the code, what each part does, and what values are acceptable.
+
+This code appears to be a configuration file for a weather forecasting system. It contains a series of definitions and settings that control different aspects of the system's operation. Here's a breakdown of what each section does:
+
+1. `summaryAreaDict`: This is a dictionary that maps area codes to a tuple containing an area name and a description. This section is currently commented out.
+
+2. `summaryExtendedIntro`: This is a string that introduces the extended forecast. 
+
+3. `lacFileDict`: This is a dictionary that maps LAC (Local Area Code) to the full pathname of where to store the data on disk. This section is also commented out.
+
+4. `ZFP-related Overrides`: This section contains various overrides related to ZFP (Zone Forecast Product). It includes settings for period combining, directive type, areal sky analysis, use of storm total snow grid, and weather-related flags.
+
+5. `areaDictionary` and `language`: These define the dictionary for product headers and the language used.
+
+6. `includeExtended`, `extendedLabel`, `includeEveningPeriod`: These settings apply to C11 (a type of directive) and control whether to include the extended forecast, extended label, and evening period.
+
+7. `includeMultipleElementTable`, `elementList`, `singleValueFormat`, `cityDictionary`: These settings control the inclusion of a multiple element table, the elements in the list, the format of single values, and the dictionary for the multiple element table.
+
+8. `Trouble-shooting items`: These settings control the limit on passes allowed through the Narrative Tree, whether to turn on trace through the Narrative Tree for troubleshooting, and a flag for debug messages. 
+
+Most of the definitions are commented out, which means they are not currently in use but could be activated by removing the `#` symbol.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

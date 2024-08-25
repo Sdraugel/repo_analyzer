@@ -1,0 +1,64 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>uri_update.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>uri_update.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided Python script is a utility for updating data URIs (Uniform Resource Identifiers) in a PostgreSQL database and corresponding HDF5 files. Here's a breakdown of what the script does:
+
+1. It imports necessary modules, defines some constants, and sets up a PostgreSQL command string.
+
+2. It defines a function `printUsage()` to print the usage instructions for the script and then exit.
+
+3. It defines two functions, `executePostgresSQL(sql)` and `executePostgresSQLFile(file)`, to execute SQL commands and SQL files respectively. These functions use the `Popen` function from the `subprocess` module to run the PostgreSQL command in a shell, capture the output, and return it as a list of lists.
+
+4. It defines a function `processReplacements(plugin, replacements, hdf5Path)` that does the main work of the script. This function:
+   - Executes a SELECT SQL command to fetch data from the PostgreSQL database.
+   - Processes the fetched data and updates the URIs based on the provided replacements.
+   - Writes the UPDATE SQL commands to a temporary file and executes it to update the URIs in the database.
+   - If an HDF5 file path is provided, it also updates the URIs in the corresponding HDF5 file.
+
+5. Finally, in the `if __name__ == '__main__':` block, it processes the command-line arguments, checks their validity, and calls the `processReplacements()` function with the appropriate arguments.
+
+In summary, this script is a utility for updating data URIs in a PostgreSQL database and optionally in corresponding HDF5 files. It is designed to be run from the command line with specific arguments.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

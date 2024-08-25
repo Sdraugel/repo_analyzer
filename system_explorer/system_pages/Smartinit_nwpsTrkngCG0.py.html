@@ -1,0 +1,61 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>nwpsTrkngCG0.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>nwpsTrkngCG0.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a Python script developed by Raytheon Company. It appears to be a module for initializing and calculating certain weather elements from a model output. 
+
+The code first imports necessary modules, then defines a class `nwpsTrkngCG0Forecaster` which inherits from a base class `Forecaster`. 
+
+In this class, several methods are defined:
+
+- The `__init__` method initializes the class with source database (`srcdb`) and destination database (`destdb`).
+- The `_calcPeriodN` method returns the period of a wave as is, without any modification.
+- The `_calcWaveN` method converts the magnitude of a wave from meters to feet and ensures the direction of the wave is within the range of 0 to 359.5.
+- The `calcPeriod1` to `calcPeriod9` methods initialize the period of the wave for 9 different instances.
+- The `calcWave1` to `calcWave9` methods initialize the wave magnitude and direction for 9 different instances.
+- The `notifyGFE` method appears to handle notifications related to the tracking of wave grids in the GFE (Graphical Forecast Editor), a weather forecasting application. It checks if a specific file exists and if it was modified more than two minutes ago, and sends a notification message if so.
+
+This script seems to be part of a larger system, likely used for weather forecasting or similar meteorological purposes.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

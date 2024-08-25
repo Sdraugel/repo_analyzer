@@ -1,0 +1,152 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>SelectBreakpoints.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>SelectBreakpoints.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is written in Python and appears to be part of a larger software system. This particular section of the code seems to be focused on handling and processing "breakpoints". 
+
+The term "breakpoints" in this context does not refer to the debugging concept of breakpoints, but rather seems to be a domain-specific term, possibly related to meteorology or geospatial data, given the references to storms, lat/lon (latitude/longitude), and zones.
+
+The code starts with a long comment section that provides a history of the software's development, including changes made, the dates of those changes, and the developer who made them. 
+
+The code then imports several Python modules, including numpy, AbsTime, TimeRange, TropicalUtility, WindWWUtils, copy, and sys, as well as the Tkinter module for creating graphical user interfaces.
+
+The main class in this code, `Procedure`, inherits from `TropicalUtility.TropicalUtility`. It contains several methods for handling and processing breakpoints, such as `makeZoneDict`, `getBPLatLon`, `dualBP`, `firstBP`, `lastBP`, and `groupBPSegments`. 
+
+These methods perform various operations such as creating a dictionary of hazard zones based on the breakpoint dictionary, fetching the latitude and longitude based on the breakpoint name, checking if a breakpoint name is a segment (two names), returning the first or last breakpoint in a specified dual, and grouping breakpoint segments by adjacent breakpoint sets.
+
+This code appears to be part of a larger Python script that is responsible for managing, saving, and handling user interactions related to storm information. Here's a breakdown of what each part does:
+
+1. `latLonsFromBreakpoints(self, bpDict, haz)`: This method takes a dictionary of breakpoints and a hazard as input. It returns a list of latitude/longitude pairs based on the specified breakpoints and hazard.
+
+2. `makeLatLonDict(self, bpDict)`: This method takes a dictionary of breakpoints and creates a dictionary of latitude/longitude pairs to store in a JSON file.
+
+3. `saveStormInfo(self, pil)`: This method saves the specified storm information to the JSON files under a given PIL (Product Identifier Line).
+
+4. `saveAllStormInfo(self)`: This method saves all of the storm information dictionaries in the JSON files.
+
+5. `saveHazards(self)`: This method saves all edited storm information.
+
+6. `saveNotWanted(self)`: This method is called when the user discards edits.
+
+7. `dialogPrompt(self)`: This method pops a dialog and asks the user if they want to save before exiting.
+
+8. `cancelCommand(self)`: This method is called when the cancel button is clicked. It updates the display and checks if there are unsaved changes.
+
+9. `runCommand(self)`: This method is called when run is selected. It saves the storm information for the current PIL.
+
+10. `runDismissCommand(self)`: This method is called when the Run/Dismiss button is clicked. It saves all storm information and then cancels the command.
+
+11. `makeBottomButtons(self, frame)`: This method creates the Execute and Cancel buttons.
+
+Overall, this script seems to be part of a user interface for managing storm data, with functions for saving data, handling user interactions, and managing the interface's buttons.
+
+This Python code seems to be part of a larger system that deals with geospatial data, possibly related to weather or environmental monitoring. Here's a breakdown of what each function does:
+
+1. `missButton.grid(row=0, column=1, padx=20)`: This line is placing a button named `missButton` on a grid layout at row 0, column 1 with a padding of 20 pixels on the x-axis.
+
+2. `self._cancelButton = tk.Button(...)`: This block of code is creating a cancel button with the text "Cancel" and a red background. The button is placed on a grid layout at row 0, column 2 with a padding of 20 pixels on the x-axis.
+
+3. `bpRank(self, breakpoint)`: This function is a ranking algorithm used to sort breakpoints. It seems to be ranking them based on their type, country number, and their order in the dictionary.
+
+4. `calcBlobCoords(self, x, y)`: This function calculates the coordinates of a square used to indicate the breakpoint location on a grid. The size of the square is determined by the `_blobSize` attribute.
+
+5. `getPathMask(self, x1, y1, x2=None, y2=None)`: This function calculates a mask made by a linear path from (x1, y1) to (x2, y2). If x2 and y2 are missing, it returns the blob for the first grid point.
+
+6. `getBPGridCell(self, bpName)`: This function returns the grid cell corresponding to the specified breakpoint.
+
+7. `getGridCellSequence(self, bpList)`: This function returns a sequence of grid coordinates that match the format and location of the specified sequence of breakpoints.
+
+8. `updateDisplay(self, plotAllStorms = False)`: This function updates the spatial display based on the current state of the stormInfo data. It can plot all storms or just the selected advisory, depending on the `plotAllStorms` flag.
+
+The code seems to be part of a larger system that handles geospatial data, possibly related to weather or environmental monitoring. The system appears to have a graphical user interface (GUI) with buttons and a grid display. The code also handles "breakpoints", which could be specific locations or events of interest in the geospatial data.
+
+The code provided is a part of a larger program that seems to be dealing with some kind of geographical or meteorological data, possibly related to storms or other weather hazards. Here's a breakdown of what each part of the code does:
+
+1. The first part of the code creates a grid showing the breakpoint areas for hazards. It uses the `createGrid` method to create a grid with a certain ID, name, type, and other parameters. It also sets the storm number label if there is a selected advisory.
+
+2. `makeStormButton` and `makeHazardButton` are methods that create buttons for storms and hazards respectively. These buttons are created with certain attributes such as label, row, column, active state, and background color. The buttons are also assigned commands when clicked, which call the `stormButtonSelected` and `hazardButtonSelected` methods respectively.
+
+3. `stormButtonSelected` is a method that is called when a storm button is clicked. It updates the internal `selectedAdvisory` variable and the display.
+
+4. `dumpBPs` is a utility method that prints out the contents of the internal storm information.
+
+5. `maskToBreakpoints` is a method that calculates the set of breakpoints that lie inside a specified mask. It returns a list of breakpoints.
+
+6. `makeBPSegments` is a method that creates breakpoint segments based on a given list of breakpoints. It sorts the list and uses a ranking algorithm to determine where breakpoint sequences start and stop.
+
+7. The last part of the code seems to be dealing with gaps in the breakpoints, but it's cut off so it's not clear what exactly it does.
+
+This code is part of a GUI application, likely written in Python using the Tkinter library. It seems to be related to managing and displaying information about storms, specifically wind hazards. 
+
+1. `hazardButtonSelected(self, hazard)`: This function is called when the user selects a wind hazard button. It fetches the active area and calculates the breakpoints within. It then checks for any conflicts with existing storms. If there are no conflicts, it removes any existing breakpoints and adds the new ones. It also updates the display and sets a flag indicating that saving is needed.
+
+2. `makeStormNumLabel(self, frame)`: This function creates a label to be displayed in the GUI. The label is placed in a grid layout.
+
+3. `binButtons(self, siteID)`: This function returns bins of forecast basins for a given site ID.
+
+4. `makeStormButtons(self, frame)`: This function creates advisory buttons on the GUI based on the bins of forecast basins for the current site ID.
+
+5. `makeWindHazardButtons(self, frame)`: This function creates wind hazard buttons on the GUI.
+
+6. `removeBreakpoints(self, bpList)`: This function removes specified breakpoints from the storm information dictionary.
+
+7. `addBreakpoints(self, hazard, bpList)`: This function adds specified breakpoints to the storm information dictionary.
+
+8. `anyBreakpointConflicts(self, addedBPSegments)`: This function checks if any of the specified added segments also exist in another storm.
+
+9. `displayWindowOnCursor(self, master)`: This function moves the specified window to the cursor location.
+
+10. `setUpUI(self)`: This function sets up the GUI. It creates a new Tkinter window, sets its title, and configures it to be always on top. It also sets up a protocol to handle the event when the user clicks the "x" button to close the GUI.
+
+The provided code is written in Python and uses the Tkinter library to create a graphical user interface (GUI). The code is part of a larger program, and it seems to be related to a weather advisory tool. Here's a breakdown of what the different parts of the code do:
+
+1. The first part of the code creates three frames (which are containers for other widgets) on the master window: `stormFrame`, `hazFrame`, and `bottomButtonFrame`. Each frame is placed in a specific location on the grid of the master window. Then, it calls methods to create various buttons and labels within these frames. The `updateDisplay()` method is called, which presumably updates the GUI with the created frames and widgets.
+
+2. The `getAdvisoryNames` method retrieves the names of active advisories for a specific site. It does this by looping through a dictionary (`self._stormInfoDict`) and checking if each advisory is in a list (`binList`). If it is, the advisory's name is added to `nameList`, which is returned at the end of the method.
+
+3. The `execute` method seems to be the main method to start the tool. It sets up some constants for the tool, including font styles, colors, hazard types, file paths, and more. It then fetches storm information and active advisory names, sets a default selected advisory, and creates a dictionary of breakpoints. It also sets up the user interface and starts the Tkinter main loop, which waits for user events.
+
+Overall, this code is responsible for setting up and starting a GUI for a weather advisory tool. It fetches necessary data, creates the interface with buttons and labels, and waits for user interaction.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,68 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Date.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Date.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code defines a class named `Date`. The `Date` class is used to represent a date and time, with the time stored in milliseconds. 
+
+The class has the following methods:
+
+- `__init__(self, timeInMillis=None)`: This is the constructor method that initializes a new instance of the `Date` class. If a time in milliseconds is provided as an argument, it sets the `time` attribute to this value. Otherwise, `time` is set to `None`.
+
+- `getTime(self)`: This method returns the time in milliseconds stored in the `time` attribute.
+
+- `setTime(self, timeInMillis)`: This method sets the `time` attribute to the value provided as an argument.
+
+- `__str__(self)`: This method returns a string representation of the `Date` object. It does this by calling the `__repr__` method.
+
+- `__repr__(self)`: This method returns a string representation of the `Date` object in the format "Month Day Year Hour:Minute:Second GMT". The time is converted from milliseconds to seconds before being formatted.
+
+- `__eq__(self, other)`: This method checks if the `time` attribute of the current `Date` object is equal to the `time` attribute of another `Date` object. It returns `True` if they are equal and `False` otherwise.
+
+- `__ne__(self, other)`: This method checks if the `time` attribute of the current `Date` object is not equal to the `time` attribute of another `Date` object. It returns `True` if they are not equal and `False` otherwise.
+
+- `__hash__(self)`: This method returns a hash value for the `Date` object, which is computed based on the `time` attribute. This allows `Date` objects to be used in sets and as keys in dictionaries.
+
+The code also includes a software history section, which documents changes made to the code over time, and a legal notice from Raytheon Company, which developed or modified the software.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,102 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>migrateAwipsAdmins.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>migrateAwipsAdmins.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided Python code is a script that manages user permissions for the AWIPS (Advanced Weather Interactive Processing System) software. This script is designed to grant a new administrative permission to any user who previously had the old administrative permission. This allows admins to be assigned without having to run a CAVE session as the user 'awips' or manually editing the users.ini file.
+
+The script also grants the default user role to all other users. This helps to get most users into the users.ini file, allowing the admin to assign permissions without needing the users to open a CAVE session.
+
+The script uses various libraries such as errno, glob, os, pwd, re, stat, sys, traceback, and xml.etree.ElementTree. It defines paths to various files and directories in the AWIPS system, and sets up patterns for site IDs and usernames.
+
+The script also defines dictionaries for validation of the old nwsroles xml files. These dictionaries represent the structure of the xml files, specifying the expected tags, attributes, and child elements.
+
+The provided code includes two functions: formatElement and validateSchema. The formatElement function formats an XML element into a string. The validateSchema function validates an XML element against a provided schema, checking the element's tag, text, attributes, and child elements. The function prints error messages if the element does not match the schema.
+
+The provided code is cut off, so it's not clear what the rest of the script does. However, based on the provided part, it's likely that the script reads the old nwsroles xml files, validates them, and updates the users.ini file based on the user roles and permissions defined in the xml files.
+
+This code is a Python script that appears to be part of a larger system, potentially for user and role management in an application. Here's a breakdown of what the different parts of the script do:
+
+1. The first part of the script checks if certain conditions are met regarding the count of elements and their multiplicity. If the conditions aren't met, it prints an error message and sets the variable `valid` to `False`.
+
+2. The `parseRolesPermissions(root)` function parses XML data to extract information about permissions, roles, and users in the application. It creates dictionaries for permissions, roles, and users, where each key-value pair represents an ID-description or ID-details pair.
+
+3. The `main()` function does several things:
+   - It checks if the script is being run by a user with the necessary permissions.
+   - It reads a site identifier from a file.
+   - It checks if a certain file already exists and exits if it does.
+   - It loops over all user roles XML files, parses them, and adds the users and admins to respective sets.
+   - It reads a list of current users from a file, validates the usernames, and updates the set of all users.
+   - It removes special users and admins that are not in the list of all users.
+   - It sorts the list of all users.
+   - It attempts to create a directory and write to a file.
+
+The script uses several modules from the Python Standard Library, such as `pwd` for interacting with the Unix password database, `os` for interacting with the operating system, `re` for regular expressions, `glob` for file pathnames pattern matching, `traceback` for printing stack traces, and `xml.etree.ElementTree` (aliased as `ET`) for parsing and creating XML data.
+
+Please note that the code snippet ends abruptly and appears to be incomplete.
+
+This Python script is used to manage user roles and permissions in a system. 
+
+Here's a breakdown of what the code does:
+
+1. The code opens a file (presumably `users.ini` given the constant `USERS_INI_HEADER`) in write mode.
+
+2. It writes a header to the file (the value of `USERS_INI_HEADER`).
+
+3. It then iterates over all users (`allUsers`). By default, each user is assigned the role of "awipsUser". 
+
+4. If a user is found in the `admins` list, their role is changed to "awipsAdmin".
+
+5. The script then writes the user's username and role to the file in the format "username = password, role".
+
+6. The permissions of the file are then changed to allow the user read, write, and group read permissions.
+
+7. The ownership of the directory and the file is then changed to the user "awips".
+
+8. If any exception occurs during this process, an error message is printed, the stack trace is printed, and any partially written `users.ini` file is deleted.
+
+9. If the script completes successfully, it prints a success message and returns 0.
+
+10. If the script is run as a standalone program (i.e., not imported as a module), it calls the `main()` function and exits with its return value.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

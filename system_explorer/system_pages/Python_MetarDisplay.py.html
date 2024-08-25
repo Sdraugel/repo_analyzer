@@ -1,0 +1,96 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>MetarDisplay.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>MetarDisplay.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script named MetarDisplay.py, which is used to display METARs (Meteorological Aerodrome Reports) reconstructed from climate data. This script is part of a software developed and/or modified by Raytheon Company.
+
+The script starts with a detailed comment section providing information about the software's development, export control, contractor details, and a history of revisions made to the script. It also includes a change document history.
+
+The actual code begins with importing necessary modules such as os, time, Avn, ClimLib, h5py, and numpy.
+
+A dictionary named _Help is defined which contains a title and content that seems to be instructions or a help guide for the software's usage.
+
+A list named Month is defined which contains abbreviations of all months.
+
+An empty dictionary named items is defined.
+
+Then, several functions are defined to build METAR from climate data. These functions include _mk_time, _mk_wind, _mk_vis, _mk_wx, and __mk_wx_string. Each function seems to process a specific part of the METAR data, such as time, wind, visibility, and weather conditions. 
+
+The script seems to be incomplete as it ends abruptly in the middle of the __mk_wx_string function.
+
+This code file appears to be a set of functions for processing and formatting weather data, likely from a METAR report, which is a type of weather report used in aviation. 
+
+The first function appears to process precipitation data, with different conditions leading to different string outputs. It also handles other weather conditions, checking for specific codes and making adjustments as necessary.
+
+The `_mk_sky` function seems to process data about the sky condition, converting codes for cloud cover into strings and adjusting for height.
+
+The `_mk_temp` function formats temperature data, handling negative temperatures and temperatures below 60.0 differently.
+
+The `_mk_maxmintemp` function appears to process maximum and minimum temperature data, with specific handling for negative temperatures and temperatures outside of a certain range.
+
+The `_mk_alt` and `_mk_alt_dcd` functions handle altimeter data, converting it into a specific format.
+
+The `_mk_mslp` function appears to process mean sea level pressure data, converting it into a specific format.
+
+The `_mk_tt_us` and `_mk_td_us` functions handle temperature data, converting it into a specific format.
+
+The `_mk_past_pcp` and `_mk_past_pcp_dcd` functions handle past precipitation data, converting it into a specific format.
+
+The `Items` list and the `mk_metar_dcd` and `mk_metar` functions appear to be for creating a formatted METAR report from the processed data. The `Items` list specifies the order and formatting for the data, and the `mk_metar_dcd` and `mk_metar` functions use this list to create the final report.
+
+This script appears to be part of a larger program that processes and retrieves METAR weather data from a file. METAR is a format for reporting weather information. The script is written in Python and uses the h5py and numpy libraries to handle data.
+
+Here is a breakdown of what each function does:
+
+1. The first block of code is not inside a function. It seems to be processing a row of data, appending certain values to a list, and then joining the list into a string. If the string is longer than 70 characters, it splits it into multiple lines.
+
+2. `get_decoded` function: This function retrieves and decodes data from a table within a specified time range. It raises an exception if the operation is cancelled. The data is then sorted by date and time and returned.
+
+3. `get_formatted` function: This function is similar to `get_decoded`, but it doesn't decode the data. It retrieves data from a table within a specified time range, raises an exception if the operation is cancelled, and sorts the data by date and time.
+
+4. `get_metars` function: This function retrieves METAR data for a specific date range from a file. If the file doesn't exist or the operation is cancelled, it raises an exception. It then calls either `get_decoded` or `get_formatted` to retrieve the data, depending on whether the `decoded` parameter is true or false. If data is retrieved, it sends a header and the data to a listener. If no data is retrieved, it sends an error message to the listener.
+
+The script seems to be designed to work with a listener object, which presumably handles the data sent to it. This could be a user interface or another part of the program.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

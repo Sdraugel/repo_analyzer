@@ -1,0 +1,152 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>NationalBlend.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>NationalBlend.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is part of a weather forecasting software developed by Raytheon Company. The software uses data from the SPC model to calculate surface weather elements. 
+
+The code begins with a disclaimer about the software's development and export restrictions. It then provides the contractor's name and address, and refers to a Master Rights File for further licensing information.
+
+The code then imports the necessary libraries and modules for the calculations. 
+
+The main class in this code is `NationalBlendForecaster`, which is a subclass of `Forecaster`. This class calculates various weather elements, including apparent temperature and ceiling. 
+
+The `calcApparentT` function calculates the apparent temperature based on the given temperature, relative humidity, and wind speed. It uses different formulas for different conditions (e.g., when the temperature is above 79 degrees Fahrenheit or when the wind speed is above 3 mph and the temperature is below or equal to 50 degrees Fahrenheit). 
+
+The `calcCeiling` function calculates the ceiling (the height above the ground of the base of the lowest layer of cloud) by converting the given value from meters to feet. 
+
+The `smoothpm` function smooths a grid by averaging over plus and minus k gridpoints. It can also work with a mask, which allows it to only modify certain points. 
+
+The code ends abruptly with a comment starting with "R", suggesting that it is not complete.
+
+The provided code appears to be written in Python and seems to be part of a larger program that performs various calculations and transformations on a grid of data. Here's a breakdown of what it does:
+
+1. The first large block of code is normalizing the grid data. It subtracts the minimum value from each grid point and divides by the range (maximum - minimum) of the grid. This scales all the values in the grid to be between 0 and 1. It then computes a cumulative sum over the grid in the y and x dimensions, respectively. The code handles edge cases differently from the middle of the grid. If a mask is provided, the code only considers the masked points in the grid for these calculations.
+
+2. The `calcCloudBasePrimary` function converts a given value from meters to hundreds of feet. It also seems to handle a specific case where the original value is less than 0, assigning it a value of 250.
+
+3. The `calcMaxRH` function simply returns the input value as it is. It seems to be a placeholder for a more complex calculation that might be implemented later.
+
+4. The `calcMaxT` function converts a temperature value from Kelvin to Fahrenheit using a method `KtoF` that is not shown in the provided code.
+
+5. The `calcMaxTwAloft` function is incomplete in the provided code, but it seems like it's intended to convert a temperature value from Kelvin to Celsius.
+
+Overall, the code seems to be part of a weather or climate analysis program, given the functions' names and their purposes.
+
+This code file contains a series of methods that perform calculations on various weather-related data. Here's a brief description of what each method does:
+
+1. `MaxTwAloft`: Converts a temperature value from Kelvin to Celsius.
+2. `calcMinRH`, `calcMinT`, `calcNegativeEnergyLowLevel`, `calcPositiveEnergyAloft`, `calcPoP`, `calcPoP01`, `calcPoP6`, `calcSnowRatio`, `calcTstmPrb3`, `calcTstmPrb6`, `calcProbRefreezeSleet`, `calcProbIcePresent`, `calcPotSleet`, `calcPotRain`, `calcPotSnow`, `calcPotFreezingRain`: These methods simply return the input value without any modification.
+3. `calcQPF` and `calcQPF1`: These methods convert the input precipitation forecast from millimeters to inches. Any values over 1000.0 are considered bad data and are set to 0.0.
+4. `calcRH`: This method calculates relative humidity using the input temperature and dew point.
+5. `calcSky`: This method clips the input value between 0 and 100.
+6. `calcSnowLevel`: Converts the input snow level from meters to feet.
+7. `calcT` and `calcTd`: These methods convert the input temperature from Kelvin to Fahrenheit.
+8. `calcVisibility`: Converts the input visibility from meters to statute miles.
+9. `calcWind` and `calcWindGust`, `calcTransWind`, `calcTropWind`, `calcLLWS`: These methods convert the input wind speed from meters per second to knots. For `calcLLWS`, any wind speed over 150 is set to 0.
+10. `calcSnowAmt`: Converts the input snow amount from millimeters to inches.
+11. `calcMixHgt`: The method is not complete, but it seems like it would be used to calculate the mixed layer height, a measure used in meteorology.
+
+The code uses the numpy library for some calculations and transformations.
+
+This code defines several methods in a Python class. Each method takes an argument and performs a calculation or operation on it, then returns the result. Here's a breakdown of each method:
+
+1. `calcVentRate(self, vrate_EA)`: This method simply returns the value it receives as an argument. It doesn't perform any operations on the argument.
+
+2. `calcHaines(self, hindex6hr_EA)`: This method also simply returns the value it receives as an argument.
+
+3. `calcFosBerg(self, fosindx6hr_SFC)`: This method returns the value it receives as an argument.
+
+4. `calcLLWSHgt(self, llwshgt_FHAG0610)`: This method multiplies the input value by 32.808398951 and returns the result.
+
+5. `calcRadar(self, maxref1hr_FHAG1000)`: This method returns the value it receives as an argument.
+
+6. `calcSigWaveHgt(self, htsgw_SFC)`: This method divides the input value by 0.3048 and returns the result.
+
+7. `calcWx(self, pwther_SFC)`: This method is a bit more complex. It first converts `pwther_SFC` to an integer type. Then it creates a mask for values of `wx` that are either greater than 7 or less than 0, and sets these values to 0. It then defines a list of weather types `wxtypes`. The actual function of this list is not clear from the provided code, as it is not used within the scope of this method.
+
+The first line of the code `return mixht_EA / 0.3048` is a return statement that divides `mixht_EA` by 0.3048. However, it is not inside a function or method, so it would cause an error if this code were run as is. It seems like it might be part of a method that was not included in the provided code.
+
+The provided code appears to be a list of strings in Python. However, without additional context, it's difficult to determine the exact purpose of this list. 
+
+The strings seem to follow a specific pattern, which might suggest some form of encoding or configuration. Each string is a series of codes separated by colons and caret symbols. The codes include "Chc", "Lkly", "Def", "R", "m", "S", "IP", "ZR", "+", "-", and "<NoVis>". 
+
+It's possible that these codes represent some form of instructions or data to be processed by another part of the program. For example, "Chc", "Lkly", and "Def" might be different categories, "R", "m", "S", "IP", "ZR" might be different types or actions, and "+", "-", and "<NoVis>" might be different states or modifiers.
+
+Without more context or comments in the code, it's hard to provide a more specific explanation. It would be helpful to know where this list is used in the program or what the program is intended to do.
+
+The provided code appears to be a list of strings. However, it's hard to determine its exact purpose without additional context because the strings seem to follow a specific pattern or code that isn't standard in common programming languages.
+
+The strings seem to contain a mix of codes or identifiers separated by colons and caret symbols. The recurring "<NoVis>:" could possibly mean "No Visibility" in the context of the code, but without further information, it's hard to confirm. 
+
+Each string might represent some kind of rule, condition, or configuration in a system, but without knowledge of what these codes or identifiers represent, it's impossible to provide a detailed analysis.
+
+It would be helpful to know the programming language or the context in which this code is used to provide a more accurate analysis.
+
+This code appears to be part of a larger Python class or module that's handling weather data. Here's a breakdown of what it does:
+
+1. It starts with a list of strings. Each string seems to represent some sort of weather condition or event, possibly encoded in a specific format. The exact meaning of these strings would likely be clearer with more context or documentation.
+
+2. The `return (wx, wxtypes)` statement is returning a tuple of two variables, `wx` and `wxtypes`. These variables are not defined in the provided code, so they are likely defined elsewhere in the class or module.
+
+3. The rest of the code consists of a series of method definitions. Each method takes one argument and performs a simple calculation on it. The methods seem to be calculating various weather-related metrics, such as snow amount, ice accumulation, and percentile values for different weather conditions.
+
+   For example, `calcSnowAmt01(self, totsn1hr_SFC)` takes the total amount of snow in one hour at the surface (`totsn1hr_SFC`) and converts it from inches to millimeters (since there are 25.4 mm in an inch).
+
+   Similarly, `calcIceAccum01(self, ficeac1hr_SFC)` calculates the amount of ice accumulation in one hour at the surface, also converting from inches to millimeters.
+
+   Other methods like `calcQPF10Prcntl(self, tp10pct6hr_SFC)` calculate the 10th percentile of total precipitation over six hours at the surface, converting from inches to millimeters.
+
+   There are also methods for calculating the probability of thunderstorms and the amount of down shortwave radiation at the surface, among other things.
+
+In summary, this code is part of a larger system for processing and analyzing weather data. Each method performs a specific calculation related to weather conditions.
+
+This Python code appears to be part of a larger program related to weather forecasting, possibly dealing with snowfall and ice accumulation. 
+
+The code contains a series of methods in a class (presumably named `NationalBlendForecaster`, although the class definition is not included in the provided code). Each method takes one argument and simply returns that argument. The names of the methods and their arguments suggest they are related to calculating various percentiles of snowfall or ice accumulation over different time periods (24hr, 48hr, 72hr), as well as precipitation duration and visibility.
+
+The `main` function at the end of the code creates an instance of the `NationalBlendForecaster` class and calls its `run` method. This is likely where the main logic of the program resides.
+
+Finally, the `if __name__ == "__main__":` block is a common Python idiom for specifying that the `main` function should be run if the script is being run directly (as opposed to being imported as a module in another script).</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

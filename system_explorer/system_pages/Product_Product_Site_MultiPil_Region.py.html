@@ -1,0 +1,74 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Product_Site_MultiPil_Region.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Product_Site_MultiPil_Region.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be a part of a larger software system, possibly for processing or generating text products. The script is primarily concerned with importing and integrating various modules and definitions, which are likely specific to different products, sites, and regions.
+
+Here's a breakdown of what the code does:
+
+1. The script begins with a large comment block that provides legal and contractual information about the software, including its developer (Raytheon Company), restrictions on its export due to U.S. law, and licensing information.
+
+2. It then imports several Python modules, including `sys`, `copy`, `types`, and `importlib`. It also imports a module named `<standard>`, which is likely a placeholder for an actual module name.
+
+3. The script constructs the names of the definition and override TextUtilities for a specific site and region. It then uses `importlib.import_module` to dynamically import these modules.
+
+4. It imports a module named `Patch_Overrides`.
+
+5. The script retrieves class objects for the region overrides class from the imported modules.
+
+6. It gets the definitions for the region and site into a known variable name.
+
+7. The script then defines a class named `TextProduct` that inherits from the region overrides object, the `Patch_Overrides` object, and the `TextProduct` class from the `<standard>` module.
+
+8. Inside the `TextProduct` class, it creates a deep copy of the `TextProduct.Definition` from the `<standard>` module and updates it with the region and site definitions.
+
+9. It tries to get the `VariableList` if overridden in Region.
+
+10. The script sets the `displayName` for the product and modifies it to remove underscores and prepend "Region_".
+
+11. Finally, it defines an `__init__` method for the `TextProduct` class, which calls the `__init__` method of the `TextProduct` class from the `<standard>` module.
+
+Note: Some parts of the code are commented out, which means they are not currently in use but could be activated by removing the '#' symbol. These parts include importing and using site overrides and getting the `VariableList` if overridden in Site.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

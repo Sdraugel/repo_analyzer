@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>purgeAllModelData.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>purgeAllModelData.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to purge all data for a specified model from EDEX, a data exchange system. 
+
+Here's a breakdown of what the script does:
+
+1. It begins by importing necessary modules and setting up a logger for debugging and information tracking purposes.
+
+2. The `__initLogger` function is defined to initialize the logger. The logger's level is set to DEBUG, and a StreamHandler is added to the logger. The StreamHandler's level is set to INFO, and it's formatted to display the time, logger's name, log level, and the log message.
+
+3. The `__parseCommandLine` function is defined to parse command-line arguments. The arguments include the host where the EDEX server is running, the port on which the EDEX server is listening, and the names of the models to be purged. The function ensures that there are no duplicate model names in the list.
+
+4. The `main` function is defined to carry out the main operations. It initializes the logger, parses the command-line arguments, and creates a Thrift client with the provided host and port. For each model specified, it sends a request to the EDEX server to delete all data for that model. If the data is successfully deleted, it logs a success message. If an error occurs during the deletion, it logs an exception message.
+
+5. Finally, the script checks if it is being run as the main module, and if so, it calls the `main` function to execute the script.
+
+This script is a good example of a utility script that can be run from the command line to perform a specific task, in this case, purging data from a server.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

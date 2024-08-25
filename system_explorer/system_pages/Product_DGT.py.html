@@ -1,0 +1,74 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>DGT.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>DGT.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is part of a larger system that generates a Drought Information Statement (DGT). It is a subclass of `GenericReport.TextProduct` and it overrides some of its methods to provide specific functionality for the DGT. 
+
+The code starts with a documentation section that explains the software history and the methods included in the code. 
+
+The `TextProduct` class includes a list of variables and a dictionary of definitions that provide configuration for the DGT report. This includes details like the type of area (FIPS or Zones), the language of the report (English), the maximum line length, the expiration time in hours, and other product-specific definitions.
+
+The class also includes a constructor (`__init__`) that calls the parent class's constructor. 
+
+The `_preProcessProduct` method is overridden to do nothing as the DGT is an unsegmented product. 
+
+The `_preProcessArea` method is overridden to create a product header for an unsegmented product. It generates WMO lines, adds non-segmented UGC data, and adds the product name/time lines.
+
+The `_makeProduct` method is overridden to start the product from scratch if the old text is not included. The code provided is incomplete, so it's unclear what the full functionality of this method is.
+
+The code also includes a conditional statement that sets the `mapNameForCombinations` based on the `areaType`. 
+
+The code imports the `re` (regular expressions), `GenericReport`, and `time` modules, but it's unclear from the provided code how these are used.
+
+This code is generating a formatted text report about drought conditions. The report includes various sections such as a synopsis, summary of impacts, drought mitigation actions, local drought outlook, and more. Each section is marked by a headline starting with a period (e.g., ".SYNOPSIS:", ".DROUGHT MITIGATION ACTIONS:"). 
+
+The code also calculates the next issuance date of the report, which is 28 days from the current date. 
+
+The report includes a list of related websites for further information on drought conditions, water, and river information. The websites are added to the report from the `_localWebsites` attribute of the current object (`self`). 
+
+If the `_includeOldText` attribute of the object is set to "Yes", the code retrieves a previous version of the report and merges its forecasts with the current report. 
+
+Finally, the `_postProcessProduct` method is used to clean up the report by removing extra line feeds and breaking lines at a certain length. The progress of the report generation is also tracked and displayed.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

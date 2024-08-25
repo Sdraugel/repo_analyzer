@@ -1,0 +1,132 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>BasinCrossingCyclone.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>BasinCrossingCyclone.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a part of a software that seems to be related to the tracking or analysis of tropical cyclones. The software is in the public domain, and it has been updated multiple times by a user named "tlefebvr". The updates include bug fixes, feature additions, code cleanups, and modifications for Python 3 compatibility.
+
+The code is written in Python and uses the Tkinter library for creating a graphical user interface (GUI). It also imports other modules such as TropicalUtility and WindWWUtils, which are likely custom modules related to the software's functionality.
+
+The code defines a class named "Procedure" that inherits from TropicalUtility.TropicalUtility. The class has several methods for handling storm-related data:
+
+1. `__init__`: Initializes an instance of the class with a database session and a WindWWUtils object.
+
+2. `saveStormInfo`: Saves storm information to JSON files. It makes a copy of the storm information, removes newline and space characters from the advisory number, and saves the changes locally. If the storm is in the NHC basin, it also sets the storm number and ID.
+
+3. `validStormNumber`: Checks if the selected storm number is correct based on the bin. The storm number modulo 5 should match the number of the bin.
+
+4. `saveStorm`: Checks the selected storm number against the bin number and saves if they match, if NHC. If not, it displays a message to the user and doesn't save. For other sites, it just saves.
+
+5. `cancelCommand`: Destroys the Tkinter master widget, effectively closing the GUI.
+
+6. `runCommand`: Saves the storm info for the current pil.
+
+7. `runDismissCommand`: Runs the `runCommand` method and if it returns True, it runs the `cancelCommand` method.
+
+8. `makeBottomButtons`: Creates the "Save", "Save/Dismiss", and "Cancel" buttons for the GUI.
+
+The code snippet ends before the completion of the `binButtonSelec` method, so its functionality cannot be determined.
+
+This part of the code file appears to be from a graphical user interface (GUI) application, possibly developed using the Tkinter library in Python. It defines several methods to create and manage buttons and other widgets in the application. Here's a brief description of each method:
+
+1. `ted(self, buttonLabel)`: This method is called when a bin button is selected. It updates the currently selected bin and, if it was a source button, it updates the info widgets.
+
+2. `basinButtonSelected(self, basin)`: This method is called when a basin button is selected. It updates the currently selected basin and creates new bin buttons.
+
+3. `setDefaultBin(self, basin)`: This method determines the bin to select based on the basin list. It selects the first bin found for that basin.
+
+4. `makeBinButton(self, frame, label, row, column, select, disable)`: This method creates a single storm button. The button's state and background color are set based on the parameters passed.
+
+5. `makeBinButtons(self)`: This method creates the bin buttons based on the currently selected basin. It also handles the case where no JSON files are found.
+
+6. `makeBasinButton(self, frame, label, row, select, disable)`: This method creates a single basin button. The button's state and background color are set based on the parameters passed.
+
+7. `makeBasinButtons(self, frame)`: This method creates the basin buttons based on the keys in the stormInfo dictionary.
+
+The last method appears to be incomplete as it ends abruptly. It seems to be creating a label widget with the text "From -> To".
+
+This Python code appears to be part of a GUI (Graphical User Interface) application, possibly for monitoring or tracking storms. It uses the Tkinter library for creating the GUI. Here's a breakdown of what each part of the code does:
+
+1. `grid(row=0, column=0, pady=10)`: This line is setting the position of a widget in a grid layout, at row 0, column 0, with a padding of 10 pixels on the y-axis.
+
+2. The `for` loop creates buttons for each basin, disabling them if there are no active storms for the basin, and setting one as active if it matches the current basin.
+
+3. `getStormNumLabel` and `getStormIDLabel` are methods that generate labels for storm numbers and storm IDs respectively.
+
+4. `updateInfoWidgets` is a method that updates the information displayed on the GUI based on the currently selected source bin. It fetches the storm information and updates the GUI.
+
+5. `makeInfoWidgets` is a method that creates the information widgets on the GUI, including the storm name, advisory number, and storm number.
+
+6. `setDefaultBasinCombo` is a method that determines a default basin button based on the active storms.
+
+7. `displayWindowOnCursor` is a method that moves the specified window to the cursor location.
+
+8. `setUpUI` is a method that sets up the GUI, including creating the main window, setting its title, and creating the frames for the layout.
+
+9. The last line creates a new frame with a groove border and a border width of 3, but it is not placed in the grid layout yet.
+
+The provided code is written in Python and uses the tkinter library for creating a graphical user interface (GUI). Here's what the code does:
+
+1. The first block of code is creating and positioning various frames and buttons on the GUI. `_basinFrame` is a frame that is placed at the top left of the grid layout. `_infoFrame` is another frame that is placed at the top right of the grid layout. `bottomButtonFrame` is a frame that is placed at the bottom of the grid layout. The `makeBasinButtons`, `makeInfoWidgets`, and `makeBottomButtons` methods are likely creating and adding buttons or other widgets to these frames, but the details of these methods are not provided.
+
+2. The `execute` method seems to be the main method for this class. It first sets up some constants, including font styles, colors, and a list of hazard types. 
+
+3. It then sets up a dictionary `_basinDict` to map basin nicknames to full basin names.
+
+4. The `_binDict` dictionary is fetched from the `_WindWWUtils` object, which seems to be a utility object for handling wind-related data.
+
+5. It then fetches storm information from JSON files using the `fetchStormInfo` method of the `_WindWWUtils` object. If no advisory files are found, it displays a message in the status bar and returns.
+
+6. Depending on the site ID, it sets up basin rules and a list of basin buttons.
+
+7. It fetches the maximum number of storms from the `_WindWWUtils` object.
+
+8. It sets up the default basin combo and the current basin combo.
+
+9. It sets up the UI and displays the window on the cursor.
+
+10. Finally, it starts the tkinter main event loop with `tk.mainloop()`. This is necessary for the GUI to respond to user interactions.
+
+Overall, this code seems to be part of a larger program that provides a GUI for viewing and interacting with storm and wind data.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

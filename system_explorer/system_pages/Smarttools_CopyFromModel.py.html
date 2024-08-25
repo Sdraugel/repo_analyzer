@@ -1,0 +1,66 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>CopyFromModel.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>CopyFromModel.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This script is a part of a larger software developed by Raytheon Company. The script is written in Python and is used to process weather data. The script is named "Copy_from_Model" and it takes the average of model grids and stores them into the current grid (in the current edit area). For QPF (Quantitative Precipitation Forecast) and SnowAmt (Snow Amount), it does a sum rather than an average. For PoP (Probability of Precipitation), it does a Max rather than an average. The user gets to choose the model and time offset. If the TimeOffset is negative, it means get model data from earlier and put in this time - if TimeOffset is positive, it means get model data from later and put in this time.
+
+The script also contains a class named "Tool" which inherits from the "SmartScript" class. This class has two methods: "preProcessGrid" and "execute". The "preProcessGrid" method is used to prepare the data for processing, and the "execute" method is used to process the data.
+
+The "preProcessGrid" method creates a list of available models, and a variable list for the dialog. It also checks if the user wants to taper the edges of the grid, and if so, it calls the "taperGrid" method.
+
+The "execute" method reads data from the model database, determines the source name, checks if the grid to read from the model may be timeshifted, and reads the model data. It also reads the current forecast data. If either current or new data is missing, it does nothing.
+
+This part of the code is a function that returns different values based on the condition of the input variables. 
+
+1. If the variable `v0` is `None`, it returns the value of `v1`. 
+
+2. If the `wxType` is "SCALAR", it performs a calculation using `v0`, `v1`, and a property of the class called `__taperGrid`, and returns the result. This calculation seems to be a form of interpolation or tapering between `v0` and `v1`.
+
+3. If the `wxType` is "VECTOR", it assumes `v0` and `v1` are tuples or lists with two elements each. It then performs similar calculations as in the "SCALAR" case, but separately for each component of the vectors (speed and direction). The results are returned as a tuple.
+
+4. If none of the above conditions are met, it returns `v0`. This is likely to be the case for other weather types, as indicated by the comments, where no tapering or interpolation is performed. 
+
+Note: There seems to be an unreachable line of code at the top (`return v1`). This line will never be executed because there are no conditions or statements before it. It might be a mistake or leftover from previous versions of the code.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

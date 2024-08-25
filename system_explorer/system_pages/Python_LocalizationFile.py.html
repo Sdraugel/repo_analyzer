@@ -1,0 +1,76 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>LocalizationFile.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>LocalizationFile.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that defines a class `LocalizationFile`. This class is a wrapper around a Java object, and provides methods to interact with a file in a localization system. The localization system is likely a part of a larger software system that manages files across different languages and regions.
+
+The class `LocalizationFile` includes the following methods:
+
+1. `__init__(self, wrappedObject)`: This is the constructor method that initializes the `LocalizationFile` object with a `wrappedObject` which is a Java object.
+
+2. `save(self)`: This method is used to save the localization file back to the localization system.
+
+3. `delete(self)`: This method is used to delete the localization file from the localization system.
+
+4. `exists(self)`: This method checks if the file actually exists in the localization system.
+
+5. `getName(self)`: This method returns the name of the file.
+
+6. `getPath(self)`: This method returns the absolute path of the file in the localization system.
+
+7. `getFile(self, mode='r')`: This method returns a file handle to the file. The mode parameter specifies the mode in which the file is opened.
+
+8. `getTimeStamp(self)`: This method returns the timestamp of the file as a Python datetime object.
+
+9. `isAvailableOnServer(self)`: This method checks if the file is available on the server.
+
+10. `isDirectory(self)`: This method checks if the file is a directory.
+
+11. `__eq__(self, other)`: This method checks if the current object is equal to another object.
+
+12. `toJavaObj(self)`: This method returns the original Java object that is wrapped by the `LocalizationFile` object.
+
+The script also includes import statements for various modules and classes that are needed by the `LocalizationFile` class. It also includes a software history log that records changes made to the software over time.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

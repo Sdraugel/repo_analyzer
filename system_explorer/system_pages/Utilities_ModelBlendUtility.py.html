@@ -1,0 +1,112 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ModelBlendUtility.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ModelBlendUtility.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a part of a software utility named ModelBlendUtility. This utility is a version of the ModelBlend SmartTool which can be used within Procedure GUIs. The utility is designed to handle model weight dialog GUIs without having to appear or be adjusted for each and every time step.
+
+The code begins by importing two modules: SmartScript and tkinter, StartupDialog. It then defines some global variables that will be used in the dialog.
+
+The main part of the code is a class named ModelBlendUtility, which inherits from SmartScript.SmartScript. This class has a constructor (__init__ method) and two other methods: preProcessGrid and execute.
+
+The preProcessGrid method sets up arrays of information for the dialog box that sets the weights. It works with different databases, including "Forecast" and "Official", and other databases defined in the Models list. It also handles different versions of the models and checks if a parameter is in the list of parameters for a model database. It creates labels for each of the model runs and runs a dialog box to get the weights.
+
+The execute method is a dummy method that returns the input it receives. It is mentioned in the comments that the tool is cancelled in preProcessGrid and all the real action is accomplished in execWeights.
+
+The execWeights method is not fully provided in the code snippet, but it appears to be the main calculation routine called when a button is pressed in the dialog. It checks if the user presses cancel, in which case it returns immediately.
+
+This code is part of a larger script that appears to be used for blending models based on certain weights. The weights are used to determine the influence of each model in the final result. 
+
+The first part of the code is getting the edge style and width from a dialog box. It also sets the BlendType to "Weighted blend". 
+
+Next, it calculates the total weight, forecast weight, and checks for common issues like all weights being zero, only weights on the current grid, or grids adding up to zero. If any of these conditions are met, an error message is displayed and the function returns.
+
+Then, it retrieves the mutable model database name and the selected time range. It also gets a list of parameters that are selected and mutable. 
+
+The code then loops over the mutable parameters and retrieves information about each parameter such as the type of parameter (scalar, vector, Wx, discrete), the short parameter name string, and the parameter level string. 
+
+For each parameter, it gets a list of grids within the selected time range and loops over each of these grids. If the parameter type is scalar, it reads each 'model' grid with a non-zero weight and adds up the weights again. It then checks again for no weights, or only weights for the current grid. If these conditions are met, an info message is displayed. Otherwise, it saves the grid.
+
+The code also handles different blend types. If the blend type is "Max", it keeps the maximum value between the current sum and the new grid. If the blend type is "Min", it keeps the minimum value. If the blend type is "Weighted blend", it adds the new grid multiplied by its weight to the sum. The final grid is then calculated based on the total weight and the blend type.
+
+This code is part of a larger program that seems to be dealing with weather forecasting models. The specific portion of the code provided is handling the case when the weather type is a vector (wxType==1). 
+
+The code reads each model grid with a non-zero weight, and adds up the weights again. This is because it cannot count weights for grids that cannot be read. It then gets the magnitude and direction from the old grid. 
+
+Depending on the value of USE_VECTOR_ADDITION, it either converts the magnitude and direction to u and v components directly, or it sets the magnitude to 1 before converting to u and v components.
+
+The code then initializes some variables to store the sum of u, v, and magnitude components, as well as the total weight and forecast weight.
+
+The code then loops over all the labels, and for each label, it gets the corresponding weight. If the weight is non-zero, it gets the grid for that label and extracts the magnitude and direction. It then converts these to u and v components and adds them to the sum of u and v components, each multiplied by the weight. Depending on the blend type, it also updates the sum of magnitudes.
+
+After all the labels have been processed, the code checks if the total weight is non-zero. If it is, it checks if the forecast weight is equal to the total weight. If they are equal, it displays a message that the ModelBlend makes no change. If they are not equal, it calculates the new u and v components by dividing the sum of u and v components by the total weight. It then updates the final u, v, and magnitude components based on the blend type and whether vector addition is used.
+
+Finally, depending on the vector edit mode, it either updates the magnitude only, direction only, or both, and creates a new grid with these values. If the total weight is zero, it does not do anything.
+
+The code is written in Python and it appears to be part of a larger application, possibly a graphical user interface (GUI) for a grid editing tool. 
+
+The first part of the code defines a method `inEditArea` in a class. This method takes an old grid and a new grid, and returns a grid with the proper weighting between the two. It uses the `EdgeType` and `EdgeWidth` parameters to determine how to blend the old and new grid. If there are no points in the current edit area, it assumes the entire domain is to be used. The method returns the final grid.
+
+The second part of the code defines a `ToolDialog` class, which is a subclass of `StartupDialog.Dialog`. This class appears to be a custom dialog box for the application. It has a constructor method that sets up the dialog box, and methods to handle button clicks (`__runCB`, `__okCB`, `cancelCB`), and to create the dialog box body (`body`).
+
+The third part of the code defines a `ModelWeights` class, which is a subclass of `ToolDialog`. This class appears to be a custom dialog box for setting the weights of different models in the application. The `setPercents` method calculates the percentage weights for each model. The `body` method creates the dialog box body, which includes a grid of scale widgets for setting the weights.
+
+The code is incomplete, so it's hard to provide a complete analysis. However, it seems to be part of a complex application that involves grid editing and model weighting.
+
+This code is written in Python and uses the tkinter library to create a graphical user interface (GUI). 
+
+1. The first part of the code creates a grid of labels and frames in a parent frame (`fc`). Each label (`lab2`) is associated with a variable from the `Percents` list. If the current column is not the last one, a black frame (`f2`) is added to the grid. The `num` variable is incremented after each iteration.
+
+2. The second part of the code creates an `edgeFrame` with a groove relief and a border width of 2. Inside this frame, two other frames are created: `edgestyleFrame` and `edgewidthFrame`.
+
+3. In the `edgestyleFrame`, radio buttons are created for each style in the `edgestyles` list. The radio buttons are associated with the `self.edgestyleString` variable. If the current style is the default one, the corresponding radio button is invoked (selected).
+
+4. In the `edgewidthFrame`, a horizontal scale widget is created. This widget is associated with the `self.edgeWidth` variable, which is initially set to 5. The scale allows the user to select a value between 1 and 30.
+
+5. The `edgeFrame` is added to the grid at the bottom (its row is `numrows`), spanning all columns.
+
+6. The `hull` frame, which is the parent of all these widgets, is packed with the `TOP` side attachment, allowing it to fill its parent in both directions and expand if necessary.
+
+7. The function ends with a `return` statement, which is not necessary in this case as the function does not return any value.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,113 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>VTEC_GHG_Complex5_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>VTEC_GHG_Complex5_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a script written in Python. It appears to be part of a larger system, possibly for weather forecasting or hazard prediction, developed or modified by Raytheon Company. The script contains a list of dictionaries, each representing a different script or operation to be performed.
+
+The first dictionary in the scripts list is intended to clear out all Hazards Table and Grids. It does not produce any product and does not check any strings.
+
+The second dictionary in the scripts list is creating a WS.A hazard for Area1, Area2, Area3, and Area4. It creates grids for different areas with specific hazard codes and checks for certain strings in the output.
+
+The third dictionary in the scripts list does not make any changes to the existing hazards. It does not delete any grids and checks for certain strings in the output.
+
+Each dictionary in the scripts list contains:
+- "commentary": A description of what the script does.
+- "name": The name of the script.
+- "productType": The type of product produced by the script, if any.
+- "clearHazardsTable": A flag indicating whether to clear the Hazards Table (only in the first script).
+- "createGrids": A list of operations to create grids (only in the second script).
+- "deleteGrids": A list of operations to delete grids (only in the third script).
+- "checkStrings": A list of strings to check in the output.
+
+The code also includes a license and copyright notice from Raytheon Company, as well as a disclaimer that the software is provided "as is", without warranty.
+
+The code appears to be part of a weather forecasting and alert system. It is responsible for generating and managing weather hazard warnings, specifically for winter storms. 
+
+The code includes a series of messages and alerts that are displayed or sent out when certain weather conditions are met. These messages include precautionary and preparedness actions, definitions of weather warnings, and specific details about the expected weather conditions.
+
+The code also includes a series of forecast grids. These grids are used to define the areas and times for which the warnings are valid. The code includes functionality to create new forecast grids, as well as to delete existing ones.
+
+The "checkStrings" section appears to contain the actual text of the warnings and alerts that are sent out. These include the warning headline, the details of the warning, and the recommended actions for people in the affected areas.
+
+The "commentary" sections provide additional information about the warnings and the conditions that trigger them. They also include notes about any changes that have been made to the warnings or the conditions that trigger them.
+
+This code appears to be part of a weather forecasting system, specifically for issuing and managing weather warnings. 
+
+The first part of the code is a list of strings that seem to represent a template for a winter storm warning message. It includes placeholders for the specific details of the warning, such as the areas affected and the times the warning is in effect. 
+
+The second part of the code includes a commentary that describes changes being made to the warnings for certain areas. It also includes a list of commands to create or modify hazard grids, which are likely used to visually represent the areas and severity of the warnings on a map or similar interface. 
+
+The commands include the type of hazard (e.g., winter storm warning, blizzard warning), the time period the warning is in effect, and the areas affected. The code also includes another list of strings that represent a modified version of the winter storm warning message, reflecting the changes described in the commentary. 
+
+Overall, this code is used to manage and communicate weather warnings for different areas and time periods.
+
+The given code appears to be a part of a larger script that generates weather warning messages. It's not a traditional programming code, but rather a structured text that is likely used in a larger system to generate automated weather warnings.
+
+Here's a breakdown of what this part of the file does:
+
+1. It defines a series of weather warnings for different regions. Each warning includes the type of warning (Blizzard Warning or Winter Storm Warning), the time period for which the warning is in effect, and the regions affected.
+
+2. The warnings also include precautionary and preparedness actions, advising people what to do in these weather conditions. For example, it advises people not to travel in these conditions and if they must, to carry a winter survival kit.
+
+3. The warnings are structured in a way that they can be easily edited or updated. There are placeholders (e.g., "|*|* SEGMENT TEXT GOES HERE *|.*|*|") that can be replaced with specific information.
+
+4. Some lines of the code are commented out (lines starting with '#'). These lines are ignored by the system processing this file. They might be alternative versions of the warnings or they might be used for testing or debugging purposes.
+
+5. The code also includes some cryptic strings like "/O.CON.KTBW.WS.W.0001.100102T0000Z-100103T0500Z/". These might be codes or identifiers used by the system that processes this file. They might represent specific weather conditions, times, or locations.
+
+6. The code is divided into sections, each section is separated by "&&" and "$$". These might be used by the system to recognize the start and end of each warning.
+
+7. The "commentary" field in the code indicates that no changes are made to the existing hazards. This might be a note for the people maintaining or using this system.
+
+This code appears to be part of a weather advisory system. 
+
+The first part of the code seems to be a list of dictionaries, where each dictionary represents a weather advisory or hazard. Each dictionary contains various pieces of information such as a unique identifier, a weather advisory message, and other related details. Some of these details are commented out, possibly for testing or debugging purposes.
+
+The second part of the code is a function named `testScript`. This function takes two parameters: `self` and `dataMgr`. `self` is a common convention in object-oriented programming, referring to the instance of the class where this method is defined. `dataMgr` is likely a data manager of some sort, possibly handling the retrieval, storage, or processing of weather data.
+
+The `testScript` function defines a dictionary named `defaults` with various key-value pairs. These pairs seem to define default settings or parameters for a weather forecast database, such as the database name, whether to publish grids, whether to decode VTEC (a coding system used for weather messages), the start time for the grids, and so on.
+
+Finally, the function returns the result of calling `TestScript.generalTestScript` with `self`, `dataMgr`, `scripts` (which is not defined in the provided code), and `defaults` as arguments. This suggests that `TestScript` is a module that provides a function named `generalTestScript` for testing purposes. The `generalTestScript` function likely tests some aspect of the weather advisory system, using the provided data manager and default settings.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

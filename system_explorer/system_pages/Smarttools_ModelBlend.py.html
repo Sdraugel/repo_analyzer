@@ -1,0 +1,124 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ModelBlend.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ModelBlend.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code appears to be a script for a tool called "Model_Blend" version 2.1, which is used to make combinations of recent model runs, or the forecast or official grids. It can extrapolate by using a combination of negative and positive weights. The weights cannot add up to zero, and an error message is generated if the user sets them that way.
+
+The script is written in Python and uses the Tkinter library for creating a graphical user interface. The code includes a configuration section where certain parameters are set, such as the maximum number of weights in a column of the dialog, whether to allow negative weights, and a list of GFE model databases that will potentially be blended.
+
+The script also includes a class definition for a dialog box that will be used in the tool. This dialog box includes buttons and other interactive elements that allow the user to interact with the tool.
+
+It's important to note that this software was developed and/or modified by Raytheon Company, and it contains export-restricted data whose export/transfer/disclosure is restricted by U.S. law. The software is in the public domain, furnished "as is", without technical support, and with no warranty, express or implied, as to its usefulness for any purpose.
+
+The code is written in Python and uses the Tkinter library to create a graphical user interface (GUI). 
+
+The first part of the code creates a frame with three buttons: "Run", "Run/Dismiss", and "Cancel". Each button has a command associated with it, which is a callback function that will be executed when the button is clicked.
+
+The `body` function creates another frame and calls two methods to build weight sliders and edge control.
+
+The `validate` function validates the inputs. It collects the weights from the weight variables, the edge style, and the edge width, and returns True.
+
+The `setPercents` function calculates the percentage of each weight and updates the corresponding labels.
+
+The `__runCB`, `__okCB`, and `cancelCB` functions are the callback functions for the "Run", "Run/Dismiss", and "Cancel" buttons respectively. They validate the inputs and call another callback method with a specific argument.
+
+The `apply` function is a placeholder and does nothing in its current state.
+
+The `buildWeightSliders` function creates a set of sliders and labels for adjusting weights. The weights are stored in `__weightVars` and the corresponding percentages are stored in `__percents`.
+
+The `buildEdgeControl` function creates a frame for edge control. It includes radio buttons for selecting the edge style and a slider for adjusting the edge width.
+
+The `TestDialog` class is a dummy class used for testing. The code for this class is incomplete.
+
+The provided code is written in Python and appears to be part of a larger program that deals with some form of data processing, possibly related to weather forecasting models. 
+
+The first part of the code defines a class with a constructor that prints out some information and sets some variables. It also has a method called `mainloop` that calls a callback method with the string "Run".
+
+The second part of the code defines a class called `Tool` that inherits from `SmartScript.SmartScript`. This class seems to be the main part of the program. It has several methods:
+
+- `__init__`: This is the constructor of the class. It initializes the class with a database session.
+
+- `preProcessGrid`: This method seems to be setting up arrays of information for a dialog box that sets weights. It also seems to be dealing with different databases and models, possibly related to weather forecasting.
+
+- `parseMS`: This method parses a model string into a model, versions, and a parameter list.
+
+- `acceptPL`: This method checks a parameter list against a given name.
+
+- `_addModel`: This method adds a text and a model ID to `self.labels` and `self.dbIds` respectively.
+
+- `execute`: This method returns the input variable as it is. It seems to be a placeholder for a method that should perform some operation on the input variable.
+
+- `execWeights`: This method is not fully included in the provided code, but it seems to be the main calculation routine called when a button on the dialog is pressed.
+
+The comments in the code suggest that the tool is cancelled in `preProcessGrid` and all the real action is accomplished in `execWeights` which is called when the user presses a button on the dialog.
+
+This Python code is part of a larger script that appears to be used for blending models based on certain weights. 
+
+The function `execWeights` is triggered when a button is pressed in a dialog. If the 'Cancel' button is pressed, the function immediately returns and stops. 
+
+If the button pressed is not 'Cancel', the function retrieves the edge style and edge width from the dialog. It then initializes some variables to keep track of the weights. 
+
+The weights are then retrieved and checked for common issues like all weights being zero, only weights on the current grid, or grids adding up to zero. If any of these conditions are met, an appropriate message is displayed on the status bar and the function returns.
+
+The function then retrieves the mutable model database name and the selected time range. It also retrieves a list of parameters that are selected and mutable.
+
+The function then loops over the mutable parameters and retrieves some information about each parameter. 
+
+For each parameter, it retrieves a list of grids within the selected time range and loops over each of these grids. 
+
+If the grid type is 'SCALAR', it reads each 'model' grid with a non-zero weight and adds up the weights again. This is because it cannot count weights for grids that cannot be read. 
+
+If there are no weights, or only weights for the current grid, it makes no changes and writes an info message. 
+
+The code seems to be part of a larger system, possibly related to meteorological data or some other form of grid-based data modeling.
+
+This code is part of a weather forecasting tool that blends different weather models to create a more accurate forecast. It does this by assigning different weights to different models and then combining them. 
+
+The first part of the code is handling scalar weather elements like temperature or pressure. It checks if the total weight is not zero and if the forecast weight equals the total weight. If they are equal, it means that the ModelBlend makes no changes and a message is displayed on the status bar. If they are not equal, a new grid is created by dividing the sum of the grids by the total weight. This new grid is then used to create the final grid.
+
+The second part of the code is handling vector weather elements like wind. It reads each model grid with a non-zero weight and adds up the weights again. It converts the magnitude and direction of the wind to u and v components. These components are then weighted and summed. Similar to the scalar case, it checks if the total weight is not zero and if the forecast weight equals the total weight. If they are not equal, new u and v components are calculated by dividing the sum of the components by the total weight. These new components are then used to create the final grid.
+
+The last part of the code is a function named `inEditArea`. This function takes an old grid and a new grid and returns a grid with the proper weighting between the two. It uses the EdgeType and EdgeWidth parameters to determine how to blend the old and new grids. It returns the final grid that should be used.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

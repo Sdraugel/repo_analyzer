@@ -1,0 +1,82 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ifpAG.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ifpAG.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a larger software developed by Raytheon Company. It appears to be a utility for handling ASCII grid files, which are a type of data file used in geographic information systems (GIS) to represent raster data, or data that is stored in a grid structure.
+
+The script starts by importing necessary modules and packages, including several from the `dynamicserialize` package, which seems to be a proprietary package developed by Raytheon. It also imports `ThriftClient` and `UsageArgumentParser` from the `awips` package, which is a weather forecasting software.
+
+The script then sets up logging, defines a URL, and initializes a global variable `WSID` to `None`.
+
+A class `AppendDatabaseIDAction` is defined, which is a custom action for the `argparse` module's `ArgumentParser` object. This class validates and appends database identifiers to a list.
+
+Several logging functions are defined: `logEvent`, `logProblem`, `logException`, and `logVerbose`. These functions log messages at different levels (info, error, exception, and debug respectively).
+
+The `main` function appears to be the entry point of the script. It decodes arguments passed to the script, sets the global `WSID` variable, logs various information, and depending on the options passed, it either outputs or inputs ASCII grid files.
+
+The `inputAG` function reads in an ASCII grid file, sends the grid data to an EDEX server, and saves the grid slices. The `outputAG` function retrieves grid slices from the server and outputs them to a file.
+
+The script seems to be incomplete as the `outputAG` function is not fully defined and there are likely other functions not included in this snippet.
+
+The provided code is written in Python and appears to be part of a larger script for handling files on a server. 
+
+In the first part of the code, it checks if an output file is specified. If it is, it opens the file for writing. If not, it uses the standard output buffer. It then constructs a URL using provided arguments and attempts to retrieve data from this URL. The retrieved data is written to the output file or standard output. If there's an error during this process, it logs the exception and sets a flag `okay` to False. After writing the data, it attempts to delete the server-side file using a DELETE request. If there's an error during deletion, it logs the exception and sets `okay` to False. If everything goes well, it returns 0, otherwise, it returns 3.
+
+The `decodeArguments` function is used to parse command-line arguments. It uses the argparse library to define what arguments it expects. It seems to be part of a command-line tool called 'ifpAG', which requires certain parameters like the output file, input file, host name, port number, username, and others. It also provides help messages for each argument, explaining what they do. After parsing the arguments, it performs some checks and modifications on the options, and then returns the options.
+
+The `getGridSlices` function appears to be incomplete as it is cut off. It seems to be a function that takes several parameters including host name, port number, username, database IDs, parameter IDs, start time, end time, and a coordinate conversion string. However, without the rest of the function, it's impossible to say what it does.
+
+This script appears to be a part of a larger system that interacts with a remote server to get and save ASCII grid data. ASCII grid data is a simple text file format commonly used in GIS (Geographic Information System) applications to represent raster data.
+
+The script defines three main functions:
+
+1. `sendGridTempData(inputFile, hostName, portNumber, userName)`: This function sends grid temperature data to a server. It opens a file with the given `inputFile` name (or reads from standard input if `inputFile` equals "-"), reads its content, and sends it to a server specified by `hostName` and `portNumber` using a PUT HTTP request. The data is sent as an 'application/octet-stream' content type, and the request is authorized using basic authentication with the `userName`. If the file is successfully sent, the function returns the filename and True; otherwise, it logs an exception and returns the filename and False.
+
+2. `saveGridSlices(hostName, portNumber, userName, agrid)`: This function saves ASCII grid data to a server. It creates a `SaveASCIIGridsRequest`, sets the ASCII grid data, workstation ID, and site ID, and sends the request to a server specified by `hostName` and `portNumber`. If the server response is okay, the function returns True; otherwise, it logs a problem and returns False.
+
+3. The first part of the script is setting up a request to get ASCII grids from a server. It creates a `GetASCIIGridsRequest`, sets various parameters such as database IDs, parameter IDs, time range, coordinate conversion string, workstation ID, and site ID, and sends the request to a server specified by `hostName` and `portNumber`. If the server response is okay, the function returns the response payload and True; otherwise, it logs a problem and returns an empty string and False.
+
+The script also includes a `main()` function call under `if __name__ == '__main__':`, which suggests that this script can be run as a standalone program. However, the `main()` function is not defined in the provided code.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

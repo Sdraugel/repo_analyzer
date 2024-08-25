@@ -1,0 +1,56 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ParmID.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ParmID.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that defines a wrapper class for a Java class. The class being wrapped is `com.raytheon.uf.common.dataplugin.gfe.db.objects.ParmID`. This Python class is named `ParmID` and it provides Python-friendly methods to interact with the Java class.
+
+The `ParmID` class has an initializer (`__init__`) that takes several optional parameters (`name`, `model`, `dbid`, `level`, `jParmId`). Based on the provided arguments, it creates an instance of the Java `ParmID` class in different ways. The initializer also includes several checks to ensure that the arguments are provided in a valid combination, and raises an error if they are not.
+
+The `ParmID` class also includes several instance methods that call methods on the underlying Java object (`__pid`). These methods include `__str__`, `toJavaObj`, `compositeNameUI`, `parmNameAndLevel`, `expressionName`, `isValid`, `getParmName`, `getParmLevel`, `getDbId`, `getCompositeName`, `getShortParmId`, `getParmId`, and `getUIFormattedString`.
+
+In addition, the `ParmID` class includes two static methods (`defaultLevel`, `shortSerializer`, and `shortDeserializer`) that call static methods on the Java `ParmID` class.
+
+In summary, this Python class is a wrapper for a Java class, providing a Pythonic interface to interact with the Java class. This allows Python code to use the functionality of the Java class in a more natural way.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

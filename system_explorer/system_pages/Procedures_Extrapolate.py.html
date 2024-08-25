@@ -1,0 +1,80 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Extrapolate.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Extrapolate.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code appears to be part of a larger software system, possibly related to weather forecasting or meteorological data analysis. It's written in Python and uses a number of imported libraries such as `math`, `time`, `AbsTime`, `LogStream`, and `SmartScript`.
+
+The code starts with a legal disclaimer and copyright notice, followed by a brief description of the software, its author, and its history. 
+
+The main functionality of the code starts with the definition of a list of menu items and the import of several modules. It then defines a list of data sources (`sourceList`) and a tool name (`toolName`). 
+
+The `sourceList` is then extended with two additional items: "Fcst" and "Observed (enter below)". 
+
+A `VariableList` is created, which seems to be a list of parameters or settings that the user can adjust. These include options for extrapolation direction, data source, wind level, movement speed and direction, and backfill options. 
+
+The code then defines a class `Procedure` which extends `SmartScript.SmartScript`, suggesting that this code is part of a larger system that uses a script-based interface for defining procedures. 
+
+The `Procedure` class has an `execute` method, which appears to be the main function of the script. This method takes an `editArea`, `timeRange`, and `varDict` as input. 
+
+The `execute` method seems to perform a series of operations based on the provided time range and variables. It appears to be manipulating some sort of grid-based data ("variableElement") over the specified time range, possibly shifting or moving features based on the user-defined parameters. 
+
+The code is incomplete, so it's hard to say exactly what the final outcome of these operations would be. However, given the variable names and comments, it's likely related to some sort of weather or atmospheric data analysis.
+
+This Python code appears to be part of a larger program, possibly related to meteorology or some other field that uses time series data. Here's a breakdown of what each part does:
+
+1. `Range = self.createTimeRange(h-2, h-1, "Zulu")` - This line is creating a time range from `h-2` to `h-1` in the "Zulu" timezone (also known as Coordinated Universal Time or UTC) and storing it in the variable `Range`.
+
+2. `tr = self.createTimeRange(h-1, h, "Zulu")` - This line is creating a time range from `h-1` to `h` in the "Zulu" timezone and storing it in the variable `tr`.
+
+3. `self.timeShiftCmd(["variableElement"], 1, -1, tr)` - This line is calling a method `timeShiftCmd` on the current object (`self`), which likely shifts a variable element in time by a certain amount. The parameters indicate that the element to be shifted is "variableElement", the shift is by 1 unit in the negative direction, and the time range for this operation is `tr`.
+
+4. `self.callSmartTool("MoveFeatureBySpeed", "variableElement", editArea, timeRange, varDict)` - This line is calling another method `callSmartTool` on the current object. The parameters suggest that this method might be used to move a feature (possibly a meteorological feature like a storm or wind pattern) based on its speed. The parameters passed are the name of the tool ("MoveFeatureBySpeed"), the element to be moved ("variableElement"), an editing area, a time range, and a dictionary of variables (`varDict`).
+
+5. `h -= 1` - This line is decrementing the value of `h` by 1.
+
+6. The `else` clause logs a problem if the intervals are not of 1 hour and returns `None`.
+
+7. The `logProcUse` function logs the current time and a string message, likely for debugging or tracking purposes. It gets the current time in GMT, formats it into a string, and then logs it along with the input string.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

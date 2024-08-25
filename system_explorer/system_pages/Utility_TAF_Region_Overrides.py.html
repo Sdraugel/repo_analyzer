@@ -1,0 +1,64 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TAF_Region_Overrides.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TAF_Region_Overrides.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code file is part of an experimental Terminal Aerodrome Forecast (TAF) software. TAFs are weather reports issued by meteorological authorities to provide information about the expected meteorological conditions at an airport. 
+
+The code is designed to provide regional overrides for the TAF product. It's under the control of the region, and it's not supposed to be edited by the site. The code was written by the GSD Digital Aviation Services Group, and the version is dated July 25, 2017. 
+
+The code imports several Python modules such as string, time, re, os, types, and copy, as well as TextRules and SampleAnalysis, which are likely custom modules related to this project.
+
+The code defines a dictionary named "Definition" which is used to store regional overrides of product definition settings and default values of additional regional definition settings.
+
+The code then defines weather rules for a specific region, "CR". These rules are based on the number of hours since the issuance time and the probability/coverage of different weather conditions. For example, if the probability of thunderstorms is 'Chc' (chance) within the first 3 hours since the issuance time, the corresponding weather code is "VCTS" (Vicinity Thunderstorm).
+
+The code also defines a class named TAF_<region>_Overrides, but it doesn't have any methods or attributes defined within it, except for the __init__ method which is empty. The class seems to be a placeholder for future methods and attributes that would override the default behavior of the TAF product for a specific region.
+
+This code is adding a new key-value pair to a dictionary named `t`. The key is "PoP" and the value is "chance of". 
+
+In Python, dictionaries are used to store data values in key-value pairs. The key-value pair being added here suggests that "PoP" stands for "Probability of Precipitation" and it is being mapped to the phrase "chance of". 
+
+The comment `#return dict` suggests that this dictionary `t` might be returned by a function, although the return statement is not shown in the provided code.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

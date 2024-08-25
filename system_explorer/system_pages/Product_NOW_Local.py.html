@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>NOW_Local.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>NOW_Local.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be part of a larger software system developed by Raytheon Company. It's a base file that is not intended to be overridden. The software is in the public domain, furnished "as is", without technical support, and with no warranty, express or implied, as to its usefulness for any purpose.
+
+The script imports several modules such as GenericReport, TextRules, string, time, re, os, types, and copy. It defines a class named TextProduct that inherits from GenericReport.TextProduct. 
+
+The TextProduct class has a dictionary attribute named Definition, which is a deep copy of GenericReport.TextProduct.Definition. The Definition dictionary is then populated with various key-value pairs that seem to be configuration settings for the software. These include display name, output file, database, debug mode, map name for combinations, default edit areas, product identifiers, area dictionary, language, and line length.
+
+The TextProduct class also has an __init__ method that calls the __init__ method of its parent class, GenericReport.TextProduct.
+
+There's a method named _postProcessArea in the TextProduct class that takes four arguments: fcst, editArea, areaLabel, and argDict. This method returns the string fcst concatenated with ".NOW...\n\n\n$$\n\n". 
+
+It's noted in the script that there are required overrides and optional overrides, but no specific methods are provided for these overrides in this script. There's also a mention of patches that are to be removed with each new release, but no patches are provided in this script.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

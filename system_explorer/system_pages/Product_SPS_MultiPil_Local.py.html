@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>SPS_MultiPil_Local.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>SPS_MultiPil_Local.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a larger software developed by Raytheon Company. The script is designed to produce a Special Weather Statement (SPS) product. 
+
+The script begins with import statements for several modules, including GenericReport, TextRules, and several standard Python libraries such as string, time, re, os, types, and copy.
+
+The main class in this script is `TextProduct`, which inherits from `GenericReport.TextProduct`. This class has a dictionary attribute called `Definition` which is a deep copy of `GenericReport.TextProduct.Definition`. This dictionary is used to store various configuration settings and parameters for the SPS product, such as the display name, output file, source database, debug mode, map name for creating combinations, default edit areas, zone combiner display, sub-domain UGCs (Universal Geographic Codes), product identifiers, area dictionary, language, and maximum line length.
+
+The class also has a constructor method (`__init__`) that calls the constructor of the parent class. In addition, there is a method `_postProcessArea` which is required to be overridden in this class. This method appears to process forecast data for a specific area and returns a formatted string.
+
+The script also contains some conditional logic to handle special multiple product domains for certain sites. If the site is "AFG", different sub-domain UGCs are set based on the value of "_<MultiPil>".
+
+The script also contains placeholders (like "<site>", "<MultiPil>", "<fullStationID>", "<wmoID>", etc.) which are likely replaced with actual values during runtime.
+
+The script also mentions that it contains patches which are to be removed with each new release, although no specific patches are shown in the provided code.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

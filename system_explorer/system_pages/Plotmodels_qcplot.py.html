@@ -1,0 +1,63 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>qcplot.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>qcplot.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code defines a Python class named `QCReport` which seems to be used for generating some sort of quality control report. 
+
+The class has several class attributes defined at the top such as `VALIDITY_BIT`, `INTERNAL_BIT`, `TEMPORAL_BIT`, `STATISTICAL_BIT`, `SPATIAL_BIT`, `KALMAN_BIT`, `FILL`, `ROW_HEADERS`, and `CHECK_MASKS`. These attributes seem to be used as constants throughout the class.
+
+The `__init__` method is the constructor of the class which initializes the instance with several attributes such as `baseParamNames`, `headers`, `checks`, `tlCornerParameter`, `pdv`, `tableText`, `subjectiveMap`, and `title`.
+
+The class also has several methods:
+
+- `setTitle`: This method sets the title of the report.
+- `setPointDataView`: This method sets the point data view (`pdv`) of the report and resets `tableText` and `failed`.
+- `getPointDataView`: This method returns the point data view (`pdv`) of the report.
+- `getTableText`: This method generates the text of the table for the report. It uses the `baseParamNames` to get quality control data from the `pdv`, formats it into a string, and stores it in `tableText`. It also determines whether the report has failed or not.
+- `isOk`: This method returns whether the report is okay (i.e., not failed).
+- `isFailed`: This method returns whether the report has failed.
+
+The comments at the top of the code indicate that this software was developed by Raytheon Company and contains export-restricted data. It also mentions that this is a base file that is not intended to be overridden.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,65 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TimingInterface.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TimingInterface.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is written in Python and appears to be a part of a larger software system developed by Raytheon Company. The initial comments indicate that the software is subject to U.S. export control laws, meaning it contains sensitive data that cannot be exported or transferred without proper authorization.
+
+The code itself is focused on defining a class called `TimingInterface`. This class seems to be a part of a system for testing the timing of various storage plugins for a Python Process Isolated Enhanced Storage system.
+
+The `TimingInterface` class has several methods, each of which raises a `NotImplementedException` from the `PiesExceptions` module. This suggests that `TimingInterface` is likely an abstract base class. Abstract base classes are typically used as a skeleton for other classes to inherit from. The methods in an abstract base class are usually not implemented within the base class itself, but are instead implemented by any subclasses that inherit from the base class.
+
+Here is a brief description of each method:
+
+- `__init__`: This is the initializer method for the class. It doesn't do anything in this case.
+- `createGroup`: This method is intended to create a group with a given name.
+- `createDataset`: This method is intended to create a dataset within a group, with a given name and value, and a specified number of dimensions.
+- `close`: This method is intended to close the storage.
+- `appendValue`: This method is intended to append a value to the storage.
+- `getDataset`: This method is intended to retrieve a dataset with a given name.
+- `sampleValue`: This method is intended to sample a value from a dataset at a given index.
+- `splitGroupData`: This method splits the name of a group into its constituent parts and returns them.
+
+The `SOFTWARE HISTORY` comment section indicates that the initial creation of this part of the software was done by an engineer named 'njensen' on May 20, 2010.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

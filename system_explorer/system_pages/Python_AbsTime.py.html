@@ -1,0 +1,72 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>AbsTime.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>AbsTime.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code defines a class `AbsTime` that extends the standard Python `datetime` class and `JUtil.JavaWrapperClass`. This class is designed to provide a wrapper for `datetime` that is partially compatible with AWIPS I GFE (Advanced Weather Interactive Processing System I Gridded Forecast Editor).
+
+The `AbsTime` class has several methods:
+
+- `__new__`: This is a special method in Python classes that gets called when a new object is created. It takes an argument and converts it into a `datetime` object in UTC if it's an integer or float. If it's not, it assumes it's a Java `Date` object and converts it to a `datetime` object.
+
+- `unixTime`: This method returns the Unix timestamp of the `AbsTime` object.
+
+- `_fromDateTime`: This method takes a `datetime` object and returns a new `AbsTime` object with the same timestamp.
+
+- `__add__` and `__sub__`: These are special methods in Python that define the behavior of the addition and subtraction operators. They allow `AbsTime` objects to be added or subtracted with integers, floats, or other `AbsTime` objects.
+
+- `javaDate`: This method converts the `AbsTime` object into a Java `Date` object.
+
+- `toJavaObj`: This method is a wrapper for the `javaDate` method.
+
+- `stringFmt` and `string`: These methods return a string representation of the `AbsTime` object.
+
+The code also defines several functions:
+
+- `absTimeYMD`: This function creates a new `AbsTime` object with the specified year, month, day, hour, minute, and second.
+
+- `current`: This function returns the current system time as an `AbsTime` object.
+
+- `maxFutureTime`: This function returns the maximum future time as an `AbsTime` object.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

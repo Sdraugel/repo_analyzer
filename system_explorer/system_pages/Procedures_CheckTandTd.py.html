@@ -1,0 +1,94 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>CheckTandTd.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>CheckTandTd.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script, specifically a class definition for a procedure in a larger system, possibly a weather forecasting system given the variable names and comments. The class is named `Procedure` and is a subclass of `SmartScript.SmartScript`. 
+
+The class has several methods:
+
+1. `__init__(self, dbss)`: This is the constructor method that initializes the `Procedure` object. It calls the constructor of the superclass `SmartScript.SmartScript`.
+
+2. `getWEInventory(self, WEName, timeRange=None)`: This method retrieves the list of time ranges at the grid whose element name is `WEName`. 
+
+3. `getLocksByOthers(self, weName)`: This method retrieves time ranges locked by other workstations for the weather element named `weName`.
+
+4. `overlappingTRs(self, timeRange, trList)`: This method filters a list of time ranges, returning only those that overlap with a given time range.
+
+5. `combineInventoryLists(self, minTRList, maxTRList)`: This method concatenates two lists of time ranges and sorts them by their starting times.
+
+6. `execute(self, timeRange, varDict)`: This is the main method of the class. It checks if the variable `Check or Force` in `varDict` is set to `Check Only`. If it is, it creates temporary grids. Otherwise, it modifies the `minT`, `maxT`, `T`, and `Td` grids.
+
+The code also includes a `VariableList` that defines user options for the procedure, and several imports for necessary modules and classes. 
+
+The script appears to be part of a larger system, as it references external classes and modules. It seems to be used for checking or forcing certain conditions on weather data grids, possibly for consistency or error-checking.
+
+This script appears to be part of a larger program related to weather forecasting, specifically dealing with temperature grids. Here's a breakdown of what this section of the code does:
+
+1. The code first unloads a weather element (WE) model and sets the tool type to "numeric".
+
+2. It then checks if a time range is valid. If not, it sets a default time range starting from two days ago and ending ten days from now.
+
+3. The code retrieves grid data for minimum temperature (MinT), maximum temperature (MaxT), temperature (T), and dew point temperature (Td) within the specified time range from a model. It also retrieves information about any locks on these grids by other users.
+
+4. It retrieves a list of edit areas and a specific site ID. If the site ID is found in the list of edit areas, it retrieves the corresponding edit area and creates a mask with it. If the site ID is not found, it creates a mask covering the entire grid.
+
+5. The code then checks to ensure that the minimum temperature is less than or equal to the maximum temperature. If there are any points where the minimum temperature is greater than the maximum temperature, it either flags these points (if checkOnly is True) or forces the minimum temperature to be equal to the maximum temperature (if checkOnly is False).
+
+6. The code then checks for instances where the temperature (T) is less than the minimum temperature (MinT) within the specified time range.
+
+This script seems to be part of a larger system for managing and validating weather data. It ensures that the temperature data is consistent and within expected ranges.
+
+This code is checking for inconsistencies in temperature (T) and dew point temperature (Td) grids. It performs three main checks:
+
+1. Checking if T is less than the minimum T (MinT): If the temperature at any point in the grid is less than the minimum temperature, it sets the flag `foundProblem` to `True`. If `checkOnly` is `False`, it sets the temperature at those points to the minimum temperature, and updates the temperature grid in `tDict`. If `checkOnly` is `True`, it creates a grid showing where the temperature is less than the minimum temperature.
+
+2. Checking if T is greater than the maximum T (MaxT): Similar to the first check, but this time it checks if the temperature at any point in the grid is greater than the maximum temperature. If so, it sets the flag `foundProblem` to `True`. If `checkOnly` is `False`, it sets the temperature at those points to the maximum temperature, and updates the temperature grid in `tDict`. If `checkOnly` is `True`, it creates a grid showing where the temperature is greater than the maximum temperature.
+
+3. Checking if Td is greater than T: If the dew point temperature at any point in the grid is greater than the temperature, it sets the flag `foundProblem` to `True`. If `checkOnly` is `False`, it sets the dew point temperature at those points to the temperature, and updates the dew point temperature grid in `tdDict`. If `checkOnly` is `True`, it creates a grid showing where the dew point temperature is greater than the temperature.
+
+If none of these checks find a problem, it sends a message saying "CheckTandTd found no inconsistencies." 
+
+The code also checks if the temperature grid is locked by another user before modifying it. If it is locked, it sends a message and skips the modification for that time range.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

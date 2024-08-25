@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>gfeClient.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>gfeClient.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be a client for interacting with a GFE (Grid Forecast Editor) server. 
+
+The script starts by importing necessary modules such as `os`, `sys`, `time`, `argparse`, and some other custom modules. 
+
+The `validateArgs(args=None)` function is used to validate and parse command-line arguments. It uses the argparse module to define what arguments the program is expecting. The arguments include script, host, port, site, config, username, drt (displaced real time), and startTime. 
+
+The `main(args)` function is the main entry point of the script. It checks the arguments passed, validates them using the `validateArgs(args)` function, and constructs a `GfeClientRequest` object with the validated arguments. If the `drt` argument is provided, it converts it into milliseconds and sets it in the `GfeClientRequest` object. 
+
+Then, it creates a `ThriftClient` object with the host and port arguments and sends the `GfeClientRequest` object to the server. 
+
+If the script name is `shutdown`, it does not validate the arguments and does not send a request to the server. 
+
+The script is executed if it is run as a standalone script, not if it is imported as a module. The `if __name__ == '__main__':` line checks this. If the script is run directly (not imported), `__name__` is set to `'__main__'`, so `main(sys.argv[1:])` is called, which starts the script. 
+
+The script appears to be part of a larger system, possibly for weather forecasting, given the use of GFE and the mention of "displaced real time".</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

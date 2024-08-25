@@ -1,0 +1,64 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>LockingFile.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>LockingFile.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that defines a class `File` which extends `io.TextIOWrapper`. This class is designed to handle file operations with additional locking mechanisms to prevent simultaneous access to the same file, which can cause data corruption or loss.
+
+Here's a detailed breakdown of the code:
+
+1. The script begins with a large comment block that includes information about the software's development, export control restrictions, contractor details, and software history.
+
+2. The script then imports necessary modules and classes. It imports `io` from Python's standard library, `FileLocker` from a package `com.raytheon.uf.common.localization`, `File` as `JavaFile` from `java.io`, and `Object` from `java.lang`. It also imports `jep`, a Python library to embed Python in Java and Java in Python.
+
+3. The `File` class is then defined. It inherits from `io.TextIOWrapper`, a class in Python's standard library for reading and writing text files.
+
+4. The `File` class has an `__init__` method (constructor) which takes three parameters: `file`, `name`, and `mode`. The `file` parameter is expected to be a Java `File` object. The `mode` parameter determines whether the file will be opened for reading (`'r'`) or writing (`'w'`).
+
+5. Depending on the mode, a `FileLocker` is used to lock the file for reading or writing. If the file cannot be locked, a log message is generated (commented out in this code).
+
+6. The `File` class also has a `close` method which unlocks the file using `FileLocker` before closing it. This ensures that the file is available for other processes or threads after it's been used.
+
+This code is likely part of a larger system where file access needs to be carefully controlled to prevent conflicts. The use of `FileLocker` suggests that this system may be multi-threaded or distributed, where multiple processes or threads could potentially try to access the same file simultaneously.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,522 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>serverConfig.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>serverConfig.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This is a header and a software history section of a configuration file for a server. 
+
+The header contains information about the software's development, including the company that developed it (Raytheon Company), the contract under which it was developed, and the export control restrictions on the software. It also provides the contractor's contact information and a reference to a document ("Master Rights File.pdf") for more licensing information. 
+
+The software history section provides a log of changes made to the software over time. Each entry includes the date of the change, a ticket number (presumably for tracking purposes), the engineer who made the change, and a description of the change. This history allows developers to track the evolution of the software, understand why certain changes were made, and potentially identify the source of any issues that arise.
+
+The note in the header indicates that this is a base server configuration file for GFE (Graphical Forecast Editor, a tool used by meteorologists) and that it should not be modified by users. Instead, users should refer to local configuration documentation for instructions on how to override settings in this file.
+
+This code file appears to be a configuration file for a system, possibly related to weather modeling given the references to various weather elements and models. It contains a log of changes made to the system over time, with each entry indicating the date of the change, an identifier, the person who made the change, and a description of what was changed.
+
+The code defines a class `dbConfig` that is used to create GFE (Gridded Forecast Editor) databases from a given model dictionary. The `dbConfig` class has an initializer function `__init__` that takes a model dictionary as input and initializes several instance variables.
+
+The code also imports several modules that are used within the file, such as `os`, `sys`, `re`, `pprint`, `defaultdict` from `collections`, `LogStream`, `VTECTable`, `SimpleServerConfig` from `com.raytheon.edex.plugin.gfe.config`, `ProjectionData` from `com.raytheon.uf.common.dataplugin.gfe.config`, and `siteConfig`, `importlib`.
+
+The `BASELINE` variable is defined using the `getattr` function to get the `BASELINE` attribute from the `siteConfig` module, and if it doesn't exist, `0` is used as the default value.
+
+This code file appears to be for managing and configuring models in a database. It includes methods for adding models, updating models, merging model dictionaries, and creating a model dictionary. 
+
+1. `addConfiguredModels`: This method sets up model databases defined in `dbConfigDict`. It takes an optional `ignoreList` parameter which can be used to filter out specific models.
+
+2. `addGfeDB`: This method does all the work needed for adding a model to GFE from entries in `dbConfigDict`. It populates `dbs` and sets various self variables.
+
+3. `mergeModelDicts`: This method combines `serverConfig` model dict and regional `modelDict` into one `modelDict`. Settings in `baseDict` are maintained unless overridden in `addDict`. The merging is done on a key by key basis of a specific model's dictionary.
+
+4. `updateModelDict`: This method updates a specific entry for a model in `modelDict`. If the model is not defined in `modelDict`, then a new entry is created. Otherwise, the value replaces any existing value in `modelDict[model][key]`.
+
+5. `alterModelDef`: This method alters GFE database definition. It changes the definition used in the `dbs` setting.
+
+6. `createModelDict`: This method converts `serverConfig` model configuration to a dictionary. It allows legacy `serverConfig` settings in `dbs`, `D2DMODELS`, `INITMODULES`, etc. to be maintained and then converted into a single dictionary where all settings for a model are together.
+
+The code also initializes three dictionaries: `D2DAccumulativeElements`, `INITMODULES`, and `INITSKIPS`.
+
+The provided code is written in Python and seems to be part of a larger system that handles model parameters, possibly for a weather forecasting or similar system. 
+
+The code defines several functions:
+
+1. `changeParm`: This function alters a parameter that is defined in the model dictionary's parameter setting. It takes in a model dictionary, a parameter name, a value, and an optional model list. If the model list is not provided, it defaults to ['Fcst']. If no models are provided in the model list, it defaults to all models in the model dictionary.
+
+2. `changeParmTC`: This function alters a parameter in the model dictionary's parameter setting. It takes in a model dictionary, a parameter name, a new Time Constraint (tuple), and an optional model list. If the model list is not provided, it defaults to ['Fcst']. If no models are provided in the model list, it defaults to all models in the model dictionary.
+
+3. `checkForParm`: This function checks a model parameter definition to see if a parameter named pname is in it. It takes in a parameter definition and a parameter name. It returns a Boolean True if found, or False otherwise.
+
+The code also includes a larger block of code that initializes and populates dictionaries (`modelDict`, `parmsDict`, `tcDict`) based on the contents of `localsDict` and `dbs`. It seems to be sorting and organizing parameters and their associated values, possibly for use in a weather model or similar system.
+
+This code is written in Python and contains several functions that seem to be part of a larger system, possibly related to weather forecasting or similar scientific data analysis. 
+
+1. The first piece of code is a fragment from a function. It is trying to find an item in a list (or other iterable) where the first element of the item matches a given parameter name (`pname`). If such an item is found, the function returns `True`; otherwise, it returns `False`.
+
+2. The `getParmNames(parmsDef)` function takes a list of tuples as input, where each tuple represents a parameter definition with a time constraint. It extracts the parameter names from these tuples and returns a sorted list of these names.
+
+3. The `printServerConfig(moduleObj, localsDict, logFile="/awips2/edex/logs/localConfig.log")` function is used to write the server configuration settings to a log file. It takes a module object and a dictionary of local variables as input, and writes the configuration settings for various parameters to the log file.
+
+4. The `printModelDict(localsDict)` function converts the server configuration model to a dictionary and writes this dictionary as text. This function does not create a usable model dictionary, but one that can be used to print out the dictionary as Python code. It categorizes the local variables into parameter variables and time constraint variables, and then prints out the database entries, i.e., the model database definition. It also handles the consolidation of parameters by time constraint and sorts the parameter names. 
+
+The code also includes handling for multiple models and their associated SmartInit modules, as well as handling for D2DDBVERSIONS and D2DAccumulativeElements, which seem to be specific to the larger system this code is part of. 
+
+Overall, this code seems to be part of a system for managing and logging configuration settings for a complex model, possibly related to weather forecasting or a similar field.
+
+This code appears to be part of a larger system, possibly related to weather forecasting or similar data analysis. Here's what each part does:
+
+1. The first part of the code is updating a dictionary `modelDict` with keys and values from several other dictionaries and lists (`INITSKIPS`, `D2DMODELS`). If a key already exists in `modelDict`, it updates the value; if not, it creates a new key-value pair. It then formats the `modelDict` into a string `scText` and returns it.
+
+2. The `_dumpParms` function takes a list of tuples `parms`, and creates a dictionary `pDict` where the first element of each tuple is the key and the entire tuple is the value. It then returns a string representation of `pDict`.
+
+3. The `addOptionalParms` function modifies the `modelDict` by adding parameters from `optionalParmsDict` to the `Fcst` database. It takes a default time constraint (`defaultTC`), a dictionary of time constraints (`tcParmDict`), a parameter dictionary (`parmDict`), and the `modelDict`. It returns the parameter definition added to `Fcst`.
+
+4. The `addPowt`, `addWinterWeatherProbs`, and `addRainfallProbs` functions are similar. They set up different parameters in the `Fcst` database by calling `addOptionalParms` with specific arguments.
+
+5. The `localTC` function calculates a time constraint based on local time, taking into account daylight savings time.
+
+6. The `siteImport` function imports a module given its name. If the module doesn't exist, it logs a message and returns 0. If the module does exist but has an error, it raises an exception. If the module was imported successfully, it returns 1.
+
+7. The `doIt` function imports local site configuration and parses it. It then sets several attributes of the `IFPConfigServer` object.
+
+This code is configuring a server (presumably for weather forecasting) by setting various properties of an object named `IFPConfigServer`. These properties include weather types, site definitions, office types, site ID, time zone, and various data models and directories. 
+
+The code is also parsing some configuration data using a function from an object named `doConfig`. The parsed data is then assigned to the `IFPConfigServer` object.
+
+There is also a function `getSimpleConfig()` which returns the `IFPConfigServer` object.
+
+The code then sets several variables to values from a `siteConfig` object and from the operating system's environment variables. These variables seem to be related to a suite of software named `GFESUITE`.
+
+The code also defines several groups of sites, presumably for different geographical regions or areas of interest. These groups are stored in a dictionary named `groups`.
+
+The `siteRegion` dictionary maps regions to the corresponding groups of sites.
+
+The `modelDict` is a dictionary that is initialized as a defaultdict. It is mentioned in a comment that it is a master configuration dictionary for all GFE databases.
+
+The `ignoreDatabases` list is used to ignore certain models when executing the final configuration. 
+
+Overall, this code seems to be part of a larger system for weather forecasting, where different configurations are needed for different geographical regions and different types of weather data.
+
+The code is written in Python and is part of a weather forecasting system. It is defining and configuring various weather elements and grouping sites based on their geographical location.
+
+1. The first part of the code defines groups of sites based on their geographical locations such as 'OCONUS_SITES', 'powt', 'marineSites', 'winterProbs', and 'rainfallProbs'. These groups are defined using site codes.
+
+2. The second part of the code is a loop that checks if a site ID (SID) is in any of the site regions. If it is, it assigns that region to the variable 'myRegion' and breaks the loop.
+
+3. The third part of the code defines various weather elements and their properties such as their type (SCALAR, VECTOR, WEATHER, DISCRETE), units, description, maximum and minimum values, precision, and whether they are rate parameters.
+
+4. The weather elements defined include temperature (surface, maximum, minimum, dewpoint), heat index, wind chill, precipitation (QPF, probability of precipitation for different time periods), wind (surface, gust), ice accumulation, snowfall amount, storm total (ice, snow), sky condition, freezing level, snow level, relative humidity, and others.
+
+5. The code also defines some weather elements specifically for fire weather forecasting such as Lightning Activity Level (LAL), Chance of Wetting Rain (CWR), Haines Index, Mixing Height, and 20ft. Wind.
+
+6. Some of the weather elements are defined for specific tools or purposes such as 'Cobb SnowTool' and 'collaborate PoP, SnowAmt, QPF and ndfd QPF tools'.
+
+7. The code also defines the maximum and minimum values for some of the weather elements such as temperature, dewpoint, QPF, and ice accumulation.
+
+The provided code appears to be defining a series of tuples, each representing a specific weather or atmospheric parameter. Each tuple contains the following information:
+
+1. Parameter name (e.g., "TransWind", "Stability", "HrsOfSun", etc.)
+2. Type of the parameter (e.g., VECTOR, SCALAR)
+3. Unit of the parameter (e.g., "kts", "cat", "hrs", etc.)
+4. Description of the parameter (e.g., "Transport Wind", "Stability", "Hours of Sun", etc.)
+5. Maximum value of the parameter
+6. Minimum value of the parameter
+7. Unknown value (possibly a flag or identifier for a specific condition)
+8. A flag indicating whether the parameter is optional or mandatory (NO, YES)
+
+The parameters cover a wide range of weather and atmospheric conditions, including wind speed and direction, temperature, humidity, pressure, and various satellite data.
+
+There's also a conditional block of code that assigns different values to the "TUnc" and "TdUnc" parameters depending on whether the "SID" variable is in the 'OCONUS_SITES' group. This suggests that the code may be used for different geographical locations, with different settings for each.
+
+In summary, this code is defining a set of parameters that are likely used in weather forecasting or atmospheric science.
+
+The provided code appears to be a part of a larger program, possibly written in Python. It seems to be defining a series of tuples, each representing a specific parameter related to weather or atmospheric conditions.
+
+The tuples are structured as follows:
+- The first element is the parameter's name.
+- The second element indicates the type of data the parameter represents. In this case, it is either "SCALAR" or "DISCRETE".
+- The third element appears to be the unit of measurement for the parameter (e.g., "C" for Celsius, "%" for percentage, "ft" for feet, etc.).
+- The fourth element is a descriptive string providing more information about the parameter.
+- The fifth and sixth elements are numerical values, possibly representing upper and lower limits or default values for the parameter.
+- The seventh element is a zero, the purpose of which is unclear without more context.
+- The eighth element is "NO", which could be a flag or setting related to the parameter.
+
+The parameters themselves seem to be related to various aspects of weather and atmospheric conditions, including:
+- Different bands of the infrared and visible spectrum, possibly related to satellite imagery or atmospheric analysis.
+- Wind probabilities at different speeds.
+- Parameters related to storm surge, including maximum inundation and surge height above various sea levels.
+- Parameters related to the arrival and departure times of tropical winds at different speeds.
+- Parameters for storm surge collaboration, including proposed and initial storm surge hazards. 
+
+The last line of the provided code seems to be incomplete. It starts to define a list of tuples, "TCVhazardKeys", but the list is not completed. This list appears to be similar to "SShazardKeys", which is a list of tuples defining different storm surge hazards.
+
+The provided code appears to be a part of a larger program that deals with weather data, specifically related to tropical cyclones and other weather hazards. The code is defining a series of tuples and lists that seem to represent different weather parameters and hazards.
+
+Here's a breakdown of what some parts of the code are doing:
+
+1. The first part of the code defines a list of tuples `TCVhazardKeys` that map certain codes to their corresponding weather conditions, such as "TR.A" to "TROPICAL STORM WATCH" and "HU.W" to "HURRICANE WARNING".
+
+2. `ProposedTropWindWW` and `ProposedTropWWGuidance` are tuples that contain information about proposed tropical cyclone wind hazards.
+
+3. `Threat4Keys` is a list of tuples that represent different levels of threats from "None" to "Extreme". Following this, `FloodingRainThreat`, `StormSurgeThreat`, `WindThreat`, and `TornadoThreat` are tuples that contain information about these specific threats.
+
+4. `QPFtoFFGRatio` is a tuple that represents the ratio of Quantitative Precipitation Forecast (QPF) to Flash Flood Guidance (FFG).
+
+5. `HazardKeys` is a list that is populated with keys from the `VTECTable` (presumably a table of weather hazards). The `Hazards` tuple contains information about these hazards.
+
+6. The code also defines several other weather parameters like `AstroTide`, `StormSurge`, `SurgeTide`, `CigHgt` (Ceiling Height), and `QPF1` (1HR QPF or Quantitative Precipitation Forecast for 1 hour), among others. Each of these is a tuple that contains information about the respective parameter.
+
+7. The code also seems to be defining parameters for different weather models or systems like ESTOFS, ETSS, ETSSHiRes, Aviation/GLAMP, and NationalBlend.
+
+8. The last part of the provided code appears to define parameters related to ice accumulation over different time periods and percentiles.
+
+In summary, this code is defining a series of weather parameters and hazards, likely for use in weather forecasting or analysis.
+
+The code you provided appears to be a part of a larger script, likely written in Python. It is defining a series of variables, each representing a different meteorological parameter. Each variable is assigned a tuple that contains information about the parameter, such as its name, type, unit of measurement, description, and some numerical values that could represent default or boundary values.
+
+The parameters include various percentiles of ice accumulation and total precipitation over different time periods, thunderstorm probability, total snowfall, downward short-wave radiation flux, wind speed gust, and others. There are also parameters for specific conditions like "Freezing Spray" and "Prob. of Dry Thunderstorm".
+
+The code also defines lists of possible values for different weather conditions, such as visibility, coverage and probabilities, intensities, and optional attributes. These lists are likely used elsewhere in the program to validate input or to provide options for user selection. 
+
+The comments in the code indicate that some of these parameters are specifically for the Storm Prediction Center (SPC) and the Nearshore Wave Prediction System (NWPS). 
+
+In summary, this code is setting up a series of variables and lists that represent various weather conditions and parameters, likely to be used in a weather prediction or analysis program.
+
+This code appears to be a part of a weather forecasting or reporting system. It defines various weather conditions and their characteristics, such as intensity, coverage, and other associated conditions. 
+
+The code starts by defining various weather conditions and their short forms, such as 'Lightning', 'Gusty Winds', 'Heavy Rainfall', 'Damaging Winds', 'Small Hail', 'Large Hail', etc. 
+
+Then, it defines a list of weather types, each represented as a tuple. Each tuple contains the short form of the weather condition, its full form, a list of possible coverages, a list of possible intensities, and a list of other associated conditions. For example, the 'THUNDER' tuple represents thunderstorms, and includes lists of possible coverages, intensities, and associated conditions like 'Heavy Rainfall', 'Gusty Winds', 'Damaging Winds', 'Dry', 'Large Hail', 'Small Hail', and 'Tornadoes'.
+
+The 'types' list includes all the weather types defined in the code.
+
+The code then defines some discrete keys for air conditions, threat levels, and severe weather conditions. These keys are used to categorize the weather conditions.
+
+Finally, it defines some parameters related to weather conditions, such as 'AirQuality', 'BasinFFP', 'CLRIndx', 'CQPF1', 'Ceiling', 'CigHgtCat', 'CloudBaseConditional', 'CloudBasePrimary', 'CloudBaseSecondary', and 'ClimoET'. Each parameter is represented as a tuple that includes its name, type, unit, description, and other details.
+
+The provided code seems to be defining a series of tuples, each representing a different variable in a program. Each tuple contains several pieces of information about the variable it represents:
+
+1. The variable's name.
+2. The type of data the variable holds (e.g., SCALAR, DISCRETE).
+3. The unit of measurement for the variable's value (e.g., 'in', '%', 'cat', '100ft', 'mi', 'index', 'in/week', 'none').
+4. A descriptive name or label for the variable.
+5. The maximum value the variable can hold.
+6. The minimum value the variable can hold.
+7. An unknown value (possibly representing the number of decimal places to display).
+8. A flag or setting (represented by 'NO').
+
+The variables appear to be related to meteorological data, with names like 'ClimoET' (possibly referring to Climatology Evapotranspiration), 'ClimoPoP' (possibly referring to Climatology Probability of Precipitation), and 'FlashFlood'. Each variable seems to have a version for each month (e.g., 'ClimoETJanA', 'ClimoETFebA', etc.), and some variables have an 'A' and 'B' version for each month, possibly representing different data sets or calculation methods.
+
+The provided code seems to be defining a series of tuples, each representing a different variable or parameter in a weather forecasting or meteorological context. Each tuple appears to have the following structure:
+
+1. The name of the variable.
+2. The type of the variable (SCALAR, VECTOR, DISCRETE).
+3. The unit of the variable (F for Fahrenheit, % for percentage, 'ft' for feet, 'kts' for knots, etc.).
+4. A description of the variable.
+5. The maximum value the variable can take.
+6. The minimum value the variable can take.
+7. An unknown parameter, possibly a default value or a precision specifier.
+8. A flag (NO), possibly indicating whether the variable is optional or required.
+
+For example, the tuple `('HeatOrangeMinT', SCALAR, 'F', 'Heat Orange MinT', maxTempVal, minTempVal, 0, NO)` defines a scalar variable named 'HeatOrangeMinT', measured in Fahrenheit, described as 'Heat Orange MinT', with maximum and minimum values defined by `maxTempVal` and `minTempVal` respectively, and a flag set to 'NO'.
+
+The variables cover a wide range of meteorological parameters, including temperature, humidity, wind speed, precipitation, and more. Some variables seem to be related to specific weather phenomena like lightning, wind shear, or ice accumulation.
+
+This code appears to define a series of tuples, each representing a different variable or parameter. Each tuple contains the following information:
+
+1. The name of the variable or parameter.
+2. The type of the variable (all are SCALAR, meaning they hold a single value).
+3. The unit of measurement for the variable.
+4. A description of the variable.
+5. The maximum value the variable can hold.
+6. The minimum value the variable can hold.
+7. The number of decimal places to use when displaying the variable.
+8. A flag (YES or NO) indicating whether the variable is editable or not.
+
+The variables defined in this code seem to be related to weather forecasting, as they include parameters like precipitation, wind, temperature, pressure, and various probabilities related to weather events. For example, 'PoPSouthernFirehose' might represent the percentage of precipitation in the Southern Firehose region, while 'ProbDmgWind' could represent the probability of damaging wind.
+
+The provided code appears to be defining a series of variables or parameters, each with a specific set of attributes. These parameters seem to be related to weather forecasting or meteorological data. Each parameter is defined by a tuple, which includes the name of the parameter, its type (SCALAR, VECTOR, or DISCRETE), its unit of measurement (e.g., '%', 'ft', 'F'), a description, maximum and minimum values, and other attributes.
+
+For example, the parameter 'RipRisk' is a scalar (a single value as opposed to a vector), has no unit of measurement, is described as 'Rip Current Risk', and has a maximum value of 3.0 and a minimum value of 0.0.
+
+The parameters cover a wide range of weather-related data, including temperature, dew point, visibility, wind speed, snow amount, lightning probability, and more. Some parameters are related to specific weather phenomena, such as tornadoes and severe hail.
+
+The 'optionalParmsDict' is a dictionary that seems to be used for grouping certain parameters together under specific categories. For instance, the 'marine' category includes parameters related to marine weather elements like wave direction, wave height, swell, etc.
+
+Overall, this code is likely part of a larger system for handling and processing meteorological data.
+
+The given code is defining a dictionary of parameters for different weather conditions. Each parameter is defined by a tuple that includes the name of the parameter, its type (VECTOR or SCALAR), the unit of measurement, the description, the maximum and minimum values, a flag (1 or 0), and a final flag (YES or NO).
+
+The parameters are grouped into different categories:
+
+1. Wave parameters: These parameters are related to wave heights and periods. Each wave group is defined by its height and period.
+
+2. Probability parameters: These parameters are related to the probability of different weather conditions such as blowing dust, fog, frost, rain, snow, etc.
+
+3. Winter weather probabilities: These parameters are related to the probability of different winter weather conditions such as snowfall, ice accumulation, etc.
+
+The code also includes a conditional statement that redefines the 'WaveHeight' field if the 'SID' is in 'GreatLake_SITES'. 
+
+In summary, this code is defining a set of parameters that can be used to model and predict different weather conditions.
+
+The provided code is a part of a larger Python script that appears to be related to weather forecasting. It defines a series of parameters related to different weather conditions, such as snowfall, ice accumulation, and rainfall. Each parameter is defined as a tuple with various attributes such as name, type, unit, description, and some numerical values.
+
+Here's a breakdown of the different sections:
+
+1. Snowfall Probabilities: This section defines the probability of different amounts of snowfall, from 1 inch up to 18 inches.
+
+2. Freezing Rain Percentiles: This section defines the percentiles for ice accumulation, from the 5th percentile up to the 95th percentile.
+
+3. Freezing Rain Accretion Probabilities: This section defines the probability of different amounts of ice accretion, from 0.01 up to 0.50.
+
+4. Persist WPC Snow Prob Grids: This section defines the percentiles for snow amount according to the Weather Prediction Center (WPC), from the 5th percentile up to the 95th percentile. It also defines the probability of different amounts of snowfall according to the WPC, from a trace up to 18 inches.
+
+5. Rainfall Probability Definitions: This section defines the percentiles for rainfall, from the 5th percentile up to the 95th percentile. It also defines the probability of different amounts of rainfall, from 0.01 inches up to 3.00 inches.
+
+The last part of the code is related to the configuration of the projection for the weather data. It imports some constants related to different types of projections (like Lambert Conformal and Mercator), but the specific configuration details are not included in the provided code.
+
+This code is defining a series of geographic grids for different types of map projections. Each grid is defined by a tuple of parameters that specify the projection type and other details such as the lower left and upper right coordinates, the origin of the grid, standard parallels, and the lower left and upper right grid points. 
+
+The types of projections used include Mercator, Polar Stereographic, Lambert Conformal, and LatLon. 
+
+For example, Grid201 is a Polar Stereographic projection with lower left coordinates of (-150.00, -20.826), upper right coordinates of (-20.90846, 30.0), and an origin at (0.0, 0.0). The grid points start at (1, 1) and end at (65, 65). 
+
+Finally, all the grids are added to a list called `allProjections`. This list can then be used elsewhere in the program to access the details of each grid.
+
+The provided code seems to be a configuration file for a grid system. It is defining various parameters for different sites. These parameters include:
+
+- Grid dimensions (xdim, ydim): These define the size of the grid for each site.
+- Origin: This defines the lower-left corner of the grid in world coordinates.
+- Extent: This defines the size of the grid in world coordinates. The upper right corner is the origin plus the extent.
+- TimeZone: This defines the timezone used by the site in standard TZ format.
+- Projection: This defines the projection identifier to be used for this domain.
+- OfficeType: This seems to define the type of office each site is.
+
+The SITES dictionary contains the configuration for each site. The keys are site identifiers (like 'AFC', 'ABQ', etc.), and the values are tuples containing the configuration parameters for that site. 
+
+For example, the site 'AFC' has a grid of dimensions 1057x449, an origin at (1.0, 19.00), an extent of (66.0, 28.0), uses the 'America/Anchorage' timezone, uses the Grid214AK projection, and is a "wfo" office type.
+
+This code appears to be a dictionary in Python where each key is a string representing a code (possibly a location or station code) and each value is a tuple containing various parameters related to that code. 
+
+Each tuple contains:
+
+1. A list of two integers: These could represent a range, dimensions, or coordinates.
+2. A tuple of two float values: These could represent coordinates (latitude, longitude) or some other pair of related values.
+3. Another tuple of two float values: These could represent another set of coordinates or related values.
+4. A string: This looks like it represents a timezone.
+5. A variable: This could be an object or a class instance related to the code.
+6. A string: This could be a category or type related to the code.
+
+The last section of the code starting with '#RFCs' seems to be a different section or category within the same dictionary. The structure of the tuples in this section is slightly different, with the first item in the tuple being a list of three integers instead of two.
+
+The exact purpose of this code would depend on the larger context in which it's being used.
+
+The code appears to be part of a larger Python script that is used for configuring a system related to weather forecasting or meteorological data processing. 
+
+The first part of the code is defining a dictionary called `SITES` which contains data for different sites or regions. Each key in the dictionary is a string representing a site code, and the value is a tuple containing various parameters for that site. These parameters include coordinates, time zone information, grid system, and a category or type of the site.
+
+The second part of the code is creating a list of valid office types. It iterates over all the values in the `SITES` dictionary and appends the office type (the 6th element of each site's values) to the `VALID_OFFICE_TYPES` list if it's not already in the list.
+
+The third part of the code is defining a number of time constraints, represented as tuples of start time, repeat interval, and duration, all in seconds. These time constraints are used for different types of weather data, such as hourly temperatures or QPF (Quantitative Precipitation Forecast).
+
+The final part of the code, which is cut off, seems to be starting to define a configuration for a database or model, with attributes such as the model name.
+
+The given code is a Python script that appears to be part of a larger system for handling and managing weather data. 
+
+The first part of the code defines some constants and tuples that seem to represent different types of databases or data sources. Each tuple contains information about the name, format, type, whether it's single or not, whether it's official or not, the number of versions to retain, and the purge age.
+
+The second part of the code defines the search paths for netCDF data files based on different site IDs (SID). netCDF (Network Common Data Form) is a set of software libraries and machine-independent data formats that support the creation, access, and sharing of array-oriented scientific data. The code checks the SID and assigns a list of directory paths to the variable `NETCDFDIRS` accordingly.
+
+The third part of the code defines the location and names for satellite data. It seems to be handling data from both legacy GOES (Geostationary Operational Environmental Satellites) and the newer GOES-R series. The data from these satellites is stored in tuples, where the first element is the product ID (which includes the sector ID and physical element of the satellite product), and the second element is the weather element name.
+
+This code appears to be a configuration file for a weather forecasting system. It's defining various settings and parameters for different geographical sites and weather elements.
+
+1. The `goesrWconusSatData` variable is a list of tuples that seem to represent different satellite data channels and their corresponding types of data, such as visible bands, near-infrared bands, and infrared bands.
+
+2. The code then checks the value of `SID` (which presumably represents a site ID) and sets the `SATDATA` variable accordingly. If the site ID is in the 'ALASKA_SITES' group, 'HFO', 'SJU', 'GUM', 'PQE', 'PQW', 'PPG', the `SATDATA` is set to an empty list, `goesrEconusSatData`, or `legacyWestConusSatData + goesrEconusSatData` respectively.
+
+3. The `ISC_ROUTING_TABLE_ADDRESS` variable is a dictionary that maps site IDs to URLs, likely for routing data.
+
+4. Several flags and parameters are defined for controlling the request and transmission of ISC (Intersite Coordination) data. These include `REQUESTED_ISC_SITES`, `REQUEST_ISC`, `SEND_ISC_ON_SAVE`, `SEND_ISC_ON_PUBLISH`, `REQUESTED_ISC_PARMS`, and `TRANSMIT_SCRIPT`.
+
+5. The `EXTRA_ISC_PARMS` variable is a list of tuples, each containing a list of weather elements and an office type. This seems to be used for adding extra parameters to the ISC database when receiving data from a site of a different office type.
+
+6. The `AUTO_CONFIGURE_NOTIFYTEXTPROD` variable is a flag for automatically configuring the NotifyTextProd feature.
+
+7. The `myOfficeType` variable is set to the sixth element of the list associated with the current site ID in the `SITES` dictionary.
+
+8. The `AdditionalISCRouting` variable is an empty list, with comments indicating it can be configured with entries representing weather elements, model names, and edit area prefixes.
+
+9. The `STD6_MODEL` and `STD1_MODEL` variables are lists of tuples, each containing a list of weather elements and a time constraint. These seem to be used for setting up multiple models in a model dictionary with the same parameter set.
+
+The provided code is a configuration file for a weather forecasting system. It defines different sets of parameters that are used for different types of weather forecasts. Each set of parameters is associated with a specific time constraint (TC), which determines the frequency of the forecast updates.
+
+Here's a breakdown of the main sections:
+
+1. **Hourly and 3-hourly models:** These sections define the parameters for the hourly and 3-hourly weather models. The parameters include temperature, dew point, relative humidity, wind speed and direction, sky condition, freezing level, snow level, and others.
+
+2. **Official and SAT database parameter groupings:** These sections define the parameters for the official forecast and the satellite data. The official forecast parameters include temperature, dew point, wind speed and direction, weather condition, sky condition, freezing level, snow level, and others. The satellite data parameters include different bands of satellite imagery.
+
+3. **NWPS (Nearshore Wave Prediction System) models:** These sections define the parameters for the wave prediction models. The parameters include wave height, wave direction, wind speed, and others.
+
+4. **RTMA (Real-Time Mesoscale Analysis) database parameter groupings:** These sections define the parameters for the real-time mesoscale analysis. The parameters include temperature, dew point, relative humidity, wind speed and direction, visibility, pressure, and others.
+
+5. **Intersite coordination database parameter groupings:** This section defines the parameters for intersite coordination. The parameters are based on the official forecast parameters, but the time constraint is always TC1.
+
+6. **New parameters for NewTerrain:** This section defines new parameters for a new terrain model. The parameters include new topography, previous topography, standard topography, and GTOPO30 (a global digital elevation model).
+
+7. **General server configuration section:** This is a placeholder for the general server configuration section.
+
+The code also contains some conditional logic to append additional parameters based on certain conditions, such as whether the site ID (SID) is in certain groups or whether the office type is valid.
+
+The provided code is a part of a configuration file for a server that handles weather models. It defines a dictionary named `modelDict` where each key-value pair represents a weather model and its configuration.
+
+Here's what each part of the code does:
+
+1. It starts by setting up a server configuration object `IFPConfigServer` and allows topography values below zero.
+
+2. It then provides detailed comments about the structure and usage of the `modelDict` dictionary. The dictionary is used to define various weather models and their configurations. Each model configuration can include keys like "DB", "Parms", "D2DMODELS", "INITMODULES", "D2DAccumulativeElements", "D2DDBVERSIONS", and "INITSKIPS".
+
+3. It provides an example of how to define a model in the `modelDict` dictionary.
+
+4. It then defines several models in the `modelDict` dictionary. Each model has a unique key and its value is another dictionary that defines the model's configuration. The configuration includes database details, parameters, metadata database name, SmartInit module name, accumulative elements, number of versions to show, and specific model cycles to skip.
+
+5. The models defined include 'Fcst', 'BaseTerrain', 'CRMTopo', 'ECMWF', 'ENPwave', 'ETSS', 'ETSSHiRes', 'FFG' + s (where s is a string from a list of strings), 'GFS', 'GLAMP', 'GWW', 'GWW233', and 'GlobalWave'.
+
+6. The code ends abruptly, indicating that there are likely more models defined in the full code file.
+
+This code is defining a series of dictionaries, each representing a different model. Each dictionary is being added to the `modelDict` dictionary using a unique key. These models appear to be related to weather forecasting or similar atmospheric data processing, as indicated by the keys and values used.
+
+Each model dictionary contains various configuration parameters and settings for that model. These parameters include:
+
+- `'D2DAccumulativeElements'`: This appears to be a list of elements that are accumulated over time in the model.
+- `'D2DMODELS'`: This could be the name or identifier of the model being used.
+- `'DB'`: This could be database-related information, possibly specifying the database name, type, and other settings.
+- `'INITMODULES'`: This could be the name of the module to initialize the model.
+- `'Parms'`: This seems to be parameters or variables used in the model, possibly with their respective methods or functions.
+
+The keys and values in each model dictionary are not consistent across all models, suggesting that different models may require different configuration parameters. For example, some models include a `'D2DDBVERSIONS'` key, which could represent the versions of a database or data format that the model supports.
+
+It's important to note that without more context or comments in the code, these are educated guesses based on the variable names and structure of the code. The actual purpose and functionality could be different based on the larger context of the codebase.
+
+The provided code is a part of a larger Python script that appears to be configuring various models in a dictionary called `modelDict`. Each key in the dictionary represents a model name, and the value is another dictionary that contains the configuration settings for that model.
+
+Here is a brief description of what each key-value pair in the configuration dictionary seems to represent:
+
+- `'D2DMODELS'`: This key specifies the name of the model.
+- `'DB'`: This key seems to define database-related settings. The tuple might represent parameters like the name of the database, the type of the database, some additional settings, and versioning information.
+- `'INITMODULES'`: This key specifies the modules to be initialized for this model.
+- `'Parms'`: This key specifies the parameters for the model. It's a list of tuples, where each tuple contains a list of parameters and a corresponding setting or category.
+- `'D2DAccumulativeElements'`: This key seems to specify the elements that are accumulated over time in the model.
+- `'INITSKIPS'`: This key seems to specify certain steps or iterations to be skipped during initialization.
+- `'D2DDBVERSIONS'`: This key seems to specify the number of versions to keep in the database for this model.
+
+The models configured in this part of the script include 'NationalBlendOC', 'NewTerrain', 'PWPF', 'RFCQPF', 'RTMA', 'RAP', 'SAT', 'SPC', 'SREF', 'Satellite', 'TPCProb', and 'TPCProbPrelim'.
+
+Please note that the exact meaning of these keys and values can vary depending on the larger context of the script and the specific software or system it's designed to work with.
+
+This code is defining a dictionary named `modelDict` in Python. Each key in the dictionary is a string that appears to represent a model name, and the value associated with each key is another dictionary that contains configuration data for that model. 
+
+The inner dictionaries contain keys like 'D2DDBVERSIONS', 'D2DMODELS', and 'D2DAccumulativeElements'. The 'D2DDBVERSIONS' key is associated with an integer value, the 'D2DMODELS' key is associated with a string value that seems to represent the model name, and the 'D2DAccumulativeElements' key is associated with a list of strings that might represent different elements or attributes related to the model.
+
+Here's a brief description of each model:
+
+1. 'TPCStormSurge': This model has a 'D2DDBVERSIONS' key with a value of 1.
+2. 'TPCSurgeProb': This model has a 'D2DMODELS' key with a value of 'TPCSurgeProb' and a 'D2DAccumulativeElements' key with a list of elements related to storm surge probabilities.
+3. 'TPCSurgeProbLoRes': This model seems to be a lower resolution version of 'TPCSurgeProb' with similar elements.
+4. 'PETSS': This model has a 'D2DMODELS' key with a value of 'P-ETSS' and a 'D2DAccumulativeElements' key with a list of elements related to storm surge probabilities.
+5. 'PETSSLoRes': This model seems to be a lower resolution version of 'PETSS' with similar elements. The code for this model is incomplete, so we can't see all the elements.
+
+The elements in the 'D2DAccumulativeElements' lists seem to represent different percentiles of storm surge (e.g., 'Surge10Pct', 'Surge20Pct', etc.), different heights of storm surge (e.g., 'PSurge25Ft', 'PSurge24Ft', etc.), and incremental changes in these values (e.g., 'Surge10Pctincr', 'PSurge24Ftincr', etc.).
+
+This code appears to be part of a larger program that is defining a dictionary called `modelDict`. This dictionary is being used to store configuration data for various models. Each key in the dictionary is the name of a model and the value is another dictionary that contains configuration data for that model.
+
+The configuration data for each model includes various parameters such as 'DB', 'Parms', 'D2DMODELS', 'D2DAccumulativeElements', 'INITMODULES', etc. The exact meaning of these parameters would depend on the context of the larger program, but they appear to be related to how the model is initialized and how it interacts with other parts of the system.
+
+For example, the 'DB' key seems to contain a tuple with information about the database associated with the model. The 'Parms' key contains a list of parameters used by the model. The 'D2DMODELS' key seems to be related to a specific version or type of the model.
+
+The code also includes conditionals that check the value of the variable `SID` and modify the `modelDict` accordingly. For instance, if `SID` is in the 'ALASKA_SITES' group, the code adds several models specific to Alaska to `modelDict` and updates the 'D2DMODELS' key for several existing models.
+
+If `SID` is 'HFO' (presumably referring to the Honolulu Forecast Office), the code adds a model named 'GFS75' with its specific configuration to `modelDict`.
+
+In summary, this code is defining and configuring a set of models based on the value of `SID`.
+
+This code is configuring and updating a dictionary called `modelDict` for different locations or sites (identified by `SID`). The `modelDict` contains information about different models used for each location. The models have different parameters such as 'D2DMODELS', 'DB', 'INITMODULES', 'Parms', etc. 
+
+The `updateModelDict` function is used to update the 'D2DMODELS' parameter for different models for each location. 
+
+The `includeOnly` list seems to specify the models that should be included for each location. 
+
+The code is divided into different sections for different locations. For example, there is a section for "Guam OCONUS", "San Juan OCONUS", etc. Each section configures the `modelDict` for the specific location and updates the models' parameters. 
+
+The last part of the code seems to be configuring the `modelDict` for different groups of sites. For example, there are sections for 'Atlantic_ESTOFS_SITES', 'Eastern_Pacific_ESTOFS_SITES', 'GreatLake_SITES', etc. 
+
+Finally, there is a section for 'NWPS configuration' which seems to be configuring the `modelDict` for different sites that use the NWPS model.
+
+This code appears to be part of a larger system that deals with weather forecasting models. Here's a breakdown of what the code does:
+
+1. It first defines a list of weather prediction sites (`wpsSites` and `nwpsSites`) based on the value of `SID`. `SID` seems to represent a site identifier. Depending on its value, the code assigns a different list of sites to `nwpsSites`.
+
+2. Then, for each site in `nwpsSites`, it creates two entries in a dictionary called `modelDict`. Each entry represents a model associated with the site, with a set of properties such as 'DB', 'D2DMODELS', 'INITMODULES', and 'Parms'.
+
+3. It then checks if `includeOnly` is True. If it is, it iterates over the keys in `modelDict` and, if a key is not in `includeOnly` and 'D2DMODELS' is in `modelDict[m]`, it appends the key to `ignoreDatabases`.
+
+4. The code then checks if `SID` is in certain groups ('powt', 'winterProbs', 'rainfallProbs') and if it is, it adds certain parameters to `modelDict`.
+
+5. It then checks if `BASELINE` is False and `siteImport('localConfig')` is True. If so, it gets certain attributes from `localConfig` and modifies `modelDict` and `SITES`.
+
+6. It then instantiates settings from `modelDict` using `dbConfig(modelDict)` and adds configured models to `ignoreDatabases`.
+
+7. It creates practice and test databases from `Fcst` and adds them to `DATABASES`.
+
+8. It then processes `AdditionalISCRouting` and `EXTRA_ISC_PARMS`, adding entries to `DATABASES` and `ISCPARMS`.
+
+9. It creates restore database parameter groupings and adds them to `RESTOREPARMS`.
+
+10. It adds the ISC and Restore databases to the `DATABASES` groupings.
+
+11. It finally calls `doIt()` function and if `localLogFile` is not empty, it prints server configuration.
+
+Note: The code contains a lot of commented out lines (lines starting with '#D') which seem to be used for debugging purposes. They write various information to log files.
+
+This code seems to be part of a larger system, and without additional context, it's hard to say exactly what the overall purpose is. However, it appears to be configuring and setting up data for various weather prediction models for different sites.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,144 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>AvnLib.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>AvnLib.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is not an executable code but rather a header and revision history for a Python file named "AvnLib.py". 
+
+The header provides information about the software's development, including the contractor's name and address, and the U.S. export control laws that apply to it. It also mentions a "Master Rights File.pdf" for further licensing information.
+
+The revision history provides a detailed log of changes made to the software over time. Each revision entry includes the revision number, the status of the software at the time of the revision (e.g., "DELIVERED", "REVIEW", "UNDER WORK"), the date and time the revision was created, the name of the person who made the revision, and a brief description of what changes were made in the revision.
+
+For example, in "Revision 1.45", a function called "makeTempo()" was created or modified to 'promote' all items to prevailing conditions in a dictionary. In "Revision 1.44", changes were made to support hacked code. The revision history continues in this manner, documenting each change made to the software.
+
+The provided code is written in Python and appears to be part of a larger system, likely related to weather forecasting. The code includes a detailed revision history and software history, which track changes made to the code over time, the authors of those changes, and the reasons for the changes.
+
+The actual Python code begins with importing necessary modules: `os`, `time`, `Avn`, and `AvnConfigParser`. Then, it defines some constants related to forecast times and transmission windows.
+
+The code then defines several functions:
+
+1. `_startHour(bbb, t)`: This function calculates the start hour for a forecast. It takes two arguments: `bbb` (which seems to relate to the type of forecast) and `t` (which is a time value).
+
+2. `getFmtHeaderTime(bbb, t=None)`: This function returns the header time string, which is one hour less than the start of valid time. It takes two arguments: `bbb` and `t` (which defaults to the current time if not provided).
+
+3. `getValidTime(bbb, t=None)`: This function returns the start of valid time. It takes two arguments: `bbb` and `t` (which defaults to the current time if not provided).
+
+4. `getFmtValidTime(bbb, t=None, tafDuration=24, evtime=None)`: This function returns the valid time in a specific format. It takes four arguments: `bbb`, `t` (which defaults to the current time if not provided), `tafDuration` (which defaults to 24), and `evtime`.
+
+5. `getIssueTime(bbb, t=None)`: This function calculates the issue time for a forecast. It takes two arguments: `bbb` and `t` (which defaults to the current time if not provided).
+
+The code ends abruptly with `getMinutesBeforeForecast`, suggesting that this is only a part of the full code file.
+
+This code seems to be part of a larger system related to weather forecasting. It contains several functions that manipulate and format weather forecast data. Here's a brief summary of what each function does:
+
+1. `Time()`: This function adjusts a given time by subtracting a specified number of minutes or a value from a list called `_Xmit_Windows`. The adjusted time is then compared to another time `t`, and the larger of the two is returned.
+
+2. `getMinutesBeforeForecastTime()`: This function reads a configuration file to get a value for `minutesBeforeForecastTime`. If the file doesn't exist, it returns `None`.
+
+3. `getFmtIssueTime()`: This function formats a given time `t` (or the current time if `t` is `None`) into a specific string format.
+
+4. `_split_line()`: This function splits a line of text into two parts based on a specified maximum length and indentation.
+
+5. `indentTaf()`: This function processes a list of lines (presumably from a weather forecast), adding indentation and splitting lines as necessary.
+
+6. `adjustTimes()`: This function adjusts the times in a forecast, removing past periods and adjusting the start of the valid time.
+
+7. `formatRecForMAIN()`, `formatRecForFM()`, `formatRecForOCNL()`: These functions format different parts of a weather forecast record into a list of strings.
+
+8. `_filterPeriods()`: This function filters a list of periods based on their start and end times.
+
+9. `makeTafFromPeriods()`: This function formats a Terminal Aerodrome Forecast (TAF) from a sequence of periods. A TAF is a weather forecast issued for the area around an airport.
+
+The provided code seems to be a part of a larger program that deals with aviation weather data. It contains several functions that manipulate and format this data. Here's a brief description of what each function does:
+
+1. `s(bbb, periods, t, tafDuration)`: This function is not fully clear due to missing context. It appears to be formatting and appending records to a list called `lines`. It also handles exceptions for when there are no more items in `inperiods`.
+
+2. `fixTafVsby(v)`: This function takes a visibility value and returns a dictionary with the valid Terminal Aerodrome Forecast (TAF) visibility value and its corresponding string representation.
+
+3. `fixCldBase(h)`: This function takes a cloud base height value and returns a valid TAF cloud base height.
+
+4. `fixTafSky(sky)`: This function takes a sky condition dictionary and returns a valid TAF sky condition dictionary. It replaces 'CLR' with 'SKC', rounds cloud bases, and handles other sky conditions.
+
+5. `updateTafWithMetar(tafgrp, mtr)`: This function updates a TAF group with METAR (Meteorological Aerodrome Report) data.
+
+6. `fixTafTempo(p, t)`: This function eliminates TAF TEMPO elements that match those in an FM group.
+
+7. `getGroupIndex(g)`: This function returns the index of a group.
+
+8. `getTafPeriods(taf)`: This function returns a list of periods from a TAF.
+
+9. `flightCategory(dcd)`: This function takes a dictionary with sky and visibility data and returns the flight category (VFR, MVFR, IFR, LIFR) based on the provided conditions.
+
+The code also defines two lists, `_VsbyCat` and `_CigCat`, which seem to be default categories used for eliminating unnecessary weather from TEMPO.
+
+Please note that without additional context or the complete code, some assumptions had to be made based on the provided code.
+
+This code file defines several functions and a class related to processing and analyzing weather data. The specific data format appears to be METAR, a format for reporting current weather observations, and TAF, a format for providing weather forecasts.
+
+1. `findIndex(e, dcd, hlen)`: This function is used to find the index of specific weather conditions ('wx' for weather phenomena and 'cat' for categories) in the provided data dictionary. It updates the index based on the header length (hlen).
+
+2. `_makeWx(g)`: This function is used to create a weather string from the given dictionary. It joins the 'str' values of 'pcp' (precipitation) and 'obv' (obstructions to vision) if they exist in the dictionary.
+
+3. `makeMetarData(metar)`: This function is used to extract and organize METAR data from the provided dictionary. It extracts data about time, wind, visibility, weather phenomena, sky condition, and optional information from the remarks section.
+
+4. `TafData`: This is a class that contains several static methods for processing and organizing TAF data. These methods are used to create data about wind (`_makeTafWind`), visibility (`_makeTafVsby`), weather phenomena (`_makeTafWx`), sky condition (`_makeTafSky`), and cloud cover (`_makeTafCover`). Each method takes a dictionary and a list of items as input and returns a dictionary with the processed data. The methods handle both 'prev' (previous) and 'ocnl' (occasional) data.
+
+The code is written in Python and seems to be part of a larger system for monitoring and analyzing weather data.
+
+This code is part of a class named `TafData` that seems to be processing and manipulating meteorological data, likely Terminal Aerodrome Forecasts (TAFs). TAFs are weather reports issued for the area around an airport.
+
+The class has several methods, each responsible for handling a specific part of the TAF data:
+
+1. `_makeTafCover`, `_makeTafTS`, `_makeTafCB`, `_makeTafLLWS`: These methods are extracting specific weather information (like cloud cover, thunderstorms, cumulonimbus clouds, and low-level wind shear) from the given data. They take two arguments: `g` (the data to be processed) and `items` (the specific items to be extracted). They return a dictionary `d` with the extracted data.
+
+2. `_make`: This method is a general function that calls the above methods for different weather parameters like wind, visibility, weather, sky, cover, etc. It takes four arguments: `g` (the data to be processed), `t1` and `t2` (time range), and `items` (the specific items to be extracted). It returns a dictionary `d` with all the extracted data.
+
+3. `makeTempo`: This method seems to handle 'tempo' data in the TAF, which usually refers to temporary fluctuations in weather conditions. It takes one argument: `grp` (the data to be processed). It returns the processed 'tempo' data.
+
+4. `__init__`: This is the constructor of the class. It takes one argument: `groups` (the data to be processed). It processes the data and stores it in the `_data` attribute of the class.
+
+5. `get`: This method retrieves the weather data for a specific time `t`. If `t` is outside the range of the data, it returns `None`. Otherwise, it returns the data for the time `t`.
+
+The class also uses the `staticmethod` decorator, which means these methods can be called on the class itself, without creating an instance of the class.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TCVUtil.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TCVUtil.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a larger software system developed by Raytheon Company. It's a utility script for handling TCV (Tropical Cyclone Vortex) files. The script provides functions for managing these files, specifically for retrieving the directory where they are stored, purging old files, and packaging these files.
+
+Here's a breakdown of the functions:
+
+1. `getCaveStaticSiteDir()`: This function retrieves the directory where the TCV files are stored. It uses the site ID from the site configuration to construct the directory path.
+
+2. `purgeAllCanFiles(logger)`: This function deletes all files in the TCV advisories directory that are older than 30 days. It uses the logger to log any errors that occur during the deletion process.
+
+3. `packageTCVFiles(siteList, fileName, logger)`: This function creates a tarball (compressed archive) of the TCV files for each site in the provided site list. It adds all JSON and .allCAN files from the TCV advisories directory to the tarball. If an error occurs during the process, it logs the error using the provided logger.
+
+The script also contains a software history section that logs changes made to the script, including the date of the change, the ticket number associated with the change, the engineer who made the change, and a description of the change.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

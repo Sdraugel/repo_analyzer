@@ -1,0 +1,100 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>convertSVG.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>convertSVG.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is a utility for converting old style .svg (Scalable Vector Graphics) syntax to a format that the new plot rendering code expects. It scans the .svg file, removes certain attributes, and moves them to a plotparameters_$plugin file.
+
+The script starts with a comment block that includes licensing information and a description of the software's purpose. It then imports necessary modules, defines some constants, and sets up a dictionary for SVG elements.
+
+The script defines several functions:
+
+1. `_CommentedTreeBuilder`: This class extends the `ET.XMLTreeBuilder` class from the `xml.etree.ElementTree` module. It overrides the `__init__` method to handle comments in the XML tree.
+
+2. `processCDATA`: This function processes CDATA sections in the XML file. CDATA sections are areas of an XML document where the parser should interpret text literally, not as XML markup. The function replaces CDATA tags with a temporary `<CDATA>` tag and reverses the process when done.
+
+3. `getLicenseText`: This function returns a string containing the license text.
+
+4. `getDefaultCDATAText`: This function returns a string containing the default CDATA text.
+
+5. `getSampleValue`: This function retrieves the sample value from a plot.
+
+6. `createPlotParamPluginXML`: This function creates a new XML file named plotParameters_'pluginName'. It adds a default marker element to the plot parameter definitions array, sets up the root and plugin elements of the XML tree, and iterates over the plot parameter definitions array to add each element to the XML tree.
+
+The script ends abruptly, suggesting that the provided code is only a part of the complete script.
+
+This is a Python script that seems to be used for manipulating SVG (Scalable Vector Graphics) files. The script has several functions and a main execution block. Here's a high-level summary of what each part does:
+
+1. The first part of the script appears to be creating XML elements for a 'plotParameterDefinition' based on the input parameters. It checks if there are 3 parameters, and if so, creates additional elements for 'BARB' and 'TEXT' display types. The XML elements are then written to a file.
+
+2. The `updatePlotParamPluginXML` function reads an existing XML file and updates it with new plot parameter definitions. It ensures that the display names are unique by appending a number to any duplicates. The updated XML is then written back to the file.
+
+3. The `print_usage` function simply prints usage instructions for the script.
+
+4. The `main` function is the entry point of the script. It checks the command-line arguments, makes sure the SVG file and plugin directory exist, and registers some XML namespaces. It then processes the SVG file, creating a new root element and adding various elements and attributes to it. It also seems to be doing some mapping between SVG attributes and plot parameter names.
+
+Overall, this script appears to be used for converting SVG files into a specific XML format for use with some kind of plotting or graphics system.
+
+This code is a part of a Python script that manipulates SVG (Scalable Vector Graphics) files and XML files related to plot parameters. Here's a breakdown of what it does:
+
+1. It first finds all the 'text' and 'g' elements within the 'symbol' element of an SVG file.
+
+2. It then iterates over these elements, and for each one, it extracts the 'plotParam' attribute and creates a dictionary with 'param' as the key and 'plotParam' as the value.
+
+3. It then checks for other attributes in the element. If the attribute is 'plotMode', it checks its value and sets the 'displayType' in the dictionary accordingly. It also sets the 'plotMode' attribute to 'SAMPLE' or 'NONE' if the original value was 'sample' or 'null' respectively. If the attribute is not 'plotParam', it maps the attribute to a new name and adds it to the dictionary. If the attribute isn't needed, it is deleted from the element.
+
+4. If the attribute is 'plotParam', it checks for 'plotIndex' and 'plotUnit' attributes and modifies the 'plotParam' attribute and 'displayName' in the dictionary accordingly.
+
+5. It then gets a sample value for the element and adds it to the dictionary, and appends the dictionary to an array.
+
+6. After processing all elements, it adds a default 'text' element to the 'symbol' element.
+
+7. It then finds all 'style' elements and adds a 'markerFont' to the 'CDATA' of each one. If there is no 'style' element, it creates a default one.
+
+8. After all modifications, it writes the new SVG tree to a file and processes the 'CDATA' tags in the file.
+
+9. Finally, it checks if a file for plot parameters exists. If it does, it updates the file with the array of dictionaries. If it doesn't, it creates a new file with the array.
+
+10. The script is designed to be run as a standalone program, as indicated by the `if __name__ == "__main__":` line at the end. This line ensures that the `main()` function is called only when the script is run directly, and not when it's imported as a module.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

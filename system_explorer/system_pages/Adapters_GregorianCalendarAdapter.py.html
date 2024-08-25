@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>GregorianCalendarAdapter.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>GregorianCalendarAdapter.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that acts as an adapter for the `java.util.Calendar` class, specifically for the `GregorianCalendar` class. 
+
+The script is written for a system developed by Raytheon Company under a contract with the US Government. The software contains export-restricted data, and its export/transfer/disclosure is restricted by U.S. law. 
+
+The Python script includes two functions: `serialize` and `deserialize`. 
+
+The `serialize` function takes two arguments: `context` and `calendar`. It retrieves the time in milliseconds from the `calendar` object and writes it to the `context`.
+
+The `deserialize` function also takes `context` as an argument. It reads the time in milliseconds from the `context`, sets this time to a new `GregorianCalendar` object, and then returns this object.
+
+In essence, this script is used to convert a `GregorianCalendar` object to a serialized form that can be written to a context (likely for transmission or storage), and to convert the serialized form back into a `GregorianCalendar` object.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

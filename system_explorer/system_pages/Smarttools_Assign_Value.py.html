@@ -1,0 +1,56 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Assign_Value.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Assign_Value.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The code is a Python script named `Assign_Value.py`, authored by `njensen`. It is part of a software developed or modified by Raytheon Company under a contract with the US Government. The software contains export-restricted data, and its export/transfer/disclosure is restricted by U.S. law.
+
+The script defines a class `Tool` that inherits from `SmartScript.SmartScript`. This class is not intended to be overridden. The class has two methods: `__init__` and `execute`.
+
+The `__init__` method is the constructor of the `Tool` class. It initializes the instance of the class by calling the constructor of the parent class `SmartScript.SmartScript`.
+
+The `execute` method is used to assign a value to the active weather element within the active edit area. It takes two arguments: `variableElement` and `variableElement_PickUpValue`. The method checks the type of `variableElement_PickUpValue`. If it's a list, it treats the data as vector data and fills `variableElement` with the values from `variableElement_PickUpValue`. If it's a string, it treats the data as discrete/weather data, gets the index of `variableElement_PickUpValue` in `variableElement[1]`, and fills `variableElement[0]` with this new value. If it's neither a list nor a string, it treats the data as scalar data and fills `variableElement` with `variableElement_PickUpValue`. The method then returns `variableElement`.
+
+The script also imports the `numpy` library and assigns two string values to `ToolType` and `WeatherElementEdited`.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,70 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>iscmint.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>iscmint.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be part of a larger software system developed by Raytheon Company. The script defines a class called `VCParm` that seems to be used for handling and manipulating time ranges and associated data. 
+
+The `VCParm` class has several methods:
+
+1. `splitTR`: This method takes two arguments, a time range and an inventory of time ranges. It checks if the given time range overlaps with any time range in the inventory. If it does, it splits the time range into smaller ranges that do not overlap.
+
+2. `tcmp`: This method compares two times.
+
+3. `getInventory`: This method takes two lists of time ranges and returns a list of tuples, each containing a time range from the first list and all the time ranges from the second list that overlap with it.
+
+4. `poverlap`: This method calculates the percentage of overlap between two time ranges.
+
+5. `calcGrid`: This method takes two lists of time ranges and calculates a grid based on them.
+
+6. `calcHistory`: This method takes a list of time ranges and returns a list of all the time ranges contained in it.
+
+7. `getWEInfo`: This method returns a tuple of information about the weather element.
+
+8. `_containsTR`, `_contains`, `_overlaps`, `_intersect`: These are helper methods used to determine whether a time range contains a certain time, whether two time ranges overlap, and to find the intersection of two time ranges.
+
+The script also imports the `time` and `numpy` modules and defines several constants at the beginning.
+
+The exact functionality of this script would depend on how it's used in the context of the larger software system.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

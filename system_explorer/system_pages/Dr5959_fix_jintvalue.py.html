@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>fix_jintvalue.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>fix_jintvalue.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code defines a class named `FixJintvalue` that inherits from `fixer_base.BaseFix` which is a part of the `lib2to3` library. The `lib2to3` library is a tool that helps in converting Python 2.x syntax to Python 3.x syntax. 
+
+The `FixJintvalue` class is used to find and replace instances of the `intValue` method call in the Python code. 
+
+The `PATTERN` attribute is a string that defines the pattern the fixer is looking for in the code. It is looking for instances where the `intValue` method is called with or without parentheses.
+
+The `start_tree` method is called at the beginning of the process for each file that is being processed. It calls the parent class's `start_tree` method with the same arguments.
+
+The `transform` method is where the actual fixing happens. It takes a `node` and `results` as arguments. The `node` is a part of the syntax tree that matches the pattern. The `results` is a dictionary that contains the parts of the `node` that were matched by the pattern. 
+
+If the `base` key is in the `results` dictionary, it clones the `base` node, removes any prefix from the first element of the `base`, and then replaces the `node` in the syntax tree with a call to the `int` function with the `base` as the argument. This effectively changes the `intValue` method call to a call to the `int` function.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

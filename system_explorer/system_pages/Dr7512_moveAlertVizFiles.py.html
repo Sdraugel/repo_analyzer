@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>moveAlertVizFiles.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>moveAlertVizFiles.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to move and delete specific directories in a file system. 
+
+First, it sets up a logger to record the operations and any potential errors that occur during execution. 
+
+The script then defines a list of directories to be moved (`TO_BE_MOVED`) and a list of directories to be deleted (`TO_BE_DELETED`). 
+
+The `main()` function performs the following tasks:
+
+1. It logs that the script has started running.
+2. It uses the `glob` module to find all paths that match the `ROOT_PATH` pattern.
+3. For each root path found, it loops through the `TO_BE_MOVED` list. For each tuple in the list, it tries to move the directory from the old path to the new path. If the destination directory doesn't exist, it creates it. If the destination directory does exist, it moves the contents of the source directory to the destination directory. If an error occurs during this process, it logs the error and sets the status to 1.
+4. After attempting to move directories, it loops through the `TO_BE_DELETED` list. For each path in the list, it tries to delete the directory. If an error occurs during this process, it logs the error and sets the status to 1.
+5. Finally, it checks the status. If the status is 1 (indicating that an error occurred), it logs that the script completed with errors. Otherwise, it logs that the script completed successfully.
+
+The script is designed to be run as a standalone program. If it's run as the main program (not imported as a module), it calls the `main()` function and exits with the status returned by `main()`.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

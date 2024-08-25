@@ -1,0 +1,84 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ProductParser.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ProductParser.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that appears to be part of a larger system for parsing and analyzing weather data. It uses regular expressions to parse various blocks of data from a text file, likely in a specific format used by the National Weather Service or a similar organization. Here's a breakdown of what each part of the code does:
+
+1. The first large comment block is a legal disclaimer and copyright notice from Raytheon Company. It mentions that the software was developed under a specific contract with the US Government and contains export-restricted data.
+
+2. The second comment block explains that this file is an absolute override file, which means that a higher priority version of the file will completely replace a lower priority version of the file.
+
+3. The next large comment block describes the structure of the file that this script is designed to parse. It includes details about various blocks of data, including the CI block, MND block, and Product content block.
+
+4. The script then imports the `re` (regular expressions) and `bisect` (array bisection algorithm) modules.
+
+5. The script defines a large number of regular expressions. These are used to match and extract specific pieces of data from the text file. For example, the `wmoid` regular expression is used to match a four-letter, two-digit identifier.
+
+6. The script compiles several of these regular expressions using the `re.compile` function. This function returns a regular expression object that can be used to match the regular expression against strings.
+
+7. The script also defines a list of words which will trigger an unlocked section of a headline.
+
+In summary, this script is designed to parse and analyze weather data from a text file. It uses regular expressions to identify and extract specific pieces of data from the file.
+
+This Python code defines a class `ProductParser` that parses a given text (presumably a product description or similar) and extracts certain information from it.
+
+The class has several methods:
+
+- `__init__`: This is the constructor method that initializes the class.
+
+- `tkc`: This method converts an offset to a Tk line and column. It uses the `bisect` module to find the insertion point for the offset in the `_totals` list and returns a tuple of the line and column.
+
+- `processHeadline`: This method processes the headline part of the text. It finds all matches of the `single_head_re` regular expression in the headline, and for each match, it appends the result of the `dumpMatch` method to the `hdlns` list. The `hdlns` list is then added to the `rval` dictionary under the key `headInfo`.
+
+- `dumpMatch`: This method processes a match object `m` and returns a dictionary with the matched groups as keys and their spans (converted to Tk line and column using the `tkc` method) as values. If the key is 'headlines', it calls the `processHeadline` method.
+
+- `matchCoords`: This method returns the span of the entire match `m` converted to Tk line and column.
+
+- `parse`: This method parses the text and extracts various information from it using several regular expressions (`ci_re`, `mnd_re`, `ugch_re`, `cityh_re`, `ghend_re1`, `ghend_re2`, `gend_re`, `head_re`, `frame_re`). The extracted information is added to the `rval` dictionary and returned.
+
+- `parseFromJava`: This method is presumably used to parse text received from a Java program. It sets the `_str` attribute to the received text, calculates the length of each line and stores them in the `_totals` list, and then calls the `parse` method to parse the text. The result of the `parse` method is returned.
+
+The code at the top outside the class definition is preparing a regular expression `headline_re` that matches a certain pattern in the headlines. The pattern includes any of the words in the `headlineEnders` list.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

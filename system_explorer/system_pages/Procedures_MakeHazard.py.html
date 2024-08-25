@@ -1,0 +1,82 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>MakeHazard.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>MakeHazard.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is a part of a larger software system, possibly related to weather forecasting or hazard prediction given the variable and method names. It is in the public domain, meaning it can be used by anyone for any purpose without restrictions. The script has been updated by multiple engineers over time, as indicated by the software history comments.
+
+The script defines a class `Procedure` that inherits from `SmartScript.SmartScript`. The class has an initialization method that sets up some attributes, including a list of tropical hazards and a base ETN (Event Tracking Number) for national hazards.
+
+The `setUpUI` method appears to set up a user interface for the hazard prediction system. It imports a configuration module, sets up arguments based on the configuration and the current state of the `Procedure` instance, and then creates and opens a dialog using the Java SWT library. It then enters an event loop, waiting for user input and responding accordingly.
+
+The `_makeMask` method seems to create a mask (a boolean array used to select certain elements from another array) based on a list of zones and a local effect. This might be used to select certain areas of a map or grid that are affected by a particular hazard.
+
+The `makeHazardGrid` method appears to create a grid representing the hazard based on input from the dialog. This method is not fully shown in the provided code.
+
+The script also imports several modules at the top, including `sys`, `numpy`, and several custom modules like `HazardUtils`, `JUtil`, `LogStream`, and `SmartScript`. These are likely used throughout the script to provide various utilities and functionality.
+
+This code appears to be part of a larger program related to weather hazard management. 
+
+The first function defined, which doesn't have a name provided in the code snippet, seems to be responsible for creating or modifying hazard warnings based on a selected area, time range, and hazard type. It checks if a local effect is being used for the hazard, and if so, it creates a mask for the selected areas based on the local effect. It then checks if the hazard is already defined in temporary grids and if so, it creates a list of segment numbers that are already in use for the current hazard. It also creates a key for the selected hazard and a default hazard key if a default hazard is provided. 
+
+The function then checks if the hazard key matches the default hazard key, and if so, it removes the old grid. It also checks if there is no selection and prevents the user from creating an empty hazard. Finally, it adds the hazard, logs the action, and returns 1.
+
+The `getHazardParmNames` function retrieves a list of loaded temporary hazard parameters. It loops through the loaded parameters and if a parameter is a hazard, it appends it to the list of hazard parameters after some formatting.
+
+The `execute` function sets up the HazardUtils object, saves the selected time range, sets the tool type to "numeric", and checks if the Hazards Weather Element is loaded in the GFE (Graphical Forecasting Editor). If it's not loaded, it sends a message to the status bar and aborts the tool. 
+
+Please note that the code is cut off at the end, so the full functionality of the `execute` function is not clear.
+
+This code is written in Python and it appears to be part of a larger class or module. 
+
+The first part of the code seems to be the end of a method (possibly the initialization method of a class) where it separates hazard grids, sets up the user interface (UI), and then sets a flag `_afterInit` to 1 indicating that initialization is done.
+
+The second part of the code defines a function `converter(obj)`. This function takes in an object `obj` and converts it to a different type based on its `java_name` attribute. 
+
+- If the `java_name` of the object is "java.util.Date", it converts the object to an `AbsTime` object.
+- If the `java_name` is "java.util.Collections$EmptyList", it converts the object to an empty Python list.
+- If the `java_name` is "com.raytheon.uf.common.time.TimeRange", it converts the object to a `TimeRange` object.
+
+This function seems to be used for converting Java objects to equivalent Python objects. The function returns the converted object. If the `java_name` doesn't match any of the specified types, the function will return `None`.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,68 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>runIFPText.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>runIFPText.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script, named `runIFPText.py`, is a part of a software developed by Raytheon Company. It is designed to run text formatters from the command-line. The script is based on AWIPS-1 TextFormatter.py code and has been modified over time by different engineers to fix issues and add new features.
+
+The script starts with a logger initialization and two main functions: `runFormatter(args)` and `validateArgs(args=None, parents=[])`.
+
+The `runFormatter(args)` function imports several modules and classes, logs the start of the TextFormatter, loads preferences from a config file, creates an instance of DataManagerUIFactory, runs the FormatterRunner with a variety of arguments, and logs the completion of the TextFormatter.
+
+The `validateArgs(args=None, parents=[])` function is used to validate the arguments passed to the script. It uses the `UsageArgumentParser` class from the `awips` module to parse the command-line arguments. The function defines several command-line arguments with their help messages, default values, and required statuses.
+
+The script is designed to be used in a specific environment (Jep), and some imports are nested within functions to allow parts of the script to be called from a pure Python environment. 
+
+The script also contains a software history section that logs changes made to the script over time, including the date of the change, the ticket number associated with the change, the engineer who made the change, and a description of the change.
+
+This Python script appears to be a command-line interface for some kind of text processing or formatting application, possibly related to weather forecasting given the references to "Forecast Product" and "Issuance".
+
+The script uses the argparse library to define a number of command-line arguments that can be passed to the script. These arguments include options to append text to a file, specify a language (English, French, or Spanish), provide a displaced real time in a specific format, generate a test or experimental product, specify a VTEC mode and active table, provide a runtime VariableList, specify edit areas and time ranges, and provide start and end times.
+
+The script also includes logic to force the VTEC mode to "T" if in TEST mode and another VTEC code is specified, or to "E" if in EXPERIMENTAL mode and another VTEC code is specified. If the VTEC mode is "T", the script is forced into TEST mode, and if the VTEC mode is "E", the script is forced into EXPERIMENTAL mode.
+
+The script also includes a function to display usage information (validateArgs(['--help'])), a function to print error messages, and a main function that parses the command-line arguments and runs the formatter with those arguments.
+
+The script also includes a function to initialize a logger, and a function to run the main function with profiling enabled, which can be useful for performance tuning. The script is set to run this profiling function if it is run as a standalone script (if __name__ == "__main__").</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

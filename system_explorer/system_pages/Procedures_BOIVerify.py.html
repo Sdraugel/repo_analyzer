@@ -1,0 +1,897 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>BOIVerify.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>BOIVerify.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a part of a software tool called BOIVerify, version 2.0.5, which is used to calculate and display verification information. The tool is in the public domain and comes with no warranty or technical support. 
+
+The main dialog of the tool contains tabs to display various types of information, including archived grids or errors, grids of stats calculated for every grid point, histograms of the errors over the current edit area, line graphs of stats over pre-defined edit areas, and graphs of stats vs. scale.
+
+The software also includes two other tools: BOIVerifySave, which saves the grid into the verification database, and BOIVerifyAutoCalc, which calculates and saves the stats for pre-defined edit areas.
+
+The code is written in Python and uses several libraries including numpy, math, tkinter, time, calendar, sys, re, traceback, and others. It also imports classes from the com.raytheon.viz.gfe package and the BOIVerifyUtility module.
+
+The code defines a class called Procedure which inherits from the SmartScript class. The class has an __init__ method to initialize the instance and an execute method which sets up the tool and starts the main event loop of the tkinter GUI.
+
+The software has a history of updates and bug fixes, with the latest update being on March 14, 2018. The updates include changes to display models in multi-columns, replacing string.atoi with int for string/integer to integer conversion, removing Java .toString() calls, changes to allow new GFE config file to be selected, adding scale to Stats vs. Scale graph, and fixing setting of LogFactor preference.
+
+This Python code is setting up a graphical user interface (GUI) using the tkinter library. It is part of a larger application, possibly a verification utility based on the naming conventions used.
+
+Here's a breakdown of what the code does:
+
+1. It creates a tkinter root window that fits the entire screen.
+
+2. It sets some default settings for the tkinter root window using a method called `setDefaults` from the `TkDefaults` class.
+
+3. It creates a splash screen that is displayed when the application is starting up. The splash screen is a top-level window with a yellow background and a message that says "Starting up" followed by the program name.
+
+4. It starts up a utility called `BOIVerifyUtility` and sets the tool type to "numeric".
+
+5. It sets up a list called `scaleList` which contains tuples of points to average over and a label description of that area.
+
+6. It generates points for named edit areas and stores them in `self.pts`.
+
+7. It creates several dialogs (windows) such as `MiniDiag`, `Cases`, `MiniDiag`, and `CanvasDisplay`. These dialogs are likely part of the application's interface and provide different functionalities.
+
+8. If any exceptions occur during the setup of the utility or the creation of the dialogs, the splash screen is destroyed and a status bar message is displayed indicating that the program could not start up.
+
+The code is incomplete at the end, so it's not clear what the last part is doing.
+
+This code seems to be part of a larger program. It contains several methods that handle different aspects of the program's functionality. Here's a brief summary of what each part does:
+
+1. `doVerif`: This method is responsible for the main execution of the program. It checks the buttonType and based on its value, it performs different actions. If the buttonType is "Quit", it quits the program. If it's "Hide", it hides the dialog. Otherwise, it performs calculations based on the tab value in the dialog's values.
+
+2. `getPts`: This method is used to get points based on the area name. If the area name is "NONE", it creates a new grid. Otherwise, it encodes the edit area, performs some operations, and returns the points.
+
+3. `tryToStop`, `startWorking`, `setWorking`, `checkWorking`, `setAndCheckWorking`, `stopWorking`, `finishWorking`: These methods are used to control a 'working' dialog. They handle starting, stopping, updating, and finishing the 'working' state of the dialog.
+
+4. `expandMini`, `hideDialog`: These methods are used to control a 'mini' dialog. They handle expanding and hiding the dialog.
+
+5. `expandCases`, `closeCases`: These methods are used to control a 'cases' dialog. They handle expanding and closing the dialog.
+
+6. `closeCD`: This method is used to close a 'canvas' dialog.
+
+The code also handles exceptions in several places. If an exception occurs, it destroys the splash screen, displays a status bar message, and raises the exception.
+
+This code is part of a larger program that seems to be involved in displaying and analyzing forecast/observed grids. The specific part of the code you provided defines a method named `ShowGrids` which appears to be responsible for reading and displaying these grids. 
+
+The method takes in a dictionary `DialogDict` as an argument, which contains various parameters such as `Parm`, `Display`, `Group`, `cycleList`, `Model`, `ObsModel`, `fcstrList`, `fhrStart`, `fhrEnd`, `dateType`, `numDays`, `fromDay`, `dayList`, `dateStyle`, `scale`, `commonCases`, `accumHours`, `accumFreq`. These parameters are used in the subsequent operations.
+
+The method then checks for good GUI input, starts a working process, and sets up a grid manager. It then enters a loop over `parmList`, where it retrieves various parameters and information related to each parameter in the list. 
+
+Within this loop, it retrieves case times/records for all models, checks if the process is still working, and then enters another loop over `modelList`. In this inner loop, it retrieves and processes grid data for each model.
+
+If there is an observed grid available, it reads and displays it. 
+
+The code is also logging various messages and statuses throughout the process, which would be useful for debugging or tracking the progress of the operation. 
+
+The code is written in Python and uses various libraries and methods that are not defined in the provided code, so the exact functionality may depend on these external components.
+
+This code is part of a larger program that seems to be dealing with weather data, specifically regarding the creation and manipulation of forecast and observed data grids. 
+
+The code first checks if the observed data is available, and if so, it processes the data based on the scale and datatype. It then creates a grid for the observed data if the key for this data is not already present. The grid is created using parameters such as the name of the observation, minimum and maximum values, units, and precision. The number of displayed grids is also tracked.
+
+Next, the code retrieves forecast data for a specific model and time range. If the forecast data is available, it is processed similar to the observed data.
+
+The code then determines the name of the run based on the grouping method. If the grouping is by "Run Time", the run time is formatted and the run name is created. If the grouping is not by "Run Time", the forecast hour is calculated and used to create the run name.
+
+If the display is set to "Errors", the code calculates the errors between the forecast and observed data. The error is calculated differently based on the datatype. The error is clipped to twice the 'bigerr' range. A grid for the error is then created and the number of displayed grids is updated. 
+
+The code seems to be part of a larger loop, as it uses the 'continue' statement which is typically used within loops. It also seems to be part of a function or method, as it uses the 'self' keyword to call other methods and access properties, indicating it's part of a class.
+
+This code is part of a larger program that seems to be dealing with weather forecasting data. It's written in Python and appears to be using a mix of custom and built-in functions. 
+
+The first part of the code is creating and manipulating grids of data. It's calculating scalar and vector errors, and appending unique parameter names to a list. The scalar error is calculated directly, while the vector error is calculated using the MagDirToUV and UVToMagDir functions, which presumably convert between magnitude-direction and UV coordinates. 
+
+The code then checks if the data type is not 1, and if so, it clips the forecast data to a specified range and creates a new grid. If the data type is 1, it separates the forecast data into magnitude and direction, clips the magnitude to a specified range, and creates a new grid.
+
+The next part of the code is setting color tables for each unique parameter added. It's looping through the names of observed parameters and setting color curves for each one. It's also setting a log factor if one is specified. It then does the same for the names of the parameters in the list it created earlier.
+
+The final part of the code is a function definition for setColorTableAndRange. This function sets the color table and range for a given parameter. It uses a spatial display manager to get a resource pair for the parameter, and then sets the color map, color map name, and log factor if they are specified.
+
+If no grids match the selected models, times, and parameters, the code stops working and displays a status bar message. Otherwise, it finishes working and returns.
+
+The code provided is a method named `ShowGridsStats` in Python. This method is responsible for displaying grid statistics. 
+
+The method takes a dictionary as an argument, `DialogDict`, which contains various parameters related to the grid. These parameters include display, threshold, cycle list, model list, forecast list, start and end hours, date type, number of days, day list, scale, date style, common cases, accumulation hours, accumulation frequency, and several others.
+
+The method starts by checking the validity of the GUI input. If the input is not valid, it returns immediately. If the display is set to "TwoCat", it checks if the `TwoCatType` is valid and sets up the `statID`. 
+
+The method then starts working on grid stats. It sets up the GM (probably stands for Grid Model) and if the setup is successful, it stops working and returns. 
+
+The method then enters a loop over the parameters and the model list. It calculates various statistics for each model and parameter. It reads the parameters, gets the case times/records for all models, calculates stats for each model and parameter, and finds matches. 
+
+The method also includes several checks to see if it should stop working and return. 
+
+The code seems to be part of a larger system, possibly related to weather or climate modeling, given the references to parameters like 'obsmodel', 'threshold', 'accumHours', etc. The exact functionality would be clearer with more context.
+
+This code appears to be part of a larger system for processing and analyzing weather forecast and observation data. 
+
+1. The code starts by splitting a key into different time strings and converting them into integer timestamps. It then retrieves forecast and observation records corresponding to this key.
+
+2. The code checks if the observation is complete by comparing the end time with the current time. If the observation is not complete, it increments a counter and skips to the next iteration.
+
+3. The code then checks if the data is a forecast by calculating the forecast hour. If it's not a forecast, it increments the counter and skips to the next iteration.
+
+4. If the observation key is different from the last one, it reads the observation data and applies smoothing operations unless the data is of a certain type. If the verification type is 1, it calculates a grid of 1s and 0s based on whether the observed threshold is met.
+
+5. The code then reads the forecast data and applies similar smoothing operations. 
+
+6. If the display type is "TwoCat", it calculates hits, misses, false alarms, etc. based on the forecast and observed data. It determines whether the forecast and observed occurrences are greater, less, or equal to a certain value, and applies a neighborhood look if necessary.
+
+7. The code seems to be cut off at the end, but it appears to be preparing to create grids of hits, misses, false alarms, and correct negatives.
+
+The code uses various methods from the `VU` object, which seems to be a utility object for handling verification tasks. The exact workings of these methods are not clear from the provided code.
+
+This code is performing a number of operations related to data analysis and statistics. Here's a breakdown of what it does:
+
+1. It creates four logical grids (`itsgrid`, `missgrid`, `falrgrid`, `corngrid`) using logical AND operations on forecast and observation data.
+
+2. It checks if a parameter name (`parmname`) is not in a list of parameter names (`parmnames`). If it's not, it appends it to the list and creates empty grids for each of the four logical grids created earlier.
+
+3. It then adds the values of the logical grids to the corresponding grids in the `hitssave`, `misssave`, `falrsave`, and `cornsave` dictionaries.
+
+4. If the data type is not TwoCat, it calculates error grids (`errgrid`) based on the difference between forecast data (`fcstdata`) and observed data (`obsdata`). The way it calculates the error depends on the type of data and some specific conditions.
+
+5. It then modifies the `errgrid` based on the display type, and if the parameter name is not in the list of parameter names, it appends it and creates an empty grid and a counter for it.
+
+6. It then adds the error grid to the saved grid and increments the counter.
+
+7. The code then logs a message about creating statistical grids, and for each parameter name in the list of parameter names, it performs several operations including creating a time range, making a name for the grid manager, and calculating statistical grids.
+
+8. If the display type is TwoCat, it retrieves saved grids, calculates a statistical grid, gets a case number, and sets limits and resolution for different statistics.
+
+In summary, this code is performing a complex analysis on forecast and observed data, calculating errors, and generating statistical grids based on different conditions and parameters.
+
+The code is part of a larger program that seems to be dealing with some sort of grid-based data, possibly related to weather forecasting or similar spatial data analysis. It appears to be written in Python.
+
+1. The first part of the code is checking the `statID` and setting the `minlim` and `maxlim` variables accordingly. If `statID` is either "hk" or "ahk", the limits are set to -1.0 and 1.0. If `statID` is either "hss" or "ahss", the limits are set to -5.0 and 1.0. 
+
+2. After setting the limits, the code clips the `statgrid` between these limits to create a new grid (`newgrid`). It then calls the `createGrid` function to create a grid with the new grid data and other parameters.
+
+3. If `statID` is not any of the above, it calculates a new grid based on the count of the grid (`gridcount`) and the saved grid (`gridsave`). It also applies some transformations to the new grid based on the `display` and `verType` variables.
+
+4. The code then clips the new grid based on the `clipval` variable and applies further transformations if the `display` is "Percent Err <". 
+
+5. The code then keeps track of the grids that are actually put in the grid manager, and sets the color tables for each unique parameter added.
+
+6. If no grids were displayed, it stops working and displays a status bar message. If grids were displayed, it finishes working and generates a text with case info.
+
+7. The code also contains a function `getProbVerGrid` that gets a grid for probability verification based on the observed data and the condition/threshold for the specified parameter name.
+
+8. Another function `ShowDists` is defined to display histograms/scatterplots. It takes a dictionary as input and extracts various parameters from it to be used in the function.
+
+Overall, the code seems to be part of a larger system for managing, analyzing, and visualizing grid-based data.
+
+The code you provided appears to be part of a larger Python program, possibly related to data analysis or visualization. Here's a breakdown of what the code does:
+
+1. The code first checks for valid GUI input by calling the `checkLists` method. If the input is not valid, the function returns immediately.
+
+2. Depending on the value of the variable `display`, the code calls different methods to process the data. These methods include `errorHistogram`, `valueHistogram`, `expectedValue`, and `scatterPlot`. All these methods take the same arguments, which suggests that they perform similar operations but with different calculations or visualizations.
+
+3. The `errorHistogram` method is defined next. It appears to create a histogram that visualizes the errors in the data. It first clears the display and sets up the title. It then starts a 'working' display that presumably shows the user that the program is processing data.
+
+4. The method then retrieves some information about the data, such as the active edit area, the parameters of the data, and the bin width and big error for the parameters.
+
+5. The method then gets the case times/records for all models by calling the `getCases` method. If the working check fails, it stops working and returns.
+
+6. The method then loops over each model, gets all the cases for the model, sorts the cases by the start time, and logs the number of cases for the model. For each case, it logs the model and the key of the case.
+
+Please note that the code is cut off, so I can't provide a complete analysis of what it does.
+
+This code is part of a larger program that is used for weather forecasting. It reads and processes forecast and observed data, calculates errors, and generates statistical data in the form of histograms. 
+
+Here's a step-by-step breakdown:
+
+1. It starts by splitting a key into base time, start time, and end time. 
+2. It checks if the end time is greater than the current time. If it is, it skips the current iteration because the observation is not yet complete.
+3. It calculates the forecast hour and checks if it's negative. If it is, it skips the current iteration.
+4. It determines the save key based on the model and forecast hour.
+5. It checks if the observation key is different from the last one. If it is, it reads the observed data and scales it.
+6. If the data type is not 1 or the last 3 characters are "Spd" or "Dir", it processes the observed data accordingly.
+7. It reads the forecast data and scales it.
+8. It calculates the error between the forecast and observed data.
+9. It generates histograms of the errors and updates the error sums, error sum squares, and error sum absolute values.
+10. It checks if there are any keys in the histograms. If there are none, it stops working and displays a message saying no verification data could be found.
+11. It sorts the keys and separates them into model keys and forecast hour strings.
+12. It sorts the forecast hour strings and converts them into forecast hour keys.
+13. If there's an "Official" button, it makes it the first one.
+14. It sets colors for each model.
+15. The code ends abruptly, suggesting that it continues to set up the first row of buttons (forecast hours).
+
+This code seems to be part of a larger system for weather forecasting verification, where forecast data is compared against observed data to evaluate the accuracy of the forecasts.
+
+This code seems to be part of a larger program, possibly a graphical user interface (GUI) for visualizing data. Specifically, this part of the code is responsible for creating and displaying histograms. Here's a breakdown of what it does:
+
+1. It sets up two rows of buttons, likely for user interaction. The buttons might be related to the number of hours and models, as suggested by the variable names `fhrkeys` and `modkeys`.
+
+2. It calculates the maximum value across all the histograms. This is done by iterating over all the histograms, normalizing them by the number of cases, and keeping track of the maximum value.
+
+3. It calculates a good interval for the tick marks on the vertical axis of the histogram. The range of the vertical axis is set to be one tick mark above the maximum value.
+
+4. It sets up the graphing coordinates. It seems to be defining the boundaries of the graph and the position of the graph within the canvas.
+
+5. It draws each histogram. For each histogram, it creates a line for each bin. The color of the line is determined by the model. If the bin's value is greater than zero, it draws a line from the bottom of the bin to the top. It also updates the button states and displays some statistics related to the histogram.
+
+6. It labels the top of the graph and adds labels for the histogram, bin width, and table.
+
+7. It creates a color bar, which likely serves as a legend for interpreting the colors used in the histograms.
+
+8. Finally, it stops the working process, moves the canvas to the desired location, and makes the canvas visible.
+
+The last part of the code snippet seems to be the beginning of a new function called `valueHistogram`, which might be used to display a value histogram based on a list of parameters.
+
+This code appears to be part of a larger program that generates a histogram of values for a given parameter over a set of models and forecast hours. The parameter, models, and forecast hours are likely specified elsewhere in the program. 
+
+Here's a breakdown of what the code is doing:
+
+1. It starts by clearing the display and setting up the title of the histogram.
+
+2. It then gets the active EditArea, which seems to be a region of interest on a grid. If no EditArea is active, it assumes the entire grid is of interest.
+
+3. It prepares for storing data by creating empty dictionaries for histograms and number of cases.
+
+4. It loops over each model, getting information about the parameter being read, setting up histogram binning routines, getting the mode for reading observation grids, and getting case times/records for all models.
+
+5. For each model, it gets all the cases, sorts them by start/end time, and logs the number of cases.
+
+6. It then loops over each case, checking if the observation time is complete and if the forecast hour is negative. If either of these conditions is met, it skips to the next case.
+
+7. For each valid case, it reads the observation data, scales the grid, calculates the observed 'yes/no' value for probabilistic variables, and stores the grid under a key that depends on the model and forecast hour.
+
+8. If the data type is not a vector wind error, it compresses the observation grid and stores it.
+
+This code is quite complex and involves a lot of data manipulation and processing. It seems to be part of a weather forecasting or climate modeling program, given the references to models, forecast hours, and parameters.
+
+The code is performing a series of operations on observed and forecasted data, including data extraction, manipulation, and statistical analysis. 
+
+1. The code first extracts observed data from a grid (`obsgrid`) and compresses it into a one-dimensional array (`obsonly`). It then calculates the histogram of this data, storing the results in `obsCount`.
+
+2. Next, it checks if the key formed by combining the observed model and forecast hour (`obsSaveKey`) exists in the `self.histograms` dictionary. If it does, it increments the count for that key; if not, it sets the count to 1.
+
+3. The code then reads forecast grid data, scales it, and calculates an error grid. Depending on the datatype and the last three characters of the data, it extracts the forecast grid data and compresses it into a one-dimensional array (`fcstonly`).
+
+4. It calculates the histogram of the forecast data and stores the results in `valCount`. It then checks if the key (`saveKey`) exists in the `self.histograms` dictionary. If it does, it increments the count for that key; if not, it sets the count to 1.
+
+5. The code then retrieves all keys stored in the `self.histograms` dictionary. If no keys are found, it stops the operation and displays a message indicating that no verification data could be found.
+
+6. It sorts the keys and separates them into model keys and forecast hour strings. It then sorts these and changes the forecast hour strings into forecast hour keys.
+
+7. The code assigns a color to each model key from a predefined color list. If the color list is exhausted, it starts from the beginning of the list again.
+
+8. It sets up two rows of buttons, one for forecast hours and one for models.
+
+9. The code then calculates the minimum and maximum of the forecast/observed values that need to be shown. It also calculates the total histogram, maximum value, and minimum value for each key in `self.histograms`.
+
+10. It adjusts the minimum and maximum values to ensure that there are at least 15 bins in the histogram. It also calculates the tick interval for the histogram, ensuring that it is not smaller than the precision of the parameter.
+
+Overall, this code appears to be part of a larger system for analyzing and visualizing forecast and observed data.
+
+The code is part of a larger program that generates a histogram, which is a graphical representation of the distribution of a dataset. The histogram is generated based on certain parameters and conditions.
+
+1. The code first calculates the minimum and maximum values for the x-axis of the graph. The minimum value (`graphmin`) is set to one tick interval below the minimum value of the data, but not below a certain parameter minimum value (`parmMinval`). The maximum value (`graphmax`) is set to one tick interval above the maximum value of the data, but not above a certain parameter maximum value (`parmMaxval`).
+
+2. It then finds the maximum and minimum Y values for the bins being displayed on the histogram. It does this by iterating over the number of bins (`self.histonumbins`), and updating the maximum and minimum values based on the values in the bins.
+
+3. The code then sets the dimensions of the graph, and checks if the graph should be displayed in logarithmic scale. If so, it calculates the logarithmic values and sets the graph accordingly. If not, it sets the graph with the calculated minimum and maximum values.
+
+4. It then labels the graph and draws each histogram. It does this by iterating over the keys in `self.histograms`, which presumably contains the data for each histogram. For each key, it calculates the x and y coordinates for each bin and creates a line on the canvas at those coordinates. It does this differently depending on whether the graph is logarithmic or not.
+
+5. Finally, it updates the state of certain buttons (presumably related to the graph), stops any working processes, moves the canvas, and displays the canvas.
+
+The code is written in Python and uses several libraries, including math (for the `floor` and `log` functions) and a graphics library (for creating the graph and drawing on the canvas).
+
+This code is a method called `expectedValue` in a class (not shown in the provided code). It appears to be part of a larger system for analyzing and visualizing data, possibly related to weather or climate modeling given the references to parameters like "forecast hour", "model", "obs" (which could stand for observations), and "grid".
+
+The `expectedValue` method takes a large number of parameters, including lists of parameters, models, forecasters, cycles, and days, as well as other settings related to date, scale, and frequency of data accumulation.
+
+The method starts by setting up a display and clearing any existing content. It then configures some settings and retrieves the active "EditArea", which seems to be a region of interest for the analysis. If no active EditArea is found, it assumes the entire grid should be analyzed.
+
+The method then prepares to store forecast and observation values for each model and forecast hour. It also initializes variables to track the minimum and maximum values encountered.
+
+The method then enters a loop over each model, where it retrieves and processes data for each model. It reads data for the current model, scales it, and if the data is of a probabilistic type, it calculates the observed 'yes/no' value.
+
+The method also includes checks to ensure that it doesn't make stats for observations not yet complete and doesn't include negative forecast hours. It also has a mechanism to stop the process if a 'working' check fails. 
+
+Please note that the code is incomplete, and some parts are not fully clear without the full context.
+
+This code is part of a larger program that seems to be dealing with some sort of data analysis, possibly related to weather forecasting given the references to "windSpd", "Dir", and "forecast grid". 
+
+The code starts by logging the current memory and resident usage. It then checks the datatype and last3 variables to determine how to assign the obsgrid variable. The obsgrid is then compressed and converted to a list, and the minimum and maximum values of the list are found. If a key exists in the olists dictionary, the list is extended; if not, a new key is created and the list is added.
+
+The code then reads a forecast grid and calculates an error grid. Similar to the obsgrid, the forecast grid is compressed and converted to a list, and the minimum and maximum values are found.
+
+The code then checks if a key exists in the flists dictionary. If it does, the forecast list is extended; if not, a new key is created and the forecast list is added.
+
+The keys of the flists dictionary are then extracted and sorted. If no data could be read, the function stops and displays a message. 
+
+The code then splits the keys into models and forecast hours, and sorts and processes these lists. It assigns a color to each model and sets up two rows of buttons, presumably for a user interface.
+
+Finally, the code calculates the number of bins and ticks for a graph, adjusting the number of bins if necessary to ensure there are at least 15. The tick interval is also calculated.
+
+The provided code is part of a larger script that generates a graph (likely a scatter plot) based on a set of parameters and data points. 
+
+Here's a step-by-step breakdown of what the code does:
+
+1. It first sets the minimum tick interval based on the parameter precision. The tick interval is the distance between the marks on the graph's axes.
+
+2. It then calculates the minimum and maximum values for the graph. The minimum is set to one tick interval below the minimum data point, but not below a specified minimum value (parmMinval). The maximum is set to one tick interval above the maximum data point, but not above a specified maximum value (parmMaxval).
+
+3. It determines the number of ticks (numTicks) on the graph.
+
+4. It sets up the graph axes, defining the left, right, bottom, and top boundaries of the graph.
+
+5. It labels the top of the graph with the expected value for a specified forecast.
+
+6. If certain conditions are met (verType equals 1 or parmRateFlag equals 1), it labels the length of periods.
+
+7. It then iterates over a list of keys (fullkeys), and for each key, it performs several operations including logging a message, drawing a graph, and labeling a line.
+
+8. It turns lists for a specific model/time into arrays and performs calculations on these arrays to determine values such as the minimum, maximum, average, and standard deviation.
+
+9. It then plots these values on the graph, using different colors for different models.
+
+10. After all keys have been processed, it deletes the lists used for calculations and stops the working process.
+
+11. Finally, it moves the canvas display (CD), deiconifies it (restores it from an icon to a normal window), brings it to the front, logs a message, and returns from the function.
+
+The code also includes the definition of a method called scatterPlot, which appears to set up a scatter plot graph, but the code is cut off so the full functionality of this method is not clear.
+
+This code is part of a larger program that appears to be involved in some sort of data analysis, possibly in a scientific or engineering context. The code is written in Python and seems to be part of a class, as it uses the `self` keyword to refer to instance variables and methods.
+
+Here's a high-level breakdown of what the code is doing:
+
+1. It starts by setting up some initial variables and configurations, such as the number of buttons on a row, and the work start message.
+
+2. It then retrieves the active edit area, and if none is found, it assumes the entire grid should be used. It calculates the total points in the grid.
+
+3. It initializes some dictionaries to store forecast and observed values for each model/forecast hour.
+
+4. It then prepares to loop over each parameter and model. It does some checks and adjustments on the parameter name, and retrieves information about the parameter.
+
+5. It sets up histogram binning routines, and retrieves the mode for reading observed grids.
+
+6. It retrieves case times/records for all models.
+
+7. It then loops over each model, and for each model, it retrieves all the cases for that model. It sorts the cases by start/end time, and logs the number of cases for each model.
+
+8. It then loops over each case, and for each case, it checks if the observation is complete and if the forecast hour is negative. If not, it continues to the next case.
+
+9. It then retrieves the observed data for each case, scales the data, and checks if the variable is probabilistic. If so, it calculates the observed 'yes/no' value.
+
+10. It then checks if the data type is not a vector wind error. If it's not, it compresses the observed data and calculates the minimum and maximum observed values.
+
+The code snippet ends before we can see what happens when `saveKey` is in `self.olists`. However, it's likely that the code continues to process and analyze the data in some way.
+
+This code appears to be part of a larger program that performs data analysis and visualization, possibly in the field of weather forecasting. 
+
+The first part of the code is extending or creating lists of observations and forecasts based on a key. It then reads forecast data, scales it, and calculates errors. The code handles different types of data, including vector data, and compresses the forecast data into a single list. It also calculates the minimum and maximum forecast values.
+
+The next part of the code is concerned with preparing the data for display. It gets all the keys in the forecast list, checks if there's any data to display, and if not, it stops the process and displays a message. If there is data, it sorts the keys and separates them into models and forecast hours. It then sorts and formats these keys for display.
+
+The code then sets up color coding for each model and sets up two rows of buttons for user interaction, one for forecast hours and one for models.
+
+The code then adjusts the number of bins to ensure a reasonably wide graph, calculates the tick interval for the graph, and sets the minimum and maximum graph values.
+
+The code then sets up the graph axes, labels, and potentially a probability axis.
+
+Finally, the code sets up a scatterplot of the data. If there are too many data points, it thins the data by binning it. The code also includes functionality to stop the process if necessary.
+
+The code seems to be part of a larger program that performs various operations related to data visualization and manipulation. 
+
+1. The first part of the code is creating a scatterplot. It calculates the x and y positions for each key in the lists 'olists' and 'flists', and increments the count of each (x, y) pair. It then calculates the maximum count for each key. If a key is not in 'maxcounts', it creates lines at the x and y positions. If a key is in 'maxcounts', it creates an arc at the midpoints of the x and y positions.
+
+2. The second part of the code is a function 'scaleGrid' that smooths a grid by a given scale amount. If the datatype is not 1, it smooths the grid data. If the datatype is 1, it converts the grid data from magnitude and direction to u and v components, smooths the u and v components, and then converts back to magnitude and direction.
+
+3. The third part of the code is a function 'moveCD' that moves the display to a good location if it's the first time the display is shown.
+
+4. The fourth part of the code is a function 'ShowStats' that displays point/area statistics. It calls other functions to make a time series or forecast hour graph based on the plot type.
+
+5. The fifth part of the code is a function 'makeTimeSeries' that displays a time series for a point/area. It checks for good GUI input and that not too many things are varying. If more than one of parm/area/model is varying, it displays an error message. 
+
+The code is written in Python and uses various libraries for data manipulation and visualization.
+
+The code is a part of a larger system, likely a weather forecasting or similar data analysis system. Here's a breakdown of what it does:
+
+1. It checks if there's any variation in the data (totalVary). If there's none, it sets modelVary to 1.
+
+2. It retrieves a list of names of selected edit areas (areaNames) and their descriptions (descList). If no valid areas are found, it shows an error message and exits the function.
+
+3. If the AreaCombine flag is set and there are multiple area names, it combines the areas into a single area (comboArea).
+
+4. It sets up some variables related to statistics (statName, statVal, statCond).
+
+5. It clears the canvas of a graphical user interface (likely for plotting or displaying data) and sets up a title.
+
+6. It initializes some variables for storing output data and for tracking minimum and maximum time and value.
+
+7. It loops over a list of parameters (parmList) and models (modelList), fetching various data and performing checks. It also retrieves statistical cases and grid cases for each parameter and model. If a working check fails, it stops the process.
+
+8. For each model, it reads data and gets a list of keys for both statistical and grid cases. It then loops over these keys, performing various operations and checks.
+
+9. It calculates the forecast hour (fhr) and determines the x-coordinate based on the dateStyle. It also updates the minimum and maximum time.
+
+10. The code ends abruptly, so it's not clear what happens next, but it seems to be preparing to handle different thresholds for different variables.
+
+Overall, the code appears to be part of a complex data analysis and visualization process, likely related to weather or climate data.
+
+This code appears to be part of a larger program that processes and visualizes statistical data related to some kind of model. It checks if a certain condition is met, and if so, it retrieves statistical data using the `getVerStat` method and stores it in the `outdata` dictionary. The key for this dictionary is a string composed of the parameters `parm`, `model`, and `fhr`. 
+
+If the condition is not met, it iterates over a list of area names and performs a similar process, but the key for the `outdata` dictionary also includes the area name. 
+
+The code also checks if the `fhr` value is in the `fhrList` and if not, it adds it. If no data is found, it stops the process and displays a message. 
+
+The code also adjusts the minimum and maximum values (`valmin` and `valmax`) based on the type of display. 
+
+It then sorts the `fhrList` and sets up buttons for a user interface. The title line for the display is set based on the type of error and the parameters that vary. 
+
+The code also associates colors with the varying model/parameter/area, sets up more buttons, and sets up the graphing coordinates. 
+
+Finally, it iterates over the `outdata` dictionary and draws timeseries lines for each key. The color of the line is determined by the `colornames` dictionary. 
+
+Overall, this code seems to be part of a data visualization tool that allows users to view and interact with statistical data from a model.
+
+This code is written in Python and it appears to be part of a larger application, possibly a graphical user interface (GUI) for data visualization. 
+
+The first part of the code is creating a line graph from a set of points. The points are sorted and then transformed into graph coordinates. If there are more than three points, a line is drawn on a canvas. 
+
+Then, forecast times are labeled. After that, some initialization functions are called, and some labels are potentially created at the top of the graph. 
+
+The code then shows the results of the operations and brings the canvas to the front of the application.
+
+The second part of the code is a function `makeFhourGraph` which appears to create a graph of average error at various forecast hours. It takes a dictionary as an argument, which contains various parameters for the graph. 
+
+The function first checks if the input from the GUI is valid. Then, it checks if there are too many varying parameters. If there are, it sends a message to the user and returns. 
+
+If there's only one varying parameter, it sets another parameter to vary as well. 
+
+The function then clears the canvas and sets up a title. It gets the names of selected edit areas and checks if they are valid. If they are not, it sends a message to the user and returns. 
+
+The function then sets up a combined area if necessary and gets contingency table entries if certain statistics are requested. 
+
+The function then initializes some dictionaries and variables, and starts a loop over some parameters. The loop body is not fully visible in the provided code.
+
+This code appears to be part of a larger system that is used for analyzing and verifying weather forecast data. The code is written in Python.
+
+1. It first retrieves various parameters related to a specific weather forecast model using the `getParmInfo` method.
+
+2. It then checks if the parameter is a vector type, specifically speed ("Spd") or direction ("Dir"), and sets the `vectorType` accordingly.
+
+3. The code then retrieves observed parameters, verification type, data type, and thresholds for the parameter from a Verification Utility (VU) object.
+
+4. It also retrieves statistical cases and grid cases for the parameter from the VU object. If the process is interrupted (checked by `self.checkWorking()`), it stops the process and returns.
+
+5. The code then loops over each model in the model list, and for each model, it retrieves statistical cases and grid cases. It also combines the keys of both cases into a single list `tkeys`.
+
+6. For each key in `tkeys`, it checks for user interruption, retrieves times for the case, and checks certain conditions related to the forecast time and grid completion.
+
+7. It then retrieves a list of records for the case, and if areaCombine is on and there are multiple area names, it retrieves the verification statistics for the combined area.
+
+8. Finally, it stores the results in a dictionary with keys as a combination of the parameter, model, and forecast hour. The results are stored differently based on the display type. If the display type is not "TwoCat", it stores the sum and count of the verification statistics. If the display type is "TwoCat", it stores the hits, misses, false alarms, and correct negatives.
+
+This code is part of a larger program that performs some form of data verification, possibly in the context of a weather model or similar system. It appears to be written in Python and uses a mix of standard Python features and some custom methods and data structures.
+
+The code is structured around a series of nested loops and conditional statements. It starts by iterating over a set of area names and retrieving or creating a grid for each area. It then retrieves a set of statistics for each area using the `getVerStat` method and stores these in a series of dictionaries (`sumdata`, `cntdata`, `hitsdata`, `missdata`, `falrdata`, `corndata`), keyed by a string that includes the parameter, model, forecast hour, and area name.
+
+If the `getVerStat` method returns `None`, it prints a message and skips to the next iteration. If the `display` variable is not set to "TwoCat", it squares the value if the `display` is set to "RMS Error", and then increments the sum and count for the current key. If `display` is set to "TwoCat", it increments the hit, miss, false alarm rate, and correct negative data for the current key.
+
+After this, it checks if any data was read. If not, it stops the process, displays a message, and returns.
+
+It then calculates some statistics based on the collected data, storing the minimum and maximum values, and appending the forecast hour to a list if it's not already present. It also constructs a new key and appends the statistic to a list in the `outdata` dictionary.
+
+Finally, it adjusts the minimum and maximum values under certain conditions, sorts the keys in the `outdata` dictionary, and sets up some buttons and graphing coordinates for a user interface. The graphing coordinates are calculated based on the range of values and the dimensions of the graph.
+
+Overall, this code seems to be part of a larger system for analyzing and visualizing weather data, and this specific part is responsible for gathering, processing, and preparing the data for display.
+
+This code appears to be part of a larger system that performs statistical analysis and visualization of data. Here's a breakdown of what the different parts of the code are doing:
+
+1. The first part of the code is drawing a time series line graph. It iterates over the `outdata` dictionary, splits the key into two tags, gets the color for the second tag, and sorts the points. It then converts the points to graph coordinates and appends them to `gpoints`. If there are more than three points, it creates a line on the canvas with those points and the specified color. It also updates the state of two buttons (presumably for toggling the visibility of the lines on the graph).
+
+2. It then turns off all models and times except for the first one, presumably to provide a cleaner initial view of the graph.
+
+3. It sets up labels for the graph. If there is more than one area, it sets the area name to "Various" and calculates the number of points. If there is only one area, it sets the number of points to -1. It then creates labels for the graph.
+
+4. The `getStat` function retrieves a specific statistical value from a multidimensional array based on the provided parameters. The specific value it retrieves depends on the `display` parameter.
+
+5. The `ShowScaleStats` function appears to create a graph of statistics versus scale. It first retrieves a number of parameters from a dictionary. It then checks the input, clears the canvas, sets up the title, and starts a working process. It retrieves the names of selected edit areas and sets up a combined area. If any of the TwoCat stats are requested, it gets the contingency table entries instead.
+
+6. Finally, it initializes several dictionaries (`sumdata`, `cntdata`, `hitsdata`, `missdata`) presumably to store statistical data for later use.
+
+The code is a part of a larger program that seems to be performing some sort of data analysis or verification process on a set of parameters (parmlist) and models (modellist). Here's a breakdown of what the code does:
+
+1. It initializes several variables and dictionaries, including `falrdata` and `corndata`, which appear to be used for storing some sort of results.
+
+2. It checks if the parameter is a vector type and if so, it adjusts the parameter to be read accordingly.
+
+3. It retrieves the observed parameter, verification type, data type, and thresholds for the parameter from some external source or service (VU).
+
+4. It retrieves statistical cases and grid cases for the parameter and models from the same external source or service. If the process is interrupted, it stops the operation and returns.
+
+5. It loops over the models and for each model, it retrieves the cases, combines the keys of statistical and grid cases, and then loops over these keys.
+
+6. For each key, it checks for user interruption, retrieves times for the case, and filters out results for grids that are not yet complete or start before the forecast time.
+
+7. It retrieves a list of records for the case and then retrieves some sort of verification statistics for each scale in a list of scales.
+
+8. It then stores the results in the appropriate dictionaries depending on the display type.
+
+9. If no data could be read, it seems like the program would stop, but the code is cut off at this point.
+
+Please note that without more context or comments in the code, it's difficult to determine the exact purpose or functionality of this code.
+
+The provided code is written in Python and appears to be part of a larger program, possibly a graphical user interface (GUI) or a data analysis tool. Here's a breakdown of what it does:
+
+1. The first part of the code seems to be an error handling or checking mechanism. If no verification data is found that matches certain criteria, it stops working, displays a status bar message, and returns.
+
+2. The next section calculates scores based on some data (possibly statistical data) and stores them in a dictionary named `outdata`. It also keeps track of the minimum and maximum values of these scores and the scales associated with them.
+
+3. It then checks if the display type is one of "RMS Error", "Std Dev", or "Mean Abs Error", and if so, it sets the minimum value to 0.0. If the range of values is too small, it increments the maximum value by 1.0.
+
+4. The code then sorts the keys of the `outdata` dictionary and creates two lists, `varBut1` and `varBut2`, which contain unique elements from the keys of `outdata`.
+
+5. It ensures that if "Official" is in `varBut2`, it comes first in the list. It then associates colors with the elements of `varBut2`.
+
+6. The code sets up buttons for the GUI using the `varBut1` and `varBut2` lists.
+
+7. It then sets up graphing coordinates and draws timeseries lines on the graph based on the data in `outdata`.
+
+8. It seems to initialize or reset some states and labels, and then stops working and updates the display.
+
+9. The last part of the code includes definitions of three methods: `getReadMode`, `workingCommon`, and `setupBut1`. These methods seem to be related to setting up the mode of reading data, updating a 'working' display, and setting up the first set of buttons for the GUI, respectively.
+
+This code is written in Python and uses the Tkinter library to create a graphical user interface (GUI). The code contains two main functions: `setupBut1` and `setupBut2`. Both functions are used to create and manage buttons in the GUI. 
+
+The `setupBut1` function does the following:
+
+1. Clears old buttons from the GUI.
+2. If specified, it adds a 'move left' button to the GUI.
+3. Calculates the number of rows of buttons based on the number of buttons and the maximum number of buttons per row.
+4. Creates the buttons and assigns them to the GUI. If the button text is a digit, it prefixes it with 'f'. It also assigns a callback function to each button.
+5. If specified, it adds a 'move right' button to the GUI.
+6. Packs the buttons in the GUI.
+7. Updates the GUI to reflect the changes, and adjusts the size of the GUI if necessary.
+
+The `setupBut2` function does similar operations as `setupBut1`, but it creates a different set of buttons. The main difference is that the text color of the buttons in `setupBut2` is determined by the `self.colornames[but]` dictionary, while the text color of the buttons in `setupBut1` is always black. 
+
+Both functions take the following parameters:
+
+- `self`: The instance of the class where these functions are defined.
+- `butList`: A list of button names.
+- `numbuttons`: The maximum number of buttons per row (default is 5).
+- `arrows`: A flag to indicate whether to add 'prev/next' buttons (default is 0, which means no 'prev/next' buttons).
+- `width`: The width of the buttons (default is 0, which means the width is automatically determined by the button text).
+
+This Python code appears to be part of a larger application, possibly a GUI application given the use of methods related to canvas and geometry. Here's a breakdown of what each section does:
+
+1. The first part of the code is setting the minimum size of a canvas. It calculates the height of the canvas, checks if the new height is greater than the old height, and if it is, it sets the new canvas geometry and updates the canvas.
+
+2. The `cdLabels` method is creating labels at the top of the canvas. The labels include variable text, the number of gridpoints in the edit area, dates, and cycles. The dates and cycles are formatted differently based on the input parameters.
+
+3. The `labelLine` method is used to draw a label on the canvas. The position of the label (left or right) is determined by the `justify` parameter.
+
+4. The `checkLists` method is checking if the lists returned from the GUI have at least one item. If any of the lists (modelList, parmList, cycleList, fcstrList, dayList) are empty, it displays an error message on the status bar and returns 0. If all lists have at least one item, it returns 1.
+
+5. The `resizecanvas` method is scaling everything on the canvas so that the same area is always displayed, regardless of the size of the canvas.
+
+6. The `setgraph` and `graphcoord` methods are setting up the graph coordinates.
+
+7. The `histoaxes` method is drawing the histogram axes.
+
+8. The `probaxes` method is drawing the axes for probability reliability diagrams.
+
+9. The `vtick` and `htick` methods (not shown in the provided code) are likely used to draw vertical and horizontal ticks on the graph.
+
+The code is part of a larger program that creates and manages a graphical display, likely a graph or chart, using the tkinter library in Python.
+
+The first part of the code creates text labels for the graph at specific coordinates. The `self.htick` function is likely used to create horizontal ticks or markers on the graph. The `self.graphcoord` function is probably used to convert graph coordinates to canvas coordinates.
+
+The `graphaxes` function is used to draw the axes of the graph. It takes the minimum and maximum values for time and value as parameters, calculates the coordinates for the lower left (llx, lly) and upper right (urx, ury) corners of the graph, and draws the axes. It also handles the case where the value range crosses zero, drawing an additional line at zero and adjusting the tick marks accordingly.
+
+The `fhouraxes` function seems to do something similar to `graphaxes`, but it adjusts the interval of the horizontal ticks based on the maximum time value.
+
+The `timetick` function seems to be used to create the tick marks along the time axis. It takes the minimum and maximum seconds, the desired number of ticks, the y-value and width of the ticks, and optional parameters for labeling. It calculates the best interval for the ticks based on a range of possible intervals and the desired number of ticks.
+
+Overall, this code is responsible for setting up and drawing a graph, including the axes, tick marks, and labels.
+
+The provided code seems to be a part of a larger program, possibly a graphical application given the use of the canvas object. Here's a breakdown of what the different parts do:
+
+1. The first part of the code is manipulating time values. It's setting certain values to 0, and then based on the value of `bestBase`, it's resetting certain other values. It then creates a new time value using `calendar.timegm()`. It seems to be setting up a time interval based on the `bestBase` and `bestInterval` values.
+
+2. The while loop is iterating over a range of time from `minsecs` to `maxsecs`. For each time point, it's creating a line on a canvas at a certain position determined by `self.graphcoord(newTime,yval)`. It's also creating labels for these lines based on certain conditions. The labels and lines seem to be part of a time-based graph or chart.
+
+3. The `htick` and `vtick` functions are drawing horizontal and vertical tick marks, respectively, on a graph. They're also optionally labeling these ticks based on the provided parameters.
+
+4. The `valaxes` function seems to be creating axes for a graph, and also adding tick marks to these axes using the `vtick` function.
+
+In summary, this code seems to be part of a graphical application that's creating a time-based graph or chart with labeled tick marks. It's manipulating time values, creating lines and labels on a canvas, and drawing and labeling tick marks on graph axes.
+
+The code provided is written in Python and appears to be a part of a larger class or module that is used for creating and managing graphical plots or charts using the Tkinter library. 
+
+The code includes several methods, each of which performs a different task:
+
+1. `expaxes(self,minval,maxval,tickInterval)`: This method creates axes for expected value distributions. It takes minimum value, maximum value, and tick interval as arguments and draws lines, ticks, and labels on the canvas.
+
+2. `valhaxes(self,minval,maxval,tickInterval,maxnum,vint,parm)`: This method creates axes for value histograms. It takes minimum value, maximum value, tick interval, maximum number, interval, and parameter as arguments and draws lines, ticks, and labels on the canvas.
+
+3. `logvalhaxes(self,minval,maxval,tickInterval,logmin,logmax,parm)`: This method creates axes for logarithmic value histograms. It takes minimum value, maximum value, tick interval, minimum logarithmic value, maximum logarithmic value, and parameter as arguments. It calculates the range of values for the ticks and labels and draws them on the canvas.
+
+4. `niceNumDec(self,val,roundit)`: This method is used to pick a nice decimal number suitable for tick marks, etc. It takes a value and a boolean flag as arguments. The method is incomplete and its full functionality cannot be determined from the provided code.
+
+In each of these methods, the `htick` and `vtick` methods are used to create horizontal and vertical ticks on the axes, and the `create_text` method is used to create labels. The `graphcoord` method is used to convert data coordinates to graph coordinates.
+
+This code appears to be part of a larger program that's used for data visualization and analysis, specifically for creating and manipulating histograms. 
+
+1. `showScore` function: This function draws a tick on a 'colorcurve' with a label of 0-100 score. It takes arguments for the full score, a modifier, color, and a tag label. It calculates a position on the x-axis based on the full score and creates a line and text at that position on a canvas.
+
+2. `showWorse` function: This function shows the number in the first/last bins which are worse than the error limits. It takes arguments for low and high values, maximum x value, y offset, color, and a tag list. It creates text at specific positions on the canvas.
+
+3. `showScores` function: This function displays a model name, count, average, standard deviation, mean absolute error, and root mean square on a histogram. It takes arguments for model number, model, count, average, standard deviation, mean absolute error, root mean square, color, and a tag list. It creates text at specific positions on the canvas.
+
+4. `showAvg` function: This function draws an arrow on the histogram axis at the average value. It takes arguments for average, color, and a tag list. It creates a line and text at a specific position on the canvas.
+
+5. `getBins` function: This function returns lists of each bin's minimum and maximum, with one of them centered on zero. It takes arguments for bin width and maximum error.
+
+6. `getProbBins` function: This function returns lists of each bin's minimum and maximum for probability bins. It takes an argument for bin width.
+
+7. `binerrs` function: This function creates a 1-D array of the number of points with errors inside each bin described by the bin minimum and maximum limits. It takes arguments for error, bin minimum, and bin maximum.
+
+8. `histosetup` function: This function sets up the histogram. It takes arguments for minimum limit, maximum limit, and bin width.
+
+9. `histo` function: This function creates a histogram. It takes an argument for data.
+
+This code file contains several methods that perform various tasks. Here's a brief description of each method:
+
+1. `hitcount(self, data, verif)`: This method calculates the histogram of a given data set. It also counts the number of elements in the data set that are less than `self.histomin` and greater than `self.histomax`. It then logs the shape of the data and verification arrays, and the results of the reductions.
+
+2. `setupGM(self, parmList, modelList)`: This method sets up a Grid Manager. It removes all parameters from display except for parameters in `parmList` for models in `modelList` and `WG1` for the mutable model (if available). It also retrieves information about a parameter named "WG1" if it exists.
+
+3. `getParmInfo(self, mutableModel, parm)`: This method retrieves information about a specific parameter from a mutable model. It returns the units, precision, minimum value, maximum value, rate flag, color table, display minimum value, and display maximum value of the parameter.
+
+4. `SimpleDialog(AppDialog.Dialog)`: This is a class that defines a simple dialog box with buttons for "Ok", "Run", "Run/Dismiss", and "Cancel". The behavior of these buttons is defined in the `buttonbox` method, and the body of the dialog box is defined in the `body` method. The `__runCB`, `__okCB`, and `cancelCB` methods define what happens when the "Run", "Ok", and "Cancel" buttons are clicked, respectively. 
+
+Please note that the code is written in Python and it seems to be part of a larger system, as it references self attributes and methods that are not defined within the provided code.
+
+The code provided is written in Python and uses the tkinter library to create a graphical user interface (GUI). It defines several classes that create different types of dialog boxes. 
+
+1. `BVDialog` class: This is a base class for creating dialog boxes. It has methods for creating buttons, handling button clicks, and managing the dialog box's appearance and disappearance. The buttons and their functionality can be customized by passing different parameters to the `__init__` method.
+
+2. `Working` class: This class inherits from `BVDialog`. It creates a dialog box that informs the user that a process is working. It has a "Stop" button that can trigger a callback method when clicked.
+
+3. `Cases` class: This class also inherits from `BVDialog`. It creates a dialog box that displays the number of cases in a scrolled text window. It has a "Close" button that triggers a callback method when clicked.
+
+4. `MiniDiag` class: This class inherits from `BVDialog` as well. It creates a minimized dialog box to save screen space. It has a button that can trigger a callback method when clicked. The title and button text can be customized.
+
+The `__init__` methods in each class initialize the dialog boxes with specific settings, and the `buttonbox` and `body` methods define the layout and content of the dialog boxes. The `ok`, `cancel`, `validate`, and `apply` methods in the `BVDialog` class handle user interactions with the dialog boxes. The `updateText` method in the `Cases` class updates the text displayed in the dialog box.
+
+This Python code is using the Tkinter library to create and manage a graphical user interface (GUI). It defines several classes, each representing a different type of dialog box or window in the GUI. 
+
+1. The first class is not named, but it seems to be a base class for creating dialog boxes. It includes methods for positioning the dialog box on the screen (`__loc`), updating the dialog box (`update_idletasks`), creating a button (`buttonbox`), and cancelling the dialog box (`cancel`).
+
+2. The `CanvasDisplay` class extends the base dialog class and represents a dialog box with a canvas for displaying graphics. It includes methods for setting up the canvas (`body`), creating a button (`buttonbox`), cancelling the dialog box (`cancel`), and resizing the canvas (`resizecanvas`).
+
+3. The `Verif` class also extends the base dialog class and represents a dialog box for verification options. It includes methods for setting up the dialog box (`body`), creating a button (`buttonbox`), running a callback method (`__runCB`), hiding the dialog box (`__hideCB`), quitting the dialog box (`__quitCB`), and cancelling the dialog box (`cancel`).
+
+The code also includes methods for displaying grids, grid stats, distributions, point/area stats, and stat vs. scale, but these methods are not fully included in the provided code snippet.
+
+This Python code appears to be part of a larger GUI (Graphical User Interface) application, likely built using the Tkinter library. 
+
+The first part of the code is creating and packing (arranging) various frames (containers for other widgets) on the interface. Each frame seems to represent a different section of the interface, such as 'Grids', 'GridStats', 'ScaleStats', 'Dists', and 'Stats'. Each of these frames is packed to the top of the 'BodyFrame' and filled in both directions (vertically and horizontally). 
+
+The 'updateGridsScale' method is called, which likely updates some aspect of the 'Grids' frame.
+
+Then, the code checks the current tab setting and calls the corresponding callback function. This suggests that the GUI has a tabbed interface, where each tab corresponds to a different frame (or set of frames).
+
+The next part of the code defines several methods for displaying different frames when their corresponding tabs are selected. Each method hides all frames and then packs (displays) the corresponding frame.
+
+The 'getValues' method retrieves the current values from the widgets in the currently displayed tab. Depending on the tab type, it calls a different method to retrieve these values.
+
+The 'getGridsValues', 'getGridsStatsValues', and 'getDistsValues' methods retrieve values from the widgets in the 'Grids', 'GridStats', and 'Dists' tabs respectively. These values are likely user inputs or settings, and are stored in a dictionary for later use.
+
+This code appears to be written in Python and uses the Tkinter library for creating a graphical user interface (GUI). 
+
+The code defines several methods that seem to be part of a larger class (not shown in the provided code). These methods are used to get and set various values related to the GUI's state, such as the values of checkboxes, listboxes, and other interactive elements. 
+
+1. `getStatsValues(self, values)`: This method retrieves values from various GUI elements related to statistical data and stores them in the `values` dictionary. It also handles a special case where it attempts to convert a string to a float and sets it to 0.0 if it fails.
+
+2. `getScaleStatsValues(self, values)`: Similar to the previous method, this one retrieves values from GUI elements related to scale statistics data. It also handles the same special case for converting a string to a float.
+
+3. `column2(self, master)`: This method seems to set up a part of the GUI. It creates a frame for the observed model, a checkbox for common cases, and a group of checkboxes for different models.
+
+4. `column3(self, master)`: This method appears to begin setting up another part of the GUI, specifically related to accumulation time periods, but the code is cut off and doesn't show the full implementation.
+
+The code uses the `get()` method to retrieve the current state of various GUI elements, and the `set()` method to set the state of these elements. These elements are part of the Tkinter library and are used to create interactive elements in a GUI, such as checkboxes (`IntVar`), text fields (`StringVar`), and others.
+
+This Python code is using the Tkinter library to create a GUI (Graphical User Interface). Here's a brief summary of what each section does:
+
+1. The first section creates labels and sliders (Scale widgets) for setting the frequency and length of some kind of accumulation. The frequency and length are set to default values from a configuration file, or to 6 if no default is found.
+
+2. The next section creates a frame for setting the start and end times of a forecast. Two sliders are created, one for the start time and one for the end time. The start time is initially set to 0 and the end time is set to a variable XHOUR.
+
+3. The following section creates a list of forecasters. The list is populated based on a number of configurations, such as whether to trim the list, how to sort the list, and how to format the names. The list is then displayed in a Listbox widget.
+
+4. The `getForecasterListbox` function returns a list of the forecast numbers for the forecasters that are currently selected in the ForecasterListbox.
+
+5. The `startMove` and `endMove` functions ensure that the start time is always less than or equal to the end time. If the user tries to set the start time to a value greater than the end time, the end time is automatically adjusted to match the start time, and vice versa.
+
+6. The code ends with a comment indicating that the next section of code will deal with "Date stuff" in "Column 4", but this section of code is not included in the provided code snippet.
+
+This Python code appears to be part of a larger GUI application, most likely using the Tkinter library for creating the interface. The code is defining a part of the interface and its functionality. Here's a breakdown of what the code does:
+
+1. `column4(self,master)`: This function seems to be building a section of a GUI. It creates several widgets including radio buttons, labels, frames, scales, listboxes, and buttons. The widgets are organized in a specific layout using the pack method.
+
+2. `toggleNScale(self)`: This function is used to toggle the maximum value of a scale widget between 50 and a value stored in `self.__VU.STATDAYS`. The text on a button is also toggled between ">" and "<".
+
+3. `toggleCycles(self)`: This function toggles the values of a list of cycle flags between 0 and 1. This could be used to select/deselect all options in a group of checkboxes.
+
+4. `getCycleVals(self)`: This function returns a list of the values of cycle flags that are turned on (not equal to 0).
+
+5. `getFromdayListbox(self)`: This function gets the current selection from a listbox widget and converts it to an integer. It seems to be part of a larger function, as it doesn't return anything and is cut off.
+
+In general, this code is creating and managing a complex user interface with various interactive elements. The specific purpose of these elements would depend on the larger context of the application.
+
+This code appears to be part of a larger Python program that uses the Tkinter library to create a graphical user interface (GUI). The code includes several methods that define different parts of the interface and handle user interactions.
+
+1. `getDaylistListbox(self)`: This method retrieves a list of integer forecast numbers for forecasters that are selected in a list box. It uses the `curselection()` method to get the current selection from the list box, converts the selection to integers, and appends the corresponding days from `self.gridDays` to `outlist`.
+
+2. `OptionsGrids(self,master)`: This method creates a frame in the GUI that allows users to specify options for grid displays. It includes parameters, display options, and grouping options. The parameters are retrieved from `self.__VU.getVerParms()`. The display options are either "Forecasts" or "Errors", and the grouping options are either "Forecast Hour" or "Run Time".
+
+3. `updateGridsScale(self)`: This method updates the scale of the grid display based on the user's selection. It retrieves the current value of `self.GridsScale`, finds the corresponding text in `self.__scaleList`, and updates several related variables.
+
+4. `OptionsGridsStats(self,master)`: This method creates a frame in the GUI that allows users to specify options for grid statistics displays. It includes parameters and display options. The parameters are retrieved from `self.__VU.getVerParmsVect()`. The display options are "Bias", "Mean Abs Error", "RMS Error", and "Mean Squared Error".
+
+The code uses Tkinter's `StringVar()`, `IntVar()`, `Frame()`, `Label()`, `Menubutton()`, `Menu()`, and `Radiobutton()` classes to create the GUI elements. It also uses the `pack()` method to position the elements within their frames.
+
+This Python code appears to be part of a larger application that uses the Tkinter library to create a graphical user interface (GUI). 
+
+The code is creating two frames (threshFrame and twocatFrame) within a parent frame (radioFrame). Each frame contains a set of radio buttons and other widgets, such as Menubuttons and Entries.
+
+In the threshFrame, a radio button is created with the text "Percent Err <". An integer variable (self.GridsStatsThreshold) and a string variable (self.GridsStatsThresholdValue) are also created. A Menubutton is then created with the text variable set to self.GridsStatsThresholdValue. A menu is attached to this button, and a set of radio buttons is added to this menu. The number of radio buttons added is determined by the value of 'NUMTHRESH' from the configuration.
+
+In the twocatFrame, another radio button is created with no text, and several string variables are created. Two Menubuttons are created, each with a menu attached. The first menu has a set of radio buttons, each labeled with a different statistic. The second menu has a set of radio buttons labeled with different conditions (">", ">=", "<=", "<"). An Entry widget is also created, with the text variable set to self.GridsStatsTwoCatValueString and the initial value set to "0.0".
+
+The code also includes several methods that update the state of the GUI based on user interaction. For example, the updateGridsStatsScale method updates several text variables based on the value of self.GridsStatsScale. The pickGridsStatsThreshold and updateGridsStatsTwoCatType methods set the value of self.GridsStatsDisplay. The updateGridsStatsThreshold method updates the thresholds based on the value of self.GridsStatsParm.
+
+In summary, this code is creating a part of a GUI that allows users to select different options using radio buttons and menus, and updates the state of the GUI based on these selections.
+
+The provided code appears to be a part of a larger Python program, specifically a class definition. The code is not complete, but it seems to be related to some kind of graphical user interface (GUI) using Tkinter, a standard Python interface to the Tk GUI toolkit. Here's a breakdown of what the visible parts of the code are doing:
+
+1. `updateScaleThreshold(self)`: This function appears to be updating some kind of threshold values for a scale. It's checking if the current threshold is the same as a previously stored one. If it is, it adds the parameter to the list of parameters for that threshold. If it's not, it adds the threshold and its parameter to their respective lists. The function then formats these lists into strings and updates the labels of some elements in the GUI.
+
+2. `OptionsDists(self,master)`: This function is creating a frame in the GUI for displaying options related to distributions. It creates a radio button group for selecting a parameter, a menu button for selecting a scale, and a radio button group for selecting a display type.
+
+The code is hard to understand without context, as it seems to be part of a larger system and uses variables and methods that are not defined in the provided snippet. The code also seems to be handling some kind of data analysis or visualization, but it's not clear what the data represents.
+
+The provided code is written in Python and uses the Tkinter library to create a graphical user interface (GUI). 
+
+1. `updateDistsScale` function: This function updates the scale of various elements in the GUI. It iterates over a list of scales (`self.__scaleList`), and when it finds a scale that matches the current value of `self.DistsScale`, it updates the text and scale of several elements in the GUI.
+
+2. `OptionsStats` function: This function sets up various options for a statistics display in the GUI. It does the following:
+   - Creates a list of parameters (`self.StatsParms`) based on the result of a function call (`self.__VU.getVerParmsVect()`).
+   - Sets up an area list, which is a listbox with a scrollbar. This listbox allows the user to select one or more areas from a list.
+   - Sets up a display option, which is a set of radio buttons that allow the user to choose what kind of statistic to display ("Bias", "Mean Abs Error", "RMS Error", "Mean Squared Error", "Percent Err <", or "TwoCat").
+   - Sets up a threshold option, which is a menu button that allows the user to choose a threshold for the statistic.
+   - Starts setting up a "TwoCat" option, which is a radio button that allows the user to choose a "TwoCat" statistic. The code for this option is not complete in the provided code.
+
+The code is incomplete and seems to be part of a larger program. It's likely part of a data analysis or visualization tool, given the focus on statistics and display options.
+
+This code is written in Python and is using the Tkinter library to create a graphical user interface (GUI). 
+
+Here's a breakdown of what this part of the file is doing:
+
+1. It creates a frame (`wocatFrame`) and a button (`but`) with a dropdown menu (`self.statsTwoCatTypePopup`). The dropdown menu contains a list of statistical categories related to weather forecasting, such as "Hits", "Misses", "False Alarms", etc. Each item in the dropdown is a radio button, meaning only one can be selected at a time. The default selection is "Fraction Correct".
+
+2. It then creates another button with a dropdown menu (`self.statsTwoCatCondPopup`). This dropdown contains a list of comparison operators (">", ">=", "<=", "<"). Again, each item is a radio button and the default selection is ">".
+
+3. It creates an entry field (`ent`) where the user can input a string. The default value is "0.0".
+
+4. It packs all these widgets into the frame and then packs the frame into the top of the parent widget.
+
+5. It defines several functions (`updateStatsScale`, `updateStatsTwoCatType`, `pickStatsThreshold`, `updateStatsThreshold`) that are used to update the state of the GUI based on user input. These functions are typically triggered by events such as a button click or a selection from a dropdown menu.
+
+6. It starts to define another function (`OptionsScaleStats`) that appears to create more widgets for the GUI, but the code is cut off. 
+
+Overall, this code is creating a complex GUI for selecting and displaying various statistical measures related to weather forecasting. The user can select a statistical category, a comparison operator, and input a value, and the GUI will update to reflect their selections.
+
+The provided code is written in Python and uses the Tkinter library to create a graphical user interface (GUI). Here's a breakdown of what the code is doing:
+
+1. It creates a frame `af` in the master window with a groove relief and a border width of 2.
+
+2. It retrieves a list of descriptions from the `__VU` object's `listEditAreaDescriptions` method and adds the string "Current" at the beginning of the list.
+
+3. It calculates the maximum length of the descriptions in the list and sets the maximum height of a widget to be 5 or the length of the list if it's less than 5.
+
+4. It creates a new frame `acomb` inside the `af` frame and a check button inside `acomb` (though the check button creation is commented out). It also creates a label with the text "Edit Area:".
+
+5. It creates a scrollbar and a listbox inside the `af` frame. The listbox is populated with the descriptions from the list and the scrollbar is linked to the listbox.
+
+6. It creates another frame for displaying radio buttons. The user can select one of the options: "Bias", "Mean Abs Error", "RMS Error", or "Mean Squared Error".
+
+7. It creates additional frames and widgets for setting thresholds and categories. It provides a dropdown menu for selecting a threshold and another dropdown for selecting a category.
+
+8. Each dropdown menu is populated with a list of options. The threshold dropdown is populated with a range of numbers from 0 to the value returned by the `getCFG('NUMTHRESH')` method of the `__VU` object. The category dropdown is populated with a list of statistical measures.
+
+9. It also provides options for setting conditions for the selected category. The user can select from four options: ">", ">=", "<=", "<".
+
+In summary, this code is creating a complex GUI with various widgets including frames, labels, a listbox with a scrollbar, radio buttons, and dropdown menus. The GUI is intended for displaying and selecting statistical measures and setting conditions for those measures.
+
+This Python code seems to be part of a larger GUI application using the Tkinter library. Here is a breakdown of what each part does:
+
+1. It sets up a text entry field in a Tkinter frame named `twocatFrame`. The text entry field is initialized with the value "0.0".
+
+2. It defines several methods that update the state of the application based on user interactions. For example, `updateScaleStatsTwoCatType` sets a variable `ScaleStatsDisplay` to "TwoCat". `pickScaleStatsThreshold` and `updateScaleStatsThreshold` update the threshold values for some statistical scaling operation.
+
+3. The `displayGroup`, `radioGroup`, and `checkGroup` methods create groups of radio buttons and checkboxes respectively. These are common elements in GUIs that allow users to select one or multiple options from a list.
+
+4. The `getCheckList` method returns a list of values that are currently selected in a group of checkboxes.
+
+5. The `sListbox` method creates a scrollable listbox, which is a GUI element that displays a list of items and allows the user to select one or more of them.
+
+6. The `getListbox` method, which is not shown in the provided code, presumably retrieves a list of values that are currently selected in a listbox.
+
+In summary, this code is responsible for creating and managing various interactive elements in a GUI application, such as text fields, radio buttons, checkboxes, and listboxes. It also handles updating the state of the application based on user interactions with these elements.
+
+This code appears to be part of a larger GUI application, possibly using the Tkinter library for Python. Here's a brief overview of what each function does:
+
+1. `getListbox(self,listbox)`: This function retrieves the currently selected items from a listbox widget and returns them as a list.
+
+2. `setDatetype(self)`: This function checks the current value of the `Datetype` attribute and shows or hides certain widgets based on its value.
+
+3. `getRecentDates(self,numdays)`: This function generates a list of date strings and Unix timestamps for a specified number of days in the past.
+
+4. `showmodel(self,modname)`: This function toggles the visibility of a model on a canvas. If the model is currently visible, it moves it off the screen and changes the color of its associated button to grey. If the model is not currently visible, it moves it onto the screen and changes the color of its associated button to the color associated with the model.
+
+5. `showBut1(self,but)`, `startBut1(self)`, `prevBut1(self)`, `nextBut1(self)`: These functions control the visibility and order of a set of buttons or other widgets tagged with "but1". They can move the widgets up or down on the canvas, and change their color to indicate whether they are currently visible.
+
+6. `showBut2(self,but)`, `startBut2(self)`, `prevBut2(self)`: Similar to the "but1" functions, these functions control the visibility and order of a set of widgets tagged with "but2". However, they move the widgets left or right on the canvas instead of up or down.
+
+The code is not complete, so it's hard to provide more specific details without additional context.
+
+This Python code appears to be part of a larger program, possibly a graphical user interface (GUI) or a game, which involves moving buttons around on a canvas. 
+
+The `nextBut2(self)` function moves toggled buttons to the right. It first creates a new list `newbut` to store the state of each button (1 for active, 0 for inactive). Then, it pops the last element of `newbut` and inserts it at the beginning, effectively rotating the button states. After that, it iterates over all buttons and updates their positions and states based on the new states in `newbut`. If a button's state changes from 1 to 0, it is moved to the left and lowered, and its color is set to grey. If a button's state changes from 0 to 1, it is moved to the right and lifted, and its color is set to its original color.
+
+The `_VmB(VmKey)` function reads the `/proc/<pid>/status` file, which contains information about the process with the given pid, and extracts the value associated with `VmKey`. The `memory()` and `resident()` functions use `_VmB(VmKey)` to get the virtual memory size and resident set size of the current process, respectively.
+
+The `GenericCallback(callback, *firstArgs, **firstKWArgs)` function returns an instance of either `GC` or `GCNoKWArgs` depending on whether keyword arguments are provided. Both `GC` and `GCNoKWArgs` are classes that wrap a callback function, allowing it to be called later with some arguments already filled in. This is known as partial function application or currying. The `__call__` method of these classes combines the pre-filled arguments with any additional arguments provided at the time of calling, and then calls the original callback function with these combined arguments.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

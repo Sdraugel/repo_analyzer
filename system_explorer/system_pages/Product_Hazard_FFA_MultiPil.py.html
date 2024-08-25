@@ -1,0 +1,110 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Hazard_FFA_MultiPil.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Hazard_FFA_MultiPil.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a larger software system developed by Raytheon Company. It appears to be a module for handling and generating text products related to flood hazards. The module is named `Hazard_FFA.py`.
+
+The script begins with a class definition `TextProduct` that inherits from `GenericHazards.TextProduct`. This class contains a list of variables related to flood reasons, and a dictionary `Definition` that holds various configuration items for the text product.
+
+The `__init__` function initializes the class by calling the parent class's `__init__` function.
+
+The `allowedHazards` function returns a list of allowed hazard actions related to flash floods and general floods.
+
+The `_preProcessProduct` function seems to be a preprocessing step before the product (presumably a report or alert) is generated. It organizes hazards, creates a time range, and checks if certain hazard actions are being created (like 'NEW', 'EXA', 'EXB', 'EXT') for flash floods or general floods. If so, it sets the `useEAS` variable to 1, indicating that an EAS (Emergency Alert System) phrase is needed.
+
+The code ends abruptly, suggesting that there is more code following this that handles the EAS phrase and possibly other aspects of the product generation.
+
+This code is a part of a larger program that seems to be related to generating weather forecasts and hazard warnings. It consists of several methods that perform various tasks:
+
+1. The first method is not fully visible, but it seems to be constructing a forecast string (`fcst`) with various pieces of information like the WMO ID, station ID, time, product name, and other details. It also includes a default overview section.
+
+2. The `_preProcessArea` method is used to create a header for an edit area combination. It uses the `makeAreaHeader` method to create the area header and appends it to the forecast string.
+
+3. The `_makeProduct` method generates the headline on a segment and the attribution statements and calls-to-action. It also processes each part of the section and appends the generated phrases to the forecast string.
+
+4. The `simplifyAreas` method simplifies the area phrases by combining subareas. It applies certain rules based on the number of states and the number of areas within each state.
+
+5. The `makeAreaPhrase` method creates the area phrase based on the groups of areas and individual zones. It does not have a terminating period.
+
+Overall, this code seems to be part of a system that generates detailed weather forecasts and hazard warnings for specific areas.
+
+This code appears to be part of a larger program that generates phrases or sentences based on geographic areas and certain conditions or hazards. 
+
+The first part of the code checks the length of an area group. If the length is 1, it sets a variable `areaPhrase` to "a portion of ", otherwise it sets `areaPhrase` to "portions of ". Then it creates a list of areas based on the state and part of the state.
+
+Next, it creates a dictionary `d` with different types of geographic areas and their singular and plural forms. It then counts the number of each type of area in the area groups.
+
+The code then creates a list of phrases based on the count of each type of area. If there is only one of a certain type of area, it uses the singular form, otherwise it uses the plural form. 
+
+The `generalOnly` variable seems to be a flag that determines if the function should return just the `areaPhrase` or continue to add more details to it.
+
+If `generalOnly` is not set, the code adds more details to the `areaPhrase`, including specific areas and their names. It also handles special phrasing for "The District of Columbia".
+
+The `sortSection` function appears to sort hazards in a particular order for sections within each segment. The `makeSection` function creates a section of the FFA product, which seems to be a kind of report or alert. It generates different phrases based on the action associated with the hazard (e.g., 'NEW', 'CON', 'EXA', 'EXT', 'EXB', 'CAN', 'EXP'). 
+
+Overall, this code seems to be part of a larger system for generating detailed, human-readable reports or alerts based on geographic areas and hazards or conditions.
+
+This code is part of a larger program that generates a textual summary or report of hydrometeorological activity, such as weather conditions or hazards. 
+
+The code block starts by checking if a `headPhrase` exists. If it does, it performs a series of operations to generate a detailed report. 
+
+1. It generates an `endTimePhrase` which likely describes when a certain hazard ends.
+2. It checks the action type of the hazard (`hazard['act']`). If it's new and `canHazard` is true, it gets the previous text from `canHazard`; otherwise, it gets it from the hazard itself.
+3. It decodes the bulleted text from the previous text.
+4. It sets a default basis phrase based on the action type of the hazard.
+5. It substitutes the basis phrase in the bulleted text.
+6. It substitutes the impacts phrase in the bulleted text.
+7. It checks if there's remaining text. If there is, it processes it and adds it to the general text.
+8. It checks if a call to action should be added. If it should, it gets the default call to action based on the hazard's phenomenon and significance.
+9. It adds the call to action to the body phrase.
+10. It checks if certain phrases exist in the body phrase and the attribution. If they do, it removes them.
+11. It combines all the phrases to form the final attribute phrase.
+
+If there's no `headPhrase`, it simply sets the `attrPhrase` to the `attribution`.
+
+Finally, it returns the `attrPhrase`.
+
+The exact details of what each operation does would depend on the rest of the code, especially the methods like `hazardTimePhrases`, `substituteBulletedText`, `decodeBulletedText`, `convertSingleParas`, `ctasFound`, and `defaultCTA`.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

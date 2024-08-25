@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>replaceAttributeInXML.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>replaceAttributeInXML.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to modify XML files. It replaces the values of specific attributes in XML elements that match a given XPath expression. Here's a step-by-step breakdown of what the script does:
+
+1. The script first checks if the correct number of command-line arguments have been provided. It expects five arguments: the path to the input XML file, the name of the output file, the XPath expression, the name of the attribute to be modified, and the new value for the attribute.
+
+2. If the correct number of arguments are not provided, the script prints a usage message and exits.
+
+3. The script then parses the input XML file and gets the root element of the XML tree.
+
+4. It finds all elements in the XML tree that match the provided XPath expression.
+
+5. If no matching elements are found, the script prints a message and exits.
+
+6. The script then loops over all matching elements. If the element has the specified attribute, the script replaces the attribute's value with the new value. It also prints a message indicating the old and new values of the attribute.
+
+7. Finally, the script writes the modified XML tree to the output file and prints a completion message.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

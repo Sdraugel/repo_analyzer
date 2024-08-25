@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TimestampAdapter.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TimestampAdapter.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is part of a larger software system developed by Raytheon Company for the US Government, as indicated by the comments at the top. It contains export-restricted data, meaning it cannot be shared outside of the U.S. without proper authorization.
+
+The actual code is an adapter for the `java.sql.Timestamp` class, which is a data type in Java used to store date and time. This adapter is used to serialize and deserialize `Timestamp` objects, allowing them to be converted to and from a format that can be stored or transmitted and then reconstructed later.
+
+The `serialize` function takes a `Timestamp` object and writes its time value (in milliseconds since the epoch) to the context, which is likely a data stream of some sort.
+
+The `deserialize` function reads a time value from the context and uses it to construct a new `Timestamp` object.
+
+The `ClassAdapter` variable is a string that stores the name of the class this adapter is meant for, which is `java.sql.Timestamp`.
+
+The software history comment indicates that this file was initially created by an engineer named dgilling on June 30, 2011.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

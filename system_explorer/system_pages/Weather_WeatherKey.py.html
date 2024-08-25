@@ -1,0 +1,68 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>WeatherKey.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>WeatherKey.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code defines a class named `WeatherKey`. The class is used to handle weather data related to a specific site. The site is identified by a `siteId` and a list of `subKeys`.
+
+The class `WeatherKey` has the following methods:
+
+- `__init__(self, siteId="", subKeys=[])`: This is the constructor of the class. It initializes the `siteId` and `subKeys` attributes. If `subKeys` is a string, it calls the `__parseString` method to split it into a list.
+
+- `__str__(self)` and `__repr__(self)`: These methods return a string representation of the object. They join the `subKeys` list into a string separated by the `SUBKEY_SEPARATOR` constant.
+
+- `__eq__(self, other)`: This method checks if the `subKeys` of the current object is equal to the `subKeys` of another `WeatherKey` object.
+
+- `__ne__(self, other)`: This method checks if the `subKeys` of the current object is not equal to the `subKeys` of another `WeatherKey` object.
+
+- `__hash__(self)`: This method returns the hash value of the `subKeys` list. This can be used when `WeatherKey` objects are inserted into a set or used as keys in a dictionary.
+
+- `getSiteId(self)` and `setSiteId(self, siteId)`: These are getter and setter methods for the `siteId` attribute.
+
+- `getSubKeys(self)` and `setSubKeys(self, subKeys)`: These are getter and setter methods for the `subKeys` attribute.
+
+- `__parseString(self, subKeys)`: This private method splits the `subKeys` string into a list using the `SUBKEY_SEPARATOR` constant.
+
+The code also contains a comment indicating that a `WeatherSubKey` class should be implemented and used in this class when needed.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

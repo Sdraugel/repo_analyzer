@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>CivilEmerg_AVW_MultiPil_Local.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>CivilEmerg_AVW_MultiPil_Local.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The code appears to be part of a larger software system developed by Raytheon Company. The software seems to be related to the generation of avalanche warnings, possibly as part of a weather forecasting or emergency alert system.
+
+The initial comments indicate that the software was developed under a US government contract and contains export-restricted data, meaning it cannot be shared outside of the US without proper authorization. The comments also provide contact information for the contractor, Raytheon Company.
+
+The code then imports several modules, including `CivilEmerg`, `TextRules`, and others. These modules likely contain functions and classes that are used in the rest of the code.
+
+The `TextProduct` class is defined, which is a subclass of `CivilEmerg.TextProduct`. This class has a `Definition` dictionary that contains various configuration settings, such as the display name, output file, and product name, among others. These settings are likely used elsewhere in the software to control how the avalanche warning is generated and displayed.
+
+The `__init__` method is used to initialize an instance of the `TextProduct` class. It does this by calling the `__init__` method of the parent class, `CivilEmerg.TextProduct`.
+
+The `_makeProduct` method is defined, which appears to generate the text of the avalanche warning. It takes several arguments, including a forecast (`fcst`), an edit area (`editArea`), an area label (`areaLabel`), and a dictionary of arguments (`argDict`). The method adds a standard message to the forecast and returns the updated forecast. The standard message indicates that the warning is being transmitted at the request of a particular source.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

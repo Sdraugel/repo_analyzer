@@ -1,0 +1,120 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Hazard_TCVNHC_MultiPil.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Hazard_TCVNHC_MultiPil.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code appears to be a Python script for generating a Tropical Cyclone Watch/Warning (TCV) product for areas covered by the U.S. National Weather Service. It was developed by Raytheon Company and is subject to U.S. export control laws.
+
+The script begins with a series of comments providing information about the software, its purpose, version history, and contact details for the developers. It also includes a disclaimer stating that the software is in the public domain and provided "as is", without any warranty or technical support.
+
+The actual code starts by importing several Python modules: `time`, `re` (regular expressions), `copy`, `pprint` (pretty print), `GenericHazards`, `LogStream`, and `TropicalHazards`.
+
+The `TextProduct` class is defined, which inherits from the `TropicalHazards` and `GenericHazards` classes. This class appears to be used for generating the TCV product. It includes a series of attributes and configurations related to the product, such as its name, station ID, WMO ID, city, and other details.
+
+The `Definition` dictionary within the `TextProduct` class holds a series of key-value pairs that define various properties of the TCV product, such as its name, output file, database, map name for combinations, default edit areas, and more. 
+
+There are also optional configuration items in the `Definition` dictionary for additional customization of the TCV product, such as purge time, whether to include cities and zone names, line length, and more.
+
+Finally, the `debug` dictionary within the `Definition` dictionary seems to be used for debugging purposes, with various keys corresponding to different parts of the product generation process.
+
+The provided Python code appears to be part of a larger system, possibly related to weather forecasting, specifically for tropical hazards. Here's a breakdown of what the code does:
+
+1. The `__init__` method initializes the class by calling the `__init__` methods of its parent classes, `GenericHazards.TextProduct` and `TropicalHazards.TropicalHazards`.
+
+2. The `generateForecast` method is the main function of this class. It takes an argument dictionary (`argDict`) and uses it to generate a forecast. It does this by:
+
+   - Getting variables and checking for errors.
+   - Sampling hazards and printing the raw analyzed hazards.
+   - Organizing hazards and checking if there are any tropical hazards to report. If there are none, it returns a message saying there are no coastal tropical watches or warnings to report.
+   - Determining time ranges and checking for errors.
+   - Organizing all hazards by phenomena and significance.
+   - Initializing the output string and preprocessing the product.
+   - Constructing a hazard dictionary and a list of segments to process.
+   - Generating the product for each segment in the segment list, which includes formatting the UGC header and the product body, and finishing off the product block.
+   - Post-processing the product and returning the forecast.
+
+3. The `_preProcessProduct` method is used to produce a product header using information for specific storms. It gets the storm info that goes with the product identifier (PIL), loads the advisory based on the PIL, and checks if the correct storm information is available. If the storm information is not available, it seems like the code is cut off and we can't see what happens next.
+
+This code appears to be part of a larger program that generates a forecast message for a tropical cyclone event. Here's a breakdown of what the code does:
+
+1. It first checks if the storm information is valid. If not, it returns a message asking the user to run the StormInfo procedure for the storm and try again.
+
+2. It then retrieves the storm information from a dictionary called `stormDict`. The information includes the storm's name, type, advisory type, advisory number, and storm number.
+
+3. The storm number is then used to ensure the VTEC ETN (Event Tracking Number) is correct for a national center. If the VTEC ETN is less than 1000, 1000 is added to it.
+
+4. The code then corrects the WMO (World Meteorological Organization) header based on the selected PIL (Product Identifier).
+
+5. The product name is modified to include the advisory package info. If the advisory type is "Special" or "Intermediate", the word "Routine" in the product name is replaced with the advisory type. Otherwise, the word "Routine" is removed from the product name.
+
+6. If an EAS (Emergency Alert System) phrase exists, it is inserted into the forecast message.
+
+7. A storm code is then formatted for the product.
+
+8. The MND (Mass News Disseminator) header text is constructed and added to the forecast message.
+
+9. A disclaimer is then added to the forecast message, cautioning that the product only approximately conveys the extent of tropical cyclone wind and surge watches and warnings.
+
+10. The `_makeProduct` function is then defined. This function appears to produce breakpoint end points within each segment of the forecast message. It sets the language, makes a list of any impacted WFOs (Weather Forecast Offices) from all breakpoint segments, and defines the segment text for this group.
+
+11. The function then determines if it just wants to list the end points of this segment, or all of the segments in this list. If the segment is something other than an island, it uses endpoints. Otherwise, it displays all of the points.
+
+12. The function then checks if it should include non-UGC (Universal Geographic Code) codes in mainland USA TCV (Tropical Cyclone VTEC product). If not, it does not display non-Z codes in USA TCV.
+
+13. The function then looks through each zone of this hazard group. For each zone, it gets the entry for this area from the `_tropicalAreaDict` dictionary. If the dictionary does not contain a definition for this area, it logs a problem.
+
+14. The function then constructs the info for the starting point of this segment if it has not already done so, or if this is an island point.
+
+This code is part of a larger Python script that appears to be used for processing and formatting weather forecast data, specifically related to tropical hazards. Here's a breakdown of what each part does:
+
+1. The `_formatTCVline` method is used to format a line of text for a tropical cyclone warning (TCV) segment. It takes an entry (which is a dictionary of data for a specific area) and a type (which specifies whether the data is for the start or end of a segment). The method extracts the necessary data from the entry, formats it, and returns a string of text.
+
+2. The `_postProcessProduct` method takes a forecast (`fcst`) and a dictionary of arguments (`argDict`). It performs several operations to format and clean up the forecast text. This includes inserting an overview, adding line feeds, adding a list of impacted Weather Forecast Offices (WFOs), handling Emergency Alert System (EAS) urgency coding, preventing empty Call to Action tags, removing empty framing code, indenting bullet text, and cleaning up multiple line feeds. It also checks if the storm is over and if so, updates a JSON file accordingly. Finally, it adds a URL text from the configuration section to the forecast and returns the modified forecast.
+
+3. The `elif len(endLine) == 0:` block checks if the length of `endLine` is 0. If it is, it constructs `endLine` by calling the `_formatTCVline` method with the current entry and "end" as arguments.
+
+4. The `if startLine == endLine:` block checks if `startLine` and `endLine` are the same. If they are, it resets `endLine` to an empty string.
+
+5. The `return fcst` statement returns the forecast after all the processing and formatting have been done.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

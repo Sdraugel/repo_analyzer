@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>WindChillTool.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>WindChillTool.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is a part of a software developed by Raytheon Company under a contract with the US Government. The software is in the public domain and is provided "as is", without any warranty or technical support. The code is for a tool named "WindChillTool.py", authored by Dankers from WFO Boulder in August 2001.
+
+The software is subject to US export control regulations, meaning it contains data whose export/transfer/disclosure is restricted by U.S. law.
+
+The code defines a class named `Tool` that inherits from `SmartScript.SmartScript`. The class has two methods: `__init__` and `execute`.
+
+The `__init__` method is the constructor of the class. It initializes an instance of the class by calling the constructor of the parent class with a parameter `dbss`.
+
+The `execute` method calculates the wind chill index from temperature (`T`) and wind speed (`Wind`). It first adjusts the wind speed by multiplying it by 1.15. Then it calculates the wind chill index using a specific formula. If the wind speed is less than or equal to 3, the wind chill index is the same as the temperature. Otherwise, it uses the formula to calculate the index.
+
+The method then clips values where the wind chill index is greater than the temperature, replacing them with the temperature. If the temperature is greater than or equal to 51 degrees, it substitutes the wind chill index with the temperature. Finally, it returns the wind chill index.
+
+The code uses the numpy and math libraries for mathematical operations and the SmartScript module (presumably a custom module).</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

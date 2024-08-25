@@ -1,0 +1,320 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>MakeHSEditAreas.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>MakeHSEditAreas.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is part of a larger software that seems to be related to geographical data manipulation, possibly for weather forecasting or similar applications. The code is written by an author named "lefebvre" and has been modified several times as indicated in the software history.
+
+The code begins by importing several libraries that are used for mathematical calculations, time manipulation, graphical user interface (GUI) creation, and data manipulation. 
+
+The main class in this code is `Procedure`, which inherits from `SmartScript.SmartScript`. This class has several methods:
+
+1. `__init__`: This is the constructor method that initializes an instance of the `Procedure` class.
+
+2. `calcAngle`: This method calculates the angle formed by the center and y, x coordinates. It converts the coordinates from degrees to radians, calculates the difference between the coordinates, and then calculates the angle using the `atan2` function from the `math` library. If the angle is negative, it adds 360 to it to ensure it's within the 0-360 degrees range.
+
+3. `distance`: This method calculates the great circle distance between two points specified by their latitudes and longitudes. It handles a specific case where the difference in longitudes is very small to avoid exceptions.
+
+4. `printCoords`: This is a debugging method that prints the coordinates in an easy-to-read format.
+
+5. `simplifyEditArea`: This method simplifies a geographical area represented by a polygon. It approximates the area with a smaller number of points. It does this by dividing the area into slices like a pie and keeping only the outermost point in each slice. It also has a mechanism for removing insignificant points based on a threshold area.
+
+The code ends abruptly, so it's not clear what the rest of the `simplifyEditArea` method does or if there are any other methods in the `Procedure` class.
+
+The code provided is written in Python and seems to be part of a larger application, possibly related to graphical editing or image processing. Here is a breakdown of what the different parts of the code are doing:
+
+1. The first part of the code is calculating the area of a triangle formed by three points: next, current, and previous. It first ensures that the slopes of the lines connecting these points are not zero or infinity. It then calculates the slope of the base of the triangle, a point on a line connecting the last and next points that is perpendicular to the middle point, and the area of the triangle. It keeps track of the smallest area found and the index of the point that forms this triangle. If the area is smaller than a certain threshold, the point is removed from the list of points.
+
+2. The `getWEInventory` method fetches the inventory in the form of a timeRange list. If the modelName or weName is not valid, it returns an empty list. Otherwise, it returns a list of grid times that overlap with the given time range.
+
+3. The `makeListBox` method creates a list box that holds the names of the scripts. It sorts the names and displays them in a list box with a scrollbar.
+
+4. The `makeTimeButtons` method creates time period buttons. It creates a label and a set of radio buttons for different time periods.
+
+5. The `listBoxClick` method is a callback that fires when a list selector is clicked. It disables all buttons except the 'Add New' button if no selection is made. If a selection is made, it fetches the corresponding edit area and displays it on the GFE (Graphical Forecast Editor). It also updates a text box with the description of the edit area.
+
+Please note that without the full context or the complete code, some assumptions had to be made about the functionality of the code.
+
+This code appears to be part of a graphical user interface (GUI) application, likely written in Python using the Tkinter library. The code contains several methods that perform different tasks:
+
+1. `eaDesc(editAreaDesc)`: This method seems to be incomplete as it's not clear what it does from the provided code.
+
+2. `enterEvent(self, event=None)`: This method is likely called when an "Enter" event is detected. It increments the `_enterCount` attribute and if it exceeds 4, it sets the active edit area to `_initialEditArea` and unbinds the "Enter" event.
+
+3. `redrawListBox(self)`: This method clears and repopulates a list box widget with sorted items from `_hsDesc`.
+
+4. `selectListBoxItem(self, item)`: This method selects an item in the list box.
+
+5. `setSelectButtonState(self, buttonState)`: This method sets the state of several buttons in the GUI.
+
+6. `timeButtonClick(self, event)`: This method is likely called when a button related to time is clicked. It sets the `_currentTimePeriod` attribute based on the button's value.
+
+7. `pieClick(self, event)`: This method is called when a pie chart in the GUI is clicked. It calculates the angle of the click and selects or deselects the corresponding pie slice.
+
+8. `activatePie(self)`: This method activates a pie slice if all are off.
+
+9. `prettyLatString(self, latValue)` and `prettyLonString(self, lonValue)`: These methods format latitude and longitude values into human-readable strings.
+
+10. `latScaleMotion(self, value)`: This method updates the latitude scale value and the corresponding entry in the GUI.
+
+The last method `activat` seems to be incomplete. Overall, the code seems to be part of a larger GUI application that involves list boxes, buttons, and pie charts, and deals with geographical data (latitude and longitude).
+
+This code appears to be part of a larger Python program that uses the tkinter library to create a graphical user interface (GUI). The code is defining several methods for a class, likely related to a mapping or geographical application given the use of terms like 'latitude', 'longitude', and 'radius'. Here's a brief description of what each method does:
+
+1. `lonScaleMotion(self, value)`: This method takes a longitude value, converts it to a string, deletes the previous value in the longitude entry field, and inserts the new value. It then activates a pie chart and updates a polar edit area.
+
+2. `getLatLonGrids(self)`: This method retrieves latitude and longitude grids either from an inventory or by generating new ones.
+
+3. `radiusScaleMotion(self, value)`: This method is similar to `lonScaleMotion` but for a radius value.
+
+4. `getCircleCoords(self)`: This method calculates and returns the coordinates of a circle.
+
+5. `filterTextEntry(self, entryStr, allowedChars)`: This method filters a string by only allowing certain characters.
+
+6. `parseLatitude(self)` and `parseLongitude(self)`: These methods parse latitude and longitude values from strings, handling potential errors and returning the parsed values.
+
+7. `latKeyPress(self, event)`, `lonKeyPress(self, event)`, and `radKeyPress(self, event)`: These methods handle key press events for latitude, longitude, and radius entry fields, respectively. They filter the input, handle the 'Return' key event, and update the corresponding scale values.
+
+8. `makePolarWidgets(self)`: This method creates a canvas and draws pie slices on it.
+
+The code seems to be incomplete as the last method is cut off.
+
+This code appears to be part of a larger application, likely a GUI (Graphical User Interface) for some sort of mapping or geolocation software, written in Python using the Tkinter library for the GUI components. Here's a breakdown of what the different parts of the code do:
+
+1. The first part of the code creates a pie slice shape on a canvas, and binds various mouse events (click, release, motion) to a method called `pieClick`.
+
+2. It then creates a vertical scale (a slider) for latitude values and a horizontal scale for longitude values. These scales are placed in a grid layout within a frame. The scales are set to call a method (`latScaleMotion` or `lonScaleMotion`) when their values change.
+
+3. Entry fields are created for latitude, longitude, and radius values. These fields are bound to variables that will update when the entry field's content changes. They also have keypress events bound to methods (`latKeyPress`, `lonKeyPress`, `radKeyPress`).
+
+4. Labels for the latitude, longitude, and radius are created and placed in the grid.
+
+5. The `makeBottomButtons` method creates a row of buttons ("Cancel", "Save", "Save and Exit") at the bottom of the GUI. Each button is bound to a different command method.
+
+6. The `saveOnlyCommand` and `saveExitCommand` methods save some sort of description to a file. The `saveExitCommand` also prints a message and calls the `cancelCommand` method.
+
+7. The `cancelCommand` method checks if any edits have been made. If edits have been made, it prompts the user to confirm they want to cancel. If the user confirms, or if no edits have been made, it destroys the GUI.
+
+8. The `getPolarInfo` method seems to encode some sort of edit area and returns the latitude, longitude, radius, and pie state.
+
+9. The `editAreaExtent` method calculates the maximum width and height of the edit area in latitude/longitude coordinates.
+
+10. The `saveSelCommand` method checks if an edit area has been selected and if it's large enough. If it is, it saves the selection. If it's not, it displays an error message. The method is not complete in the provided code.
+
+This code seems to be part of a larger application, possibly a GUI-based application that allows users to edit and manage "areas". Here's a high-level overview of what each function does:
+
+1. `saveNewCommand` and the first part of the code: These sections are responsible for saving a new "edit area". They first check if the selected area is not null and is large enough. If these conditions are met, the area is saved. If the area has polar parameters, these are also saved. The area is then added to a list box and the user interface is updated.
+
+2. `replaceSelCommand`: This function replaces the currently selected "edit area" with a new one, again checking if the new area is large enough. The area's polar parameters are saved if they exist.
+
+3. `clearSelCommand`: This function clears the currently selected "edit area". It removes the area from the list box and updates the user interface.
+
+4. `clearAllCommand`: This function clears all "edit areas". It removes all areas from the list box and updates the user interface.
+
+5. `closeReasonWindow`: This function is called when a window called "Reasons" is closed. It destroys the window and adds a "killed area".
+
+6. `reasonButtonClick`: This function is called when a "reason button" is clicked. It updates a variable called `_killDesc` and updates the user interface.
+
+7. `displayKillReasonsDialo`: This function seems to be incomplete, but it likely displays a dialog box with reasons for "killing" an area.
+
+The `_editsMade` variable is set to `True` after each operation, indicating that changes have been made. The code also makes use of a status bar to display messages to the user.
+
+The code provided is written in Python and appears to be part of a larger program that uses the Tkinter library for creating a graphical user interface (GUI). 
+
+The first function `g(self, killReasons):` seems to be creating a new window with radio buttons for each of the reasons provided in the `killReasons` list. The selected reason is stored in `self._killVar`. The window is made modal, meaning it blocks interaction with other windows until it is closed.
+
+The `killSelCommand(self):` function checks if any item is selected in a listbox widget. If an item is selected, it calls the `displayKillReasonsDialog(self._killReasons)` function with the `killReasons` attribute.
+
+The `addKilledArea(self):` function appears to be used for creating and saving a new area with specific parameters. It retrieves information from the GUI, manipulates it, and then saves it. It also updates the GUI after the new area is added.
+
+The `makePolarEditArea(self):` function seems to be creating a polar edit area based on latitude, longitude, and radius values. It uses numpy for mathematical operations and creates a mask based on these values.
+
+The `dirSort(self, dirA, dirB):` function is a comparison function used for sorting. It compares two tuples, each containing a direction and a count, and returns -1, 0, or 1 depending on whether the count in the first tuple is less than, equal to, or greater than the count in the second tuple.
+
+The `formatCircleEditArea(self, lat, lon, radius, pieState):` function returns a string that describes a circular edit area. It takes latitude, longitude, radius, and pieState (which seems to represent different sectors of the circle) as parameters. 
+
+The code snippet ends before the last function is fully shown.
+
+This Python code appears to be part of a larger program that deals with geographic data, possibly for weather forecasting or similar applications. 
+
+The first part of the code is iterating over a list called `quad` and performing operations on its elements. It seems to be checking if certain elements in the list are true and then changing the values of those and other elements. 
+
+The `latLonStr` function formats a latitude or longitude string with appropriate direction labels (N, S, E, W). It also handles special cases for certain coordinates and adjusts the precision of the output based on the input.
+
+The `determinePrecision` function calculates the maximum and minimum latitude and longitude from a list of points, and then determines the precision of the coordinates based on the difference between the maximum and minimum values.
+
+The `formatPolygonEditArea` function simplifies an edit area (presumably a geographic area that can be edited or manipulated in some way), determines the precision of the coordinates, and then formats a string that describes the area.
+
+The `makeNamedAreaDesc` function seems to be creating a description for a named area, possibly a specific geographic region. It checks for overlap between the edit area and named areas, and if there is any overlap, it adds the description of the overlapping named area to a list. The function then formats a string that includes all of the descriptions in the list. 
+
+Overall, this code seems to be manipulating and formatting geographic data, possibly for display or for use in further calculations or operations.
+
+This Python code contains various functions for managing and manipulating text boxes and edit areas in a GUI, likely using the Tkinter library. Here's a brief description of what each function does:
+
+1. `makeEditAreaDesc`: This function creates a description for an edit area. If latitude is provided, it formats the description as a circle edit area, otherwise it formats it as a polygon edit area.
+
+2. `displayAreaDesc`: This function displays the description of an edit area in a text box. It first enables the text box, deletes any existing text, inserts the new description, and then disables the text box.
+
+3. `textBoxClick`: This function is likely called when a text box is clicked. It changes the font of the text box to normal and enables it. It also stores the current selection of a list box.
+
+4. `textBoxReturnPress`: This function is likely called when the return key is pressed in a text box. It retrieves the selected edit area name and description, replaces any newline characters in the description, displays the description, and updates the text box save state to "Saved".
+
+5. `textBoxKeyPress`: This function is likely called when a key is pressed in a text box. If the key is printable, it updates the text box save state to "NOT Saved".
+
+6. `updateTextBoxSaveState`: This function updates the save state of a text box and changes the color of a text label depending on the save state.
+
+7. `getBasinName`: This function determines which basin an edit area is in. It checks if the edit area overlaps with any basins and returns the name of the basin.
+
+8. `addNewFeature`: This function creates a new feature with a given name, time period, edit area name, and description. It also optionally takes in latitude, longitude, radius, and pie state.
+
+9. `addNewArea`: This function adds a new area to a feature with a given name, time period, edit area name, and description. It also optionally takes in latitude, longitude, radius, and pie state. If the feature doesn't exist, it creates a new one.
+
+This code seems to be part of a larger Python class that manages and manipulates geographic areas or features, possibly for a mapping or GIS application. The class contains methods for adding, removing, and replacing areas, as well as extracting and manipulating information about these areas.
+
+Here's a brief summary of what each method does:
+
+1. `removeEditArea(editAreaName)`: This method removes an area from the list of areas (`_hsDesc`) if the area's name matches the provided `editAreaName`.
+
+2. `replaceEditAreaDesc(editAreaName, editAreaDesc)`: This method replaces the description of an area with a new description, if the area's name matches the provided `editAreaName`.
+
+3. `getEditAreaDesc(editAreaName)`: This method returns the description of an area if the area's name matches the provided `editAreaName`.
+
+4. `getAllEditAreaNames()`: This method returns a list of all area names.
+
+5. `extractFeature(name)`, `extractTimePeriod(name)`, `extractDirName(path)`: These methods extract specific parts of a string, probably related to the naming or path conventions used in the application.
+
+6. `getNonLatLonText(areaDesc)`: This method extracts and returns the parts of a description that do not contain latitude/longitude information.
+
+7. `clipDescAreas(hsDesc, clipAreaName)`: This method seems to be used for clipping or masking areas. It creates a new area that is the intersection of an existing area and a clipping area, and saves this new area with a new name.
+
+The code uses a number of instance variables (like `_hsDesc`, `_siteID`, `_sitesWithBasins`, `_descDelimStart`, `_descDelimEnd`, `_allEditAreaNames`, `_eaUtils`) that are not defined within these methods, suggesting that they are defined elsewhere in the class or are passed in as arguments when the class is instantiated.
+
+The code provided is a part of a larger Python script, which appears to be related to weather forecasting. Here's a breakdown of what each method does:
+
+1. `removeTextBoxDelims`: This method removes the "{" and "}" characters from the 'areaDesc' field in each dictionary in the 'areaList' of each dictionary in the `highSeasDescriptor` list.
+
+2. `writeHSDescriptorToFile`: This method writes the `highSeasDescriptor` data to a file. If the file doesn't exist, it creates the directory and sets the file permissions. The data is written using the `pickle` module, which serializes and de-serializes Python object structures.
+
+3. `saveHSDescToFile`: This method saves descriptor information to files. It first saves the information for the tool, then for the formatter. It also removes delimiters from the descriptors for the formatter version. It also calls a method to get "interesting weather" and resets the `editsMade` flag.
+
+4. `fetchWxGrids`: This method fetches weather grids for a specific time range. It finds the grid that overlaps the first hour of the period in which it's interested.
+
+5. `getToolWxTypeIntens`: This method returns the weather type and its intensity. If the weather type is "T", "K", "VA", or "F" and the intensity is "m", it sets the intensity to "<NoInten>".
+
+6. `getMaskForWxType`: This method returns a mask where all points with the specified weather type are set to 1.
+
+7. `getContiguousEditAreas`: This method discovers the individual sub edit areas of the specified edit area and saves them as individual edit areas. It creates a new grid for each contiguous bit array location.
+
+The code is incomplete, so it's hard to provide a complete analysis. However, it seems to be part of a system for processing and saving weather data.
+
+This code is part of a larger system, possibly a weather forecasting system, that analyzes and processes weather data. It seems to be written in Python.
+
+1. `tAreaList.append(newEditArea)`: This line is appending a new edit area to the list `tAreaList`.
+
+2. `matchingWxKey(self, wxKey, wxTypeList)`: This method checks if a given weather key (`wxKey`) matches any of the weather combinations defined in `wxTypeList`. If a match is found, it returns the weather coverage, type, and intensity. If no match is found, it returns `None`.
+
+3. `makePeriodList(self, wxGrid, timePeriodStr, area)`: This method creates a list of periods based on the given weather grid (`wxGrid`), time period string (`timePeriodStr`), and area. It filters out all other weather types and intensities, and creates an edit area from the mask. It also checks for overlap with the current domain and saves the edit area if there is an overlap.
+
+4. `getInterestingWeather(self)`: This method fetches the necessary weather grids and processes them. It checks if the site ID is in the list of multi-product sites and if not, it displays a status bar message. For each domain in the saved domains, it creates a list of grid-based features and writes them to a file.
+
+5. `similarArea(self, area1, area2)`: This method checks if two given areas are similar by fetching their edit areas and checking for overlap. The code snippet ends before the method is completed, so it's unclear what it returns.
+
+The code also includes several comments that provide additional context and explanation about what each part of the code is doing.
+
+The code provided is written in Python and appears to be part of a larger system that deals with weather data and geographical features. Here's a breakdown of what each part does:
+
+1. `p = mask1 & mask2` - This line performs a bitwise AND operation on two masks. This is typically used in image processing or data manipulation to combine two sets of binary data.
+
+2. `findSimilarFeature(self, area)` - This method takes an area as an argument and checks if there are any groups in the sorted features that have the same weather type, coverage, and intensity. If a similar area is found, the group is returned, otherwise None is returned.
+
+3. `groupGridBasedFeatures(self, gridBasedFeatures)` - This method groups grid-based features. If there are any features, it populates the sorted features with the first area. Then it checks for similar features and groups them together.
+
+4. `gridBasedFileName(self, subArea)` - This method constructs a file path for grid-based features.
+
+5. `writeFeatureList(self, gridBasedFeatures, gridBasedFileName)` - This method writes the sorted features to a file. If the file does not exist, it creates the directory and file, then writes the sorted features to it using pickle for serialization.
+
+6. `dumpArea(self, areaName)` and `dumpDatabase(self)` - These methods are used for debugging. They print out the details of a specific area or the entire database.
+
+7. `getNewFeatureName(self)` and `getNewAreaName(self, featureName, timePeriod)` - These methods generate new names for features and areas.
+
+8. `initializeHSDescriptor(self)` - This method initializes the descriptor by loading it from a file. If the file is not found, it starts with an empty descriptor.
+
+9. `makeClipMask(self, clipEditAreas)` - This method creates a mask for clipping areas. It fetches the edit area for each area in the clipEditAreas list and combines them using a bitwise OR operation. If an edit area is not found, it displays a status bar message.
+
+The last line of the code appears to be a comment that was cut off. It mentions a "Main method" and "GIU pi", but without the rest of the comment or code, it's unclear what this refers to.
+
+This Python code is creating a graphical user interface (GUI) using the tkinter library. The GUI is titled 'High Sea Edit Areas' and includes various frames, buttons, and other widgets. Here's a breakdown of the main components:
+
+1. `setUpUI`: This function sets up the main UI. It creates the main window and a top-level window, and sets up the protocol for closing the GUI. It then creates several frames (containers for other widgets) and populates them with widgets like buttons and list boxes. Some of these buttons are initially disabled and will likely be enabled in response to user interaction.
+
+2. `descriptorFileName`: This function returns the file path for storing the edit area information based on the provided appType and subArea parameters.
+
+3. `makeNamedAreaMasks`: This function creates a dictionary where the keys are names of areas and the values are masks for those areas. It fetches the mask for each area from some external utility (_eaUtils). If the mask for an area is not found, it logs a message to the status bar and continues with the next area.
+
+4. `defineNamedAreas`: This function defines a dictionary of named areas and their descriptions. These areas are likely to be used for identifying specific regions in the GUI.
+
+The code also includes several other functions (like `makeTimeButtons`, `makeListBox`, `makePolarWidgets`, `makeBottomButtons`) which are not defined in this snippet but are likely defined elsewhere in the code. These functions are probably responsible for creating other parts of the UI.
+
+This code appears to be part of a larger program that is used for geographical analysis or mapping. It seems to be written in Python and uses the Tkinter library for creating a graphical user interface (GUI). Here are some of the key functionalities:
+
+1. `defineNamedAreas()`: This function creates a dictionary where the keys are codes for geographical areas and the values are the corresponding descriptions of those areas. It checks if these areas exist in the `allEANames` list and if they do, it adds them to the `namedAreaDescrip` dictionary.
+
+2. `execute(timeRange)`: This function appears to be the main function that initializes several variables and calls other functions. It sets the path for edit areas, gets the latitude and longitude grids, calculates the minimum and maximum latitude and longitude, and scales these values. It also sets up some default values and states for various variables and calls other functions to get all edit area names, make a clip mask, and initialize the high seas descriptor.
+
+3. The code also defines several lists and dictionaries that contain site-specific information, reasons for killing a process, and types of weather conditions. 
+
+4. It also seems to manage the creation of a GUI, with variables for font styles, pie chart states, and other UI elements. 
+
+5. It also initializes and manages edit areas, which could be specific areas on a map that the user can modify or interact with.
+
+6. The code also handles permissions for directories and files, which is important for managing access and security.
+
+Overall, this code seems to be part of a larger application that allows users to interact with geographical data, possibly for weather forecasting or similar purposes.
+
+The code snippet you've provided is part of a Python program that uses the Tkinter library, which is a standard Python interface to the Tk GUI toolkit.
+
+The `nter.mainloop()` line is a method that is used to run the main event loop. This method will keep the application in an infinite loop waiting for events to occur. These events could be user inputs like button clicks, keyboard presses, or mouse movements. The mainloop will handle such events and update the GUI accordingly.
+
+The `return` statement is used to exit a function and go back to the place from where it was called. In this context, it seems to be used to end the function after the Tkinter mainloop is started. However, it's important to note that `return` isn't really necessary in this case because the function would return automatically at the end. It might be there for clarity or as part of a larger function where the return could be conditional.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

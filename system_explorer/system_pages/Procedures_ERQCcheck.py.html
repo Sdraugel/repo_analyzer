@@ -1,0 +1,122 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ERQCcheck.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ERQCcheck.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This is a Python script that seems to be part of a larger system, possibly for weather forecasting or analysis. The script seems to be used for checking the consistency of certain weather elements and possibly correcting any inconsistencies found.
+
+The script begins with a large comment section that includes information about the software's development, export control, licensing, and authors.
+
+The script then imports several Python modules: `time`, `AbsTime`, `LogStream`, and `SmartScript`. These modules provide various functionalities that the script uses.
+
+The script defines several lists: `MenuItems`, `ToolList`, `availableElementGroups`, and `VariableList`. `MenuItems` and `ToolList` are initialized but not used in the provided code. `availableElementGroups` is used to define the weather element groups that can be checked. `VariableList` is used to define a series of questions or options for the user, each represented as a tuple. These questions or options seem to be related to the time range and the weather elements to check.
+
+The `VariableList` includes options for checking all elements, checking the NDFD (National Digital Forecast Database) grid, checking specific element groups, and checking specific elements like temperatures, wind gusts, and sky conditions. For each element, the user can choose not to check, to highlight inconsistencies, or to fix inconsistencies.
+
+The script also includes options for controlling how wind gusts and sky conditions are checked. For example, the user can limit wind gusts in excess of sustained wind by a certain amount, or adjust how sky conditions are compared with precipitation probabilities.
+
+The provided code appears to be part of a larger Python script, likely used for weather forecasting or similar meteorological purposes. It's mainly composed of two parts: a list of variables and a class definition.
+
+1. The first part of the code is appending a series of tuples to a list called `VariableList`. Each tuple represents a different variable or setting, and contains a description, a default value, and a type. Some variables also have a list of possible values. These variables might be used to configure the behavior of the program or to provide user inputs.
+
+2. The second part of the code defines a class called `Procedure` that inherits from `SmartScript.SmartScript`. This class has two methods: `__init__` and `execute`. 
+
+   - The `__init__` method is the constructor for the class, which is called when an instance of the class is created. It calls the constructor of the parent class with the `dbss` parameter.
+
+   - The `execute` method appears to be the main function of the class, which performs some checks on "dependent elements in GFE against appropriate independent elements" and logs the procedure execution. It also defines a number of configuration variables related to time and weather conditions.
+
+The comments in the code provide additional context and documentation. They include a table of procedures and tools used in the script, with credits to the people who created them, and a list of tools and procedures that are no longer used.
+
+This code appears to be a part of a larger weather forecasting system. It's responsible for determining the time range for various weather-related procedures and reports. Here's a breakdown of what it does:
+
+1. It initializes some variables related to weather procedures and reporting periods. For example, `startHeatIndex` and `endHeatIndex` specify the months between which the heat index should be reported. Similarly, `startWindChill` and `endWindChill` specify the months for reporting wind chill.
+
+2. It sets up a dictionary `varDict` with various configuration parameters related to time and temperature.
+
+3. It checks the current time and determines whether it's daylight saving time (`edton` variable).
+
+4. It determines the cycle ("00Z cycle" or "12Z cycle") based on the current time and the `start12Zcycle` variable.
+
+5. If the user has chosen to use a selected time range from the Grid Manager, it calculates the start and end times for this range.
+
+6. If the user has not chosen to use a selected time range, it determines the start and end times based on the period chosen by the user (e.g., "Today", "Tonight", "Tomorrow", etc.).
+
+7. It handles some exceptions related to the end period and adjusts the start and end times if necessary.
+
+8. Finally, it creates a time range for the chosen period and prepares to call other procedures that require this time range. It also creates a slightly extended time range (`timeRangePlusOneHr`) to account for procedures that need an extra hour.
+
+The commented-out sections at the end seem to provide a reference for the start and end hours for various periods.
+
+The provided code is a part of a larger program that seems to be performing some quality control checks and adjustments on meteorological data. Here's a breakdown of what this particular section does:
+
+1. It creates an empty list named `makeList` and appends the strings "RH" and "PPI" to it. "RH" and "PPI" are likely abbreviations for meteorological terms, possibly "Relative Humidity" and "Precipitation Probability Index".
+
+2. It checks the current month (`curMon`) against `startWindChill` and `endWindChill`, and if the current month is within this range, it appends the string "WindChill" to `makeList`. It does a similar check for `startHeatIndex` and `endHeatIndex` and appends "HeatIndex" if the current month is within this range.
+
+3. It then checks the value of `all` in `varDict` dictionary. Depending on the value of `all`, it performs different sets of operations:
+
+   - If `all` is "Highlight only", it calls a procedure named "NDFDgridCheck" and then sets `varDict["Check or Force:"]` to "Check Only". It then calls two more procedures named `TemperatureProc` and `WindGustProc`. Finally, it appends a tuple ("CheckSkyWithPoP", "PoP") to `ToolList`.
+
+   - If `all` is "Fix All", it performs similar operations as above but sets `varDict["Check or Force:"]` to different values before calling `TemperatureProc` and `WindGustProc`. It also appends a different tuple ("EnufCloudForPoP", "Sky") to `ToolList`.
+
+   - If `all` is neither "Highlight only" nor "Fix All", it checks other keys in `varDict` and based on their values, performs different sets of operations, including calling procedures and appending tuples to `ToolList`.
+
+The commented out lines of code indicate that this script has been modified over time, with some checks and procedures being added or removed.
+
+Note: The exact functionality of the procedures and the meaning of the variables would depend on the rest of the code, which is not provided here.
+
+This code is a part of a larger script that seems to be used for weather forecasting or analysis. The script is written in Python and it appears to be a part of a larger system that uses different tools (SmartTools) to perform various checks and calculations on weather data.
+
+The main part of the code is a loop that iterates over a list of tools (`ToolList`). For each tool, it checks if the corresponding weather element is in the `makeList`. If it is, the script ensures that the grids for this element are created and then it executes the tool. If the element is not in the `makeList`, the script executes the tool with a different `editArea`.
+
+The `ToolList` is a list of tuples where each tuple contains the name of a tool and the name of a weather element that the tool should be applied to. The list is populated based on the values in a dictionary (`varDict`) that seems to contain user preferences or settings.
+
+The script also contains a function `logProcUse` that logs the usage of different procedures. The function takes a string as an argument and adds a timestamp to it before logging the event.
+
+The commented out parts of the code suggest that there are additional checks and tools that can be added to the `ToolList`, but they are currently not being used.
+
+The `QPFSnowWxPoPCheck` list is populated based on whether certain checks are set to 'Yes' in the `varDict` dictionary. If the length of this list is greater than 0, a procedure `SnowAmtQPFPoPWxCheck` is called.
+
+Finally, the script sends a message to the status bar when it starts running a tool and when it has completed all the checks.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

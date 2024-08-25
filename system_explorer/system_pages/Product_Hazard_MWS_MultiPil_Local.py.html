@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Hazard_MWS_MultiPil_Local.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Hazard_MWS_MultiPil_Local.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is part of a Python software developed by Raytheon Company under a contract with the US Government. The software contains export-restricted data, and its dissemination to non-US persons requires an export license or other authorization.
+
+The code file is named `Hazard_MWS_Local.py` and it appears to be related to a Marine Weather Statement (MWS). It's importing a module named `Hazard_MWS_<MultiPil>` and several standard Python libraries such as `string`, `time`, `re` (regular expressions), `os` (operating system), `types`, and `copy`.
+
+The code then defines a class `TextProduct` that inherits from `Hazard_MWS_<MultiPil>.TextProduct`. It makes a deep copy of the `Definition` dictionary from the parent class and modifies the `displayName` key to be "Hazard_MWS_<MultiPil> (Marine Weather Statement)".
+
+There are also some commented out lines of code that suggest optional features, such as an EAS phrase to be included in the product header and a hazard sampling threshold.
+
+The `__init__` method of the class is defined to call the parent class's `__init__` method, ensuring that any initialization code in the parent class gets executed when an object of this class is created.
+
+The comment at the top suggests that this is a base file that is not intended to be overridden, implying that this file provides some core functionality that other parts of the software may rely on.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

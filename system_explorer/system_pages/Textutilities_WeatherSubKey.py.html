@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>WeatherSubKey.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>WeatherSubKey.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is part of a larger software system developed by Raytheon Company. It provides a Python-compatible wrapper for the Java class `WeatherSubKey` from the `com.raytheon.uf.common.dataplugin.gfe.weather` package. 
+
+The `WeatherSubKey` class in this Python code is initialized with a `javaSubKey` object. It has several methods that allow access to the properties of the `javaSubKey` object, such as `wxType()`, `coverage()`, `intensity()`, `visibility()`, and `attributes()`. These methods return the type, coverage, intensity, visibility, and attributes of the weather, respectively. 
+
+The `WeatherSubKey` class also has methods for equality checks (`__eq__` and `__ne__`), representation (`__repr__` and `__str__`), and hashing (`__hash__`). 
+
+The Python file also contains several functions that return available coverages, attributes, intensities, visibilities, and weather types for a given site ID. These functions use the `JavaWeatherSubKey` class methods and convert the returned Java objects to Python values using the `JUtil.javaObjToPyVal()` function.
+
+The `weatherSubKey` function creates a new `WeatherSubKey` object with a given site ID, coverage, weather type, intensity, visibility, and attribute list. 
+
+The comments at the top of the file indicate that this file is an absolute override file, meaning that a higher priority version of this file will completely replace a lower priority version. The comments also include licensing and export control information.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

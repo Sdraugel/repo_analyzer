@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>CalendarAdapter.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>CalendarAdapter.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is part of a software developed or modified by Raytheon Company under a contract with the US Government. The software contains export-restricted data, and its export or transfer is subject to U.S. law.
+
+The code file provides an adapter for the `java.util.Calendar` class. An adapter in this context is a piece of code that allows two incompatible interfaces to work together. In this case, it allows Python code to interact with the `java.util.Calendar` class, which is a part of Java's standard library.
+
+The adapter includes two functions: `serialize` and `deserialize`.
+
+The `serialize` function takes a `context` and a `calendar` object as arguments. It retrieves the time in milliseconds from the `calendar` object using the `getTimeInMillis` method and writes this value to the `context` using the `writeI64` method.
+
+The `deserialize` function also takes a `context` as an argument. It creates a new `Calendar` object, sets the time in milliseconds by reading a value from the `context` using the `readI64` method, and then returns the `Calendar` object.
+
+The `context` in both functions is likely an object that represents a stream of data being written to or read from. The `writeI64` and `readI64` methods are probably used to write and read 64-bit integer values to and from this stream.
+
+The software history comments indicate that this code was initially created on 09/29/10 by an engineer named wldougher.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

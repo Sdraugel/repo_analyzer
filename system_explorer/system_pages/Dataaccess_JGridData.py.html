@@ -1,0 +1,61 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>JGridData.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>JGridData.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a larger software package developed by Raytheon Company under a US Government contract. The script is subject to US export control laws due to the presence of export-restricted data.
+
+The script implements a class called `JGridData` that wraps around a Java `IGridData` object. This class is used to handle grid data in the software package.
+
+The `JGridData` class has several methods for accessing specific properties of the grid data:
+
+- `getParameter`: Returns the parameter of the grid data.
+- `getUnit`: Returns the unit of the grid data.
+- `getRawData`: Returns the raw data of the grid data. If a unit is specified, the data is converted to that unit before being returned.
+- `getLatLonCoords`: Returns the latitude and longitude coordinates of the grid data.
+
+The class also overrides the `__getitem__` method to allow accessing these properties using dictionary-like syntax.
+
+The script also contains a detailed software history, documenting changes made to the script over time, including the date, ticket number, engineer responsible, and a description of the changes made.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

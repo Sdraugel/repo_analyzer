@@ -1,0 +1,63 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>iscSnowAmt.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>iscSnowAmt.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code appears to be part of a larger software system developed by Raytheon Company for the US Government, as indicated by the comments at the top of the file. It is a module related to the calculation of snow amounts (SnowAmt) in an Integrated Service Configuration (ISC) parameter.
+
+The code defines a class `VCParm` with various methods for handling time ranges (`tr`) and calculating overlaps and intersections between them. These time ranges seem to be associated with snow amount forecasts (`SnowAmt`) and ISC snow amount forecasts (`SnowAmt_ISC`).
+
+Key methods in the `VCParm` class include:
+
+- `splitTR`: Splits a time range into smaller parts based on overlaps with other time ranges.
+- `getInventory`: Compiles a list of overlapping time ranges from `SnowAmt` and `SnowAmt_ISC`.
+- `poverlap`: Calculates the percentage of overlap between two time ranges.
+- `calcGrid`: Calculates a grid of snow amounts based on overlapping time ranges.
+- `calcHistory`: Compiles a history of snow amount forecasts based on ISC time ranges.
+- `getWEInfo`: Returns information about the weather element (SnowAmt in this case).
+
+The code also defines some constants at the beginning, such as `SCALAR`, `VECTOR`, `WEATHER`, `DISCRETE`, `YES`, and `NO`.
+
+The code is written in Python and makes use of the NumPy library, a package for scientific computing with Python.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

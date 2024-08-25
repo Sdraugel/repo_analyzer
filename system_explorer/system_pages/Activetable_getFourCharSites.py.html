@@ -1,0 +1,61 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>getFourCharSites.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>getFourCharSites.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is part of a software developed by Raytheon Company, which contains export-restricted data and is subject to U.S. export control laws. The software's license information can be found in the "Master Rights File.pdf".
+
+The code imports necessary modules and defines a function named `getFourCharSites`. This function is designed to convert a list of three-character site IDs into a list of four-character site IDs. 
+
+The function takes three arguments: 
+- `threeCharSites`: a list of three-character site IDs that need to be converted. 
+- `host`: the hostname of the server to connect to, which defaults to 'localhost' if not provided.
+- `port`: the port number to connect to on the server, which defaults to 9581 if not provided.
+
+Inside the function, a Thrift client is created to connect to the specified host and port. A request is then created using the `GetFourCharSitesRequest` class, and the three-character site IDs are set in the request. The request is sent to the server using the Thrift client, and the server's response is captured. The function then returns the list of four-character site IDs from the server's response.
+
+If the Thrift client encounters any issues while sending the request or receiving the response, it will raise an exception. 
+
+The function is noted to sacrifice some performance and network bandwidth for simplicity, and should be refactored if it's called in tight loops or if the input list is large.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

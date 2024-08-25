@@ -1,0 +1,108 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>VTEC_EXTtoNOW_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>VTEC_EXTtoNOW_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a script for testing a weather forecasting system, specifically the VTEC (Valid Time Event Code) system used by the National Weather Service in the United States. It appears to be testing how the system handles adjustments to the timing of weather events.
+
+The script is composed of a series of test scenarios, each represented as a dictionary within the `scripts` list. Each dictionary contains information about a specific test scenario, such as:
+
+- "commentary": A brief description of the test scenario.
+- "name": The name of the test scenario.
+- "productType": The type of weather event being tested.
+- "drtTime": The time at which the test is run.
+- "createGrids": The grids to be created for the test, including the forecast, the hazard type, the time range, and the area affected.
+- "checkStrings": The expected output strings from the system for this test scenario.
+
+The test scenarios seem to be simulating different situations such as clearing out all hazards, setting up a zone in the future, extending the time of a hazard to the future, extending the time of a hazard back towards the present, extending the time of a hazard back to the current time, and cancelling a hazard.
+
+The code also includes a copyright notice and export control information at the top, indicating that the software was developed by Raytheon Company and contains export-restricted data.
+
+The code appears to be a series of weather advisory messages from the National Weather Service in Tampa Bay Ruskin, Florida. These messages are related to a Blowing Dust Advisory for a specific area (Coastal Pasco). 
+
+Each block of code represents a different advisory message and contains the following information:
+
+- "drtTime": The date and time of the advisory.
+- "productType": The type of the advisory, which in this case is a local hazard.
+- "createGrids": This seems to be a method to create forecast grids, with parameters for the forecast type, hazard type, range, and other details.
+- "checkStrings": These are the actual advisory messages that are sent out. They include the advisory code, the issuing service, the date and time, a headline, the affected area, the advisory details, and a cautionary message.
+
+The code is organized in a way that each advisory message can be easily updated or modified. The advisory messages are issued, updated, extended, and cancelled as the situation evolves. The code also includes a commentary for each block, which seems to be a note or description of the advisory status.
+
+The provided code appears to be a part of a larger Python script that is used for generating weather advisories. The script seems to be structured as a list of dictionaries, where each dictionary represents a different weather advisory scenario. 
+
+Each dictionary has several key-value pairs:
+
+- "commentary": This seems to be a note or description of the scenario. 
+- "name": This could be an identifier for the scenario.
+- "drtTime": This appears to be a timestamp related to the scenario.
+- "productType": This is likely the type of weather advisory.
+- "createGrids": This is a list of tuples that might be used to create a grid for weather forecasting. Each tuple contains several parameters that could be used in the grid creation process.
+- "checkStrings": This is a list of strings that appear to be used to generate the actual text of the weather advisory. The strings include information like the issuing authority, the time of the advisory, the affected area, and the details of the advisory.
+
+The code seems to be testing different scenarios for a Blowing Dust Advisory. For instance, the advisory could be newly in effect, extended, or remaining in effect. The advisory could also be expiring and a new one could be issued. The different scenarios are likely used to ensure that the system can correctly handle and generate advisories for these different situations.
+
+This code appears to be part of a weather forecasting system. It is written in JSON format and contains multiple sections, each of which represents a different weather advisory or alert. 
+
+Each section includes the following fields:
+
+- "commentary": This field contains a brief description or commentary about the weather advisory.
+- "name": This field contains a unique identifier for the advisory.
+- "drtTime": This field contains the date and time of the advisory.
+- "productType": This field specifies the type of weather advisory.
+- "createGrids": This field contains a list of tuples, each of which represents a grid or zone for the weather advisory. Each tuple includes the forecast type, the hazard type, the hazard status (discrete or continuous), the start and end times for the advisory, the advisory code, and the affected zones.
+- "checkStrings": This field contains a list of strings that appear to be part of the advisory message. These strings include the advisory header, the issuing agency, the date and time of the advisory, the advisory message, and the affected zones.
+
+The code seems to be used for generating and managing weather advisories, specifically for hazards related to blowing dust. The advisory messages include information about the hazard, the affected areas, and the duration of the advisory.
+
+This is a Python script that appears to be used for testing weather forecast models. It includes a series of test cases, each represented as a dictionary with keys like "commentary", "name", "drtTime", "productType", "createGrids", and "checkStrings". Each test case seems to simulate a specific weather scenario, such as a blowing dust advisory.
+
+The test cases include details like the forecasted hazards, the forecasted time, and the expected output strings. Some of the test cases also include a "clearHazardsTable" key, which seems to indicate that the hazards table should be cleared for that test case.
+
+The "checkStrings" key in each test case contains the expected output of the weather forecast, including the advisory code, the issuing service, the advisory message, and the areas affected.
+
+At the end of the script, there is a function `testScript` which seems to be the main function to run these test cases. It takes a `dataMgr` argument, which is likely an object that manages the data used in the tests. The function also sets some default settings for the tests, such as the database to use, whether to publish the grids, and the start time for the grids.
+
+In summary, this script is used to test the output of weather forecast models against expected results for different weather scenarios.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

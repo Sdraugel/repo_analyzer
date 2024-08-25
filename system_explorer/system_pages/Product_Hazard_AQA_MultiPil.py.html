@@ -1,0 +1,98 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Hazard_AQA_MultiPil.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Hazard_AQA_MultiPil.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is part of a software developed by Raytheon Company. It is a script for generating Air Quality Alert Messages. The script imports some modules and defines a class named `TextProduct` that extends `GenericHazards.TextProduct`. 
+
+The `TextProduct` class has a `Definition` dictionary that contains various configuration items for the alert message, such as the product name, station ID, WMO ID, product pil, location of WFO, and more.
+
+The `Definition` dictionary also contains some optional configuration items like the source database, whether to display results when finished, debug mode, etc.
+
+The code also defines a dictionary named `agencyDict` that contains information about different agencies that issue the alerts. Each agency has a name, declaration, zones, and text for the alert.
+
+There are also some conditionals that set specific subdomains for certain sites.
+
+The code also contains a software history log, which documents changes made to the software over time. 
+
+This script is not intended to be overridden, as stated in the comments.
+
+This code appears to be part of a larger system, possibly related to a weather alert system. Here are the key functionalities:
+
+1. It defines alert codes and corresponding messages in the `Definition["alertCodes"]` and `Definition["alertCTAsDict"]` respectively. These codes and messages are likely used to represent different levels of weather-related alerts.
+
+2. The `__init__` method is the constructor for this class, which initializes the class by calling the constructor of its parent class `GenericHazards.TextProduct`.
+
+3. The `_processVariableList` method processes a list of variables defined in the `definition` dictionary. If `alertCodes` is not empty, it creates a variable list and calls the `_callProcessVariableList` method.
+
+4. The `_callProcessVariableList` method creates an instance of `ProcessVariableList` with the given parameters, checks the status of the selection, and returns the variable dictionary.
+
+5. The `_preProcessProduct` method appears to be preparing a forecast product. It constructs a string that includes various pieces of information such as the product name, the station ID, the time, and other details.
+
+6. The `headlinesTiming` method seems to be responsible for determining the start and end times for a given hazard. It returns the phrase types as "EXPLICIT", indicating that the exact start and stop times for the hazard will be provided.
+
+7. The `getHazardString` method returns a formatted string that announces the hazards that are valid with timing phrases.
+
+8. The `_makeProduct` method seems to be responsible for creating a weather forecast product based on the provided forecast, segment areas, and argument dictionary. It appears to be generating segments based on a hazards grid.
+
+Please note that without the full context or the complete code, this is a high-level interpretation of the provided code snippet.
+
+The provided code appears to be a part of a larger Python script, possibly a module or class related to generating forecasts or alerts, likely in the context of meteorology or environmental monitoring. Here's a breakdown of what the code does:
+
+1. It checks if a certain area is using combinations or not. If it is, it sets the `usingCombo` variable to 1. If it's not, it prints a message stating that combinations are not being used and sets the `areaList` variable to the `editArea`.
+
+2. It then generates a standard headline for a segment of the forecast or alert. It does this by fetching hazard data, combinations, and a time range from the `argDict` dictionary. If no valid hazard grid is found, it returns a placeholder text. 
+
+3. If a valid hazard grid is found, it formats the headline, removes line feeds within the headline, and creates an attribution phrase containing headline info.
+
+4. It determines the list of agencies associated with the segment areas. It does this by iterating over each area label in `segmentAreas` and checking if the agency is in the `_agencyDict` dictionary. If it is, it appends the agency to the `agencies` list and adds the agency's name to `_agencyNames`.
+
+5. It then creates a headline using the first agency in the `agencies` list. If no agencies are found, it prints an error message. The headline is then appended to the forecast (`fcst`).
+
+6. The `_postProcessProduct` function seems to handle post-processing of the forecast, including word-wrapping, line feeds, color-code text replacements, and lower case conversion. It also replaces certain placeholders in the forecast with actual data (e.g., agency names, alert codes).
+
+7. The `allowedHazards` function returns a list of allowed hazards. In this case, it returns a list containing a tuple for an air quality alert.
+
+Please note that the full functionality of this code can only be determined if the entire script or class is provided, as there are several methods and variables referenced that are not defined in the provided code.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

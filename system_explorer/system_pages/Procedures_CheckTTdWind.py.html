@@ -1,0 +1,66 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>CheckTTdWind.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>CheckTTdWind.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that appears to be part of a larger software system, possibly related to weather forecasting or analysis, given the references to temperature and wind. 
+
+The script starts with a legal disclaimer and contract details, mentioning that the software was developed or modified by Raytheon Company under a US Government contract. It also mentions that the software contains export-restricted data and its dissemination requires an export license or other authorization. 
+
+The script then declares a variable `MenuItems` which is a list containing a single string "Consistency". This might be used to define where in a GUI this script's functionality is accessed. 
+
+Another variable `VariableList` is declared which contains a tuple. This tuple seems to be used for setting up a user interface element (possibly a radio button) with two options: "Check Only" and "Force: TMin<=T<=TMax\n Td<=T\nWind<=WindGust".
+
+The script then imports two modules, `SmartScript` and `TimeRange`.
+
+A constant `DAY_IN_SECS` is defined to represent the number of seconds in a day.
+
+The script defines a class `Procedure` which inherits from `SmartScript.SmartScript`. This class has an `__init__` method for initialization and an `execute` method which is the main entry point of the procedure. 
+
+The `execute` method checks if a valid `timeRange` is provided. If not, it sets a default `timeRange` from two days ago to ten days from now. Then it calls two procedures `CheckTandTd` and `CheckWindGust` with the provided or default `timeRange` and `varDict`.
+
+The `varDict` parameter seems to control whether temporary grids are created or temperature grids are modified, based on its "Check or Force" value. 
+
+The exact functionality of the `CheckTandTd` and `CheckWindGust` procedures is not clear from this script as their implementation is not provided here. They might be defined in the `SmartScript` module or elsewhere in the software system.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,77 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>MetarViewer.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>MetarViewer.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script named `MetarViewer.py`. It seems to be part of a larger system, possibly related to meteorological data processing, as suggested by the name and the imported modules.
+
+The first part of the script is a header that includes legal and copyright information, as well as a detailed revision history. It indicates that the software was developed and/or modified by Raytheon Company under a contract with the US Government. It also includes export control information, stating that the software contains export-restricted data and its dissemination requires an export license or other authorization.
+
+The script imports several modules: `logging`, `re` (regular expressions), `time`, `AvnLib`, `AvnParser`, `Globals`, and `MetarMonitor`. It also defines a global variable `TAG` and compiles a regular expression pattern `sfcvis`.
+
+The script then defines a logger `_Logger` for logging purposes. 
+
+After this, several functions are defined, each of which appears to process some aspect of meteorological data:
+
+- `_makeType(dcd)`: Returns the first string of the 'type' key from the input dictionary.
+- `_makeTime(dcd)`: Returns the string of the 'itime' key from the input dictionary, excluding the last character.
+- `_makeSky(dcd)`: Returns the 'sky' key's string from the input dictionary if it exists, else returns an empty string.
+- `_makeVsby(dcd)`: Processes the 'vsby' key's string from the input dictionary in a specific way, else returns an empty string.
+- `_makeWx(dcd)`: Processes the 'pcp', 'obv', and 'vcnty' keys' strings from the input dictionary in a specific way, else returns an empty string.
+- `_makeSlp(dcd)`: Returns the string of the 'mslp' key from the input dictionary if it exists, else returns an empty string.
+- `_makeTemp(dcd)`: Processes the 'tempdec' or 'temp' key's 'tt' value from the input dictionary in a specific way, else returns an empty string.
+- `_makeDewp(dcd)`: The function is not fully provided, but it seems to process the 'tempdec' key from the input dictionary in a specific way.
+
+The script ends abruptly, suggesting that there is more code that follows.
+
+This code is designed to format and display weather data. The data is stored in a dictionary format and the code extracts the necessary information to display it in a human-readable format.
+
+The first part of the code defines several functions that extract specific pieces of information from the weather data dictionary. For example, the `_makeTemp` function checks if 'temp' is a key in the dictionary and if 'td' is a key in the 'temp' dictionary. If both conditions are met, it returns the temperature in Fahrenheit. If not, it returns an empty string. Similar functions are defined for wind, altimetry, and precipitation.
+
+The `Items` list contains dictionaries that define how each piece of weather data should be displayed. Each dictionary includes the item name, the length of the display field, whether the data should be left-aligned, the header for the data, the function to extract the data, and optional start and end tags.
+
+The `_makeIndices` function calculates the start and end positions for each piece of data in the display. The `_makeHeaderLine` function creates a header line for the display. The `_adjustLengths` function adjusts the length of each display field to accommodate the longest piece of data. The `_format` function creates a string that contains all the weather data formatted according to the specifications in the `Items` list.
+
+In summary, this code is designed to format and display weather data in a specific, human-readable format.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

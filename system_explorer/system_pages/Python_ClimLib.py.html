@@ -1,0 +1,82 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ClimLib.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ClimLib.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This script, named ClimLib.py, appears to be a part of a larger software system developed by Raytheon Company. The software is subject to U.S. export control laws and cannot be exported or transferred without proper authorization.
+
+The script itself is a library for climate tools, as indicated by the comment "common code for Climate tools". It was last updated in May 2006 by George Trojan from SAIC/MDL. The script's history and changes are well-documented in the comments.
+
+The script begins by importing several modules: logging, os, and pickle, as well as a module named Avn. It then sets up a logger for this script.
+
+The script defines several constants related to precipitation types (PType), precipitation intensity (PInt), and precipitation best (PBest). These constants are used to create a dictionary (PTypeStr) that maps tuples of precipitation types and best to their string representations.
+
+The script also creates a dictionary (MWxTable) that maps integers to weather codes. Each entry in the dictionary is another dictionary that may contain the keys 'str', 'int', 'best', and 'type'. The 'str' key maps to a string representation of the weather condition, while the 'int', 'best', and 'type' keys map to the corresponding constants defined earlier.
+
+The script appears to be incomplete as it ends abruptly. The complete script would likely use these constants and dictionaries to perform some sort of weather-related computation or data processing.
+
+The provided code appears to be written in Python and seems to be part of a larger weather or climate analysis program. Here's a breakdown of what each section does:
+
+1. The first part of the code defines a dictionary named `MWxTable` where each key is an integer and each value is another dictionary. This inner dictionary has keys 'int', 'str', 'best', and 'type' which are associated with various weather parameters. The 'int' key seems to represent some type of weather intensity, 'str' is a string representation of the weather, 'best' is the best prediction method for that weather, and 'type' represents the type of precipitation.
+
+2. `MOS_obvis` is a set of integers, possibly representing some kind of visibility indices.
+
+3. The next three blocks of code define dictionaries `MOS_ptype`, `MOS_pbest`, and `MOS_pint` using a for loop to iterate over the values of `PType`, `PBest`, and `PInt` respectively. Each dictionary maps a key to a set of integers from `MWxTable` that meet certain conditions.
+
+4. `CigCat` and `VisCat` are lists of numerical values, possibly representing categories for ceiling and visibility measurements in meteorology. `UnltdCig` is a constant representing an unlimited ceiling value.
+
+5. The next section defines a series of conversion functions that convert various meteorological measurements between different units (e.g., from meters to feet, from meters to statue miles, from meters per second to knots).
+
+6. `FlightCats` is a dictionary that maps integers to another dictionary with 'cig' and 'vis' keys. These inner dictionaries seem to represent flight categories based on ceiling and visibility measurements.
+
+7. The last part of the code defines a `Cache` class for caching data. This class has methods for adding data to the cache (`put`), retrieving data from the cache (`get`), and a constructor that sets up the cache directory. The `get` method also seems to have some logic for comparing file timestamps to determine if the cached data is outdated, but this part of the code is cut off.
+
+This piece of code is part of a larger function that is attempting to load data from a file located at a specific path. 
+
+First, it checks if the variable `cpath` exists and if the last modification time of the file at `path` is earlier than the last modification time of the file at `cpath`. If these conditions are met, it logs a message saying 'climate data file newer than cache' and returns `None`.
+
+If the conditions are not met, it tries to open the file at `path` in binary read mode ('rb') and load its content using the `pickle` module, which is typically used for serializing and deserializing Python object structures. The loaded content is then returned.
+
+If there's an error during this process (specifically a `ValueError`, `IOError`, or `OSError`), it logs a message saying 'get() failed for {path}' along with the error message, and returns `None`. These errors could be due to issues like the file not existing at the given path, the file being inaccessible due to permissions or it being a directory instead of a file, or the content of the file not being a valid pickled data stream.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

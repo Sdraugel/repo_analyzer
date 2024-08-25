@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>CopyRipRunupProbs.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>CopyRipRunupProbs.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a software that is in the public domain. It is named "CopyRipRunupProbs" and its version is 1.0. The author of this software is S Kennedy from WFO MHX.
+
+The purpose of this script is to copy all 144 hours of various probability grids from a specific database to the Forecast database. The specific database is named "nwpsCG1###", where "###" is replaced by the Weather Forecast Office (WFO) ID.
+
+The script defines a class "Procedure" that inherits from the "SmartScript" class in the "SmartScript" module. The class has two methods: "__init__" and "execute". 
+
+The "__init__" method is the constructor of the class that initializes the instance of the class.
+
+The "execute" method does the main work. It gets the site ID (which is the WFO ID), constructs the name of the specific database by appending the site ID to the string "nwpsCG1", and finds the database with that name. It then creates a time range of 144 hours from the database. After that, it copies various probability grids (like 'RipProb', 'ErosionProb', 'OverwashProb', etc.) from the specific database to the Forecast database within the created time range.
+
+The "MenuItems" list at the beginning of the script contains a single item "Populate", which might be used elsewhere in the software to trigger the execution of this script.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,190 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>GribDecoder.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>GribDecoder.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python implementation of a GRIB (GRIdded Binary or General Regularly-distributed Information in Binary form) decoder. GRIB is a concise data format commonly used in meteorology to store historical and forecast weather data. 
+
+The code starts with a detailed comment section that includes information about the software's development, export control restrictions, contractor details, and a software history log that tracks changes made to the code over time. 
+
+The code then imports necessary modules and libraries, including `grib2`, `numpy`, `logging`, `UFStatusHandler`, `re`, `matplotlib.mlab.griddata`, and several Java classes from the `com.raytheon` package. 
+
+The code also defines several constants and default values related to the GRIB data format, such as the default fill value for the grid, static values for accessing parameter lookup tables, static values for converting forecast times to seconds, default values for earth shape and grid spacing, and details about quasi-regular (thinned) grids. 
+
+The main functionality of the code, which would be the GRIB decoding process, is not included in the provided code snippet. However, based on the imported modules and defined constants, it can be inferred that the code is set up to read and decode GRIB data files, handle different grid types and earth shapes, convert forecast times, and manage missing or irregular data.
+
+This Python script appears to be a part of a larger system that decodes GRIB (GRIdded Binary) files. GRIB is a concise data format commonly used in meteorology to store historical and forecast weather data.
+
+The script defines a class `GribDecoder` with methods to decode the GRIB file and extract the data.
+
+- The `__init__` method initializes the `GribDecoder` object with a file path, start position, and message length. It also sets up a logger for the class.
+
+- The `decode` method opens the file in binary mode and attempts to decode it using the `grib2.decode` function. If an error occurs during decoding, it logs the exception. It then iterates over the decoded data (a list of dictionaries), processing each dictionary with the `_getData` method and appending the result to a list of records, which it returns.
+
+- The `_getData` method processes a single dictionary of data from the GRIB file. It decodes various sections of the data, constructs a `DataTime` object, and handles special cases for thinned grids. If a bitmap is provided, it applies it to the data. It also checks for fill values provided if complex packing is used. It corrects the data according to the scan mode found in the gds section.
+
+The script also contains a list of thinned grid values and a log handler. The thinned grid values are used when processing thinned grids in the `_getData` method.
+
+This code is part of a larger program that seems to be processing GRIB (GRIdded Binary) data, a common format for storing meteorological data. 
+
+Here's a breakdown of what each section does:
+
+1. The first part of the code checks the scan mode of the data and accordingly flips or reorders the data array. The scan mode is determined by bitwise operations on the `scanMode` variable. The data is stored in a 2D numpy array (`numpyDataArray`), and depending on the scan mode, the array is manipulated in different ways.
+
+2. The code then checks if the key 'thinned' is not in the `gribDict` dictionary. If it's not, it sets `numpyDataArray` to be equal to `data`.
+
+3. The `modelName` is created by calling the `_createModelName` method with `gribDict` and `gridCoverage` as arguments. It also checks if the forecast flag needs to be removed by calling the `_checkForecastFlag` method.
+
+4. The code then checks the parameter abbreviation mapping. If a new abbreviation is found, it replaces the old one. If not, and if the parameter name is not missing and the duration is greater than 0, it appends the duration (in hours) to the parameter abbreviation.
+
+5. The code then checks for sub-gridding. If a sub-grid exists, it extracts the relevant data from the main grid and resizes the data array accordingly. If the sub-grid does not intersect the main grid, it logs an info message and returns `None`.
+
+6. The code then reshapes the `numpyDataArray` to have dimensions of 1 by the number of grid points.
+
+7. Finally, it constructs a `GridRecord` object, setting various attributes of the object using the data from `gribDict` and the processed `numpyDataArray`. If certain keys exist in `gribDict`, it adds them as extra attributes to the `GridRecord` object. The `GridRecord` object is then returned.
+
+The last line of the provided code seems to be the beginning of a new method definition, but it's cut off so I can't provide details on that.
+
+The provided code is written in Python and appears to be a part of a larger system that is designed to decode and process GRIB (GRIdded Binary or General Regularly-distributed Information in Binary form) files. GRIB files are a format commonly used in meteorology to store historical and forecast weather data.
+
+The code contains two methods: `_decodeIdSection` and `_decodePdsSection`. 
+
+1. `_decodeIdSection`: This method takes a dictionary `gribDict` as an argument, which represents a single GRIB record. It extracts the 'idsect' section from the dictionary and assigns certain elements of this section to new keys in the dictionary. It also converts a part of the 'idsect' section to a calendar format using the `_convertToCalendar` method.
+
+2. `_decodePdsSection`: This method also takes a `gribDict` as an argument. It extracts the 'ipdtmpl' and 'ipdtnum' sections from the dictionary and processes them based on certain conditions. It also retrieves and assigns various other parameters from the 'ipdtmpl' section to the dictionary, such as 'parameterName', 'parameterUnit', 'processType', 'forecastTime', 'forecastInterval', 'genprocess', etc. It handles special cases for certain PDS (Product Definition Section) templates. The method also logs information when certain parameters are not found.
+
+In both methods, the processed information is added back to the `gribDict`, which seems to be used for further processing in the larger system. The code also makes use of a singleton instance of `GribTableLookup` to retrieve parameter and level information based on certain keys.
+
+The provided code appears to be part of a larger program that is processing and manipulating data from a GRIB (GRIdded Binary) file, which is a format commonly used in meteorology to store historical and forecast weather data.
+
+The code is essentially a series of conditional statements that perform different operations based on the values of certain variables such as `typeEnsemble`, `pdsTemplateNumber`, `derivedForecast`, `processType`, and `probabilityType`.
+
+Here's a high-level breakdown of what the code does:
+
+1. Depending on the value of `typeEnsemble`, the code assigns a different value to the `ensembleId` key in the `gribDict` dictionary.
+
+2. The code then checks the value of `pdsTemplateNumber` and performs different operations based on its value. For example, if `pdsTemplateNumber` is 11, it assigns a value to the `endTime` key in `gribDict` by calling the `_convertToCalendar` method with certain parameters.
+
+3. The code also modifies the `parameterAbbreviation` based on the values of `derivedForecast` and `processType`.
+
+4. If `pdsTemplateNumber` is 5 or 9, the code calculates the `upperLimit` and `lowerLimit` by calling the `_convertScaledValue` method. Depending on the `probabilityType`, it then modifies the `parameterName` and `parameterAbbreviation` in the `gribDict`.
+
+5. If `pdsTemplateNumber` is 8, the code checks if the statistical model is valid by calling the `_isStatisticalModel` method. Depending on the `statisticalProcess`, it modifies the `parameterAbbreviation` and `parameterName` in the `gribDict`.
+
+It's worth noting that there are several commented out lines in the code, which suggest that the code may be a work in progress or that these lines might have been used for debugging purposes.
+
+This code is part of a larger system that appears to be processing and decoding GRIB (GRIdded Binary) data. GRIB is a data format commonly used in meteorology to store historical and forecast weather data. 
+
+Here's a breakdown of what the code does:
+
+1. The code first checks the value of `pdsTemplateNumber`. Depending on its value, it performs different operations on `parameterAbbreviation` and `gribDict['parameterName']`. For example, if `pdsTemplateNumber` is 6 or 10, it appends a percentile value to `parameterAbbreviation` and updates `gribDict['parameterName']` with percentile information.
+
+2. If `pdsTemplateNumber` is 10, it also adds end time information to the `gribDict` dictionary.
+
+3. If `durationSecs` is not None, it recalculates `gribDict['forecastTime']` based on the difference between `gribDict['endTime']` and `gribDict['refTime']`.
+
+4. The code then checks the values of `typeOfTimeInterval`, `centerID`, and `subcenterID`. If they meet certain conditions, it appends "Cumul" to `parameterAbbreviation` and adds " - cumulative" to `gribDict['parameterName']`.
+
+5. If `pdsTemplate[2]` is 6 or 7, it appends "erranl" to `parameterAbbreviation`.
+
+6. It then looks up the base name of `parameterAbbreviation` and updates `gribDict['parameterAbbreviation']` with the result.
+
+7. It also constructs a Level object and updates `gribDict['level']` with it.
+
+8. The code then checks `pdsTemplateNumber` against a series of values (13, 14, 20, 30, 31, 254, 1000, 1001, 1002, 1100). If `pdsTemplateNumber` matches any of these, it currently does nothing (`pass`). 
+
+9. If none of the keys 'parameterAbbreviation', 'parameterName', 'parameterUnit', and 'level' are in `gribDict`, it assigns them default values.
+
+10. The last part of the provided code appears to be the beginning of a method `_decodeGdsSection` that decodes values from the GDS (Grid Definition Section) of the GRIB data. This method takes a `gribDict` as input and extracts the `gdsTemplate` and `gdsTemplateNumber` from it. The rest of this method is not shown in the provided code.
+
+This code is used for handling different types of geographical data projections. It's a part of a larger file that likely deals with geographical data, specifically data that is in the GRIB format, a common format for meteorological data.
+
+The code first checks the `gdsTemplateNumber` which determines the type of projection used. 
+
+If the `gdsTemplateNumber` is 0, it means the data uses a Latitude/Longitude projection. The code then extracts the necessary parameters from the `gdsTemplate` and calculates the grid spacing (`dx` and `dy`). There are also checks and corrections for possible errors in the grid spacing. The corrected parameters are then used to create a `LatLonGridCoverage` object.
+
+If the `gdsTemplateNumber` is 10, it means the data uses a Mercator projection. The code then extracts the necessary parameters from the `gdsTemplate` and uses them to create a `MercatorGridCoverage` object.
+
+The code also has placeholders for handling other types of projections (`gdsTemplateNumber` 1, 2, 3, and 20), but these are not implemented yet (as indicated by the `pass` statement).
+
+Finally, the code sets the `coverage` object into the `gribDict` dictionary under the key `'coverage'`. This dictionary likely holds all the necessary information about the current GRIB file being processed.
+
+This code appears to be part of a larger program that handles geospatial data, specifically dealing with different types of grid coverages and projections. The code is written in Python.
+
+The `larStereoGridCoverage()` function seems to be setting up a grid coverage based on the Lambert Azimuthal Equal Area Stereographic projection. It extracts various parameters from the `gdsTemplate` list, applies some corrections and scaling, and sets these parameters on a `coverage` object. It also determines the first grid point corner based on the scan mode and sets it on the `coverage` object. Finally, it gets a grid from the cache or creates a new one if not found, and assigns it to `gribDict['coverage']`.
+
+The code then checks the `gdsTemplateNumber` or `gdsTemplate` and sets up a different type of grid coverage based on its value. For example, if `gdsTemplateNumber` is 30, it sets up a Lambert Conformal Grid Coverage, and if `gdsTemplate` is 31, it does nothing (as indicated by `pass`). There are several other types of grid coverages and projections mentioned, but the code to handle them is not provided.
+
+The `_getGrid(self, temp)` function checks the cache for a grid. If not found, it creates a new GridCoverage and stores it in the cache.
+
+The `_divideBy10e3(self, number)` and `_divideBy10e6(self, number)` functions are utility functions that divide a number by 1000 and 1000000 respectively, returning the result as a float.
+
+The code ends abruptly with a comment about converting a scaled value and a scale factor to the unscaled value, but the function to do this is not provided.
+
+This code file is a collection of methods that perform various calculations and conversions related to geographical data and time. 
+
+1. `_convertScaledValue(self, scaledValue, scaleFactor)`: This method takes a scaled value and a scale factor as input, and returns the unscaled value by dividing the scaled value by 10 raised to the power of the scale factor.
+
+2. `_correctLon(self, lon)`: This method takes a longitude value as input and corrects it to fall within the bounds of -180 and 180, which are the required bounds for geotools.
+
+3. `_correctLat(self, lat)`: Similar to the previous method, this one takes a latitude value and corrects it to fall within the bounds of -90 and 90.
+
+4. `_getEarthShape(self, gdsTemplate)`: This method takes a gdsTemplate as input and returns the minor and major axis sizes of the earth. The method uses the first value of the gdsTemplate to determine the shape of the earth based on a predefined table (Table 3.2).
+
+5. `_convertToCalendar(self, section, start)`: This method takes a section (numpy int array containing date) and a start index as input, and converts the date to a java Calendar object.
+
+6. `_convertToSeconds(self, value, fromUnit)`: This method takes a value and a unit (from Table 4.4) as input, and converts the value to seconds. However, the implementation of this method is not provided in the given code.
+
+This code appears to be part of a larger Python program that deals with meteorological data, possibly in the GRIB (General Regularly-distributed Information in Binary) format. 
+
+The first function appears to convert a given value from various units of time into seconds. The unit of time is determined by the `fromUnit` parameter, which could be minutes, hours, days, months, years, decades, normal (30 years), centuries, 3 hours, 6 hours, or 12 hours. The constants `SECONDS_PER_MINUTE`, `SECONDS_PER_HOUR`, `SECONDS_PER_DAY`, `SECONDS_PER_MONTH`, and `SECONDS_PER_YEAR` are presumably defined elsewhere in the code.
+
+The `_getGridModel` function retrieves a grid model from a `GribModelLookup` instance using various parameters extracted from a `gribDict` dictionary and a `grid` parameter. 
+
+The `_createModelName` function is similar to `_getGridModel`, but it retrieves a model name instead of the model itself.
+
+The `_checkForecastFlag` function checks if a grid model is analysis-only. If it is, it removes the `FCST_USED` flag from the data time's utility flags.
+
+The `_isStatisticalModel` function checks if a model name starts with "P-ETSS", which might indicate that the model is a statistical model. It returns `True` if the model name starts with "P-ETSS" and `False` otherwise.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

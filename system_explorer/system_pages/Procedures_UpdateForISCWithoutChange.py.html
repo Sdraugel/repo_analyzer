@@ -1,0 +1,56 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>UpdateForISCWithoutChange.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>UpdateForISCWithoutChange.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script, named "UpdateForISCWithoutChange.py", is designed to search a mutable database for grids that haven't been sent to ISC (Inter-System Collaboration) for more than a certain threshold of time (6 hours in this case) and locks them so they will be saved and resent without changing their contents. This is useful for ensuring that the ISC has the most recent data, even if the data hasn't changed.
+
+The script imports several modules, including AbsTime, SmartScript, and TimeRange. It then defines a class named 'Procedure' that inherits from SmartScript.SmartScript. 
+
+In the 'execute' method of the 'Procedure' class, it gets the current time and the mutable and ISC database IDs. It then retrieves a list of ISC parameters and for each parameter, it finds the associated mutable parameter, if any. 
+
+For each mutable parameter, it gets the grid inventory and loops over every grid. For each grid, it checks the history and if the grid was last sent more than the threshold time ago, it locks the grid. 
+
+The locking mechanism is used to ensure that the grid is saved and resent to the ISC without any changes to its contents. This is done to ensure that the ISC has the most recent version of the grid, even if no changes have been made to it.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

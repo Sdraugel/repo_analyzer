@@ -1,0 +1,71 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>parseParmIds.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>parseParmIds.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is used to parse a file containing distinct parameter IDs (parmIds) and generate SQL commands to insert these parmIds into a database. It also creates SQL commands to update records in the database and to create sequences in the database. 
+
+Here's a step-by-step breakdown:
+
+1. It imports necessary modules and classes, including system-specific parameters and functions (`sys`), `ParmID`, and `DatabaseID` from a specific package.
+
+2. It takes a file name as an argument from the command line.
+
+3. It opens the file for reading and also opens three other files (`dbIdInserts.sql`, `parmIdInserts.sql`, `gfeToParmIdUpdates.sql`) for writing.
+
+4. It initializes two dictionaries (`dbIds` and `parmIds`) and two counters (`dbIdCounter` and `parmIdCounter`).
+
+5. It reads the input file line by line. For each line (which represents a parmId), it does the following:
+    - Strips the new line character.
+    - Checks if the line is not empty.
+    - Checks if the parmId is not already in the `parmIds` dictionary. If it's not, it adds the parmId to the dictionary and increments the `parmIdCounter`.
+    - It creates a `ParmID` object and gets the database ID (`dbId`) from it.
+    - Checks if the `dbId` is not already in the `dbIds` dictionary. If it's not, it adds the `dbId` to the dictionary, writes an SQL insert command to the `dbIdInsertFile`, and increments the `dbIdCounter`.
+    - It writes an SQL insert command to the `parmIdInsertFile` and an SQL update command to the `recordUpdateFile`.
+    - If the parmId is already in the `parmIds` dictionary, it prints a message indicating that a duplicate parmId was received.
+
+6. After reading all the lines in the file, it writes SQL commands to create sequences in the database to the `dbIdInsertFile` and `parmIdInsertFile`.
+
+7. Finally, it closes all the opened files.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

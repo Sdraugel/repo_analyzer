@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>NationalBlendOC.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>NationalBlendOC.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is a part of a weather forecasting software developed by NOAA/NWS/OCP/ASDT. It contains a class named `NationalBlendOCForecaster` that inherits from a base class named `Forecaster`. The `NationalBlendOCForecaster` class is used to calculate various weather elements based on the SPC (Storm Prediction Center) model output.
+
+The class has several methods, each of which calculates a different weather element:
+
+- `calcWGS50pct`: Returns the value of `wgs50pct_FHAG10`.
+- `calcWS50Prcntl10m`: Returns the value of `ws50pct_FHAG10`.
+- `calcWS50Prcntl30m`: Returns the value of `ws50pct_FHAG30`.
+- `calcWS50Prcntl80m`: Returns the value of `ws50pct_FHAG80`.
+- `calcVis50pct`: Converts `vis50pct_SFC` from meters to statute miles and returns the result.
+- `calcT50pct`: Converts `t50pct_FHAG2` from Kelvin to Fahrenheit and returns the result.
+- `calcPMSL10pct`, `calcPMSL50pct`, `calcPMSL90pct`: Each of these methods divides the respective input parameter by 100 and returns the result.
+- `windChillCalc`: Calculates the wind chill factor based on the temperature (`T`) and wind speed (`Wind`). The result is clipped where wind chill is greater than the temperature, and the temperature is substituted if wind chill is greater or equal to 51 degrees.
+- `calcWs90pct`: Returns the value of `ws90pct_FHAG10`.
+
+The script also contains a `main` function which creates an instance of the `NationalBlendOCForecaster` class and runs it. If this script is run as the main program, the `main` function is called.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

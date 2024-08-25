@@ -1,0 +1,82 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>FinalizeHazards.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>FinalizeHazards.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be part of a larger system, possibly related to weather forecasting or hazard prediction. It's named "FinalizeHazards.py" and it's version 3.0, last updated on 15 April 2016. The authors are Nate Hardin and Tom LeFebvre. 
+
+The script imports three modules: TimeRange, TropicalUtility, and numpy. It defines a class named Procedure which inherits from TropicalUtility.TropicalUtility. 
+
+The Procedure class has three methods:
+
+1. `__init__` - This is the constructor method that initializes the Procedure object.
+
+2. `extractSelectedHazards` - This method extracts a selected set of hazards for a specified weather element from a given database. It creates a new grid for each hazard, excluding those that are in the past, and filters out undesired keys. It also seems to exclude marine-based hazards.
+
+3. `checkForAnyConflicts` - This method checks for possible conflicts between existing NHC hazards and the WFO hazards extracted from the ISC grid. It returns a list of CWAs that conflict in any way with the NHC hazards.
+
+4. `execute` - This method is not fully visible in the provided code, but it seems to be the main method that runs the Procedure. It extracts wind hazards from the WFO ISC hazard grids, checks for multiple ProposedSS grids, and possibly merges surge hazards.
+
+The script also defines a variable list for a GUI selection, and a MenuItems list which defines under which GFE menu item(s) the Procedure is to appear. 
+
+The comments and the software history indicate that this script has been updated several times to fix issues and meet new requirements.
+
+This Python script is part of a larger application, likely related to weather forecasting and hazard detection. It appears to be dealing with the detection and management of storm surge hazards.
+
+Here's a breakdown of what the script does:
+
+1. The script first checks if the 'Merge Storm Surge Hazards' option is set to 'Yes'. If it is not, it extracts storm surge (SS) grids from existing hazards. If there are no wind grids, it creates empty grids over SS time ranges.
+
+2. If the 'Merge Storm Surge Hazards' option is set to 'Yes', it ensures there is a ProposedSS grid. If there are no ProposedSS grids, it sends a message to the status bar and returns. It then saves the mask where there were SS hazards. If there were no WFO ISC hazards found, it makes an empty grid based on the ProposedSS timeRange. It then extracts SS grids from ProposedSS.
+
+3. The script then checks for any conflicts between the wind and storm surge hazards. If any conflicts are found, it sends a message to the status bar and returns.
+
+4. If there are no conflicts, it deletes all existing Hazard Grids and saves the new hazard grids to the database. It then adds SS keys back into the hazard grids.
+
+5. If the 'Merge Storm Surge Hazards' option is set to 'Yes', it copies the new ProposedSS grid to InitialSS.
+
+6. It then saves and publishes all the grids that need to be kept. It unloads the 'CollabDiffSS' grid from the 'Fcst' model.
+
+7. Finally, it sends a final message notifying the WFOs of the Hazards and lets the forecaster know that the procedure is completed.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

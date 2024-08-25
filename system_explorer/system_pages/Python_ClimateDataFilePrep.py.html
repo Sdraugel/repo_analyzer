@@ -1,0 +1,110 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ClimateDataFilePrep.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ClimateDataFilePrep.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that seems to be part of a larger system for handling meteorological data. Here's a breakdown of what it does:
+
+1. The first part of the script is a legal notice and metadata about the software, including the contractor's name and address, and a warning that the software contains export-restricted data.
+
+2. The script then imports necessary modules: `os`, `stat`, and `tables`. These modules are used for operating system dependent functionality, file statistics, and handling of large datasets, respectively.
+
+3. The script defines several constants for missing data in HDF (Hierarchical Data Format) files. These constants represent the maximum values that can be stored in different data types.
+
+4. It also defines constants for the dimensions of different types of data in NetCDF (Network Common Data Form) files, which are used in the climate and forecast modeling community.
+
+5. The script then defines a translation table for variable names from NetCDF to HDF5 format.
+
+6. It defines two classes, `Info` and `Obs`, which seem to represent station data and climate data records, respectively. These classes inherit from `tables.IsDescription`, which is a class from the PyTables package used to define the structure of HDF5 datasets.
+
+7. The `Info` class includes attributes like the year, station ID, WBAN ID, call ID, latitude, longitude, and elevation.
+
+8. The `Obs` class includes a large number of attributes, which seem to represent various types of meteorological data, such as wind direction, temperature, pressure, and precipitation.
+
+9. The script then defines a `PrepFiles` class with a constructor that takes a station and an HDF file as arguments. The constructor sets up the `info` and `obs` tables in the HDF file.
+
+10. The `__setup_info` method of `PrepFiles` class checks if the HDF file exists, changes its permissions if it does, and then opens it in write mode. It creates a table named 'info' in the root of the HDF file, using the structure defined by the `Info` class.
+
+The provided code is written in Python and seems to be part of a larger program that deals with weather data. The code is defining methods to set up a table in an HDF5 file and to set attributes for that table. HDF5 is a data model, library, and file format for storing and managing data. It supports an unlimited variety of datatypes and is designed for flexible and efficient I/O and for high volume and complex data.
+
+The `__setup_obs` method opens an HDF5 file and creates a table named 'obs' in it. The table is created with the structure defined by the `Obs` class (which is not provided in the code snippet). The table is also given a title of 'Surface Observation' and a filter for data compression.
+
+The `__setInfoAttrs` and `__setObsAttrs` methods are used to set attributes for the tables. These attributes include various details about weather observations, such as station ID, latitude, longitude, elevation, date and time of observation, wind direction and speed, visibility, air temperature, atmospheric pressure, precipitation details, and many more.
+
+The attributes are set as dictionaries with keys for name, units, and fill. The 'name' key provides a description of the attribute, the 'units' key specifies the units of the attribute (like 'degree', 'm/s', 'hectopascals', etc.), and the 'fill' key provides a fill value for missing data. Some attributes also have an 'unlimited' key, which might be used to specify an upper limit for the attribute value.
+
+The code snippet ends abruptly, so it's not clear what the last attribute (`pt_awx_code`) is for.
+
+This code is defining the attributes of a table object. Each attribute represents a different type of weather or atmospheric observation. For each attribute, the code is specifying a name, the units in which the observation is measured, and a fill value to be used when the observation is missing.
+
+Here are a few examples:
+
+1. `atmospheric condition code`: This attribute represents a code for the atmospheric condition. If the code is missing, the `MissingUInt8` value is used.
+
+2. `pt_awx_pd`: This attribute represents the period quantity of past weather observations, measured in hours. If the value is missing, the `MissingUInt8` value is used.
+
+3. `rw_vis_dir`: This attribute represents the direction angle of the runway visual range observation, measured in degrees. If the value is missing, the `MissingInt16` value is used.
+
+4. `hail_size`: This attribute represents the size of hail, measured in centimeters. If the value is missing, the `MissingFloat` value is used.
+
+5. `mint`: This attribute represents the minimum temperature of the ground surface observation, measured in degrees Celsius. If the value is missing, the `MissingFloat` value is used.
+
+6. `altimeter`: This attribute represents the altimeter setting rate of the atmospheric pressure observation, measured in hectopascals. If the value is missing, the `MissingFloat` value is used.
+
+The `table.attrs` object is likely part of a larger program that processes or analyzes weather data.
+
+This part of the code is setting attributes for a table object. These attributes are likely metadata that provide additional information about the data stored in the table. Each attribute is a dictionary with three keys: 'name', 'units', and 'fill'.
+
+1. `pres_wxm_code`: This attribute is named "PRESENT-WEATHER-OBSERVATION manual atmospheric condition code". Its units are 'code', and if there is missing data for this attribute, it will be filled with the value of `MissingUInt8`.
+
+2. `sup_wd_code`: This attribute is named "SUPPLEMENTARY-WIND-OBSERVATION type code". Its units are 'code', and if there is missing data for this attribute, it will be filled with the value of `MissingUInt8`.
+
+3. `sup_wd_prd`: This attribute is named "SUPPLEMENTARY-WIND-OBSERVATION period quantity". Its units are 'hour', and if there is missing data for this attribute, it will be filled with the value of `MissingUInt8`.
+
+4. `sup_wd_spd`: This attribute is named "SUPPLEMENTARY-WIND-OBSERVATION speed rate". Its units are 'm/s' (meters per second), and if there is missing data for this attribute, it will be filled with the value of `MissingFloat`.
+
+5. `wd_gust`: This attribute is named "WIND-GUST-OBSERVATION speed rate". Its units are 'm/s' (meters per second), and if there is missing data for this attribute, it will be filled with the value of `MissingFloat`.
+
+The `MissingUInt8` and `MissingFloat` are likely predefined values that represent missing or undefined data in the table.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

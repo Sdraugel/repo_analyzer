@@ -1,0 +1,146 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Header.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Header.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code file appears to be part of a larger software system, possibly related to weather forecasting or geospatial data processing. The software was developed by Raytheon Company under a U.S. government contract. It is noted that the software contains export-restricted data, meaning its distribution may be limited by U.S. law.
+
+The code file is named `Header.py` and it contains methods for producing headers. It was authored by a user named 'hansen' and has undergone several modifications by other users, as indicated in the software history section.
+
+The code imports several modules, including `functools`, `EditAreaUtils`, `ModuleAccessor`, `StringUtils`, `TimeRange`, `AbsTime`, `logging`, `datetime`, `os`, `time`, and `re`.
+
+The core of the code defines a class named `Header` which inherits from `EditAreaUtils.EditAreaUtils` and `StringUtils.StringUtils`. The class contains an `__init__` method for initialization and a `makeAreaHeader` method which appears to generate a header for a given area label. The `makeAreaHeader` method takes several parameters, including an argument dictionary, an area label, issue time, expire time, area dictionary name, default edit areas, and several optional parameters.
+
+The `makeAreaHeader` method includes logic to handle different conditions such as if the area dictionary name is None, if an area list is not supplied, if the area dictionary is None, and so on. It also includes logic to handle UGC (Universal Geographical Classification) information for the area(s) if available. 
+
+The method also includes logic to compute an accurate city list if the `accurateCities` parameter is set to True and there are UGC cities available. 
+
+Finally, it appears to have some logic related to VTEC (Valid Time Event Code) strings, which are commonly used in weather warning systems, but this logic is not fully shown in the provided code.
+
+This Python script appears to be part of a larger program that handles and formats various types of data related to time zones, areas, and hazards. 
+
+The first part of the script is concatenating VTEC and hVTEC strings if they exist. VTEC and hVTEC are likely identifiers or codes for some kind of hazard or event.
+
+Next, it handles the expiration time of something, possibly a hazard or event. It checks if the expiration time is an integer or float, and if so, it converts it to an absolute time using the AbsTime function. It then sets a variable 'fixed' based on the value of self._fixedExpire. If any error occurs during this process, 'fixed' is set to 0. The expiration time is then formatted and added to a code string.
+
+The script then retrieves the current time zone from the system environment and checks if there are any areas outside of this time zone. If the resulting list of time zones is empty, it adds the current time zone. If the current time zone is not the first one in the list, it moves it to the first position.
+
+The script then formats the issue time for each time zone in the list and appends it to a list of time strings. If there is only one time string, it is used as the issue time string. If there are multiple, they are concatenated with slashes in between.
+
+Next, it checks if the region label should be used as the name string. If so, and if the area label is not empty, it sets the name string to the area label. It then formats the name string.
+
+If the city string is not empty, it checks the number of cities in the list. If there is only one, it replaces the word "cities" with "city" in the city descriptor, preserving the case. The city string is then formatted.
+
+The script then checks if various parts of the header should be included based on boolean flags. If any are set to 0, the corresponding string is set to an empty string. It then concatenates these strings to form the header and returns it.
+
+The 'makeAccurateCityList' function appears to separate hazards according to their action (CAN, UPG, EXP, or other) and determine the cities corresponding to the active grids. It's not clear what the rest of the function does as the code is cut off.
+
+This code is written in Python and it seems to be part of a larger system related to handling and processing geographical data, specifically dealing with areas and cities. 
+
+The first part of the code is checking if there are any records in the `expRecords` list. If there are, it loops through each record and gets a list of cities associated with each record. If no cities are found for a record, that record is added to the `unresolved` list. If cities are found, they are added to the `citylist`. 
+
+Then, the code checks if all cities in the `ugcCityList` are in the `citylist`. If all cities are used, the `citylist` is replaced with a copy of `ugcCityList`. If not all cities are used, the code tries to extract cities from a previous product. If this is successful, the cities are added to the `citylist` and the `editable` flag is set based on the certainty of the extraction. If the extraction fails, the `citylist` is replaced with a copy of `ugcCityList` and the `editable` flag is set to 1. 
+
+The `citylist` is then filtered and reordered based on the `ugcCityList`, and converted into a string. If the `editable` flag is set and the `cityString` is not empty, framing code is added to the `cityString`.
+
+The `makeUGCList` function creates a list of tuples, each containing an area name and a UGC (Universal Geographic Code) code. This list is sorted by UGC code and then split into two parallel lists of area names and UGC codes.
+
+The `expandComplexUgc` function takes a complex UGC string and returns a list of all UGC codes represented by that string. The `expandUgc` function takes a UGC code and returns a list of UGC codes represented by that code, along with the current state and the last number used in the UGC code.
+
+The `ugcSort` function is a property that returns a function for comparing two tuples containing an area name and a UGC code. The comparison is based on the UGC code.
+
+The last function seems to be incomplete. It's likely that it would create a UGCCode header string from a specified list of UGC codes.
+
+This code defines several methods that seem to be part of a larger class. The methods are used to process and format geographic data, specifically related to cities, areas, and UGC (Universal Geographic Code) strings.
+
+1. `makeUGCString(self, ugcList)`: This method takes a list of UGC strings, processes them, and returns a formatted string. It first removes any blank UGC lines from the list. Then, it processes the UGC strings in the list, grouping consecutive UGC numbers into a sequence represented by a range (e.g., '062>064' for a sequence of '062', '063', '064'). If the UGC strings belong to different states (as determined by the first three characters of the UGC string), they are separated by a hyphen.
+
+2. `checkLastArrow(self, inSeq, ugcStr)`: This method checks the last character of a UGC string. If the last character is an arrow ('>') and the string represents a sequence of only two UGC numbers, it replaces the arrow with a hyphen ('-').
+
+3. `getCityList(self, areaList, label="This includes the cities of", lineLength=66, areaDictName="AreaDictionary", addPeriod=False, forceAlphaSort=False)`: This method returns a list of cities for a given area list. It accesses the UGC information for the areas from an 'AreaDictionary', collects the cities in those areas, sorts them alphabetically if required, and then formats them into a string with a given label and line length.
+
+4. `getGeneralAreaList(self, areaList, areaDictName="AreaDictionary")`: This method returns a list of general areas for a given area list. It accesses the UGC information for the areas from an 'AreaDictionary', collects the state, part-of-state, and county/zone name for each area, and formats them into a list of tuples.
+
+This code appears to be part of a larger program related to weather data, specifically dealing with geographical areas and their classification into land and water, as well as formatting county names and handling time-related data.
+
+Here's a breakdown of what each part of the code does:
+
+1. The first part of the code sorts geographical areas (geoAreas) by their names and then separates them into land and water areas. It checks if the name of the area contains any of the words in the 'waters' list ('WATERS', 'LAKE', 'RIVER'). If it does, it's classified as a water area, otherwise, it's classified as a land area. Then, it combines these two lists into one, with land areas first, followed by water areas.
+
+2. The 'formatCountyColumns' function formats a list of county names into a string with a specific column width and line length.
+
+3. The 'formatCountyString' function formats a string that includes the state name and a list of counties.
+
+4. The 'getIssuedByString' function returns a string that indicates who issued the weather service, with a default value of "Issued by National Weather Service".
+
+5. The 'timeFromDDHHMM' function converts a string in the format DDHHMM (Day, Hour, Minute) into a time value in seconds since the epoch (January 1, 1970). It also handles timezone adjustments.
+
+6. The 'getExpireTimeFromLToffset' function calculates the expiration time of a weather event given the issuance time and an offset in hours from local time midnight.
+
+7. The 'getExpireTime' function calculates the appropriate expiration time given the issuance time, desired expiration time, and VTEC codes (a coding system used in weather forecasting). The expiration time is the earliest of the specified expiration time, 1 hour if a CAN code is detected, or the ending time of ongoing events.
+
+8. The last part of the code appears to be incomplete, but it seems to be setting up a regular expression to parse VTEC strings.
+
+The code provided is written in Python and it contains several methods that perform various operations. Here is a brief explanation of what each method does:
+
+1. `timeFromYYYYMMDD_HHMM(self, yyyymmdd, hhmm)`: This method takes as input a date and time in the format `yyyymmdd` and `hhmm` respectively. It returns the equivalent time in seconds since the epoch (January 1, 1970). If the input date and time are all zeros, it returns 0. The time zone is set to GMT for this function.
+
+2. `getAreaDictEntry(self, accessArg, areaDict, entryName, firstOnly=0)`: This method accesses a given area dictionary for a given entry name. The `accessArg` can be a tree or argDict, "all", or a list of area labels. If `firstOnly==1`, it returns only the value for the first area found. Otherwise, it returns a list of entry values from which duplicates have been removed. If not found, it returns an empty list.
+
+3. `synopsisUGC(self, siteID, pil=None)`: This method gets the synopsis UGC (Universal Geographic Code) for the CWF (Coastal Waters Forecast). It returns a UGC code or a hyphen-separated list of UGC codes.
+
+4. `synopsisHeading(self, siteID, pil=None)`: This method gets the synopsis heading for the CWF. It returns a string that is the synopsis heading.
+
+5. `synopsisCWF_dict(self)`: This method returns a dictionary where the key is a site id (or a tuple of site id and pil for sites that produce multiple CWFs) and the value is a tuple of ('ugcCode','ugcDescription').
+
+The code at the beginning of the provided snippet seems to be processing a string (`vtecString`) that contains some sort of events or actions. It splits the string into lines, and for each line, it searches for a regular expression (`vtecRE`). Depending on the action found, it updates some variables (`canExpFound`, `activeFound`, `laterActive`, `expireTime`). This part of the code seems to be related to handling and scheduling of some events, but without more context, it's hard to say exactly what it does.
+
+This code is a part of a Python dictionary. Each key-value pair in the dictionary represents a specific geographical area and its corresponding synopsis. The keys are likely identifiers or codes for different regions, while the values are tuples or lists. 
+
+The first element of each tuple or list is a code or list of codes that probably represent a specific water body or area. The second element is a string that provides a synopsis or description for that area.
+
+For example, the key 'MHX' corresponds to the area 'Synopsis for Currituck Beach Light to Surf City NC out 20 NM including Albemarle Sound and Pamlico Sound'. The code for this area is 'AMZ100'. 
+
+This dictionary could be used in a program that needs to reference these areas by their codes, or to display the synopsis for a given area.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

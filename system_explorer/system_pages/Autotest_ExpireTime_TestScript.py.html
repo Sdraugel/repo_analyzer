@@ -1,0 +1,136 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ExpireTime_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ExpireTime_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a part of a larger software system developed by Raytheon Company for the US Government. This specific portion appears to be a test script for verifying the expiration times of various weather forecast products issued by the National Weather Service, such as Area Forecast Matrices (AFM) and Coastal Waters Forecasts (CWF).
+
+The script defines a list of dictionaries, where each dictionary represents a test case. Each test case includes:
+
+- `name`: The name of the test case.
+- `productType`: The type of the weather forecast product being tested.
+- `commentary`: A brief description of what the test case is doing.
+- `comboFlag`: A flag to indicate whether combinations are used.
+- `combinations`: The combinations used in the test case.
+- `cmdLineVars`: Command line variables used in the test case.
+- `checkStrings`: A list of strings that are expected to be found in the output of the test case.
+
+For example, the test case named "ExpireAFM_am" checks the expiration time for an AFM product with a morning issuance. The test case expects to find certain strings in the output, such as "FOUS52 KTBW 010800", "AFMTBW", and "Area Forecast Matrices".
+
+The script also includes some definitions at the beginning, such as `def1`, `def2`, and `pfm1`, which appear to be defining some default settings or parameters for the test cases.
+
+This script is likely used as part of a larger automated testing system to ensure the correct functioning of the weather forecast product generation and expiration system.
+
+This code appears to be a series of dictionaries in Python, each representing a different check or test for a weather forecast product. Each dictionary contains information about the product type, the time of issuance, and the specific strings to check for in the product.
+
+1. The "productType" key specifies the type of product being checked. The given examples are "CWF_Pacific" and "FWF".
+
+2. The "commentary" key provides a description of what the check is doing.
+
+3. The "comboFlag" key is set to 1 in all cases, which could indicate that a certain combination of conditions is being checked.
+
+4. The "combinations" key contains a list of combinations to check. In the given examples, these are either ["GMZ870"] or ["FLZ050"].
+
+5. The "cmdLineVars" key contains a dictionary of variables that might be used in the command line to run the check.
+
+6. The "checkStrings" key contains a list of strings that are expected to be found in the product.
+
+The different dictionaries represent checks for different times of day (morning, afternoon, evening) and different types of updates (regular, update). 
+
+For example, the first dictionary is checking the "CWF_Pacific" product issued in the morning, and the second dictionary is checking the "CWF_Pacific" product issued in the morning but with an update. 
+
+The last few dictionaries are checking the "FWF" product at different times of day and with different types of updates. 
+
+The "checkStrings" in each dictionary are slightly different, reflecting the different information expected in each type of product and update.
+
+The provided code appears to be a part of a larger Python script or JSON file that is used to check the expiration times of various weather forecast products issued by the National Weather Service in Tampa Bay, Florida. 
+
+Each block of code represents a different forecast product and contains information such as the product's name, type, commentary, and other relevant details. The 'checkStrings' list in each block seems to contain the actual forecast data.
+
+Here's a breakdown of each block:
+
+1. The first block is checking the expiration time for a Fire Weather Planning Forecast (FWF) with an early morning update issuance for Pinellas, Florida.
+
+2. The second block is checking the expiration time for the same FWF product but with a morning issuance.
+
+3. The third block is checking the expiration time for the FWF product with an afternoon issuance.
+
+4. The fourth to seventh blocks are checking the expiration times for an Open Lakes Forecast (GLF) product with 4 AM, 10 AM, 4 PM, and 10 PM issuances respectively.
+
+5. The eighth to tenth blocks are checking the expiration times for a Nearshore Marine Forecast (NSH) product with 4:30 AM, morning update, and 4:30 PM issuances respectively.
+
+The 'comboFlag' and 'combinations' fields seem to be used for some sort of configuration or setting, but without more context, it's hard to say exactly what they do. The 'cmdLineVars' field appears to contain command line variables that might be used elsewhere in the program.
+
+This code appears to be a series of dictionaries in Python, each representing a different type of weather forecast product issued by the National Weather Service. Each dictionary contains various pieces of metadata about the forecast, such as:
+
+- `name`: A unique identifier for the forecast.
+- `productType`: The type of forecast (e.g., "NSH" for nearshore marine forecast, "OFF" for offshore forecast, "PFM" for point forecast matrices, "SFT" for tabular state forecast, "ZFP" for zone forecast product).
+- `commentary`: A description of the forecast.
+- `comboFlag`: A flag that seems to indicate whether the forecast is a combination of different forecasts.
+- `combinations`: A list of combinations used in the forecast.
+- `cmdLineVars`: Variables that might be used in the command line to generate the forecast.
+- `checkStrings`: A list of strings that appear in the forecast.
+
+The code seems to be used for checking the expiration time of different types of forecasts, with different issuance times (morning, afternoon, evening, 4 AM, 4 PM, etc.). For example, the dictionary with the name "ExpireNSH_pmU" is used for checking the expiration time of a nearshore marine forecast (NSH), with an evening update issuance. 
+
+The `fileChanges` key in some dictionaries indicates the changes to be made to the forecast file, including the action to be taken (add/delete) and the content to be added or deleted.
+
+Overall, this code seems to be part of a larger system for managing and verifying the issuance of various types of weather forecasts.
+
+The provided code appears to be part of a Python script that is used for testing purposes, specifically for testing the generation and expiration of Zone Forecast Product (ZFP) for different issuance times. 
+
+Each dictionary in the list `scripts` represents a test case, with the following key-value pairs:
+
+- `name`: The name of the test case.
+- `productType`: The type of product being tested, which is ZFP in all cases except the last one.
+- `commentary`: A brief description of what the test case is checking.
+- `cmdLineVars`: Command line variables used in the test case.
+- `comboFlag`: A flag used in the test case, although it's not clear what it represents without additional context.
+- `combinations`: Combinations used in the test case.
+- `checkStrings`: Strings that are checked in the test case.
+
+The last dictionary in the list `scripts` is a cleanup operation that deletes hazard grids.
+
+The `testScript` function seems to be the main function that runs these test cases. It takes as input a `dataMgr` object and uses a `TestScript` module to execute the test cases. The `gridsStartTime` and `drtTime` variables represent the start time of the grids and the disaster recovery test time, respectively. The `defaults` dictionary contains default values for various parameters used in the tests.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,72 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>CivilEmerg_EQR_MultiPil_Local.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>CivilEmerg_EQR_MultiPil_Local.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is part of a software developed by Raytheon Company. The software is used to generate an earthquake report. It is a public domain software, provided without any warranty or technical support.
+
+The code imports the `copy` and `types` modules, and a module named `CivilEmerg`. It then defines a class `TextProduct` which inherits from `CivilEmerg.TextProduct`. The class has several attributes that define various aspects of the report such as the display name, output file, product name, WMO code, and more.
+
+The class also has a `VariableList` attribute which contains a list of tuples. Each tuple contains information about different aspects of an earthquake such as the issuance type, the official earthquake info source, the extent of the earthquake, the damage caused, and the type of damage.
+
+The `TextProduct` class has an `__init__` method that initializes the class and a `_makeProduct` method that generates the earthquake report. The report includes information about the earthquake, the damage caused, and information from the earthquake information center.
+
+The class also has a `_postProcessProduct` method that processes the generated report and a `_preProcessArea` method that is not fully shown in the provided code.
+
+The code also includes a software history section that records changes made to the code over time, and an example output section that refers to the NWS 10-518 Directive for further information.
+
+This part of the code file appears to be a function that generates a weather forecast message. 
+
+1. It starts by generating WMO lines which are a standard format for meteorological data. The WMO line is created by formatting a string with the WMO ID, the full station ID, and the time.
+
+2. Then, it generates the area header. This is done by calling the `makeAreaHeader` function with several parameters including the area label, issue time, expire time, area dictionary, default edit areas, and several boolean flags indicating whether to include cities, zone names, and issue time.
+
+3. After that, it adds the product name and time lines. It first checks if the `self._eas` attribute is "None", and if so, it sets it to an empty string. If not, it appends a newline character to it. If there's an error during this process, it also sets `self._eas` to an empty string. It does a similar process for the `self._source` attribute.
+
+4. It then gets the issued by string by calling the `getIssuedByString` function.
+
+5. The product name is formatted with the product name and issuance type, and then checked if it's in test mode.
+
+6. Finally, it concatenates all these parts together to form the complete forecast message, which includes the WMO lines, area header, product name, source, a string indicating that the message was relayed by the National Weather Service, the issued by string, and the time label. The forecast message is then returned by the function.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

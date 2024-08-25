@@ -1,0 +1,76 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ExpireAlg_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ExpireAlg_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The code appears to be a part of a larger system related to weather forecasting and hazard detection. It is written in Python and contains a list of dictionaries, each representing a different scenario or test case for the system. 
+
+Each dictionary includes several key-value pairs that provide information about a specific scenario. The keys include:
+
+- "commentary": A brief description of the scenario.
+- "name": The name of the scenario.
+- "productType": The type of the product.
+- "clearHazardsTable", "decodeVTEC", "createGrids": These keys seem to be related to the operations that need to be performed in the scenario.
+- "checkStrings": This is a list of strings that appear to be related to the output or expected results of the scenario.
+
+The scenarios include situations like clearing out all hazards, having one active event that starts now and ends sooner than the default product expiration, having one active event that starts now and ends after the default product expiration, one active event that is cancelled, and two active events that are back to back.
+
+The code also includes a comment block at the top which provides information about the software, including its developer (Raytheon Company), the contract under which it was developed, export control restrictions, and licensing information.
+
+This code appears to be a test script for a weather forecasting system, specifically for handling and issuing hazard warnings related to blowing dust. 
+
+The script contains several test cases, each represented as a dictionary with different fields:
+
+- "commentary": This provides a description of what the test case is about.
+- "name": This is the name of the test case.
+- "productType": This indicates the type of weather product that the test case is related to.
+- "decodeVTEC": This is a flag indicating whether to decode the VTEC (Valid Time Event Code), a system used by the National Weather Service for encoding warning information.
+- "createGrids": This is a list of instructions for creating hazard grids, which are used to represent the geographical area and time period for the hazard.
+- "checkStrings": This is a list of strings that are expected to be present in the output of the system when this test case is run.
+- "clearHazardsTable": This is a flag indicating whether to clear the hazards table, which presumably contains information about currently active hazards.
+
+The testScript function at the end runs these test cases using a data manager object. It sets some default settings and then calls a general test script function with the test cases and the default settings. 
+
+The test cases cover different scenarios such as one active event, two active events, events that end before or after a certain time, and events that have been cancelled. This helps ensure that the system can correctly handle a variety of situations.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>BundlePainter.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>BundlePainter.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that defines a class called `BundlePainter`. This class is a subclass of `VizPainter`, which is imported at the beginning of the script. The `BundlePainter` class is used for painting Viz bundles from Python.
+
+The class has two methods: `__init__` and `__del__`.
+
+The `__init__` method is the constructor for the class. It takes three arguments: `bundlePath`, `imageWidth`, and `imageHeight`. The `bundlePath` argument is used to create a `File` object. This file is then used to unmarshal a `Bundle` object. The `Bundle` object is used to get the displays, and if there is not exactly one display, a `RuntimeError` is raised. The constructor then calls the `VizPainter` constructor with the first display and the provided image width and height.
+
+The constructor also contains logic to time match the first resource with times it finds. It iterates over the resources in the resource list, instantiates any resources that are not already instantiated, and sets the time match basis to the first resource it finds with data times. If a time match basis is found, it changes the time match basis and redoes the time matching on the descriptor.
+
+The `__del__` method is the destructor for the class. It simply calls the `VizPainter` destructor.
+
+The script also contains a header comment that provides information about the software's development and export restrictions, as well as the contractor's name and address. It also contains a software history comment that provides information about the initial creation of the software.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

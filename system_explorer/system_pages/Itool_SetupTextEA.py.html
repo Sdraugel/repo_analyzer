@@ -1,0 +1,84 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>SetupTextEA.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>SetupTextEA.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The code is part of a software developed by Raytheon Company for the US Government. It's written in Python and uses several libraries such as getopt, sys, os, LogStream, numpy, time, and JUtil.
+
+The code defines a class called `setupTextEA` which is used to set up text edit areas. The class has an `__init__` method that initializes some properties and a `process` method that performs the main functionality of the class.
+
+In the `process` method, the code reads from two text files ('Zones' and 'FireWxZones') and appends the lines of these files to a list called `zoneList`. Then, it creates a list of required edit areas and saves them using the `refMgr.saveRefSet` method.
+
+The code also handles special edit areas and saves them in a similar manner. 
+
+Finally, the code calculates topography simulated based edit areas. It calculates the average topography (`topoAve`) and creates two grids (`aboveGrid` and `belowGrid`) based on whether the topography is above or below the average. It also creates two more areas (`area1` and `area2`) based on the same condition but with a desired count limit.
+
+The code is incomplete, so it's unclear what happens after the desired count is reached for `area2`.
+
+The code also contains comments that provide additional details about the software and its licensing, as well as instructions for using the `setupTextEA` program.
+
+This Python script appears to be part of a larger system that is processing geographical data, possibly for weather or climate modeling. It is manipulating and saving data in different "edit areas", which seem to be specific regions of a grid.
+
+The first section of the code is iterating over a grid (topogrid) and checking if certain conditions are met. If they are, it updates the corresponding cells in the 'area2' and 'belowGrid' grids and increments a count. It then saves several different edit areas and logs these actions.
+
+The next section deals with city areas, which are a subset of other edit areas. It loads data for each city area, finds the extrema of set bits in the data, and then iterates over the range of these extrema. If a cell in the 'wholeGrid' is set, it creates a new grid for the city, sets the corresponding cell, and saves this new grid. It also logs these actions.
+
+The following section is for ISC areas, which seem to be special areas used for testing. It reads a list of ISC areas from a text file, then iterates over this list. For each ISC area, it loads the data, finds the extrema of set bits, and then iterates over the range of these extrema. If a cell in the 'wholeGrid' is set, it creates a new grid for the ISC area, sets the corresponding cell, and saves this new grid. It also logs these actions.
+
+Finally, it saves a group of all the generated edit areas, and sleeps for half a second.
+
+There are also two helper functions defined: '__saveEA' and '__extremaOfSetBits'. The '__saveEA' function saves an edit area from a grid, and the '__extremaOfSetBits' function returns the extrema of set bits in a mask.
+
+This code is a command-line script in Python that accepts three optional arguments: `-h` for host, `-p` for port, and `-u` for user. 
+
+The `getopt.getopt()` function parses command-line options and argument list. The `sys.argv[1:]` part is the argument list, which is sliced to exclude the script name itself. The `"h:p:u:"` part is the options string that getopt uses to match the options. The colon following an option indicates that the option requires an argument.
+
+The `for` loop iterates over the list of option-argument pairs, and assigns the argument to the corresponding private instance variable (`__host`, `__port`, `__user`) based on the option. If the `-p` option is provided, its argument is converted to an integer before being assigned to `__port`.
+
+The script then checks if both `__host` and `__port` have been assigned. If either is `None`, it prints a usage message and raises a `SyntaxWarning` with a descriptive error message.
+
+The `main()` function is the entry point of the script. It creates an instance of `setupTextEA`, calls its `process()` method, and handles any exceptions that might occur during the execution. If an exception is raised, it logs the problem and exits the script with a status code of 1.
+
+The `if __name__ == "__main__":` block checks if the script is being run directly (as opposed to being imported as a module), and if so, it calls the `main()` function.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

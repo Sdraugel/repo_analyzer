@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>RHTool.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>RHTool.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a Python script for a tool named "RHTool". The tool is part of a software developed or modified by Raytheon Company, as mentioned in the comments at the top of the file. 
+
+The script begins by importing the numpy library and a module named SmartScript. It then defines a class named Tool, which inherits from SmartScript.SmartScript. 
+
+The Tool class has two methods: __init__ and execute. The __init__ method is the constructor for the class and it initializes an instance of the class. The execute method takes two parameters, T and Td, which presumably represent temperature and dew point, respectively. 
+
+The execute method calculates the relative humidity (RH) using the given temperature and dew point. It first converts the temperature and dew point from Fahrenheit to Celsius. It then calculates the saturation vapor pressures for the temperature and dew point. Finally, it calculates the relative humidity as the ratio of the dew point vapor pressure to the temperature vapor pressure, multiplied by 100 to convert to a percentage. The method returns this calculated relative humidity.
+
+The script ends with a comment indicating that it is an absolute override file. This means that if there is a higher priority version of this file, it will completely replace this version. 
+
+The script is in the public domain and is provided "as is", without any warranty or technical support.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

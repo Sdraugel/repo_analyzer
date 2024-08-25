@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>fixClimateFiles.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>fixClimateFiles.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The given Python script, named `fixClimateFiles.py`, is a utility script used to remove synthetic observations inserted into HDF5 archives by OB9 software. These synthetic or "bogus" reports can produce excessive amounts of VLIFR conditions, especially when ceilings are examined. The script has been designed to handle errors robustly and output results in a more readable format.
+
+The script starts by importing necessary modules and setting up the top directory for the climate data files. It then defines a function `_tee(log,msg)` to write messages to both a log file and standard output.
+
+The main function `fixClimateFiles(sites=None, climateDir=None)` is defined to process the climate files for given sites. It sets the top directory to the provided climate directory and extends the command-line arguments with the provided sites. It then calls the function `_fixClimateFiles()` to perform the actual processing.
+
+The function `_fixClimateFiles()` opens a log file and then iterates over each station provided in the command-line arguments. For each station, it opens the corresponding HDF5 file and creates a new temporary file. It then uses the `ClimateDataFilePrep.PrepFiles(stn,new_file)` function to prepare the new file.
+
+Next, it iterates over the rows in the old file, copying the information to the new file and filtering out the synthetic observations based on certain conditions. It also keeps track of the number of rows processed and prints a '.' every 500 rows and a newline every 40001 rows to the log file.
+
+Finally, it copies the new file over the old file and closes the log file. If the script is run as a standalone program, it checks if the number of command-line arguments is less than 2 and if so, it prints a usage message and exits. Otherwise, it calls the `_fixClimateFiles()` function to process the climate files for the stations provided in the command-line arguments.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

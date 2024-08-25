@@ -1,0 +1,74 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>configureTextProducts.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>configureTextProducts.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that appears to be part of a larger system for handling and processing weather data. The script contains several important pieces of information and functionality:
+
+1. **Metadata and History**: The script begins with a large block of comments providing metadata about the software, including its developer (Raytheon Company), contract details, and export control information. It also includes a software history log, which records changes made to the software over time, including the date of change, ticket number, engineer responsible, and a description of the change.
+
+2. **Product to Standard Mapping**: This dictionary maps product names to standard names. This is likely used for data normalization or standardization purposes.
+
+3. **Direct File to Product Mapping**: This dictionary maps filenames to product names. This could be used for organizing or retrieving data files based on the product they pertain to.
+
+4. **NWS Products**: This is a list of product category values. These are likely identifiers for different types of weather data products provided by the National Weather Service (NWS).
+
+5. **Products Per Domain**: This dictionary maps domain names to lists of product identifiers. This could be used to determine which products are applicable or available for a particular domain.
+
+6. **Template Products**: These are lists of product identifiers that are used as templates for generating other products. The script differentiates between template products for general use and those specifically for the Weather Service Automated Forecast (Wsaf).
+
+Overall, this script seems to be involved in managing, organizing, and processing different types of weather data products. It likely forms part of a larger system for handling weather data, possibly for forecasting or analysis purposes.
+
+This code snippet is defining a few lists and a dictionary in Python.
+
+The first three lists, `templateProds`, `templateProds_minus_HLS`, and `templateProdsWsaf`, are lists of strings. These strings could be identifiers, names, or codes for different products or services.
+
+The dictionary `TemplatedProducts` is mapping different keys to these lists. Each key in the dictionary represents a different category or type of product, and the value associated with each key is a list of products that fall under that category.
+
+- `'Product_Site_MultiPil'` is associated with the `templateProds` list.
+- `'Product_Site_MultiPil_Baseline'` and `'Product_Site_MultiPil_Region'` are associated with the `templateProds_minus_HLS` list.
+- `'Product_Region_Overrides'` and `'Product_Site_Overrides'` are associated with the `templateProdsWsaf` list.
+
+The purpose of this code could be to categorize different products or services based on certain criteria, and to provide a way to easily retrieve the list of products that fall under a certain category.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

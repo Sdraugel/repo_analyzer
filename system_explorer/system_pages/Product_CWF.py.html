@@ -1,0 +1,250 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>CWF.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>CWF.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code appears to be a configuration file for a software product developed by Raytheon Company. The software is related to the Coastal Waters Forecast (CWF) and is likely used for generating and managing these forecasts.
+
+The first part of the file contains legal information about the software, including export control restrictions and licensing information. It also provides the contractor's name and address.
+
+The next section describes the purpose of the file and provides a disclaimer about the software being in the public domain and provided without warranty.
+
+The main part of the file is a detailed configuration guide for the CWF software. It outlines both required and optional configuration items, which include various identifiers, names, and settings related to the forecast product. These configuration items are likely used to customize the software's behavior and output to suit the needs of a particular user or site.
+
+The configuration items include things like:
+
+- `displayName`: how the product appears in the GUI
+- `defaultEditAreas`: defines edit areas
+- `productName`: name of the product
+- `fullStationID`: full station identifier
+- `wmoID`: WMO ID code for product header
+- `pil`: product pil
+- `areaName`: area name for product header
+- `wfoCityState`: WFO location
+- `editAreaSuffix`: allows for generating the body of the product for an edit area that is a subset of the edit areas specified in the defaultEditAreas
+- `mapNameForCombinations`: name of the map background that is used for creating/editing the combinations file
+- `database`: source database for product
+- `outputFile`: defines the output location of the finished product
+- `debug`: if on, debug_print statements will appear
+- `textdbPil`: defines the AWIPS product identifier
+- `awipsWANPil`: defines the AWIPS product identifier that is used to transmit the product to the AWIPS WAN
+- `hazardSamplingThreshold`: defines the percentage coverage or number of grid points in a zone that must contain the hazard in order for it to be considered
+- `periodCombining`: if 1, an attempt will be made to combine components or time periods into one
+- `includeEveningPeriod`: include a 6 hour Evening period on the 3rd day
+- `useAbbreviations`: if 1, use marine abbreviations
+- `hoursSChcEnds`: specifies hours past the beginning of the first period of the product to stop including 'Slight Chance' or 'Isolated' weather types
+- `areaDictionary`: modify the AreaDictionary utility with UGC information about zones
+- `useHolidays`: set to 1 to use holidays in the time period labels
+- `passLimit`: limit on passes allowed through Narrative Tree
+- `trace`: set to 1 to turn on trace through Narrative Tree
+
+The file also mentions that certain methods can be overridden for further customization, and provides some guidance on how to do this.
+
+The provided code appears to be a Python script for a weather forecasting application, specifically for generating a Coastal Waters Forecast. The script imports several modules and defines a class named TextProduct which inherits from the classes TextRules and SampleAnalysis.
+
+The class TextProduct has a variable list and a dictionary named Definition which contains various settings and configurations for the forecast product, such as the output file location, product name, WMO ID, station ID, and other parameters.
+
+The class also has an __init__ method which initializes the parent classes.
+
+The script also contains methods that seem to be placeholders for local customization (_Text1 and _Text2). These methods are expected to be overridden in a local file according to the comments.
+
+The comments at the top of the script provide information about the weather elements needed, the associated utilities files, the component products, and the common overrides from other modules. It also mentions some development tasks and additional information.
+
+However, the code is incomplete, as the last method (_Text2) is cut off. This method appears to be preparing a synopsis of the weather forecast, potentially by fetching data from a previous forecast.
+
+The provided code appears to be a part of a larger Python script, possibly related to weather forecasting or analysis. Here's a breakdown of what each part does:
+
+1. The first part of the code is formatting the expiration time of a certain event or data, possibly a weather forecast. It retrieves the expiration time, formats it, and creates a string that includes the expiration time, a time label, a heading, and a synopsis.
+
+2. The `pop_wx_lower_threshold` function always returns 0, indicating that weather is always reported.
+
+3. The `rounding_method_dict` function returns a dictionary with a key "Wind" and a value that is a method for rounding marine wind data.
+
+4. The `element_outUnits_dict` function modifies a dictionary inherited from the `TextRules` class, changing the unit of "Visibility" to "NM" (nautical miles).
+
+5. The `gust_wind_difference_nlValue` function returns a threshold difference between gust and max wind speed, below which gusts are not mentioned. The threshold is 5 if tropical weather is included, otherwise it's 10.
+
+6. The `temporalCoverage_hours` function returns the number of hours for which the forecast is valid. It returns 1 if tropical weather is included, otherwise it returns 0.
+
+7. The `moderated_dict` function modifies a dictionary inherited from the `SampleAnalysis` class, changing the thresholds for Wind, WindGust, WaveHeight, and Swell if tropical weather is included.
+
+8. The `_PoP_analysisMethod` function returns a method for analyzing the probability of precipitation.
+
+9. The `addTropical` function modifies an analysis list and a phrase list, adding new entries related to tropical weather.
+
+10. The `CWFPeriod` function creates an analysis list related to coastal weather forecasting. It includes analysis methods for Wind, WindGust, WaveHeight, and WindWaveH.
+
+Please note that without the full context or the complete code, some assumptions had to be made.
+
+This code appears to be part of a larger program that analyzes and formats weather data. The code is written in Python and it is defining a structure for processing different types of weather data. 
+
+The code is divided into several sections:
+
+1. The first section defines an `analysisList` which is a list of tuples. Each tuple represents a type of weather data (e.g., "Wind", "Swell", "Period", etc.) and the method to be used for analyzing that data. The third element in each tuple is a list containing a single integer, which could possibly represent the number of data points to be analyzed or a parameter for the analysis method.
+
+2. The second section defines a `phraseList`, which appears to be a list of methods for formatting the analyzed data into human-readable phrases.
+
+3. The third section checks if a variable `_includeTropical` is set to True. If it is, it calls the `addTropical` method to add additional analysis and phrases to the `analysisList` and `phraseList` respectively.
+
+4. The fourth section returns a dictionary containing the `analysisList` and `phraseList` along with a list of methods (`methodList`) to be used for further processing.
+
+5. The fifth section defines a method `CWFPeriodMid` which returns a similar structure as the fourth section but with a different `analysisList`.
+
+The commented out sections of the code provide alternative methods for analyzing and formatting the data. These could be uncommented and used as needed.
+
+Overall, this code seems to be a part of a weather forecasting system, possibly for marine weather, given the references to wind, waves, and swells.
+
+The code you provided appears to be part of a larger Python script, likely related to weather forecasting or analysis. Here's a breakdown of what each part does:
+
+1. The first part of the code is defining a dictionary with two keys: `"methodList"` and `"analysisList"`. The `"methodList"` key contains a list of methods that are likely used to process or analyze data. The `"analysisList"` key contains a list of tuples, each containing a string (likely a weather element like "Wind", "WaveHeight", etc.), a method for analyzing that element, and a list with a single integer (possibly a time range or interval for the analysis).
+
+2. The commented-out code under `"analysisList"` suggests optional methods for analyzing the weather elements. These methods seem to offer different types of analysis, such as moderated ranges, single values, or absolute ranges.
+
+3. The `"phraseList"` key contains a list of methods that likely generate phrases or sentences describing the weather conditions based on the analyzed data.
+
+4. The `combine_singleValues_flag_dict` function appears to be a method that returns a dictionary of weather elements to combine using single values rather than ranges. If a weather element is using single value statistics, this flag is set to 1.
+
+5. The `ExtendedLabel` function returns a dictionary with a type of "component" and a method list containing the `setLabel` method. This method sets the label of a component with the string "\n.Extended forecast...\n".
+
+6. The `CWFExtended` function returns a dictionary similar to the first one, but with different methods and analyses. It seems to be used for an extended forecast.
+
+Overall, this code seems to be part of a larger system for generating weather forecasts, with different methods for analyzing weather data and generating descriptive phrases based on the analysis.
+
+The provided code appears to be part of a larger Python script that is used for generating a forecast, possibly for weather or marine conditions. 
+
+The first part of the code seems to be setting up some configuration or settings related to the forecast. It appears to be setting up two different methods of moderating the forecast data, one using a percentage and the other using absolute ranges. The data being moderated includes wind, wind gusts, wave height, weather conditions, temperature, probability of precipitation, and swell. However, all these lines are commented out, so they are not currently active in the code.
+
+The second part of the code defines a method called `generateForecast`. This method takes in an argument dictionary (`argDict`) and uses it to generate a forecast. The method follows these steps:
+1. It gets variables from the `argDict`.
+2. It gets a list of areas for which the forecast will be generated.
+3. It determines the time ranges for the forecast.
+4. It samples the data.
+5. It initializes an output string for the forecast.
+6. It generates the forecast for each area in the list.
+7. It returns the final forecast.
+
+The third part of the code defines two methods, `_getVariables` and `_determineTimeRanges`. The `_getVariables` method extracts variables from the `argDict` and sets them as attributes of the object. The `_determineTimeRanges` method sets up the narrative definition and initial time range for the forecast.
+
+Please note that the code is cut off at the end, so it's not possible to provide a complete analysis of the `_determineTimeRanges` method or any subsequent code.
+
+This code appears to be part of a larger system for generating weather forecasts. It defines several methods that are used to process and format the forecast data.
+
+1. `suanceInfo.issueTime()`: This line is calling the `issueTime` method of the `suanceInfo` object, but it seems to be incomplete or out of context.
+
+2. `_sampleData(self, argDict)`: This method is used to sample and analyze the data for the narrative of the forecast. It creates a `ForecastNarrative` object and calls its `getNarrativeData` method. If there is an error, it returns the error; otherwise, it returns `None`.
+
+3. `_preProcessProduct(self, fcst, argDict)`: This method is used to preprocess the forecast product. It formats the product name, issued by string, and other information into a string `s`, and then appends this string to the forecast `fcst`.
+
+4. `_preProcessArea(self, fcst, editArea, areaLabel, argDict)`: This method is used to preprocess the area for the forecast. It generates a header for the area, gets the hazards text, and generates a product for the hazards.
+
+5. `_makeProduct(self, fcst, editArea, areaLabel, argDict)`: This method generates a narrative forecast for the edit area. It also handles abbreviations in the forecast segment.
+
+6. `_postProcessArea(self, fcst, editArea, areaLabel, argDict)`: This method is used to post-process the area for the forecast. It simply appends "\n$$\n\n" to the forecast `fcst`.
+
+7. `_postProcessProduct(self, fcst, argDict)`: This method is used to post-process the forecast product. It sets the progress percentage to 100 and displays a completion message.
+
+8. `_issuance_list(self, argDict)`: This method sets up configurable issuance times with associated narrative definitions. It includes a different narrative definition depending on whether tropical weather is included.
+
+The code uses several instance variables (e.g., `self._definition`, `self._narrativeProcessor`, `self._expireTime`) that are presumably defined elsewhere in the class.
+
+This code is part of a larger program that generates narrative definitions for different periods of the day. These narrative definitions are used to create a schedule or timetable of sorts.
+
+The code first checks if the `includeEveningPeriod` flag is set to 1. If it is, it creates two lists of tuples, `narrativeDefAM` and `narrativeDefPM`, each containing a series of tuples that define a period and its duration. The periods are either `CWFPeriod` or `CWFExtended`, and the durations are either 12 or 24 hours.
+
+If the `includeEveningPeriod` flag is not set to 1, it creates similar lists but with slightly different durations.
+
+The code then returns a list of tuples, each representing a different part of the day (e.g., "Morning", "Morning with Pre-1st Period", "Morning Update", etc.). Each tuple contains various details about that part of the day, including its name, start time, end time, issuance hour, description, and the corresponding narrative definition list (`narrativeDefAM` or `narrativeDefPM`).
+
+The commented-out sections at the bottom of the code provide alternative definitions for the `narrativeDefAM` and `narrativeDefPM` lists, as well as an alternative issuance list.
+
+Overall, this code is used to define a schedule or timetable, with different periods of the day having different narrative definitions based on whether or not the evening period is included.
+
+The provided code appears to be a part of a larger Python script, which is likely used for weather forecasting or reporting. Here's a breakdown of what this part of the file is doing:
+
+1. It defines several lists of tuples, `narrativeDefAM` and `narrativeDefPM`, which seem to represent different weather conditions or periods during the day. These lists are defined differently based on some condition not shown in the provided code.
+
+2. It returns a list of tuples, each representing a specific weather forecast issuance with details such as the start time, end time, expiration time, label for the period, phrases for late night and late day, a flag indicating whether to use "Today" and "Tonight" phrasing, and the narrative definition.
+
+3. It defines several methods:
+
+   - `lateDay_descriptor` and `lateNight_descriptor`: These methods return a descriptor for late day or late night based on whether the given time range is within the first period.
+
+   - `splitDay24HourLabel_flag`: This method returns a flag indicating whether to label 24-hour periods with just the weekday name or to include day and night periods. The flag is set based on the component name of the node.
+
+   - `significant_wx_visibility_subkeys`: This method returns a list of tuples representing weather values that constitute significant weather to be reported regardless of visibility.
+
+   - `_skipAreas`: This method returns an empty list, suggesting that it's a placeholder for defining areas to be skipped by the formatter.
+
+   - `inlandWatersAreas`: This method seems to be a placeholder for defining a list of areas that are inland or bay waters.
+
+The code is well-commented, providing detailed explanations of what each part is doing. However, without the full context or the rest of the code, it's not possible to provide a more specific analysis.
+
+This code appears to be part of a larger system for generating weather reports, specifically for marine conditions. It includes methods for defining descriptors for weather conditions, setting thresholds for reporting certain conditions, and formatting the output phrases for the weather report. Here's a breakdown of what each method does:
+
+1. `phrase_descriptor_dict`: This method sets up a dictionary that maps certain weather conditions to their descriptors. For example, "Wind" is mapped to "winds", "seas" is mapped to "combined seas", etc.
+
+2. `null_nlValue_dict`: This method sets up a dictionary that defines the threshold below which certain weather conditions are considered "null" and not reported. For example, if the wave height is less than 3, it's considered "null" and not reported.
+
+3. `first_null_phrase_dict`: This method defines the phrases to use if values throughout the period or in the first period are null (i.e., below the threshold or no weather conditions). For example, if the wave height is null, the phrase "waves 2 feet or less" is used.
+
+4. `null_phrase_dict`: This method defines the phrases to use for null values in subPhrases other than the first. For example, if the wave height is null, the phrase "2 feet or less" is used.
+
+5. `maximum_range_nlValue_dict`: This method sets the maximum range to be reported within a phrase for certain weather conditions. For example, the maximum range for wind speed is set to 10 mph.
+
+6. `vector_mag_hook`: This method allows for further customization of the wind phrase based on the maximum wind speed for the entire period.
+
+7. `allowedHazards`: This method returns a list of the hazards allowed for this product in VTEC (Valid Time Event Code) format. These are sorted in priority order, with the most important first. For example, a hurricane force wind watch (HF.A) is one of the allowed hazards.
+
+Overall, this code is designed to generate detailed and accurate weather reports for marine conditions.
+
+This part of the code file is defining a list of tuples. Each tuple contains three elements: a code, a set of actions, and a category.
+
+The code seems to represent different types of weather conditions or advisories, such as a typhoon watch, tropical storm watch, hurricane force wind warning, etc. 
+
+The second element in each tuple, `allActions` or `marineActions`, likely refers to a set of actions or responses associated with the given weather condition. 
+
+The third element in each tuple is a category that further classifies the type of condition, such as 'Tropical', 'Marine', 'IceAccr', 'Fog', 'Smoke', 'Ashfall', 'Convective', 'LowWater'.
+
+This list of tuples could be used elsewhere in the code to trigger specific actions or responses based on the type and category of weather condition.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,56 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ParmID.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ParmID.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code defines a class named `ParmID` which is used to handle parameter identifiers in a database. The class has several attributes including `parmName`, `parmLevel`, `dbId`, `compositeName`, `shortParmId`, and `parmId`.
+
+The class constructor (`__init__`) initializes these attributes and provides a way to encode and decode parameter identifiers. If a `parmIdentifier` and `dbId` are provided, it sets the `parmName` and `dbId` accordingly, and sets the `parmLevel` to the default level if none is provided. It then encodes these into a composite name and two types of parameter IDs. If only a `parmIdentifier` is provided, it decodes this into the `parmName`, `parmLevel`, and `dbId`, and then encodes these.
+
+The class also provides getter methods for its attributes (`getParmName`, `getParmLevel`, `getDbId`, `getCompositeName`, `getShortParmId`, `getParmId`), and methods to check if a `ParmID` instance is valid (`isValid`), and to get the default level (`defaultLevel`) and the parameter name and level from a composite (`parmNameAndLevel`).
+
+The class also overrides several magic methods to provide a string representation of a `ParmID` instance (`__str__`, `__repr__`), to calculate its hash value (`__hash__`), and to compare it with another `ParmID` instance (`__cmp__`, `__eq__`, `__ne__`). 
+
+The initial comment block in the code provides information about the software's development, export restrictions, and licensing details.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

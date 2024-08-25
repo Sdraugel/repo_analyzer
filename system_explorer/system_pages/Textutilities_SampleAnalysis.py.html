@@ -1,0 +1,413 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>SampleAnalysis.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>SampleAnalysis.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script, named SampleAnalysis.py, is a part of a software developed or modified by Raytheon Company. It contains a class for producing summary statistics from Sampler data, which is typically used for Text Product generation. 
+
+The script starts with some import statements, bringing in various modules and classes that will be used in the script. These include logging, math, AbsTime, CommonUtils, TextUtils, TimeRange, WeatherSubKey, HistValue, HistPair, and FormatterUtil.
+
+The script then provides a list of utility methods, which are functions that perform common tasks needed throughout the script. These methods include functions for getting and setting various statistical measures (like min, max, average, standard deviation, etc.), functions for handling vector data, functions for handling weather and discrete data, functions for converting numerical directions into strings, functions for determining grid weight, functions for splitting time ranges, and more.
+
+The script also provides conversion methods, which are functions that convert data from one format to another. These include functions for converting between UV and MagDir data formats, and a function for converting analysis lists.
+
+Finally, the script provides a breakdown of Sampler data, which includes HistoSampler, ParmHisto, and their components. 
+
+The software history is also documented in the script, showing the changes made to the software over time, along with the date of the change, the ticket number associated with the change, the engineer who made the change, and a description of the change. 
+
+The script also includes a disclaimer stating that the software is in the public domain, is provided "as is", without technical support, and with no warranty, express or implied, as to its usefulness for any purpose.
+
+This Python code defines a class named `SampleAnalysis` that inherits from `CommonUtils.CommonUtils`. The class is used for analyzing data samples, specifically for weather data. It contains several methods and constants that are used for this purpose.
+
+The constants defined are SCALAR, MAGNITUDE, DIRECTION, VECTOR, WEATHER, and DISCRETE. These are likely used to represent different types of data that can be analyzed.
+
+The class also defines several methods that return dictionaries or values used for analysis. These include `temporalCoverage_percentage`, `temporalCoverage_dict`, `temporalCoverage_hours`, `temporalCoverage_hours_dict`, `moderated_dict`, `getModeratedLimits`, `moderatedDefault`, `maxMode_increment_dict`, and `stdDev_dict`.
+
+These methods return various settings and thresholds used for the analysis. For example, `temporalCoverage_percentage` and `temporalCoverage_hours` define the conditions under which a grid is included in the analysis based on its overlap with a given time range. The `moderated_dict` method returns a dictionary that defines the low and high limit at which outliers will be removed when calculating moderated stats.
+
+The `getModeratedLimits` method retrieves the minimum and maximum values for the `moderated_dict`. The `moderatedDefault` method returns a default value used by moderated functions if not explicitly defined in `moderated_dict`. The `maxMode_increment_dict` and `stdDev_dict` methods return dictionaries that define specific settings for the analysis of certain weather elements.
+
+Overall, this class seems to be part of a larger system for analyzing weather data, and it provides specific settings and thresholds for this analysis.
+
+This code appears to be part of a larger Python class that performs various statistical calculations on a given dataset. The dataset is represented by the `parmHisto` parameter, which might be a histogram or some other data structure. The `timeRange` parameter likely represents a specific time range within the dataset, and `componentName` may refer to a specific component or feature of the data.
+
+Here's a breakdown of the methods:
+
+1. `getStdDevLimits`: This method retrieves the minimum and maximum standard deviation values for a given data component within a specified time range.
+
+2. `stdDevDefault`: This method returns a default standard deviation value of 1.0.
+
+3. `vectorDirection_algorithm`: This method seems to be a placeholder for an algorithm to compute vector direction. It currently returns "Average".
+
+4. `dirList`: This method returns a list of tuples representing wind directions and their corresponding degree ranges.
+
+5. `avg`, `minMax`, `minimum`, `maximum`, `accumMinMax`, `accumSum`, `moderatedAccumMinMax`, `moderatedAccumSum`, `stdDevAccumMinMax`, `stdDevAccumSum`, `median`, `medianRange`, `mode`, `modeRange`, `maxMode`, `stdDevAvg`: These methods perform various statistical calculations (average, min/max, sum, median, mode, etc.) on the data. Each method calls `createStats` with a different primary method to perform the specific calculation.
+
+The `args` parameter in these methods might be used to pass additional arguments to the primary methods. The primary methods themselves are not defined in this code snippet, so we can't determine exactly what they do.
+
+The provided code is a part of a larger Python class that contains multiple methods for statistical analysis of a dataset. The dataset appears to be related to some kind of time-series data, possibly meteorological or environmental, as suggested by the method `hourlyTemp`.
+
+Each method takes in a histogram (`parmHisto`), a time range (`timeRange`), a component name (`componentName`), and optional arguments (`args`). The histogram likely represents the frequency distribution of some data attribute over a certain time range.
+
+Here's a brief description of what some of the methods do:
+
+- `stdDevMin`, `stdDevMax`, `stdDevMinMax`: These methods calculate the minimum, maximum, and both minimum and maximum standard deviation of the dataset, respectively.
+
+- `moderatedAvg`, `moderatedMin`, `moderatedMax`, `moderatedMinMax`: These methods calculate the moderated average, minimum, maximum, and both minimum and maximum of the dataset, respectively. The term "moderated" suggests some form of adjustment or normalization is applied to the raw values.
+
+- `binnedPercent`: This method likely calculates the percentage of data falling within certain bins or ranges.
+
+- `minMaxAvg`, `minMaxSum`: These methods return a tuple containing the minimum, maximum, and average, or the minimum, maximum, and sum of the dataset, respectively.
+
+- `maxAvg`, `stdDevMaxAvg`, `moderatedMaxAvg`: These methods calculate the maximum average, maximum standard deviation average, and maximum moderated average of the dataset, respectively.
+
+- `hourlyTemp`: This method creates hourly temperature stats, producing a list of tuples where each tuple contains an average temperature value and its hour of occurrence.
+
+In each method, a primary method is called (like `self.getStdDevMinMax`, `self.getModeratedAvg`, etc.) with the provided parameters to perform the actual calculations. The results are then returned.
+
+The provided code is a part of a Python class that contains methods for calculating various statistical measures on vectors. Here's a brief description of what each method does:
+
+1. `vectorAvg`: Calculates the average of the vector.
+2. `vectorMinMax`: Retrieves the minimum and maximum values of the vector.
+3. `vectorMin`: Retrieves the minimum value of the vector.
+4. `vectorMax`: Retrieves the maximum value of the vector.
+5. `vectorMedian`: Calculates the median of the vector.
+6. `vectorMode`: Calculates the mode of the vector.
+7. `vectorMedianRange`: Calculates the range of the median of the vector.
+8. `vectorModeRange`: Calculates the range of the mode of the vector.
+9. `vectorStdDevAvg`: Calculates the average standard deviation of the vector.
+10. `vectorStdDevMinMax`: Retrieves the minimum and maximum standard deviations of the vector.
+11. `vectorStdDevMin`: Retrieves the minimum standard deviation of the vector.
+12. `vectorStdDevMax`: Retrieves the maximum standard deviation of the vector.
+13. `vectorModeratedAvg`: Calculates the moderated average of the vector.
+14. `vectorModeratedMinMax`: Retrieves the moderated minimum and maximum values of the vector.
+15. `vectorBinnedPercent`: Calculates the binned percentage of the vector.
+16. `vectorModeratedMin`: Retrieves the moderated minimum value of the vector.
+17. `vectorModeratedMax`: Retrieves the moderated maximum value of the vector.
+18. `vectorMagMinMax`: Retrieves the minimum and maximum magnitude of the vector.
+
+Each method takes in a parameter histogram (`parmHisto`), a time range (`timeRange`), a component name (`componentName`), and optional arguments (`args`). The methods use these inputs to calculate the corresponding statistical measures.
+
+This code file seems to be part of a larger system, possibly a weather analysis or prediction system. It contains several methods that perform various tasks:
+
+1. `vectorMagMin` and `vectorMagMax`: These methods calculate the minimum and maximum magnitudes of a vector respectively. They do this by calling the `getMinMax` method with certain parameters and returning the minimum and maximum results respectively.
+
+2. `vectorRange`: This method splits a time range into two periods, calculates the average vector for each period, and returns the magnitudes and directions of these vectors.
+
+3. `coverage_weights_dict`: This method returns a dictionary where the keys are different types of weather coverage and the values are their corresponding weights.
+
+4. `wxkey_coverage_weight` and `wxkey_coverage_percentage`: These methods calculate the weight and required coverage percentage of a given weather key respectively.
+
+5. `checkPercentages`: This method checks if a weather key passes the coverage percentage. If it doesn't, it gives another chance based on other values in the grid.
+
+6. `attribute_coverage_percentage`: This method returns the required coverage percentage for a given attribute.
+
+7. `dominantKeys_threshold`: This method returns the maximum number of weather keys desired from the `rankedWx` method.
+
+8. `cleanOutEmptyValues` and `noWx_percentage`: These methods seem to be placeholders for future implementation as they currently do nothing and return 0 and 100 respectively.
+
+9. `dominantWx` and `rankedWx`: These methods return a list of dominant weather subkeys in order by ranking and a list of ranked (subkey, ranking) tuples respectively. They do this by calling the `createStats` method with certain parameters.
+
+10. `getDominantWx`: This method seems to determine the dominant weather considering certain parameters, but the code is cut off and the full implementation isn't visible.
+
+The provided code is a part of a larger program that appears to be analyzing weather data over time. 
+
+The main function, `getDominantValues`, is determining the dominant weather or discrete subkey considering areal coverage over time, also referred to as the "rank". This function uses several sub-methods including `temporalCoverage_flag`, `wxKey_coverage_percentage`, `dominantKeys_threshold`, `discreteKey_coverage_percentage`, and `dominantDiscreteKeys_threshold`.
+
+The algorithm works by setting a temporal coverage flag for any individual grid that covers enough time in the time range. It then loops over all samples, which are for all grids and all weather or discrete keys on each of those grids. For weather, it aggregates weather types and computes an aggregate subkey for each weather type. The rank is determined by the percentage of areal/temporal coverage over time. If a subkey does not meet the "wxkey_coverage_percentage" threshold or "discreteKey_coverage_percentage", it is removed. 
+
+For weather, if a subkey has a Primary or Mention attribute, it automatically "wins" and is used. Finally, the highest ranking dominantKeys_threshold or dominantDiscreteKeys_threshold number of keys are returned. If `withRank == 1`, it returns the ranked list of (subkey, rank) tuples, otherwise, it returns the list of subkeys.
+
+The code then proceeds to loop over all samples, aggregating subkey types for each weather type. It calculates the number of hours each sample is valid within the given time range and adds these hours to a total. It also gathers the subkey types for this grid in `subkeyTypeDict`.
+
+In the next step, for each subkey type, it determines an aggregate subkey and rank i.e., aggregate areal coverage over time percentage. It also compares the rank to coverage threshold for the weather type. 
+
+If the data type is "WEATHER", it gathers the coverages, intensities, visibilities, and attributes for this weather type. If Primary or Mention, it uses the subkey as the aggregate key. It also determines a subkey type rank.
+
+This code appears to be part of a larger system, likely related to weather data analysis given the variable names and methods used. It's written in Python and seems to be part of a class definition, as it uses the `self` keyword, which refers to the instance of the class.
+
+The code is performing several operations:
+
+1. It's adding data to several dictionaries (`covDict`, `intenDict`, `visDict`, `attrDict`) using the `addToDict` method. These dictionaries seem to be storing different types of weather data, such as coverage, intensity, visibility, and attributes.
+
+2. It's calculating a rank for each subkey type based on the hours and count, and storing this in `subkeyTypePointsDict`.
+
+3. It's determining an aggregate key based on several parameters. If the data type is "WEATHER", it uses the `getWxAggregateKey` method; otherwise, it uses the subkey type as the aggregate key.
+
+4. It's calculating a raw rank and a rank for the aggregate key. If the data type is "WEATHER" and the aggregate key has "Primary" in its attributes, the rank and raw rank are set to 200. Otherwise, the raw rank is calculated based on the subkey type rank, total hours, and total points, and the rank is determined based on the raw rank and possibly a coverage weight.
+
+5. It's checking if each aggregate key meets a required coverage percentage. If it does, it's added to the `rankList`; otherwise, it's discarded.
+
+6. If there are no items in the `rankList`, it returns None.
+
+7. It's checking a "NoWx" threshold and possibly modifying the `rankList` based on this.
+
+8. It's cleaning out "NoWx" and "None" (Discrete) values from the `rankList`.
+
+9. It's sorting the `rankList` and limiting the number of keys returned based on a dominant keys threshold.
+
+10. Finally, it's returning the `rankList`, either with or without the rank depending on the `withRank` parameter.
+
+The `gatherSubkeyTypes` method at the end is not complete, so it's hard to determine its exact functionality. However, it appears to be processing a histogram of some sort, iterating over its pairs, and getting the count for each pair.
+
+The provided code appears to be written in Python and seems to be part of a larger system that processes and analyzes weather data. Here is a breakdown of what each part does:
+
+1. The first part checks if the dataType is "WEATHER". If it is, it retrieves a subkey from a historical pair of weather data and checks its type. If the type is either "RW" or "SW" and the intensity is "--", it appends "--" to the subkey type. If the dataType is not "WEATHER", it retrieves a different subkey type. It then checks if this subkey type is in a dictionary. If it is, it appends a tuple to the list associated with this key in the dictionary. If it's not, it creates a new entry in the dictionary with this key and the tuple as its value.
+
+2. The `getWxAggregateKey` function computes an aggregate key based on various parameters. If the subkey type is "RW--" or "SW--", it removes the "--". It then checks if a primary key or mention key is provided. If neither is provided, it computes the aggregate key from the coverage, intensity, visibilities for this subkey type weighted by temporal and areal coverages. It then creates a new WeatherSubKey with these values.
+
+3. The `addToDict` function adds a key-value pair to a dictionary. The value is either a single number or a tuple, depending on the `tuple` parameter. If the key already exists in the dictionary, it updates the value. If it doesn't, it creates a new entry.
+
+4. The `aggregateCov_algorithm` function chooses the coverage term for multiple instances of a weather type. It seems to be a placeholder for different algorithms, with `getAggregateCov` being the currently selected one.
+
+5. The `getAggregateCov` function finds the aggregate coverage from the entries in a dictionary. It returns the coverage in one of two ways: either the coverage covers >= 90% of the zone, or the coverage has the highest subkey rank. 
+
+Overall, this code seems to be part of a system that processes and analyzes weather data, specifically dealing with the aggregation and processing of weather subkeys.
+
+This code is part of a larger system that seems to be dealing with some kind of coverage data. The code is written in Python and is divided into several functions. 
+
+The first function `getAggregateCov` is trying to find the aggregate coverage from a dictionary of coverage data. If there is only one coverage, it returns that coverage. Otherwise, it calculates a rank for each coverage in the dictionary and keeps track of the coverage with the highest rank. If multiple coverages have the same highest rank, it stores them in a list. It also keeps track of coverages that have an areal coverage of 90% or more. Finally, it returns the coverage with the highest rank.
+
+The second function `aggregateCov_weights_dict` returns a dictionary where the keys are different types of coverage and the values are their corresponding weights.
+
+The third function `aggregateCov_weight` returns the weight of a given coverage term by looking it up in the dictionary returned by `aggregateCov_weights_dict`.
+
+The fourth function `getExistingWeightedAggregateCov` finds the aggregate coverage by using a weighting scheme. If the resulting coverage is not in the grids, it uses the coverage with the greatest weight.
+
+The fifth function `getWeightedAggregateCov` also finds the aggregate coverage by using a weighting scheme. If the resulting coverage is not in the grids, it "creates" an appropriate coverage.
+
+The code is not complete, so it's hard to say exactly what the system is doing, but it seems to be part of a weather prediction or climate modeling system, where different types of weather or climate data are being aggregated and weighted in some way.
+
+This code appears to be part of a larger system, possibly a weather forecasting system, given the references to weather-related terms such as "wxType", "wxPart", "coverage", "intensity", "visibility", and "WeatherSubKey". 
+
+The code contains several methods that perform various operations:
+
+1. `getAggCov_and_WtSum`: This method calculates the weighted sum of a given dictionary. If the dictionary has only one item, it returns the item and 1. Otherwise, it calculates the weighted sum and the maximum contribution, returning the key with the maximum contribution and the weighted sum.
+
+2. `getHighestWeightedAggregateCov`: This method returns the coverage with the highest weight in a dictionary. It also handles cases where only one coverage is present and cases where no coverages meet a certain threshold.
+
+3. `processNoAggCov`: This method handles cases where no appropriate coverage can be found for a given weather type. It logs a warning message and returns any coverage that exists in the grid.
+
+4. `getAggregate`: This method finds the aggregate weather part (coverage, intensity, visibility) from the entries in a dictionary. It does this by aggregating the ranks two at a time.
+
+5. `getAggregateAttributes`: This method appears to be incomplete, as it is cut off. It likely gets aggregate attributes for a given component, but without the rest of the method, it's hard to say exactly what it does.
+
+Overall, this code seems to be part of a system that aggregates and analyzes weather data.
+
+This Python code is part of a larger program that seems to be dealing with weather or environmental data. It contains several functions that perform various operations on this data:
+
+1. `wxType, dict, totalHours, totalPoints, subkeyPoints`: This function calculates the rank of each attribute in a dictionary based on its sum and a total hours and total points value. It then checks if the rank is greater than a certain threshold and if so, adds the attribute to a list.
+
+2. `makeSubkeyList(self, weatherKey)`: This function creates a new list from the elements of the input list `weatherKey`.
+
+3. `weather_percentages(self, parmHisto, timeRange, componentName, args=None)`: This function returns a list of tuples representing weather subkeys and their percentage of coverage.
+
+4. `getSubkey_percentages(self, parmHisto, timeRange, componentName, dataType="WEATHER", withAux=1)`: This function calculates the percentage of each subkey in a histogram sample and appends it to a list.
+
+5. `discreteKey_coverage_percentage(self, parmHisto, timeRange, componentName, keyStr)`: This function returns the required coverage percentage for a given key.
+
+6. `dominantDiscreteKeys_threshold(self, parmHisto, timeRange, componentName)`: This function returns the maximum number of discrete keys desired.
+
+7. `dominantDiscreteValue(self, parmHisto, timeRange, componentName, args=None)`: This function returns the most common discrete value over a given time range.
+
+8. `rankedDiscreteValue(self, parmHisto, timeRange, componentName, args=None)`: This function returns the most common discrete value over a given time range, with ranking.
+
+9. `getDominantDiscreteValue(self, parmHisto, timeRange, componentName, withRank=0, withAux=0)`: This function returns a list of dominant discrete subkeys.
+
+10. `discrete_percentages(self, parmHisto, timeRange, componentName, args=None)`: This function returns the percentages of discrete subkeys.
+
+11. `discreteTimeRangesByKey(self, parmHisto, timeRange, componentName, args=None)`: The function is not complete, so it's hard to determine what it does.
+
+In general, this code seems to be part of a larger weather or environmental data analysis program, where it's calculating and manipulating data related to weather or discrete environmental factors.
+
+The provided code is a part of a larger program that deals with temporal data, specifically time ranges and their associated discrete keys. It contains several methods that work together to process and analyze this data.
+
+1. `getDiscreteTimeRangesByKey`: This method returns a list of (discreteSubkey, timeRange) pairs ordered in ascending order by timeRange and then by priority of discrete keys. It does this by iterating over a set of samples from a histogram, checking if each sample is valid and if it falls within the specified time range. If these conditions are met, the method calculates the temporal and areal coverage for each discrete key and stores these values in dictionaries. The method then checks these values against a coverage percentage threshold and removes any entries that do not meet this threshold. Finally, the method sorts the remaining time ranges and returns a list of (key, timeRange) pairs.
+
+2. `discreteTimeRangesByKey_withAux` and an unnamed method: These two methods are simple wrappers for the `getDiscreteTimeRangesByKey` method. They call the method with slightly different parameters, specifically the `withAux` parameter, which determines whether or not auxiliary data is included in the returned list of (key, timeRange) pairs.
+
+3. `mostSignificantDiscreteValue`: This method calculates the most significant discrete value for a given time range. It does this by iterating over all samples in a histogram, checking if each sample is valid and if it falls within the specified time range. If these conditions are met, the method calculates the temporal and areal coverage for each discrete key and stores these values in a dictionary. The method then compares these values against a coverage percentage threshold and removes any entries that do not meet this threshold. Finally, the method returns the discrete key with the highest rank.
+
+The code seems to be a part of a larger system dealing with temporal data analysis, possibly in the context of weather or climate data, given the use of terms like 'histogram', 'grid points', 'coverage', etc.
+
+This code appears to be part of a larger system, possibly for weather forecasting or some kind of threat detection system. It seems to be written in Python and uses object-oriented programming principles. 
+
+The code is calculating a rank for each subkeyType based on the hours and count in the subkeyList. The rank is calculated as the ratio of the subkeyTypeRank to the product of totalHours and totalPoints, multiplied by 100. This rank is then stored in a dictionary called keyRankDict.
+
+After that, the code checks if each subkeyType meets a required coverage percentage. It does this by comparing the rank of each subkeyType to a threshold. If the rank is higher than the threshold, the subkeyType is considered to have met the criteria. 
+
+The code then checks if the subkeyType has any empty values and if it does, it ignores that subkeyType. If the subkeyType doesn't have any empty values, it checks the order of the subkeyType and if it's higher than the current highest order, it updates the highest order and the most significant subkey.
+
+Finally, the code returns the most significant subkey.
+
+There are also three methods defined:
+
+1. mostSignificantDiscrete_coveragePercentage_dict: This method returns a dictionary with the required coverage percentage for each key.
+
+2. mostSignificantDiscrete_keyOrder_dict: This method returns a dictionary with a list of keys from least to most significant for a discrete type.
+
+3. determineGridWeight: This method returns the ratio of the overlap duration of a histSample and a timeRange to the duration of the timeRange.
+
+4. createStats: This method produces statistics based on args which tell how to report the statistics with respect to the time range.
+
+5. temporalCoverage_flag: This method returns 1 if the histSample time range is completely included in the timeRange or the histSample time range sufficiently covers the timeRange.
+
+The provided code appears to be a part of a larger Python class that performs various statistical operations on a dataset. Here's what each method does:
+
+1. `temporalCoverage_flag`: This method checks if a given time range is completely contained within a valid time range. If not, it calculates the intersection of the time range with a historical sample and checks if the intersection is at least a certain percentage of the time range and at least a certain number of coverage hours. If these conditions are met, it returns 1, otherwise, it returns 0.
+
+2. `getAccumSum`: This method returns the cumulative sum of the data over a given time period.
+
+3. `getAccumMinMax`: This method returns the minimum and maximum values of the data over a given time period.
+
+4. `getModAccumSum`: This method returns the cumulative sum of the data over a given time period, after applying certain moderation limits.
+
+5. `getModAccumMinMax`: This method returns the minimum and maximum values of the data over a given time period, after applying certain moderation limits.
+
+6. `getStdDevAccumSum`: This method returns the cumulative sum of the standard deviations of the data over a given time period.
+
+7. `getStdDevAccumMinMax`: This method returns the minimum and maximum standard deviations of the data over a given time period.
+
+8. `getAverage`: This method calculates and returns the time-weighted average of the data over a given time period. It also handles different types of data (scalar and vector).
+
+9. `getMinMax`: This method returns the minimum and maximum values over a given time period.
+
+The code is not complete, so there might be more methods in the full class.
+
+This code appears to be part of a larger class or module that deals with data analysis, specifically statistical analysis of historical data samples (histSamples). There are four methods defined in this code snippet:
+
+1. `getStdDevAvg`: This method calculates the time-weighted average of the standard deviation of the data samples over a given time period. It first gets the standard deviation limits, then calculates the weighted average of the scalar or vector magnitude of the data samples. If no data is found or if the total weight is zero, it returns `None`. If the data type is a vector, it also calculates the dominant direction.
+
+2. `getStdDevMinMax`: This method calculates the minimum and maximum standard deviation of the data samples over a given time period. It first gets the standard deviation limits, then finds the minimum and maximum scalar or vector magnitude of the data samples. If no data is found, it returns `None`. If the data type is a vector, it also calculates the dominant direction.
+
+3. `getModeratedAvg`: This method calculates the time-weighted average of the moderated (possibly adjusted or limited in some way) data samples over a given time period. It first gets the moderated limits, then calculates the weighted average of the scalar or vector magnitude of the data samples. If no data is found, it returns `None`.
+
+The fourth method is cut off at the end of the provided code, but it appears to be similar to the previous methods, likely dealing with another type of statistical analysis.
+
+In all these methods, the `firstOnly` parameter, if set to 1, causes the method to break after processing the first data sample. This could be used for testing or for quick approximations.
+
+The provided code appears to be part of a larger Python class that is used for data analysis. It contains several methods that perform different types of calculations on the data. 
+
+1. The first method calculates a weighted average of the data. It checks if the data type is scalar or vector, and then calculates the value accordingly. The weighted average is then calculated by summing the product of the weight and value, and dividing by the total weight. If there is no data or the total weight is zero, the method returns None. If the data type is vector, it also calculates the dominant direction.
+
+2. The second method, `getModeratedMinMax`, calculates the minimum and maximum values over a given time period. It iterates over the historical samples, checks if they meet certain conditions, and then calculates the minimum and maximum values. If the data type is vector, it also calculates the dominant direction. 
+
+3. The third method, `getMaxAvg`, calculates the maximum average value over a given time period. It follows a similar process to the previous method, but instead of calculating the minimum and maximum values, it calculates the maximum average value.
+
+4. The fourth method, `getStdDevMaxAvg`, calculates the maximum average value, but with an additional step of filtering by standard deviation. It gets the standard deviation limits and calculates the maximum average value within these limits.
+
+5. The fifth method, `getModeratedMaxAvg`, calculates the maximum average value, but with an additional step of filtering by percentage. It gets the moderated limits and calculates the maximum average value within these limits.
+
+In all these methods, if there is no data or if certain conditions are not met, the methods return None.
+
+This code file seems to be a part of a larger system that deals with statistical analysis of data, possibly related to weather or physical phenomena due to the use of terms like 'vector', 'magnitude', 'direction', 'histogram', etc. Here is a breakdown of the main parts:
+
+1. The first part of the code checks if the histogram sample has no points. If it doesn't, it returns None. It then calculates the moderated average of the sample. Depending on the data type (scalar or vector), it calculates the maximum value and updates the maximum result accordingly.
+
+2. The second part, `getVectorAvg` function, calculates the average wind vector from a list of histogram pairs. It sums up the u and v components (possibly representing wind direction) weighted by their count and then calculates the average.
+
+3. The `extractMinMax` function extracts the minimum or maximum value from a list or tuple, depending on the input parameter `minOrMax`. It has a special case for handling vector data types.
+
+4. The `extractVectorMinMax` function is similar to `extractMinMax` but specifically for vector data types.
+
+5. The `getDominantDirection` function returns the dominant direction according to a specified algorithm ("Average" or "MostFrequent"). 
+
+6. The `getAverageDirection` function calculates the dominant direction by summing up the u and v components of the histogram pairs, assigning a magnitude of 1 always.
+
+Overall, this code seems to be a part of a module that deals with statistical analysis of vector data, possibly related to wind direction and speed.
+
+This code is a part of a larger program that seems to be dealing with meteorological data, specifically wind direction and speed. 
+
+The first part of the code calculates the average wind vector. It does this by summing up the product of the wind speed, count, and weight for both the u and v components of the wind. Then, if there are any counts, it calculates the average by dividing the sum by the total count times the total weight. It then converts these averages into magnitude and direction and returns the direction. If there are no counts, it returns None.
+
+The `getMostFrequentDirection` function calculates the most frequent wind direction. It does this by creating a histogram of the wind direction data, weighting each direction by the duration of time it was observed, and then finding the direction with the highest total weight.
+
+The `binDir` function categorizes the given direction into a "bin" or category based on a predefined list of directions.
+
+The `splitRange` function splits a given time range into a specified number of periods and returns the resulting list of time ranges.
+
+The `getGridTimeRanges` function returns the set of time ranges that overlap with a specified time range. If a histSample partially overlaps, it trims the time range to the specified time range's start or end time.
+
+The `getMedianHistPair` function returns the median HistPair over a time range. It seems to be designed to handle different types of data, including scalar values and vector magnitudes or directions. It does this by getting the samples inside the time range, keeping track of the values along the way to sort later.
+
+This code is a part of a larger program that deals with statistical analysis of data. It includes several methods that perform different types of analysis on the data.
+
+1. `getHistPairMean`: This method calculates the mean of two histPair values based on the given dataType which can be "SCALAR", "MAGNITUDE", or "DIRECTION". It creates a new HistPair that represents the mean of the two histPair values.
+
+2. `getModeHistPair`: This method returns the most common HistPair over a given timeRange. It iterates over the histSamples and finds the histPair with the maximum count (weighted by time), which is considered the mode.
+
+3. `getMedian`: This method returns a range around the median. For vector data, it also returns an average direction over that range. It first determines the median using the `getMedianHistPair` method and then returns the magnitude and direction (for vector data) or the scalar value (for scalar data).
+
+4. `getMedianRange`: This method is not fully shown in the provided code, but it seems to be designed to return a range around the median, similar to the `getMedian` method.
+
+The large block of code at the beginning seems to be part of a method (possibly `getMedianHistPair`) that calculates the median of the data. It does this by sorting the data, calculating the total count, and then iterating through the data to find the median. It also handles special cases such as when the total count is zero (returns None) or when the median number is odd.
+
+This Python code file contains several functions that perform various operations on a data structure called `parmHisto`, which appears to be a histogram of some sort. 
+
+1. `getMode`: This function returns the mode of the histogram samples. If the data type is a vector, it returns the magnitude and direction of the mode. If not, it returns the scalar value of the mode.
+
+2. `getModeRange`: This function returns a range around the mode. If the data type is a vector, it also returns an average direction over that range.
+
+3. `getMaxMode`: This function returns the maximum mode over all grids. It ignores samples that are less than the temporal threshold and finds the most common value in a binned histogram.
+
+4. `getRange`: This function returns a range around the base pair. For vectors, it also returns an average direction for pairs in range. It determines the deviation and takes pairs that are within the deviation of the base pair. It then determines the minimum, maximum and number of points covered by the range.
+
+5. `getDeviation`: This function returns a deviation around the median to include in range. The deviation depends on the magnitude of the vector.
+
+6. `UVToMagDir`: This function converts u, v coordinates to magnitude and direction.
+
+7. `MagDirToUV`: This function converts magnitude and direction to u, v coordinates.
+
+In general, these functions are used to analyze and manipulate data in the form of a histogram, specifically dealing with vectors and scalar values.
+
+This code is part of a larger Python class (not fully shown here) that seems to be designed to perform some sort of data analysis, likely on meteorological data given the variable names and comments. Here's a breakdown of the methods:
+
+1. `convertAnalysisList(self, analysisList)`: This method takes a list of tuples as an argument. Each tuple in the list contains either two or three elements. If the second element of the tuple is a string, it replaces that string with a method from the current class that has the same name as the string. The processed tuples are added to a new list which is then returned.
+
+2. `bin_dict(self, parmHisto, timeRange, componentName)`: This method returns a dictionary where the keys are string identifiers ("Sky", "PoP", "LAL") and the values are lists of tuples. Each tuple represents a range of values, likely defining bins for a histogram.
+
+3. `getBinnedPercent(self, dataType, parmHisto, timeRange, componentName, firstOnly = 0)`: This method calculates the percentage of data values that fall within each bin defined in the `bin_dict` method. It returns a list of tuples, where each tuple contains the lower and upper limit of a bin and the percentage of data values in that bin.
+
+The code seems to be part of a larger system for analyzing and binning data, likely for the purpose of generating histograms or other statistical analyses. The specific nature of the data and the overall purpose of the class would be clearer with more context.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

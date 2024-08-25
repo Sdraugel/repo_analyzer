@@ -1,0 +1,90 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>VTEC_GHG_Complex4_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>VTEC_GHG_Complex4_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a script for testing a software system related to weather forecasting. It appears to be part of a suite of tests for a system that handles VTEC (Valid Time Event Code) GHG (Green House Gas) complex hazard scenarios. 
+
+The script contains a series of tests, each represented as a dictionary with various keys. The keys include:
+
+- "commentary": A human-readable explanation of what the test is doing.
+- "name": A unique identifier for the test.
+- "productType": The type of product being tested, which appears to be a type of weather warning.
+- "createGrids", "clearHazardsTable", "deleteGrids": These keys specify actions to be taken as part of the test, such as creating a forecast grid, clearing the hazards table, or deleting grids.
+- "checkStrings": A list of strings that are expected to be present in the output when the test is run.
+
+The tests simulate different scenarios, such as creating a fog hazard for certain areas, not making any changes to existing hazards, and creating a new area with a different type of hazard. The code also includes some metadata about the software and its licensing.
+
+This code appears to be a part of a weather forecasting system, specifically for issuing and updating weather hazard warnings. It is written in Python and is structured as a list of dictionaries, each representing a different forecast scenario.
+
+The first dictionary represents a scenario where a Dense Fog Advisory (FG.Y) is in effect for certain areas (FLZ148, FLZ248, etc.) for a certain period (1 to 24 hours), and a High Wind Watch (HW.A) is in effect for other areas (FLZ043, FLZ052, etc.) for a different period (33 to 75 hours). The "checkStrings" list contains the text that would be used in the actual weather message for this scenario.
+
+The second dictionary represents a scenario where the Dense Fog Advisory is removed for certain areas (FLZ148, FLZ248, etc.), and the High Wind Watch is upgraded to a High Wind Warning (HW.W) for other areas (FLZ043, FLZ052, etc.). The "checkStrings" list contains the updated weather message for this scenario.
+
+The third dictionary represents a scenario where no changes are made to the existing hazards. The "checkStrings" list contains the unchanged weather message for this scenario.
+
+The "drtTime" key in each dictionary appears to represent the time at which the forecast is issued, and the "commentary" key provides a human-readable explanation of the changes made in each scenario.
+
+The provided code appears to be a part of a weather forecasting system, specifically for issuing and managing hazard warnings. The code is written in Python and seems to be a part of a larger system, as it references external functions and data.
+
+The code is divided into several sections, each representing a different scenario or action related to weather warnings. Each section is a dictionary with several key-value pairs. The keys include "commentary", "name", "productType", "createGrids", "checkStrings", "drtTime", and others.
+
+Here's a brief description of each key:
+
+1. "commentary": This key provides a description of the scenario or action that the section of code is handling. For example, one commentary mentions reducing a portion of the high wind (HW.W) hazard in Area3.
+
+2. "name": This key appears to be an identifier for the scenario or action.
+
+3. "productType": This key specifies the type of product or warning being issued. For example, "Hazard_NPW_Local" seems to be a local non-precipitation weather warning.
+
+4. "createGrids": This key is associated with a list of tuples. Each tuple represents a grid with specific parameters like forecast type, hazard type, and the areas affected.
+
+5. "checkStrings": This key is associated with a list of strings that seem to be parts of a weather warning message. They include the warning message, the areas affected, and the time of issuance.
+
+6. "drtTime": This key specifies the time associated with the scenario or action.
+
+The code also includes a function "testScript" which seems to be a test function that uses the data from the scripts and defaults to test the functionality of the system.
+
+In summary, this code is part of a system for issuing and managing weather warnings, and it includes various scenarios for testing the system's functionality.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

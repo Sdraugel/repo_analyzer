@@ -1,0 +1,98 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>VTECTableSqueeze.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>VTECTableSqueeze.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The code provided is a Python script that defines a class `VTECTableSqueeze`. This class is used to manage and manipulate a VTEC (Volcanic Ash Advisory Center) active table. The VTEC table contains information about various weather events.
+
+The `VTECTableSqueeze` class has the following methods:
+
+- `__init__(self, currentTime, debug=False)`: This is the constructor method that initializes the class with the current time and a debug flag.
+
+- `squeeze(self, table)`: This method is used to "squeeze" the active table by eliminating entries that are no longer needed for VTEC calculations. It performs various operations like modifying old UFN events, removing old national and short fused events, separating the shortWFO into a dictionary structure, and purging old entries with LowerETNs that aren't in effect.
+
+The code also imports several modules and initializes some variables at the beginning. The comments in the code provide a detailed history of the software's development, including the changes made, the developers who made them, and the dates they were made.
+
+The comments also indicate that this software was developed and/or modified by Raytheon Company, and it contains export-restricted data whose export/transfer/disclosure is restricted by U.S. law.
+
+The comments at the top of the file also provide contact information for the contractor (Raytheon Company) and mention a Master Rights File for further licensing information.
+
+The comments also indicate that this is a base file that is not intended to be overridden.
+
+The code is written in Python and appears to be part of a larger system that deals with weather event data, possibly related to tropical cyclones. 
+
+The first part of the code is a method that logs debug information about various tables, extends two tables with additional data, and then returns these tables.
+
+The `__separateTable` method takes a table (likely a list of dictionaries where each dictionary represents a weather event) and separates it into a nested dictionary structure organized by various keys such as 'officeid', 'pil', 'phensig', 'issuanceYear', 'etn', and 'id'. Each 'id' then contains a list of records.
+
+The `__getPhenSigKey` method seems to be used to generate a key for the nested dictionary based on the 'phen' and 'sig' fields of a record. If the 'phen' field is in a list of tropical cyclone phenomena, it also includes the storm basin in the key.
+
+The `__removeOldNationalAndShortFusedEvents` method appears to remove certain types of records from a table based on various conditions, such as whether the event is a convective watch or a tropical event, whether it's beyond its end time, or whether it's a short-fused warning. It separates the remaining records into two tables based on their 'officeid' and returns these tables along with a table of purged records.
+
+The `__modifyOldUFNEvents` method modifies records in a table that are marked as 'Until Further Notice' (UFN) and are more than two weeks old, changing their 'act' field to 'CAN' (presumably 'Cancelled'). It returns a list of events that were modified and the updated table. 
+
+Overall, the code seems to be part of a system for managing and processing weather event data, possibly for the purpose of issuing or tracking weather warnings.
+
+This code appears to be part of a larger Python program. It contains several methods that perform various operations on data structures, particularly dictionaries. Here's a breakdown of what each method does:
+
+1. `__purgeOldEntriesWithLowerETNs(self, d)`: This method takes a dictionary `d` as an argument, which is structured with multiple levels of nested dictionaries. It iterates over each level, performing various checks and operations. The purpose of this method is to purge old entries with lower ETNs (Event Tracking Numbers) and to keep certain records based on specific conditions. It returns two lists: `saveRec` and `purgeRec`, which contain the records to be saved and purged, respectively.
+
+2. `__printTable(self, d)`: This method takes a dictionary `d` as an argument and prints its contents in a structured manner. It iterates over each level of the dictionary, printing out the keys at each level. 
+
+3. `__printActiveTable(self, activeTable)`: This method takes a list `activeTable` as an argument and pretty-prints its contents. It also appears to combine identical records, except for the 'id' field. However, the implementation of this combination is not shown in the provided code.
+
+The code also uses `LogStream.logDebug` to log debug information, which can be useful for troubleshooting and understanding the flow of the program.
+
+This code is written in Python and appears to be part of a larger program that deals with some kind of record management. Here's a breakdown of what each part does:
+
+1. The first part is updating a list of IDs. It first gets the 'id' from dictionary `b` and appends the 'id' from dictionary `a` to it. Then it updates the 'id' in dictionary `b` with this new list. If no matching ID is found, it creates a deep copy of dictionary `a`, turns the 'id' into a list and appends this new dictionary to the `combinedEntries` list.
+
+2. The second part is iterating over each entry in `combinedEntries` and concatenating the result of the `__printRecord()` method (applied to each entry) to a string `s`, which is then returned.
+
+3. The `__printRecord()` method is a private method that pretty-prints a single record. It checks if the 'id' is a list or not and formats it accordingly. It then gathers various fields from the record and formats them into a string `t`, which is returned.
+
+4. The `_recordCompare()` method is another private method that compares two records for equality based on given fields. It iterates over each field in `fields` and checks if the corresponding values in `rec1` and `rec2` are equal. If all fields are equal, it returns 1 (True), otherwise it returns 0 (False).
+
+Overall, this code seems to be part of a system that manages and formats some kind of records, possibly related to weather or climate data, given the fields like 'vtecstr', 'startTime', 'endTime', 'purgeTime', 'issueTime', 'phen', 'sig', 'officeid', 'etn', 'seg', and 'zone'.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

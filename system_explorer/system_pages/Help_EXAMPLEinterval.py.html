@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>EXAMPLEinterval.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>EXAMPLEinterval.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is part of a configuration file for a software developed by Raytheon Company. It appears to be related to a system called AWIPS II, which is a weather forecasting system used by the National Weather Service and other organizations. The code itself is configuring how certain data (specifically temperature at the surface, denoted by 'T_SFC') is displayed as an image.
+
+The code starts by importing all the modules from `gfeConfig`, which is likely a library or module related to the GFE (Graphical Forecast Editor) component of AWIPS II.
+
+The `Png_parms` variable is set to a list containing a string that seems to define what data to display ('T_SFC:_Official -1') and how to display it.
+
+The `Png_image` variable is set to 'T', which likely refers to the temperature data that will be displayed in the image.
+
+The `Png_snapshotTime` variable is set to 1, which might mean that the snapshot time is displayed at the interval offsets.
+
+The `Png_interval` and `Png_intervalOffset` variables are set to 6 and 1 respectively. These might be used to define the time intervals at which the data is sampled or displayed. The comment suggests that this will produce grids at 01z, 07z, 13z, and 19z, which are specific times in Coordinated Universal Time (UTC).</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

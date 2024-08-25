@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ifpInit.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ifpInit.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is a command-line utility for purging selected GFE (Gridded Forecast Editor) grids. It was developed by Raytheon Company under a US Government contract. The code is subject to US export control laws due to the presence of export-restricted data.
+
+The script starts by importing necessary modules and classes, including system-specific parameters and functions (sys), operating system interfaces (os), a request class (SmartInitRequest) from a Raytheon data plugin, a message class (WsId) from Raytheon's common message module, and a couple of modules (ThriftClient, UsageArgumentParser) from the AWIPS (Advanced Weather Interactive Processing System) package.
+
+The main function of the script is defined as `main()`, which validates command-line arguments, creates a request to purge selected GFE grids, sends the request to a server using a Thrift client, and handles any exceptions or errors that may occur during the process.
+
+The `validateArgs()` function is used to parse and validate command-line arguments using the argparse module. It checks for arguments like the host name, port number, model time, site, user ID, and whether to run the calculation on all available grids. It also sets default values for the host and port if they are not provided.
+
+The `createRequest()` function creates a SmartInitRequest object, sets various attributes of the object (like workstation ID, site ID, module name, model time, and whether to calculate all), and returns the object.
+
+The script is executed from the command line, so the `main()` function is called when the script is run as a standalone file.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

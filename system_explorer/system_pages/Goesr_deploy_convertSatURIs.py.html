@@ -1,0 +1,74 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>convertSatURIs.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>convertSatURIs.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided Python script is designed to manipulate data related to satellite images stored in an HDF5 file and a PostgreSQL database.
+
+Here's a breakdown of what the script does:
+
+1. It defines several constants and indices for accessing data in the PostgreSQL database and HDF5 file.
+
+2. It defines a function `update_satellite_table()` that adds a column `interpolationlevels` to the `satellite` table in the PostgreSQL database if it doesn't exist.
+
+3. It defines a function `formatFileTime(refTime)` that formats the reference time into a string of the format 'YYYY-MM-DD-HH'.
+
+4. It defines a function `getFilename(refTime, h5FileId)` that generates a filename for the satellite data HDF5 file based on the reference time and an optional HDF5 file identifier.
+
+5. It defines a function `queryPostgres(sql)` that executes a SQL command on the PostgreSQL database and returns the result.
+
+6. It defines a function `get_sectorids()` that retrieves a list of unique sector identifiers from the `satellite` table in the PostgreSQL database.
+
+7. It defines a function `get_satellite_rows(sectorid)` that retrieves rows from the `satellite` table for a given sector ID and organizes them into a dictionary.
+
+8. It defines a function `process_all_satellite()` that processes all entries in the `satellite` table. For each sector ID, it retrieves the corresponding rows, opens the corresponding HDF5 file, and creates new groups in the HDF5 file based on the data URI and coverage ID. It also creates soft links to the old datasets in the HDF5 file. Finally, it updates the `datauri` and `interpolationlevels` fields in the `satellite` table for each processed row.
+
+The script seems to be part of a larger system for managing and processing satellite data. It appears to be designed to update the structure of the HDF5 files and the PostgreSQL database to accommodate a new feature or change in the data model, specifically related to the addition of `interpolationlevels`.
+
+This part of the code is a script that updates a satellite table and processes all satellites. 
+
+The script starts by checking if it's being run directly (i.e., not being imported as a module in another script). This is what `if __name__ == '__main__':` does. If it is being run directly, it records the current time, updates the satellite table, processes all satellites, and then calculates and prints the total time taken to perform these operations.
+
+The `print "No keys found for the sector id " + sectorid[0]` and `print "No sector identifiers found in the satellite table"` statements are error messages that will be printed if certain conditions are not met in the code above this snippet (which is not provided). The first message is printed if no keys are found for a given sector id, and the second message is printed if no sector identifiers are found in the satellite table.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

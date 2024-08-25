@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>CivilEmerg_ADR_MultiPil_Local.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>CivilEmerg_ADR_MultiPil_Local.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a larger software package developed by Raytheon Company, and it appears to be related to the generation of administrative messages for a system called AWIPS II.
+
+The script begins with a legal disclaimer and copyright notice, followed by a brief description of the file's purpose and an acknowledgment of the author, Matt Davis.
+
+The script imports several modules, including CivilEmerg, TextRules, and several standard Python libraries.
+
+The script defines a class `TextProduct` that extends the `TextProduct` class from the `CivilEmerg` module. This class appears to be designed to handle the generation of administrative messages in a specific format. 
+
+The `Definition` dictionary within the class contains several key-value pairs that define various aspects of the product, such as its name, ID, and output file location. 
+
+The `__init__` method is the constructor for the class, which initializes the class by calling the constructor of the parent `TextProduct` class from the `CivilEmerg` module.
+
+The `_makeProduct` method appears to be responsible for creating the actual text of the administrative message. It takes several arguments, including a forecast (`fcst`), an edit area (`editArea`), an area label (`areaLabel`), and an argument dictionary (`argDict`). The method concatenates a string to the `fcst` argument and returns the result. The string indicates that the message is transmitted at the request of a certain source. 
+
+Overall, this script seems to be a part of a larger system for generating and managing administrative messages, possibly related to weather forecasting given the mention of a forecast in the `_makeProduct` method.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

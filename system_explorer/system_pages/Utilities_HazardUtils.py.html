@@ -1,0 +1,156 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>HazardUtils.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>HazardUtils.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is part of a larger software system developed by Raytheon Company. It appears to be a utility module for handling hazard-related data, possibly in a weather forecasting context given the references to "weather element" and "hazards inventory". 
+
+The code includes a class definition for `HazardUtils` which inherits from `SmartScript.SmartScript`. The `HazardUtils` class contains methods for working with time ranges associated with a given weather element (WEName). 
+
+The methods include:
+
+- `_getWEInventory`: This method retrieves time ranges that make up the inventory of the given weather element. The time range can be specified or defaults to a range from 24 hours ago to ten days from now. The method returns the time ranges as a list of Java TimeRanges or Python TimeRanges.
+
+- `_makeTimeRange`: This method creates a time range from a start and end integers.
+
+- `_getGaps`: This method finds time ranges that correspond to gaps in the specified WEName inventory within the specified time ranges. It returns these gaps as a list of Python TimeRanges.
+
+The code also defines several constants and imports various modules needed for its functionality. 
+
+Please note that the code is incomplete and the last method `_getGaps` is not fully defined.
+
+This code is written in Python and it seems to be part of a larger system that deals with weather data, specifically weather hazards. The code includes several methods that perform various operations such as creating an empty hazard grid, setting up a hazards inventory, making a mask, fetching the grid size, determining whether temporary weather elements are loaded, and creating a temporary weather element name from a key. 
+
+- The `_makeEmptyHazardGrid` method creates an empty grid for a specified weather element and time range. It uses numpy to create a grid of zeros with the same shape as the original grid. Depending on the weather element name, it creates a grid with different parameters.
+
+- The `_setupHazardsInventory` method prepares the Hazards inventory so that it can be merged with the activeTable. This includes creating new grids where gaps exist and splitting grids at time range boundaries.
+
+- The `_makeMask` method returns a numeric mask where each zone in a given list is set to 1.
+
+- The `_getGridSize` method fetches the grid size from the GFE (Grid Forecast Editor) and returns it as a tuple.
+
+- The `_tempWELoaded` method checks if temporary weather elements are loaded.
+
+- The `_makeTempWEName` and `_tempWENameToKey` methods are used to create a temporary weather element name from a key and vice versa. These methods are useful for handling and manipulating weather data.
+
+The code also includes some error handling, particularly in the `_setupHazardsInventory` method where it tries to get grid information and if it fails (the grid does not exist), it creates a new grid.
+
+This part of the code file contains several methods that seem to be part of a larger class. The methods are primarily focused on manipulating and analyzing keys, which are strings that represent some kind of data or state in the program. Here's a brief overview of what each method does:
+
+1. `_getUniqueKeys`: This method takes a grid of indices (`byteGrid`), a list of keys (`keys`), and an optional mask. It returns a list of unique keys referenced by the `byteGrid`.
+
+2. `_keyPhen` and `_keySig`: These methods extract different parts of a key string, specifically the 'phen' and 'sig' portions, respectively. If the key is not a VTEC hazard key, they return an empty string.
+
+3. `_combinedKey`: This method combines a new key with a list of existing keys (`subKeys`). It enforces a rule that keys with the same 'phen' return the one key with the highest priority 'sig'.
+
+4. `_makeNewKey`: This method creates a new hazard key given an old key and a new 'phenSig'. It handles various edge cases and ensures the keys are sorted and assembled correctly.
+
+5. `_getSubKeys` and `_removeSubKey`: These methods are used to manipulate keys by dividing them into subkeys or removing a specific subkey.
+
+6. `_mergeTimeranges`: This method merges a set of time ranges, combining all adjacent or overlapping time ranges into one. The loop continues until no more merges are possible.
+
+The code seems to be incomplete as the `_mergeTimeranges` method is not finished.
+
+The provided code seems to be written in Python and is part of a larger system, possibly related to weather forecasting or hazard prediction. Here's a breakdown of what each part of the code is doing:
+
+1. The first part of the code is a function that merges overlapping or adjacent time ranges. It takes a set of time ranges (`trset`) and checks each time range against a list of already merged time ranges. If a time range is found to be overlapping or adjacent to an existing time range in the merged list, it is merged with that time range. If it doesn't overlap or is adjacent to any, it is simply added to the merged list. The function then returns a set of these merged time ranges.
+
+2. The second function, `_conflictingLocks`, checks if there are any conflicting locks in the hazard parameters. It finds all the time ranges that should be locked, checks the time ranges that are already locked, and then tries to merge these time ranges into contiguous blocks. If there are any missing time ranges, it tries to acquire locks for them. If it fails to acquire any of these locks, it returns 1 (indicating a conflict), otherwise it returns 0 (indicating no conflict).
+
+3. The third function, `_addHazardDesc`, creates a list of tuples from keys. For each key, it looks up its description in a table called `VTECTable`. If the key is not found in the table, it uses the key as its own description.
+
+4. The fourth function, `_hazardsLoaded`, checks if a specific weather element is loaded. It does this by checking if the weather element is present in a list of loaded parameters.
+
+5. The fifth function, `_removeOldGrids`, removes any data grids for a given weather element if their end times are in the past.
+
+6. The sixth function, `_removeAllHazardsGrids`, removes all data grids for a specific model, element, and level over a default inventory time range.
+
+The code seems to be part of a larger system that manages weather or hazard data, and these functions are used for managing time ranges, checking for conflicting locks, adding descriptions to hazards, checking if a hazard is loaded, and removing old or all hazard grids.
+
+This Python code appears to be part of a larger system that manages and manipulates weather data grids. Here's a breakdown of what each function does:
+
+1. `removeTRList`: This function attempts to delete a grid with specified parameters (MODEL, ELEMENT, LEVEL, tr). If the deletion is unsuccessful, it returns False. Otherwise, it returns True.
+
+2. `_removeTempHazardWEs`: This function goes through all loaded parameters and unloads any that start with "haz" and have a name longer than 3 characters.
+
+3. `_consecutiveIdenticalGrids`: This function checks if two time ranges for a given weather element are consecutive and identical. It returns 1 (True) if the end time of the first time range matches the start time of the second time range and the grids for the weather element during these time ranges are identical. Otherwise, it returns 0 (False).
+
+4. `_createConsolidatedGrid`: This function replaces existing grids for a specified weather element with a single grid over a specified time range. It's used internally by `_consolidateTimes()`.
+
+5. `_consolidateTimes`: This function consolidates grid times for each weather element in a given list. It finds time ranges that touch and whose grids are identical, and turns them into a single grid for the combined time range.
+
+6. `_lockHazards`: This function locks any grids in the hazards parameter from the current time to 10 hours in the future. It returns the hazards parameter and its grids. If an error occurs during the process, it handles the RuntimeError exception.
+
+The code seems to be part of a larger system that manages and manipulates weather data grids, possibly for a weather forecasting application or similar.
+
+This Python code appears to be part of a larger system, likely a weather forecasting or hazard prediction system, given the use of terms like "hazard", "grid", "forecast", and "weather element". 
+
+The code includes several methods:
+
+1. `_endEdit`: This method allows other users to edit the "hazards parm". It returns a boolean value indicating success or failure.
+
+2. `_separateHazardGrids`: This method creates temporary hazard grids for each hazard subkey. If any temporary hazard grids are already loaded, it does not separate again. It also handles the case where the hazard parameter is unavailable. It creates a set of temporary weather element names and adds the specified hazard to each weather element name over the specified time range.
+
+3. `_addHazard`: This method adds a specified hazard to a weather element name over a specified time range and spatially over a specified mask. It refuses to make new grids that are more than one hour in the past. It also sets up the inventory first and gets the inventory.
+
+The code also includes error handling for cases where the runtime error message starts with "com.raytheon.viz.gfe.GFEOperationFailedException:", indicating that there are conflicting locks that need to be resolved before adding any hazards. 
+
+The code also includes functionality to lock and unlock grids, and to force a lock on a time range. If the lock is unsuccessful, it displays a status bar message indicating that there are conflicting locks. 
+
+Overall, this code seems to be part of a system for managing and manipulating hazard data in a weather forecasting context.
+
+This Python code appears to be part of a larger system, possibly a weather forecasting or hazard prediction system. The code contains several methods that manipulate and manage hazard data in a grid format.
+
+1. `_removeHazard(self, weName, timeRange, removeHaz, mask = None)`: This method removes a specified hazard from a specified grid over a mask. It first gets the inventory of the grid, ensures a real mask exists, and then iterates over the grid to remove the hazard. If no hazards are left after removal, it deletes the whole grid.
+
+2. `_printTime(self, t)`: This method formats a given time as 'yyyymmdd_hhmm'. The time is expected to be in seconds since the epoch.
+
+3. `_printAreas(self, areas)`: This method takes a dictionary of areas, converts it to a list, sorts the list, and returns it.
+
+4. `_filterVTECBasedOnGFEMode(self, vtecTable)`: This method filters a VTEC (Voluntary Emission Reduction Action) table based on the operating mode of the GFE (Graphical Forecast Editor). It allows all records in 'practice' mode, only accepts records that have 'T' VTEC in 'test' mode, and accepts records that don't have 'T' VTEC in 'standard' or 'operational' mode.
+
+5. `_unlockHazards(self)`: This method provides Python access to the `looseLocks()` method of the Hazards parameter. It seems to unlock the Hazards parameter for further manipulation.
+
+The first part of the code seems to be a continuation from a previous section, where it's manipulating the hazard keys in a grid, either combining them or replacing them based on certain conditions. It also saves the updated grid and removes any grids that are completely in the past.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

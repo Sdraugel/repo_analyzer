@@ -1,0 +1,194 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TropicalHazards.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TropicalHazards.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a software named TropicalHazards. The software is in the public domain and comes without any warranty or technical support. The script was initially created by Matthew H. Belk on June 22, 2013, and has been updated several times since then.
+
+The script primarily defines a class named TropicalHazards. This class has several methods, including:
+
+1. `__init__`: This is the constructor method for the class. It initializes an instance of the class, links to the TropicalAreaDictionary, and creates a cache of sorted keys to this dictionary.
+
+2. `allowedHazards`: This method defines the allowed hazards for tropical hazard products. It returns a list of tuples, each containing a hazard code, a list of actions, and a hazard name.
+
+3. `_getAffectedWFOs`: This method takes a list of identifiers as an argument and produces a list of National Weather Service Weather Forecast Offices (WFOs) that are impacted by tropical hazards with the specified identifiers.
+
+4. `_formatTCVline`: This method takes an entry from the TropicalAreaDictionary and a type of breakpoint as arguments. It produces a formatted text line within a Tropical Cyclone Vitals (TCV) segment.
+
+The script imports several modules, including os, re, errno, functools, JsonSupport, LocalizationSupport, LogStream, ModuleAccessor, and pprint (as pp). These modules provide various functionalities that are used in the script.
+
+The script also contains some comments that provide additional information about the software's history, the purpose of the file, and the functionality of the TropicalHazards class and its methods.
+
+The provided code is a part of a Python script that appears to be related to geolocation and hazard management. Here's a breakdown of what this code does:
+
+1. The first part of the code is formatting latitude and longitude values. If the latitude or longitude value is negative, it appends 'S' or 'W' respectively to indicate the southern or western hemisphere. If the value is positive, it appends 'N' or 'E' to indicate the northern or eastern hemisphere. The '-' sign is then removed from the latitude and longitude values. 
+
+2. The code then constructs a formatted line of text, which includes the point (with spaces and underscores replaced by dashes), the latitude, and the longitude.
+
+3. The `_sortBreakpoints` method is defined. This method sorts a list of breakpoint segments. The sorting is based on a predefined list of valid string identifier parts. The identifiers are split into alpha and numeric parts, and the sorting is done first based on the alpha part (the segment type) and then based on the numeric part. 
+
+4. The `_organizeZonesByGovt` method is defined, but the code for this method is not provided in the snippet. The comment suggests that this method will produce a dictionary of sorted lists, presumably related to organizing zones by government.
+
+The code seems to be part of a larger system for managing and organizing geolocation data, possibly in the context of tracking and managing tropical hazards.
+
+This Python code is part of a larger program that seems to be dealing with geographical zones and their respective governmental entities. Here's a breakdown of what the code does:
+
+1. It initializes several lists and a dictionary to hold data about the zones and the governments responsible for them.
+
+2. It iterates over a list of keys from a dictionary (`_tropicalAreaDictKeys`), which appears to represent different geographical areas.
+
+3. For each key, it extracts the zone ID and type. The zone type is determined by extracting all non-digit characters from the zone ID.
+
+4. It checks if the zone type belongs to a specific list of identifiers. If it does, it retrieves the government responsible for the zone from the `_tropicalAreaDict` dictionary.
+
+5. It then checks if the government is already in the `govtList`. If not, it adds the government to the list.
+
+6. It retrieves the UGC (Universal Geographic Code) for the zone and checks if the UGC represents more than one zone. If it does, it calls a function `expandComplexUgc()` to expand the UGC into individual zones. If not, it simply adds the UGC to the `ugcList`.
+
+7. It repeats the same process for the UGC code for USA zones.
+
+8. If the government is already in the `zoneDict`, it retrieves the list of zones associated with that government. If not, it creates a new list for the government.
+
+9. It then adds all the new zones (from `ugcList` and `ugcListUsa`) to the government's list of zones in `zoneDict`, ensuring no duplicates and that the list is sorted.
+
+10. It ensures that the "US" government is always first in the `govtList`.
+
+11. It returns the `zoneDict` and `govtList`.
+
+12. It defines two methods: `_filterAreaListByGovernment` and `_organizeAreasByType`. The first method filters a list of areas based on whether they are managed by a specific government. The second method separates a list of areas into different types (mainland segments, UGC zones, zones, and islands) for easier access later.
+
+This code is part of a larger program that seems to be dealing with geographical areas, specifically tropical areas. The code is written in Python and it is used to categorize and organize different types of areas into different lists.
+
+1. It first checks if a given area is in the TropicalAreaDictionary. If it is, it retrieves the type of the area and the UGC code for the area in the USA.
+
+2. It then categorizes the area based on its type. If the area type is an island, it adds the area to the islandList. If the area type is water, it adds it to the waterList. If the area type is neither an island nor water (presumably land), it further categorizes the area based on its UGC code.
+
+3. For land areas, if the UGC code is zone-based (identified by the third character being "Z" or "C"), it adds the area to the ugcZoneList or zoneList accordingly. If the UGC code is not zone-based, it's considered a "breakpoint segment" and is added to the segmentList. 
+
+4. For each area in the segmentList, it retrieves any associated UGC codes and adds them to the appropriate lists (ugcZoneList or zoneList).
+
+5. Finally, it sorts all the lists (if they have more than one item) using a function called _sortBreakpoints and returns these lists.
+
+6. There is also a method definition for _constructHazardDict, which seems to be used for creating a dictionary of tropical hazards for later use. However, the implementation of this method is not included in the provided code.
+
+The provided Python code is part of a larger program that seems to be tracking and managing hazards related to storms. Here's a breakdown of what it does:
+
+1. It initializes an empty dictionary `hazardAreaDict` and an empty list `hazardAreaDictKeyList`. It also sets the variable `_allCAN` to `True`, which seems to indicate that all actions for the current storm are "CAN" (possibly meaning "cancelled").
+
+2. It then iterates over a list of tuples representing different types of tropical hazards, checking if each hazard is present in `hazardPhenSig` (presumably a dictionary of hazards).
+
+3. For each hazard that is present, it prints some information and then iterates over the specific instances of that hazard.
+
+4. For each instance, it initializes empty lists for different types of actions (NEW, CAN, UPG, EXA, CON), which might represent different statuses or responses to the hazard.
+
+5. It checks if the current instance is for the storm of interest (`filterEtn`). If it's not, it skips to the next instance.
+
+6. It then constructs a key for the current hazard and checks if the action is "CAN". If it's not, `_allCAN` is set to `False`.
+
+7. It checks if the hazard key needs to be adjusted (based on the presence of an ETN, or Event Tracking Number), and if so, adjusts it.
+
+8. It retrieves a list of hazards for the current area and iterates over them, recording headlines for each action and constructing keys for each hazard/action combination.
+
+9. It checks if each hazard/action combination key needs to be adjusted (again, based on the presence of an ETN), and if so, adjusts it.
+
+10. If a hazard/action combination is not already part of the hazard key, it adds it to the list.
+
+11. After iterating over all area hazards, it sorts the list of hazard/action combinations, converts it to a tuple, and uses it as a key in the `hazardAreaDict` dictionary.
+
+The code seems to be cut off at the end, so it's unclear what happens next.
+
+This code is part of a larger program that processes and organizes hazard data, particularly related to storms. 
+
+The first part of the code is grouping areas associated with the same storm and hazard/action combinations. It checks if a hazard key already exists in the hazardAreaDict dictionary. If it does, it adds the new area to the existing list of areas for that hazard. If it doesn't, it creates a new entry in the dictionary for that hazard key with the associated area and other attributes (NEW, CAN, CON, EXA, UPG). It also maintains a list of all hazard keys.
+
+Next, it initializes several lists (segments, ugcZones, zones, islands, water) to keep track of different types of areas. It then loops through all the hazard keys and organizes the associated areas by type using the _organizeAreasByType method. The organized areas are then added to the hazardAreaDict dictionary.
+
+The code then prints some information for debugging or logging purposes, including the hazardAreaDict and hazardAreaDictKeyList.
+
+The _constructSegmentList method is defined next. This method processes the hazardAreaDict and organizes a list of segments, which are organized by similar type. It initializes a dictionary to hold the final group of segments and a dictionary to hold segments for specific areas (Cuba, Hispaniola, etc.). It then loops through all the hazard keys and checks if the associated segments and zones are part of the mainland segment lists or the mainland zone lists. If they are not, they are added to the appropriate lists.
+
+This code is creating and managing records for different geographical zones, specifically for Cuba, Hispaniola, and the United States (though the United States portion is commented out). The records are stored in the `finalSegmentList` list.
+
+Here is a more detailed breakdown:
+
+1. The code first checks if there are any zones in the `segmentDict` dictionary for Cuba ("CUC"). If there are, it sorts them, creates a record (a tuple with five lists representing segments, UGC zones, zones, islands, and water), and adds it to `finalSegmentList` if it's not already there.
+
+2. It then does the same for Hispaniola, but in this case, it combines zones from two different keys in `segmentDict` ("HTC" and "DOC") before sorting and creating the record.
+
+3. The commented-out section does the same for the United States ("USC").
+
+4. The code then checks if there are any changes in the `segmentList` and `zoneList` compared to the original records in `hazardAreaDict`. If there are changes, it updates the current segments and zones (`curSegments` and `curZones`).
+
+5. The code then creates new records for each island found, with a different process for U.S. islands and international islands. These records are also added to `finalSegmentList` if they're not already there.
+
+6. Finally, the code creates a record that groups all areas associated with a particular hazard, using the current segments and zones, and the islands and water areas from `hazardAreaDict`. This record is also added to `finalSegmentList` if it's not already there.
+
+The `print` statements in the code are likely for debugging or logging purposes, to track the creation of new records.
+
+The provided code is a part of a Python class that performs various operations on advisories related to tropical storms. Here's a breakdown of what each method does:
+
+1. `_findZoneCodes(self, areaList)`: This method is used to find missing zone codes for breakpoint segments, islands, and water. It takes a list of area IDs as input and checks if these IDs exist in the `_tropicalAreaDict`. If they do, it retrieves the 'ugcCode' for each area and checks if it's a generic zone code or a UGC code. It then adds these codes to the respective lists (`zones` and `ugcZones`). If the lists have more than one element, they are sorted. If `ugcZones` is empty, it returns a message indicating that there are no areas in the TCV. Otherwise, it returns a tuple of the two lists.
+
+2. `_synchronizeAdvisories(self)`: This method synchronizes advisories by retrieving a directory. It returns a file.
+
+3. `_getLocalAdvisoryDirectoryPath(self)`: This method gets the local advisory directory path. It first synchronizes advisories, then gets the path of the file. It attempts to make directories at the path, and if it fails (except when the directory already exists), it raises an exception. It returns the path.
+
+4. `_getStormAdvisoryNames(self)`: This method gets the names of storm advisories. It lists all the files in the advisory directory and filters out the ones that end with ".json" and start with "AT". It returns these filenames.
+
+5. `_loadAdvisory(self, advisoryName)`: This method loads an advisory given its name. It synchronizes advisories, gets the filename of the advisory, and attempts to load the advisory from a JSON file. If it fails, it prints an error message and returns None. Otherwise, it prints the contents of the file and returns a dictionary.
+
+6. `_saveAdvisory(self, advisoryName, advisoryDict)`: This method saves an advisory given its name and a dictionary. It synchronizes advisories, gets the filename of the advisory, and attempts to save the advisory to a JSON file. If it fails, it prints an error message. Otherwise, it prints a success message.
+
+7. `_deleteAdvisory(self)`: This method deletes an advisory. It synchronizes advisories, gets the filename of the advisory, and attempts to delete the file. If it fails, it prints an error message and returns None.
+
+8. `_getAdvisoryPath(self)`: This method gets the advisory path. It retrieves the operation mode from the data manager and checks if it's "PRACTICE". If it is, it returns `os.` (it seems like the code is incomplete here).
+
+The code provided is a part of a Python file that deals with file paths and filenames.
+
+The first part of the code is a conditional statement that checks for a certain condition (which is not provided in the snippet). If the condition is true, it joins the strings "gfe", "tcvAdvisories", and "practice" into a single file path. If the condition is false, it joins the strings "gfe" and "tcvAdvisories" into a file path. The `os.path.join()` function is used to concatenate these strings into a file path.
+
+The second part of the code defines a method `_getAdvisoryFilename(self, advisoryName)`. This method takes an `advisoryName` as a parameter and joins it with the result of the `_getAdvisoryPath()` method to form a file path. 
+
+Then, it checks if the resulting file path ends with ".json". If it doesn't, it appends ".json" to the end of the file path. Finally, it returns the resulting file path. This method is used to get the filename of an advisory, ensuring that it is in the correct location and has the correct ".json" file extension.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,56 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ExProc1.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ExProc1.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This is a Python script that is part of a larger software developed or modified by Raytheon Company. The script appears to be part of a tool or application that provides a menu with different options, such as "Edit". 
+
+The script defines a list of tuples called `ToolList`, where each tuple contains a tool name and an element name. Two tools are defined: "AdjustValue_Up" and "Smooth", both associated with the element "T". 
+
+The script also imports a module named `SmartScript` and defines a class `Procedure` that inherits from `SmartScript.SmartScript`. The `Procedure` class has an `__init__` method that initializes the class and an `execute` method. 
+
+The `execute` method takes three parameters: `editArea`, `timeRange`, and `varDict`. It loops over each tool in the `ToolList` and calls the `callSmartTool` method on each tool. If an error occurs during the execution of a tool (i.e., if `callSmartTool` returns a non-None value), it breaks the loop and stops executing the remaining tools.
+
+The comments at the top of the file indicate that this software is in the public domain, is provided "as is", and comes with no warranty or technical support. It also mentions that the software contains export-restricted data and its export/transfer/disclosure is restricted by U.S. law.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

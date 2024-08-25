@@ -1,0 +1,216 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>GLF.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>GLF.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code file appears to be a configuration file for a software product developed by Raytheon Company, as per a contract with the US Government. The software is designed to create a Great Lakes Forecast product. 
+
+The initial part of the file contains legal and contractual information, including export control restrictions and the contractor's details. It also mentions a Master Rights File for further licensing information.
+
+The middle part of the file provides a detailed description of the software product, including its purpose, copying rights, and standard and local file names and locations. It also mentions that the software is in the public domain and is provided without any warranty or technical support.
+
+The file then goes into detail about various customization points for the software. These include required configuration items such as displayName, defaultEditAreas, productName, fullStationID, wmoID, pil, areaName, wfoCityState, lake_name, lakezone, maforzone, headerphrase, and optional configuration items like database, outputFile, debug, textdbPil, awipsWANPil, hazardSamplingThreshold, useAbbreviations, processMafor, useHolidays, hoursSChcEnds, passLimit, and trace.
+
+The file also mentions narrative customization points, which allow users to customize the phrases used in the product by overriding infrastructure methods in the Local file.
+
+The file ends with a list of weather elements and edit areas needed for the software to function properly. These include wind, wave height, weather, temperature, and optionally wind gust for up to five days. The edit areas are specific to the orientation of the lakes.
+
+This code is for generating a weather forecast for a lake. It's a Python script that uses various libraries to analyze weather data and generate a text-based forecast. 
+
+The script is designed to be flexible, allowing for different groupings of the lake area (e.g., dividing the lake into east and west halves, thirds, quarters, or treating it as a whole). The specific grouping can be chosen through the `VariableList` variable.
+
+The `Definition` dictionary specifies various parameters for the forecast, such as the name of the lake, the product name, the station ID, the WMO ID, and the product pil. It also specifies the default edit areas (west_half and east_half), the output file location, and the maximum line length for the forecast text.
+
+The forecast includes information such as wind speed and direction, the likelihood of snow showers, and wave heights. It also includes warnings for gales if necessary.
+
+The script uses classes `TextRules` and `SampleAnalysis` for processing and analyzing the weather data. The resulting forecast is then formatted as a text product.
+
+The commented-out lines at the top of the script seem to be notes or reminders about different parts of the lake that can be chosen for the forecast, development tasks, component products, additional information from ConfigVariables, and an example output.
+
+The code appears to be a part of a larger Python class that is used for weather forecasting and reporting. It contains various configuration options and methods for handling weather data and generating text-based weather reports.
+
+Here's a breakdown of some of the key parts:
+
+- It starts with a dictionary of configuration options, which include IDs for storing and transmitting data, settings for handling hazards, thresholds for sampling, phrases and codes for specific areas, flags for handling weather-related data, language settings, and troubleshooting settings.
+
+- The `__init__` method initializes the class, calling the initialization methods of two parent classes, `TextRules` and `SampleAnalysis`.
+
+- The following methods override thresholds and variables from the parent classes. These methods include `temporalCoverage_threshold`, `temporalCoverage_dict`, `wxCombinations`, `vector_mag_difference_nlValue_dict`, `vector_dir_difference_dict`, `maxReported_threshold_dict`, `null_nlValue_dict`, `first_null_phrase_dict`, `null_phrase_dict`, `gust_wind_difference_nlValue`, and `maximum_range_nlValue_dict`. Each of these methods returns a specific value or a dictionary of values that determine how the weather data is processed and reported.
+
+- The `marine_wind_flag` method seems to be incomplete as the code is cut off.
+
+In general, this code is used to customize the behavior of a weather forecasting and reporting system, allowing it to handle different types of weather data and generate reports in a specific format.
+
+This code is written in Python and seems to be part of a larger system, possibly for a weather forecasting application. It contains several methods that perform various tasks:
+
+1. `marine_wind_combining_flag(self, tree, node)`: This method returns a flag (1) that indicates whether wind combining should reflect the crossing of significant thresholds such as gales.
+
+2. `marine_abbreviateText(self, fcst)`: This method takes a forecast string as input and uses regular expressions to replace certain words with their abbreviations. For example, it replaces 'NORTH' with 'N', 'SOUTH' with 'S', 'KNOTS' with 'kt', etc. This is likely done to make the forecast text more concise.
+
+3. `rounding_method_dict(self, tree, node)`: This method returns a dictionary that maps the string "Wind" to the method `self.marineRounding`. This could be used to apply specific rounding methods to certain weather parameters.
+
+4. `waveHeight_words(self, tree, node)` and `wave_range(self, avg)`: These methods are used to create a phrase for wave heights based on the statistics of the wave height data. The phrase describes the wave height in a range format, like "2 to 4 feet".
+
+5. `_PoP_analysisMethod(self, componentName)`: This method returns a method for analyzing the probability of precipitation (PoP). It seems to be configurable to use different analysis methods.
+
+6. `GLFFcstFirst(self)`: This method returns a dictionary that defines a component of the forecast. It includes a list of methods to be applied to the component, a list of analyses to be performed on the component's data, and a list of phrases to be used in the forecast.
+
+The code also contains some incomplete methods and comments that suggest it is part of a larger system. For example, the `marine_wind_withGusts_phrase` method is mentioned but not defined in the provided code.
+
+This Python code appears to be part of a larger system that generates weather forecasts for different regions of a lake. The code defines several methods that return dictionaries containing configurations for different types of forecasts. 
+
+The `GLFFcstShort` and `GLFFcstExt` methods return dictionaries that define the components, methods, analyses, and phrases to be used in generating short and extended Great Lakes forecasts respectively. 
+
+The `generateForecast` method is more complex. It first retrieves variables from an argument dictionary, then determines the areas for which the forecast will be generated based on the value of the `_groupings` attribute. The areas are defined as different proportions of the lake (e.g., "West 1/3:East 2/3", "North 1/2:South 1/2", etc.). If no valid grouping is specified, the forecast is generated for the entire lake. 
+
+After determining the areas, the method samples data, initializes an output string, and then generates the forecast for each area in a loop. It also updates a progress percentage and sends progress messages as it processes each area. 
+
+Finally, the `_getVariables` method retrieves variables from the argument dictionary and stores them as attributes of the object. The code snippet ends before we see what happens with the `setatt` command, but it seems like it's part of a loop that sets attributes based on the items in the `_definition` dictionary.
+
+This code appears to be part of a larger program that generates weather forecasts. Here's a breakdown of what each section does:
+
+1. The first section sets up some initial variables. It gets a dictionary of variables and their values, and sets them as attributes of the current object. It also sets the language for the forecast and initializes an empty list for "mafors", which might be a type of weather data or forecast.
+
+2. The `_determineTimeRanges` method sets up the time ranges for the forecast. It gets information about when the forecast was issued and when it will expire, and sets up a time range for the forecast. It also sets up a "headline" time range, which might be used for a summary or overview of the forecast. It then calculates the start and end times for different types of forecasts, based on the time the forecast was issued.
+
+3. The `_sampleData` method gets the data for the forecast. It creates a "narrative processor", which might be an object that generates a text description of the forecast, and gets the data for the forecast. It also creates a "sampler", which might be an object that samples or collects weather data.
+
+4. The `_preProcessProduct` method sets up the forecast product. It sets the product name, adds information about who issued the forecast and when, and adds a header and synopsis to the forecast. It also gets any hazard information for the forecast.
+
+5. The `_preProcessArea` method sets up the forecast for a specific area. It adds a header for the area, and generates the hazard information for the area.
+
+6. The `_makeProduct` method generates the forecast for a specific area. It generates a narrative forecast for the area, and handles any abbreviations in the forecast.
+
+Overall, this code seems to be part of a system for generating detailed, narrative weather forecasts for specific areas, based on sampled weather data.
+
+The given code is written in Python and seems to be a part of a larger system, possibly a weather forecasting system. Here's a breakdown of what the different parts of the code do:
+
+1. `breviateText(fcstSegment)`: This function seems to be processing a forecast segment. It replaces newline characters with spaces, then adds a newline before any period followed by a letter. It then calls the `endline` method on the segment, and adds the processed segment to the forecast string.
+
+2. `maforheadline`: This part of the code generates a product named "MaforHeadline". It then removes newline characters from the headline. If the `_processmafor` flag is set to 1, it generates a MAFOR (Marine Forecast) and appends it to the `_mafors` list.
+
+3. `_postProcessArea(self, fcst, editArea, areaLabel, argDict)`: This method post-processes the forecast by replacing certain phrases with local requirements. It then appends a newline to the forecast and returns it.
+
+4. `_postProcessProduct(self, fcst, argDict)`: This method further processes the forecast. It appends a special string to the forecast if certain conditions are met. If the `_processmafor` flag is set to 1, it appends MAFOR related information to the forecast. It also sets the progress percentage to 100 and displays a completion message.
+
+5. `_warnOutlook_phrase(self)`, `_warnOutlook_words(self, tree, phrase)`: These methods seem to generate a warning outlook phrase based on certain conditions related to wind statistics.
+
+6. `_issuance_list(self, argDict)`: This method sets up configurable issuance times with associated narrative definitions.
+
+7. `lateDay_descriptor(self, tree, node, timeRange)`, `lateNight_descriptor(self, tree, node, timeRange)`: These methods return descriptors for late day and late night based on whether the time range is in the first period.
+
+8. `splitDay24HourLabel_flag(self, tree, node)`: This method returns a flag indicating whether to label 24-hour periods with simply the weekday name or to include the day and night periods.
+
+The provided code appears to be part of a larger Python script, possibly related to weather forecasting. Here's a breakdown of the different sections:
+
+1. The first section checks the component name of a node. If the component name is "GLFFcstExt", it returns 0; otherwise, it returns 1.
+
+2. The commented-out section seems to be a method for getting the expiration time for EST (Eastern Standard Time). It takes the current time and calculates the next day's time. Depending on the product issuance time and the current timezone, it returns a specific time.
+
+3. The `significant_wx_visibility_subkeys` method returns a list with a tuple containing two wildcards. This might be used to match any weather conditions that significantly affect visibility.
+
+4. The `WxMAFOR`, `WaveMAFOR`, `assemblemaforPhrases`, `createmaforLabel` methods appear to be related to the MAFOR code, which is a type of marine forecast. These methods seem to be used for assembling and labeling weather and wave height phrases for the forecast.
+
+5. The `maforheadline_phrase` and `maforheadline_words` methods seem to be used for creating a headline for the MAFOR forecast. They take into account the wave height and wind statistics for a given time range.
+
+Please note that without the full context or the complete code, this is a rough analysis and some assumptions have been made based on the provided code.
+
+The provided code appears to be part of a larger weather forecasting program. It's written in Python and seems to be used for generating Marine Aerological Forecasts (MAFOR), which are coded weather forecasts for marine areas.
+
+1. The first part of the code checks the maximum wind speed (`windMax`) and assigns a warning message to the variable `words` based on the wind speed. For example, if the wind speed is 64 or greater, it sets the warning message to "...hurricane force wind warning in effect...". The commented out lines seem to be for additional conditions that are currently not being used.
+
+2. The `_MAFORAnalysisList` function returns a list of tuples. Each tuple contains a string and a function reference. This list might be used elsewhere in the program to perform analysis on different weather parameters like Wind, WindGust, WaveHeight, Weather condition (Wx), and Temperature (T).
+
+3. The `MaforHeadline` function returns a dictionary that seems to define a component for generating a MAFOR headline. It includes methodList, analysisList, and phraseList which might be used elsewhere in the program to generate the headline.
+
+4. The `_makeMAFOR` function is a complex function that generates the MAFOR code based on various weather parameters. It uses statistical data for Wind, Weather condition (Wx), Temperature (T), and WindGust. It then generates a MAFOR code for each of these parameters and appends it to the `MAFOR` list. The function also includes logic to sort and format the MAFOR codes.
+
+5. The last part of the function generates wording for weather and wave conditions, and appends these to the MAFOR code. It also seems to generate MAFOR codes for wave conditions, but this part of the code is not included in the provided snippet. 
+
+Please note that without the full code or additional context, some assumptions had to be made in this analysis.
+
+This code appears to be a part of a larger program that generates a MAFOR (Marine Forecast) code, which is a type of weather forecast used in marine environments. 
+
+Here's a breakdown of what each part does:
+
+1. The first part of the code is creating a MAFOR code for wave height. For each of two ranges, it gets statistics for wave height. If no statistics are available, it adds a placeholder code "MMMM" to the `waveMAFOR` list. If statistics are available, it finds the wave code for the maximum wave height and adds it to the `waveMAFOR` list. Then, it checks if the two wave codes are the same, and adds them to the `mafor` string with a specific format.
+
+2. The `_findwind` method is converting wind direction and speed into MAFOR code. It maps different wind directions to specific numbers and does the same for different ranges of wind speed. The result is a two-digit code representing wind conditions.
+
+3. The `_wxcode` method is generating a MAFOR code for weather conditions. It checks various weather conditions and assigns a number to each condition.
+
+4. The `_makeCode` method is generating a MAFOR code for a specific time and wind condition. The output is a string that represents the time and wind condition.
+
+5. The `_findwave` method is generating a MAFOR code for wave height. It checks the average wave height and assigns a range code to it.
+
+In summary, this code is generating a MAFOR code, which is a compact representation of weather conditions used in marine environments. The MAFOR code includes information about wave height, wind direction and speed, and other weather conditions.
+
+This code file seems to be part of a larger program, possibly related to weather forecasting or reporting. It contains several methods that perform different tasks:
+
+1. The first block of code is a series of conditional statements that assign different values to the variables `range`, `min`, and `max` based on the value of `avg`. This could be used to categorize average weather conditions into different ranges.
+
+2. The `_getMaforTime` method seems to be calculating a specific time format based on the creation time of a product and the product's issuance time. It also takes into account different time zones.
+
+3. The `timePeriod_descriptorTable` method appears to be defining different time periods of a day and associating them with descriptive phrases.
+
+4. The `phrase_descriptor_dict` method is creating a dictionary of descriptors for various weather elements in phrases. It seems to be used for generating text descriptions of weather conditions.
+
+5. The `scalar_difference_nlValue_dict` method is setting up a dictionary that defines thresholds for differences between scalar values for two sub-periods. This could be used to determine when a significant change in a weather condition, such as wave height, should be noted in a phrase.
+
+6. The `minimum_range_nlValue_dict` method is defining a dictionary that sets the minimum range for different weather conditions. This could be used to ensure that reported ranges for conditions like wind speed are of a certain size.
+
+7. The `allowedHazards` method seems to be setting up a list of allowed hazard actions, possibly for some sort of alert or warning system. The actions are sorted in priority order.
+
+Overall, this code seems to be part of a system for generating text-based weather forecasts or reports, with a specific focus on marine conditions.
+
+This part of the code is returning a list of tuples. Each tuple represents a specific type of weather advisory or warning. 
+
+The first element of each tuple is a code that represents a specific type of weather condition. For example, 'HF.A' stands for Hurricane Force Wind Watch, 'SR.A' stands for Storm Watch, and so on.
+
+The second element of each tuple is a variable (either `marineActions` or `allActions`) that likely contains a set of actions or procedures to be followed when the corresponding weather condition occurs.
+
+The third element of each tuple is a string that categorizes the type of weather condition. For example, 'Marine' for marine-related conditions, 'IceAccr' for ice accumulation conditions, 'Convective' for storm-related conditions, 'Ashfall' for volcanic ashfall conditions, 'Fog' for foggy conditions, 'Smoke' for smoky conditions, and 'LowWater' for low water conditions.
+
+This returned list can be used elsewhere in the program to handle different weather conditions based on their type and associated actions.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

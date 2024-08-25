@@ -1,0 +1,87 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>WindGustFromAlgorithm.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>WindGustFromAlgorithm.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script for a tool that calculates WindGust using one of two algorithms. The tool is part of a larger software developed by Raytheon Company. The software is in the public domain and is provided "as is", without any warranty or technical support.
+
+The script starts with a series of comments providing information about the software, its authors, and its history. It also includes a warning about U.S. export-controlled technical data, stating that the software contains data whose export/transfer/disclosure is restricted by U.S. law.
+
+The actual code begins by setting the tool type and the weather element to be edited. It then imports necessary modules and sets up variables to be solicited from the user. These variables include the momentum algorithm, whether to use BL Winds, and the model to use.
+
+The main part of the script is a class named `Tool` that inherits from `SmartScript.SmartScript`. This class has an `__init__` method to initialize the instance and an `execute` method that calculates the WindGust.
+
+The `execute` method does the following:
+
+1. It creates a numeric sounding from a model.
+2. It checks if the sounding is valid. If it's not, it logs a problem and returns `None`.
+3. If the sounding is valid, it splits the sounding into its component cubes of height and wind. It checks if these cubes are valid, and if they're not, it logs a problem and returns `None`.
+4. It converts the topography from feet to meters.
+5. It initializes a cube to hold BL wind grids.
+6. It cycles through all the BL levels for the model, trying to get model BL winds for this time. If the grid is valid, it adds it to the BL wind cube. If it's not valid, it stores a placeholder.
+7. It converts the mixing height from feet ASL to meters ASL.
+8. It creates a 3D mask where the model sounding level is above the ground but below the mixing height.
+
+This code is a method for computing wind gusts using a version of the RAP (Rapid Refresh) technique, adapted by Matthew H. Belk. The method works by moving vertically through a model boundary layer (BL) cube and a model cube, calculating the wind gusts at each level.
+
+Initially, the wind gust is set to the current 10m wind speed. Then, for each level in the boundary layer cube, it creates a mask where the boundary layer surface is at or below the mixing height. If there are any points in the mixed layer at this surface and there is a wind grid, it calculates the wind magnitude at the current level (converting from m/s to knots), the difference between the wind at this level and the surface wind, and the depth of the mixed layer to this point.
+
+Next, it adjusts the change in wind speed by a coefficient, which is the lesser of 0.5 or (deltaZ / 2000). If the 'Power' algorithm is selected, it further adjusts this factor using a power relationship, which focuses on how much lower than one this factor will be. The difference in wind speed is then adjusted by the chosen coefficient.
+
+A new wind gust is calculated by adding the adjusted wind speed difference to the surface wind speed. A mask is created where this new wind gust is greater than the current wind gust. The wind gust is then updated where the new wind gust is greater and the surface is still within the mixed layer.
+
+The same process is then repeated for each level in the model cube, but with the depth of the mixed layer calculated differently.
+
+This code appears to be part of a weather forecasting tool, specifically for calculating wind gusts. It uses different algorithms and models to compute the wind gusts based on various factors such as the height from the surface, the wind speed difference, and the chosen coefficient. 
+
+The code starts with a detailed explanation of how the 'Power' algorithm works. It describes how the algorithm calculates a factor that ranges from 0.5 to 1, based on the height from the surface. This factor is then used to adjust the wind speed difference, and the adjusted wind speed difference is added to the current wind speed to calculate the potential wind gust. 
+
+The code then checks if this potential wind gust is greater than the current wind gust. If it is, and the surface is still within the mixed layer, the current wind gust is replaced with the potential wind gust. The function then returns the computed wind gust.
+
+The `preProcessTool` function is called once at the beginning of the tool. It retrieves the site ID, the chosen model, the chosen algorithm, and whether to use boundary layer (BL) winds. It also initializes a list of model levels and determines the model levels available for each model. 
+
+If the user has chosen not to use BL winds, the levels in the BL cube are reset. The function also determines the height of all possible BL levels available for each model. 
+
+The code ends with a debug log statement indicating that the pre-processing is complete.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

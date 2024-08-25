@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>PeriodTool.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>PeriodTool.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This is a Python script for a tool named "PeriodTool". The tool is designed to work with numerical weather elements, specifically the "Period" element. 
+
+The script imports the numpy library, which is a powerful library for numerical computing in Python. It also imports the SmartScript module, which seems to be a custom module, possibly for handling some specific operations related to the tool.
+
+The main functionality of the tool is defined in the "Tool" class, which inherits from the "SmartScript" class. The class has an "__init__" method for initialization and an "execute" method which is required and called once for each grid. 
+
+The "execute" method takes a parameter "Swell", calculates a new value for "Period" by dividing 100 by the sum of the first element of "Swell" and 10.0, and returns this new value. 
+
+There are also optional methods "preProcessTool" and "postProcessTool" which can be used to perform actions at the beginning and end of the tool's operation, respectively. 
+
+The script also includes comments explaining the use of "self" in Python, and how to handle errors in the tool. 
+
+The script is in the public domain and comes without any warranty or technical support.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

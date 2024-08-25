@@ -1,0 +1,70 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>PointDataContainer.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>PointDataContainer.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is written in Python and defines a class named `PointDataContainer`. This class is a wrapper for point data, as indicated by the comments in the code.
+
+The class `PointDataContainer` has several methods:
+
+1. `__init__(self, pdvDict, javaPdc, refTime)`: This is the constructor of the class. It initializes the object with three attributes: `pdvDict`, `javaPdc`, and `refTime`.
+
+2. `__getitem__(self, key)`: This method allows the class instances to use the bracket notation for accessing values associated with a given key in the `pdvDict` dictionary.
+
+3. `has_key(self, key)`: This method checks if a key exists in the `pdvDict` dictionary.
+
+4. `keys(self)`: This method returns a list of all keys in the `pdvDict` dictionary.
+
+5. `__contains__(self, key)`: This method checks if a key is in the `pdvDict` dictionary. It allows the use of the `in` keyword with class instances.
+
+6. `hasParam(self, param)`: This method checks if a parameter exists in the `javaPdc` object's parameters.
+
+7. `__repr__(self)`: This method returns a string representation of the `PointDataContainer` object.
+
+8. `__len__(self)`: This method returns the number of items in the `pdvDict` dictionary.
+
+9. `__iter__(self)`: This method returns an iterator for the `pdvDict` dictionary, allowing the class instances to be iterable.
+
+The comments at the top of the code indicate that the software was developed by Raytheon Company and contains export-restricted data. The software's export, transfer, or disclosure is restricted by U.S. law. Also, the comments indicate that this is a base file that is not intended to be overridden.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

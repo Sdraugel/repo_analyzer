@@ -1,0 +1,84 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>CarSnowAmt.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>CarSnowAmt.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a part of a weather forecasting software developed by Raytheon Company. It is a tool that generates a grid of snow ratio based on the mean temperature, relative humidity, and vertical velocity in each layer from the surface to 500 millibars. 
+
+The tool allows users to select different models (NAM, GFS) and versions (Latest, Previous) for the calculation. It also allows users to select the thickness of the atmospheric layer for the calculation. 
+
+The main part of the code is a class named `Tool` that inherits from `SmartScript.SmartScript`. This class contains two main methods: `baseSnowRatio` and `execute`. 
+
+The `baseSnowRatio` method calculates the base snow ratio based on a given temperature grid. It uses a spline curve defined by coefficients to perform the calculation.
+
+The `execute` method is the main method that performs the calculation of the snow ratio. It first retrieves the selected model and version from the user input. Then, it defines the atmospheric levels for the selected model. After that, it retrieves the temperature, relative humidity, and vertical velocity data for the selected levels from the model. Finally, it calculates the snow ratio based on these data. 
+
+The code also contains a software history section that documents the changes made to the code over time.
+
+This code is a part of a weather forecasting program, specifically for predicting snowfall. It uses various meteorological parameters such as temperature, relative humidity, and pressure vertical velocity to calculate the snow ratio and total snowfall. Here's a breakdown of what the code does:
+
+1. It first retrieves grid data for different atmospheric heights (700mb, 550mb, 600mb, etc.) using the `getGrids` function.
+
+2. It then prints the number of temperature (`t`) grids and relative humidity (`rh`) grids.
+
+3. It initializes several arrays with zero values, including `layerSR` (snow ratio for each layer), `pvvAvg` (average pressure vertical velocity), `pvvSum` (sum of pressure vertical velocities), and `totalSnowRatio`.
+
+4. It then loops over each layer in the `ghCube` (geopotential height cube), calculating the average temperature and relative humidity for each layer, adjusting the snow ratio based on lapse rate, and calculating the average pressure vertical velocity. It also scales the vertical velocity as a function of the square of relative humidity.
+
+5. After that, it normalizes the layer snow ratio based on the pressure vertical velocity fraction of the total.
+
+6. It then calculates the thickness snow ratio based on the difference in geopotential heights at different pressure levels.
+
+7. It adjusts the total snow ratio based on the thickness snow ratio and the sum of pressure vertical velocities.
+
+8. It sets the total snow ratio to zero if there's any layer above 0.0C.
+
+9. It calculates the snowfall by multiplying the Quantitative Precipitation Forecast (QPF) by the total snow ratio, and it tapers the snowfall to zero from 31 to 34 F.
+
+10. It creates new grids for the snow ratio and the total vertical velocity.
+
+11. Finally, it returns the snowfall value.
+
+This code is a good example of how complex weather forecasting can be, as it involves the integration of various meteorological parameters and calculations.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

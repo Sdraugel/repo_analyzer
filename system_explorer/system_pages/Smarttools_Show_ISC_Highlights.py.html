@@ -1,0 +1,64 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Show_ISC_Highlights.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Show_ISC_Highlights.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a part of a software developed by Raytheon Company. It is a Python script that is used to highlight any significant discrepancies in a grid compared to its neighbors. This is done by comparing the grid with the Inter-site Coordination (ISC) neighbors. The software is in the public domain and is provided as is, without any warranty or technical support.
+
+The script imports two modules: ISC_Utility_Local and SmartScript. It defines a class named Tool that inherits from SmartScript.SmartScript. The class has an __init__ method that initializes the class, a preProcessTool method that does nothing but pass, and an execute method that highlights grid boxes with ISC discrepancies.
+
+The execute method checks the borders of the parameter (WEname) for the given time range (GridTimeRange). If any associated grids have any borders that violate the threshold, it colors that grid 'red' in the grid manager. If there are only short borders that violate the threshold, they are colored 'orange'.
+
+The code also contains a configuration section, which refers to ISC_Utility, and an absolute override file, indicating that a higher priority version of the file will completely replace a lower priority version of the file.
+
+There are also several comments throughout the code that provide a version history of the software, including the changes made in each version and the authors of those changes.
+
+This code is part of a larger function that seems to be checking for discrepancies in some sort of model or grid system. 
+
+If a certain condition is met (not shown in this snippet), it generates a status bar message indicating that there are discrepancies for a specific Weather Element (WEname) at a certain time (timetext). The message is tagged with an "A" status.
+
+If the condition is not met, the code highlights certain grids in the model with the name (WEname), type ("SFC"), time range (GridTimeRange), color ("red"), and some other parameter (0). After highlighting, it generates a status bar message indicating that the check has passed, i.e., there are no discrepancies for the specific Weather Element at the given time. This message is tagged with an "R" status. 
+
+The function then ends and returns control to the calling function.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

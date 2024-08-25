@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>UnitConvertor.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>UnitConvertor.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code defines a class named `UnitConvertor` which is used to convert values between different units of measurement. 
+
+The class has one method, `getConvertMethod`, which takes three arguments: `inUnits` (the units of the input value), `outUnits` (the units to which the value should be converted), and `elementString` (a string representing the type of data being converted, such as "Wind"). 
+
+The `getConvertMethod` method checks the `inUnits` and `outUnits` arguments and assigns a conversion method accordingly. If the input and output units are the same, it assigns the `float` function as the conversion method. If the units are different, it assigns a specific conversion method based on the units. For example, if the input units are "kts" (knots) and the output units are "mph" (miles per hour), it assigns the `ktToMph` method as the conversion method.
+
+The class also defines several conversion methods, each of which takes a value as an argument and returns the value converted to the appropriate units. For example, the `ktToMph` method converts from knots to miles per hour, and the `mphToKt` method converts from miles per hour to knots.
+
+If the `getConvertMethod` method does not recognize the input or output units, it raises a `TypeError`.
+
+The code also contains a header comment with information about the software, including the developer, the contract under which it was developed, export control information, and licensing information.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

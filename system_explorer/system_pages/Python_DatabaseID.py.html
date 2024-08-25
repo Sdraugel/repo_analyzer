@@ -1,0 +1,67 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>DatabaseID.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>DatabaseID.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code file is part of a larger software system developed by Raytheon Company. It provides a Python wrapper for the Java DatabaseID class, allowing Python code to interact with this Java class. 
+
+The `DatabaseID` class in this file has several methods that allow interaction with the underlying Java object:
+
+- `__init__(self, db)`: Initializes a new instance of the class with a given database.
+- `__str__(self)`: Returns a string representation of the database ID.
+- `__repr__(self)`: Returns a string that represents a printable version of the object.
+- `__eq__(self, other)`: Checks if this database ID is equal to another.
+- `__ne__(self, other)`: Checks if this database ID is not equal to another.
+- `format(self)`: Returns the format of the database ID.
+- `modelIdentifier(self)`: Returns the model identifier of the database ID.
+- `modelName(self)`: Returns the name of the model.
+- `modelTime(self)`: Returns the time of the model.
+- `shortModelId(self)`: Returns the short model ID.
+- `siteID(self)`: Returns the site ID.
+- `type(self)`: Returns the type of the database.
+- `isValid(self)`: Checks if the database ID is valid.
+- `toJavaObj(self)`: Returns the Java object of the database ID.
+
+The file also contains two functions, `databaseID_default()` and `databaseID(id)`, which create new instances of the `DatabaseID` class using the Java DatabaseID class from the `com.raytheon.uf.common.dataplugin.gfe.db.objects` package. The first function creates a new instance with a default Java DatabaseID, while the second function accepts an ID as an argument and uses it to create a new instance.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

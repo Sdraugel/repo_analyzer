@@ -1,0 +1,90 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>createIncrementalAreaDictionaryAndCityLocation.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>createIncrementalAreaDictionaryAndCityLocation.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The given Python script is designed to compare site overrides for two files, `AreaDictionary.py` and `CityLocation.py`, with their CONFIGURED level versions, and create incremental overrides of these files. 
+
+Here's a breakdown of what the script does:
+
+1. It imports necessary Python modules such as `copy`, `logging`, `glob`, `imp`, `os`, `os.path`, `pprint`, and `shutil`.
+
+2. It sets up a logging configuration to log debug level and above messages with a specific format and date format.
+
+3. It defines the base path for text utilities and the specific paths for the `AreaDictionary.py` and `CityLocation.py` files.
+
+4. It defines the headers for the `AreaDictionary.py` and `CityLocation.py` files. These headers contain information about the file, its format, and the fields it contains.
+
+5. It defines a function `create_incremental_area_dictionary()`. This function does the following:
+   - Iterates over each file in the `AREA_DICT_GLOB_PATH`.
+   - Logs the generation of an incremental override file.
+   - Replaces the word "site" with "configured" in the file path to get the base file path.
+   - Checks if the base file exists. If it doesn't, it logs an error and skips to the next file.
+   - Opens the site file and checks if it has already been upgraded. If it has, it logs this information and continues to the next file.
+   - Logs the use of the configured and site files.
+   - Loads the configured and site modules using the `imp.load_source()` function.
+   - Gets the `AreaDictionary` from both modules.
+   - Finds the differences between the two dictionaries using the `diff_dicts()` function (not shown in the provided code).
+   - Logs the differences.
+
+The script is designed to be run in an AWIPS II environment, a meteorological display and analysis package developed by the National Weather Service and Raytheon.
+
+This Python script is designed to create incremental overrides for two files: `AreaDictionary.py` and `CityLocation.py`. 
+
+The script defines several functions to achieve this:
+
+1. `create_incremental_city_location()`: This function iterates over files in a specified path (`CITY_LOC_GLOB_PATH`). For each file, it checks if a corresponding "configured" file exists. If not, it logs an error and moves to the next file. If it does exist, it reads the contents of the site file and checks if it has already been upgraded. If it has, it logs this and moves to the next file. If not, it loads the configured and site files as modules, extracts a `CityLocation` dictionary from each, and finds the differences between these dictionaries. It then writes these differences to an override file and deletes the base file.
+
+2. `diff_dicts(base, override)`: This function takes two dictionaries and finds the differences between them. It creates a set of all keys in both dictionaries and iterates over them. If a key is in the override dictionary but not the base, it appends it to a list of differences. If a key is in both dictionaries, it checks for sub-differences and appends these to the list if they exist.
+
+3. `sub_diff_dicts(base, override, level=0)`: This function works similarly to `diff_dicts`, but it's used for nested dictionaries. It finds keys that exist in the override dictionary but not the base, as well as keys that exist in both but have different values.
+
+4. `write_override_file(file_name, object_name, object_value, header)`: This function writes the differences found by `diff_dicts` and `sub_diff_dicts` to an override file. It first creates a backup of the original file, then writes the differences to the original file. If it encounters an error while writing, it logs this and suggests restoring the backup file before restarting EDEX.
+
+5. `delete_files(file_pattern)`: This function deletes files that match a given pattern. If it encounters an error while deleting a file, it logs this.
+
+6. `main()`: This function is the entry point of the script. It calls `create_incremental_area_dictionary()` and `create_incremental_city_location()`, then logs that the script has completed.
+
+If the script is run as a standalone program (i.e., not imported as a module), it calls the `main()` function.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

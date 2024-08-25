@@ -1,0 +1,68 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>CivilEmerg.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>CivilEmerg.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a software developed by Raytheon Company. It is a standard file for handling civil emergencies and is not intended to be overridden. The software is in the public domain and is provided without any warranty or technical support.
+
+The script begins by importing several modules including GenericReport, TextRules, and others. It then defines a class named TextProduct, which inherits from the TextProduct class in the GenericReport module.
+
+The TextProduct class contains a list of variables and a dictionary named Definition. The variables include local agency configuration and EAS (Emergency Alert System) level. The Definition dictionary contains various configuration settings for the TextProduct, such as the type, display name, source database, output file, debug mode, map name for creating combinations, and others.
+
+The class also includes a condition to use zone codes for PR and AR regions.
+
+The TextProduct class has three methods: __init__, _preProcessProduct, and _preProcessArea. The __init__ method initializes the class. The _preProcessProduct method processes the forecast and argument dictionary before the product is created. The _preProcessArea method generates WMO (World Meteorological Organization) lines, adds non-segmented UGC (Universal Geographic Code) data, and adds the product name/time lines.
+
+The script ends abruptly, indicating that the _makeProduct method is not fully shown. Based on its name, this method likely creates the product, but without the full code, it's unclear what exactly this method does.
+
+This code is part of a larger program that seems to be used for creating and formatting some sort of forecast message, possibly related to weather or other environmental conditions.
+
+The first function takes four arguments: `fcst`, `editArea`, `areaLabel`, and `argDict`. It appends an administrative message to `fcst` and then checks if `_callToAction` is true. If it is, it calls the `_makeCallToAction` function and passes the same arguments to it. The function then returns `fcst`.
+
+The `_makeCallToAction` function also takes the same four arguments. It checks if `_callToAction` is true and if it is, it appends a precautionary/preparedness actions message to `fcst`. The function then returns `fcst`.
+
+The `_postProcessProduct` function takes two arguments: `fcst` and `argDict`. It cleans up multiple line feeds in `fcst` using a regular expression. Then it calls the `endline` method on `fcst`, passing it a `linelength` and a `breakStr`. It then sets the progress percentage to 100 and displays a completion message. Finally, it returns `fcst`.
+
+The overall purpose of this code seems to be to construct and format a message, possibly a forecast or warning of some sort, and then display a progress message when the process is complete.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

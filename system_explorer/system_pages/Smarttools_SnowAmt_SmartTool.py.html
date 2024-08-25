@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>SnowAmt_SmartTool.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>SnowAmt_SmartTool.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a software developed or modified by Raytheon Company. It's intended to be used for weather analysis, specifically for calculating the amount of snow ("SnowAmt") based on various parameters.
+
+The script defines a class `Tool` that inherits from `SmartScript.SmartScript`. The `Tool` class has two methods: `__init__` and `execute`.
+
+The `__init__` method is the constructor for the class, which calls the constructor of the parent class `SmartScript.SmartScript`.
+
+The `execute` method is where the main functionality of the script lies. It takes four parameters: `Topo`, `T`, `FzLevel`, and `QPF`. These parameters likely represent topography, temperature, freezing level, and quantitative precipitation forecast respectively. The method calculates the snow amount based on these parameters.
+
+The `linear` method is a helper function used to calculate a linear relationship between two sets of values.
+
+The script also contains a commented-out dictionary `SnowRatioDict` and a function `SnowAmt_SmartTool`. These seem to be an older or alternative way of calculating the snow amount, but are not currently in use as they are commented out.
+
+The script also contains some metadata and legal information at the top, including the contractor's name and address, export control details, and a disclaimer about the software being in the public domain with no warranty.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

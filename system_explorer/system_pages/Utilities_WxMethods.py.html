@@ -1,0 +1,82 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>WxMethods.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>WxMethods.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that appears to be part of a larger software system developed by Raytheon Company. It contains functions for working with weather-related data, specifically "ugly" weather strings, which are likely complex or non-standard formatted strings representing weather information.
+
+Here's a breakdown of the main functions:
+
+1. `WxParts(wxValue)`: This function takes a weather string as input, splits it into its components, and returns a list of these components.
+
+2. `WxString(description)`: This function takes a description of a weather event and converts it into a formatted weather string. It handles special cases and wildcards, and returns the formatted string.
+
+3. `WxContains(Wx, description)`: This function checks if a given weather string contains any combination of the arguments found in a given description. It returns 1 (true) if it does, and 0 (false) if it doesn't.
+
+4. `WxContainsExact(Wx, str)`: This function checks if a given weather string contains an exact match of a given string. It returns 1 (true) if it does, and 0 (false) if it doesn't.
+
+The code also contains comments that provide additional information about how to use these functions, as well as warnings about potential errors. For example, it warns that certain combinations of weather coverages, types, intensities, etc., may not be valid and will not be accepted by the system.
+
+The provided code appears to be a set of Python functions for manipulating and examining weather strings. 
+
+1. `WxModify(Wx, part, value)` function: This function modifies an existing weather string by replacing a specified part of the string with a new value. The part to be replaced can be 'cov', 'type', 'inten', 'vis', 'attr' or any other string. If the part is one of the first five, it replaces the corresponding part in the weather string (which is assumed to be split by '^' and ':'). If the part is not one of the first five, it simply replaces the part with the value in the whole string.
+
+2. `convertWxDescription(description)` function: This function converts a description into a tuple of parts. If the description has less than 5 parts, it appends '*' to the parts until it has 5 parts.
+
+3. `ComplexWxString(description)` function: This function creates a complex weather string from a description. It handles special cases, wildcards, and multiple weather types. The resulting string is a concatenation of weather strings separated by '^'.
+
+4. `ComplexWxContains(Wx, description)` function: This function checks if a given weather string contains any combination of the arguments found in a given description. It returns 1 if any combination is found, and 0 otherwise.
+
+In general, these functions seem to be part of a larger program that deals with weather data, possibly for the purpose of weather forecasting or climate analysis. The weather strings appear to be a coded way of representing weather conditions, and these functions provide ways to create, modify, and analyze these strings.
+
+This code defines a function named `complexConvertWxDescription` that takes a string `description` as an input. The function is designed to parse weather descriptions that are formatted in a specific way.
+
+The function begins by splitting the `description` string into a list of parts, using whitespace as the delimiter. It then checks if the number of parts is less than 5 (the expected number of parts in a complete weather description). If there are fewer than 5 parts, it appends asterisks ("*") to the list until it contains 5 elements.
+
+Next, the function iterates over each part in the list. If a part contains a comma, it is further split into a list of elements, with each element being stripped of leading and trailing whitespace. This list of elements is then appended to the `resultList`. If a part does not contain a comma, it is simply appended to the `resultList` as a single-element list.
+
+Finally, the function returns the five elements of the `resultList` as separate lists. These represent different aspects of the weather description.
+
+The first part of the code you provided, which checks several boolean variables (`geFound`, `wxTypeFound`, `intenFound`, `visFound`, and `attrFound`) and returns 1 if all are true and 0 otherwise, seems to be part of a larger context that is not included here. It's likely part of a function or method that checks if all necessary parts of a weather description are found.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

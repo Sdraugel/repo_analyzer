@@ -1,0 +1,66 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>H5pyTiming.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>H5pyTiming.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that defines a class named `H5pyTiming` which is a subclass of `TimingInterface.TimingInterface`. This class is used to interact with HDF5 files using the h5py library. HDF5 is a data model, library, and file format for storing and managing data. It supports an unlimited variety of datatypes and is designed for flexible and efficient I/O and for high volume and complex data.
+
+Here's a breakdown of what each method in the `H5pyTiming` class does:
+
+- `__init__(self, filename, mode="r")`: This is the constructor method that gets called when an object of this class is instantiated. It opens the HDF5 file with the given filename and mode and stores the file object in `self.file`.
+
+- `createGroup(self, name)`: This method creates a new group in the HDF5 file with the given name.
+
+- `createDataset(self, group, name, value, nDimensions=1)`: This method creates a new dataset in the specified group with the given name, shape determined by the value, and datatype 'f' (float). The data in the dataset is initialized with the given value.
+
+- `close(self)`: This method flushes any buffered data to the file and then closes the file.
+
+- `appendValue(self, dataset, value)`: This method appends a value to the end of the specified dataset.
+
+- `getDataset(self, name)`: This method retrieves the dataset with the given name from the file.
+
+- `sampleValue(self, dataset, index)`: This method retrieves the value at the specified index from the given dataset.
+
+The script also includes a software history comment section that tracks changes made to the software over time, and a legal disclaimer indicating that the software contains export-restricted data.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>fix_jdoublevalue.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>fix_jdoublevalue.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a Python script that uses the lib2to3 library to define a fixer for Python 2 to Python 3 code translation. The fixer is named `FixJdoublevalue`.
+
+The lib2to3 library is a Python library that provides tools to convert Python 2.x syntax to Python 3.x syntax. It includes a parser, an AST tree, and a set of fixers that are applied to the AST tree to modify it.
+
+The `FixJdoublevalue` class is a subclass of `fixer_base.BaseFix`, which is the base class for all fixers in lib2to3. This class defines a fixer that modifies the AST tree.
+
+The `PATTERN` attribute is a string that defines the pattern of the Python 2.x syntax that this fixer is designed to modify. This pattern is written in a special language that is used by lib2to3 to match parts of the AST tree. In this case, the pattern matches any Python 2.x code that calls the `doubleValue` method on an object.
+
+The `start_tree` method is called when the fixer starts to process a new AST tree. In this case, it just calls the `start_tree` method of the superclass.
+
+The `transform` method is the most important part of the fixer. It is called for each node in the AST tree that matches the pattern. The `node` argument is the node that matched the pattern, and the `results` argument is a dictionary that contains the parts of the node that matched the parts of the pattern.
+
+In this case, the `transform` method modifies the node to replace the call to the `doubleValue` method with a call to the `float` function. This is done by creating a new `Call` node that calls the `float` function with the same arguments as the original call to `doubleValue`, and then replacing the original node with the new node.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

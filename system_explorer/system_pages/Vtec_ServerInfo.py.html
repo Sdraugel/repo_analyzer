@@ -1,0 +1,70 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ServerInfo.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ServerInfo.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is part of a larger software developed by Raytheon Company. It is a base file that is not intended to be overridden. The code is primarily concerned with extracting server information from an XML file.
+
+Here's a breakdown of what the code does:
+
+1. It imports necessary modules and functions. The `xml` module is used for processing XML data. The `ElementTree` class from the `xml.etree` module is used for creating and parsing XML data. The `Element` and `SubElement` classes are used for creating XML elements and sub-elements. The `IrtAccess` module is also imported, but it's not clear what this module does without additional context.
+
+2. The function `extractServerInfo(xmlIncoming)` is defined. This function takes an XML string as an argument.
+
+3. Inside the function, an empty list `sources` is created to store the server information.
+
+4. An instance of `IrtAccess` class is created with an empty string as an argument. This might be used to access or manipulate the server information, but it's not clear without additional context.
+
+5. The XML string is parsed into an XML tree using `ElementTree.XML(xmlIncoming)` and then wrapped with `ElementTree.ElementTree()`.
+
+6. The function then finds the 'source' element in the XML tree.
+
+7. It iterates over the child elements of the 'source' element. For each child element, it decodes the XML address using the `decodeXMLAddress` method of the `IrtAccess` instance. If the decoded server is `None`, it skips to the next iteration.
+
+8. If the decoded server is not `None`, it prints the server info using the `printServerInfo` method of the `IrtAccess` instance and appends the result to the `sources` list.
+
+9. Finally, the function returns the `sources` list, which contains the server information extracted from the XML data.
+
+Please note that the actual functionality of the `IrtAccess` class and its methods `decodeXMLAddress` and `printServerInfo` are not clear from this code snippet.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

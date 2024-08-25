@@ -1,0 +1,82 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>mergeGrid.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>mergeGrid.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The code file appears to be a part of a larger software system developed by Raytheon Company, as indicated by the comments at the beginning. It contains important information about the software's licensing, export restrictions, and history of modifications.
+
+The main part of the code defines a Python class called `MergeGrid`. This class is designed to merge two grids and their histories together. The grids can be of type 'SCALAR', 'VECTOR', 'WEATHER', or 'DISCRETE'. 
+
+The `MergeGrid` class has several attributes, such as `__creationTime`, `__siteID`, `__inFillV`, `__outFillV`, `__areaMask`, `__gridType`, and `__discreteKeys`. These are initialized in the `__init__` method.
+
+The class also has several private methods:
+
+- `__findKey`: This method finds the index of a weather or discrete key in the list of keys. If the key is not found, it is added to the list and its new index is returned.
+- `__commonizeKey`: This method merges the weather key values of two grids and commonizes their indices. It ensures that the same byte value is used for the same weather key in both grids.
+- `__updateHistoryStrings`: This method merges the history strings for two grids. The full implementation of this method is not provided in the given code.
+
+The code also imports the `numpy` library, which is commonly used in Python for numerical computations.
+
+This code file consists of several methods that perform operations on grids. A grid here is likely a two-dimensional data structure, such as a matrix. The operations include merging, collapsing keys, and handling history entries. 
+
+1. `__mergeHistories(self, historyA, historyB)`: This method merges two history lists from input grids, removing any old entries from the second list that contain a specific site ID, then adding new entries from the first list. If there are no history entries in either list, it returns None.
+
+2. `__mergeScalarGrid(self, gridA, gridB)`: This method merges two scalar grids together. It takes values from gridA that overlap a specific mask and values from gridB outside the mask, creating a new grid by merging the two areas together. If both grids are None, it returns None.
+
+3. `__mergeVectorGrid(self, gridA, gridB)`: This method merges two vector grids together in a similar way to the scalar grid merge. It also handles the case where gridB is None differently, setting all out-of-bounds points to 0.0.
+
+4. `__collapseKey(self, grid, keys)`: This method removes unused key values from weather and discrete grids. It creates a list of unique indices in the grid, then updates the grid and keys accordingly.
+
+5. `__mergeWeatherGrid(self, gridA, gridB)`: This method merges two weather grids together. It handles the merging process differently from the scalar and vector grid merges, especially when gridB is None. In this case, it creates an empty grid with a specific key value.
+
+The code uses the numpy library for operations on arrays, such as logical operations, masking, and finding unique elements.
+
+The code provided is a part of a Python class that is used to merge two grids together. The grids are represented in different forms: Scalar, Vector, Weather, and Discrete. 
+
+The `__mergeDiscreteGrid` method is used to merge two discrete grids together. The merge is performed by taking the values from `gridA` that overlap the mask `__areaMask` and the values from `gridB` outside the mask and creating a new grid by merging the two areas together. If both `gridA` and `gridB` are `None`, it returns `None`. If `gridA` is `None`, the data is blanked out.
+
+The `mergeGrid` method is used to merge the values of two grids together. It first checks the type of the grid and then calls the appropriate method to merge the grids. If the grid type is 'SCALAR', it calls the `__mergeScalarGrid` method. If the grid type is 'VECTOR', it calls the `__mergeVectorGrid` method. If the grid type is 'WEATHER', it calls the `__mergeWeatherGrid` method. If the grid type is 'DISCRETE', it calls the `__mergeDiscreteGrid` method. If the grid type is not one of these, it sets `mergedGrid` to `None`. After merging the grids, it merges the history of the grids and returns the merged grid and the merged history.
+
+The `__mergeDiscreteGrid` and `mergeGrid` methods both return a tuple. The first element of the tuple is the merged grid and the second element is the common key in the case of `__mergeDiscreteGrid` and the merged history in the case of `mergeGrid`.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

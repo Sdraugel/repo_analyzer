@@ -1,0 +1,96 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>convert_grib_data.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>convert_grib_data.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a larger system, likely related to weather forecasting or similar geospatial data processing. It seems to be used for migrating data from one format to another, specifically from GRIB (a format used in meteorology to store historical and forecast weather data) to HDF5 (a hierarchical data format designed to store and organize large amounts of data).
+
+The script defines several lists of grid names, which are categorized into different geographical regions such as Alaska, Puerto Rico, Hawaii, and Guam. It also defines a blacklist of grids that have already been converted.
+
+The script uses PostgreSQL for database operations, and it appears to be running SQL queries to fetch data from the database. The `queryPostgres` function is used to execute SQL queries, and the `convertModel` function is used to convert the data for a specific model from the GRIB format to the HDF5 format.
+
+In the `convertModel` function, it first loads existing grid info for the model, then queries the grib database for relevant data. It then begins converting the records. For each record, it constructs a new data URI, copies the data from the old location to the new one, and updates the info map with the new info.
+
+The script also handles some error scenarios, such as if the data cannot be copied or if the HDF5 file cannot be opened. It prints an error message and continues with the next record.
+
+The script uses multithreading, but it's set to use only one thread by default. The comment suggests that this is because the process is disk-bound, meaning it's limited by the speed of the disk and adding more threads wouldn't necessarily speed it up.
+
+Overall, this script is a part of a larger data migration process, converting weather data from one format to another and organizing it by geographical region.
+
+This script appears to be a part of a larger program that deals with converting and managing data from grib models. Grib (General Regularly-distributed Information in Binary form) is a data format commonly used in meteorology to store historical and forecast weather data.
+
+Here's a breakdown of what the code does:
+
+1. The script first checks the values of `secondaryId`, `ensembleId`, `infoSql`, and `gridSql`, and modifies them accordingly. It then constructs SQL queries to insert data into `grid_info` and `grid` tables in a database.
+
+2. The `loadGridInfo` function retrieves distinct records from the `grid_info` table where the `datasetid` matches the provided `modelName`. It then stores these records in a dictionary called `infoMap` and returns it.
+
+3. The `nextGridInfoSeq` function fetches a sequence of IDs from the `gridinfo_seq` table in the database. The number of IDs fetched is determined by the number of models, with an average of 50 IDs per model.
+
+4. The `convertPert` function converts a given perturbation number (pert) to a corresponding string value.
+
+5. The `copyH5` function appears to copy data from one HDF5 group to another. HDF5 is a data model, library, and file format for storing and managing data.
+
+6. The `processAllParameters` function populates a `parameters` dictionary with data from the `parameter` and `grib_models` tables in the database. It also constructs an SQL query to insert new records into the `parameter` table.
+
+7. The `processModels` function appears to process each model in a list of models. It uses a lock to ensure that only one thread modifies the list of models at a time.
+
+8. The `loadAll` function prints some information to the console and populates the `models` list with distinct `modelname` values from the `grib_models` table in the database.
+
+This script seems to be part of a larger program that is used to convert and process data models. Here's a breakdown of what each part of the script does:
+
+1. The script starts by printing some instructions for the user. It then creates two lists, `bad` and `good`, to categorize models. Models that start with "UnknownModel" are considered bad and the rest are considered good. If there are any bad models, it prints them out.
+
+2. Next, it checks each model against a blacklist of grids. If a model is in the blacklist, it's considered bad and added to the `bad` list. If there are any bad models, it prints them out. The `good` models are then assigned back to the `models` list.
+
+3. The script then waits for the user to press Enter to continue or Ctrl-C to cancel.
+
+4. The `check_table` function is defined. This function checks if a table exists in a Postgres database. If the table doesn't exist, it prints a message and exits the script.
+
+5. If the script is run as the main program (not imported as a module), it checks if certain tables exist in the database. If no arguments are passed to the script, it loads all models. If there are arguments, it adds them to the `models` list.
+
+6. The script then processes all parameters and starts a certain number of threads to process the models. It waits for all threads to finish, then prints the total conversion time.
+
+In summary, this script is used to process and convert data models, checking against a blacklist and database tables. It uses multithreading to process multiple models simultaneously.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

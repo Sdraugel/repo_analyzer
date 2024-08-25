@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>validateConfig.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>validateConfig.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is a command-line utility for validating the configuration files (localConfig.py/siteConfig.py) for a specific site in the GFE (Graphical Forecast Editor) system. The script is part of the AWIPS II (Advanced Weather Interactive Processing System) software package, which is used for meteorological data processing and forecasting.
+
+Here's a breakdown of what the script does:
+
+1. It imports necessary modules and packages, including argparse for parsing command-line arguments, os and sys for interacting with the operating system, traceback for handling exceptions, and several specific packages related to the AWIPS II system.
+
+2. It defines a function `validate_args()` that sets up an argument parser to handle command-line arguments. This function expects three arguments: the hostname of the edex request server (`-h`), the port number of the edex request server (`-r`), and the site to activate (`-s`). The hostname and port number have default values, but the site argument is required.
+
+3. It defines a `main()` function that validates the command-line arguments, creates a `ValidateConfigRequest` for the specified site, and sends the request to the server using a `ThriftClient`. If the request is successful, it prints the response from the server. If there's an exception (a `ThriftRequestException`), it prints an error message and the traceback, and returns -1.
+
+4. If this script is run as the main program (not imported as a module), it calls the `main()` function.
+
+The script is designed to be run from the command line, providing a convenient way for users to validate the configuration of a specific site in the GFE system.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

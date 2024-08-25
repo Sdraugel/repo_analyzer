@@ -1,0 +1,70 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>AppDialog.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>AppDialog.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is written in Python and it appears to be part of a larger software system developed by Raytheon Company. The code is subject to US export control laws due to the presence of export-restricted data.
+
+The code begins with a disclaimer and licensing information, followed by a note stating that this is an absolute override file, which means that a higher priority version of the file will completely replace a lower priority version of the file.
+
+The code then imports the `tkinter` module, which is a standard Python interface to the Tk GUI toolkit. This module provides a powerful object-oriented interface to the Tk GUI toolkit.
+
+The main part of the code is a class definition for `AppDialog`, which is a subclass of `tkinter.Tk`. This class is designed to create a top-level dialog with its own Tcl interpreter, which is useful in a system where short Python scripts are invoked from a GUI written in another language and need to pop up dialogs to obtain user input.
+
+The `AppDialog` class has several methods:
+
+- `__init__`: This is the constructor method that initializes an instance of the class. It sets up the dialog body and button box, and sets the protocol for the "WM_DELETE_WINDOW" event to call the `cancel` method.
+
+- `apply`: This method is called automatically to process the data after the dialog is destroyed. By default, it does nothing, but it can be overridden in a subclass to provide custom behavior.
+
+- `body`: This method creates the dialog body and returns the widget that should have initial focus. It should be overridden in a subclass to customize the dialog body.
+
+- `buttonbox`: This method creates a frame containing an "Ok" button and a "Cancel" button. The "Ok" button is connected to the `ok` method, and the "Cancel" button is connected to the `cancel` method.
+
+- `cancel`: This method is called when the "Cancel" button is clicked or when the dialog is closed from the control bar. It destroys the dialog.
+
+- `ok`: This method is called when the "Ok" button is clicked. It validates the data using the `validate` method, and if the data is valid, it destroys the dialog and calls the `apply` method.
+
+- `validate`: This method is called automatically to process the data before the dialog is destroyed. By default, it always returns True, indicating that the data is valid. It can be overridden in a subclass to provide custom validation logic.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,64 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ClimateDataUtils.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ClimateDataUtils.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is written in Python and appears to be part of a larger software system developed by Raytheon Company. The code is designed to work with climate data, specifically data related to station years and climatology years.
+
+The code contains several functions:
+
+1. `get_climo_years(climateFilePath, listener, stn='', lines=[])`: This function finds the climatology years for a given station. It returns a list with station USAF & WBAN ID, start year, and end year. It validates the NCDC archive against the local station_id.
+
+2. `getStationYears(climateFilePath, listener, stn='')`: This function retrieves the years for a specific station from a climate file. It also includes a nested function `wban_convert(wban='')` to adjust the WBAN ID for any errors.
+
+3. `getIdnumsList(ishDirPath, climateFilePath, listener, stn='')`: This function returns a list of TAF site USAF ID numbers given a TAF site ID. It reads from a file, checks if the line is in the IDs, and appends the relevant data to the list.
+
+4. `getHistory(ishDirPath, listener, stn='')`: This function retrieves the history of a specific station. It reads from a file and appends the relevant data to a list.
+
+Throughout the code, there are checks to see if a listener has been canceled, and if so, a `KeyboardInterrupt` is raised. This suggests that the code is designed to be run in a threaded or asynchronous environment where operations can be canceled.
+
+The code also uses the `logging` and `h5py` modules. `logging` is used for logging events for this software, and `h5py` is used for reading and writing HDF5 files, which are a common format for storing large amounts of numerical data.
+
+The code also includes a header with licensing information, a change log, and a note that this is a base file not intended to be overridden.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

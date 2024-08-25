@@ -1,0 +1,100 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>MVF.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>MVF.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is part of a larger software system developed by Raytheon Company. It is a Python script that generates a Marine Verification Forecast. The forecast is generated for specific areas, which are defined in the code. 
+
+The script imports several modules, including TextRules, SampleAnalysis, string, time, types, and math. The main class, TextProduct, inherits from the TextRules and SampleAnalysis classes. 
+
+The class has a list of variables, and a dictionary called Definition, which contains key-value pairs for various configuration items. These items include details like the product name, station ID, WMO ID, product pil, zone code, state name, WFO location, and identifiers for storing and transmitting the product.
+
+The class also has an __init__ method, which is a special method in Python classes that is automatically called when an object of that class is instantiated. This method initializes the parent classes.
+
+The generateForecast method is where the actual forecast is generated. It takes in a dictionary of arguments, gets variables from this dictionary and the Definition dictionary, and presumably uses these to generate the forecast (though the code for this is not shown).
+
+The code also includes extensive comments, which provide information about the software, its licensing, the purpose of the code, the configuration items, the weather elements and edit areas needed, and an example output.
+
+This code is a part of a larger program that generates a forecast product, possibly for weather conditions. Here's a breakdown of what each section does:
+
+1. The first section gets a list of areas for which the forecast product is to be generated. If no areas are specified, it returns a warning message.
+
+2. It then determines the time ranges for the forecast, samples the data for the forecast, and initializes the output string.
+
+3. The code then generates the forecast product for each area in the list. It also sets a progress percentage and displays a progress message for each area being processed.
+
+4. The `_getVariables` function retrieves variables from a dictionary and sets them as attributes of the current object. It also handles some specific cases like converting the tropical storm variable to a binary format and formatting the forecaster number.
+
+5. The `_determineTimeRanges` function sets up time ranges for the product based on the current time. It also calculates current times and determines the expiration time of the forecast.
+
+6. The `_sampleData` function samples the data for the forecast.
+
+7. The `_preProcessProduct` function initializes the forecast string with some header information.
+
+8. The `_preProcessArea` function seems to be commented out or not fully implemented, as it doesn't modify the forecast string.
+
+9. The `_makeProduct` function generates the forecast for each area. It gets statistical data for the area and time range, and adds information about warning status, wind direction and speed, and wave height to the forecast string.
+
+The old algorithm for determining time ranges is commented out but left in the code for reference.
+
+This code appears to be part of a larger program that is used to analyze and process weather data, specifically related to wind and wave conditions. 
+
+Here is a brief summary of what each function does:
+
+1. `_postProcessArea(self, fcst, editArea, areaLabel, argDict)`: This function appends a newline character to the forecast string and returns it.
+
+2. `_postProcessProduct(self, fcst, argDict)`: This function appends a newline character and "$$" to the forecast string, sets the progress percentage to 100, and displays a completion message. It then returns the modified forecast string.
+
+3. `_getCurrentTimeString(self)`: This function returns the current time in the format "day, minute, hour" in Coordinated Universal Time (UTC).
+
+4. `_getAnalysisList(self)`: This function returns a list of tuples. Each tuple contains a string ("Wind" or "WaveHeight") and a method (self.vectorAvg or self.avg).
+
+5. `_warningStatus(self, statDict, argDict)`: This function checks the wind and wave height statistics. Depending on the magnitude of the wind and wave height, it returns a warning status ("NO", "SC", "GL", "ST", "HF", "TS", or "HR").
+
+6. `_windDirSpeed(self, statDict, argDict)`: This function returns a wind direction and speed. If the wind is variable, it returns "9999". Otherwise, it calculates and returns a value based on the wind direction and magnitude.
+
+7. `_variableWinds(self, mag, dir)`: This function checks if the wind is variable. If the wind magnitude is less than 5, it returns 1 (indicating variable winds). Otherwise, it returns 0.
+
+8. `_sigWaveHeight(self, statDict, argDict)`: This function returns a significant wave height. If the wave height is less than 10, it returns a string representation of the wave height with a leading zero. Otherwise, it returns a string representation of the wave height.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

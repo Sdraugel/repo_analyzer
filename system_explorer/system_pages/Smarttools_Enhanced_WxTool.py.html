@@ -1,0 +1,115 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Enhanced_WxTool.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Enhanced_WxTool.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This is a software documentation for a program called BUF_WxTool, version 2.1, developed by John Rozbicki for the National Weather Service in Buffalo (NWS BUF). The software is in the public domain and is provided "as is", without any warranty or technical support.
+
+The documentation includes a legal notice from the Raytheon Company, stating that the software was developed or modified under a contract with the US Government. The software contains export-restricted data, and its export or transfer is restricted by US law.
+
+The documentation also includes a history of changes made to the software. The latest version, 2.1, was last modified on August 25, 2008. The changes made in this version include:
+
+1. The addition of code to produce a single pop-up error message if thunderstorms are selected along with multiple invalid thunderstorm attributes.
+2. New checks to allow the tool to run to completion if the user selects certain conditions.
+3. A change in the error message returned when the user selects certain coverages with a precip type.
+4. Minor changes to the tool documentation and other pop-up error messages.
+
+The previous version, 2.0, was modified on March 27, 2006. The changes made in this version include:
+
+1. The addition of the ability to override the default probability/coverage obtained from the corresponding PoP grid.
+2. The addition of 3 new weather types and coverage terms.
+3. The addition of very light to the list of intensities.
+4. The addition of internal checks to ensure that the tool does not create invalid weather types.
+5. The ability to select alternate prob/cov terms if categorical PoPs are used. 
+
+The documentation is cut off and does not include the full description of the changes made in version 2.0.
+
+The provided code is a part of a larger script that appears to be used for weather forecasting. It seems to be written in Python and uses the numpy and SmartScript libraries. Here's a breakdown of what this part of the code does:
+
+1. The script starts with a detailed comment section that describes the changes made in different versions of the tool. It includes information about enhancements, bug fixes, and modifications.
+
+2. The script then defines an absolute override file. This means that if there is a higher priority version of this file, it will completely replace a lower priority version.
+
+3. The script sets up a site configuration section where the minimum Probability of Precipitation (PoP) threshold for SChc weather can be configured. The default value is set to 14.5%.
+
+4. The script then defines the type of tool and the weather element being edited.
+
+5. It imports the numpy library, which is a powerful library for numerical computations in Python.
+
+6. The script sets up an empty screen list and a variable list. The variable list contains a series of tuples, each representing a different variable that the user can input. These variables include weather conditions, intensity, and other attributes.
+
+7. The script then imports the SmartScript library, which is likely a custom library for this tool, and sets up a class named Tool that inherits from SmartScript.SmartScript.
+
+8. The script finally defines the `__init__` method for the Tool class, which is the initializer method that's called when a new object of the class is created. It also mentions a required method `Execute` which is not defined in this part of the code but is likely defined later in the script. This method is probably called for each point for each grid to be edited. 
+
+Please note that without the full script or additional context, some assumptions had to be made in this analysis.
+
+The provided code is a method in a class (not provided) that sets weather coverage within an active edit area according to Probability of Precipitation (PoP) values. The method takes three arguments: PoP, Wx, and varDict. The varDict is a dictionary containing various weather-related parameters.
+
+The method first extracts the values from the varDict dictionary and stores them in local variables. These variables include different types of weather, their intensities, probabilities, and other attributes.
+
+The code then checks for invalid weather types based on the values of these variables. If an invalid weather type is detected, an error message is printed and the method returns the current weather (Wx).
+
+The checks are performed for different weather types (R, S, ZR, IP, L, ZL, F) and their respective alternate probabilities/coverages. The code ensures that the correct qualifiers are used with each weather type and that certain combinations are not used. For example, areal coverage qualifiers other than 'Wide' may not be used with a precip type of R, S, ZR, or IP.
+
+Finally, the code starts to create an attribute string based on whether thunder is present or not. However, the code snippet provided is incomplete and does not show how this attribute string is used or what happens with it.
+
+The code is part of a weather forecasting tool that checks for certain attributes of thunderstorms and assigns them abbreviated codes. These attributes include "Small Hail", "Heavy Rain", "Gusty Winds", "Frequent Lightning", "Large Hail", "Damaging Winds", and "Tornadoes". 
+
+The code differentiates between "Non-severe thunderstorms (T)" and "Severe thunderstorms (T+)". For non-severe thunderstorms, the attributes "Large Hail", "Damaging Winds", and "Tornadoes" are considered invalid and if any of these are selected, a pop-up error message is displayed. For severe thunderstorms, the attributes "Small Hail" and "Gusty Winds" are considered invalid and if these are selected, a pop-up error message is displayed.
+
+The code then initializes weather values and keys. Depending on the qualifier type, which can be either "Prob" (probability) or "Cov" (coverage), it assigns different byte values based on the probability of precipitation (PoP). 
+
+The `getByteValue` function is used to adapt the prevailing coverage based on various conditions and set the coverage for different types of weather conditions. If the intensity of fog is very light, light, or moderate, it sets the intensity to `<NoInten>`. The rest of the function's code is not shown in the provided snippet.
+
+This code appears to be part of a larger program, possibly a weather-related application given the references to weather conditions like fog and thunder.
+
+The first part of the code checks a list of weather types and their corresponding intensities. If the weather type is "F" (presumably for Fog), and the intensity is either "--", "-", or "m", it replaces the intensity with "<NoInten>" and displays an error message to the user.
+
+The next section of the code constructs a string, referred to as "uglyString", based on various conditions. The structure of the string depends on the values of the weather types and whether there is thunder. The string appears to be a concatenation of various weather parameters separated by colons and carets. This string is then printed.
+
+If the "uglyString" is empty, it is set to a default value of "<NoCov>:<NoWx>:<NoInten>:<NoVis>:<NoAttr>". The function then returns the index of "uglyString" in a list or array called "keys".
+
+The final part of the code defines a function called "errorNotice" that displays an error message to the user. There's also a commented-out alternative implementation of "errorNotice" that seems to use a graphical user interface library called Tkinter to display the error message.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

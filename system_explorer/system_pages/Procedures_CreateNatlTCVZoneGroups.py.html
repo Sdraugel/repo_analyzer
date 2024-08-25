@@ -1,0 +1,88 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>CreateNatlTCVZoneGroups.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>CreateNatlTCVZoneGroups.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is part of a software that appears to be used for tracking and analyzing weather hazards, particularly storms. The code is open source and in the public domain, meaning it can be used and modified by anyone without restrictions.
+
+The code defines a class `Procedure` that inherits from `TropicalUtility.TropicalUtility`. The `Procedure` class has three main methods:
+
+1. `__init__(self, dbss)`: This is the constructor of the `Procedure` class. It initializes the class with a dictionary `searchUGCdict` that contains U.S. states and their corresponding UGC zone code prefixes.
+
+2. `constructStormHazardMask(self, searchEtn)`: This method constructs a mask (a boolean array) which identifies all areas impacted by hazards associated with a particular storm. It does this by examining the inventory of Hazards grids and checking each hazard key. If the ETN (Event Tracking Number) of a hazard matches the storm of interest, it masks where this hazard exists.
+
+3. `searchHazardsBySegment(self, hazardMask)`: This method searches for hazards associated with a specific storm in breakpoint segment edit areas. It uses regular expressions to look for breakpoint segment areas and checks if these areas overlap with the hazard mask. If they do, it adds the search area to the results list.
+
+4. `searchHazardsByState(self, hazardMask)`: This method is similar to `searchHazardsBySegment`, but it searches for hazards in state edit areas. It uses the `searchUGCdict` dictionary to get the edit areas for each state.
+
+The code also imports several modules such as `re` (for regular expressions), `time`, `numpy` (for numerical operations), `LogStream`, `ProcessVariableList`, and `TropicalUtility`. It also declares a variable `MenuItems` with a list containing only the string "None".
+
+The code provided is a part of a larger Python program that appears to be used for hazard detection in specific geographic areas. It defines several methods that are used to search for, analyze, and return information about hazards in certain areas. Here's a breakdown of what each method does:
+
+1. `findZones()`: This method takes a hazard mask, a list of all edit area names, a results set, and a boolean value `keep`. It iterates over all the edit area names, trying to encode each area into a mask. If the encoding fails, it logs an error and continues with the next area. If the hazard mask and the search mask overlap, it adds the search area to the results set. The method then returns the results set and the list of all edit area names.
+
+2. `searchHazardsByZone()`: This method takes a hazard mask and a list of states. It prepares to track results and retrieves all edit area names. It then iterates over the states, trying to add the corresponding UGC zone codes to the `stateZones` set. It then removes all the edit areas that do not match the pattern of UGC zone code names. It calls the `findZones()` method to find zones in the remaining edit areas. The method returns the results found.
+
+3. `execute()`: This method is the main execution point of the script. It takes a dictionary of variables as input. It starts by extracting storm information and creating a list of storm names. It then displays a GUI for the user to select a storm name. It creates a new time range and retrieves the name of the selected storm. It then extracts the storm number for the selected storm and ensures that it's a national VTEC number. The method then checks if the storm info has been updated within the last 7 hours.
+
+The commented-out code suggests that the developer was in the process of debugging or modifying the program. The `print` statements and commented-out code lines are likely used for debugging purposes to track the program's progress and understand its behavior.
+
+This Python script appears to be part of a larger system that processes and analyzes storm data. Here's a breakdown of what this part of the file is doing:
+
+- The script first checks if the storm information is older than 7 hours (7 * 3600 seconds). If it is, it sends a status bar message to the user to update the StormInfo and then returns, ending the execution of the current function.
+
+- It then initializes an empty list `closerLookStates` and constructs a hazard mask for the given storm number.
+
+- If there are any areas still impacted by the storm (indicated by `hazardMask.any()`), it searches for hazards by state and assigns the result to `closerLookStates`. It then searches for hazards by zone and assigns the result to `results`. If there are no areas impacted by the storm, `results` is set to an empty set.
+
+- It then constructs a filename for the output and tries to load a previous version of this combinations file. If there's an error loading the file, it logs the problem. If the previous combinations file is empty or None, it sets `prevCombo` to a list containing an empty list.
+
+- It then adds back any cancelled zones to the final set of results and saves the final combinations file.
+
+- It measures the time it took to update the combinations file and prints this information.
+
+- If there are any zones left (indicated by `len(finalSet) > 0`), it sends a status bar message to the user instructing them on how to create the national TCV (Tropical Cyclone Vortex) for the storm through the GFE (Graphical Forecast Editor) Formatter Launcher.
+
+- Finally, it measures the total time it took for the process and prints this information, along with a message indicating that the process of creating National TCV Zone Groups is done.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>MinRH_Tool.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>MinRH_Tool.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code file appears to be a part of a weather forecasting software developed by Raytheon Company. It is a tool for calculating the minimum relative humidity (MinRH) over a given time range.
+
+The code starts with a legal notice and contractor information. It also mentions that the software is in the public domain and is provided without any warranty or technical support.
+
+The actual code begins by defining the type of the tool as "numeric" and the weather element being edited as "MinRH". It then imports all functions from the numpy library.
+
+Next, it imports the SmartScript module and defines a class named "Tool" that inherits from the SmartScript class. The class has two methods: `__init__` and `execute`.
+
+The `__init__` method is the constructor for the class and it initializes the parent class with the `dbss` parameter.
+
+The `execute` method takes a `GridTimeRange` parameter and returns the minimum relative humidity over the selected time range. It does this by calling the `getGrids` method with the parameters "Fcst", "RH", "SFC", `GridTimeRange`, 'Min', and 0. The "Fcst" and "RH" parameters likely refer to forecast and relative humidity, respectively. The "SFC" parameter could possibly refer to surface level. The 'Min' parameter indicates that the minimum value is to be returned. The 0 could be a default value or placeholder.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

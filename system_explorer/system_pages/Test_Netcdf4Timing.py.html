@@ -1,0 +1,66 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Netcdf4Timing.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Netcdf4Timing.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code defines a class `Netcdf4Timing` that extends from `TimingInterface.TimingInterface`. The `Netcdf4Timing` class is used to interact with a netCDF4 file, which is a data format for storing array-oriented scientific data, particularly geophysical data.
+
+Here is a breakdown of what each method in the `Netcdf4Timing` class does:
+
+- `__init__(self, filename, mode="r")`: This is the constructor of the class. It takes a filename and a mode (default is "r" for read) as arguments, and opens the netCDF4 file with the given filename and mode.
+
+- `createGroup(self, name)`: This method creates a new group in the netCDF4 file with the given name and returns it.
+
+- `createDataset(self, group, name, value, nDimensions=1)`: This method creates a new dataset in the specified group with the given name, value, and number of dimensions (default is 1). It creates dimensions for the dataset, assigns the given value to the dataset, and then returns the dataset.
+
+- `close(self)`: This method closes the netCDF4 file.
+
+- `appendValue(self, dataset, value)`: This method appends a value to the end of the specified dataset.
+
+- `getDataset(self, name)`: This method retrieves a dataset from the netCDF4 file with the given name. It splits the name into groups and variables, and then navigates through the groups to find the dataset.
+
+- `sampleValue(self, dataset, index)`: This method retrieves a value from the specified dataset at the given index.
+
+The code also includes a software history log and a TODO comment, which is a common practice in software development to keep track of changes and future improvements. The software history log shows that the initial creation of the code was done by an engineer named njensen on 05/20/10.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

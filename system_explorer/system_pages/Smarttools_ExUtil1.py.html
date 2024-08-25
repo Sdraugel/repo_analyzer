@@ -1,0 +1,66 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ExUtil1.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ExUtil1.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be part of a larger software system developed by Raytheon Company. It's a tool for working with numerical weather data, specifically temperature ("T") grids. The script imports several modules, including numpy, SmartScript, and Common.
+
+The script defines a class `Tool` that inherits from `SmartScript.SmartScript`. The class has an `__init__` method for initialization and an `execute` method that performs the main functionality.
+
+In the `execute` method, the script:
+
+1. Accesses temperature grids directly.
+2. Converts topography data from feet to meters.
+3. Creates sounding cubes for temperature. The height will increase in the sounding and be the first dimension.
+4. Prints the shapes of the created cubes.
+5. Creates an initial temperature grid with values of -200. This is an out-of-range value to help identify values that have already been set.
+6. Works "upward" in the cubes to assign temperature. The value is only set once, i.e., the first time the gh height is greater than the topography.
+7. Converts the temperature from Kelvin to Fahrenheit.
+
+The script then returns the temperature in Fahrenheit.
+
+The script also includes a variable list for a model, which suggests that this script may be used in conjunction with other scripts or modules that provide different models of data.
+
+Please note that the script contains U.S. export-controlled technical data, meaning its export/transfer/disclosure is restricted by U.S. law.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

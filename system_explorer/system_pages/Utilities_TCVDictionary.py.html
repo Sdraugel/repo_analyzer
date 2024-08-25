@@ -1,0 +1,149 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TCVDictionary.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TCVDictionary.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that defines a dictionary named `ThreatStatements`. This dictionary is used to store various threat statements related to different levels of wind threats. The dictionary is structured in a way that each wind threat level (e.g., "Extreme", "High", "Mod") has associated statements for different stages of the threat ("check plans", "complete preparations", "hunker down", "recovery", "default"). Each stage has three categories of statements: "planning", "preparation", and "action".
+
+For example, if the wind threat level is "Extreme" and the stage is "check plans", the "planning" statement would be "PLAN: Plan for extreme wind of equivalent CAT 3 hurricane force or higher."
+
+The script also defines a variable `WeatherElementEdited` and assigns it a `None` value. The purpose of this variable is not clear from the provided code snippet, but it might be used elsewhere in the program.
+
+The comments at the top of the script provide some metadata about the script, including its authors, last modification date, and a disclaimer that the software is in the public domain.
+
+The provided code seems to be a part of a larger dictionary or JSON object in Python that provides instructions for different scenarios related to weather conditions, specifically wind and storm surge. 
+
+The top-level keys are "Wind" and "Storm Surge", which represent different types of weather conditions. Each of these keys has sub-keys representing the severity of the condition, such as "Extreme", "Elevated", and "None". 
+
+For each severity level, there are further sub-keys representing different stages of dealing with the condition: "check plans", "complete preparations", "hunker down", "recovery", and "default". Each of these stages has three parts: "planning", "preparation", and "action", each providing specific instructions for that stage.
+
+For example, under "Wind" -> "Extreme" -> "check plans", the "planning" instruction is "Plan for extreme wind of equivalent CAT 4 or higher.", the "preparation" instruction is "Efforts to protect life and property should be underway. Prepare for catastrophic wind damage.", and the "action" instruction is "Act now to complete preparations before the wind becomes hazardous."
+
+The same structure is followed for the "Storm Surge" key. This code could be part of a weather application or emergency response system that provides users with instructions based on the current and predicted weather conditions.
+
+This code appears to be a part of a larger system that provides guidance and instructions for different stages of a storm surge event. The code is structured as a dictionary or a JSON object with keys representing different levels of storm surge severity ("Extreme", "High", "Mod") and each level contains sub-dictionaries for different stages of the event ("check plans", "complete preparations", "hunker down", "recovery", "default").
+
+Each stage has three parts: "planning", "preparation", and "action". These parts provide specific instructions for that stage. For example, in the "Extreme" level, during the "hunker down" stage, the "planning" instruction is to plan for extreme life-threatening storm surge flooding greater than 9 feet above ground, the "preparation" instruction is that all ordered evacuations should be complete and evacuees should be in shelters well away from storm surge flooding, and the "action" instruction is to remain sheltered in a safe location, not venture outside, and move to upper floors to escape rising water if necessary.
+
+The "default" stage seems to provide general instructions for each level of storm surge severity when no specific stage is active.
+
+Overall, this code is likely used in a system that provides real-time instructions to people during a storm surge event, tailoring the instructions based on the severity of the storm surge and the current stage of the event.
+
+The provided code is a part of a larger JSON-like data structure or dictionary in Python. It seems to be a part of a system that provides guidelines or instructions for different scenarios related to natural disasters, specifically storm surges and heavy rain flooding. 
+
+The data structure is organized into different categories based on the type of natural disaster ("Storm Surge" and "Flooding Rain") and the severity of the situation ("Extreme", "Elevated", "None"). For each combination of disaster type and severity, there are different sets of instructions for various stages of the event: "check plans", "complete preparations", "hunker down", "recovery", and a "default" set of instructions. 
+
+Each set of instructions includes a "planning", "preparation", and "action" phase. For example, in the case of an "Extreme" storm surge, during the "check plans" stage, the "planning" instruction is to plan for storm surge flooding greater than 1 foot above ground, the "preparation" instruction is to prepare for storm surge flooding, especially in low-lying vulnerable areas, and the "action" instruction is to take actions to protect life and property and prepare to leave if evacuation orders are given.
+
+This data structure could be used in a program that provides users with appropriate instructions based on the current situation and phase of a natural disaster.
+
+The provided code is a part of a larger JSON object or Python dictionary that seems to be used for providing emergency instructions based on the level of flood risk. The keys of the outermost dictionary are risk levels: "Extreme", "High", "Mod", and "Elevated". 
+
+Each of these risk levels contains another dictionary with keys representing different stages of the emergency: "check plans", "complete preparations", "hunker down", "recovery", and "default". 
+
+Each of these stages contains a further dictionary with keys: "planning", "preparation", and "action", each of which holds a string value providing instructions for that particular stage of the emergency.
+
+For example, if the risk level is "Extreme" and the stage is "hunker down", the planning instruction would be "Emergency plans should include the potential for extreme flooding from heavy rain. Evacuations and rescues are likely."
+
+This structure allows for easy access to instructions based on the current risk level and stage of the emergency.
+
+The provided code is a part of a larger JSON object or a Python dictionary that appears to be a set of instructions or guidelines for different types of emergency situations, specifically related to weather conditions such as flooding and tornadoes.
+
+The top-level keys in this dictionary are the types of weather conditions ("Flooding", "None", "Tornado"). Each weather condition has sub-keys representing different levels of severity or stages of the event ("Extreme", "High", "None"). Each of these stages has further sub-keys representing different phases of response ("check plans", "complete preparations", "hunker down", "recovery", "default"). Each phase of response contains instructions for "planning", "preparation", and "action".
+
+For example, under the "Tornado" weather condition, in the "Extreme" stage, during the "check plans" phase, the guidelines suggest that emergency plans should include the potential for an outbreak of many tornadoes, those living in manufactured homes or on boats should prepare to relocate to safe shelter, and people should listen for tornado watches and warnings.
+
+This structure allows for easy access to specific instructions based on the current weather condition, its severity, and the phase of response.
+
+The provided code is a part of a Python dictionary that appears to be used for providing emergency preparedness instructions based on the level of tornado threat. The dictionary has keys corresponding to different threat levels ("Extreme", "Mod", "Elevated", "None"), and each of these keys maps to another dictionary. 
+
+This nested dictionary has keys corresponding to different stages of emergency response ("check plans", "complete preparations", "hunker down", "recovery", "default"), and each of these keys maps to yet another dictionary. 
+
+This third-level dictionary has keys for "planning", "preparation", and "action", each of which maps to a string containing specific instructions for that stage of response under the given threat level. 
+
+For example, if the threat level is "Extreme" and the stage is "check plans", the instructions would be to plan for many tornadoes, prepare for relocation if living in a manufactured home or on a boat, and act by listening for tornado watches and warnings. 
+
+The "default" key seems to provide a general set of instructions that could be used if no specific stage of response is currently applicable.
+
+The provided code is a Python dictionary that contains potential impact statements related to different weather conditions, specifically wind and storm surge. Each weather condition has different levels of severity, such as "Extreme", "High", "Mod", "Elevated", and "None" for wind, and each level has a list of statements describing the potential impacts.
+
+The first part of the code contains another dictionary with keys like "monitor", "complete preparations", "hunker down", "recovery", and "default". Each of these keys has a nested dictionary with keys "planning", "preparation", and "action", each containing a string with instructions or information related to tornado situations.
+
+In summary, this code provides a structured way to access detailed information about the potential impacts of different weather conditions and instructions for different stages of a tornado situation.
+
+This code is a Python dictionary that organizes potential impacts of different weather conditions, specifically storm surge, flooding rain, and tornadoes. Each weather condition has different levels of severity, such as "Extreme", "High", "Mod" (Moderate), "Elevated", and "None". 
+
+For each level of severity, there is a list of descriptions detailing the potential impacts. For example, under "Storm Surge" and "Extreme", there are descriptions of potential catastrophic damage to buildings and infrastructure, major beach erosion, and significant flooding. 
+
+This dictionary could be used in a weather forecasting or emergency planning application, providing detailed descriptions of potential impacts for different weather conditions and their severity levels.
+
+The code you provided is a collection of statements and messages related to emergency preparedness and response, specifically for weather-related events such as tornadoes or tropical storms. These messages are organized into categories and are likely used in an application to provide information and instructions to users during different phases of a weather event.
+
+1. `TornadoThreatStatements`: This dictionary contains categorized statements about the potential impacts of tornadoes. The categories are "Extreme", "High", "Moderate", "Elevated", and "None", each containing a list of statements that describe the potential damage and risks associated with that level of tornado threat.
+
+2. `EvacuationStatements`: This list contains general instructions for people during different phases of an evacuation process, such as the "WATCH/WARNING PHASE", "IMMINENT/ONGOING PHASE", and "RECOVERY PHASE". These instructions include advice on when and how to evacuate, what to bring, and how to stay safe.
+
+3. `OtherPreparednessActions`: This dictionary contains lists of preparedness actions that people should take before and during a weather event. The categories are "check plans" and "complete preparations", each containing a list of statements that provide advice on how to prepare for the event, such as checking emergency plans, securing property, and staying informed.
+
+The code does not contain any functions or methods, so it does not perform any actions on its own. However, it likely serves as a data source for other parts of an application, which would use these messages to inform users about the current situation and what they should do.
+
+The provided code appears to be a dictionary in Python. Each key in the dictionary corresponds to a different phase of a storm or hurricane, and the values are lists of strings containing advice for each phase.
+
+The keys are "before the storm", "during the storm", "hunker down", and "recovery". 
+
+- "before the storm" key provides advice on what to do before a storm hits, such as knowing your location, being aware of storm surge risks, and monitoring official storm information.
+- "during the storm" key provides advice on what to do during the storm, such as staying inside, keeping your cell phone charged, and not venturing outside during the eye of the storm.
+- "hunker down" key provides advice on what to do when the storm is at its peak, such as moving to the safest place within your shelter and being prepared for a quick rise in water levels.
+- "recovery" key provides advice on what to do after the storm has passed, such as staying away from downed power lines, checking in with your emergency contacts, and not attempting to return to evacuated areas until local authorities have given the all clear.
+
+This dictionary could be used in a program that provides advice to users based on the current phase of a storm or hurricane.
+
+The provided code is a Python dictionary named "DisasterTips" which contains key-value pairs. Each key represents a type of disaster and the value is a list of tips or precautions related to that disaster. 
+
+For example, the key "Tornado" has a list of tips like "Go to a pre-designated area such as a safe room, basement, storm cellar, or the lowest building level.", "If there is no basement, go to the center of a small interior room on the lowest level (closet, interior hallway) away from corners, windows, doors, and outside walls.", etc.
+
+The "AdditionalSources" is a Python list that contains strings. Each string is a source of additional information for disaster preparedness. These sources are URLs of websites where one can get more information about disaster readiness. 
+
+Please note that this code is not executable and does not perform any actions. It simply defines a dictionary and a list that could be used elsewhere in the program.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

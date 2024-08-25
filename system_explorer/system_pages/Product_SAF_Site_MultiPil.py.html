@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>SAF_Site_MultiPil.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>SAF_Site_MultiPil.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be part of a larger software system, possibly related to weather forecasting given the references to "AreaFcst" and "Product Definition". 
+
+The initial comments indicate that the software was developed by Raytheon Company and contains export-restricted data. It also mentions that this is a base file and should not be overridden.
+
+The script then imports several modules, including `AreaFcst`, `sys`, `copy`, and `importlib`. It also constructs several string variables that appear to be module names, and uses `importlib.import_module` to dynamically import these modules.
+
+After importing the necessary modules, the script retrieves class objects for the region and site overrides from the imported modules. It then retrieves the definitions from each of these modules and stores them in separate variables.
+
+The script defines a class `TextProduct` that inherits from several other classes, including the override classes and `AreaFcst.TextProduct`. This class has a `Definition` attribute, which is a deep copy of `AreaFcst.TextProduct.Definition`. The `Definition` attribute is then updated with the definitions from the various override modules.
+
+The script attempts to get a `VariableList` from each of the override modules, catching any exceptions that might occur if the `VariableList` does not exist in a particular module.
+
+Finally, the `TextProduct` class has an `__init__` method that calls the `__init__` method of `AreaFcst.TextProduct`.
+
+In summary, this script is setting up a `TextProduct` class that incorporates various site-specific and region-specific overrides, possibly for some kind of weather forecasting product.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

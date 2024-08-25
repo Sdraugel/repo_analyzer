@@ -1,0 +1,266 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>WxPhrases.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>WxPhrases.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The code file, WxPhrases.py, is a Python script that is part of a larger software system developed by Raytheon Company. The software is used for producing text forecasts from SampleAnalysis statistics. The script defines a class, WxPhrases, which inherits from the PhraseBuilder class. The class contains methods that are used for processing weather data and generating weather phrases.
+
+The WxPhrases class has various methods including:
+
+1. `standard_weather_phraseMethods`: This method returns a list of methods to be used for processing weather data.
+
+2. `pop_wx_lower_threshold`: This method sets a threshold for reporting weather related to the probability of precipitation (PoP).
+
+3. `pop_related_flag`: This method determines if certain weather subkeys are related to PoP and should be reported.
+
+4. `precip_related_flag`: This method determines if certain weather types are related to precipitation and should be separated into different phrases.
+
+5. `filter_subkeys_flag`: This method sets a flag for filtering and condensing of weather subkeys.
+
+6. `wxHierarchies`: This method defines a hierarchy of weather types, coverages, intensities, and visibilities for combining into one subkey.
+
+7. `similarCoverageLists`: This method defines lists of coverages that should be combined or considered equal.
+
+8. `wxCombinations`: This method defines a list of weather types that should be combined into one within a sub-phrase.
+
+The script also includes a logging mechanism, which is used for tracking the execution of the program and debugging purposes. The log is named "FormatterRunner.WxPhrases.WxPhrases".
+
+The code file also contains some legal and contractual information, including export control restrictions and contractor details. It mentions that the software is in the public domain and provided "as is", without any warranty or technical support.
+
+This code appears to be part of a larger system that deals with weather data and its representation. Here's a breakdown of what each part of the code does:
+
+1. `combine_T_RW`: This function is used to combine weather types 'T' (presumably Thunder) and 'RW' (presumably Rain Showers) under certain conditions. It checks if the coverage of 'T' is dominant over or equal to the coverage of 'RW' and 'RW' does not have + intensity. If these conditions are met, it returns a tuple with 1 and subkey1.
+
+2. `wxCoverageDescriptors`, `wxTypeDescriptors`, `wxIntensityDescriptors`, `wxAttributeDescriptors`: These methods return lists of tuples that define special wording for different weather conditions. Each tuple contains information about the coverage, weather type, intensity, attribute, and descriptor. If a weather subkey is not found in these lists, default wording will be used from the Weather Definition in the server.
+
+3. `rainShowersDescriptor`: This method returns a descriptor for rain showers based on the intensity and temperature.
+
+4. `weather_phrase`: This method returns a dictionary with methods for setting up, wording, and phrasing weather conditions.
+
+5. `weather_setUp`: This method sets up the node with information about weather conditions.
+
+6. `preProcessWx`: This method seems to be used for preprocessing weather data. However, the code is incomplete, so it's hard to determine exactly what it does.
+
+Overall, this code seems to be part of a system for processing and describing weather data in a human-readable format.
+
+This code is performing a series of operations on a data structure called a tree, specifically on its "phrases" and "subphrases". 
+
+The first part of the code is iterating over each "subphrase" of a given "phrase". For each "subphrase", it retrieves a list of statistics ("stats") and appends them to the "newStats" list. If the "resolution" of the "phrase" is not None, it gets the time range and area label of the "subphrase" and uses them to retrieve the stats. If the "resolution" is None, it only uses the time range and area label to retrieve the stats. If no stats are found, the function returns a call to self.DONE().
+
+The next part of the code is consolidating the new statistics until no changes are made. It does this by repeatedly combining as many statistics as possible and updating the "newStats" list until no changes are made in a pass or the "newStats" list is empty.
+
+After that, the code creates a dictionary to filter the consolidated stats by time. For each combined statistic, it checks if the time range is already in the dictionary. If it's not, it adds the statistic to the dictionary. If it is, it appends the statistic to the existing list for that time range.
+
+The code then creates new nodes for each consolidated subphrase, setting various properties for each node, and adds them to a new list of subphrases. It replaces the old subphrases with the new subphrases in the "phrase".
+
+Finally, the code defines a method to combine statistics according to certain rules. It iterates over all the statistics, breaking each one into its components, and tries to combine it with the other statistics if their time ranges are neighboring. The details of the combination process are not shown in the provided code.
+
+The code you provided is written in Python and seems to be part of a larger system that processes weather data. 
+
+The first part of the code is a function that checks if weather conditions can be combined based on their similarity. If they can be combined, it creates a new aggregate key, marks the original keys as combined, and adds the new key to a list of combined stats. It also keeps track of the number of changes made and the types of weather that have been combined.
+
+The second function, `useSimple`, decides whether to use simple or complex weather phrasing based on the number of subkeys and coverage groupings. Simple wording is used if there are two or fewer subkeys or coverage groupings. Otherwise, complex wording is used.
+
+The third function, `rankWordingFuzzFactor`, seems to be a placeholder function that always returns 10. It's possible that in the full context of the code, this function is overridden or replaced with a more complex implementation.
+
+The next functions (`wxConjunction`, `withPossible`, `withPhrase`, `withPocketsOf`, `possiblyMixedWith`) are used to determine the appropriate wording to use when combining different weather conditions. They take into account factors such as the rank of the conditions, their coverage, and their types.
+
+The last part of the code seems to be cut off, so it's unclear what the final function does. However, based on its name and the pattern of the previous functions, it likely determines the wording to use when one weather condition is possibly mixed with another.
+
+This Python code is part of a larger system that generates weather reports. It takes in data about the weather and outputs a human-readable description of the weather. Here's a breakdown of the main parts:
+
+1. `mixedWith` function: This function takes two weather types and returns a string that describes how they are mixed. If the second weather type is "T", it returns " and ", otherwise it returns " mixed with ".
+
+2. `weather_words` function: This function generates a phrase to describe a list of weather subkeys for a specific sub-period. It first checks the rank list against the probability of precipitation (PoP) and visibility. Then it gets the weather words, adds embedded visibility, and replaces multiple "and's" with commas. The final phrase is returned.
+
+3. `checkPoP` function: This function checks the probability of precipitation (PoP) against a threshold. If the PoP is below a certain threshold, it does not report pop_related subkeys. It returns a new list of subkeys and ranks.
+
+4. `getWeatherWords` function: This function generates a phrase for each WeatherSubKey. It uses the ranking of subkeys to form the wording. The wording can be simple or complex depending on the useSimple flag. The complex wording is of the form: `<list1 of subkeys> <conjunction> <list2 of subkeys>`, where list1 and list2 are lists of subkeys separated by '...' or 'and'. The conjunction connects the 2 lists appropriately.
+
+Overall, this code is designed to create a detailed, human-readable weather report based on a set of weather data.
+
+This code appears to be part of a larger program that generates weather forecasts or descriptions based on some input data. 
+
+The `addWxConjunction` function seems to be used to add conjunctions (like "and", "with", "with pockets of") between different weather conditions. It takes into account factors like the similarity of the weather conditions, their rank, and their coverage. The function also handles special cases like "likely" weather conditions.
+
+The `weather_value` function generates a phrase to describe a particular weather condition. It takes into account the type of weather, its intensity, and any special attributes (like "large hail"). It also avoids repeating the same coverage description (like "widespread") for consecutive weather conditions. 
+
+In both functions, there are several calls to other functions (like `self.wxConjunction`, `self.similarCoverages`, `self.rankWordingFuzzFactor`, `self.withPossible`, `self.withPocketsOf`, etc.) which are not included in the provided code, but presumably they perform specific tasks related to generating the weather descriptions.
+
+Overall, this code is designed to generate human-readable weather descriptions from some kind of structured weather data.
+
+The code provided appears to be a part of a larger program, possibly related to weather forecasting or reporting. Here's a brief description of what each part of the code does:
+
+1. The first part of the code checks if the string "small hail" is present in a list called `attrTextList`. If it is, it sets the variable `hailAttr` to "small hail" and `adj` to "small". If `hailAttr` is not `None`, it creates a new list `newAttrs` which contains all elements of `attrTextList` except `hailAttr`.
+
+2. The next part of the code arranges the order of words in a phrase based on certain conditions. If `typeOnly` is 1, it returns `wxType` and `cov`. If `includeCovInten` is 0, it sets `cov` and `inten` to empty strings. Then it handles a special case where `cov` is "likely". Finally, it puts together a phrase using `word1`, `word2`, and `word3`, and adds attributes to the phrase.
+
+3. The `getIndex` method returns the index of a given value in a list from `wxHierarchies` dictionary.
+
+4. The `getSubkeys` method returns a list of `subkeys` from a given `rankList` excluding those with `wxType` as "<NoWx>".
+
+5. The `checkVisibility` method checks visibility conditions based on a set of rules and returns 1 or 0 based on whether the conditions are met.
+
+6. The `addEmbeddedVisibility` method adds embedded visibility wording to a given set of words based on certain conditions.
+
+7. The `separateNonPrecip_threshold` method returns 1, which seems to be a threshold for separating precip from non-precip.
+
+8. The `separateNonPrecip` method separates precip from non-precip based on certain conditions. If the length of `statList` is greater than or equal to the threshold returned by `separateNonPrecip_threshold`, it separates the elements of `statList` into `precip` and `nonPrecip`.
+
+The last part of the code seems to be incomplete, so it's hard to say what it does.
+
+The code provided is written in Python and appears to be part of a larger program that processes and manipulates weather data. 
+
+1. `def consolidateVisibility(self, tree, node)`: This function checks if the visibility is constant throughout subphrases and non-null. If it is, it separates it into its own phrase. If the visibility for a subphrase differs from the previous one, it cannot consolidate and returns. If the visibility is below a certain threshold, it reports it as a separate phrase and turns off visibility reporting for this weather phrase.
+
+2. `def consolidateWx(self, tree, node)`: This function checks if any weather types span all subphrases and if so, separates them into their own phrase. It counts the occurrences of each weather key and finds keys to disable in the first and second phrase, respectively.
+
+3. `def subPhrase_limit(self, tree, node)`: This function sets a limit on the number of sub-phrases. If the number of sub-phrases is greater than this limit, the weather phrase will use a 6-hour resolution instead of a higher resolution.
+
+4. `def checkResolution(self, tree, node)`: This function checks if there are too many sub-phrases and if so, it re-does the phrase in a lower resolution. The limit is determined by the `subPhrase_limit` function. If the number of non-empty phrases is greater than the limit, it creates a new node with a new resolution set.
+
+The code seems to be part of a larger system that processes and organizes weather data into phrases, possibly for a weather report or forecast. It appears to handle different weather conditions, visibility, and the resolution of the time periods for the weather conditions.
+
+This code appears to be a part of a larger program, likely a weather forecasting system, given the context of the variables and methods. The code is written in Python and is object-oriented. 
+
+The code is defining several methods that are used to process and analyze weather data. These methods seem to be part of a larger class, but the class definition is not included in the provided code.
+
+Here's a brief overview of some of the methods:
+
+1. `severeWeather_phrase`: This method returns a dictionary that contains other methods as its values. These methods are likely used to process and analyze severe weather data.
+
+2. `severeWeather_setUp`: This method sets up the necessary data and flags for processing severe weather data.
+
+3. `determineSevereTimeDescriptors`: This method determines the time descriptors for severe weather. It checks if there is thunder throughout the time period, if there is severe thunder throughout the time period, and if all thunder that appears in the period is severe.
+
+4. `severeWeather_words`: This method generates a phrase that describes the severe weather. It checks if there is thunder and if it is severe. It also checks for other weather attributes.
+
+5. `heavyRainTypes`, `heavySnowTypes`, `heavyOtherTypes`: These methods return lists of weather types that will trigger the `heavyPrecip_phrase` method.
+
+6. `heavyPrecip_phrase`: This method returns a dictionary that contains other methods as its values. These methods are likely used to process and analyze heavy precipitation data.
+
+The code also contains several comments that provide additional context and explanation for what the code is doing. For example, the comment at the top of the provided code explains how weather data is broken down into sub-phrases based on the complexity of the weather.
+
+The provided code seems to be a part of a larger program, possibly related to weather forecasting or analysis. Here's a brief explanation of what each function does:
+
+1. `heavyPrecip_setUp(self, tree, node)`: This function sets up the node for heavy precipitation. It creates an element info list, sets up subphrases, and sets the "noIntensityCombining" attribute of the node to 1.
+
+2. `combineHeavyPrecip(self, tree, phrase)`: This function checks if it's ready to process the phrase. If it is, it combines the children of the tree and the phrase using the `combineHeavy` method.
+
+3. `combineHeavy(self, tree, phrase, subPhrase1, subPhrase2)`: This function checks if there is heavy precipitation in both subphrases. If there is, it combines the subphrases and returns a new subphrase. If not, it returns 0 and None.
+
+4. `heavyPrecip_words(self, tree, node)`: This function generates a string of words describing the heavy precipitation based on the weather type and intensity. It checks for different types of precipitation like snow, rain, and other types.
+
+5. `filterSubkeys(self, tree, node, rankList)`: This function filters the subkeys in the rankList. If the filter subkeys flag is 0, it returns the rankList as it is. Otherwise, it combines the subkeys.
+
+6. `convertToRankList(self, rankList)`: This function converts a list of subkeys to a rank list by adding a dummy rank to each entry.
+
+7. `convertFromRankList(self, rankList)`: This function removes the dummy ranks from the rankList and returns a list of subkeys.
+
+8. `combineSubKeys(self, tree, node, rankList)`: This function compares subkeys and condenses them if appropriate. It keeps combining until no more combinations can be made.
+
+The code seems to be incomplete as the `combineSubKeys` function is not finished.
+
+The code provided is a part of a larger Python program. It appears to be dealing with some sort of hierarchical data structure, possibly a tree, and is focused on combining keys and determining dominance in coverage and type. Here's a breakdown of what each part of the code does:
+
+1. `combineKeys(self, tree, node, rankList)`: This method tries to combine keys in the rank list. It iterates through the rank list and tries to combine each pair of keys using the `combineKey1Key2` method. If a combination is possible, it returns the combined key, its rank, and the indices of the keys that were combined. If no combination is possible, it returns None for the key and rank, and 0 for the indices.
+
+2. `combineKey1Key2(self, tree, node, entry1, entry2)`: This method tries to combine two keys. It checks if the keys are identical, if they have the same type, or if they can be combined using a user-defined combination. If a combination is possible, it returns the combined key and the maximum rank of the two keys.
+
+3. `matchWxCombination(self, combination, subkey1, subkey2)`: This method checks if a pair of keys matches a given combination. If the combination is a method, it calls the method with the keys as arguments. If the combination is a pair of types, it checks if the keys have these types. If a match is found, it returns a flag indicating a match and the combined key.
+
+4. `dominantCoverageOrder(self, val1, val2)` and `dominantTypeOrder(self, val1, val2)`: These methods determine the dominance order of two values based on their coverage or type. They return -1 if the first value is dominant, 0 if they are equal, and 1 if the second value is dominant.
+
+5. `getDominant(self, hierarchy, val1, val2)`: This method returns the value that appears first in a given hierarchy.
+
+6. `getCoverage(self, tree, node, subkey, covDescs, wxDef, attrList)`: This method is incomplete in the provided code, but it appears to be intended to return the coverage of a given subkey.
+
+The main part of the code uses these methods to combine keys in a rank list. It keeps combining keys until no more combinations are possible, then it returns the final rank list. If a flag `convertedFlag` is set, it also converts the rank list before returning it.
+
+The provided code seems to be part of a larger system, possibly a weather forecasting or reporting system. It includes several methods that handle visibility-related data and descriptions. Here's a breakdown of what each method does:
+
+1. `matchSubkey`: This method checks if the given parameters match with the properties of a 'subkey' object. If any of the properties do not match, it returns 0, otherwise, it returns 1.
+
+2. `getWxDesc`: This method returns a description of the weather. If the 'desc' parameter is a method, it calls that method with the provided parameters. If 'desc' is not a method, it simply returns 'desc'.
+
+3. `visibility_phrase`: This method returns a dictionary that defines several methods related to visibility.
+
+4. `visibility_setUp`: This method sets up visibility-related properties for a 'node' object.
+
+5. `visibility_words`: This method generates a phrase describing the visibility based on the weather conditions.
+
+6. `visibility_phrase_nlValue`: This method returns a dictionary that maps ranges of visibility (in nautical miles) to corresponding descriptive phrases.
+
+7. `embedded_visibility_flag`: This method returns a flag indicating whether visibility should be reported embedded with the weather phrase.
+
+8. `visibility_wx_threshold`: This method returns a threshold value below which the weather will be reported.
+
+9. `significant_wx_visibility_subkeys`: This method returns a list of weather conditions that are considered significant and should be reported regardless of visibility.
+
+10. `visibility_weather_phrase_nlValue`: This method returns a dictionary that maps ranges of visibility (in nautical miles) to corresponding descriptive phrases to be used within the weather phrase.
+
+Overall, the code seems to be part of a system that generates weather reports, specifically focusing on visibility conditions.
+
+This Python code is part of a larger system that seems to be doing some sort of weather-related analysis. 
+
+1. The `else` block at the top of the code snippet is returning a dictionary with a tuple key `(0, .3)` and a string value `"visibility one quarter mile or less at times"`. If the condition for this key is not met, it returns `"null"` as the default value.
+
+2. The `matchToWx` function is the main function in this code snippet. It takes several parameters including a tree, a node, an element, and optional parameters for time range, area label, algorithm, and increment. This function seems to be matching weather data to some criteria. It first checks if the time range and area label are provided, if not, it gets them from the node. It then gets several values from the `getMatchToWxInfo` function. The function then gathers necessary data and computes the result based on the provided algorithm. If no precipitating weather is found, it gets the no precipitation value. If the algorithm is "Max", "Mode", or "MaxMode", it computes the result accordingly. If the algorithm is not recognized, it logs a warning.
+
+3. The `getMatchToWxInfo` function retrieves information for matching weather data. It takes several parameters including a tree, a node, an element, an algorithm, and an increment. If the matching information is not found, it logs a warning and sets default values. Otherwise, it retrieves the necessary information from the matching info.
+
+4. The `getNoPrecipValue` function returns a value when there is no precipitation. It checks the value of `noPrecipValue` and returns a result accordingly.
+
+5. The `getBinnedResult` function returns a result based on the algorithm provided. If the algorithm is "Max", it returns the maximum element value that falls within the element range and has a greater than zero percentage. If the algorithm is "Mode", it returns the most frequent element value that falls within the element range and has a greater than zero percentage.
+
+The commented-out print statements and traceback suggest that this code is still in development or used for debugging purposes.
+
+This code is part of a larger program and appears to be written in Python. It contains three methods: `getBinnedResult`, `getMaxModeResult`, and `getHighSubkey`.
+
+1. `getBinnedResult`: This method takes several parameters including a tree, a node, element bins, coverage low and high values, an increment, an algorithm, and a percent threshold. It calculates a result value based on the provided algorithm ("Max" or "Mode") and the percent threshold. It iterates over the element bins, and depending on the algorithm, it either sets the result value to the maximum value or the most frequent value. If no element meets the criteria, it sets the element value to either the bin high value or the result value, depending on which is smaller.
+
+2. `getMaxModeResult`: This method also takes several parameters including a tree, a node, a list of element bins, coverage low and high values, an increment, an algorithm, and a percent threshold. It uses the `getBinnedResult` method to calculate a list of element values. It then finds and returns the maximum value from this list that falls within the coverage range.
+
+3. `getHighSubkey`: This method takes parameters including a tree, a node, a time range, an area label, and optional weather types. It finds and returns the highest precip subkey in a ranked list. If weather types are provided, it only considers keys of those types. It also checks for PoP-related (probability of precipitation) and non-precipitating events and skips them if found.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

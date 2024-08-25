@@ -1,0 +1,68 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TestTafDecoder.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TestTafDecoder.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to test the functionality of a TAF (Terminal Aerodrome Forecast) Decoder for AVNFPS (Aviation Flight Planning Services). The TAF Decoder is likely a module that interprets TAF data, which are weather reports generated for aviation purposes.
+
+Here's a breakdown of what the code does:
+
+1. The `main` function is defined. This function will be the entry point of the script when it's run from the command line.
+
+2. Inside `main`, the `sys` and `TafDecoder` modules are imported. `sys` is a standard Python library for interacting with the Python interpreter (it's used here to access command-line arguments), and `TafDecoder` is presumably a custom module for decoding TAF data.
+
+3. The filename to be decoded is expected to be passed as a command-line argument. This argument is stored in `filename`.
+
+4. The file with the given name is opened, and all its lines are read into the `lines` variable.
+
+5. An instance of the `Decoder` class from the `TafDecoder` module is created, and the lines from the file are passed to this decoder.
+
+6. The decoded result is printed to the console.
+
+7. The `errors` function from the `TafDecoder` module is called with the result of the decoding, presumably to check for any errors or warnings during the decoding process. These errors and warnings are then printed to the console.
+
+8. The `if __name__ == '__main__':` line checks if the script is being run directly (as opposed to being imported as a module). If it is, the `main` function is called, starting the process described above.
+
+The comments at the top of the file provide additional context. They indicate that the software was developed by Raytheon Company for the US Government, and that it contains export-restricted data. The comments also provide usage instructions for the script.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

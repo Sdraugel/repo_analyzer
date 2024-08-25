@@ -1,0 +1,64 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>requestTCV.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>requestTCV.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a larger software system developed by Raytheon Company. It appears to be used for requesting and handling TCV (Tropical Cyclone Vortex) advisory files.
+
+The script begins with a detailed header that includes information about the software's development, export control restrictions, contractor details, and a brief software history.
+
+The script imports several modules and then defines two functions: `init_logging()` and `runFromJava(siteID, config)`.
+
+The `init_logging()` function initializes a logger named "requestTCV" with a log level set to INFO.
+
+The `runFromJava(siteID, config)` function is more complex. It appears to be designed to be called from a Java application and takes two parameters: a site ID and a configuration object. The function extracts several configuration values, initializes logging, and then attempts to create a directory for storing TCV products.
+
+The function then creates a dictionary named `sourceServer` containing details about the server from which the TCV files will be requested. It then attempts to retrieve a list of destination sites from the `VTECPartners` module and raises an exception if no sites are defined.
+
+The function then creates an instance of `IrtAccess` and uses it to create an XML file containing details about the destination sites and the source server. This XML file is written to a temporary file in the TCV products directory.
+
+The function then removes the source server from the list of destination servers (to prevent sending the request to ourselves) and, if there are any destination servers remaining, transmits the XML file to them.
+
+If any errors occur during the execution of the `runFromJava` function, they are logged using the logger initialized earlier.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

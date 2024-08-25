@@ -1,0 +1,78 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>VTEC_Reset_Start_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>VTEC_Reset_Start_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code appears to be a script for generating weather alerts. It is written in Python and contains a list of dictionaries, each representing a different weather alert scenario. The dictionaries contain various parameters that define the alert, such as the commentary, name, drtTime, productType, and others.
+
+1. "commentary": A brief description of the alert scenario.
+2. "name": The name of the alert scenario.
+3. "drtTime": The date and time of the alert.
+4. "productType": The type of weather hazard.
+5. "clearHazardsTable": A boolean value indicating whether to clear the hazards table.
+6. "decodeVTEC": A boolean value indicating whether to decode VTEC.
+7. "createGrids": A list of tuples representing the forecast grids to be created.
+8. "checkStrings": A list of strings to be checked in the alert message.
+9. "notCheckStrings": A list of strings that should not be present in the alert message.
+
+The code also contains some metadata at the beginning, including information about the software developer, export control restrictions, and licensing information.
+
+The weather alerts are related to winter weather conditions, such as winter weather advisories and blizzard warnings. The alerts are specific to certain regions (e.g., "FLZ139","FLZ142") and contain specific times for when the alerts start and end. The script seems to be designed to test the generation of these alerts, as it includes checks for specific strings in the generated alert messages.
+
+This code is a test script for a weather forecasting system. It contains a series of test cases, each represented as a dictionary with various fields. Each test case is designed to simulate a different weather scenario and check the system's response.
+
+Here's a breakdown of the test cases:
+
+1. The first test case doesn't have a name or commentary, but it appears to be testing the system's handling of a winter storm warning and a winter weather advisory.
+
+2. The second test case, named "DR21060_Upgrade_3", tests the system's response to an upgrade in the weather condition, from a winter weather advisory to a blizzard warning.
+
+3. The third test case, named "DR21060_Replacement", tests the system's ability to replace a winter weather advisory with a wind chill advisory.
+
+4. The final test case, named "Cleanup", is used to clear the hazards table after the tests are run.
+
+Each test case includes a "createGrids" field, which simulates the creation of forecast grids for different weather hazards, and a "checkStrings" field, which contains the expected output strings from the system.
+
+The last part of the code defines a function `testScript` that uses the `TestScript` module to run these test cases on the weather forecasting system. The `defaults` dictionary defines some default settings for the test, such as the database to use, the start time for the grids, and whether to publish the grids or decode VTEC (a coding system used in weather warnings).</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>EXAMPLEimagePrefix.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>EXAMPLEimagePrefix.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be a configuration file for a weather visualization application, likely a part of the Advanced Weather Interactive Processing System (AWIPS) as indicated by the comment. The software was developed or modified by Raytheon Company under a US Government contract.
+
+The script imports necessary modules from gfeConfig, which is likely a configuration module for the GFE (Graphical Forecast Editor), a part of AWIPS.
+
+The script then sets up several configurations for creating a weather image:
+
+- `Png_parms` defines the weather elements to be displayed in the image, which are surface temperature (T_SFC) and surface wind (Wind_SFC) from the official database.
+- `Png_image` specifies that the image should represent temperature.
+- `Png_localTime` indicates that the time shown on the image's legend should be local time, not Coordinated Universal Time (Zulu time).
+- `MapBackgrounds_default` sets the default map background to display only state boundaries.
+- `BOU_mask` specifies that the data should be clipped to the edit area named "BOU".
+- `T_maxColorTableValue` and `T_minColorTableValue` set the range of the color table for temperature visualization to be between 20 and 90.
+- `Png_filenamePrefix` adds a prefix to the filename of the generated image, which is 'T_Wind_'.
+
+The script appears to be an example configuration file, as suggested by the comment at the beginning, and might be customized for different uses or different weather elements.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

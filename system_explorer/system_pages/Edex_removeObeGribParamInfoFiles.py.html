@@ -1,0 +1,66 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>removeObeGribParamInfoFiles.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>removeObeGribParamInfoFiles.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to perform an upgrade operation related to a software product developed by Raytheon Company. The upgrade operation specifically targets the removal of obsolete grib parameter info files.
+
+Here's a breakdown of what the script does:
+
+1. It first initializes a logger object that logs debug and info level messages to both the console and a file named 'removeObeGribParamInfoFiles.log'.
+
+2. In the main function, it logs the start of the upgrade script and informs the user that all information will also be written to 'removeObeGribParamInfoFiles.log'.
+
+3. It checks if the directory '/awips2/edex/data/utility/edex_static/site/' exists. If it doesn't, it logs an error message stating that the script must be run on the EDEX server and then exits the script.
+
+4. If the directory does exist, it uses the glob module to find all .xml files in the '/awips2/edex/data/utility/edex_static/site/*/grib/parameterInfo/' directory and its subdirectories. These files are considered obsolete.
+
+5. It then logs the start of the deletion process for the obsolete files.
+
+6. For each obsolete file, it attempts to delete the file. If it encounters an OSError or IOError during the deletion, it logs an exception message asking the user to manually delete the file after the script has exited.
+
+7. After all obsolete files have been processed, it logs that the upgrade script is complete and informs the user which files need to be regenerated before restarting EDEX.
+
+The script is designed to be run as a standalone program.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,95 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>DefineMaxWindGUI.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>DefineMaxWindGUI.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a software that is in the public domain. It imports several modules including numpy, SmartScript, and tkinter for GUI creation. The script defines a class `DefineMaxWindGUI` that inherits from `SmartScript.SmartScript`.
+
+The class `DefineMaxWindGUI` has several methods that serve different purposes:
+
+1. `__init__`: This is the constructor method that initializes an instance of the class. It checks if the environment variable `AWIPS_ENVIRON` is set to "AWIPS1" and if so, it calls the `setUp` method.
+
+2. `reportQuadError`: This method displays a status bar message indicating that only three quadrants can be reduced at a time.
+
+3. `toggleButton`: This method toggles the state of a button between on and off. If the button was on, it turns it off and changes its color to gray. If the button was off, it turns it on and changes its color to green, unless more than three buttons are already on, in which case it reports an error.
+
+4. `NEClick`, `SEClick`, `SWClick`, `NWClick`: These methods call the `toggleButton` method with a specific button label.
+
+5. `makeLabel`: This method creates a label with a specific text and places it in a given frame.
+
+6. `makeBottomButtons`: This method creates "Done" and "Cancel" buttons and places them in a given frame.
+
+7. `makeQuadButtons`: This method creates four buttons labeled "NW", "SW", "SE", "NE" and places them in a given frame.
+
+8. `setUpUI`: This method sets up the user interface by creating and arranging various frames and calling the `makeLabel`, `makeQuadButtons`, and `makeBottomButtons` methods.
+
+9. `doneCommand`: This method is called when the "Done" button is clicked. It quits the application and calculates the wind values for each quadrant and hour, reducing the value by 20% for selected quadrants.
+
+10. `cancelCommand`: This method is called when the "Cancel" button is clicked. It destroys the application window and returns None.
+
+11. `displayGUI`: This method prepares the data for display and creates the top-level window.
+
+The script seems to be part of a weather-related application, possibly for predicting or analyzing wind patterns. The GUI allows the user to select up to three quadrants (NE, SE, SW, NW) and reduce the maximum wind in those quadrants by 20%.
+
+This code is part of a graphical user interface (GUI) application, likely written in Python, using the Tkinter library for creating the GUI.
+
+1. It first checks the value of `AWIPS_ENVIRON`. If it equals 'AWIPS1', it creates a new top-level widget (`Toplevel`) on top of the root widget of the `eaMgr` object. If `AWIPS_ENVIRON` is not 'AWIPS1', it creates a new Tkinter application (`Tk`), a new top-level widget on top of this new application, and then hides the new application.
+
+2. It then initializes some instance variables:
+   - `_buttonLabels`: A list of strings representing labels for buttons.
+   - `_buttonState`: A list of boolean values representing the state of the buttons (False indicates the button is not pressed).
+   - `_buttonList`: A list to store the button widgets (currently None, likely to be filled later).
+   - `_boldFont` and `_bigFont`: Font styles to be used in the GUI.
+   - `_maxWind`: A 2D numpy array filled with zeros, with dimensions `_quadCount` by `_hourCount`.
+
+3. It calls the `setUpUI` method, which presumably sets up the user interface.
+
+4. It then populates the `_maxWind` array with values derived from `_windDict` and `_allTimeMaxWind`.
+
+5. It starts the Tkinter event loop with `mainloop()`, which makes the application wait for user interaction.
+
+6. After the event loop is exited, it hides the top-level widget and then destroys it.
+
+7. Finally, it returns the `_maxWindDict` dictionary. This dictionary is not defined or modified in the provided code, so it's likely that it's either a class attribute or it's defined elsewhere in the code.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

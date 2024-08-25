@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ApparentTemperature.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ApparentTemperature.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is used to calculate the apparent temperature, which is how the temperature feels to the human body. It takes into account factors like wind speed and humidity. The script is divided into two main parts: calculating the heat index and calculating the wind chill.
+
+The script begins by importing necessary libraries and defining some variables. It then defines a class `Tool` that inherits from `SmartScript.SmartScript`. 
+
+The `Tool` class has three methods: `__init__`, `execute`, and `_heatIndexCalc`, `_windChillCalc`.
+
+`__init__` is the constructor method that initializes the class.
+
+`execute` is the main method that calculates the apparent temperature based on temperature (T), dew point temperature (Td), and wind speed (Wind). It uses the numpy `where` function to determine which calculation to use based on the temperature. If the temperature is less than 51 degrees, it uses the `_windChillCalc` method to calculate the apparent temperature. If the temperature is greater than 79 degrees, it uses the `_heatIndexCalc` method. If the temperature is between 51 and 79 degrees, it uses the actual temperature as the apparent temperature.
+
+`_heatIndexCalc` calculates the heat index, which is a measure of how hot it feels when relative humidity is factored in with the actual air temperature. It uses a complex equation to calculate the heat index and then makes adjustments for low and high humidity.
+
+`_windChillCalc` calculates the wind chill, which is the lowering of body temperature due to the passing-flow of lower-temperature air. It uses an equation to calculate the wind chill and then makes adjustments if the wind chill is greater than the actual temperature.
+
+Overall, this script is used to calculate the apparent temperature based on various weather conditions.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

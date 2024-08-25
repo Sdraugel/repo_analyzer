@@ -1,0 +1,66 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>LockManager.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>LockManager.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is part of a file management system, specifically designed to handle file locking. File locking is a mechanism that restricts access to a computer file, or some portion of it, by allowing only one user or process access at any specific time.
+
+Here's a breakdown of the code:
+
+- The first part of the code is a comment section that provides information about the software, its development, and export control restrictions.
+
+- The second part of the code is a software history log, which records changes made to the code over time.
+
+- The code then imports necessary libraries and sets a maximum time to wait for a file lock to 120 seconds.
+
+- The `dirCheck(filename)` function checks if a directory exists for the given filename. If it doesn't, it tries to create it. If the file doesn't exist, it creates and then closes it.
+
+- The `getLock(filename, mode)` function attempts to acquire a lock on the file. If the mode is 'w' or 'a', it sets the lock to exclusive. Otherwise, it sets the lock to shared. It then tries to acquire the lock. If it can't within the maximum time, it closes the file and returns. If it does acquire the lock, it records the time it took and returns the lock status and file descriptor.
+
+- The `releaseLock(fd)` function releases the lock on the file and records the time it took to do so.
+
+- The `cleanUp(basePath)` function is a placeholder (no operation) function that can be filled in with cleanup operations as needed.
+
+This code is useful in a multi-user or multi-process environment where concurrent access to a file could cause conflicts or data corruption.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

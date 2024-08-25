@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>DataStoreFactory.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>DataStoreFactory.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a larger software developed by Raytheon Company. The script seems to be a part of a data storage or data management system, specifically dealing with creating storage records from raw data.
+
+The script imports several libraries such as numpy, pypies, logging, time, and h5py. It also imports several modules from dynamicserialize.dstypes.com.raytheon.uf.common.datastorage.
+
+A dictionary `typeToClassMap` is defined to map numpy data types to corresponding data record classes.
+
+The main function in this script is `createStorageRecord(rawData, ds, req)`. This function takes in three arguments: rawData (a numpy array), ds (an h5py Dataset object), and req (a Request object). 
+
+The function creates a new storage record of the type specified by the data type of the rawData. It sets various properties of the record such as name, group, data object, dimension, sizes, max sizes, fill value, data attributes, storage properties, and minimum index. 
+
+The function also includes a logging mechanism to record the time taken for creating the record. The time taken is added to a global `timeMap` dictionary with the key 'createRecord'. 
+
+The function returns the created storage record instance. 
+
+The script also contains a detailed software history, documenting changes made to the script over time.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

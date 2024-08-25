@@ -1,0 +1,88 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>RoutineLevel4_1_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>RoutineLevel4_1_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code appears to be a part of a larger testing script for a weather forecasting system. It's defining a series of tests (LE1, LE2, LE3, etc.) to check the functionality of the system's local effects forecasting. Each test is defined as a dictionary with various properties:
+
+- "name": The name of the test.
+- "commentary": A human-readable description of what the test is checking.
+- "createGrids": A list of commands to create forecast grids for different weather conditions (e.g., maximum temperature, wind speed and direction, wind gusts, etc.). Each command specifies the type of forecast, the time period for the forecast, the forecasted values, and the areas where these values apply.
+- "checkStrings": A list of expected outputs from the system. The test will likely compare the system's actual output to these expected outputs to determine whether the test passed or failed.
+- "fileChanges" (only present in some tests): A list of changes to make to the system's configuration files before running the test. Each change specifies the file to modify, the type of modification, the changes to make, and how to undo the changes.
+
+The code also includes several string variables (windLE1, windLE2, tempLE1, etc.) that appear to be used for modifying the system's configuration files.
+
+This code appears to be part of a weather forecasting system. It is defining a series of local effects (LE) that are used to create forecasts for different areas and conditions. Each local effect is defined by a name, a commentary, a series of grids that define the forecast parameters, a series of check strings that seem to be used for validation or testing, and a series of file changes that are applied to the forecast data.
+
+For example, the local effect "LE7" is defined for temperatures between 21 and 40 degrees, with wind from the north at 20 and 10 mph, and no gusts. The forecast grids for this effect include maximum temperature (MaxT), wind speed and direction, and wind gusts. The check strings include statements about the highs and wind conditions, and the file changes include a replacement operation in the "TextProduct" of the "LE_Test_Local" file.
+
+The local effects "LE8" through "LE15" are similar, but with different parameters for temperature, wind, and other conditions. Some of these effects also include forecasts for precipitation (PoP), weather conditions (Wx), and snow amount (SnowAmt). 
+
+In general, this code is used to generate, test, and modify weather forecasts based on a variety of local conditions.
+
+This code appears to be part of a weather forecasting system. It contains several blocks of code, each representing a different local weather effect scenario. Each block contains:
+
+- A name for the scenario (e.g., "LE16", "LE17").
+- A commentary describing the scenario (e.g., "Local Effects: SnowAmt", "Local Effects: Wind (N20,N10) -> (N30,N10)").
+- A list of "createGrids" which are forecast parameters for different weather conditions (e.g., "SnowAmt", "Wind", "PoP" which might stand for Probability of Precipitation, "Wx" which might stand for Weather, "Sky", "WindGust"). These parameters are set for different time intervals and for different elevation levels ("AboveElev", "BelowElev").
+- A list of "checkStrings" which are the textual descriptions of the weather conditions corresponding to the parameters set in "createGrids".
+- A list of "fileChanges" which are operations to be performed on certain files, possibly to update the weather conditions.
+- A "stringOrder" field which might be used to control the order of the strings in the output.
+
+The code seems to be designed to handle different weather scenarios and generate appropriate weather forecasts for each scenario. It might be part of a larger system that uses these forecasts to provide weather information to users.
+
+The given code appears to be a part of a weather forecasting system. It is written in Python and contains a series of test cases (LE21, LE22, LE23, LE24) for local effects of weather conditions in non-intersecting areas. Each test case includes a set of instructions to create weather grids, check certain strings, and make file changes. 
+
+Here's a breakdown of what each section does:
+
+1. `name`: This is the name of the test case.
+2. `commentary`: This is a description of what the test case is for.
+3. `createGrids`: This is a list of instructions to create weather forecast grids. Each instruction includes the type of forecast (e.g., "Sky", "PoP" (probability of precipitation), "Wx" (weather)), the duration of the forecast (e.g., 0 to 48 hours), the forecast value, and the areas the forecast applies to.
+4. `checkStrings`: This is a list of strings that are expected to be in the output. These strings describe the weather conditions.
+5. `fileChanges`: This is a list of instructions to make changes to certain files. Each instruction includes the file to change, the type of change to make (e.g., "replace"), the parts of the file to change, and the action to take if the change needs to be undone.
+6. `stringOrder`: This indicates whether the order of the strings in the `checkStrings` list matters.
+
+After the test cases, there is a Python function `testScript` that runs the test cases using a general test script from the `TestScript` module. The `testScript` function takes in a `dataMgr` argument, which is likely an object that manages the data used in the tests. The function also sets some default values for the tests, such as the type of product to test and the grids to delete before running the tests.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

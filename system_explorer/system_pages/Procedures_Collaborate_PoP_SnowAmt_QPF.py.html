@@ -1,0 +1,74 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Collaborate_PoP_SnowAmt_QPF.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Collaborate_PoP_SnowAmt_QPF.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a software developed by Raytheon Company for the US Government. It is a public domain software, furnished "as is", without technical support, and with no warranty, express or implied, as to its usefulness for any purpose.
+
+The script is named Collaborate_PoP_SnowAmt_QPF and is at version 3.0. It calls smart tools to generate PoP12hr, SnowAmt6hr, and QPF6hr grids from the "floating" PoP, SnowAmt, and QPF grids. These grids can be used for intersite coordination purposes, as well as the generation of graphics for the internet. 
+
+The script has undergone several changes and enhancements over time, with the latest modification being the use of GMT instead of local time when determining the current time and the initial time ranges for the collaboration grids.
+
+The script defines a class called Procedure which is a subclass of SmartScript. This class has an `__init__` method for initialization and an `execute` method that calls each Smart Tool in ToolList. 
+
+The `execute` method gets the current Greenwich Mean Time (GMT), creates time ranges over which to create the grids from scratch, and adjusts the ending times of the preset time ranges used by the "All" option. 
+
+The script also allows the user to select a time range and whether to use a pre-defined edit area. It imports the time module as well as SmartScript and TimeRange. 
+
+The script is designed to appear under the "Consistency" menu item in the GFE. It is an absolute override file, indicating that a higher priority version of the file will completely replace a lower priority version of the file.
+
+This code appears to be part of a larger script related to weather forecasting. It's written in Python and seems to be involved in creating and manipulating forecast grids for different weather parameters. Here's a breakdown of what the code is doing:
+
+1. It first checks the duration of the time ranges for PoP (Probability of Precipitation), Snow, and QPF (Quantitative Precipitation Forecast). If the duration of any of these is less than 3600 (which likely represents seconds, so less than an hour), it sets the corresponding variable (pop, snow, qpf) to 0.
+
+2. If the duration is sufficient (i.e., the variable is 1), it creates new grids from scratch for the corresponding weather parameter over a specified time range. This is done using the `createFromScratchCmd` function.
+
+3. For each parameter, it also checks if a default edit area is being used. If so, it calls a smart tool function to either get the maximum grid for PoP or create temporary grids for Snow and QPF. These temporary grids are then fragmented and summed to create the final 6-hour grids for Snow and QPF.
+
+4. After creating the final grids, the temporary grids are deleted using the `unloadWE` function.
+
+5. The `_getGridTimeRange` function is a helper function that returns a time range covering any grids that intersect the input time range. If no grids are found, it returns a time range with a duration less than 3600.
+
+In summary, this code is involved in creating and processing forecast grids for different weather parameters over specified time ranges.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

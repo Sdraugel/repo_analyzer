@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>LLWSData.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>LLWSData.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The code file is a Python script named LLWSData.py, developed by Raytheon Company under a contract with the US Government. The script is part of a software that is subject to U.S. export control laws. 
+
+The script contains a series of functions that handle data related to Low-Level Wind Shear (LLWS), a phenomenon that can be dangerous for aircraft. The functions are:
+
+1. `readLLWS(ident)`: This function reads LLWS data from a file. The file path is constructed using the 'ident' parameter. The data is read line by line, split into different variables, and stored in a dictionary. If the file cannot be accessed or the data cannot be parsed, the function logs an appropriate message and returns an empty dictionary.
+
+2. `writeLLWS(ident, data)`: This function writes LLWS data to a file. The file path is constructed using the 'ident' parameter. The data is written line by line. If the file cannot be written, the function logs an error message.
+
+3. `retrieve(siteID, info)`: This function retrieves METAR data (a type of weather report used in aviation) for a given site. It processes the METAR data and ACARS data (aircraft communication addressing and reporting system data), generates shear data, and stores it in a dictionary. If no METAR data is available, the function raises an exception. If there is no ACARS data, the function logs a debug message. The function also processes radar data and generates shear data for each radar in 'radars'.
+
+The script imports several modules and creates a logger for logging messages. It also defines several constants related to time calculations.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

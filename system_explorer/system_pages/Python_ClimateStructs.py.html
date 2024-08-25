@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ClimateStructs.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ClimateStructs.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is written in Python and it defines four classes: `AllInfo`, `StationInfo`, `MandatoryData`, and `AdditionalData`. 
+
+1. `AllInfo` class: This is a base class that provides a structure for storing key-value pairs in a dictionary, `self.data`. It has methods for setting a key-value pair (`set_info`), getting all keys (`get_keys`), getting all values (`get_values`), getting a specific value by key (`get_value`), getting all items (`get_items`), getting the entire data dictionary (`get_data`), and getting the type of a specific value by key (`get_type`).
+
+2. `StationInfo` class: This class inherits from `AllInfo` and it's an empty class with no additional methods or attributes. It's just a specialized version of `AllInfo`.
+
+3. `MandatoryData` class: This class also inherits from `AllInfo` and it overrides the `set_info` method. If the value being set is equal to a missing value, it sets the value to a special missing value (either a large float or a null character), depending on the key.
+
+4. `AdditionalData` class: This class inherits from `AllInfo` and it overrides several methods. The `set_info` method in this class allows for multiple values per key, stored as a list. It also has methods for getting a specific value from a list of values by index (`get_value`), getting the size of a list of values (`get_size`), getting the type of the first value in a list of values (`get_type`), and filling in missing values in a list of values (`fill_missing`).
+
+The code also includes a software header that provides information about the software's development, export restrictions, contractor details, and licensing information.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

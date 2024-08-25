@@ -1,0 +1,64 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Utility.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Utility.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code file defines a class named `Utility` that provides various utility functions. The class is designed to work with a `dbSubsystem` or an `ifpClient`, which are passed as arguments during the instantiation of the class. Here's a breakdown of the class and its methods:
+
+1. `__init__`: This is the constructor of the `Utility` class. It initializes the class with a `dbSubsystem`, `root`, and an optional `ifpClient`. It also sets up logging for the class.
+
+2. `getTextInventory`: This method retrieves text products from the server. It requires a category as an argument and returns the text inventory for that category.
+
+3. `module`: This method tries to import a module with a given name. If the module cannot be imported, it logs an error message. It returns the module if it exists, or `None` if it doesn't.
+
+4. `set`: This method tries to find a value in a dictionary. If the value is not found, it returns a default value.
+
+5. `handleError`: This method handles errors that occur during the execution of the program. It takes an error message and a traceback flag as arguments. If the traceback flag is set, it includes traceback information in the error message.
+
+6. `removeDups`: This method removes duplicate items from a list while preserving the order of the items. It returns a new list without duplicates.
+
+7. `findInImported`: This method looks for a given variable within modules that are already imported. It returns the variable and the module it belongs to if found, or `None` if not found.
+
+The code also contains some metadata at the top, including licensing information and a description of the software.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

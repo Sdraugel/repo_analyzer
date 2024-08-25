@@ -1,0 +1,83 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>RoutineLevel1_SRF_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>RoutineLevel1_SRF_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code file appears to be a part of a testing suite for a software product developed by Raytheon Company. The software product is subject to U.S. export control laws and is in the public domain. 
+
+The code file contains a number of test definitions and methods. The test definitions include parameters for local effects of temperature and wind, individual extended, extended label, rip grid, water spout grid, include outlook, and include tide heights. These are likely to be parameters that the software uses in its operations.
+
+The `getPreviousProduct` method takes a product identifier (pil), a search string, and a version number as arguments. It prints the product identifier and checks if the product identifier matches the `_uviPil` attribute. If it does, it returns the result of the `_uviProduct` method; otherwise, it returns an empty string.
+
+The `_uviProduct` method returns a hardcoded string that appears to be a forecast of the Ultraviolet Index (UVI) for various cities in the United States. This might be a mock or test data used for testing the software.
+
+The code also imports the `os` module and sets the `path` variable to the absolute path of the `../../testdata` directory relative to the file's location. This is likely where the test data files are stored.
+
+The `testTides` string contains another test definition for tide files. It appears to be incomplete as the code is cut off. The tide files are likely used for testing the software's functionality related to tides.
+
+This code appears to be part of a weather forecasting system, specifically for generating surf zone forecasts. The code is written in Python and includes a number of methods and data structures for analyzing and reporting weather data.
+
+The `ridgeValleyAreas` method returns a list of area codes for which ridge/valley winds are to be reported. The `_surfPeriodAdditionalAreasDict` method returns a dictionary that specifies the analysis methods and phrase lists for both land and marine areas. These methods and phrases are used to analyze and describe various weather conditions such as sky, temperature, wind, wave height, surf height, etc.
+
+The `scripts` list contains a dictionary that represents a test script for generating a surf zone forecast. The script includes commentary, name, product type, command line variables, check strings, create grids, and file changes. The check strings are the expected outputs of the script, which appear to be a detailed surf zone forecast for various areas in Florida.
+
+The `fileChanges` list contains tuples that specify changes to be made to certain files. The changes include replacing certain strings in the files with specified paths. 
+
+The code also imports two modules: `TestScript` and `CreateGrids`. These modules likely contain additional functions and data structures that are used in the script.
+
+This Python code appears to be part of a larger system for generating and testing weather forecasts, possibly for a weather station or meteorological service. 
+
+The code defines a list of dictionaries, each representing a different test script or scenario for the weather forecast system. Each dictionary includes information such as:
+
+- "name": the name of the test script.
+- "productType": the type of weather forecast product to be tested.
+- "cmdLineVars": command line variables to be used in the test.
+- "checkStrings": strings to be checked in the forecast output.
+- "createGrids": instructions for creating forecast grids, including the type of forecast (e.g., temperature, wind), the time period, the forecast value, and the geographical area.
+- "fileChanges": changes to be made to the system's configuration files as part of the test.
+
+The code also defines a function, `testScript()`, which appears to execute the test scripts. This function takes as input a data manager object and a level (defaulting to "Site"). It sets up some default settings, including the start time for the forecast grids and the time of the data run, and then loops through the list of test scripts, executing each one in turn.
+
+The last part of the code, which is commented out, seems to be additional test scripts that are not currently being used. These could be uncommented and added to the `scripts` list to include them in the testing process.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

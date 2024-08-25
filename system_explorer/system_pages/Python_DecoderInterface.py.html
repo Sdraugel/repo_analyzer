@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>DecoderInterface.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>DecoderInterface.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code file appears to be part of a larger software system developed by Raytheon Company for the US Government. It includes a disclaimer about export control, indicating that the software contains data that is restricted by U.S. law.
+
+The code itself provides an interface for Python decoders. It includes a history of software changes, showing that it has been updated and modified multiple times since its initial creation in 2008.
+
+The file contains two main functions:
+
+1. `loadModule(jarpath, moduleName)`: This function is used to load a module from a jar file. It uses the `zipimport` module to import the jar file and load the specified module if it's not already in `sys.modules`.
+
+2. `decode(moduleName, **kwargs)`: This function is used to decode data. It retrieves the module from `sys.modules`, gets a class from the module with the same name as the module, creates an instance of that class with the provided keyword arguments, and calls its `decode` method. If the `decode` method returns a result, it converts that result into a list and returns it.
+
+The comment at the end of the file indicates that this is a base file and is not intended to be overridden, suggesting it provides core functionality that other parts of the system rely on.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

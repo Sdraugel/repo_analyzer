@@ -1,0 +1,68 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>testSpecificSerialization.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>testSpecificSerialization.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is a test for lightning serialization. It is part of a larger software developed by Raytheon Company under a contract with the US Government. The software contains export-restricted data, and its dissemination is controlled by U.S. law.
+
+The script imports several modules and classes including `dynamicserialize`, `DatasetDataRequest`, `Request`, and `H5pyDataStore` from different packages.
+
+The main function of this script is defined in the `main()` function. It does the following:
+
+1. It creates a `DatasetDataRequest` object and sets its filename to a specific path where a METAR weather data file is located.
+
+2. It sets the dataset group path with a list of weather parameters such as pressure, wind speed, temperature, etc.
+
+3. It creates a `Request` object, sets its type to 'YLINE', and sets its indices to [4,14].
+
+4. The `Request` object is then set to the `DatasetDataRequest` object.
+
+5. An instance of `H5pyDataStore` is created and used to retrieve datasets based on the request.
+
+6. The result is printed to the console.
+
+7. The result is then serialized using `dynamicserialize` and written to a file named 'pyLight' in the '/tmp' directory.
+
+The script is executed if it is run as the main program.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

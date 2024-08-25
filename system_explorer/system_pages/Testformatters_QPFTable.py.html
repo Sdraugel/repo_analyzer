@@ -1,0 +1,64 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>QPFTable.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>QPFTable.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code appears to be a configuration for a software program developed by Raytheon Company. The software is likely used for generating weather prediction data, specifically Quantitative Precipitation Forecasting (QPF) data, which predicts the amount of liquid precipitation expected over a certain time period.
+
+The configuration is defined in a Python dictionary named `Definition`. Here are the key details:
+
+- The "type" of the configuration is a "table".
+- The "displayName" is "TEST_QPF Table", which is likely the name displayed in the product generation menu.
+- The "outputFile" is "./QPFTable.txt", which is the default output file for product results.
+- The "constantVariable" is "TimePeriod", the "rowVariable" is "EditArea", and the "columnVariable" is "WeatherElement". These are likely the variables used in the table.
+- The "beginningText" is "Experimental QPF Table \n\n", which is likely the header of the output file.
+- The "defaultEditAreas" are "area1" and "area2", which are likely the default areas for which the QPF data is generated.
+- The "runTimeEditAreas" is set to "yes", which means the user is asked to specify the edit areas at runtime.
+- The "areaType" is "Edit Area", which could be a city, county, basin, etc.
+- The "defaultRanges" is "Today", which is likely the default time range for the QPF data.
+- The "runTimeRanges" is set to "no", which means the user is not asked to specify the time ranges at runtime.
+- The "elementList" contains one element, "QPF", which is likely the weather element being forecasted.
+
+The code also includes an example output, which shows the QPF data for different areas.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

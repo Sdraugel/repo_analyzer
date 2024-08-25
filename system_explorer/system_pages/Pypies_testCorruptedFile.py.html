@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>testCorruptedFile.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>testCorruptedFile.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to test how the H5pyDataStore handles corrupted files. The H5pyDataStore is a part of the Advanced Weather Interactive Processing System (AWIPS), developed by Raytheon Company.
+
+The script first imports necessary modules and packages. The `dynamicserialize` module is used for serialization and deserialization of Python objects. The `http.client` module provides HTTP client functionalities.
+
+In the `main` function, a `RetrieveRequest` object is created and several of its properties are set, including whether to include interpolated data, the group, and the filename of the file to retrieve. The request object is then serialized into a message using `dynamicserialize`.
+
+Next, an HTTP connection is established to the local host on port 9582 with a timeout of 90 seconds. The script then sends a POST request to the server with the serialized message as the body.
+
+The script then checks the status of the response. If the status is not 200 (which represents a successful HTTP request), it prints the response, status, and message, and raises a RuntimeError.
+
+If the status is 200, the script deserializes the response using `dynamicserialize` and prints any error that occurred during the retrieval of the file.
+
+The script is executed if it is run as a standalone program (i.e., not imported as a module in another script).</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

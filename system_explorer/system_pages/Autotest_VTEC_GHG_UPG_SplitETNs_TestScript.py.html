@@ -1,0 +1,191 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>VTEC_GHG_UPG_SplitETNs_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>VTEC_GHG_UPG_SplitETNs_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code appears to be part of a weather forecasting system, possibly for issuing weather warnings. It seems to be written in Python and contains a mix of configuration data and scripts for handling weather data.
+
+The first part of the file contains a legal notice from the Raytheon Company, stating that the software was developed under a specific contract with the US Government and contains export-restricted data.
+
+The next part of the code defines a mapping from one set of zone codes (OHZ and PAZ) to another set (FLZ). This could be used to translate weather data from one system or format to another.
+
+Then, there are two definitions (`def1` and `def2`) that seem to set up some default editing areas. These areas are associated with the FLZ zone codes and have names like "ONE", "TWO", etc.
+
+The final part of the code defines a list of scripts. Each script is represented as a dictionary with keys like "commentary", "name", "productType", etc. The scripts seem to be used for handling different types of weather events (e.g., clearing out all hazards, initiating a winter storm watch, extending a winter storm watch, upgrading a winter storm watch to a warning). Each script includes a list of commands for creating or modifying grids of hazard data, as well as a list of check strings that might be used for generating the text of weather warnings.
+
+This code appears to be part of a weather forecasting system, possibly for a National Weather Service or similar organization. It seems to be setting up and manipulating hazard grids for different weather conditions, specifically winter storms. 
+
+The code is divided into several sections, each with a commentary that describes what the section is doing. For example, one section is for "Deleting hazard grids", another for "SplitETN_DR20138 setup existing hazards - NEW", and so on. 
+
+Each section contains various parameters and configurations. For instance, the "productType" parameter is set to "Hazard_WSW_Local", which could mean it's for local winter storm warnings. The "clearHazardsTable" parameter is set to 1, which could mean it's instructing the system to clear the hazards table. 
+
+The "createGrids" parameter seems to be creating grids for different hazard levels and durations. For example, "WS.W:1" could represent a certain level of winter storm warning, and the numbers following it could represent the start and end times for that warning. The list following these numbers could be the specific areas (possibly identified by codes like OHZ003, OHZ006, etc.) that the warning applies to.
+
+The "checkStrings" parameter could be for checking or verifying certain conditions or values.
+
+Overall, this code seems to be for managing and configuring weather hazard warnings, specifically for winter storms.
+
+This code appears to be part of a larger script for generating and managing hazard warnings, likely for weather events. It seems to be written in Python, and it's structured as a list of dictionaries, each representing a different operation or event.
+
+Each dictionary has several key-value pairs:
+
+- "commentary": A human-readable description of what the operation is doing.
+- "name": A unique identifier for the operation.
+- "productType": The type of product being generated, which seems to be a local hazard warning.
+- "clearHazardsTable": A flag indicating whether to clear the hazards table.
+- "checkStrings": A list of strings to check against, possibly for validation or testing purposes.
+- "decodeVTEC": A flag indicating whether to decode VTEC (Valid Time Event Code), a standard format for weather warnings.
+- "createGrids": A list of tuples, each representing a grid to create. Each tuple includes the forecast type, hazard type, the type of grid (discrete or continuous), the start and end times, the hazard code, and a list of affected areas.
+- "drtTime" and "gridsStartTime": The start time for the operation.
+
+The code seems to be part of a testing or simulation system, as it includes operations for setting up existing hazards, creating new ones, and deleting hazard grids. The hazard codes (like "WS.W:1") and area codes (like 'FLZ139') are likely specific to the system this code is part of.
+
+This code appears to be a part of a weather forecasting system, specifically for issuing hazard warnings. The code is structured in a series of dictionaries, each containing information about a specific hazard event. 
+
+Each dictionary contains the following keys:
+
+- `commentary`: This seems to be a description of the event or operation being performed.
+- `name`: This could be an identifier for the event or operation.
+- `drtTime` and `gridsStartTime`: These are likely timestamps related to the event.
+- `productType`: This could be the type of hazard or warning being issued.
+- `createGrids`: This is a list of tuples, each representing a specific hazard forecast. Each tuple contains the forecast type, the hazard type, the forecast method (DISCRETE), the start and end times, the hazard code, and the areas affected.
+- `checkStrings`: This is a list of strings that seem to be formatted warnings or alerts related to the hazard. They contain codes, timestamps, and other information that might be used in the final warning message.
+- `clearHazardsTable` and `decodeVTEC`: These appear to be flags for certain operations, such as clearing a hazards table or decoding VTEC (Valid Time Event Code, a system used by the National Weather Service for encoding weather warnings).
+
+The code seems to be creating, extending, and deleting hazard warnings for different areas (represented by codes like 'FLZ139', 'FLZ142', etc.) and for different types of hazards (represented by codes like 'WS.W:1', 'WS.W:2', etc.).
+
+The provided code appears to be a part of a weather forecasting system, specifically for marine weather messages. It seems to be written in Python, and it's structured as a series of dictionaries, each representing a different weather advisory or forecast.
+
+The first dictionary represents a Small Craft Advisory for winds in two zones (GMZ876 and GMZ873) starting immediately and lasting for 6 hours. It includes a series of check strings which seem to be the actual text of the weather advisory, including the advisory's ID, the issuing service, the time of issue, and the details of the advisory.
+
+The second dictionary is similar to the first, but it represents a new Small Craft Advisory for winds starting 12 hours from the time of issue and lasting for 6 hours. It also includes a series of check strings which are the actual text of the weather advisory.
+
+The third dictionary represents an extension of the first advisory by 1 hour. It also includes a series of check strings which are the actual text of the weather advisory.
+
+The "createGrids" key in each dictionary seems to represent the forecast data in a grid format, where each tuple represents a different forecast parameter. The "DISCRETE" keyword suggests that the forecast data is not continuous but occurs at specific times.
+
+The "SI.Y" in the createGrids section is likely a code for a specific type of weather event, in this case, a Small Craft Advisory for winds. The numbers following "SI.Y" represent the zones affected by the advisory.
+
+The "decodeVTEC" key in the second and third dictionaries is set to 0, which might indicate that the VTEC (Valid Time Event Code) decoding is turned off for these advisories.
+
+This code appears to be part of a system for generating and managing weather advisories, specifically for wind-related hazards. The code is organized into several sections, each with a commentary, name, and other properties. 
+
+1. The first section seems to be a template for a Small Craft Advisory message, which is issued when wind speeds of 21 to 33 knots are expected. The message advises inexperienced mariners to avoid navigating in these conditions.
+
+2. The second section, labeled "Cleanup", likely resets or clears certain variables or tables, preparing for the next advisory.
+
+3. The third section, "Setting initial events", appears to set up a Wind Advisory for specific zones (FLZ142 and FLZ139) at certain times.
+
+4. The fourth section, "Add new WI.Y to zone 2 before existing event", seems to add a new Wind Advisory to zone 2 before an existing event and checks for certain strings in the advisory.
+
+5. The fifth section, "Add new WI.Y to zone 2 before and extend existing event", appears to add a new Wind Advisory to zone 2 before an existing event and extends the duration of the existing event.
+
+6. The sixth section is another "Cleanup" section, similar to the second section.
+
+7. The seventh section, "Setting initial event FZ.A", seems to set up a Freeze Watch (FZ.A) for specific zones at certain times.
+
+The code uses a combination of strings and variables to generate these advisories, and it seems to have functionality for checking the content of these advisories and for decoding certain codes (VTEC).
+
+The provided code appears to be a part of a larger system that generates weather alerts. It seems to be written in Python, and it's structured as a list of dictionaries, each representing a different weather alert.
+
+Each dictionary has several keys:
+
+- "commentary": This provides a brief explanation of the alert.
+- "name": This is the identifier for the alert.
+- "drtTime": This is the time the alert was generated.
+- "gridsStartTime": This is the start time for the alert.
+- "productType": This is the type of the alert.
+- "createGrids": This is a list of tuples, each representing a different hazard. Each tuple contains information about the hazard, including its type, duration, and the areas it affects.
+- "checkStrings": This is a list of strings that seem to be used to generate the actual text of the alert.
+
+The alerts in the provided code are related to freezing temperatures and strong winds. The code seems to be able to issue new alerts, extend existing ones, and expire them when they're no longer relevant. The alerts are associated with specific geographical areas, identified by codes like "FLZ148", "FLZ149", etc. 
+
+The actual text of the alerts includes information about the type of hazard, the areas it affects, the time it's expected to start and end, and the precautions that people should take.
+
+The code appears to be a script for generating weather warning messages, specifically for freezing conditions. It's likely used by the National Weather Service in Tampa Bay Ruskin, Florida. 
+
+The script includes placeholders for the date and time, the areas affected, and the specific details of the weather conditions. It also includes a section for precautionary and preparedness actions, advising people what to do in these conditions.
+
+The script is divided into several sections, each representing a different weather event. Each section includes a unique identifier (e.g., "DR20850_5"), a timestamp, and a list of forecast grids. These grids seem to represent different forecast periods and the associated weather hazards.
+
+The script also includes a list of "checkStrings" which appear to be the actual text of the weather warnings that will be issued. These include placeholders for the headline and overview of the warning, which must be edited to provide specific details.
+
+The code also includes some commented-out lines (lines starting with '#'). These lines are ignored by the code interpreter and are usually used to provide additional information or context for the code.
+
+This code appears to be a part of a script for generating and managing weather hazard warnings. It's likely used in a weather forecasting system or application. The code is organized into several sections, each represented as a dictionary with specific keys.
+
+1. "commentary": This key provides a comment or description of what the specific section of the code is doing.
+
+2. "name": This key is likely used to identify the specific section of the code or the specific event it represents.
+
+3. "drtTime", "gridsStartTime": These keys represent specific timestamps, possibly used to determine when a forecast or warning should start.
+
+4. "productType": This key is used to specify the type of weather hazard or warning.
+
+5. "createGrids": This key contains a list of tuples, each representing a specific forecast or warning. Each tuple includes information about the type of hazard, its severity, the time range it applies to, and the specific regions it applies to.
+
+6. "checkStrings", "notCheckStrings": These keys contain lists of strings that are likely used for validation or testing purposes. The "checkStrings" might be used to ensure that the correct warnings are generated, while the "notCheckStrings" might be used to ensure that certain warnings are not generated.
+
+7. "clearHazardsTable", "decodeVTEC": These keys appear to be flags or settings related to the management of the hazard warnings. "clearHazardsTable" might be used to clear or reset the current warnings, while "decodeVTEC" might be related to decoding or interpreting some form of encoded data.
+
+Overall, this code seems to be part of a larger system for generating, managing, and validating weather hazard warnings.
+
+This Python code appears to be a part of a larger system, possibly related to weather forecasting or a similar field, given the presence of terms like "gridsStartTime", "vtecMode", and "Hazards". 
+
+The code defines a function named `testScript` which takes two parameters: `self` and `dataMgr`. `self` is a common convention in Python for a reference to the current instance of a class, suggesting that this function is part of a class definition. `dataMgr` is likely some sort of data manager object, but without more context, it's hard to say exactly what it does.
+
+Inside the function, a dictionary named `defaults` is defined. This dictionary contains several key-value pairs that appear to be configuration settings. These include:
+
+- `"database"`: The name of a database, with a placeholder for a site name.
+- `"publishGrids"`: A boolean flag (0 or 1) indicating whether or not to publish grids.
+- `"decodeVTEC"`: Another boolean flag indicating whether or not to decode VTEC. VTEC might refer to the Valid Time Event Code used in weather forecasting.
+- `"gridsStartTime"`: A string representing the start time for the grids.
+- `"orderStrings"`: Another boolean flag, possibly indicating whether or not to order strings.
+- `"vtecMode"`: A string representing the mode for VTEC.
+- `"deleteGrids"`: A list of parameters for which grids to delete.
+
+The function then returns the result of calling the `generalTestScript` method on the `TestScript` module, passing in `self`, `dataMgr`, `scripts`, and `defaults` as arguments. The `scripts` variable is not defined in this code snippet, so it's likely either a global variable or defined elsewhere in the class. 
+
+Overall, this function seems to be a test script for some sort of grid-based system, possibly related to weather forecasting. It sets up some default configuration settings and then runs a general test script with those settings.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,68 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>8143_update_backupSvc_xml.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>8143_update_backupSvc_xml.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script updates the host elements in a file named `backupSvc.xml` for changes in the VM hostname. 
+
+Here's a detailed breakdown:
+
+1. The script imports necessary modules, including `glob`, `os`, `re`, `shutil`, `traceback`, `datetime`, and `ElementTree` from `xml.etree`.
+
+2. The `fix` function is defined to perform the update on a given path. It first checks if the file exists at the given path. If not, it prints an informational message and returns.
+
+3. If the file exists, it is opened and parsed as an XML document. The root of the XML tree is obtained.
+
+4. The function then looks for 'hosts' elements in the root. If there isn't exactly one 'hosts' element, it prints a warning message and returns.
+
+5. For each 'host' in 'hosts', it checks each child element. If the element's tag is 'name', it replaces any occurrence of 'dx[1-8]-' or 'ec-' in the text of the element with 'edexcluster-'. If the text is changed, a flag is set.
+
+6. If no changes were made, it prints an informational message and returns.
+
+7. If changes were made, it creates a backup of the original file by copying it to a new location with a timestamp appended to the filename. It then writes the updated XML document back to the original file location.
+
+8. The `main` function is defined to apply the `fix` function to all `backupSvc.xml` files in the "/awips2/edex/data/utility/common_static/site/*/backupsvc/" directory. If an exception occurs during the update, it prints an error message and the traceback.
+
+9. If the script is run as the main program (not imported as a module), it calls the `main` function.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

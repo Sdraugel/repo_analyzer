@@ -1,0 +1,156 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TextUtils.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TextUtils.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a larger software package developed by Raytheon Company. It contains a class named `TextUtils` which provides utility methods for handling text products. 
+
+The class `TextUtils` has several methods:
+
+1. `__init__`: This is the constructor method that initializes the `TextUtils` object with a `__percentCompleted` attribute set to 0.
+
+2. `DAY`, `NIGHT`, `DAYTIME`, `NIGHTTIME`, `DAYNIGHT`: These methods return specific integer values. They could be used to represent different times of the day.
+
+3. `dirList`, `dir16PtList`: These methods return lists of tuples representing different directions and their corresponding degree ranges. The `dirList` method divides the compass into 8 parts (N, NE, E, SE, S, SW, W, NW) each spanning 45 degrees, while `dir16PtList` divides the compass into 16 parts each spanning 22.5 degrees.
+
+4. `dirList2`: This method returns a dictionary that maps direction abbreviations to their corresponding degree values.
+
+5. `dirToText`, `dirTo16PtText`: These methods convert a numerical direction into a string representation (e.g., N, NE, E, etc.). The difference between the two methods is the degree of precision, with `dirTo16PtText` providing a more granular division of the compass.
+
+6. `vector_dir`: This method converts a direction abbreviation into a full word (e.g., "N" to "north").
+
+7. `getVis`: This method returns the "lowest" visibility specified in the provided subkeys. It uses a visibility conversion dictionary to convert textual representations of visibility into nautical miles.
+
+8. `visibilityConversionDict`: This method returns a dictionary that maps textual representations of visibility to their corresponding values in nautical miles. 
+
+The code also contains import statements for several modules and libraries, including math, types, os, re, time, WxMethods, SiteInfo, and a specific class (ParmID) from a module in the com.raytheon.uf.common.dataplugin.gfe.db.objects package.
+
+This code file appears to be a part of a larger Python program, possibly related to weather data analysis or geographical data processing. Here's a breakdown of the methods:
+
+1. `findSubkeys(self, subkeys, searchKeys)`: This method checks if any of the `searchKeys` are present in the `subkeys`. It returns 1 if found, otherwise 0.
+
+2. `access_dictionary(self, tree, node, key, value, dictName, execMethods=1)`: This method accesses a dictionary with a given name and key value. It handles different types of values a key may have: a text string, a method, or another dictionary. It also handles exceptions and provides default return values.
+
+3. `calcTopoPercentage(self, tree, node, areaLabel, value)`: This method calculates the percentage of topographical points in a given area that are above a specified value.
+
+4. `callMethod(self, value, method)`: This method calls a given method with a specified value.
+
+5. `fformat(self, value, roundVal)`: This method returns a string for the floating point value, truncated to the resolution given by `roundVal`.
+
+6. `convertDirection(self, numDir)`: This method converts a numerical direction to a string representation (N, NE, E, etc.).
+
+7. `direction_movement(self, dir1, dir2)`: This method returns -1, 0, or 1 if the change from `dir1` to `dir2` is counterclockwise, no change, or clockwise, respectively.
+
+8. `direction_difference(self, dir1, dir2)`: This method returns the difference between `dir2` and `dir1`, with values normalized to always return between 0 and 180.
+
+9. `direction_between(self, testdir, dir1, dir2)`: The method is incomplete, but it appears to be intended to determine if a test direction is between two other directions.
+
+The code seems to be well-structured and documented, with comments explaining the purpose and functionality of each method.
+
+This code seems to be part of a larger Python class or module. It contains several methods that perform various mathematical and utility functions. Here's a brief summary of what each method does:
+
+1. The first method checks if a given direction (`testdir`) is between two other directions (`dir1` and `dir2`). It calculates the differences between the directions and returns 1 if `testdir` is between `dir1` and `dir2`, else it returns 0.
+
+2. `handleError` method handles errors by calling the `handleError` method of a utility object passed in `argDict`. It also has a commented out line that would show a warning message box with the error message.
+
+3. `round` method rounds a given value based on a specified mode ("RoundUp", "RoundDown", or "Nearest") and an increment. If the mode is invalid, it returns the original value.
+
+4. `average` method calculates the average of two values.
+
+5. `vectorAverage` method calculates the average of two vectors, represented as (magnitude, direction) tuples.
+
+6. `MagDirToUV` and `UVToMagDir` methods convert between two forms of representing vectors: magnitude/direction and u/v (components of the vector).
+
+7. `setProgressPercentage` and `progressMessage` methods are used to handle progress tracking, with the latter also printing a progress message.
+
+8. `getParmID` method extracts the parameter name and level from a string and returns a `ParmID` object.
+
+9. `nlValue` method applies a non-linear value to a given value. The non-linear value can be a dictionary or a simple constant.
+
+10. `roundValue` method rounds a value using a specified rounding method and increment.
+
+11. `getRangeInfo` method seems to be incomplete as it's cut off.
+
+This code seems to be part of a larger system, possibly related to handling and manipulating vectors, tracking progress, and handling errors.
+
+This code appears to be part of a larger program that manipulates and analyzes data from a tree structure, possibly representing a hierarchical data structure or a decision tree. The specific part of the code you provided is focused on applying various range and bias adjustments to the data, as well as providing statistical manipulation functions.
+
+Here's a breakdown of what the main methods do:
+
+1. `getRangeInfo`: This method retrieves various range and bias values associated with a given node and element in the tree. It returns a `RangeInfo` object containing these values.
+
+2. `applyRanges`: This method retrieves the range information for a given node and element in the tree and then applies these ranges to the provided minimum and maximum values using the `applyRangeValues` method.
+
+3. `applyRangeValues`: This method applies various adjustments to the minimum and maximum values based on the provided range information. These adjustments include applying a bias (either towards the average, maximum, or minimum), enforcing minimum and maximum ranges, and applying a cut-off value.
+
+4. `applyBias`: This method applies a bias to the minimum and maximum values based on the provided bias value, average, and range value. The bias can be towards the average, maximum, or minimum.
+
+5. `getValue`: This method retrieves a value from a given set of statistics based on the provided method (e.g., "Max", "Min", "Sum", "MinMax"). The statistics can be either a single value or a tuple of two values.
+
+The code also defines several constant methods (`SCALAR`, `MAGNITUDE`, `DIRECTION`, `VECTOR`, `VECTOR_TEXT`, `VECTOR_NUM`, `WEATHER`, `DISCRETE`) which appear to represent different data types or categories. These may be used elsewhere in the program to handle different types of data in the tree.
+
+The code file appears to be a part of a larger Python program that deals with weather data and its storage and retrieval from a database. Here's a breakdown of what each function does:
+
+1. The first block of code is a conditional statement that checks if the `stats` list has `None` values. If it does, it returns `None`. If not, it calculates the average of the first two elements in the `stats` list. If the `method` is "MinMax", it returns a tuple of `stats`, otherwise it returns `stats`.
+
+2. `makeSubkeyList(self, weatherKey)`: This function creates a new list from the `weatherKey` iterable. It stops adding elements to the new list once it has added as many elements as the length of `weatherKey`.
+
+3. `storeAWIPS(self, product, AWIPSkey="", host=None)`: This function stores a text product into the AWIPS text database. If a host is defined, it uses ssh or rsh to communicate with the text database. If no host is defined, it uses the textdb command directly.
+
+4. `getPreviousProduct(self, productID, searchString="", version=0)`: This function retrieves a previous product from the AWIPS database. If a search string is provided, it extracts the specified section.
+
+5. `formatTimeString(self, gmTime, dateFormat, newTimeZone=None)`: This function converts a given time (in seconds) to a specified time zone and returns the time as a string.
+
+6. `debug_print(self, msg="", trace=0, limit=10)`: This function is used for debugging. It prints the calling method's name, file, class, and line number along with an optional message string. It also has the option to display Python traceback info. The function also tracks the number of times a method has been printed for debugging purposes.
+
+This code snippet is written in Python and consists of two parts:
+
+1. Debugging and logging: The first part of the code is a debugging and logging section. It records the count of a certain event or action, represented by the variable `name`, into a dictionary called `_debugDict`. It then prints a debug message that includes the name of the event, the file where the event occurred, and the line number. If there is an additional message (`msg`), it prints that as well.
+
+2. `RangeInfo` class: This is a class that initializes with eight parameters: `rangeThreshold_nlValue`, `rangeBias_nlValue`, `minRange_nlValue`, `minBias_nlValue`, `maxRange_nlValue`, `maxBias_nlValue`, `increment_nlValue`, and `null_nlValue`. These parameters are stored as instance variables of the `RangeInfo` class.
+
+3. `getSiteInfo` function: This function retrieves information about a site given its ID (`siteID`) and the type of information required (`infoType`). The types of information that can be retrieved include "region", "wfoCity", "wfoCityState", and "fullStationID". The function uses the `SiteInfo` class to get this information.
+
+The code seems to be part of a larger system, possibly related to weather forecasting or geographical data processing, given the naming of the functions and variables.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

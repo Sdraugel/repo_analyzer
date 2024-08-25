@@ -1,0 +1,116 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>VTEC_GHG_Complex1_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>VTEC_GHG_Complex1_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The code appears to be a part of a larger software system developed by Raytheon Company. This particular part of the code seems to be for testing complex hazards related to weather conditions.
+
+The code contains a list of scripts, each represented as a dictionary with various keys. Each script has a commentary, a name, a product type, and other parameters that are used to define the behavior of the script. 
+
+The first script in the list is named "GHG_Complex1_0" and its purpose is to clear out all Hazards Table and Grids. 
+
+The second script, "GHG_Complex1_1", creates a WS.A hazard for the entire CWA. It also defines a set of strings to be checked.
+
+The third script, "GHG_Complex1_2", upgrades Area1 from WS.A to WS.W and Area2 from WS.A to WW.Y. It also defines a set of strings to be checked.
+
+The scripts seem to be related to weather forecasting, specifically for handling and testing different types of weather hazards. The strings to be checked could be outputs or messages that are expected to be produced by the system under certain conditions. 
+
+Please note that the code is incomplete and the last script seems to be cut off.
+
+This code appears to be part of a weather forecasting system, specifically for issuing weather warnings and advisories. It seems to be written in a JSON-like structure, with each block representing a different weather warning scenario.
+
+The first block of code is issuing a Winter Weather Advisory for certain areas, indicated by the codes such as "FLZ139", "FLZ239", etc. The advisory is in effect until 10 AM EST Saturday. It also provides precautionary/preparedness actions for people in these areas, such as being prepared for slippery roads and limited visibility, and using caution while driving.
+
+The second block of code is expanding an existing Winter Storm Warning (WS.W) into an existing Winter Weather Advisory (WW.Y) for different areas. This block also includes a Winter Storm Warning message and similar precautionary/preparedness actions.
+
+The third block of code indicates that no changes are made to the existing hazards. It seems to be a continuation of the previous weather warnings and advisories, with no new updates.
+
+Overall, this code is part of a system that generates weather warnings and advisories based on forecast data, and communicates these warnings to the public in a structured format.
+
+The provided code seems to be a part of a larger script related to weather forecasting and hazard warnings. It appears to be written in Python and is structured as a list of dictionaries. Each dictionary represents a weather-related event or advisory, with specific details about the event, such as the name, product type, and other related information.
+
+1. The first dictionary describes a winter weather advisory for certain areas. It includes the advisory message, the areas affected, and the precautions to be taken.
+
+2. The second dictionary describes the cancellation of a winter weather advisory for certain areas. It includes the cancellation message and the areas where the advisory has been cancelled.
+
+3. The third dictionary indicates that no changes are made to the existing hazards. It seems to be a placeholder or a default message when no updates are required.
+
+4. The fourth dictionary describes the reduction of a winter storm warning coverage for certain areas. It includes the cancellation message for some areas and the continuation of the warning for others.
+
+The commented lines starting with '#' seem to be placeholders for additional information or instructions that could be added later or generated dynamically.
+
+The "createGrids" key in some dictionaries seems to be related to the creation of forecast grids for specific hazards. The values associated with this key are tuples that describe the forecast, the hazard, the type of data (discrete), and the areas affected.
+
+The "checkStrings" key in each dictionary contains a list of strings that seem to be weather advisory messages or alerts.
+
+Overall, this code seems to be used for managing and updating weather advisories and warnings.
+
+The provided code appears to be a part of a larger script used for testing or simulating weather hazard scenarios. It's written in Python and seems to be related to a weather forecasting system. Here's a breakdown of what each part does:
+
+1. The script defines a list of dictionaries, each representing a different test scenario or state in a sequence of events.
+
+2. Each dictionary in the list contains several key-value pairs:
+   - "commentary": A string describing the scenario.
+   - "name": The name of the scenario.
+   - "productType": The type of weather hazard being simulated.
+   - "createGrids": A list of tuples, each representing a different grid for the forecast. The tuples contain information about the forecast, such as the type of hazard, the duration, and the affected areas.
+   - "checkStrings": A list of strings that seem to be used for generating a weather warning message. They include information like the warning's urgency, the issuing service, the time of issue, the affected areas, and the precautions to take.
+   - "clearHazardsTable": This key appears in the last dictionary and its value is set to 1. This suggests that all hazards are to be cleared or cancelled in this scenario.
+
+3. The last part of the code defines a function `testScript` which seems to be a part of a testing suite, possibly used to run these scenarios and check the output or behavior of the system under these conditions. The function takes two parameters: `self` and `dataMgr`. The `self` parameter is a common convention in Python for referring to the instance the method is being called on. The `dataMgr` parameter likely refers to a data manager that handles the data used in the tests.
+
+Please note that the code is incomplete, and some parts are cut off, so a full analysis isn't possible.
+
+The provided code appears to be a part of a larger Python script, specifically a method in a class. Here's a breakdown of what this part of the file is doing:
+
+1. It seems to be defining a dictionary with keys as 'deleteGrids' and 'issuedBy'. The 'deleteGrids' key has a list of tuples as its value, and the 'issuedBy' key has None as its value.
+
+2. The 'deleteGrids' key's value is a list containing a single tuple. This tuple contains five elements: "Fcst", "Hazards", "SFC", "all", "all". This could be a command or instruction of some sort, possibly to delete certain grids or elements in a forecasting or hazard modeling system.
+
+3. The 'issuedBy' key's value is set to None, which could mean that this part of the script is not issuing any commands or that the issuer of commands is not specified.
+
+4. The dictionary is then returned by the method `generalTestScript` which belongs to the `TestScript` class and is called on the `self` instance with `dataMgr`, `scripts`, and `defaults` as arguments. The `generalTestScript` method is likely a part of the same class where this code is located.
+
+Without the full context or the rest of the code, it's hard to provide a more specific explanation. However, the general idea is that this code is preparing some instructions (in the form of a dictionary) to be processed by the `generalTestScript` method.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

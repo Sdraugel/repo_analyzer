@@ -1,0 +1,56 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>deactivateSite.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>deactivateSite.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script provides a command-line utility to deactivate a site. The script is part of a software developed by Raytheon Company under a contract with the US Government.
+
+The script begins by importing necessary modules and libraries, including `os`, `time`, `ThriftClient`, `UsageArgumentParser`, and `ActivationTopicListener`. It also imports `DeactivateSiteRequest` from `dynamicserialize.dstypes.com.raytheon.uf.common.site.requests`.
+
+The `main()` function validates the command-line arguments using the `validateArgs()` function. It then creates a `DeactivateSiteRequest` object and a `ThriftClient` object. An `ActivationTopicListener` thread is started to connect to the JMS broker. The script then sends a site deactivation request and monitors site activation messages. If an exception occurs, it is caught and the traceback is printed. The thread is stopped in the `finally` block.
+
+The `validateArgs()` function uses `UsageArgumentParser` to parse command-line arguments. It expects several arguments including the host name of the edex request server, the port number of the edex request server, the host name of the JMS broker, the port number of the JMS broker, the plugin, and the site to deactivate. Default values are provided for some of these arguments.
+
+The script is designed to be run as a standalone program, as indicated by the `if __name__ == '__main__':` line at the end of the script.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

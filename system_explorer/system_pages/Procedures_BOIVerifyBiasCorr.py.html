@@ -1,0 +1,148 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>BOIVerifyBiasCorr.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>BOIVerifyBiasCorr.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is part of a software named BOIVerifyBiasCorr2, which is in the public domain. The software is used to run the BOIVerifyBiasCorr tool. The tool seems to be used for some kind of bias correction, possibly in a forecasting or prediction model. 
+
+The code starts with a detailed history of the software's development, including the dates of different versions and the changes made in each version. It also includes a software history section that records the changes made to the code, the date of the changes, the ticket number associated with the changes, and the engineer who made the changes.
+
+The code then defines a class named Procedure, which inherits from the SmartScript class. The Procedure class has an __init__ method for initialization and an execute method which is the main function of the class. 
+
+In the execute method, the code retrieves various configuration parameters, such as the number of days used in the bias correction (BIASCORR_DAYS), the minimum number of days needed to do a regression (BIASCORR_MINDAYS), and the percentage of range of recent forecasts that will be extrapolated with regression (BIASCORR_EXTRAPOLATE_PERCENTAGE). If these parameters are not found, default values are used. 
+
+The code also reads the force flag, model, and obsmodel from a file. If the model or obsmodel is blank, the function logs an error message and stops execution. 
+
+The code then attempts to find a corresponding (non-bc) model run with the same basetime. If it cannot find such a model run, it logs an error message and stops execution. 
+
+Overall, the code seems to be part of a larger system that performs bias correction on some kind of forecasting or prediction model.
+
+This Python script appears to be part of a larger system, possibly for weather forecasting. It's performing a series of operations on a set of parameters (`parmList`), which are likely different weather variables.
+
+Here's a high-level breakdown of what the script does:
+
+1. It sets up some initial variables related to time and logs a message about the model cycle.
+
+2. It enters a loop over the parameters in `parmList`. For each parameter, it logs a message and retrieves some information about the parameter using the `getParmInfo` method. It also gets the observed parameter using the `getObsParm` method.
+
+3. It retrieves a set of cases, which are likely different scenarios or data sets for the parameter. It then processes these cases to extract some information about forecast hours.
+
+4. It attempts to retrieve a list of grid information for each parameter. If it encounters an error, it logs the error message and skips to the next iteration of the loop.
+
+5. It loops over the grid information list. For each grid, it calculates the start and end times, checks if the guess grid is newer than the output grid, and reads the guess grid. If the parameter is in `transformParms`, it transforms the input grid.
+
+6. It retrieves old forecasts for the current forecast hour and calculates the number of grids. If there are no previous observations/forecasts, it skips to the next iteration of the loop.
+
+7. If the number of grids is less than `MINDAYS`, it logs a message and skips to the next iteration of the loop.
+
+8. It converts the list of observed and forecast grids into arrays and calculates the average errors.
+
+9. If the number of grids is greater than or equal to `MINDAYS`, it performs a linear regression to get the correlation, standard deviation of the independent variable, and standard deviation of the dependent variable. It then creates a regressed error grid from the linear regression.
+
+10. It creates a multiplier for the regressed error. If the forecast is more than a certain percentage (`fuzz`) beyond the range of forecasts in the training period, it starts reducing the correction amount until it gets back to zero regressed amount at twice the `fuzz` percentage beyond.
+
+The script seems to be part of a system for improving weather forecasts by comparing them to observed data and adjusting them based on past errors.
+
+This code appears to be part of a larger script that handles grid-based data, possibly for weather forecasting or similar applications. Here's a breakdown of what the code is doing:
+
+1. It first calculates a `multiplier` based on the `inputGrid` and `min1` values. If `inputGrid` is less than `min1`, the `multiplier` is adjusted. Any `multiplier` values less than 0.0 are set to 0.0. Then it deletes several variables to free up memory.
+
+2. If the debug level is 1 or higher, it counts the number of `multiplier` values less than 0.98 and 0.02, and logs messages if these counts are greater than 0.
+
+3. It then corrects the forecast by subtracting the sum of `avgErr` and the product of `regErr` and `multiplier` from `inputGrid`.
+
+4. If the parameter is in `transformParms`, it transforms the `corrected` grid back to the real variable.
+
+5. It clips the `corrected` values to legal values and saves the grid.
+
+6. It then checks for hourly temperature (`T`) grids that are higher than the maximum temperature (`MaxT`) and updates `MaxT` if necessary. It does the same for the minimum temperature (`MinT`).
+
+7. It also checks for hourly relative humidity (`RH`) grids that are higher than the maximum relative humidity (`MaxRH`) and lower than the minimum relative humidity (`MinRH`), updating `MaxRH` and `MinRH` as necessary.
+
+8. Finally, it seems to start a process to create dew point temperature (`Td`) from temperature (`T`) and relative humidity (`RH`), but the code snippet ends before this process is completed.
+
+Overall, this code appears to be part of a larger system for managing and manipulating gridded weather data. It includes functionality for error correction, outlier detection, and ensuring that maximum and minimum values for certain parameters are accurate.
+
+This code appears to be part of a larger program that deals with meteorological data. It performs a number of tasks:
+
+1. It retrieves information about parameters and grid data from a mutable model. The parameters it retrieves are related to temperature ("T"), relative humidity ("RH"), and dew point ("Td"). 
+
+2. It checks if the temperature units are in Fahrenheit (F) or not. If they are in Fahrenheit, it converts them to Celsius.
+
+3. It calculates the dew point temperature using the Magnus formula, which is a method to estimate the dew point temperature based on the current temperature and relative humidity.
+
+4. It creates and saves new grids for the dew point temperature.
+
+5. It calculates the morning ("TdMrn") and afternoon ("TdAft") dew point temperatures from the minimum temperature/maximum relative humidity and maximum temperature/minimum relative humidity values respectively.
+
+6. It also has a function `getLastUpdate` that retrieves the last update time for a given grid.
+
+7. It has two functions `Ztrans` and `Rtrans` that perform transformations on the relative humidity data.
+
+8. The `getOldForecasts` function retrieves a list of matching forecast grids and observed grids for a specified forecast hour. It also calculates the average of non-bad forecast grids.
+
+The code is written in Python and uses a number of mathematical and logical operations to manipulate and analyze the meteorological data.
+
+The code appears to be part of a larger Python program that is used for analyzing and processing grid-based data, likely related to weather or climate models.
+
+Here's a breakdown of what the different parts of the code are doing:
+
+1. The first part of the code is a loop that processes a list of forecast records (`frec`). For each record, it reads the grid data, checks if the grid is bad (using the `badGrid` function), and if it's not, it adds the grid to the `fcstgrid` and increments the `numgrids` counter. It then calculates the average of the non-bad forecast grids.
+
+2. The second part of the code does a similar process for observed records (`orec`). It reads the grid data, checks if the grid is bad, and if it's not, it adds the grid to the `obsgrid` and increments the `numgrids` counter. It then calculates the average of the non-bad observed grids.
+
+3. If the parameter (`parm`) is in the list of transform parameters, it applies a transformation to the observed and forecast grids.
+
+4. The transformed grids are then added to the lists of observed and forecast grids.
+
+5. The `getRegression` function calculates the linear regression predictors of non-average forecast errors from the forecast anomalies.
+
+6. The `badGrid` function checks if a grid is bad by looking at its variance. If the variance is less than a certain threshold, it considers the grid as bad.
+
+7. The `getParmInfo` function gets information about a parameter from a mutable model.
+
+8. The `saveGrid` function saves a grid for a specified database and parameter name.
+
+9. The last part of the code is for debugging memory usage. It defines functions to read the memory usage information from the `/proc` filesystem, which is a special filesystem in Unix-like operating systems that provides information about the system and running processes.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

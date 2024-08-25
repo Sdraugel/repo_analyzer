@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>RemoveAllJSONFiles.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>RemoveAllJSONFiles.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script, named `RemoveAllJSONFiles.py`, is designed to delete all JSON files related to advisories in a specific path. The script is part of a software that is in the public domain and comes without any warranty or technical support.
+
+The script starts by defining a message string `msgStr` that asks the user for confirmation to permanently remove all JSON files. This message is appended to a list `VariableList` in a tuple format along with other information.
+
+The script then imports several modules, including `LocalizationSupport`, `os`, `TropicalUtility`, `WindWWUtils`, `functools`, and `operator`.
+
+The main functionality of the script is encapsulated within a class named `Procedure` that inherits from `TropicalUtility.TropicalUtility`. This class has an `__init__` method that initializes the class with a `dbss` parameter and an instance of `WindWWUtils.WindWWUtils`.
+
+The `execute` method of the `Procedure` class is where the main functionality of the script is implemented. It first checks if the user has confirmed the deletion of the JSON files. If not, it returns and ends the execution.
+
+If the user has confirmed, it gets the path of the advisories using the `_getAdvisoryPath` method. It then gets all basin names and their corresponding advisories. The advisories are then flattened into a simple list using `functools.reduce` and `operator.concat`.
+
+The script then iterates over every active site ID and every advisory. For each combination, it constructs the filename of the JSON file and deletes it using `LocalizationSupport.deleteFile`.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

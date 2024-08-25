@@ -1,0 +1,183 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TropicalUtility.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TropicalUtility.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code file appears to be a Python script for a software called "TropicalUtility" version 4.0. The authors of this software are Matthew H. Belk, Shannon White, Pablo Santos, and Tom LeFebvre. The software is in the public domain and is provided without any warranty or technical support.
+
+The script starts with a detailed history of modifications made to the software, including the date, the person who made the changes, and a brief description of the changes.
+
+The script then imports several Python modules, including collections, errno, os, re, and others. These modules provide various functionalities that the script needs to execute its tasks.
+
+The script defines a class named "TropicalUtility" that inherits from the "GridManipulation" class. This class appears to be a utility for handling some sort of weather-related data, possibly related to tropical storms or hurricanes. It has several attributes, such as a list of weather forecast offices (WFOs) that deal with storm surge and wind hazards, a debug toggle, and a test mode toggle.
+
+The class also defines several methods, including `__init__` (the class constructor), `makeRunButton`, `makeRunDismissButton`, and `makeCancelButton`. These methods seem to be related to creating user interface elements, suggesting that this script may be part of a larger application with a graphical user interface.
+
+This code is written in Python and is part of a GUI application using the Tkinter library. The code defines the behavior of several buttons in the application, including "Run", "Run/Dismiss", and "Cancel". 
+
+- The `runCommand` function logs the use of the "Run" button and calls the `makeHazardGrid` method.
+- The `runDismissCommand` function logs the use of the "Run/Dismiss" button, calls the `makeHazardGrid` method, and if the `makeHazardGrid` method returns 1, it calls the `cancelIt` method.
+- The `cancelCommand` function logs the use of the "Cancel" button and calls the `cancelIt` method.
+- The `cancelIt` function unregisters maps and destroys the master widget.
+
+The code also includes several utility methods for manipulating and checking hazard grids:
+
+- The `getSubKeys` method splits a key into parts and removes any "<None>" parts.
+- The `keyPhen`, `keySig`, and `getETN` methods parse a hazard key and return specific parts of it.
+- The `activeSiteIDs` method returns the active site IDs.
+- The `anyHazardConflicts` method checks for any conflicting hazards over a selected mask. It returns True if conflicts are found, otherwise False.
+- The `anyHazardConflictsByPoint` method checks for hazard conflicts on a point-by-point basis.
+
+The code seems to be part of a larger system for managing and checking hazard grids, possibly in a meteorological or geographical context.
+
+The code file appears to be part of a larger system, possibly for weather forecasting or hazard detection. It contains several methods that perform various operations.
+
+1. The first method checks for any conflicts between the current hazard grid and a proposed grid. If there are any conflicts, it returns True, otherwise it returns False.
+
+2. The `calcDiffGrid` method calculates a difference grid between an initial grid and a proposed grid. This grid indicates where hazards have been added, removed, or changed. If the operation is for a Weather Forecast Office (WFO), it filters out only the Storm Surge hazards. The resulting difference grid is then added to the grid manager.
+
+3. The `filterHazardGrid` method filters a hazard grid based on specified filter keys. It returns a new grid and keys that only contain the specified hazards.
+
+4. The `sendMessageToWfos` method sends a message to specified Weather Forecast Offices (WFOs). The message varies depending on whether the ProposedSS grids or ProposedTropWindWW are mentioned.
+
+The code seems to be part of a larger system that manages and analyzes hazard data, possibly for weather forecasting. It's designed to handle and compare different versions of hazard grids, and communicate changes to relevant offices.
+
+This code appears to be part of a larger system that sends messages to Weather Forecast Offices (WFOs) based on certain conditions. The code is written in Python.
+
+Here's a breakdown of what the code does:
+
+1. The code first constructs a final message based on certain conditions. If the condition `ia ISC` is met, it adds a specific message to `final_message`. If not, it adds a different message.
+
+2. It then checks if the system is in test mode (`testMode`). If it is, it logs a test message and simulates a successful transfer. If it's not in test mode, it sends a live message to the WFO and logs the result.
+
+3. The code keeps track of which offices successfully received the message and adds the results to a list.
+
+4. It then constructs a final status message based on the results of the message send status. It counts the total number of messages sent, and how many failed. It also constructs a detailed message for each result.
+
+5. The `getWfosAttention` function determines which WFOs should get a message from the National Hurricane Center (NHC). It creates a list of WFOs that the NHC might communicate with and tracks WFOs with only surge hazards, those with only wind hazards, and those with both.
+
+6. It also checks for any changes to the underlying field. If there are any changes in hazards for a WFO, it adds the WFO to `surgeWfos`.
+
+7. The function then gets the Hazards grid and checks if there are any hazard grids. If there are no hazard grids, it sets `hazardGridList` to an empty list.
+
+8. The function then examines each hazard key in the grid. If the key is either storm surge (SS), or wind (HU, TR) hazards, it determines which offices need to be notified.
+
+This code appears to be part of a larger system that manages hazard notifications for different zones associated with Weather Forecast Offices (WFOs). 
+
+The first part of the code is getting a list of zones associated with a particular WFO. If no zones are found for the WFO, it logs a problem and continues to the next WFO. For each zone, it tries to get a mask for the zone. If it can't, it logs a problem and continues to the next zone. 
+
+The code then checks if there is an overlap between the zone mask and a hazard mask. If there is an overlap, it means that the zone has a potential for a hazard. Depending on the type of hazard, it adds the WFO to the appropriate set (windWfos, surgeWfos, or bothWfos) and logs a message. 
+
+The next part of the code ensures that there are no duplicates in the individual hazard sets. If a WFO is in bothWfos, it is added to surgeWfos and removed from bothWfos and windWfos. 
+
+The code then returns a list of WFOs for both hazards, wind-only hazards, and surge-only hazards. 
+
+The `findWfoZones` method finds zones associated with a WFO by making a data request to a database and processing the response. 
+
+The `notifyWFOs` method appears to be a placeholder for a method that will notify WFOs of changes in hazards. 
+
+There are also several commented-out sections of code that might be used in the future. These include code to enforce a 3% area of a zone requirement and code to prevent duplication of WFOs with both hazards in the individual hazard sets.
+
+This Python code file seems to be part of a larger system that handles and processes storm advisory information. Here's a breakdown of what the code does:
+
+1. The first part of the code is related to sending messages to Weather Forecast Offices (WFOs). It checks the status of each WFO's communications, identifies which WFOs need to be notified about certain changes, and sends them a message. The messages are related to different types of hazards (tropical, wind, and storm surge hazards). However, some of these lines are commented out.
+
+2. The second part of the code handles the processing of StormInfo files. It has several methods:
+
+   - `_synchronizeAdvisories`: This method retrieves a directory, which causes synchronization to occur. The directory is retrieved from a localization file. The method can throw an exception if there's an issue.
+
+   - `_getLocalAdvisoryDirectoryPath`: This method constructs the absolute path to the JSON files for the site. It creates the directory if it doesn't exist.
+
+   - `_getStormAdvisoryNames`: This method retrieves the names of the active storm JSON files for further processing. It can filter out certain advisories if needed.
+
+   - `_loadAdvisory`: This method loads a JSON storm record. It handles exceptions and displays an error message if there's an issue loading the JSON file.
+
+   - `_saveAdvisory`: This method saves a JSON storm record. It timestamps the storm info and saves the advisory for all active sites. It also handles exceptions and displays a message if there's an issue saving the JSON file.
+
+   - `_getAdvisoryPath`: This method identifies where the JSON records go, based on the GFE operating mode.
+
+   - `_getAdvisoryFilename`: This method constructs the absolute filename for a JSON record.
+
+   - `extractStormInfo`: This method coordinates the extraction of JSON records into the Python environment. It syncs the CAVE localization store, gets the list of all available storm advisories, and extracts the storm information from each advisory.
+
+   - `determineStorm`: This method decides if a storm is new or if it needs to pre-populate info from an existing storm. It creates a list of storm names and a variable list based on the storm info.
+
+The code is not complete, and the `determineStorm` method is not finished.
+
+This Python code file appears to be part of a larger system, likely related to weather forecasting or storm tracking. It includes several functions that perform various tasks:
+
+1. The first block of code is responsible for creating a GUI (Graphical User Interface) that allows the user to select a storm from a list of storm names. If the user doesn't select a storm or cancels the operation, the function will return a cancellation status.
+
+2. The `extractWindHazards` function takes a list of hazard grids and a list of wind hazards as input. It creates an empty grid for wind hazards and searches the hazard grids for any wind hazards. If it finds any, it extracts them and adds them to the wind hazard grid.
+
+3. The `mergeDiscreteGrid` function merges a specified discrete grid into a hazard grid. It does this by iterating over the keys in the merge grid and adding each hazard to the hazard grid.
+
+4. The `variableExists` function checks if a certain variable exists in the available parameters of a model. It does this by iterating over the available parameters and checking if the model name, parameter name, and level match the input arguments.
+
+5. The `getAvgTopoGrid` function retrieves an average topography grid from a specified database. It converts the grid from meters to feet, replaces any values below -16000 with -80, and replaces any values above 16000 with the corresponding value from the topography grid.
+
+6. The `removeEarlierTRs` function removes all but the latest grid from an inventory of grids.
+
+7. The `getParmMinMaxLimits` function retrieves the minimum and maximum valid values for a specified parameter from a model.
+
+8. The `sortBreakpoints` function is used to sort breakpoint records. It uses a predefined list of valid string parts for sorting. 
+
+Overall, this code seems to be part of a system that deals with weather data, specifically related to storms and hazards. It includes functionality for manipulating and analyzing this data, as well as interacting with a user through a GUI.
+
+The code provided is a part of a larger Python program that seems to be dealing with hazard grids and their related operations. Here's a brief description of what each part of the code does:
+
+1. The first part of the code is a list of strings, which seem to be codes for different geographical areas or zones.
+
+2. The next part of the code is a function that takes two inputs, `a` and `b`, which are expected to be strings containing alphanumeric characters. The function splits these strings into alphabetic and numeric parts. It then compares these parts, first the alphabetic and then the numeric. If the alphabetic part of `a` comes before `b` in the `validTypes` list, it returns -1, if it comes after, it returns 1. If they are equal, it compares the numeric parts in the same way. If both parts are equal, it displays an error message.
+
+3. The `extractHazards` function takes a hazard grid and a hazard as inputs. It returns a list of keys and mask pairs where the hazard exists in the hazard grid.
+
+4. The `purifyKey` function takes a hazard key and a list of allowed keys as inputs. It splits the hazard key into subkeys and checks if each subkey is in the list of allowed keys. It returns a string of subkeys that are in the allowed keys list, separated by '^'.
+
+5. The `mergeCertainHazards` function takes an initial grid, a grid to merge, a hazard time range, and a list of selected hazards as inputs. It merges the selected hazards from the grid to merge into the initial grid.
+
+6. The `displayProduct` function takes a product as input and displays the product text. It returns true if the forecaster clicked OK.
+
+This code seems to be part of a larger system dealing with geographical data, possibly related to weather or environmental hazards.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

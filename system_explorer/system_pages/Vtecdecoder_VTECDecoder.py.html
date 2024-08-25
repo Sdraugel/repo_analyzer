@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>VTECDecoder.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>VTECDecoder.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to ingest warning files into a practice active table. It uses the Thrift protocol for communication with the server.
+
+The script starts by importing necessary modules and setting up a logger named "VTECDecoder". It then defines a class `VTECDecoder` with several methods:
+
+- `__init__`: Initializes the instance by decoding the command line arguments.
+- `decode`: Sends the file to EDEX practice decoder using Thrift client. If the file is processed successfully and the delete flag is set, it deletes the file.
+- `_usage`: Prints out usage information if the script is started without sufficient command line arguments.
+- `_decodeCommandLine`: Decodes the command line arguments and sets the corresponding instance variables.
+- `_getProduct`: Opens and reads the product file.
+
+The `main` function creates an instance of the `VTECDecoder` class, calls its `decode` method, and handles any exceptions that may occur.
+
+The script is run from the command line with various options, including the filename of the product to be decoded, whether to delete the input file after processing, the name of the active table to hold the decoded info, and the host and port to send the request to. If the command line arguments are not provided correctly, the script will print usage information and exit.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

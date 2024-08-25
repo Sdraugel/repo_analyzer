@@ -1,0 +1,72 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>SAT.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>SAT.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a Python script for a satellite data initialization module, developed by Raytheon Company. It is part of a larger software system, possibly for weather forecasting or climate analysis, as it processes satellite data related to various atmospheric and surface conditions.
+
+The script defines a class `SATForecaster` that inherits from a `Forecaster` class. The `SATForecaster` class includes methods for processing and converting satellite data. 
+
+The methods in this class perform various calculations on the data, such as:
+
+- Converting temperature from Kelvin to Celsius (`kelvinToCelsius` method)
+- Converting a decimal to a percentage (`decimalToPercent` method)
+- Calculating surface weather values from satellite data (`gvar2T` method)
+
+The class also includes methods for processing specific types of satellite data, such as infrared (IR) data, water vapor data, and visible light data. These methods are named according to the type of data they process and the satellite from which the data originates (e.g., `calcIR11E` for IR data from an east-facing satellite, `calcWaterVaporW` for water vapor data from a west-facing satellite).
+
+There are also methods for processing data from the GOES-R series of weather satellites. These methods handle data from various spectral bands, including visible light, near-infrared (NIR), and infrared (IR) bands. They convert the data to percentages or Celsius temperatures as needed.
+
+This script is designed to be a base file that is not intended to be overridden, but it can be subclassed to override behavior. This suggests that it is part of a larger system that may include other scripts for processing different types of data or performing different types of calculations.
+
+This part of the code file contains a series of methods that convert different types of data from one unit to another. 
+
+The first two methods, `calcSnowIceNIRBand161umW` and `calcCloudParticleSizeNIRBand224umW`, convert their respective input parameters from decimal to percent using the `decimalToPercent` method. These methods could be used to convert data related to snow, ice, and cloud particle size from a decimal format to a percentage format.
+
+The remaining methods, from `calcShortwaveWindowIRBand390umW` to `calcCarbonDioxideIRBand1328umW`, convert their respective input parameters from Kelvin to Celsius using the `kelvinToCelsius` method. These methods could be used to convert data related to different atmospheric variables (such as shortwave window, upper level water vapor, mid level water vapor, low level water vapor, cloud top phase, ozone, clean window, legacy window, dirty window, and carbon dioxide) from a temperature in Kelvin to a temperature in Celsius.
+
+The `main` function at the end of the code snippet creates an instance of the `SATForecaster` class and runs it. This function could be the entry point of the program, which starts the execution of the program. 
+
+It's important to note that the actual implementation of the `decimalToPercent` and `kelvinToCelsius` methods is not provided in this code snippet.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

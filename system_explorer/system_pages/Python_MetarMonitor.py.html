@@ -1,0 +1,74 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>MetarMonitor.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>MetarMonitor.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a header and part of a Python script file named "MetarMonitor.py". It includes information about the software's development and modification, its export control restrictions, and the contractor's details. 
+
+The script appears to be a part of a larger system, possibly related to meteorological data processing (as suggested by the name "MetarMonitor.py" and the import of modules like "MetarData" and "MetarMonitorP"). 
+
+The header also includes a detailed revision history, documenting changes made to the code over time, the authors of those changes, and the reasons for them. This is a common practice in software development to keep track of modifications and their purposes, which can be useful for debugging and future development.
+
+The actual code begins with the import of several modules, including logging and time, as well as some presumably custom modules like Avn, AvnLib, MonitorP, and MetarMonitorP. 
+
+Then, a logger is initialized for logging events that occur while the software is running. 
+
+Next, a class named "Monitor" is defined, which seems to inherit from a class named "Monitor" in the "MetarMonitorP" module. The class has a class attribute "Source" set to 'mtrs', and a method "__checkTEMPO" is being defined, which presumably checks some conditions related to meteorological data. 
+
+However, the code is incomplete, so the full functionality of the "__checkTEMPO" method or the "Monitor" class cannot be determined from the provided code.
+
+This code seems to be part of a weather monitoring system, specifically dealing with METAR data. METAR is a format for reporting weather information, primarily used in aviation.
+
+The first part of the code defines a function that checks if certain rules apply to the METAR data. If the severity of a rule is below a certain threshold, or if the rule's method does not apply to the METAR data, the loop breaks. If an error occurs during this process, the loop also breaks. If none of these conditions are met, the rule type is added to a dictionary `d`.
+
+The `__compare` function retrieves the latest METAR data for a specific site and checks if the data is valid. If the data is missing or cannot be decoded, an error message is logged and the function returns a result indicating the missing data.
+
+If the METAR data is valid, the function applies certain rules to the data and adds any resulting messages to the result.
+
+The function then checks if any 'TEMPO' conditions (temporary changes in weather conditions) apply. If a 'TEMPO' condition is in effect, the function checks if certain events have occurred within a certain time frame. If these events have not occurred, a message is added to the result indicating this.
+
+The severity of the message depends on how long the 'TEMPO' condition has been in effect. If it has been in effect for more than half of its valid time, the severity is set to 4 (orange). Otherwise, the severity is set to 3 (yellow).
+
+Finally, the function returns the result, which includes the METAR data and any messages about missing data or 'TEMPO' conditions.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

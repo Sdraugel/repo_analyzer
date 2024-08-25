@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>SnowAmt_fm_SnowRatio_and_QPF.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>SnowAmt_fm_SnowRatio_and_QPF.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a part of a software developed by Raytheon Company, and it contains export-restricted data. The software is in the public domain and is provided "as is", without any warranty or technical support.
+
+The main purpose of this code is to compute the amount of snowfall (SnowAmt) by multiplying the SnowRatio with the Quantity of Precipitation Forecast (QPF). The SnowRatio is a local grid created by a smartInit, which applies the Cobb Snow Algorithm.
+
+The code is written in Python and uses the numpy library for numerical computations. It also imports a module named SmartScript.
+
+The code defines a class named Tool which inherits from SmartScript.SmartScript. The class has an `__init__` method for initialization and an `execute` method that performs the main computation.
+
+In the `execute` method, the snowfall is initially calculated as the product of QPF and SnowRatio. Then, if the temperature (T) is greater than 32.0, the snowfall is adjusted using a formula that depends on the temperature. If the temperature is greater than 35.0, the snowfall is set to 0.0. The method returns the calculated snowfall.
+
+The code also mentions that it is an absolute override file, indicating that a higher priority version of the file will completely replace a lower priority version of the file.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

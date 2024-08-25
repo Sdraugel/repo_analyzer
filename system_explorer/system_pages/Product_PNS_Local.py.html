@@ -1,0 +1,68 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>PNS_Local.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>PNS_Local.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a Python script that appears to be part of a larger software system developed by Raytheon Company. It is a text product generation script, specifically for generating a "Public Information Statement" (PNS) text report.
+
+The script begins with a header that includes licensing and copyright information, as well as a history of software changes. 
+
+The script then imports several modules: GenericReport, TextRules, string, time, re, os, types, and copy. 
+
+The main class in this script is TextProduct, which inherits from GenericReport.TextProduct. This class contains a dictionary named Definition, which holds various configuration settings for the text product, such as the product name, station ID, WMO code, location of WFO, product pil, language, line length, and more.
+
+The class also contains several methods:
+
+- `__init__`: This is the constructor method that initializes the TextProduct object. It calls the constructor of the parent class.
+
+- `_preProcessProduct`: This method appears to be a placeholder for preprocessing the forecast data, but currently, it just returns the input as is.
+
+- `_preProcessArea`: This method generates the header for the area, which includes WMO lines, non-segmented UGC data, and the product name/time lines.
+
+- `_makeProduct`: This method generates the main body of the product, which includes a public information statement.
+
+- `_postProcessProduct`: This method cleans up the forecast text by removing extra line feeds, breaking lines at a specified length, and displaying a progress message.
+
+The script seems to be designed to generate a formatted text report based on some input forecast data and predefined configuration settings.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

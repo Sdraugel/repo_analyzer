@@ -1,0 +1,158 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>FWS_Site_MultiPil_Definition.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>FWS_Site_MultiPil_Definition.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a configuration file for a software system. It appears to be written in Python, and it's primarily used to set up various parameters for a weather forecasting system. Here's a breakdown of what the different parts of the code are doing:
+
+1. The first section is a legal disclaimer, stating that the software was developed by Raytheon Company under a contract with the US Government. It also mentions that the software contains export-restricted data and requires an export license or other authorization for dissemination to non-U.S. persons.
+
+2. The next section indicates that this is a base file that should not be overridden.
+
+3. The following section states that the software is in the public domain and sets up the Product Definition overrides for the FWS formatter for a site.
+
+4. The SOFTWARE HISTORY section records changes made to the software, including the date, ticket number, engineer who made the changes, and a description of the changes.
+
+5. The next section defines a dictionary called "Definition" which is used to store various configuration items. These include display name, product name, station ID, WMO ID, product pil, state name, WFO city and state, product ID for storing to AWIPS text database, product ID for transmitting to AWIPS WAN, and output file.
+
+6. The "agencyList" is a list of agency abbreviations as they should appear in the product header.
+
+7. The "forecasterList" is a list of forecaster numbers, initials, and last names.
+
+8. The "stqNumberVersions" variable specifies how many spots to list in the GUI.
+
+9. The "stqWmoID" helps find the timestamp line in the STQ product.
+
+10. The "typeList" is a list of project types and are formatted in the "REASON FOR REQUEST" line of the FWS forecast.
+
+11. The "defaultElementDict" is a dictionary that will appear as default in the 2nd GUI if Request Data is manually entered.
+
+The commented out sections are likely examples or templates for how to fill in the various lists and dictionaries.
+
+The code appears to be a configuration file for a weather forecasting system. It contains various settings and definitions that can be adjusted to change the behavior of the system. Here's a breakdown of what some of the sections do:
+
+1. The commented out sections at the top seem to define different types of weather elements for different environments like "SAR Land", "SAR Water", "MARINE", "OTHER", and "wildfireElementList". These are likely used to specify what weather elements should be included in the forecast for each environment.
+
+2. The "shortTermOnly" definition controls whether the system should include extended forecasts and/or outlooks in the spot forecasts.
+
+3. The "insertUnrepresentStatement" and "unrepresentStatement" definitions control whether a statement about the unrepresentativeness of the forecast should be included, and what that statement should be.
+
+4. The "contactStatement" definition allows for a contact statement to be added to the forecast, providing a way for users to get in touch if they have questions or concerns.
+
+5. The "includeEmails" definition controls whether an email line should be added to the forecast.
+
+6. The "hoursSChcEnds" definition seems to be a weather-related flag, possibly related to the number of hours until a chance of precipitation ends.
+
+7. The "eyeWindAdjustmentFactor" definition is used to adjust the wind speed measured at eye level. This is likely done to account for the fact that wind speeds are typically slower closer to the ground.
+
+8. The "insertDiscussionFromFile" and "insertOutlookFromFile" definitions control whether the forecast discussion and outlook should be pulled from a separate file or from the last forecast product.
+
+9. The "includeCreationTimeOnGUI" definition controls whether the user can enter a creation date/time for product generation.
+
+10. The "forecastTypeList" definition seems to control the format of the spot forecast, allowing the user to choose between a narrative format or a tabular/narrative format.
+
+The code appears to be a part of a configuration file for a weather forecast system. It defines several settings and options for the system.
+
+1. `forecastTypeList`: This is a list of tuples where each tuple represents a type of forecast format. Each tuple contains a label, the forecast type, and a corresponding code.
+
+2. `defaultForecastType`: This sets the default forecast format for manual entries.
+
+3. `withIgnitionTimes`: This is a setting that determines whether or not to include an ignition time forecast within the narrative.
+
+4. `includeIgnitionOptionOnGUI`: This setting determines whether or not the GUI will include the option to include an ignition time forecast at run-time.
+
+5. `tabularResolutionDict`: This is a dictionary that contains the list of table time resolutions that will appear in the GUI for the forecaster.
+
+6. `defaultTabularResolution`: This sets the default table time resolution for each period.
+
+7. `tabularAllPeriods`: This setting determines whether or not to generate a 12-hour table for all periods or just the first one.
+
+8. `tabularForWildfire`: This is a setting that determines whether or not to produce a narrative forecast for wildfire spot requests.
+
+9. `tableStartTimeMode`: This setting determines how the start time for the table is calculated.
+
+10. `tableStartTimeOffset`: This setting determines the number of hours before the ignition time that the table should start.
+
+11. `ignitionForecastTypeList`: This is a list of types of spot requests for which the system will produce an Ignition Time/Request Time forecast by default. 
+
+It's important to note that many of these settings have commented out alternative values, indicating that the system can be easily reconfigured by uncommenting these lines.
+
+This code is written in Python and it is defining a set of configurations for a weather forecasting system. The configurations are stored in a dictionary named "Definition". 
+
+1. `ignitionForecastTypeList`: This is an empty list. It might be used later to store some types of forecasts related to ignition.
+
+2. `elementFormatDict`: This dictionary defines the format of various weather elements. The format can be either "alpha" (textual) or "numeric". For instance, the sky cover can be represented as "MC" (Mostly Cloudy) or 90 (90% cloud cover). Similarly, the wind direction can be represented as "N" (North) or 000 (0 degrees).
+
+3. `bothAlphaNumericDict`: This dictionary specifies whether both alpha and numeric values are needed for certain elements. The possible values are "Yes" or "No". For example, if the wind element is set to "Yes", then the corresponding setting for `elementFormatDict` should be set to "alpha". Otherwise, two lines of numeric values will be generated.
+
+4. `tabularMixingHeightUnits`: This configuration allows the user to specify their preference for how the mixing height is expressed. It can be either in thousands of feet ("kft") or just in feet ("ft").
+
+5. `transportWindLabel`: This configuration allows the user to specify their preference for the label of transport winds in the tabular section. It can be either "mix" or "tran".
+
+6. `includeMetricDispersion`: This configuration specifies whether to include the metric values for mixing height and transport winds. The possible values are "yes" or "no".
+
+7. `20ftWindParm`: This configuration specifies whether to use a specific grid for 20-foot wind or to use a conversion factor of the wind grid. The possible values are "Wind" or "Wind20ft".
+
+8. `wind20ftHeader`: This configuration specifies the format of the wind display. It can be either 1 (yes) or 0 (no).
+
+9. `tableWindElementSplit`: This configuration specifies whether to split wind direction, speed, and gusts into separate lines or to combine them. The possible values are "yes" or "no".
+
+10. `tableEyeWindElementSplit`: This configuration is similar to `tableWindElementSplit` but it applies to the eye wind element. The comment for this configuration is not complete, so it's not clear what the possible values are.
+
+This code is defining the format of how weather data is displayed in a table format. The weather data includes wind direction, wind speed, wind gust speed, and swell direction and height. The format of the table depends on the time resolution and the setting of certain variables.
+
+The variables "tableEyeWindElementSplit", "tableRidgeElementSplit", "tableTransElementSplit", "tableSwellElementSplit", and "tableSfcWindElementSplit" control whether the wind direction, speed, and gusts (and swell direction and height for "tableSwellElementSplit") are displayed in separate lines or combined into one line. If the variable is set to "yes", the elements are displayed in separate lines. If it's set to "no", the elements are combined into one line.
+
+The variable "cwrParm" is used to specify whether the chance of wetting rain is determined using the PoP (Probability of Precipitation) grid or a CWR (Chance of Wetting Rain) grid. The value can be either "CWR" or "PoP".
+
+The comments in the code provide examples of how the table would look based on the time resolution and the setting of the variables.
+
+The provided code seems to be a configuration or settings part of a larger codebase, possibly related to weather data, specifically wind speed and gusts.
+
+The commented lines (#) are not executed, they are there for human readers to understand the context or purpose of the code. The line numbers and the text after them seem to be some kind of weather data or related information.
+
+The line `Definition["tableSfcWindElementSplit"] = "no"` is setting the value of the key "tableSfcWindElementSplit" in the dictionary "Definition" to "no". This could be a configuration setting that determines whether the surface wind element data should be split or not in the larger application. The previous value was "yes" as indicated by the commented out line, but it's been changed to "no". 
+
+The line `### *** END TABULAR TEST SECTION *** ###` is a comment indicating the end of a section of the code, specifically a section related to testing tabular data.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

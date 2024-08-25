@@ -1,0 +1,170 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ObjAnal.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ObjAnal.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This is a Python script for a software called ObjAnal, which stands for Objective Analysis. The software is in the public domain and is provided without any warranty or technical support. The author of the software is Tim Barker from SOO Boise, ID. 
+
+The software has undergone several versions and updates, with the most recent one being version 2.12. The updates include bug fixes, memory enhancements, and new feature additions. 
+
+The script starts with importing necessary Python libraries such as numpy, SmartScript, sys, math, os, gc, and LinearAlgebra from numpy.linalg. 
+
+Then, it defines a class named ObjAnal which inherits from the SmartScript class. In the initialization function of this class, it sets up some variables related to grid size, grid resolution, and station elevation. It also sets up some default parameters related to a method called Serp. 
+
+The comments in the script provide a detailed history of the software's updates and changes. It also mentions that this is an absolute override file, meaning a higher priority version of the file will completely replace a lower priority version of the file. 
+
+The actual functionality of the software is not clear from this part of the code, as the methods of the class ObjAnal are not included in the provided code. However, from the comments, it can be inferred that the software is used for some kind of grid-based calculations, possibly related to geographical data or weather simulations.
+
+This code is written in Python and appears to be part of a larger system for performing objective analysis on data points. 
+
+The first part of the code sets default parameters for the Barnes and DSquared methods. The Barnes method is a type of spatial interpolation, while DSquared seems to be a custom method for this code, possibly related to distance calculations. 
+
+The `ObjectiveAnalysis` function takes in several parameters including a list of values, a guess grid, an analysis type, and optional parameters for elevation factor, topography grid, and land mask. This function checks if the guess grid is a vector type and handles the point values and grids differently based on this. It also checks for duplicate values and performs memory usage logging. 
+
+If the guess grid is not a vector, it calls the `ObjectiveAnalysisScalar` function. If it is a vector, it splits the values into u and v components, performs the `ObjectiveAnalysisScalar` function on each, and then combines the results. 
+
+The `ObjectiveAnalysisScalar` function performs an objective analysis on the point values using the specified guess grid. It makes lists of x, y, h, and value-guess, and removes points that are off the grid. It also handles cases where the observation point elevation is missing or if actual elevations are being used. 
+
+The code seems to be incomplete as it ends abruptly.
+
+This Python code is performing a series of operations on a grid of data points. The operations include:
+
+1. Comparing the difference between the elevation (`elev`) and grid elevation (`gelev`) for each grid point and its neighbors within a certain range (`wid`). If the difference (`dif`) is smaller than the current smallest difference (`bestdif`), it updates `bestdif`, `bestele` (best elevation), and `bestval` (best value).
+
+2. If the best difference is greater than a desired difference (`desiredDiff`), it increases the range (`wid`) by 1.
+
+3. The code then logs some information about the current grid point, including its estimated value (`estval`), and appends the difference between the actual value (`val`) and the estimated value to a list (`zlist`).
+
+4. Depending on the `analysisType`, it performs a different type of analysis on the grid. The options are "serp", "barnes", and "dsquared". If the `analysisType` is not recognized, it logs an error message and creates an empty grid.
+
+5. The function `removeDuplicates` is defined to remove duplicate stations from a list of stations (`values`). It does this by creating a hash map where the key is a combination of the station's x and y coordinates and the value is a list of stations at that location. If there are multiple stations at the same location, it averages their data.
+
+6. The function `Serp` is defined to perform a curve-fitting algorithm using 'serpentine' curves on a grid of data. It takes in a list of values (`zlist`), points (`xlist`, `ylist`, `hlist`), a topography weighting factor (`elevfactor`), and a topography grid (`Topo`).
+
+The code seems to be cut off at the end.
+
+The provided code is a part of a larger program that seems to be performing some kind of spatial analysis or modeling, possibly related to topography or geographical data.
+
+1. Memory Usage Estimation: The code begins by estimating the memory usage based on the size of a grid and the number of control points. If the estimated memory usage exceeds a certain limit, it logs an error message and returns with no change.
+
+2. Setup Check: The code then checks if it needs to perform a setup again. It does this by checking if the number of points is different, if the elevation factor is different, and if each point is in the distance arrays. If any of these conditions are met, it sets a flag to perform the setup again.
+
+3. Setup: If the setup flag is set, it performs a setup that involves scaling, calculating distances, remoteness, and minimum distances. It also calculates a factor that relates every control point to every grid point.
+
+4. Memory Management: Throughout the setup, the code keeps track of memory usage and performs garbage collection to free up memory when necessary.
+
+5. Matrix Calculations: After the setup, the code performs matrix calculations to solve for weights.
+
+6. Serp Calculations: Finally, the code performs what it refers to as "Serp calculations". It's not clear from the provided code what these calculations involve, but it seems to be related to the control points and the weights calculated earlier.
+
+This code is written in Python and makes use of NumPy for numerical computations and LinearAlgebra for matrix operations. It also uses logging for tracking the progress and memory usage.
+
+This Python code appears to be a part of a larger class that performs various types of spatial analysis. Here's a breakdown of what the different methods in this code do:
+
+1. `setSerpCache(self,value)`: This method sets the size of the serp distance grids cache. The cache is used to speed up the serp routines by saving and re-using expensive distance calculations between runs. The cache size can be set between 0 and 1000 MB.
+
+2. `Dsquared(self,zlist,xlist,ylist,hlist,elevfactor,Topo,landMask=None)`: This method performs an inverse distance squared weighting scheme. It calculates the distance between each grid point and the change point, considering the weight of each change point and the square of the distance.
+
+3. `setDSquaredDist(self,value)`: This method sets the minimum distance used by the Distance Squared weighting algorithm. Only control points within this distance of a gridpoint will be used in calculating the weighted average.
+
+4. `setDSquaredMaxPoints(self,value)`: This method sets the maximum number of points used by the Distance Squared weighting algorithm.
+
+5. `Barnes(self,zlist,xlist,ylist,hlist,elevfactor,Topo,landMask=None)`: This method performs a Barnes analysis routine, which is a type of spatial analysis that uses an iterative approach to interpolate values across a grid.
+
+The code also includes several memory management operations using the `del` keyword and `gc.collect()` to remove temporary variables and free up memory. It also logs the memory usage at different stages of the calculations.
+
+This code is part of a larger program that appears to be implementing the Barnes interpolation algorithm, which is often used in meteorology for gridding scattered data points. 
+
+The code starts by checking the value of `BarnesSpacing`. If it's less than -50, it calculates the average distance of the closest neighbor. If not, it gets the maximum distance to the closest neighbor. If `BarnesSpacing` is not set, it defaults to 50. 
+
+Then it calculates the Barnes 'kappa' value, which depends on twice the Barnes distance. 
+
+The code then proceeds to the first pass of the Barnes algorithm. It calculates the Barnes weight for each point in the dataset (represented by `numpts`) and uses these weights to calculate a weighted average. 
+
+The second pass of the Barnes algorithm is similar, but this time it weights the difference between the point value and the change calculated in the first pass. 
+
+The results of the two passes are added together to get the final adjustment, which is then returned.
+
+The code also includes methods to set the `BarnesGamma` and `BarnesSpacing` values, which are parameters for the Barnes algorithm.
+
+The `setupScaling` function sets up all the numeric arrays for the control point locations based on any elevation and land/sea scaling. 
+
+The `getTotDistSquared` function calculates the total distance between each point and every other point, including the elevation distance and the land/water.
+
+This code appears to be part of a larger class that performs calculations related to geographical data, such as distances and elevations on a grid of points. 
+
+Here's a brief overview of what each method does:
+
+1. `useActualElev(self)`: This method sets an instance variable `ActualElev` to 1, indicating that the actual elevation of a station will be used when calculating the "distance" of a grid point from the observation.
+
+2. `useGridElev(self)`: This method sets `ActualElev` to 0, indicating that the elevation of the grid point that contains an observation will be used when calculating the "distance" of a grid point from the observation.
+
+3. `getDistance(self,xval,yval,hval,scaledtopo,landMask)`: This method calculates the distance from a single point with coordinates `xval`, `yval`, and elevation `hval` to all other points on a grid. The distance is calculated in terms of grid-spacing, not physical distance units like kilometers. The distance calculation also takes into account differences in elevation and land/water mask between the point and each grid point.
+
+4. `getMinDist(self,totDist)`: This method calculates the minimum distance between a control point and all other control points on the grid.
+
+5. `getSerpRemoteness(self,totDist)`: This method calculates a multiplier for the weight of "remote" points (ones without many neighbors) in the grid. This is done to prevent points that are very near other points from dominating the analysis.
+
+6. `setupElev(self,xlist,ylist,hlist,elevfactor,Topo)`: This method scales the elevation data based on an `elevfactor`. If `elevfactor` is set to 1, then 1 foot of elevation difference is equivalent to 1km of horizontal distance. If `elevfactor` is set to 1000, then 1000 feet of elevation difference is equal to 1 km of horizontal distance. If `elevfactor` is set to zero, elevation is not considered in the analysis.
+
+This code file appears to be part of a larger program that performs operations related to geographical data analysis. Here's a breakdown of what the functions in the code do:
+
+1. `setupLandWater`: This function sets up a list that contains the value of the landMask grid for every point in the xlist, ylist locations. If the landMask is None, it appends 1 to the list, otherwise, it appends the value of landMask[y,x].
+
+2. `getComponentDiff`: This function calculates the difference between all control points in the xloc array.
+
+3. `getGridSpacing`: This function calculates the 'rough grid spacing' by getting the distance between the corners of the GFE grid and dividing by the number of points.
+
+4. `getCircleDistance`: This function calculates the 'great circle distance' between two lat lon points in kilometers.
+
+5. `setVerbose`: This function sets the 'verbosity' of logging. By default, it sets to 1, but it can be set higher to see even more detailed messages.
+
+6. `setQuiet`: This function sets 'verbosity' to zero so that only required (level=0) log messages are output.
+
+7. `setMissingElevThreshold`: This function sets the MissingElevThreshold value. Observations with elevation values less than or equal to this threshold will use the topo grid elevation instead, even if ActualElev is set to 1.
+
+8. `logtime`: This function writes a string with a date/time stamp. It can dynamically control which messages get printed by using the importance and verbosity settings.
+
+The last part of the code is for debugging memory usage. It includes functions to read the memory usage from the /proc filesystem and convert it to the appropriate scale (kB, mB, etc.).</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

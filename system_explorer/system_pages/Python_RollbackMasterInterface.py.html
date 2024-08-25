@@ -1,0 +1,68 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>RollbackMasterInterface.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>RollbackMasterInterface.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The code is a Python script that defines a class `RollbackMasterInterface` which extends from the `MasterInterface` class. This class is designed to act as a controller for inspecting and running Python scripts from Java. It differs from the base `MasterInterface` class because it utilizes a rollback importer.
+
+Here's a breakdown of the class and its methods:
+
+- `__init__(self, scriptPath)`: This is the constructor of the class. It initializes an instance of the class and sets the `_scriptPath` attribute to the path provided as an argument.
+
+- `importModules(self)`: This method is used to import modules from the script path.
+
+- `getStartupErrors(self)`: This method returns a list of import errors that occurred during the startup of the program. It uses the `ArrayList` class from `java.util` package to store the errors.
+
+- `addModule(self, moduleName)`: This method adds a module to the list of modules and then reloads all modules.
+
+- `reloadModule(self, moduleName)`: This method reloads a specific module and then reloads all modules.
+
+- `removeModule(self, moduleName)`: This method removes a specific module from the list of modules and then reloads all modules.
+
+- `reloadModules(self)`: This method reloads all modules.
+
+The software history comments indicate that the script was initially created by an engineer named dgilling on 01/17/13 and later modified by njensen on 10/09/13 to fix the `reloadModules()` method.
+
+The top part of the file contains legal information and a warning about U.S. export controls. It states that the software was developed and/or modified by Raytheon Company under a contract with the U.S. Government, and that it contains export-restricted data.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,136 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>RoutineLevel1_SAF_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>RoutineLevel1_SAF_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This is a Python script developed by Raytheon Company. The script seems to be a part of a testing suite for a weather forecasting system, possibly the Advanced Weather Interactive Processing System (AWIPS) II, as indicated by the reference to the AWIPS II Master Rights File.
+
+The script begins with a detailed comment section that includes information about the developer, the contract under which the software was developed, and export control restrictions. It also includes a disclaimer that the software is provided "as is" without any warranty or technical support.
+
+The script imports a module named TestScript, presumably a custom module for running tests.
+
+The main part of the script creates a list of tuples named `general_createGrids`. Each tuple in the list appears to represent a different forecast parameter, such as temperature (MaxT, MinT, T), dew point (Td), wind, sky conditions, weather (Wx), probability of precipitation (PoP), quantitative precipitation forecast (QPF), and snow amount (SnowAmt). 
+
+Each tuple includes the forecast parameter name, its type (SCALAR, VECTOR, or WEATHER), the start and end times for the forecast, the forecast value, and the area for which the forecast applies (all, AboveElev, or BelowElev).
+
+The script doesn't include any functions or operations that use this list, so it seems to be a part of a larger codebase. The list `general_createGrids` could be used elsewhere in the code to generate forecast grids for testing purposes.
+
+The code appears to be a part of a weather forecasting system. It's defining a series of forecasts ("Fcst") for different weather parameters over specific time periods. 
+
+Each line represents a forecast for a specific weather parameter, defined by a tuple with multiple elements:
+
+1. "Fcst": This likely stands for "Forecast" and indicates that the line is defining a forecast.
+2. The second element is the type of forecast (e.g., "PoP" for probability of precipitation, "QPF" for quantitative precipitation forecast, "T" for temperature, "Td" for dew point temperature, "Wind" for wind speed and direction, "Sky" for sky cover, "Wx" for weather conditions, "SnowAmt" for snow amount).
+3. The third element indicates the type of data (e.g., "SCALAR" for a single value, "VECTOR" for a value with direction, "WEATHER" for weather conditions).
+4. The fourth and fifth elements represent the start and end times of the forecast, respectively.
+5. The sixth element is the forecasted value for the specified weather parameter.
+6. The seventh element indicates the area for which the forecast applies (e.g., "all", "AboveElev", "BelowElev").
+
+For example, the line `("Fcst", "PoP", "SCALAR", 30, 33, 60, "all")` can be interpreted as a forecast for the probability of precipitation (PoP) from time 30 to 33 with a value of 60% for all areas.
+
+The code appears to be a list of tuples, each representing a forecast ("Fcst") of some weather-related parameter. Each tuple includes several pieces of information:
+
+1. The string "Fcst", which seems to indicate that this is a forecast.
+2. A string representing the type of forecast, such as "Wx" for weather, "PoP" for probability of precipitation, "QPF" for quantitative precipitation forecast, "SnowAmt" for snow amount, "T" for temperature, "Td" for dew point temperature, "Wind" for wind speed and direction, "Sky" for sky condition, "MaxT" for maximum temperature, and "MinT" for minimum temperature.
+3. A string indicating the format of the forecast, either "SCALAR" for a single number, "VECTOR" for a pair of numbers (likely representing magnitude and direction), or "WEATHER" for a more complex string encoding various weather conditions.
+4. Two numbers or strings representing the start and end time of the forecast period. These are either specific numbers (likely representing hours) or strings indicating a time relative to some other time (e.g., "MaxTBegin + 72").
+5. The forecast itself, which can be a number, a pair of numbers, or a string, depending on the format.
+6. The string "all", which might indicate that this forecast applies to all locations or situations.
+
+In summary, this code is defining a series of weather forecasts for different parameters and times.
+
+This code appears to be a configuration or setup file for a weather forecasting system. It's defining a series of forecast parameters and their respective properties.
+
+The first large block of tuples defines a series of forecast parameters, such as temperature ("T"), dew point ("Td"), wind ("Wind"), sky condition ("Sky"), weather ("Wx"), probability of precipitation ("PoP"), quantitative precipitation forecast ("QPF"), and snow amount ("SnowAmt"). Each tuple specifies the parameter name, the type of data (scalar or vector), the forecast period, the default value, and the applicable area ("all").
+
+The "general_deleteGrids" list seems to be a list of forecast parameters that should be deleted from the surface ("SFC") for a given time range (-100,280).
+
+The "backward_compatible" string appears to be a comment or note about backward compatibility testing for a tool named "iTool". The "Definition" lines within this string seem to define some parameters for this test.
+
+The "dir1" and "dir2" strings appear to be defining a directive type for the forecast system, specifically a type related to a 24-hour extended forecast with five 12-hour periods. The "dir1" string is commented out, so it won't be executed. The "dir2" string is not commented out, so it will be executed.
+
+The code provided is written in Python and seems to be a part of a weather forecasting system. 
+
+The first part of the code defines a dictionary called `Definition` with several keys and their corresponding values. The keys are `repeat1stPeriod`, `summaryExtended`, `summaryAreaDict`, and `summaryExtendedIntro`. 
+
+- `repeat1stPeriod` is a flag that determines whether to repeat the first period at the end. It can be either 1 (repeat) or 0 (do not repeat).
+- `summaryExtended` is another flag that determines whether to generate a summary extended forecast. If it's set to 1, `summaryAreaDict` must be defined.
+- `summaryAreaDict` is a dictionary that maps LAC (Local Area Code) IDs to a tuple of an area name and a label string that describes the area.
+- `summaryExtendedIntro` is a string that introduces the extended forecast.
+
+The second part of the code defines a method `allowedHazards` within a class (not shown in the provided code). This method returns a list of tuples, each representing a type of weather hazard. Each tuple contains a hazard code, a list of all possible actions related to that hazard, and a category string that classifies the hazard.
+
+The third part of the code is a list called `sun_thru_thurs` that contains strings describing the weather conditions for Sunday through Thursday.
+
+The code appears to be part of a larger script that generates weather forecasts. It seems to be written in Python and is structured as a list of dictionaries, each representing a different forecast scenario.
+
+The first part of the code is a list of strings, which seem to be individual phrases or sentences that could be part of a weather forecast. They include descriptions of weather conditions, temperature highs and lows, and specific days or times.
+
+The second part of the code, `scripts`, is a list of dictionaries. Each dictionary represents a different forecast script, identified by a unique name (e.g., "SAF_1", "SAF_2", etc.). Each script has several properties:
+
+- `name`: The unique identifier for the script.
+- `productType`: The type of product the script is associated with. In this case, it seems to be "SAF", which could be an acronym or abbreviation related to the weather forecasting system.
+- `commentary`: A description or comment about the script.
+- `cmdLineVars`: A string representation of a dictionary, which seems to contain various settings or parameters for the script.
+- `createGrids`: A function that is likely used to create some sort of grid or matrix data structure, possibly related to the weather forecast.
+- `checkStrings`: A list of strings that are likely used to verify the output of the script or to check for certain conditions.
+- `fileChanges` and `notCheckStrings`: These properties only appear in the second script. `fileChanges` is a list of tuples that likely represent changes to be made to certain files, and `notCheckStrings` is a list of strings that should not appear in the output of the script.
+
+The code is cut off at the end, so it's not clear what the remaining properties of the last script are.
+
+This Python code appears to be a part of a larger script that is used for testing a weather forecasting application. It defines a series of tests, each represented as a dictionary with various properties. Here's what each part does:
+
+- "name": This is the name of the test.
+- "commentary": This is a description of what the test is for.
+- "productType": This specifies the type of product that the test is related to.
+- "cmdLineVars": These are command line variables that are used in the test.
+- "createGrids": This is a function that creates grids for the test.
+- "fileChanges": This is a list of changes to be made to files for the test.
+- "checkStrings": These are strings that the test will check for in the output.
+- "deleteGrids": This is a function that deletes grids after the test is done.
+
+The script also defines a function `testScript` that runs the tests. It takes a `dataMgr` argument, which is likely an object that manages data for the tests, and a `level` argument that specifies the level at which the tests are run. The function gets the start time for the grids and the "drtTime" (perhaps "disaster recovery test time"), sets some default values, and then calls a function `generalTestScript` to run the tests. 
+
+The tests themselves seem to be related to generating and checking weather forecast reports for different regions, including checking for specific forecast strings and potential weather hazards.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

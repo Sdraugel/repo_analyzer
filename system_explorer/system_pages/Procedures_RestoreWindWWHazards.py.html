@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>RestoreWindWWHazards.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>RestoreWindWWHazards.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is a tool that plots Tropical Wind Hazards found in the VTEC activeTable and plots them in the Hazards grid. 
+
+The script starts by importing necessary modules and classes. It then defines a class `Procedure` which inherits from `SmartScript.SmartScript`. This class has several methods:
+
+1. `__init__`: This is the constructor method that initializes the class instance. It calls the parent class's constructor and also initializes a database session object (`_dbss`).
+
+2. `getActiveTableInfo`: This method retrieves information from the active VTEC table, filtered by a specified list of phenomena (`phenList`). It creates a dictionary (`activeTable`) where each key is a tuple consisting of hazard key, start time, end time, and action, and the value is another dictionary containing the event tracking number (`etn`) and a list of zone IDs (`zoneList`).
+
+3. `askToDeleteHazards`: This method creates a temporary dialog box asking the user whether they want to delete expired hazards. If the user selects "Yes", it deletes the Hazards grid and saves the elements.
+
+4. `execute`: This is the main method that gets executed when the script runs. It initializes the hazard utilities, gets the active table info for a specific list of phenomena, and checks if the active table is empty. If it is, it calls the `askToDeleteHazards` method. If not, it iterates over the active table, retrieves the edit area for each zone, encodes the edit area, creates a time range, and adds the hazard to the Hazards grid.
+
+The script is designed to be used in a meteorological context, specifically for handling and visualizing tropical wind hazards. It was originally created by an engineer named 'lefebvre' and has undergone several updates and revisions.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

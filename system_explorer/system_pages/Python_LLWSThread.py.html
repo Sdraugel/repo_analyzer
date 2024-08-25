@@ -1,0 +1,106 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>LLWSThread.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>LLWSThread.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided text is not actual code but rather a detailed set of metadata and documentation for a specific software file named "LLWSThread.py". This information includes:
+
+1. **Contractor Information**: The first part of the text provides information about the contractor who developed or modified the software, Raytheon Company, and their address. It also mentions the contract under which the software was developed and the export control restrictions associated with the software.
+
+2. **File Information**: The name of the file, its status (delivered), and its revision history are provided. The revision history includes the version number, the date it was created, the developer who made the changes, and a brief description of the changes made in each version.
+
+3. **Change Document History**: This section provides details about specific changes made to the software, including the date, the related ticket or issue number, the engineer who made the changes, and a description of the changes.
+
+4. **Software History**: This section is similar to the revision history but is more recent and includes changes made by specific engineers, the ticket numbers associated with these changes, and a brief description of the changes.
+
+This kind of documentation is crucial for understanding the evolution of a software project, tracking changes, and identifying who made specific modifications. It's also important for legal and contractual reasons, as it clearly states the ownership and restrictions associated with the software.
+
+The code is a part of a larger system that processes Low-Level Wind Shear (LLWS) files and updates a dictionary. It imports various modules such as logging, os, queue, re, time, math, Avn, AvnParser, LLWSData, MetarData. It also defines some constants for unit conversion.
+
+The `Server` class is defined with methods to initialize dictionaries and lists, find the most recent file in a directory, create a dictionary of Radar IDs and pedestal elevations, obtain the time a file was created from its filename, and read radar VWP data to get wind and height information.
+
+The `__init__` method initializes various lists and dictionaries and calls the `__initializeLLWSDictsLists` method to setup dictionaries and lists based on the configuration file.
+
+The `__initializeLLWSDictsLists` method examines the configuration file and sets up dictionaries and lists. It checks for radars, profilers, and acars in the siteDict and adds them to the respective lists if they exist. It also creates a list of unique radars and acars to monitor.
+
+The `__getLatestFile` method finds all files in a given directory that match the YYYYMMDD_HHMM pattern and returns the most recent one.
+
+The `__getRadarElevation` method creates a dictionary of Radar IDs and pedestal elevations.
+
+The `__getRadarTimeStamp` method obtains the time a file was created from its filename.
+
+The `__readRadarData` method reads radar VWP data to get the wind and height information. It checks if the radar data is out of date and logs an info message if it is. It then reads the wind and height information from the VWP data.
+
+This is a complex piece of code that appears to be part of a larger system, possibly related to meteorology or aviation, given the references to wind speed, wind direction, and flight levels. Here's a breakdown of what each part of the code does:
+
+1. `__readAcarsData(self, acarsRec, acarsId)`: This function reads ACARS (Aircraft Communications Addressing and Reporting System) data. It retrieves the timestamp, and creates empty lists for H, U, and V. If the data is old, it logs a message and returns the timestamp and the empty lists. It then retrieves the levels from the ACARS record, and iterates over them, ignoring any levels without altitude, speed, or direction. It then sorts the levels by altitude, and calculates the height, speed, and direction for each level, appending these to the H, U, and V lists respectively. If the height exceeds a maximum level, it breaks the loop and returns the timestamp and the lists.
+
+2. `__genQCArray(self,_fh,loc,uname,vname)`: This function generates a QC (Quality Control) array based on two wind component QC checks. It retrieves the QC values for the U and V wind components, and creates a QC array of the same length, initially filled with 1s. It then iterates over the QC values, and if both the U and V QC values are 'CSV', it sets the corresponding QC array value to 0. If a KeyError is raised, it raises an InValid exception.
+
+3. `__getMetarWind(self,ident)`: This function retrieves METAR (Meteorological Aerodrome Report) wind data for a given identifier. It tries to retrieve the METAR data, and if it's available, it extracts the wind direction and speed, converting these to U and V components. If the observation time is still -1 after this, it raises an InValid exception.
+
+4. `__getVWPCutoffHeight(self,TafID,VwpID)`: This function determines the minimum height of valid data for a VWP (Vertical Wind Profile) source. It looks up the VWP ID in a dictionary, and retrieves the corresponding cutoff height.
+
+5. `genShear(self,TafID,VwpID)`: This function calculates the wind shear and finds the maximum value. It retrieves the surface and VWP observations for the given TAF (Terminal Aerodrome Forecast) and VWP IDs, and checks that the timestamps are within 1.5 hours of each other. It then calculates the shear for each level above the cutoff height, and keeps track of the maximum shear and corresponding height, wind speed, and direction. It returns these as a dictionary.
+
+6. `__writeMetarOutput(self,TAFId)`: This function is not fully shown, but it appears to write the maximum shear to an output, presumably for a given TAF ID.
+
+This code seems to be part of a larger system that processes and manages meteorological data. It includes methods for handling radar data, Acars data (Aircraft Communications Addressing and Reporting System), and Metar data (Meteorological Aerodrome Report), which are all different types of weather data sources.
+
+Here's a breakdown of what each method is doing:
+
+1. `__writeAcarsOutput`, `__writeVWPOutput`, `__writeMetarOutput`: These methods read a specific type of data (Acars, VWP, or Metar) from a file, generate shear (a measure of wind speed) using the `__genShear` method, and then write this data back to the file. If the operation is successful, it sends a message to potential clients through an output queue.
+
+2. `processRadarData`, `processAcarsData`, `processMetarData`: These methods process newly arrived data from the respective sources. They read the data using the respective methods (`__readRadarData`, `__readAcarsData`, `__getMetarWind`) and store it in a dictionary (`vwpObsDict` or `sfcObsDict`).
+
+3. `__processVWP`, `__processMetars`: These methods continuously check a queue (`FAMQueue` or `_incomingTextQueue`) for new data. If new data is found, it is processed accordingly.
+
+4. `__processLatestData`: This method initially processes all files found in monitored directories. It gets the latest observation and processes the data.
+
+5. `paths`: This method returns the directories that need to be monitored.
+
+6. `run`: This method starts the processing of data. It first processes the latest data and then enters a loop where it continuously processes VWP and Metar data.
+
+The code also handles exceptions and logs errors. For example, if an error occurs while reading data, it logs the error message "Error reading radar data" or "Error reading acars data". If an unexpected error occurs in the `run` method, it logs the message "Unexpected error".</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

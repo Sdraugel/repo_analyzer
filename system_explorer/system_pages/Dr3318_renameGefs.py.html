@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>renameGefs.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>renameGefs.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to convert and update the directory structure and file names of a specific set of files in a system. Here's a breakdown of what it does:
+
+1. It first sets up the old and new directory paths. The old directory is `awips2/edex/data/hdf5/grid/gefs` and the new directory is `awips2/edex/data/hdf5/grid/GEFS`.
+
+2. The `convertH5` function is defined to go through each file in a given directory. If the file is a directory itself, it recursively calls `convertH5` on that directory. If the file is an h5 file (a type of data file) that starts with 'gefs', it renames the file to start with 'GEFS' instead. It also opens the h5 file and replaces any occurrences of ':gefs:' with ':GEFS:'.
+
+3. The `moveDir` function is defined to rename (or move) the old directory to the new directory name. If the old directory doesn't exist or the new directory already exists, it will print an error message and exit the script.
+
+4. The script then prints some information messages, moves the old directory to the new directory using `moveDir`, and converts the h5 files in the new directory using `convertH5`.
+
+5. At the end, it prints a success message and a reminder to run `dbupdate.sh` on 'dx1'.
+
+In summary, this script is used to update the directory structure and file names for a specific set of h5 data files, presumably as part of a system update or migration.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

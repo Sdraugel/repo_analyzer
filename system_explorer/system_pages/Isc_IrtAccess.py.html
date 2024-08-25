@@ -1,0 +1,126 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>IrtAccess.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>IrtAccess.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that defines a class named `IrtAccess`. This class provides interfaces to the ISC (Inter-System Channel) Routing Table Web Service. 
+
+The class has a constructor that takes the web URLs for the ISC Routing Table and a logger object. It also has methods to log different types of events (regular events, problems, exceptions, verbose and debug logs). 
+
+There is a `getLogger` method that checks if the current date is later than the logger's date, and if so, creates a new logger to roll over to a new log file. 
+
+The `__checkArgs` method checks the types of several parameters and converts them to the appropriate Python types if necessary. 
+
+The `register` method is used to register with the ISC Routing Table. It first checks and converts the arguments, then unregisters any previous registration, and finally sets up the registration information. 
+
+The script also imports several modules for handling XML, date and time, network sockets, URL requests, and subprocesses. 
+
+The code is part of a larger system developed by Raytheon Company under a US Government contract, and it contains export-restricted data. The software is in the public domain and is furnished "as is", without technical support or warranty. The software history is documented in comments, showing various updates and modifications by different engineers.
+
+This code appears to be part of a larger class or module that interacts with an ISC (Inter-Site Communication) Routing Table service. Here's a breakdown of the main functionalities:
+
+1. `__doRegister()`: This private method registers the current instance with the ISC Routing Table service. It sends a 'register' request to the service, processes the XML response, and sets a re-registration time if the registration is successful.
+
+2. `checkForReregister()`: This method checks if the current instance needs to re-register with the ISC Routing Table service. It does this by checking if the base URL has changed or if the time to re-register has been reached.
+
+3. `unregister()`: This method unregisters the current instance from the ISC Routing Table service. It sends an 'unregister' request to the service and processes the XML response.
+
+4. `getSendAddrs()`: This method retrieves a list of destination servers that are active for a given domain. It sends a 'getaddrs' request to the service and returns the status and XML response.
+
+5. `getServers()`: This method retrieves a list of servers that are active for a given list of domains. It sends a 'getservers' request to the service and returns the status and XML response.
+
+6. `__baseURL()`: This private method returns the appropriate ID and URL for the ISC Routing Table web service. It does this by reading the NCF (Network Control Facility) status from a file and using this status to get the appropriate address from a dictionary of addresses.
+
+7. `__callIRT()`: This method is not fully visible in the provided code, but it seems to be a private method that makes a call to the ISC Routing Table service, calling a given function with given attributes. It likely returns the status of the call and the response.
+
+This Python code defines several methods in a class. The methods are used to make HTTP requests, handle XML data, and log events and problems. Here's a summary of what each method does:
+
+1. `__callIRT`: This method makes an HTTP request to a specific URL and handles different types of exceptions that can occur during the request. It also logs the duration of the request and the number of retries. If the request fails more than 5 times, it returns a failure. If the request is successful, it logs the event and returns the XML response.
+
+2. `__listConvert`: This method converts a list into a comma-delimited string.
+
+3. `__nestedTupleConvert`: This method converts a nested tuple into a comma-delimited string.
+
+4. `addAddressXML`: This method adds an 'address' XML element to a given root XML element. The 'address' element contains information about a server, such as its ID, host, port, protocol, and site. The server information is passed as a dictionary.
+
+5. `addSourceXML`: This method adds a 'source' XML element to a given root XML element. The 'source' element contains an 'address' element, which is created by the `addAddressXML` method.
+
+6. `addDestinationXML`: This method adds a 'destinations' XML element to a given root XML element. The 'destinations' element contains multiple 'address' elements, each representing a server. The server information is passed as a list of dictionaries.
+
+7. `addWelistXML`: This method adds a 'welist' XML element to a given root XML element. The 'welist' element contains multiple 'parm' elements, each representing a parameter. The parameters are passed as a list.
+
+This code file is written in Python and appears to be part of a larger system that interacts with servers and transmits files. Here's a breakdown of the main functions:
+
+1. `decodeXMLAddress(self, element)`: This function takes an XML element as an input and decodes it to extract server information. It checks if the element's tag is "address", and if not, it returns None. If it is, it iterates over the element's children, checking their tags and extracting the text if the tag matches a predefined list. It then returns a dictionary containing the server information.
+
+2. `transmitFiles(self, subject, addresses, sourceWfo, attachments, xmtScript)`: This function is used to transmit files. It takes several parameters including a subject, addresses, a source identifier, attachments, and a script for transmission. It assembles a command and executes it, replacing placeholders in the script with the provided parameters. It logs the output and any errors, and removes the transmitted files.
+
+3. `printServerInfo(self, serverInfo)`: This function takes a dictionary containing server information and returns a string representation of that information. It uses the `get` method to safely retrieve values from the dictionary and provides a default value of '?' if the key is not found.
+
+4. `createDestinationXML(self, destSites, requestingServer, findBestMatch=True)`: This function assembles an XML document with source and destination information. It logs the requesting server's information, retrieves server information for the destination sites, and decodes the XML response. It then processes each domain returned, decoding the server information for each one.
+
+The code also contains some error handling, logging, and exception raising to ensure smooth operation and easy debugging.
+
+The provided code appears to be a part of a larger function or method that is responsible for server selection based on certain criteria. Here's a breakdown of what it does:
+
+1. The code starts with a list of tuples, each containing a server identifier and a port number. 
+
+2. If `findBestMatch` is `True`, the code tries to find the best match server from the provided list of servers. It does this in three steps:
+
+   a. It first tries to find a server that matches the server identifier, port number, and domain from the list of tuples. If a match is found, it adds the server to the `chosenServers` list and the server's `mhsid` to the `msgSendDest` list, and then breaks the loop.
+   
+   b. If no match is found in the first step, it then tries to find a server that matches only the server identifier and port number. If a match is found, it adds the server to the `chosenServers` list and the server's `mhsid` to the `msgSendDest` list, and then breaks the loop.
+   
+   c. If no match is found in the first two steps, it then selects the first server from the list that is not the requesting server, unless the requesting server is the only server in the list. If a match is found, it adds the server to the `chosenServers` list and the server's `mhsid` to the `msgSendDest` list.
+
+3. If `findBestMatch` is `False`, it simply adds all the servers from `matchingServers` to the `chosenServers` list and their `mhsid`s to the `msgSendDest` list.
+
+4. After the server selection process, it logs the information of the matching servers and the chosen servers.
+
+5. It then calls the `addDestinationXML` method with `iscE` and `chosenServers` as parameters.
+
+6. Finally, it returns `msgSendDest` and `iscE`.
+
+This code seems to be part of a larger system, possibly a server management or load balancing system, where it's important to select the best server based on certain criteria.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

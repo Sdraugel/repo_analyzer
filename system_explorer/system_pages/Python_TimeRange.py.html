@@ -1,0 +1,56 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TimeRange.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TimeRange.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code defines a class `TimeRange` that wraps around the `TimeRange` class from the Java library `com.raytheon.uf.common.time`. This wrapper class is used to provide a more Python-friendly interface to the Java `TimeRange` class. 
+
+The `TimeRange` class in this code has several methods that correspond to methods in the Java `TimeRange` class, such as `startTime()`, `endTime()`, `duration()`, `contains()`, `overlaps()`, `isAdjacentTo()`, `join()`, `intersection()`, `gap()`, `span()`, `combineWith()`, and `isValid()`. 
+
+The class also overrides some magic methods in Python to provide more intuitive operations for `TimeRange` objects. These include `__eq__`, `__ne__`, `__lt__`, `__le__`, `__gt__`, `__ge__`, `__hash__`, `__str__`, and `__repr__`.
+
+In addition to the `TimeRange` class, the code also defines a few utility functions at the end: `javaTimeRangeListToPyList()`, `encodeJavaTimeRange()`, `allTimes()`, and `default()`. These functions are used to convert between Java `TimeRange` objects and Python `TimeRange` objects, and to create special `TimeRange` objects.
+
+The comments at the top of the code indicate that this software was developed by Raytheon Company for the US Government, and that it contains export-restricted data. The software history section provides a log of changes made to the software over time.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

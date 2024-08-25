@@ -1,0 +1,71 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>HighSeas_AT2_Definition.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>HighSeas_AT2_Definition.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code appears to be a configuration file for a software system related to weather forecasting, specifically for high seas forecasts. The code is written in Python.
+
+The `VariableList` variable is a list containing a tuple with information about the product issuance. It seems to be a radio product issued at four different times: 0430 UTC, 1030 UTC, 1630 UTC, and 2230 UTC.
+
+The `Definition` dictionary contains a large number of settings and configurations for the forecast product:
+
+- `type`, `displayName`, `database` are basic identifiers for the product.
+- `outputFile` specifies the location where the finished product will be saved.
+- `debug` and `showZoneCombiner` are likely used for debugging and development purposes.
+- `lineLength` could be used to format the output text file.
+- `defaultEditAreas` specifies the default geographical areas for the forecast.
+- `editAreaSuffix` is currently set to None, but could be used to append a suffix to the edit area.
+- There are several identifiers for the product, such as `productName`, `fullStationID`, `wmoID`, `pil`, `areaName`, `wfoCityState`, `synopsisUGC`, `synopsisHeading`, `textdbPil`, and `awipsWANPil`.
+- `hazardSamplingThreshold` might be used to determine when a weather condition is considered a hazard.
+- `fixedExpire` ensures that VTEC actions don't affect segment expiration time.
+- `periodCombining` is a flag to combine periods if possible.
+- `includeEveningPeriod` and `useAbbreviations` are flags for specific formatting options.
+- `hoursSChcEnds` could be related to the forecast period.
+- `areaDictionary` specifies the dictionary to use for area descriptions.
+- `useHolidays` is a flag to include holidays in the time period labels.
+- `language` specifies the language to use for the product.
+- `passLimit` and `trace` are likely used for debugging and development purposes.
+
+Note: The exact purpose of each setting would depend on the specific software system that uses this configuration file.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

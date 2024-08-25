@@ -1,0 +1,66 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>MonitorEntry.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>MonitorEntry.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be part of a larger software system developed by Raytheon Company. It's used for monitoring and decoding TAF (Terminal Aerodrome Forecast) data. TAFs are weather forecasts issued for the area around an airport.
+
+Here's a breakdown of the main parts of the script:
+
+1. The script begins with a header that includes legal information about the software's development and export restrictions, as well as contact information for the contractor (Raytheon Company).
+
+2. The script imports several modules, including logging for event tracking, Avn, AvnParser, AvnLib for aviation-related functionalities, TafDecoder for decoding TAF data, and JUtil for Java-Python interoperability.
+
+3. A logger and a cache for decoded data are initialized.
+
+4. The `monitor` function is the main entry point for the script. It takes a request, decodes the TAF data from the request, logs any fatal errors, imports a monitoring module, gets configuration data, creates a monitor, compares the decoded TAF data with the monitor, and returns the result as a Java object.
+
+5. The `bunchToDict` function converts Avn.Bunch objects to dictionaries, which are mutable and more flexible data structures in Python.
+
+6. The `transformCfg` function takes a module and a request, and returns a configuration dictionary. It uses the StringUtil class from a Java package to split strings and create lists and dictionaries.
+
+7. The `decodeTaf` function takes a TAF string and a WMO (World Meteorological Organization) header, decodes the TAF data, and caches the result for future use.
+
+8. The script also includes a software history comment section, which is used to track changes made to the software over time.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

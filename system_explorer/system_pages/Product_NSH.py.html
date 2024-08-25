@@ -1,0 +1,144 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>NSH.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>NSH.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a part of a software product developed by Raytheon Company. It is a configuration file for a Near Shore Marine product, which is likely a weather forecasting product. The configuration file contains a number of settings that can be customized to suit the needs of the user.
+
+The first part of the file provides legal and contact information for the software, including export control details and the contractor's name and address. It also mentions a master rights file for licensing information.
+
+The second part of the file describes the purpose of the software and provides information about copying and usage. It states that the software is in the public domain and is provided without warranty.
+
+The third part of the file provides details about the configuration of the software. It includes both required and optional configuration items. These items include settings for how the product appears in the GUI, the name of the product, station identifier, WMO ID code, product pil, area name, WFO location, and more. It also includes settings for optional items such as edit area suffix, source database, output file, debug mode, product identifiers, hazard sampling threshold, period combining, use of abbreviations, and more.
+
+The last part of the file discusses narrative customization points, which allow the user to customize the phrases used in the product. It mentions that these can be found in the Local file and can be changed there. It also refers to a Text Product User Guide for further customization instructions.
+
+Overall, this code file is a configuration and customization guide for a Near Shore Marine product, likely used for weather forecasting.
+
+This Python code file appears to be part of a larger system, possibly for a weather forecasting application. It defines a class `TextProduct` that inherits from two other classes, `TextRules` and `SampleAnalysis`.
+
+The `TextProduct` class contains a dictionary named `Definition` that holds various configuration settings and metadata for the weather forecast product, such as the type of product, the database it uses, the output file location, product identifiers, and various other settings related to the product's format and content.
+
+The class also defines several methods, some of which are intended to be overridden in a local file (e.g., `_Text1`, `_Text2`, `_Text3`, `_lakeStmt`). These methods likely provide some default behavior that can be customized in subclasses or instances of `TextProduct`.
+
+There are also methods for setting thresholds and variables related to weather analysis, such as `temporalCoverage_threshold` and `temporalCoverage_dict`. These methods seem to define rules for including certain weather elements in the analysis based on their coverage over a given time range.
+
+The `wxCombinations` method appears to define how certain weather conditions should be combined in the forecast text.
+
+The code also imports several modules at the beginning, including `TextRules`, `SampleAnalysis`, `time`, `re` (regular expressions), and `os` (operating system services). These are likely used elsewhere in the `TextProduct` class or in other parts of the larger system this code is part of.
+
+The provided code is written in Python and appears to be part of a larger system, likely related to weather forecasting or meteorology. Here is a breakdown of what each function does:
+
+1. `vector_dir_difference_dict`: This function returns a dictionary with the difference in degrees or mph for various weather elements like wind, transwind, freewind, and swell. If the difference between directions for two sub-periods is greater than these values, the different directions will be noted in the phrase.
+
+2. `phrase_descriptor_dict`: This function modifies a dictionary from `TextRules.phrase_descriptor_dict` and changes the values for the keys "Wind" and "around".
+
+3. `null_nlValue_dict`: This function modifies a dictionary from `TextRules.null_nlValue_dict` and sets the "Wind" key's value to 5. This value is considered "null" and not reported.
+
+4. `first_null_phrase_dict`: This function modifies a dictionary from `TextRules.first_null_phrase_dict` and sets the "Wind" key's value to "variable winds 10 knots or less". This phrase is used if values throughout the period or in the first period are null.
+
+5. `null_phrase_dict`: This function modifies a dictionary from `TextRules.null_phrase_dict` and sets the "Wind" key's value to "variable 10 knots or less" and "Wx" key's value to an empty string. This phrase is used for null values in subPhrases other than the first.
+
+6. `marine_wind_flag` and `marine_wind_combining_flag`: These functions return 1, indicating that wind combining and wording will reflect the crossing of significant thresholds such as gales.
+
+7. `postProcessPhrases`: This function processes a string of words and replaces certain phrases with others.
+
+8. `rounding_method_dict`: This function returns a dictionary with the "Wind" key's value set to the method `self.marineRounding`.
+
+9. `scalar_difference_nlValue_dict`: This function modifies a dictionary from `TextRules.scalar_difference_nlValue_dict` and sets the "WaveHeight" key's value to another dictionary. If the difference between scalar values for two sub-periods is greater than or equal to this value, the different values will be noted in the phrase.
+
+10. `minimum_range_nlValue_dict`: This function modifies a dictionary from `TextRules.minimum_range_nlValue_dict` and sets the "Wind" key's value to another dictionary. This threshold is the smallest min/max difference allowed between values reported.
+
+11. `_PoP_analysisMethod`: This function returns the method `self.stdDevMaxAvg`.
+
+12. `NSHFirstPeriod`: This function returns a dictionary with the type set to "phrase" and two lists: `methodList` and `analysisList`. The `methodList` contains methods to be applied to the phrases, and the `analysisList` contains tuples with the weather element, the method to be applied, and the number of periods to be considered.
+
+This code seems to be part of a larger system that generates weather forecasts. 
+
+The `NSHPeriod` and `NSHFirstPeriod` functions define a structure for the forecast, specifying the types of weather phenomena to analyze (wind, gusts, wave height, temperature, sky conditions, and probability of precipitation), the methods to use for each analysis, and the phrases to use when describing each phenomenon in the forecast.
+
+The `generateForecast` function is the main driver of the forecast generation process. It first retrieves necessary variables and checks for errors. Then, it gets the list of areas for which to generate forecasts and determines the time ranges for the forecasts. It samples the weather data, initializes an output string, and then generates the forecast for each area in the list. The progress of this process is tracked and displayed. Finally, the forecast is post-processed and returned.
+
+The `_getVariables` function retrieves variables from the argument dictionary and sets them as instance variables. It also sets the product issuance time based on the creation time.
+
+The `_determineTimeRanges` function sets up the narrative definition and initial time range for the forecast. It also calculates the current time.
+
+The `_sampleData` function samples and analyzes the weather data for the forecast, but the code is cut off before we can see exactly how it does this.
+
+This code appears to be part of a larger program that generates weather forecasts. Here's a brief summary of what each function does:
+
+1. `veProcessor = ForecastNarrative.ForecastNarrative()`: This line creates an instance of the ForecastNarrative class, which is likely used to generate narrative weather forecasts.
+
+2. `_preProcessProduct(self, fcst, argDict)`: This function prepares the forecast product by adding various details such as the product name, issued by string, and other details to the forecast.
+
+3. `_preProcessArea(self, fcst, editArea, areaLabel, argDict)`: This function prepares the forecast for a specific area by adding the area header and hazard text to the forecast.
+
+4. `_makeProduct(self, fcst, editArea, areaLabel, argDict)`: This function generates the forecast for a specific area and handles text abbreviations.
+
+5. `_postProcessArea(self, fcst, editArea, areaLabel, argDict)`: This function adds additional text to the forecast for a specific area.
+
+6. `_postProcessProduct(self, fcst, argDict)`: This function finalizes the forecast product and updates the progress.
+
+7. `_setProductIssuance(self, localHour)`: This function sets the product issuance time based on the local hour.
+
+8. `_issuance_list(self, argDict)`: This function sets up configurable issuance times with associated narrative definitions.
+
+9. `lateDay_descriptor(self, tree, node, timeRange)`: This function returns a descriptor for the late day period.
+
+10. `lateNight_descriptor(self, tree, node, timeRange)`: This function returns a descriptor for the late night period.
+
+11. `splitDay24HourLabel_flag(self, tree, node)`: This function seems to be a flag to determine how the 24 hour periods are labeled, but the function body is not provided in the given code.
+
+This code file appears to be part of a weather forecasting or alert system. Here's a breakdown of what each part does:
+
+1. The first block of code checks the component name of a node. If the component name is "NSHExtended", it returns 0; otherwise, it returns 1. This could be used to differentiate between different types of components in the system.
+
+2. The `significant_wx_visibility_subkeys` function seems to return a list of weather values that are considered significant enough to be reported, regardless of visibility. The format of these values is a set of tuples, and wildcards are allowed.
+
+3. The `_warnOutlook_phrase` function returns a dictionary with a key "phraseMethods" that contains a list of methods. In this case, it only contains the `_warnOutlook_words` method.
+
+4. The `_warnOutlook_words` function checks the wind statistics and sets a warning phrase based on the maximum wind speed. It also sets a flag `_outlookflag` based on the maximum wind speed. The phrases and flags are used to indicate the severity of the weather conditions.
+
+5. The `allowedHazards` function returns a list of hazards that are allowed for a product in VTEC (Valid Time Event Code) format. These hazards are sorted in priority order, with the most important ones first. The hazards are represented as tuples, with each tuple containing the hazard code, the actions associated with the hazard, and the category of the hazard. The actions could be things like "NEW", "EXA", "EXB", "EXT", "CAN", "CON", "EXP", which might represent different states or actions to be taken when a hazard occurs.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

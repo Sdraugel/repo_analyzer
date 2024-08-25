@@ -1,0 +1,59 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>SiteInfo.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>SiteInfo.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code defines a class named `SiteInfo` that provides methods for retrieving specific information about a site given its ID. The site information is stored in a dictionary named `SiteInfoDict` which is imported from a module named `SiteCFG`.
+
+The `SiteInfo` class has five methods:
+
+- `__init__`: This is the constructor method that is called when an object is created from the class. It currently does nothing.
+- `region`: This method takes a site ID as an argument and returns the region of the site.
+- `fullStationID`: This method takes a site ID as an argument and returns the full station ID of the site.
+- `wfoCityState`: This method takes a site ID as an argument and returns the city and state of the site's Weather Forecast Office (WFO).
+- `wfoCity`: This method takes a site ID as an argument and returns the city of the site's WFO.
+- `getInfo`: This is a helper method that takes a field name and a site ID as arguments. It tries to return the value of the specified field for the given site ID from the `SiteInfoDict` dictionary. If the site ID or field does not exist in the dictionary, it returns `None`.
+
+The comments at the top of the file provide information about the software's licensing, the contractor who developed or modified it, and the fact that it is in the public domain. It also mentions that this is an "absolute override file", meaning that a higher priority version of the file will completely replace a lower priority version.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,126 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>StormInfo.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>StormInfo.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code file, named "StormInfo", is a software that is in the public domain. It is used for managing and tracking storm information. The software has been modified and updated over time by various engineers, with changes including bug fixes, feature additions, and code refactoring. 
+
+The code imports several modules, including "ProcessVariableList", "StormNames", "TropicalUtility", "WindWWUtils", and "LocalizationSupport". It also imports the "os" module from Python's standard library. 
+
+The code defines a class named "Procedure" that inherits from the "TropicalUtility" class. Within this class, several methods are defined:
+
+1. `__init__`: This is the constructor method that initializes an instance of the class. It initializes the parent class and creates an instance of the "WindWWUtils" class.
+
+2. `removeOldJSONFiles`: This method checks the "lastModified" time of each storm in a list. If the file is older than a day, it is removed from the storage system.
+
+3. `getPILList`: This method returns a list of PILs or Bins based on the site ID. If the site ID is not configured for the tool, it returns an empty list.
+
+4. `makeStormList`: This method returns a list of storms for a specified basin list.
+
+5. `shuffleStormList`: This method rearranges the storm list so that it starts with the next available storm. If there are no active storms, it returns the raw list.
+
+The software seems to be used for managing and tracking storm information, possibly in a meteorological context. It handles data related to different storms, their status, and other related information.
+
+The provided code seems to be part of a larger system that deals with storm tracking or storm-related data. Here's a breakdown of what the different functions do:
+
+1. The first function, `getStormNameList(self, siteID, currentYear)`, fetches a list of storm names based on the site ID and the current year. The storm names are fetched from a dictionary `StormNames.NameDict` which has keys for different basins. The function handles different site IDs differently. 
+
+2. The second function, `checkGUISelections(self, varDict, bogusStormName, existingStormLabel, newStormLabel)`, checks the selections made in a GUI to ensure that only one storm name is selected. It returns the name of the selected storm if valid, and a non-null message if the GUI selections were incorrect.
+
+3. The third function, `askAreYouSure(self, stormNumber)`, pops up a dialog asking the user if they want to specify a used storm ID. It returns True if they wish to continue.
+
+4. The fourth function, `saveJSONFileToTextProduct(self, bulletin)`, runs a script that saves a specified JSON file to a text product, which is then automatically sent to the WFOs.
+
+5. The fifth function, `filterStormList(self, stormList, siteID, currentYear)`, filters a list of storms by looking at valid storm names for a given site ID.
+
+6. The last function, `execute(self)`, seems to be the main function that coordinates the other functions. It gets the current year, site ID, and a list of available storms. It also purges old JSON files and filters the storm list. It defines a bogus storm name and a list of numbers in word form. It gets a list of storm names for the current year and site ID. It also sorts active storm names and shuffles the storm name list.
+
+Please note that the code is incomplete, so some details might be missing.
+
+This code appears to be part of a larger system, likely a Graphical User Interface (GUI), that manages information related to storms. The specific functionality of this code can be broken down as follows:
+
+1. The code first checks if the string "None" is in the `stormNameList`. If it is, it removes the string and then inserts it at the beginning of the list.
+
+2. It then initializes an empty list `variableList` and checks if there are any active storm names. If there are, it appends a tuple containing information about the active storms to `variableList`.
+
+3. The code then iterates over `stormList` and removes any active storm names from `stormNameList`.
+
+4. It then adds available storm names to the GUI by appending them to `variableList`.
+
+5. The GUI is then displayed using the `ProcessVariableList` class. If the status of the process is not "OK", the process is cancelled.
+
+6. The code then validates the GUI selections. If the user does not select exactly one storm, an error message is displayed.
+
+7. The code then checks if the selected storm name contains a colon. If it does, it trims the storm name to only include the part before the colon.
+
+8. The code then builds the variable lists dynamically based on the chosen storm. If the storm is new, it creates a default GUI. If the storm already exists, it builds the GUI using information from a JSON file.
+
+9. The GUI is then displayed again. If the status of the process is not "OK", the process is cancelled.
+
+10. The code then collects all the information provided by the forecaster, including the storm name, storm type, and advisory type.
+
+11. The code then performs some quality control on the storm number, and if the storm name is "None", it assigns a new storm name based on the storm number.
+
+12. The code then attempts to strip the advisory number from `varDict`. If it fails, it displays an error message.
+
+The code appears to be incomplete, as the last line is cut off.
+
+This code is part of a system that manages information about storms. Here's a breakdown of what it does:
+
+1. It checks if the advisory type is "Intermediate", if so, it appends "A" to the advisory number.
+
+2. If the storm is not a new storm, it checks if the advisory number has been incremented. If not, it sends a status bar message to alert the user. 
+
+3. If it's a new storm, it generates a unique storm ID and checks if the storm number has been used before in the current basin. If the storm number has been used, it asks the user for confirmation. If the user doesn't confirm, it returns without doing anything. If the user confirms or if the storm number hasn't been used before, it updates the storm ID history.
+
+4. It then opens a file to store information about this particular storm. It first finds the storm in the storm list to preserve other data, then overwrites some of the values with new data. If it's a new storm, it also stores the new storm ID.
+
+5. It saves the updated storm information using the `_saveAdvisory` method.
+
+6. It saves the JSON file to a text product using the `saveJSONFileToTextProduct` method.
+
+7. If the site ID is not in the list of NHC sites, it sends a status bar message to indicate that the information has been successfully saved.
+
+The code is designed to ensure that each storm has a unique ID and that the advisory number is incremented for each update. It also provides user feedback through status bar messages.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,56 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>VentRate.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>VentRate.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a Python script that defines a class named `Tool` which is a subclass of `SmartScript.SmartScript`. The `Tool` class has two methods: `__init__` and `execute`.
+
+The `__init__` method is a special method in Python classes, known as a constructor, which is called when an instance (or object) of the class is created. Here, it takes one argument `dbss` and calls the `__init__` method of the superclass `SmartScript.SmartScript` with this argument.
+
+The `execute` method takes two arguments, `MixHgt` and `TransWind`, and calculates the ventilation rate from these two values. The ventilation rate is calculated as the product of `MixHgt` and the magnitude of `TransWind` (which is assumed to be a list or array-like object, since it's indexed to get the first element). The calculated ventilation rate is then returned.
+
+The script also includes some metadata at the top and bottom. The metadata at the top is active and indicates that the tool type is "numeric", the weather element edited is "VentRate", and the tool should not be hidden (`HideTool = 0`). The metadata at the bottom is commented out and thus inactive, but it appears to be a previous or alternative version of the active metadata.
+
+The first few lines of the code indicate that this software is in the public domain, provided without warranty or technical support. It also mentions that the code was ported to AWIPS II by Tom LeFebvre. AWIPS (Advanced Weather Interactive Processing System) is a meteorological software package used for weather forecasting.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

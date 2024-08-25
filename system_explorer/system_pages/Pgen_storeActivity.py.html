@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>storeActivity.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>storeActivity.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is used to store a PGEN (Product Generation) Activity to EDEX (Environmental Data EXchange), a data distribution system used in meteorology. The script allows users to override the default EDEX server and port name by specifying them in the $DEFAULT_HOST and $DEFAULT_PORT shell environment variables.
+
+The script begins by importing necessary modules and setting up a logger for debugging and information purposes. 
+
+The `__parseCommandLine()` function is used to parse command line arguments. These arguments include activity type, activity subtype, activity name, site identifier, forecaster, and filename. The filename is the file containing the XML Activity to be stored.
+
+The `__getActivityInfo()` function is used to create an ActivityInfo object from the command line input and activityXML. If no input was found from the command line, the info in activityXML will be used. This function also sets various attributes of the ActivityInfo object based on the command line options or the XML file.
+
+The `__updateXML()` function updates the XML with options given on the command line. It modifies the attributes of the 'Product' tag in the XML based on the command line options.
+
+The `main()` function initializes the logger, parses the command line, reads in the XML from the input file, generates an ActivityInfo object, updates the XML with command line options, and then stores the Activity to EDEX using the ProductStorer module. It logs the dataURI returned by the storeActivity function, which is the location where the activity data is stored.
+
+The script is run if it is the main module, i.e., if it is not imported as a module in another script.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

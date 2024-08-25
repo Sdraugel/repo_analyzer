@@ -1,0 +1,80 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Finalize_KML.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Finalize_KML.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The code is a Python script that is part of a larger system, possibly for weather forecasting or similar geospatial data processing. It is designed to generate KML (Keyhole Markup Language) files, which are used to display geographic data in an Earth browser, such as Google Earth.
+
+The script contains a class named `Procedure` which inherits from `TropicalUtility.TropicalUtility`. This class has several methods that perform various tasks:
+
+- `__init__`: The constructor method that initializes the `Procedure` object.
+- `getKML_Directory`: This method returns the directory where the KML files will be stored, depending on the basin number.
+- `makeTimeRange`: This method creates a time range starting at the top of the hour and lasting for 12 hours.
+- `createDiscreteList`: This method returns a list of weather elements to write to KML.
+- `createEditAreaMask`: This method creates an edit area of mask used to constrain the extent of the threat grid.
+- `calcStormMasks`: This method determines the mask that covers each unique ETN (Event Tracking Number) and returns the result in a dictionary.
+- `makeThreatKML`: This method creates a KML file based on hazard keys.
+- `getDateString`: This method returns a date string in the format YYYYMMDD.
+- `getBasinInfo`: This method returns basin information used for KML metadata.
+- `createKML_Filename`: This method creates a filename for the KML file.
+- `createKML`: This method begins writing the KML file.
+
+The script also imports several modules, including `os`, `time`, `numpy`, `TropicalUtility`, and `LogStream`, and uses them for various tasks such as file handling, time manipulation, and logging.
+
+The given code is a part of a larger Python program that seems to be related to generating and handling KML (Keyhole Markup Language) files. KML is a file format used to display geographic data in an Earth browser such as Google Earth.
+
+Here's a breakdown of what each method does:
+
+1. `createKeyPolygons`: This method creates polygons based on a key area using a mask of the grid. It takes a KML grid, a hazard index, and a key as arguments. It creates a mask by comparing the KML grid to the hazard index, decodes the edit area using the mask, and then gets the polygons of the edit area.
+
+2. `createKML_Header`: This method creates a KML header for storm surge watch or warning. It takes the name of a discrete weather event, a hazard index, and a key as arguments. Depending on the key and the name of the discrete weather event, it sets the KML header accordingly.
+
+3. `createKML_Polygons`: This method creates KML for every polygon associated with a particular key in discreteKeys. It takes a KML file, polygons, and a KML header as arguments. It writes the KML header and the coordinates of each polygon to the KML file.
+
+4. `closeKML`: This method finishes writing to the KML file and returns the finished KML file. It writes the end tags to the KML file.
+
+5. `execute`: This method appears to be the main method that executes the overall process. It creates a time range, a discrete list, and an edit area mask. Then, for each discrete weather event name in the discrete list, it gets the grids, calculates the storm masks, creates a new KML grid, and makes a threat KML.
+
+The `gStream.logDebug(msg)` line at the beginning is used for logging debug messages. The `msg` variable should contain the message to be logged.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

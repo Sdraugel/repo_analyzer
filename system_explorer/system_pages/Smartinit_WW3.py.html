@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>WW3.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>WW3.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code file is a module that calculates surface weather elements from the WW3 (WaveWatch III) model output. The WW3 model is a third-generation ocean wave prediction model developed by the NOAA/NWS/NCEP/MMAB which plays a significant role in both operational wave forecasting and academic research.
+
+The module defines a class `WW3Forecaster` which is a subclass of the `Forecaster` class, imported from the `Init` module. The `WW3Forecaster` class has several methods that calculate different weather elements:
+
+- `calcWaveHeight(self, htsgw_SFC)`: This method calculates wave height from the WW3 model and converts it from meters to feet.
+
+- `calcWindWaveHgt(self, wvhgt_SFC)`: This method calculates wind wave height from the WW3 model and converts it from meters to feet.
+
+- `calcWind(self, wind_SFC)`: This method calculates wind from the WW3 model and converts it from meters/sec to knots. It also handles wind speeds greater than 100 by setting them to 0.
+
+- `calcSwell(self, swell_OSEQD1, swdir_OSEQD1)` and `calcSwell2(self, swell_OSEQD2, swdir_OSEQD2)`: These methods calculate primary and secondary swell from the WW3 model. They use wave height for magnitude as that information is not available.
+
+- `calcPeriod(self, swper_OSEQD1)` and `calcPeriod2(self, swper_OSEQD2)`: These methods calculate primary and secondary period from the WW3 model.
+
+The `main()` function at the end of the script runs the `WW3Forecaster` class.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,94 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Aviation_EDASConfig.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Aviation_EDASConfig.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is a configuration file for an aviation software. It sets up various parameters for the software's operation. 
+
+The code begins by importing a module named `SmartScript`. Then, it creates an empty dictionary `config` which is used to store the configuration settings.
+
+The configuration settings are divided into three parts: `Populate`, `Timer`, and `Finalize`.
+
+1. `Populate`: This section is about setting up the sources and elements for the forecast. It includes:
+   - A list of generic sources to populate the forecast (`genSources`).
+   - The default generic source (`defaultGenSource`).
+   - The default state of the Current / Previous version state button (`prevCurDefault`).
+   - A list of generic elements that will appear for the generic sources (`genElementList`).
+   - The set of generic elements that default to "on" when the GUI first appears (`genElementDefaultList`).
+   - The set of convective sources to populate cloud base elements (`conSources`).
+   - The default convective source (`defaultConSource`).
+   - A list of convective elements that will appear (`conElementList`).
+   - The default convective element (`conElementDefault`).
+   - The set of algorithms that calculate cloud base (`algChoices`).
+   - The default convective algorithm (`defaultAlg`).
+
+2. `Timer`: This section is about setting up the tool's time duration, display settings, colors for each element, mouse button configuration for editing, edit areas, and zoom factors for each of the weather elements.
+
+3. `Finalize`: This section is about setting up the start and stop time of the "TAF Period". However, the code for `TAFEndHour` is incomplete.
+
+This configuration file is used to customize the behavior of the software according to the user's needs.
+
+The code is a configuration script for a tool or application, most likely related to weather forecasting given the terms used (like "TAF" which stands for Terminal Aerodrome Forecast, "PoP" which stands for Probability of Precipitation, etc.). 
+
+The configuration settings are stored in a dictionary called `config` with the key `Finalize`. The settings include:
+
+1. `AlwaysUseFullTAFPeriod`: If set to "Yes", the TimeRange will default to the entire TAF period.
+2. `GapAction`: Defines the action to be taken when a gap is encountered. The choices are "Stop" or "Interpolate".
+3. `AllChecks`: A list of checks that will appear in the menu. Removing a rule from here will remove it from the GUI entirely.
+4. `DefaultOnChecks`: A subset of checks that will be defaulted to on when the tool is started.
+5. `ImmutableChecks`: A set of rules where no user selection is offered. Adding rules to this list makes them unchangeable by any user in the GUI.
+6. `toolTips`: Define the text to be displayed for tool tips.
+7. `OfferSavePublish`: If set to "Yes", the Save and Publish option will display.
+8. `editButton`: For folks who use the mouse left-handed, change this to "3".
+9. `T-TdDefault`: Default value for the T-Td slider.
+10. `visPopThreshold`: The threshold below which all points with PoP < 55% and Visibility values below this threshold will be set to this threshold.
+11. `AddVisToWxValue`: Default value for the slider below which a Visibility string will be added to the Wx grid.
+12. `IntensityDefault`: Default for the buttons that modify weather intensity.
+13. `IntensPrecipList`: Types of precip. where the intensity can be modified.
+14. `IntensNonPrecipList`: List of Non-precip types where the intensity can be modified.
+15. `Fog_Patchy`, `Fog_Areas`, `Fog_Wide`, `Haze_Def`, `Smoke_Patchy`, `Smoke_Areas`, `Smoke_Def`: Default values for various coverages of weather.
+16. `MakePotFog`: Choices are "Yes" or "No".
+
+The last part of the code defines a class `Aviation_EDASConfig` which inherits from `SmartScript.SmartScript`. The `__init__` method sets up the class with certain parameters (`dbss`, `eaMgr`, `mdMode`, `toolType`).</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

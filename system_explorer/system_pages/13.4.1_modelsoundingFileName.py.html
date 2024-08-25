@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>modelsoundingFileName.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>modelsoundingFileName.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to rename a file based on certain input parameters. 
+
+Here's a step-by-step breakdown:
+
+1. The script imports two modules: `re` (regular expressions) and `sys` (system-specific parameters and functions).
+
+2. It then takes three command-line arguments: the filename (`hdf5file`), the model name (`model`), and the forecast hour (`forecastHour`).
+
+3. The script uses a regular expression to search for a specific pattern in the filename. The pattern is 'modelsounding-' followed by four groups of numbers separated by hyphens, and ending with '.h5'.
+
+4. If the filename matches this pattern, it extracts the group of numbers (reftime) from the filename.
+
+5. It then constructs a new filename using the model name, the extracted group of numbers (reftime), and the forecast hour. The new filename is printed to the console.
+
+6. If the filename does not match the expected pattern, the script prints an error message and exits with a status code of -1, indicating an error.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

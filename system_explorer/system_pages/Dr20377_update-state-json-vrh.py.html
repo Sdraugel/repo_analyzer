@@ -1,0 +1,64 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>update-state-json-vrh.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>update-state-json-vrh.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is used to update a JSON file named `state.json` located in the `/etc/pki/a2pgca/state/` directory. This update is done before installing Qpid SSL certificates onto `cpsbn1` and `cpsbn2`.
+
+Here's a step-by-step breakdown of what the script does:
+
+1. It opens the `state.json` file in read and write mode (`r+`).
+
+2. It reads the content of the file and loads it into a Python dictionary using the `json.load()` function. The loaded data is stored in the variable `data`.
+
+3. It then iterates over the items in the `targets` list in the `data` dictionary. For each `target` in the `targets` list, it checks if the `name` attribute of the `target` is `'cp1f'` and the `type` attribute is `'server'`. 
+
+4. If both conditions are met, it updates the `location_specs` attribute of the `target` to be `['server:$PX_SERVERS:/awips2/qpid']`.
+
+5. After updating the `data` dictionary, it moves the file pointer back to the beginning of the file using `f.seek(0)`.
+
+6. It then writes the updated `data` back to the `state.json` file in a pretty-printed format (with an indentation of 4 spaces) using the `json.dump()` function.
+
+7. Finally, it truncates the rest of the file from the current file position (which is at the end of the written data) using `f.truncate()`. This is done to remove any old data that might still be present in the file after the new data has been written.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

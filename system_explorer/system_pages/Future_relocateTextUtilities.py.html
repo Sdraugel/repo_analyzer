@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>relocateTextUtilities.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>relocateTextUtilities.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be part of a larger system, possibly for managing and updating Python scripts used in a weather forecasting system (AWIPS II). Here's what each part does:
+
+1. `forceTextProdRegen`: This function removes old Python scripts related to text products and text utilities from specific directories. It then "touches" (updates the access and modification times of) a shapefile and a product template file, which presumably triggers some kind of regeneration of these text products and utilities.
+
+2. `relocateSiteLevelUtils` and `relocateUserLevelUtils`: These functions relocate Python scripts from the 'textProducts' directories to the 'textUtilities/regular' directories at the site and user levels, respectively. The relocation only happens if the script does not contain a "class TextProduct" definition, as determined by the `isTextProduct` function.
+
+3. `getSubDirs`: This function returns a list of all subdirectories in a given directory.
+
+4. `isTextProduct`: This function checks whether a given Python script contains a "class TextProduct" definition.
+
+5. `moveToUtilities`: This function moves a Python script from the 'textProducts' directory to the 'textUtilities/regular' directory. It also creates the destination directory if it doesn't exist. After moving the script, it removes any remaining .pyo, .pyc, and .md5 files associated with the script.
+
+6. `main`: This function calls `forceTextProdRegen`, `relocateSiteLevelUtils`, and `relocateUserLevelUtils` in order.
+
+The script is designed to be run as a standalone program. If it's run as such (i.e., not imported as a module), it calls the `main` function.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

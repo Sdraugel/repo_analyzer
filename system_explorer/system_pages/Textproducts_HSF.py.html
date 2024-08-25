@@ -1,0 +1,355 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>HSF.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>HSF.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code file is a configuration file for a High Seas Forecast (HSF) software. It's in the public domain and can be used without any warranty or technical support. The software was last updated on 26 July 2016 by Jeff Lewitsky.
+
+The code file contains a history of software changes, with the most recent changes made by an engineer named tlefebvre, who made adjustments to the edit area retrieval and storage.
+
+The file also contains definitions and configuration for various elements of the software, such as:
+
+- Display name, which defines how the product appears in the Graphical Forecast Editor (GFE) GUI.
+- Default edit areas.
+- Product name, full station ID, WMO ID code, product pil, area name, and WFO city state.
+- UGC code and heading for Synopsis.
+- Optional configuration items like edit area suffix, map name for combinations, source database for product, output file location, debug mode, AWIPS product identifier, hazard sampling threshold, period combining, weather-related flags, area dictionary, use of holidays, and troubleshooting items.
+
+The file also contains instructions for overriding certain methods (_Text1(), _Text2()) and customizing phrases in the product.
+
+Finally, it mentions that the software requires certain weather elements, but the list is cut off.
+
+This Python code appears to be part of a larger system, possibly related to weather forecasting or a similar field. The comments at the top of the file describe various weather-related data that is being processed, such as wave height, wind speed, and weather conditions. These data points are likely being collected at various intervals, ranging from every 3 hours to every 7 days.
+
+The code imports several modules, including ones for handling text, time, regular expressions, file operations, and mathematical functions. It also imports modules for handling specific data types and operations related to the system it's a part of.
+
+The main part of the code defines a class called Node. This class represents a node in a tree data structure. Each node has a list of children, a list of methods, a parent, a flag to track changes, and a list of completed methods. The Node class has several methods to manipulate and interact with the node, such as getting the parent, getting the component, setting and getting attributes, and printing the node.
+
+The Node class is likely used to represent and manipulate a hierarchical structure in the data or the operations of the system. For example, it could be used to represent a tree of weather data, with each node representing a different type of data or a different time period.
+
+This code appears to define a tree structure with nodes and their relationships. Each node can have a parent and children, and can perform various operations such as adding a child, removing itself from the tree, finding a child with a specific attribute, getting all its descendants, replacing itself with a list of nodes, and more.
+
+The `Narrative` class extends the `Node` class and `TextRules` class. It represents the root of the tree and has some additional properties and methods. It has a method to print the tree structure and a method to get the topographical histogram for a given area label.
+
+Here is a summary of what each method does:
+
+- `tChild`: Inserts a new child node either before or after a specified sibling node.
+- `remove`: Removes the node from its parent's list of children.
+- `findChild`: Finds a child node with a given attribute and value.
+- `getProgeny`: Returns a list of all descendants of the node.
+- `replace`: Replaces the current node with a list of nodes in its parent's list of children.
+- `getTimeRange`: Returns the time range associated with the node or its ancestor.
+- `getStatDict`: Returns a dictionary of statistics associated with the node or modifies it based on disabled elements and subkeys.
+- `getAreaLabel`: Returns the area label associated with the node or its ancestor.
+- `getAncestor`: Returns the ancestor of the node that has a given attribute.
+- `setAncestor`: Sets the value of a given attribute for the node or its ancestor.
+- `getDescendent`: Returns the first descendant of the node that has a given attribute.
+- `Narrative.__init__`: Initializes the root of the tree with various properties.
+- `printTree`: Prints the structure of the tree.
+- `getTopoHisto`: Returns the topographical histogram for a given area label.
+
+This code file appears to be written in Python and contains several classes and methods that seem to be used for handling and manipulating text products, possibly in a content management system or similar application. 
+
+The first class `d()` has several methods for creating and manipulating nodes and phrases, which could represent parts of a text document or similar structure. It also has methods for retrieving data types, limits, and statistics. 
+
+The `makeNode` method creates a new node with given children, methods, and an optional parent. 
+
+The `statisticsDictionary` method returns a dictionary of statistics. 
+
+The `getDataType`, `getLimits`, `makeComponent`, and `makePhrase` methods all delegate to a library object to perform their operations. 
+
+The `copyPhrase` method creates a copy of a given node (or phrase), optionally with a new time range, area label, and parent, and also optionally copying certain attributes from the original node. 
+
+The `addPhrase` and `addPhraseDef` methods add a new phrase to a given parent phrase, optionally with a new time range and area label.
+
+The `Statistics` class has a `get` method that retrieves a value from a statistics dictionary.
+
+The `TextProduct` class inherits from `TextRules` and `SampleAnalysis` classes and has a `Definition` dictionary that contains various settings and parameters for a text product. It has an `__init__` method that initializes its parent classes.
+
+In general, this code seems to be part of a larger system for managing and manipulating text products, possibly in a publishing or content management context.
+
+This code file appears to be a part of a larger system, likely a weather forecasting system. It's written in Python and contains several methods for generating and formatting forecast text, as well as handling various data inputs.
+
+Here's a breakdown of what each part of the code is doing:
+
+1. `editAreasPath`: This variable is set to a path where the program can find certain data files. There are two paths commented out, one for development and one for operations.
+
+2. `_Text1` and `_Text2`: These methods return predefined text strings. `_Text1` returns a standard disclaimer about wave heights, while `_Text2` returns a description of a specific geographic area. There's also a commented-out version of `_Text2` that returns a different geographic area.
+
+3. `_wrapLines`: This method takes a string and a maximum line length, then breaks the string into lines that don't exceed the maximum length. It returns the reformatted string.
+
+4. `generateForecast`: This is the main method of the system. It calls several other methods to gather data, create features, sample data, and build the forecast text. It then returns the final forecast.
+
+5. `_getVariables`: This method extracts variables from a dictionary and sets them as attributes of the current object.
+
+6. `_determineTimeRanges`: This method calculates the current time and sets up issuance times for the forecast.
+
+7. `Feature`: This is a class within the main class. It's used to store information about a specific feature of the forecast, such as its name, type, and associated periods. It also contains a variable for the highest warning level associated with the feature.
+
+Overall, this code is handling the generation and formatting of text-based weather forecasts, likely as part of a larger system.
+
+The provided code seems to be part of a larger Python program that deals with some sort of weather or geographical features. It defines a few classes and their methods, and a function to create features.
+
+1. The `Feature` class: This class has several attributes related to a weather feature such as `highestWarningTimePeriod`, `highestWarningHeadline`, `wxType` (possibly weather type), `wxIntensity` (possibly weather intensity) and others. It also has a method `printFeature` to print out these attributes.
+
+2. The `Period` class: This class represents a time period with attributes like `timePeriod`, `areas` and `drawables`. It also has a method `printPeriod` to print out these attributes.
+
+3. The `Area` class: This class represents an area with attributes like `areaName`, `areaLabel`, `refData`, `timePeriod` and others. It also has a method `printArea` to print out these attributes.
+
+4. The `Drawable` class: This class represents a drawable object with attributes like `timePeriod`, `drawableType`, `pressureTag`, `latLons` and `movement`. It also has a method `printDrawable` to print out these attributes.
+
+5. The `_createFeatures` function: This function sets up 'skeleton' Feature objects from `toolFeatures`. It seems to be dealing with geographical features and their descriptions. It also uses a method to get a grid location (`gridLoc`) which is needed to process edit areas.
+
+The code seems to be part of a larger system, possibly for weather forecasting or geographical data processing, where these classes and functions are used to represent and manipulate weather or geographical features.
+
+This code is part of a larger system that seems to be dealing with geographic features and weather conditions. 
+
+The first part of the code is creating a feature object and populating it with data such as the feature's name, basin name, and type. It then creates a list of time periods associated with the feature using the `_getTimePeriodList` method. For each time period, it creates a period object and appends it to the feature's periods list. It also creates a list of areas associated with the feature and time period using the `_getAreaList` method. For each area, it creates an area object and appends it to the period's areas list. The area object is populated with data such as the area's name and description. It also prints out the area's name and description. Finally, it processes area overlaps using the `_processAreaOverlaps` method.
+
+The `_getFeatureNames`, `_getTimePeriodList`, and `_getAreaList` methods are helper methods that extract and return lists of feature names, time periods, and areas, respectively, from a list of tool features.
+
+The `_createGridBasedFeatures` method is creating grid-based feature objects from a list of grid-based features. It populates each feature object with data such as the feature's type, weather type, intensity, and coverage. It also creates a list of areas associated with the feature and populates each area object with data such as the area's name, description, and weather type. It also sets warning attributes for the feature and area objects based on the weather type and intensity.
+
+The `_getGridBasedHeadline` method is a helper method that returns a warning headline based on the area's weather type and intensity.
+
+This code appears to be part of a larger script that is used for processing and analyzing meteorological data, specifically related to tropical cyclones. 
+
+The `_createTCM_BasedFeatures` function is creating features from TCM (Tropical Cyclone Message) conversion script input. It loops through a list of indices, each time generating a `pil` (product identifier) and using it to execute a subprocess command that retrieves some text data. This data is then split into lines and processed. If the time of the TCM overlaps with the current time (within a threshold), the function continues processing the TCM data. It checks for certain keywords in the TCM data to set the `highestWarning` and `phenomenonType` of the feature. The processed feature is then appended to the `_features` list.
+
+The `_tcmTimeOverlaps` function checks if the time of a TCM overlaps with the current time. It converts the TCM time string to a timestamp, gets the current time, and checks if the absolute difference between these two times is less than a threshold (6 hours).
+
+The `convertBaseTime` function converts a time string into a timestamp. It extracts the hour, minute, month, day, and year from the time string, converts these into a timestamp, adjusts this timestamp to UTC, and then rounds it to the nearest hour.
+
+The `monthNum` function converts a month string into a month number. It checks the month string against a list of month abbreviations and returns the index of the month string in the list (plus one).
+
+The `_readCurrentTCM` function is a placeholder function that currently does nothing.
+
+The `_createDrawableFeatures` function creates features from VGF/XML Drawable files. It first associates any drawable elements that match an existing Named Feature. Then, it groups the remaining drawable elements based on compatibility types and proximity. Finally, it creates a feature from each group.
+
+This code appears to be part of a larger Python class that processes and manipulates a set of graphical objects, referred to as "drawables". Here's a breakdown of what each section does:
+
+1. The first section loops through a group of drawables, checks if their time period matches with any of the periods in a feature, and if so, adds the drawable to that period's list of drawables. If the group is not a list, it performs a similar operation for the group as a whole. It then checks if there are any drawables in a period, and if so, adds the period to the feature's list of periods. It sorts the periods by time and sets the earliest time period of the feature. Finally, it adds the feature to a list of features.
+
+2. The `_groupDrawables` method tries to add each drawable to a group. It checks if the types of drawables are compatible and if they are in proximity. If they are, it adds the drawable to a new group. If not, it adds the drawable to a list of returned drawables. If the group is not a list, it simply returns the group and the list of returned drawables.
+
+3. The `_copyDrawables` method creates a copy of a group of drawables. If the group is a list, it creates a new list and adds each drawable to it. If the group is a singleton, it creates a new drawable with the same attributes as the group.
+
+4. The `_ingestDrawables` method reads in files and parses them to create drawables. It skips certain types of drawables and adds the rest to a list of drawables.
+
+5. The `_best_way` method checks if a number is even or odd.
+
+6. The `_getLatLons` method gets the latitude and longitude of a point, rounds them to the nearest 0.1, and adds them to a list of latitudes and longitudes.
+
+The `_associateDrawableElem` method is not complete in the provided code, so I can't provide an analysis for it.
+
+The code file appears to be a part of a larger system, likely for weather or geographical data analysis. Here's a breakdown of what each function does:
+
+1. `entWithFeature(self, drawableElement)`: This function checks if a drawable element can be associated with a feature. If it can, it appends the drawable element to the period's drawables list and returns True, otherwise it returns False.
+
+2. `_compatibleDrawableTypes(self, d1, d2)`: This function checks if two drawable types are compatible. It has a list of compatible types and checks if the two input types are in this list. If they are the same or if they are in the list of compatible types, it returns True, otherwise it returns False.
+
+3. `_sampleData(self, argDict)`: This function samples data from the features. It creates a list of periods and area tuples and then creates a sampler using this data.
+
+4. `getSampler(self, argDict, sampleInfo, sampleFromServer=0)`: This function creates a sampler given sample information, which is a list of tuples. It converts the sample information into sampler requests, performs sampling, and returns the sampler.
+
+5. `_populateFeatures(self, argDict)`: This function populates features with product information. It goes through each feature and period, and for each area, it appends it to the feature area list, gets statistical data, and checks for warnings. 
+
+The code seems to be written in Python and uses some Java libraries, indicating that it's likely part of a system that uses Jython (a Python interpreter for the Java platform).
+
+This Python code appears to be part of a larger system that processes and organizes weather-related data, possibly for the purpose of generating forecasts or warnings. 
+
+Here's a summary of what the different sections of the code are doing:
+
+1. The first section of the code is checking if there are any warnings in the `featureAreaList`. If there are, it sorts the list based on the warning type and assigns the warning type, headline, and time period of the highest warning to the `feature` object. It also sorts the time periods of the feature and assigns the earliest time period to the `feature` object.
+
+2. The `_orderFeatures` function sorts the areas within each feature's periods and then sorts the features themselves into two lists: one for features with warnings and one for features without warnings. These lists are then sorted.
+
+3. The `_preProcessProduct` function appears to be preparing a forecast string (`fcst`) by appending various pieces of information to it, including the product name, issuance type, and various other details. If certain conditions are met, additional information is appended to the forecast string.
+
+4. The `_makeSection` function prints out information about each feature in a given list of features. Depending on the `sectionType` argument, it appends either ".WARNINGS." or ".SYNOPSIS AND FORECAST." to the forecast string. It then goes through each feature in the list, printing out more information about the feature and potentially appending more information to the forecast string.
+
+Overall, this code is concerned with processing and organizing weather-related data, and preparing this data for presentation in a certain format (possibly a text-based forecast or warning).
+
+This is a Python script that appears to be part of a larger weather forecasting system. It's responsible for formatting and processing weather forecast data. Here's a breakdown of what it does:
+
+1. The script first checks if there are any drawable objects associated with a given period. If there are, it formats these drawables and adds them to the forecast string (`fcst`).
+
+2. It then loops over areas in the period, getting area words and element words (which seem to be weather-related terms), and adds them to the forecast string.
+
+3. If the feature type is "GridBased", it formats grid-based features. It gets area words and grid-based weather words, and adds a time period label to the forecast string. If the weather type is 'VA', it adds extra line breaks to the forecast string. Otherwise, it adds the element words and area words to the forecast string.
+
+4. If the feature type is not recognized, it skips the feature and prints a feature dump for debugging purposes.
+
+5. If the section type is "Warning" and there are no warning features, it adds a ".NONE." string to the forecast.
+
+6. The script also includes several helper functions to get area words, get element words, format drawable objects, and check for certain feature types.
+
+7. The `_postProcessProduct` function appears to add additional information to the forecast, such as the forecaster's name and a default forecast if there are no synopsis features.
+
+8. The script ends abruptly with an incomplete if statement that seems to check if the forecast contains the word 'HURRICANE'. It's likely that there is more code following this.
+
+This code is written in Python and appears to be part of a larger program that processes and formats weather forecasts, particularly those related to hurricanes and other severe weather phenomena.
+
+The first part of the code is modifying a string `fcst` (presumably a forecast message) using regular expressions to replace certain phrases. It then appends a signature line with the forecaster's name and the National Hurricane Center's name. The progress of this operation is tracked and displayed, and the forecast message is further processed by a method `_wrapLines()` before being returned.
+
+The next part of the code defines several methods that return lists or dictionaries. These methods appear to define the order in which different types of weather phenomena, basins, and warnings should be sorted, as well as how certain codes should be decoded into human-readable strings.
+
+The final part of the code defines several properties, each of which returns a function that can be used as a key for sorting lists of objects. These functions compare two objects based on their attributes (such as warning type or start time) and the order defined by the earlier methods.
+
+For example, the `_sortAreasForWarningType` property returns a function that sorts objects based on their `warningType` attribute, with the order defined by the `_warningOrder()` method. If two objects have the same warning type, they are then sorted by their start time. Similar sorting functions are defined for time periods and areas.
+
+This code is part of a larger system, likely related to weather forecasting or hazard detection. It contains several functions that are used to sort and check various features and conditions. Here's a brief description of each part:
+
+1. `_sortWarningFeatures`, `_sortSynopsisFeatures`, and `_sortPeriodsByTime` are methods that return a function for sorting objects (likely weather-related features or periods). The sorting is based on different attributes like feature type, warning type, time period, and basin name.
+
+2. `_warningMethods` is a method that returns a list of methods used to check for specific types of weather hazards like hurricanes, typhoons, tropical storms, etc.
+
+3. `_checkHurricane`, `_checkTyphoon`, `_checkHurricaneForce`, `_checkTropicalStorm`, `_checkStorm`, `_checkGale`, and `_checkFreezingSpray` are methods that check a given statistical dictionary (`statDict`) for specific hazard types. If the hazard is found, these methods return a tuple with a boolean indicating the presence of the hazard, a string with a warning message, a list of methods (likely related to handling or displaying the warning), and a string with the hazard type. If the hazard is not found, they return a tuple with `False` and three `None` values.
+
+The sorting functions use the `functools.cmp_to_key` function to convert a comparison function into a key function. This is useful for sorting in Python 3, where the `cmp` parameter of the `sorted` function and `list.sort` method is no longer available.
+
+The code is a part of a larger system, likely a weather forecasting system. It contains several methods that perform various tasks:
+
+1. The first method checks if there is a specific hazard type "UP.W" in the given statistics dictionary. If it is, it returns a warning message along with some other information. If not, it returns False and None values.
+
+2. The `_checkSpaceWx` method always returns False and None values. It seems to be a placeholder for future development.
+
+3. `_setWindWave` method checks the wind and wave heights against certain thresholds. If the wind and wave heights exceed the thresholds, it sets certain flags to True in the given area object.
+
+4. `_validLabel` method generates a forecast string with the current time, 24 hour forecast and 48 hour forecast.
+
+5. `_getTimePeriodLabel` method generates a label for the forecast based on the time difference between the forecast time and the current time.
+
+6. `_convertToTimeRange` method converts a given time period into a TimeRange object.
+
+7. `descriptorFileName` and `gridBasedFileName` methods return the file paths for storing edit area information and grid-based features respectively.
+
+8. `_checkForWx` method checks if there are any weather conditions in the given statistics dictionary that meet certain criteria.
+
+9. `_makePhrases` method generates forecast phrases based on the given method list and statistics dictionary.
+
+10. `_gridBasedWxMethods` and `_gridBasedWxWords` methods generate weather condition descriptions based on the given area object.
+
+Overall, this code is used to analyze weather data and generate forecasts.
+
+The code is written in Python and consists of several methods that seem to be part of a larger class. The class seems to be related to weather analysis and forecasting. 
+
+The first method `_getGridBasedWxWords` takes an `area` object as an argument, which has attributes `wxType`, `intensity`, and `coverage`. Depending on the values of these attributes, it assigns a string to the variable `words` that describes the weather condition. For example, if `wxType` is 'T' and `coverage` is "Iso", it assigns 'isolated moderate convection' to `words`.
+
+The `_windWaveMethodList` and `_wxMethodList` methods return lists of tuples. Each tuple contains a method and some arguments. These methods might be used elsewhere in the code to generate weather phrases based on wind, wave, and other weather conditions.
+
+The `_analysisList` method also returns a list of tuples, each containing a string and a method. The strings might be keys used to access specific weather data, and the methods might be used to analyze that data.
+
+The `vector_mag` method takes several arguments related to wind speed and direction, and generates a phrase describing the wind condition. It seems to handle various special cases and rounding to the nearest 5.
+
+The `vector_dir` method seems to be incomplete as it ends abruptly. It seems to be intended to return a single letter direction based on the `dir` argument.
+
+This code appears to be part of a larger program that processes and generates textual descriptions of weather conditions, possibly for a weather forecast or report. Here's a summary of what each function does:
+
+1. `dirToText(dir)`: This function was originally designed to convert single-letter cardinal directions (N, S, E, W) into their full-word counterparts (north, south, east, west). However, this functionality has been commented out, so currently the function simply returns the input as is.
+
+2. `element_outUnits_dict(self, tree, node)`: This function creates a dictionary that maps certain weather elements to their respective units of measurement, such as "Visibility" to "NM" (nautical miles), "Wind" to "kts" (knots), and "WaveHeight" to "ft" (feet).
+
+3. `units_descriptor_dict(self, tree, node)`: This function returns a dictionary that provides descriptors for various units of measurement. It has two sub-dictionaries: "units" and "unit", each providing plural and singular descriptors respectively.
+
+4. `first_null_phrase_dict(self, tree, node)` and `null_phrase_dict(self, tree, node)`: These functions return dictionaries that provide phrases to be used when certain weather elements are null or below a certain threshold. For example, if the wind speed is 20 knots or less, the phrase "Winds 20 kt or less" will be used.
+
+5. `null_nlValue_dict(self, tree, node)`: This function returns a dictionary that specifies the threshold below which certain weather elements are considered "null" and reported using the phrases from the previous functions.
+
+6. `maximum_range_nlValue_dict(self, tree, node)` and `minimum_range_nlValue_dict(self, tree, node)`: These functions return dictionaries that specify the maximum and minimum ranges to be reported within a phrase for certain weather elements.
+
+7. `phrase_descriptor_dict(self, tree, node)`: This function returns a dictionary that provides descriptors for various phrases. For example, the descriptor for "Wind" is "winds", and for "WaveHeight" is "seas".
+
+This code file appears to be part of a larger system, possibly a weather forecasting or reporting system. Here's a breakdown of what each function is doing:
+
+1. `rounding_method_dict`: This function is commented out, but it seems to return a dictionary where the key is "Wind" and the value is a method called `marineRounding`.
+
+2. `pop_wx_lower_threshold`: This function always returns 0, indicating that weather is always reported.
+
+3. `seasWaveHeight_element`: This function returns the string "WaveHeight", which might be used to report the height of sea waves.
+
+4. `waveHeight_wind_threshold`: This function returns 0, which might represent the wind value above which wave height is reported vs. wind waves.
+
+5. `wave_range`: This function calculates the range of wave heights based on the average wave value.
+
+6. `moderated_dict`: This function defines the low and high limit at which outliers will be removed when calculating moderated stats for wind and wave height.
+
+7. `dirList`: This function returns a list of tuples representing different wind directions and their corresponding degrees.
+
+8. `allowedHazards`: This function returns a list of tuples representing different types of hazards, their actions, and their categories.
+
+9. `significant_wx_visibility_subkeys`: This function returns a list of tuples representing weather values that constitute significant weather to be reported regardless of visibility.
+
+10. `wxCoverageDescriptors`: This function returns a list of tuples representing different coverages, weather types, intensities, attributes, and descriptors for which special weather coverage wording is desired.
+
+11. `_makeTreeNode`: This function seems to create a tree node with specific information about a weather phrase, its statistics, time period, and area label.
+
+This code file appears to be written in Python and contains a series of methods that are part of a larger class (not shown in the snippet). The methods seem to be related to the manipulation and analysis of data in a grid format, possibly related to geographical or meteorological data. Here's a brief overview of what each method does:
+
+1. The first method sets various attributes of a node object, such as "descriptor", "firstElement", "elementInfo", "elementInfoList", "elementName", "setUpMethod", and "doneList". It then returns a tree and node.
+
+2. The `_applyRanges` method takes a tree, node, statistical dictionary, element name, and element type as inputs. It then applies ranges to the data based on the element type, which can be a vector, scalar, or weather.
+
+3. The `getLimits` method retrieves the minimum and maximum values of a given element.
+
+4. The `_getEditArea` method returns an object given an edit area name.
+
+5. The `_editAreaToMask` method converts an edit area to a mask, which is a boolean grid.
+
+6. The `_maskToEditArea` method converts a mask back into an edit area.
+
+7. The `_setActiveEditArea` method sets the active edit area.
+
+8. The `_saveEditArea` method saves the edit area with a given name.
+
+9. The `_processAreaOverlaps` method processes overlapping areas, taking care of "donuts" (areas within other areas).
+
+10. The `_drawableElementOverlaps` method checks if there are overlaps between drawable elements and areas.
+
+11. The `_close` method checks if two points are within a certain distance threshold.
+
+12. The `_proximity` method checks if two drawable elements are close to each other.
+
+The code also includes several comments indicating different sections of the code, such as "Edit Area support methods" and "END Edit Area support methods".</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

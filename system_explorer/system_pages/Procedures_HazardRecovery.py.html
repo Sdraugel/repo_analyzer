@@ -1,0 +1,76 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>HazardRecovery.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>HazardRecovery.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a larger software system developed by Raytheon Company. It appears to be a procedure for synchronizing hazard grids with the contents of the VTEC (Valid Time Event Code) active table. This could be part of a weather forecasting or meteorological software system, as VTEC codes are used by the National Weather Service for weather warnings and advisories.
+
+The script starts with a series of comments and metadata, including licensing information, authorship, and a history of software changes. It then imports several Python libraries and defines a class `Procedure` which inherits from `SmartScript.SmartScript`.
+
+In the `Procedure` class, two methods are defined: `getActiveTable` and `execute`. 
+
+The `getActiveTable` method retrieves and filters the active table based on various criteria such as action codes, phen/sigs, and office IDs. It also manipulates the start and end times of the hazards, and organizes the filtered data into a dictionary.
+
+The `execute` method appears to be incomplete, but it seems to be intended to execute the procedure, which involves getting hazard utilities, setting the tool type, checking for temporary grids, getting the active table, and possibly more steps that are not shown in the provided code.
+
+The `MenuItems` list at the beginning of the script suggests that this procedure is intended to appear under the "Hazards" menu item in a Graphical Forecast Editor (GFE) interface.
+
+This part of the code file appears to be a method or function in a larger program that is related to managing and recovering hazard data. Here's a breakdown of what it does:
+
+1. It first defines a dialog box with a warning message that the entire Hazards inventory will be replaced with the contents of the active table.
+
+2. It then checks the status of the dialog box. If the status is not "ok", it logs a debug message "HazardRecovery: cancel" and the function returns without doing anything else.
+
+3. If the status is "ok", it checks if the Hazards Weather Element (WE) is loaded in the GFE (Graphical Forecast Editor). If it's not loaded, it displays a message on the status bar and the function returns without doing anything else.
+
+4. If the Hazards WE is loaded, it removes all current hazard grids and unlocks the hazards.
+
+5. It then checks if there are any hazards in the active table. If there are none, it displays a message on the status bar that there are no hazards to recover and the hazard grids have been cleared.
+
+6. If there are hazards in the active table, it iterates over each hazard. For each hazard, it creates a time range, filters the zones related to the hazard, creates a mask for the filtered zones, and adds the hazard to the Hazards WE.
+
+7. It logs an event for each hazard added, including the start and end times, the key, and the zone list.
+
+8. The function then ends and returns control to the calling program.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

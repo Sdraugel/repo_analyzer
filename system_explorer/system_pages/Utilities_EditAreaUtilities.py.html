@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>EditAreaUtilities.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>EditAreaUtilities.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code defines a Python class called `EditAreaUtilities` which is used to manage a set of 'edit areas'. An 'edit area' here refers to a certain type of data that is not directly supported by the Data Access Framework (DAF), hence this class provides a way to store and retrieve this data outside of CAVE, a software system.
+
+The class `EditAreaUtilities` has three methods:
+
+1. `__init__(self, repositoryPath)`: This is the constructor method that initializes an instance of the class. It takes a path to a repository as an argument and stores it in the instance variable `_repositoryPath`.
+
+2. `saveEditArea(self, eaName, mask)`: This method saves a specified 'mask' under a given name into the edit area repository. The mask is saved using the numpy `save` method, which saves an array to a binary file in NumPy `.npy` format.
+
+3. `fetchEditArea(self, name)`: This method retrieves an 'edit area' in the form of a mask from the repository. It first checks if the file exists in the repository. If the file does not exist, it prints an error message and returns `None`. If the file exists, it attempts to load the file using the numpy `load` method. If there is an error in loading the file, it prints an error message and returns `None`. If the file is successfully loaded, it returns the mask.
+
+4. `allEditAreaNames(self)`: This method returns the names of all the 'edit areas' in the repository. It first gets a list of all files in the repository using the `os.listdir` method. Then it iterates over the list of files and adds the name of each file (without the `.npy` extension) to a new list if the file name contains `.npy`. Finally, it returns the list of file names.
+
+The code also includes a software history with details of updates and changes made to the code.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

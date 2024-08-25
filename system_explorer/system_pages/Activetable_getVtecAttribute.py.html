@@ -1,0 +1,64 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>getVtecAttribute.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>getVtecAttribute.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a software developed by Raytheon Company. It imports necessary modules and defines a function named `getVtecAttribute`.
+
+The function `getVtecAttribute` is designed to ask a server for an attribute from the VTECPartners script for a specific site. The site is usually taken from the `GFESUITE_SITEID` environment variable, but it can also be passed as a parameter in case the environment variable is not set or information for an alternate site is needed.
+
+The function takes five parameters:
+
+- `attribute`: The attribute to be requested.
+- `default`: A default value to return if VTECPartners does not have the attribute. It defaults to None.
+- `site`: The site whose VTECPartners script should be consulted. It defaults to None, which causes `os.environ['GFESUITE_SITEID']` to be used.
+- `host`: The host from which to request the site IDs. It defaults to 'localhost'.
+- `port`: The port to which the request should be sent. It defaults to 9581.
+
+Inside the function, a ThriftClient is created with the given host, port, and services. Then a `GetVtecAttributeRequest` is created. If no site is specified, it tries to set the site ID from the `GFESUITE_SITEID` environment variable. If this variable is not set, it raises an exception. If a site is specified, it sets the site ID to the specified site. It then sets the attribute and default value in the request.
+
+The function sends the request using the ThriftClient and gets the response. It extracts the value from the response and returns this value.
+
+If no site is specified and the `GFESUITE_SITEID` environment variable is not set, or as raised by the Thrift client, an exception is raised.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

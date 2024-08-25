@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>checkPointdata.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>checkPointdata.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to analyze HDF5 files in a given directory and its subdirectories. HDF5 is a data model, library, and file format for storing and managing data. It supports an unlimited variety of datatypes and is designed for flexible and efficient I/O and for high volume and complex data.
+
+Here's a breakdown of what each part of the script does:
+
+1. The `analyzeFile` function opens each file in the directory, reads the datasets in the file, and analyzes the data. If the data is a string or an object, it calculates the longest string in the dataset. If the data is a two-dimensional non-string data, it checks for the presence of a real value (not -9999) and keeps track of the maximum index of the second dimension where a real value is found.
+
+2. The `addResults` function updates the `resultMap` dictionary. For each dataset, it stores the type of data, the longest string found (if the data is a string or an object), the maximum length of the string (if the data is a string), the maximum index of the second dimension where a real value is found (if the data is a two-dimensional non-string data), and the total number of rows in the second dimension.
+
+3. The `checkFiles` function lists all the files in the directory and its subdirectories, sorts them in reverse order, and calls the `analyzeFile` function for each file. If an error occurs while analyzing a file, it prints an error message and continues with the next file.
+
+4. The `processResults` function writes the results of the analysis to a text file. For each dataset, it writes the type of data, the longest string found (if the data is a string or an object), the maximum length of the string (if the data is a string), and the maximum index of the second dimension where a real value is found (if the data is a two-dimensional non-string data).
+
+5. The `main` function is the entry point of the script. It gets the directory to analyze from the command line argument, calls the `checkFiles` function to analyze the files in the directory, and then calls the `processResults` function to write the results to a file.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

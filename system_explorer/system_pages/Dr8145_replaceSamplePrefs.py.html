@@ -1,0 +1,66 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>replaceSamplePrefs.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>replaceSamplePrefs.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The script is written in Python and is designed to process XML files in specified directories, modify them according to certain rules, and save the changes. Here's a breakdown of what it does:
+
+1. It imports necessary libraries for handling files, logging, regular expressions, and XML parsing.
+
+2. It sets up two paths where it will look for XML files to process. The paths are stored in the `CONFIG_PATHS` list.
+
+3. It sets up a logging configuration with a specific format and level.
+
+4. It defines a class `CommentedTreeBuilder` which extends the `TreeBuilder` class from the `xml.etree.ElementTree` module. This class is designed to handle comments in XML files.
+
+5. It defines a function `processDir(directory)` which processes all XML files in a given directory and its subdirectories. For each XML file, it calls the `updateFile(path)` function.
+
+6. The `updateFile(path)` function opens and parses the XML file, and if the root tag of the XML file is `styleRuleset`, it modifies certain elements within the XML structure. If changes are made, it backs up the original file, and writes the modified XML back to the original file in a pretty-printed format.
+
+7. The `readHeaderComments(path, rootTag)` function reads and returns any comments that appear before the root tag in the XML file.
+
+8. The `main()` function logs a start message, processes all directories and files in `CONFIG_PATHS` (or command line arguments if provided), and logs a completion message. It returns a status code indicating whether any errors occurred.
+
+9. If the script is run as a standalone program (rather than being imported as a module), it calls the `main()` function and exits with the returned status code.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

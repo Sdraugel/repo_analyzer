@@ -1,0 +1,74 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Hazard_NPW_MultiPil.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Hazard_NPW_MultiPil.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a software developed by Raytheon Company for the US Government. The software is subject to export control laws. 
+
+The script defines a class `TextProduct` that inherits from `GenericHazards.TextProduct`. This class is used to generate a text product related to various weather hazards. 
+
+The `Definition` dictionary contains various settings and configurations for the text product, such as the display name, default edit areas, map name for combinations, product name, station ID, WMO ID, product pil, location of WFO (Weather Forecast Office), product ID for storing to AWIPS text database, product ID for transmitting to AWIPS WAN, output file, purge time, and other optional configuration items.
+
+The script also defines different types of weather hazards and their corresponding actions in the `allowedHazards` method. These hazards include dust storms, extreme cold, excessive heat, dense fog, hard freeze, high wind, etc. 
+
+The script also contains placeholders (e.g., `<site>`, `<MultiPil>`, `<fullStationID>`, `<wmoID>`, `<pil>`, `<wfoCityState>`, `<wfoCity>`, `<textdbPil>`, `<awipsWANPil>`) that would be replaced with actual values during the execution of the script.
+
+The `__init__` method is used to initialize the `TextProduct` class. It calls the `__init__` method of the parent class `GenericHazards.TextProduct`.
+
+The code snippet provided is incomplete, so a full analysis of the code is not possible.
+
+This code appears to be part of a larger program that generates weather advisories or warnings based on certain conditions. 
+
+1. The first part of the code is defining a list of tuples, each containing a code for a specific type of weather advisory or warning (such as "LW.Y" for Lake Wind Advisory), a variable `allActions` (which isn't defined in this snippet, but presumably contains some kind of action or response associated with the warning), and a string that describes the type of warning.
+
+2. The `_bulletDict` method is creating a dictionary where each key is a two-letter code representing a type of weather condition (like "LW" for Lake Wind), and the value is a string of bullets, presumably representing the specific warnings or advisories associated with that condition.
+
+3. The `_bulletOrder` method seems to simply return the list of bullets.
+
+4. The `_makeProduct` method is more complex. It appears to generate a forecast (`fcst`) based on a number of inputs, including a list of areas (`segmentAreas`), a dictionary of arguments (`argDict`), and presumably some other data not shown in this snippet. The method generates a headline for each area, creates a body of text for each hazard, and then cleans up the text before returning it. 
+
+   The method uses regular expressions to remove any attribution section before the bullets or cancellation framing code. It also calculates an overview for the product if it exists.
+
+   The `generateProduct`, `hazardBodyText`, `overviewText`, and `endline` methods are not defined in this snippet, but they presumably generate various parts of the forecast.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

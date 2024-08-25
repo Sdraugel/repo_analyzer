@@ -1,0 +1,56 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>HoursRefTimePointDataRetrieve.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>HoursRefTimePointDataRetrieve.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a software developed by Raytheon Company. It's a module that requests reference time point data. The script defines a class `HoursRefTimePointDataRetrieve` that inherits from `RefTimePointDataRetrieve`. 
+
+The class `HoursRefTimePointDataRetrieve` has an `__init__` method that initializes the class with several parameters such as `pluginName`, `site`, `parameters`, `keyId`, `refTime`, `constraint`, and `maxSize`. The `super` function is used to call the `__init__` method of the parent class `RefTimePointDataRetrieve`.
+
+The class also has a method `_createJarray` which creates a Java array of `DataTime` objects. It takes two parameters: `availableTimes` and `numHours`. It calculates a start time `stTime` which is `numHours` from the current time. Then it iterates over the `availableTimes`, converts each time to a `DataTime` object and compares it with `stTime`. If the `DataTime` object is greater than `stTime`, it is added to the `xdts` list. The method then creates a Java array `dts` of `DataTime` objects from the `xdts` list and returns it.
+
+Finally, there is a function `retrieve` defined outside the class. It creates an instance of `HoursRefTimePointDataRetrieve` with the given parameters and returns the `pdc` attribute of the instance. 
+
+The script also contains a software history comment section which indicates that the initial creation of this script was done by an engineer named rferrel on 25th April 2012.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

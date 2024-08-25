@@ -1,0 +1,64 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>HrsOfSunTool.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>HrsOfSunTool.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code file appears to be a part of a software developed by Raytheon Company. It's a script written in Python and seems to be part of a weather analysis or prediction tool, specifically a module for calculating hours of sunlight.
+
+Here's a breakdown of what the code does:
+
+1. It starts with a comment block that includes legal information about the software, including export restrictions and licensing details.
+
+2. The script defines a tool type as "numeric" and the weather element to be edited as "HrsOfSun". It also imports all functions from the numpy library.
+
+3. There's a commented-out section that seems to be for setting up variables to be solicited from the user. This could be used to customize the tool's behavior based on user input.
+
+4. The script then imports the SmartScript module and defines a class named "Tool" that inherits from SmartScript.SmartScript. This class has an `__init__` method for initialization and an `execute` method that appears to calculate the hours of sunlight based on some input `T`. The result is a numpy array (since all numpy functions are imported) with the same shape as `T`, but all elements are 14.0.
+
+5. There are also some optional methods commented out (`preProcessTool` and `postProcessTool`) which could be used for preprocessing and postprocessing when the tool is run.
+
+6. The script ends with some comments explaining how to use the `self` keyword in Python and how to handle errors in the tool.
+
+Overall, this script seems to be a template or skeleton for creating a tool to calculate the hours of sunlight. It's designed to be customized and extended based on specific needs.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

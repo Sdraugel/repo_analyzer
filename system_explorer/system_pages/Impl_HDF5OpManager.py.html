@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>HDF5OpManager.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>HDF5OpManager.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that is part of a larger software developed by Raytheon Company. The script is designed to handle read requests from a HDF5 file. HDF5 is a data model, library, and file format for storing and managing data. It supports an unlimited variety of datatypes and is designed for flexible and efficient I/O and for high volume and complex data.
+
+The code starts with a detailed comment section that includes the software's history, the developers who made modifications, and the changes made.
+
+The script imports several modules, including numpy, pypies, logging, time, and h5py. It then defines a logger and a timeMap from the pypies module.
+
+The main function in this script is `read(ds, request)`, which takes in a dataset and a request as inputs. The request type can be 'ALL', 'POINT', 'XLINE', 'YLINE', or 'SLAB'. Depending on the request type, the function reads the entire dataset, specific points, lines, or a slab (a subset of the dataset). It also checks if the request type is valid and throws an exception if it's not.
+
+The script also contains two helper functions, `__do1DPointRequest(ds, indices)` and `__do2DPointRequest(ds, points)`, which handle 1D and 2D point requests respectively. These functions use the h5py module to select and return the requested points from the dataset.
+
+Overall, this script is designed to provide flexible and efficient reading of data from a HDF5 file.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

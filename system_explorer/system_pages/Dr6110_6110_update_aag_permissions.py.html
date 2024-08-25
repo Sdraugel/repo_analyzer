@@ -1,0 +1,72 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>6110_update_aag_permissions.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>6110_update_aag_permissions.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to add new permissions to a user roles XML file in a specific directory path. The script is designed to work with Python 2.
+
+Here's a breakdown of what the script does:
+
+1. It defines the path to the user roles XML files that need to be updated.
+
+2. It specifies the new permissions to be added.
+
+3. It imports necessary modules for file handling and XML parsing.
+
+4. In the main function, it iterates over each file in the specified directory path.
+
+5. For each file, it creates a backup copy by appending ".bak" to the original file name.
+
+6. It parses the XML file and checks if the root tag is "nwsRoleData". If not, it prints an error message and skips to the next file.
+
+7. It checks if the application for this tree is "Localization". If not, it prints an error message and skips to the next file.
+
+8. It adds the new permissions to the XML file. If a permission is already present, it will not add it again but print a message stating that the permission is already present.
+
+9. It also checks if the user ID is "ALL". If so, it adds the new permissions for all users. If a permission is already present for all users, it will not add it again but print a message stating that the permission is already present for all users.
+
+10. Finally, it writes the updated XML back to the file.
+
+11. If the script is run as a standalone program (not imported as a module), it will call the main function and exit with its return value.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

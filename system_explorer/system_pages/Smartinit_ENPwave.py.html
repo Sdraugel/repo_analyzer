@@ -1,0 +1,64 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ENPwave.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ENPwave.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code defines a class `ENPwaveForecaster` that inherits from the `Forecaster` class. This class is used to calculate various weather elements from the WW3 (WaveWatch III) model output, which is a third-generation wave model developed at NOAA/NCEP. 
+
+The class `ENPwaveForecaster` includes several methods:
+
+1. `__init__`: This is the constructor method that initializes the `ENPwaveForecaster` object.
+
+2. `calcPeriod` and `calcPeriod2`: These methods calculate the primary and secondary periods respectively. They take in a surface period parameter and clip its values between 0 and 60.
+
+3. `calcSwell` and `calcSwell2`: These methods calculate the primary and secondary swell respectively. They take in the wave height and surface direction parameters. The wave height is used as the magnitude and the direction is clipped between 0 and 359.5.
+
+4. `calcWaveHeight`: This method calculates the wave height from the ENP model. It converts the height from meters to feet.
+
+5. `calcWind`: This method calculates the wind speed and direction. It masks out invalid values (where the speed is greater than 100), converts the speed from meters/sec to knots, and clips the direction between 0 and 359.5.
+
+The `main` function at the end of the code runs the `ENPwaveForecaster`.
+
+The initial part of the code is a comment section providing information about the software's history, licensing, and the contractor who developed it. It also contains a warning about U.S. export controls.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,78 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>CommonUtils.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>CommonUtils.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that defines a class `CommonUtils` with several methods. This class appears to be a utility class for handling weather data, specifically text products. Here's a breakdown of the methods:
+
+1. `__init__`: This is the constructor method for the class. It doesn't do anything in this case.
+
+2. `coveragePoP_value`: This method takes a coverage value as an argument and returns a corresponding probability of precipitation (PoP) range from a predefined table.
+
+3. `coveragePoP_table`: This method returns a dictionary where the keys are different weather coverages and the values are tuples representing the probability of precipitation range for each coverage.
+
+4. `rankFuzzFactor`: This method returns a constant value of 10, which is used as a threshold when combining weather subkeys.
+
+5. `arealCoverages`: This method returns a list of areal and duration coverages.
+
+6. `makeAggregateSubkey`: This method takes two subkeys and their ranks as arguments and combines them into a new subkey following certain rules. It's used for combining weather data.
+
+7. `removeSimilarAttrs`: This method takes a list of attributes and removes similar ones, returning a list of unique attributes.
+
+8. `rankedSortOrder`: This method is not fully shown in the provided code, but it seems to define a comparison function for sorting weather data based on rank, weather type, and coverage.
+
+The script also imports several modules at the beginning, including math, types, string, os, re, time, TimeRange, WeatherSubKey, and functools. These modules provide various functionalities used in the script.
+
+The comments at the top of the script provide information about the software's development, export control, contractor details, and licensing information. It also includes a history of changes made to the script.
+
+The code provided is a part of a larger Python script which includes several methods for manipulating and comparing data. Here's a breakdown of what each method does:
+
+1. The first method is an unnamed function that compares two values (val1 and val2). It first tries to unpack each value into a subkey and a rank. If that fails, it sets the rank to 0 for both values. It then calculates a fuzz factor and compares the ranks of the two values, adjusting for the fuzz factor. If the ranks are within the fuzz factor of each other, it compares their coverages and weather types. It uses the getIndex method (not shown) to get an index for each coverage and weather type and compares these. This method is used as a key for sorting.
+
+2. The `rankedWxTypeOrder` method is a property that returns a function to compare two values based on their weather type. It tries to unpack each value into a subkey and a rank, and if that fails, it sets the rank to 0. It then gets the weather type for each subkey and uses the getIndex method to get an index for each weather type. It compares these indices to determine the order of the values.
+
+3. The `divideRange` method takes a time range and a number of hours, and divides the time range into sub-ranges of the given number of hours. It starts from the end of the time range and works backwards, so that any "odd" hours end up at the beginning of the time range. It returns a list of these sub-ranges.
+
+4. The `removeDups` method takes a list and returns a new list with the same elements but with any duplicates removed, preserving the original order of elements. It also includes commented-out code for an alternative version of the method that sorts the list before removing duplicates.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

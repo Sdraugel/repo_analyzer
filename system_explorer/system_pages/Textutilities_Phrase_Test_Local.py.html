@@ -1,0 +1,143 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Phrase_Test_Local.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Phrase_Test_Local.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code appears to be a part of a larger software system developed by Raytheon Company. It is written in Python and seems to be used for generating text-based weather forecasts, possibly as part of the AWIPS II system (Advanced Weather Interactive Processing System).
+
+The code begins with a copyright notice and a warning about export restrictions. It then imports several modules and defines a class called `TextProduct` that inherits from `AreaFcst.TextProduct`.
+
+This class has a dictionary called `Definition` which contains configuration items. Some of these items are required, like the `displayName`, while others are optional. These configuration items seem to control various aspects of the forecast product, such as its name, the areas it covers, and the format of the output.
+
+The class also has several methods that appear to control how certain weather phenomena are described in the forecast. For example, `phrase_descriptor_dict` seems to control how the chance of precipitation is described, while `pop_snow_lower_threshold` and `pop_snowLevel_upper_threshold` control when snow accumulation and snow level are reported.
+
+The `__init__` method is the constructor of the class, which is called when an object of the class is created. It calls the constructor of the parent class `AreaFcst.TextProduct`.
+
+There are also several commented-out lines of code, which could be used to modify the behavior of the class if they were uncommented. These might be used for testing or debugging, or they might provide options that can be enabled or disabled as needed.
+
+This Python code defines a series of methods in a class (not shown in the snippet). These methods seem to be part of a system for generating textual weather forecasts based on numerical weather data. Here's a brief description of each method:
+
+1. `vector_mag_difference_dict`: This method is used to calculate the magnitude difference between the first and second half of a period. If the difference is greater than a certain value, it will be noted in the phrase.
+
+2. `scalar_difference_nlValue_dict`: This method calculates the difference between scalar values for two sub-periods. If the difference is greater than a certain value, it will be noted in the phrase.
+
+3. `lake_wind_areaNames`: This method returns a list of edit area names for which the lake_wind_phrase should be generated.
+
+4. `useWindsForGusts_flag`: This method returns a flag indicating whether to use the maximum Wind for reporting Gusts if a WindGust grid is not found.
+
+5. `range_threshold_nlValue_dict`: This method sets the range for reporting temperature ranges in temp_range_phrase.
+
+6. `temp_trend_nlValue`: This method sets the threshold for reporting temperature trends.
+
+7. `stdDev_dict`: This method defines the low and high limit at which outliers will be removed when calculating standard deviation stats.
+
+8. `value_connector_dict`: This method sets the connector to be used between values in a range.
+
+9. `windChillTemp_difference`: This method sets the difference between wind chill and temperature for reporting wind chill.
+
+10. `heatIndexTemp_difference`: This method sets the difference between heat index and temperature for reporting heat index.
+
+11. `Period_1` and `Period_1_version1`: These methods seem to define a series of operations to be performed on weather data for a certain period, including ordering phrases, consolidating sub-phrases, assembling phrases, and wrapping words. It also includes a list of analyses to be performed on different weather elements and a list of phrases to be generated.
+
+The commented-out code shows that some parts of the code have been disabled, perhaps for debugging or development purposes.
+
+This code appears to be part of a larger program, possibly related to weather forecasting or analysis. Here's a breakdown of what each part does:
+
+1. The first part of the code is modifying a dictionary called `component`. If the `_arealSkyAnalysis` attribute is `True`, it appends a tuple to the `analysisList` in the `component` dictionary. If the `_useStormTotalSnow` attribute is `True`, it modifies the `phraseList` in the `component` dictionary. The function then returns the `component` dictionary.
+
+2. The `_wxLocalEffects_addlArea_list` function creates two local effect areas, `leArea1` and `leArea2`, and returns them in a list as part of a `LocalEffect` object.
+
+3. The `_10_503_issuance_list` function returns a list of tuples. Each tuple represents a different issuance period for a weather forecast, with details such as the period name, start and end times, and a series definition.
+
+4. The commented-out code in "Section F" appears to be a method definition for a `Period_1` function. This function would return a dictionary with various methods and analyses to be performed for the "Period_1" time period in a weather forecast. The methods include ordering phrases, consolidating sub-phrases, assembling phrases, and word wrapping. The analyses include minimum and maximum temperature, sky condition, probability of precipitation, wind speed and direction, wind gusts, weather conditions, wind chill, and heat index. The `phraseList` includes various phrases related to these weather conditions.
+
+The code is written in Python and seems to be part of a larger system for weather forecasting or reporting. It's defining a series of methods for analyzing and formatting weather data.
+
+1. `Period_1_version2(self)`: This method returns a dictionary containing various configurations for weather data analysis and formatting. It includes lists of methods to be used for ordering, consolidating, assembling, and wrapping phrases. It also includes an analysis list for different weather elements like Sky, PoP (probability of precipitation), and Wx (weather). The phrase list contains methods for generating phrases for different weather elements. The intersectAreas list defines areas to be intersected with the current area for local effects analysis.
+
+2. `_skyLocalEffects_list(self)`, `_wxLocalEffects_list(self)`, `_popLocalEffects_list(self)`, `_skyPopWxLocalEffects_list(self)`: These methods return a list of local effects for different weather elements. They define areas (AboveElev and BelowElev) and their attributes (windward and leeward), and apply a local effect method to them.
+
+3. `element_outUnits_dict(self, tree, node)`: This method returns a dictionary that maps weather elements to their output units. By default, the wind speed is measured in mph.
+
+4. `increment_nlValue_dict(self, tree, node)`: This method returns a dictionary that defines the increment for rounding values. The units depend on the product.
+
+5. `minimum_range_nlValue_dict(self, tree, node)`, `minimum_range_bias_nlValue_dict(self, tree, node)`, `maximum_range_nlValue_dict(self, tree, node)`: These methods return dictionaries that define the minimum and maximum range for values and the bias for the minimum range.
+
+6. `null_nlValue_dict(self, tree, node)`, `first_null_phrase_dict(self, tree, node)`, `null_phrase_dict(self, tree, node)`: These methods return dictionaries that define the threshold for reporting null values, the phrase to use if values throughout the period or in the first period are null, and the phrase to use for null values in subPhrases other than the first, respectively.
+
+The code file seems to be part of a weather forecasting application or system. It contains several methods that handle different aspects of weather data processing and reporting.
+
+1. The `null_phrase_dict` method is creating a dictionary where the key "Wx" is set to an empty string. This could be used to reset or initialize weather conditions.
+
+2. `untilPhrasing_flag_dict` and `onTheFly_untilPhrasing_flag_dict` methods return a dictionary where the key "otherwise" is set to 0. These methods seem to be used to control whether "until" time descriptor phrasing is used in weather reports.
+
+3. `untilPhrasing_format_dict` method returns a dictionary where the key "otherwise" is set to "military". This method seems to control the format of time descriptors in weather reports.
+
+4. The commented out `Period_1` method seems to define a component for visibility tests. It includes a list of methods to be executed, an analysis list, a phrase list, and additional areas for analysis.
+
+5. `embedded_visibility_flag` method returns 0, which suggests that visibility is not reported embedded with the weather phrase.
+
+6. `wxCombinations` method returns a list of weather types that should be combined into one. The `combine_T_RW` method combines T and RW weather types under certain conditions.
+
+7. `useSkyPopWx_consolidation` method returns 0, which suggests that the skyPopWx phrase should not consolidate weather keys that span all time ranges.
+
+8. `areal_sky_flag` method seems to control whether areal sky conditions are used, but the method is incomplete.
+
+Overall, this code is handling the formatting and phrasing of weather conditions and forecasts.
+
+The provided code is a part of a Python script, specifically two methods within a class. 
+
+The first method is a placeholder that currently returns 0. It seems to be intended for future use, where it would decide whether to perform an "arealSkyAnalysis" based on the current edit area and/or component. However, for now, it does nothing and always returns 0.
+
+The second method, `matchToWxInfo_dict`, is a function that returns a dictionary. This dictionary is used to determine how to handle different weather elements, specifically "PoP" (Probability of Precipitation) and "LAL" (Lightning Activity Level). 
+
+Each key-value pair in the dictionary represents a weather element and a tuple of instructions on how to handle it. The tuple contains three elements: 
+1. `increment`: The increment from the low "bin" value to be added.
+2. `algorithm`: The method of choosing the value for the weather element. It can be "Max", "Mode", "MaxMode", or "AnalysisMethod".
+3. `noPrecipValue`: The value that should be returned if there is no precipitating weather. It can be None, "Max", or "AnalysisMethod".
+
+The method also contains extensive comments explaining how these elements are used and providing examples. For instance, if the algorithm is set to "Max", the maximum value that falls within the coverage range for the highest ranking subkey will be chosen. If it's set to "Mode", the most frequent value within the coverage range will be chosen. 
+
+The returned dictionary has two entries: one for "PoP" and one for "LAL". The "PoP" entry is set to use the "Max" algorithm and has an increment of 5. The "LAL" entry is set to use the "Max" algorithm and has an increment of 0. If there's no precipitating weather, the "Max" value will be used for "LAL".</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

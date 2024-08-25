@@ -1,0 +1,88 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>CivilEmerg_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>CivilEmerg_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a Python script that defines a list of dictionaries, each representing a different test script for various types of emergency alerts. Each dictionary contains the following keys:
+
+- "name": This is the name of the test script.
+- "productType": This indicates the type of emergency alert that the test script is for.
+- "commentary": This provides a brief description of what the test script is testing.
+- "checkStrings": This is a list of strings that are expected to be present in the output of the test script.
+- "cmdLineVars" (optional): This is a dictionary of command line variables that can be used to customize the output of the test script.
+
+The types of emergency alerts that are being tested include administrative messages, avalanche watches and warnings, blue alerts, child abduction emergencies, civil danger warnings, civil emergency messages, and earthquake reports.
+
+The script appears to be part of a larger testing framework, likely used to ensure that the emergency alert system is functioning correctly and producing the expected output for different types of alerts.
+
+The provided code appears to be a list of dictionaries in Python. Each dictionary represents a different type of emergency warning, with specific details about each warning.
+
+Here's a breakdown of the keys in each dictionary:
+
+- "name": This is likely an identifier for each warning type.
+- "productType": This indicates the type of emergency warning.
+- "commentary": This seems to be a description or note about the warning type or the test related to it.
+- "checkStrings": This is a list of strings that are probably used to validate or check the warning messages.
+- "cmdLineVars": This is a string representation of a dictionary that contains additional information about the warning, such as the source of the warning and the level of the Emergency Alert System (EAS).
+
+The types of warnings include earthquake warnings, evacuation warnings, fire warnings, hazardous material warnings, local area emergencies, law enforcement warnings, nuclear power plant warnings, radiological hazard warnings, shelter in place warnings, and 911 telephone outage emergencies.
+
+For each type of warning, there are two versions: a basic version and a version with different options. The different options version includes additional information like the source of the warning and the EAS level.
+
+This code appears to be part of a testing script for an emergency management system, possibly for broadcasting emergency alerts. 
+
+The first part of the code defines a list of dictionaries, each representing a different test case. Each dictionary contains the following fields:
+
+- "name": The name of the test case.
+- "productType": The type of emergency alert being tested.
+- "commentary": A description of the test case.
+- "cmdLineVars": A string representation of a dictionary containing command line variables, including the source of the alert, who issued it, and the EAS (Emergency Alert System) level.
+- "checkStrings": A list of strings that are expected to be present in the output of the test case.
+
+The second part of the code imports a module named TestScript and defines a function called testScript. This function takes two arguments: `self` (a reference to the current instance of the class) and `dataMgr` (presumably a data manager of some sort). 
+
+The function defines a dictionary called `defaults` that contains default values for various parameters, including command line variables, a flag indicating whether combinations should be used, the type of combinations, which grids should be deleted before the test, the start time for the grids, and whether strings should be ordered. 
+
+Finally, the function calls a method named `generalTestScript` on the TestScript module, passing in the current instance, the data manager, the list of test scripts, and the default values. This method presumably runs the test cases and returns the results.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

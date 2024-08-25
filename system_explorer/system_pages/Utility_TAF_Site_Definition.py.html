@@ -1,0 +1,138 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TAF_Site_Definition.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TAF_Site_Definition.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a configuration file for a Terminal Aerodrome Forecast (TAF) formatter. TAFs are weather forecasts issued for the area around an airport, typically covering a 24 to 30 hour period. This configuration file is used to set up site-specific product definitions for the TAF formatter.
+
+The code begins with a large comment block that provides information about the file, including its purpose, version, authors, and contact information. It also includes instructions for required configuration items.
+
+The `Definition` dictionary is the main configuration object in this file. It is used to store various configuration settings for the TAF formatter. The dictionary keys represent different configuration items, and their corresponding values are the settings for those items.
+
+The `displayName` key is set to "TAF", which is the label that will be displayed in the formatter launcher.
+
+The `defaultEditAreas` key is commented out, but it would normally hold a list of tuples representing the locations and names of TAF stations. Each tuple consists of the latitude, longitude, radius (in kilometers), and the station's identifier.
+
+The `fullStationID`, `wmoID`, `pil`, `textdbPil`, and `awipsWANPil` keys are placeholders for various identifiers related to the TAF station. These would need to be replaced with the actual values for a specific TAF station.
+
+The `tafLength` key holds a dictionary that defines the length (in hours) of each individual TAF issued by the office for different stations.
+
+The `CACThresholds` key is used to define the flight category thresholds for each airport. These thresholds are based on ceiling and visibility values. The code provided is incomplete and cuts off after the start of the `CACThresholds` definition.
+
+The provided code is a part of a larger program that seems to be dealing with weather forecasting, specifically Terminal Aerodrome Forecasts (TAFs). The code includes a dictionary with keys representing different weather conditions and values representing specific rules for those conditions.
+
+The dictionary keys represent different weather types and the values are nested dictionaries that contain rules for various conditions. The conditions are defined by two factors: the offset from the issuance time of the TAF to the time when the weather is projected to occur, and the probability/coverage of the weather occurring, with an optional intensity specified.
+
+The rules are used to classify the weather conditions into different categories such as "PREVAIL", "TEMPO", "PROB30", "VCTS", "VCSH", or "" (empty string, meaning the weather type will not be reported at all). These classifications are used in the TAF output.
+
+The comments in the code provide a detailed explanation of how these rules work, including examples of how the rules would be applied in different scenarios. They also explain how to modify the rules to customize the output for specific needs.
+
+The code is a configuration file for a weather forecasting system. It defines rules for different weather conditions and sets up some general settings for the system.
+
+1. `weatherRules`: This dictionary defines how different weather conditions should be handled. It has three main keys: "T" for thunderstorms, "F" for fog, and "default" for all other precipitation types. Each of these keys has a nested dictionary that defines rules based on the number of hours since the weather condition was issued and the probability/coverage of the condition. For example, if a thunderstorm ("T") was issued 0 to 3 hours ago and has a chance of being scattered ("Chc, Sct"), the system will show "VCTS".
+
+2. `maxNonSignificantValue`: This is a threshold for specifying the maximum significance rating that is considered non-significant. Any significance rating of this value or less is considered non-significant.
+
+3. `outputFile`: This specifies the path for formatter output.
+
+4. `autoWrite`: This is a flag that determines whether to write the product to a file (1 = yes, 0 = no).
+
+5. `aggregateCov_arealThreshold`: This defines the percentage of area which must be covered by a weather key before it's considered dominant for the whole area.
+
+6. `debug`: This is a flag that determines whether to debug. There are three options for debugging: method specific debugging, display all debug information, and display no debug information.
+
+7. `maxFmGroups`: This defines the maximum number of FM groups allowed per TAF (Terminal Aerodrome Forecast). It's not a hard limit, it's more of a goal for the formatter.
+
+The rest of the code is commented out, meaning it won't be executed. These commented out lines provide additional configuration options that can be used by uncommenting them.
+
+The provided code is a configuration file that sets up various parameters related to weather reporting, specifically for aviation purposes. These parameters are defined in a dictionary named `Definition`. Here's a brief description of each parameter:
+
+1. `disclaimer`: This dictionary holds specific disclaimers for airports based on the issuance hour. For example, between 3Z and 10Z, the disclaimer "AMD NOT SKED" would be shown for the airport with code "KBOS".
+
+2. `reportVC`: This flag determines whether to report "vicinity" weather. 1 means yes, 0 means no.
+
+3. `minP6smVisibility`: This is the minimum visibility value considered to be P6SM (greater than 6 statute miles).
+
+4. `minWindToReportGusts`: This is the minimum sustained wind speed required to report wind gusts.
+
+5. `minGustSpeedDifference`: Wind gusts must be at least this much higher than the sustained wind speed to be reported.
+
+6. `maxSimilarWindGustChange`: This is the maximum wind gust change amount still considered to be similar enough.
+
+7. `variableWindSpeed`: This is the maximum wind speed allowed to be considered variable.
+
+8. `maxSimilarWindDirChange`: This is the maximum non-light wind/low-level wind shear (llws) direction change amount still considered to be similar enough.
+
+9. `maxSimilarLightWindDirChange`: This is the maximum light wind/llws direction change amount still considered to be similar enough.
+
+10. `maxLightWindSpeed`: This is the maximum wind speed considered to be light wind.
+
+11. `calmWindSpeed`: This is the maximum speed allowed to be considered "calm".
+
+12. `thresholdsNLValues`: This is a dictionary that allows use of non-linear thresholds for defined fields. The thresholds are for determining if certain fields are 'similar' enough to each other.
+
+13. `maxSignificantNonCeilingHeight`: This is the maximum operationally significant non-ceiling height.
+
+14. `maxSignificantCeilingHeight`: This is the maximum operationally significant ceiling height used for sky cover comparison.
+
+15. `useDetailedCloudHeights`: If set to 1, will report cloud heights to the nearest reportable value. Otherwise, IFR cloud heights will be reported using representative categorical values.
+
+16. `tempoProbDefaultHeight`: This defines the cloud base height to use when weatherRules forces a TEMPO/PROB group but CloudBaseConditional isn't available and the cloud base in the FM group is SKC so we need to guess at a height.
+
+17. `fmWeatherTypesToRepeat`: This is a list of TAF weather type codes that can be repeated/copied into a TEMPO or PROB30 group under certain circumstances.
+
+This code is part of a configuration file for a weather forecasting system. It's defining various parameters that control the behavior of the system. Here's a breakdown of what each section does:
+
+1. `fmWeatherTypesToRepeat`: This is a list of weather types that can be repeated in the system's output. For example, if "BR" (mist) occurs, it will be repeated in the output.
+
+2. `minVfrVisibility`: This is the minimum visibility (in statute miles) for Visual Flight Rules (VFR) conditions. The system will consider any visibility greater than or equal to this value as VFR.
+
+3. `maxNonSignificantRating`: This is the maximum significance rating that the system considers to be operationally non-significant. Any weather event with a rating greater than this value will be considered significant.
+
+4. `verificationHeaders`: This is a flag to control the production of "verification" Terminal Aerodrome Forecasts (TAF) headers. If it's set to 1, the system will produce these headers; if it's set to 0, it won't.
+
+5. `areaOverrides`: This is a dictionary that allows the user to modify the system's behavior for particular airports. The keys are the names of the airports, and the values are lists of tuples. Each tuple contains the name of a variable or function to override and the new value for that variable or function. This allows the user to customize the system's behavior for each airport.
+
+The example provided shows how to use `areaOverrides` to customize the system's behavior for the airport "KBOS". It's overriding three things: the `_reportVC` variable, the `_weatherRules` dictionary, and the `_makeProduct` function.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

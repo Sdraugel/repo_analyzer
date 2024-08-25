@@ -1,0 +1,66 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TAF_Site_Overrides.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TAF_Site_Overrides.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that is part of a larger system for handling and formatting Terminal Aerodrome Forecasts (TAFs). TAFs are weather reports issued by the aviation industry to provide detailed meteorological forecasts for specific airports. 
+
+This script is designed to allow for site-specific overrides of the default TAF formatting rules. It imports several modules, including string, time, re (regular expressions), os (operating system), types, copy, TextRules, SampleAnalysis, and TAF.
+
+The script defines a class, `TAF_<site>_Overrides`, which is intended to be customized for each specific site. This class has several nested classes, each of which inherits from a corresponding class in the TAF module. These nested classes include `GenericGroup`, `FmGroup`, `ConditionalGroup`, `WeatherUglyStringInfo`, `GroupWeatherInfo`, and `SignificanceRatingRules`.
+
+Each of these nested classes has an `__init__` method, which is a special method in Python classes that is automatically called when a new instance of the class is created. The `__init__` method sets up the initial state of the object. In this script, each `__init__` method calls the `__init__` method of the parent class from the TAF module, passing along the necessary arguments.
+
+The script provides placeholders for site-specific overrides to be added to each of these classes. These overrides would allow for site-specific behavior in the formatting of TAFs.
+
+The `WeatherUglyStringInfo` class includes a detailed comment explaining what a "weather ugly string" is. This is a string that encodes detailed weather information in a compact format. The class is designed to handle this type of string.
+
+The provided code is defining two classes, `SignificanceRatingRules` and `ShorteningAlgorithms`, both of which are subclasses of corresponding classes in `TAF.TextProduct`.
+
+1. `SignificanceRatingRules` class: This class is initialized with two parameters, `textProduct` and `group`. The `__init__` method is calling the parent class's `__init__` method with the same parameters. The comment suggests that any methods in the parent class that need to be overridden (i.e., to provide different functionality in this subclass) should be placed in this class.
+
+2. `ShorteningAlgorithms` class: This class is initialized with two parameters, `textProduct` and `airportIcaoId`. Similar to the first class, the `__init__` method is calling the parent class's `__init__` method with the same parameters. The comment suggests that any methods in the parent class that need to be overridden should be placed in this class.
+
+In both classes, no methods are currently overridden. The classes are essentially acting as interfaces for the parent classes, allowing for potential customization without modifying the original classes.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

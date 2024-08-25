@@ -1,0 +1,68 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>PERCENTGREEN.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>PERCENTGREEN.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a software tool that is used to calculate the percentage of greenery in different areas, likely for the purpose of assessing fire danger in rangelands. The software is public domain, meaning it's available for anyone to use without restriction.
+
+The script defines a class `Tool` that inherits from `SmartScript.SmartScript`. The `Tool` class has two methods: `__init__` and `execute`.
+
+The `__init__` method is the constructor for the class, which initializes the parent class with `dbss` parameter.
+
+The `execute` method is where the main functionality of the script resides. It takes `PERCENTGREEN` as an argument and performs the following steps:
+
+1. Defines a dictionary `_statesdict` that maps state abbreviations to filenames containing data about the percentage of greenery in that state.
+
+2. Defines a directory `datadir` where the data files are stored.
+
+3. Collects FIPS (Federal Information Processing Standards) codes for areas in the database. FIPS codes are unique identifiers for geographical areas in the United States.
+
+4. For each state, it opens the corresponding data file, reads the data, and stores it in a dictionary `datadict` where the keys are FIPS codes and the values are the corresponding data values.
+
+5. It then creates a new numpy array `newgreen` with the same shape as `PERCENTGREEN` and populates it with the data values from `datadict` for each FIPS code.
+
+6. Finally, it assigns `newgreen` to `PERCENTGREEN` and returns `PERCENTGREEN`.
+
+The script is designed to be robust, with checks to ensure that only valid FIPS codes are processed and non-data points are excluded from the data dictionary. It also handles exceptions that might occur when opening and reading data files.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

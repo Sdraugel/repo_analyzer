@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>RecommendWindWWConfig.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>RecommendWindWWConfig.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code appears to be part of a larger system, possibly for weather forecasting or hazard prediction, given the terms used in the code like "forecast hour", "hazard", "zone", "coastal", "inland", "TR" and "HU". 
+
+The code starts with a comment block that provides information about the software, its licensing, and a brief history of changes made to the code by an engineer named 'tlefebvr'. 
+
+The code then imports a module named 'SmartScript', which is not a standard Python library, so it's likely a custom module developed for this specific project.
+
+The code defines two dictionaries: 'AreaThresholds' and 'WSPThresholds'. 
+
+'AreaThresholds' has two keys, "Coastal" and "Inland", both with a value of 10. This suggests that the code is used for areas that are either coastal or inland, and the value 10 could be the percentage of grid points that must meet certain criteria before a hazard can be assigned to the specified zone type.
+
+'WSPThresholds' is a more complex dictionary with keys as tuples. The tuples seem to represent different combinations of forecast time and hazard type. The values associated with these keys could represent thresholds for various conditions. For example, a key of ("FcstTime", "TR.A") has a value of 54, which might represent the forecast hour of the guidance where TR uses 34 kt and HU uses 64 kt probabilities. Other keys like ("CoastalAdd", "TR.A") and ("CoastalRemove", "TR.A") seem to represent thresholds for adding or removing a hazard for a coastal area. 
+
+In summary, this code is defining some configuration or parameters related to hazard prediction or weather forecasting for different types of areas (coastal and inland).</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

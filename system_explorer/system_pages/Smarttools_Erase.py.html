@@ -1,0 +1,88 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Erase.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Erase.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a part of a software developed by Raytheon Company. The software is in the public domain and is provided as is, without any warranty or technical support. It is a tool named 'Erase' that is used to modify a feature by deleting what is inside the editArea and filling it in with something reasonable based on the data outside the editArea. 
+
+The filling in is done by performing an objective analysis using the points around the outside of the editArea as the data points, and a first guess of a flat field. The results of the analysis are then returned inside the editArea, with the data outside the editArea unchanged. 
+
+This tool uses the serp routine of the ObjAnal utility to perform the analysis. It automatically thins the number of control points if the editArea is so large that it would affect performance. 
+
+This quick version of the tool considers Topography in the objective analysis, and uses that analysis completely within the editArea. Thus, it can run immediately without pausing to ask the user for input. 
+
+The code also contains a history of software changes and the details of the contractor. 
+
+The actual code defines a class named 'Tool' which inherits from 'SmartScript.SmartScript'. It has methods like '__init__', 'preProcessTool', and 'execute'. The 'execute' method is where the main functionality of the tool is implemented. It takes in parameters like editArea, Topo, variableElement, variableElement_GridInfo, and varDict and performs operations on them to achieve the desired functionality. 
+
+The code also handles different types of elements - SCALAR and VECTOR, and performs operations accordingly.
+
+This Python code defines several methods in a class (not shown in the code). 
+
+1. The first method `doAnal` performs some kind of analysis on a grid. It takes several parameters including the original grid, x and y coordinates, an elevation factor, a topography grid, a mask, and a percentage. It first extracts the values of the original grid at the given points and stores them in lists. Then it performs an analysis using these lists and the elevation factor and topography grid. It then substitutes the analysis values inside the edit area of the grid, which is determined by the mask. The final grid is a weighted average of the original grid and the analysis grid, with the weight being determined by the percentage. The final grid is then returned.
+
+2. The second method `thinpts` thins a list of x and y coordinates so that no points are closer than a certain number of grid points to another. It does this by iteratively removing points that are within a certain distance of the current point, and then moving to the nearest remaining point. The thinned lists of x and y coordinates are then returned.
+
+3. The third method `nearest` returns the x and y coordinates of the point in a list that is nearest to a given point. 
+
+4. The fourth method `within` returns a list of indices of points in a list that are within a certain distance of a given point.
+
+5. The fifth method `smoothpm` smooths a grid by averaging over a square of grid points. If a mask is specified, it only smooths over the points that have the mask set to 1. The smoothing is done separately in the y and x dimensions. Near the edges of the grid, it averages over all the points it can. The smoothed grid is then returned.
+
+The provided code seems to be a part of a larger function or script, which is not fully provided. However, based on the given part, it appears to be performing some sort of image or grid processing, possibly smoothing or filtering. 
+
+The code is divided into two main parts, one for when a certain condition (not specified in the provided code) is met, and the other for when it is not (the 'else' clause). 
+
+In the first part, it performs some operations on a 2D array 'c', subtracts a part of it, and then adds a minimum value 'fullmin' to the result, storing it in 'out'. 
+
+In the 'else' clause, it first creates a mask from an array 'mask', which is used to select elements from 'gridmin' and 'grid'. It then calculates cumulative sums along the first dimension (rows) of 'gridmin1' and 'mask', storing them in 'c' and 'd' respectively. 
+
+Next, it calculates the middle of the grid and performs some operations on the edges and the middle of the grid. It seems to be calculating some sort of running sum or average, taking into account a certain number of elements ('k') on either side of the current element. 
+
+It then repeats similar operations along the second dimension (columns) of the grid, storing the result in 'out'. 
+
+Finally, it adds the minimum value back to 'out' where the mask is true, and returns 'out'. 
+
+Without the full context or the complete function, it's hard to provide a more specific explanation. But in general, this code seems to be performing some sort of localized operation (like a filter or transform) on a 2D grid or image.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

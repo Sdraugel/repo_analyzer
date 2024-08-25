@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ExTool3.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ExTool3.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a script for a tool named "ExTool3" which is used to calculate the amount of snow ("SnowAmt") based on certain parameters. This tool is a part of a software developed or modified by Raytheon Company under a contract with the US Government. The software is in the public domain and is provided without any warranty or technical support.
+
+The tool is of type "numeric" and it edits the "SnowAmt" weather element. It uses numpy, a Python library used for numerical computations, and SmartScript, which is likely a custom module.
+
+The tool prompts the user to enter an elevation value, which is stored in the variable "elevation". 
+
+The main functionality of the tool is in the "execute" method. This method takes four parameters: QPF (Quantitative Precipitation Forecast), T (presumably Temperature), Topo (Topography), and varDict (a dictionary of variables). 
+
+The snow amount is calculated based on the temperature and QPF. If the temperature is less than 20, the snow amount is 18 times the QPF. If the temperature is between 20 and 25, the snow amount is 14 times the QPF. Otherwise, the snow amount is 10 times the QPF. 
+
+The snow amount is then adjusted based on topography and elevation. If the topography is less than the entered elevation, the snow amount is set to 0. Otherwise, it remains as the QPF. 
+
+Finally, the calculated snow amount is returned by the method.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,61 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>AdjustValue_Up.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>AdjustValue_Up.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a software developed by Raytheon Company. The script is named `AdjustValue_Up.py` and was authored by `njensen`.
+
+The script defines a class `Tool` that inherits from `SmartScript.SmartScript`. This class is used to adjust the value of a variable element in a specific way. The class has two methods: `__init__` and `execute`.
+
+The `__init__` method is the constructor of the class. It initializes the class by calling the constructor of the parent class `SmartScript.SmartScript`.
+
+The `execute` method takes two arguments: `variableElement` and `variableElement_DeltaValue`. It adjusts the value of `variableElement` based on the type of `variableElement`:
+
+- If `variableElement` is a list, it is treated as a vector. The method checks the vector edit mode (`veMode`). If `veMode` is "Both" or "Magnitude Only", it adds `variableElement_DeltaValue` to the first element of `variableElement`. If `veMode` is "Direction Only", it adds 10.0 to the second element of `variableElement` and takes the modulus 360 of the result.
+- If `variableElement` is not a list, it is treated as a scalar. The method adds `variableElement_DeltaValue` to `variableElement`.
+
+The `execute` method then returns the adjusted `variableElement`.
+
+The script also imports the `numpy` module and defines some global variables: `ToolType`, `WeatherElementEdited`, and `ScreenList`.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

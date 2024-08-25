@@ -1,0 +1,59 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>EXAMPLElocalConfigModParmGroups.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>EXAMPLElocalConfigModParmGroups.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that appears to be part of a larger software system developed by Raytheon Company. The software is subject to U.S. export control laws due to containing export-restricted data.
+
+The script is a configuration file (localConfig.py) that modifies the weather element and time constraint relationship for the Fcst (Forecast) and Official Databases. It specifies the time constraints for different weather elements such as temperature (T), dew point (Td), wind, weather condition (Wx), and sky condition (Sky). 
+
+The time constraints are defined as follows:
+- T, Td, Wind, Wx, Sky: 3 hours long, no gaps
+- MaxT (maximum temperature): from 4am to 10pm local time
+- MinT (minimum temperature): from 4pm to 10am local time
+
+The script imports the serverConfig module and uses it to define new time constraints for MaxT and MinT. The new time constraints are defined using the localTC function from the serverConfig module, which probably sets a time constraint with a start time, duration, reference time, and shift.
+
+Finally, the script defines a list of parameter groupings (parms). Each grouping is a tuple where the first element is a list of parameters and the second element is a time constraint. The parameters are probably identifiers for weather elements, and the time constraints are the ones defined earlier in the script.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

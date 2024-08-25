@@ -1,0 +1,66 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>convertSerpConfigToUtility.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>convertSerpConfigToUtility.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be part of a larger system, possibly related to a weather forecasting or meteorological tool, given the references to 'gfe' (possibly referring to the Graphical Forecast Editor) and 'awips' (possibly referring to the Advanced Weather Interactive Processing System). 
+
+The script is designed to manage Python configuration files (SerpConfig.py) located in specific directories. It performs the following main tasks:
+
+1. It defines a constant string `REMOVE` which contains a block of code that is used to trick a server into thinking it's a tool. 
+
+2. It checks if the script was run with an argument `-dry`. If so, it sets the `dryrun` variable to 1. This likely means that the script will not perform any actual changes but will only simulate them.
+
+3. It retrieves the user information for the user "awips".
+
+4. It defines paths to directories containing tool and utility Python scripts.
+
+5. It searches for 'SerpConfig*.py' files in the tool and utility directories and prints out the list of these files.
+
+6. For each found 'SerpConfig*.py' file in the tool directories, it checks if a corresponding file exists in the utilities directory. If it doesn't, it creates a new file, removes the `REMOVE` block from the content, and writes the modified content to the new file. It also changes the ownership and permissions of the new file. If the original file was named "SerpConfig.py", it removes it.
+
+7. For each found 'SerpConfig*.py' file in the utility directories, it checks if a file with the same name exists in the same directory. If it doesn't, it copies the file, changes its ownership, and prints a message.
+
+8. If the script was run with the `-dry` argument, all the file operations (creation, removal, copying) are only simulated and not actually performed.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

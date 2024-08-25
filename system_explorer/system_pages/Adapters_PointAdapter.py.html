@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>PointAdapter.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>PointAdapter.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a Python script that provides serialization and deserialization functionality for objects of the `java.awt.Point` class. 
+
+The first part of the script is a comment block that includes legal information about the software, including its developer (Raytheon Company), the contract under which it was developed, and export control restrictions.
+
+The second part of the script is a comment block that provides a brief description of the script (an adapter for `java.awt.Point`), and a software history log that records the date of initial creation and the engineer responsible.
+
+The actual code begins with an import statement that imports the `Point` class from the `java.awt` package in the `dynamicserialize.dstypes` module.
+
+The `ClassAdapter` variable is then defined as a string that represents the fully qualified name of the `java.awt.Point` class.
+
+The `serialize` function takes a `context` and a `point` as arguments. The `context` is used to write the x and y coordinates of the `point` as 32-bit integers.
+
+The `deserialize` function takes a `context` as an argument. It reads 32-bit integers from the `context` and uses them to create a new `Point` object, which it then returns.
+
+In summary, this script is used to convert `java.awt.Point` objects to a serialized form that can be written to a stream, and to convert serialized data back into `java.awt.Point` objects.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,84 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>sendAT.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>sendAT.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The given Python code is part of a larger software system developed by Raytheon Company. It appears to be a script for sending an Active Table (AT) from one server to another. 
+
+Here are the main functionalities of the code:
+
+1. **Importing necessary modules**: The script imports several modules, including pickle, gzip, os, time, tempfile, stat, ElementTree from xml.etree, and several custom modules such as IrtAccess, JUtil, siteConfig, VTECPartners, VTECTableSqueeze, and iscUtil.
+
+2. **Logging setup**: The script sets up a logger to record events and information during the execution of the script.
+
+3. **Function `execute_send_at`**: This function appears to be the main function of the script. It takes in several parameters related to the server and the Active Table to be sent. The function logs the input parameters, prepares the file for sending, filters the table by sites, eliminates obsolete records, checks issuance time, checks "counts" for number of records, and determines whether to send the Active Table or not based on certain conditions.
+
+4. **Data Serialization and Deserialization**: The script uses the pickle module to serialize and deserialize data. The data is read from a file, deserialized, and then processed.
+
+5. **Data Filtering**: The script filters the data based on certain conditions. It checks if the data belongs to certain sites and removes obsolete records.
+
+6. **Time Checking**: The script checks the issuance time of the records in the Active Table. If there are records that are newer than the local table, it sets a flag to indicate this.
+
+7. **Record Count Checking**: The script checks the number of records in the Active Table. If the number of records is different from the local table, it sets a flag to indicate this.
+
+8. **Sending Decision**: The script decides whether to send the Active Table or not based on the flags set during the time checking and record count checking. If there are newer records, missing records, or if the FORCE_SEND flag is set, the script decides to send the Active Table.
+
+The code ends abruptly, suggesting that there is more code following this which likely handles the actual sending of the Active Table.
+
+This Python code is part of a larger program that appears to be used for data processing and transmission. Here's a high-level overview of what each section does:
+
+1. The first section of the code serializes (pickles) a Python object called `actTable` for backward compatibility with Python 2. It then compresses the serialized data using gzip and saves it to a file. The size of the raw and compressed data is logged.
+
+2. The next section creates an XML file. If an incoming XML file exists, it reads the file, removes it, and extracts the 'source' element. It then decodes the XML addresses and appends them to a list of destination servers. If no incoming XML file exists, it creates a dummy response XML file with various combinations of parameters. The destination servers are then added to the XML file and the server information is logged.
+
+3. The third section creates a temporary XML file in a specific directory and writes the XML data to this file.
+
+4. The fourth section sends the gzipped data and the XML file to a specified location using a method called `transmitFiles`. If the sending is skipped for some reason, it logs this information.
+
+5. The `rename_fields_for_A1` and `rename_fields_for_A2` functions are used to rename fields in a given table. They create a new table with the renamed fields and return it.
+
+6. The `runFromJava` function appears to be an entry point for this script when it's called from a Java program. It initializes logging, converts Java objects to Python values, and calls the `execute_send_at` function with the provided arguments. It also logs the time taken to execute the function.
+
+Note: The `execute_send_at` function is not defined in the provided code, so I can't provide details about what it does.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

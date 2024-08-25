@@ -1,0 +1,304 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>RoutineLevel5_3_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>RoutineLevel5_3_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code appears to be part of a larger system, possibly related to weather forecasting or analysis, given the comments about weather complexity and time periods. 
+
+The code defines two versions of a function called `checkResolution`, which examines a tree structure (possibly a parse tree or decision tree) and checks if a node has too many sub-phrases. If the number of sub-phrases exceeds a certain limit (defined by the `subPhrase_limit` function), the function creates a new node with a lower resolution and removes the original node. 
+
+The resolution seems to be related to the granularity of the time periods being considered. The comments suggest that if the resolution is too high (i.e., the time periods are too short), it can result in too many sub-phrases, making the tree overly complex. 
+
+The two versions of `checkResolution` function differ in how they handle the creation of the new node and the setting of its resolution. The first version always sets the new resolution to 6, while the second version doubles the current resolution if it's already been set, otherwise it defaults to an unspecified value.
+
+The code also includes a `subPhrase_limit` function that simply returns a limit of 2. This function is likely used to determine the maximum number of sub-phrases a node can have before its resolution needs to be lowered.
+
+Please note that the code provided is incomplete, and some assumptions had to be made based on the available information.
+
+The code you provided seems to be written in Python and it appears to be part of a larger system that is used for weather forecasting or reporting. Here's a breakdown of what each part does:
+
+1. The first part of the code sets a new resolution value for a phrase, presumably for some kind of text generation or manipulation. It then removes a node from a tree-like data structure. The commented out print statements suggest that this code was used for debugging purposes.
+
+2. The `Period_1` method defines a component for a certain period of time (perhaps a day or an hour). This component contains various methods and analyses related to weather data. It includes methods for ordering and assembling phrases, word wrapping, and various analyses for different weather parameters like temperature, sky condition, precipitation, snow amount, wind, etc. It also includes a list of phrases that might be used to generate a weather report. Some parts of the component are commented out, perhaps for testing or development purposes.
+
+3. The `scalar_difference_nlValue_dict` and `minimum_range_nlValue_dict` methods seem to be used for setting certain values in dictionaries related to the wind chill factor. These methods could be used to adjust the natural language processing of weather data related to wind chill.
+
+4. The last `Period_1` method is similar to the previous one, but it seems to be a part of a different class or module as it includes wind chill and heat index in its analysis list.
+
+Overall, this code seems to be part of a system that processes and analyzes weather data, and then uses this data to generate text-based weather reports.
+
+This code appears to be written in Python and seems to be a part of a weather forecasting system. It is defining various phrases and conditions related to weather forecasting.
+
+The first part of the code is defining a list of phrases related to weather conditions such as visibility, snow level, ice accumulation, high and low temperatures, wind conditions, etc. It also has some commented out phrases which are not currently being used.
+
+The second part of the code is defining conditions for areal sky analysis and diurnal sky analysis. It is setting up flags and defining lists of weather elements to determine whether to combine periods.
+
+The third part of the code is defining conditions for reporting increasing or decreasing sky. It sets up a flag and defines conditions under which phrases like "increasing clouds" or "decreasing clouds" will be used instead of phrases like "mostly cloudy becoming sunny".
+
+The last part of the code is defining conditions for headlines timing. It sets up conditions for generating product headlines for hazards and local headlines. It also defines conditions for timing of these headlines.
+
+Overall, this code seems to be a part of a larger system that generates weather forecasts based on various conditions and parameters.
+
+This code seems to be a part of a larger system, possibly a weather forecasting system. It contains several methods that return specific values or perform certain operations. Here's a breakdown of what each part does:
+
+1. `headlinesTiming3` and `headlinesTiming4`: These methods return a tuple of two strings and an integer. The strings are "EXPLICIT" and "FUZZY" or "EXPLICIT" and "EXPLICIT", and the integer is always 3.
+
+2. `allowedHazards`: This method returns a list of tuples. Each tuple contains a string representing a warning type, a list of actions, and a string representing a category. For example, ('WS.W', allActions, 'WinterWx') represents a winter storm warning.
+
+3. `hoursSChc1` and `hoursSChc2`: These lines are setting a value in a dictionary called `Definition`. The key is "hoursSChcEnds" and the value is either 24 or 84.
+
+4. `null_alwaysDistinct_flag_dict`: This method returns a dictionary where the keys are "otherwise" and "Wind", and the values are 1 and 0 respectively. This seems to be used for handling null values in some way.
+
+5. `temporalCoverage_dict`: This method returns a dictionary where the keys are different weather elements and the values are coverage percentages.
+
+6. `_issuance_list`: This method sets up configurable issuance times with associated narrative definitions. It returns a list of tuples, each containing several values related to the issuance time.
+
+7. `CWFPeriod`: This method returns a dictionary with two keys: "type" and "methodList". The "type" is set to "component", and the "methodList" is a list of methods to be called. The comment suggests this is used for assembling phrases and word wrapping.
+
+This code is written in Python and seems to be part of a larger weather forecasting system. It contains several methods that manipulate and analyze weather data. 
+
+1. The first part of the code appears to be setting up a dictionary with different weather parameters like wind, wave height, swell, period, weather, temperature, and probability of precipitation. Each parameter is associated with a method that presumably calculates or analyzes that parameter in some way.
+
+2. The `seasFlag` method always returns 0. It's not clear what this method is used for without more context.
+
+3. The `first_null_phrase_dict` and `null_phrase_dict` methods are setting up dictionaries that map the "Swell" parameter to certain phrases. These methods are likely used when there is no data available for the "Swell" parameter.
+
+4. The `pop_wx_lower_threshold` method returns a value of 20. This could be the lower threshold for reporting weather conditions, but it's hard to say without more context.
+
+5. The `temp_trends_words` method seems to analyze temperature trends over a 12-hour period. It checks the temperature at different points in time and determines if the temperature is increasing or decreasing. If there is a significant temperature change, it generates a phrase to describe this change. 
+
+Overall, this code seems to be part of a system that generates textual weather forecasts based on various weather parameters.
+
+The provided code seems to be a part of a weather forecasting system. It appears to be written in Python and includes several functions and scripts related to temperature, visibility, wind, and weather conditions.
+
+1. The first part of the code is a function that seems to be analyzing temperature trends. It checks if the temperature is falling or rising and by how much. Depending on the time of the day (afternoon or after midnight) and the rate of temperature change, it generates a phrase describing the temperature trend.
+
+2. The `embedded_visibility_flag` function appears to be a configuration setting that determines whether visibility information is included within the weather phrase.
+
+3. The `visibility_wx_threshold` function sets a threshold for visibility. Weather will be reported if the visibility is below this threshold.
+
+4. The `vector_dir_difference_nlValue_dict` function seems to be related to wind direction. It checks the wind direction change and reports it if the change is significant. The significance is determined based on the wind speed.
+
+5. The `scripts` variable contains a list of scripts. Each script has a name, commentary, product type, and other parameters. These scripts seem to be related to weather forecasting, specifically for handling different weather conditions and their impacts on the forecast.
+
+6. The scripts include parameters for creating grids, checking strings, file changes, and a combo flag. The grids seem to be related to weather conditions like precipitation, weather type, etc. The check strings and file changes are likely used for validation and configuration purposes.
+
+Please note that without the full context or the rest of the code, this is a high-level analysis and some assumptions have been made based on the provided code snippet.
+
+This code appears to be a part of a larger script, likely written in Python, that is used to configure and test a weather forecasting system. The code is structured as a list of dictionaries, each representing a different test scenario or configuration for the system.
+
+Each dictionary contains several keys:
+
+1. "name": A unique identifier for each test scenario.
+2. "commentary": A brief description of what the test or configuration is meant to accomplish.
+3. "productType": The type of weather forecast product that the test or configuration applies to.
+4. "createGrids": A list of tuples, each representing a forecast grid to be created for the test or configuration. Each tuple contains information about the forecast type, the weather condition, the time range for the forecast, and other details.
+5. "checkStrings": A list of strings that are expected to be found in the output of the test or configuration.
+6. "notCheckStrings": A list of strings that should not be found in the output of the test or configuration.
+7. "fileChanges": A list of tuples, each representing a change to be made to a file as part of the test or configuration. Each tuple contains information about the file to be changed, the type of change to be made, and other details.
+8. "comboFlag": A flag that indicates whether or not the test or configuration should be run in combination with others.
+
+The code contains several different test scenarios, including tests for infinite loops, tests for the handling of different weather conditions, and tests for the generation of different types of forecast products.
+
+This code appears to be part of a weather forecasting system. It's written in Python and seems to be defining a series of forecast scenarios for testing purposes. Each scenario is defined as a dictionary with various properties, such as the name of the scenario, commentary about it, the type of product it's related to, the grids to be created, strings to check, file changes to be made, and other settings.
+
+Here's a breakdown of some of the key parts:
+
+- "name": This is the name of the scenario.
+- "commentary": This is a brief description or comment about the scenario.
+- "productType": This could be the type of weather forecast product that the scenario is related to.
+- "createGrids": This appears to be a list of instructions for creating forecast grids. Each instruction includes the forecast type (e.g., "Fcst"), the variable being forecasted (e.g., "Sky", "Wx", "PoP"), the type of data (e.g., "SCALAR", "WEATHER"), the start and end times for the forecast, the forecast value, and the area for which the forecast applies.
+- "checkStrings": This is a list of strings that are expected to appear in the forecast text.
+- "fileChanges": This is a list of changes to be made to certain files as part of the scenario.
+- "comboFlag", "gridsStartTime", "drtTime": These are additional settings that apply to the scenario.
+
+The code also includes several commented-out lines (lines starting with ##). These lines are not executed when the code runs, but they can be uncommented if needed. They seem to be related to forecasts for maximum and minimum temperature ("MaxT", "MinT") and wind ("Wind").
+
+This code appears to be a configuration or script for a weather forecasting application or system. It's defining different scenarios or test cases related to the timing of weather-related headlines or alerts. 
+
+Each scenario is defined as a dictionary with various keys:
+
+- "name": The name of the scenario or test case.
+- "commentary": A description or note about the scenario.
+- "productType": Likely a code or identifier for the type of product or forecast.
+- "createGrids": A list of tuples that appear to define forecast or hazard grids. Each tuple includes details like forecast type, hazard type, the range of time the forecast applies to, the hazard identifier, and the area the forecast applies to.
+- "checkStrings": A list of strings that appear to be the expected or example headlines for the scenario.
+- "fileChanges": A list of tuples that represent changes to be made to certain files as part of the scenario. Each tuple includes the file to be changed, the utility to be used for the change, the action to be performed, the identifier for the change, and an undo action.
+- "comboFlag": A flag that might indicate whether multiple conditions or factors are being considered in the scenario.
+- "gridsStartTime" and "drtTime": These likely represent the start time for the forecast grids and the 'drt' (possibly 'disaster recovery time' or 'data retrieval time') respectively.
+
+The scenarios vary in the type of phrase used for the start and end of the forecast period (DAY_NIGHT_ONLY, FUZZY, EXPLICIT), and the specific hazard times and descriptions. The last scenario also mentions "VTEC", which could refer to the "Valid Time Event Code", a system used by the National Weather Service for coding weather events.
+
+This code appears to be a part of a larger script that is used for generating and testing weather forecasts. It contains a series of dictionaries, each representing a different test case or scenario for the forecast.
+
+1. The first dictionary contains information about a local hazard warning and a winter storm warning. It also specifies some changes to be made to a file, and some start times for the grids and drt.
+
+2. The second dictionary is used to clear out all hazard grids. It doesn't specify a product type.
+
+3. The next three dictionaries are testing the handling of null values in the forecast. They create grids for wind and wind gusts, and check that the resulting forecast strings are as expected.
+
+4. The following dictionary tests the handling of mixed weather conditions, specifically the use of MaxMode for probability of precipitation (PoP) with thunderstorms and smoke.
+
+5. The next dictionary tests the use of MaxMode for PoP with just thunderstorms.
+
+6. The final dictionary tests the handling of PoP when the temporal coverage is changed to zero. It also checks that the resulting forecast string is as expected.
+
+In each dictionary, the "createGrids" key specifies the parameters for creating a forecast grid, the "checkStrings" key specifies the expected output strings from the forecast, and the "fileChanges" key specifies changes to be made to a file as part of the test.
+
+The code appears to be a part of a larger script, possibly for a weather forecasting system. It contains several dictionaries, each representing a different weather condition or forecast scenario. 
+
+Each dictionary has the following keys:
+- "name": a unique identifier for the scenario.
+- "commentary": a description of the scenario.
+- "productType": the type of forecast product.
+- "createGrids": a list of tuples, each representing a forecast parameter (e.g., "Fcst", "Swell", "VECTOR", 0, 12, (7,"N"), "all"). These parameters might be used to generate a forecast grid.
+- "checkStrings": a list of strings that are expected to be present in the forecast output for this scenario.
+- "fileChanges": a list of tuples representing changes to be made to the forecast output files for this scenario.
+
+The first dictionary, for example, represents a scenario where the Probability of Precipitation (PoP) temporal coverage is changed to zero. The forecast parameters for this scenario include PoP, Sky, and Weather (Wx). The expected output strings include "Thunderstorms likely" and "Chance of thunderstorms 70 percent".
+
+The other dictionaries represent different scenarios related to Coastal Waters Forecast (CWF) swell conditions. The forecast parameters include Swell and Swell2, and the expected output strings describe the swell conditions in various ways (e.g., "Mixed swell north around 7 feet and east around 14 feet").
+
+The "comboFlag", "cmdLineVars", "gridsStartTime", and "drtTime" keys appear to be additional parameters that control how the forecast is generated and output.
+
+The code provided appears to be a part of a larger JSON-like structure, possibly used for configuration or testing purposes. The structure contains multiple objects, each representing a different scenario or test case for a Coastal Waters Forecast (CWF) product. Each object has the following properties:
+
+- "name": The name of the test case or scenario.
+- "commentary": A brief description of the scenario.
+- "productType": The type of product being tested, in this case, it's always "CWF".
+- "createGrids": An array of tuples, each representing a forecast grid to be created for the scenario. Each tuple contains information about the forecast type, the forecast variable, the forecast period, and the forecast value.
+- "checkStrings": An array of strings that are expected to be present in the forecast output for the scenario.
+- "comboFlag": A flag that may be used to indicate whether multiple forecasts should be combined in some way.
+- "cmdLineVars": A string representation of a dictionary that may contain command-line variables to be used in the scenario.
+- "gridsStartTime": The start time for the forecast grids.
+- "drtTime": A time that may be used for some form of delay or offset.
+- "fileChanges": An array of tuples, each representing a file change to be made for the scenario.
+
+The scenarios vary in the forecast variables they use (e.g., "Swell", "Swell2", "Period", "Period2"), the values of these variables, and the strings they expect to be present in the forecast output.
+
+The code appears to be a set of configurations for a weather forecasting system, specifically for Coastal Waters Forecasts (CWF). Each block of code represents a different forecast scenario, with specific parameters for different weather conditions.
+
+Each block contains the following fields:
+
+- `"name"`: The unique identifier for the forecast scenario.
+- `"commentary"`: A brief description of the scenario.
+- `"productType"`: The type of forecast, in this case, all are 'CWF'.
+- `"createGrids"`: A list of tuples, each representing a forecast variable (like 'Swell', 'Swell2', 'Period', 'Period2'), its type ('VECTOR' or 'SCALAR'), the time range for the forecast, the value for the variable, and the area for which the forecast applies ('all').
+- `"checkStrings"`: A list of strings that likely represent expected output or messages related to the forecast scenario.
+- `"comboFlag"`: A flag that might be used to indicate whether multiple conditions are combined in the forecast.
+- `"cmdLineVars"`: A dictionary of command line variables, likely used to customize the forecast generation.
+- `"gridsStartTime"` and `"drtTime"`: These likely represent the start time for the forecast grid and the 'disaster recovery test' time respectively.
+
+The forecast variables include 'Swell' and 'Swell2' which likely represent wave conditions, and 'Period' and 'Period2' which might represent the time period for these conditions. The values for these variables are either scalar values or vectors (magnitude and direction). 
+
+For example, in the first block, the forecast scenario named "CWF_Swell_withPeriod5" predicts a north swell around 7 feet at 5 seconds increasing to northwest around 14 feet at 5 seconds in the afternoon.
+
+This code appears to be a part of a larger script, possibly written in Python, that is used to create and manipulate weather forecast data. It contains several dictionary objects, each representing a different forecast scenario or test case. The keys in these dictionaries represent different attributes of the forecast, such as the name of the scenario, commentary about it, the product type, and the forecast grids.
+
+Each dictionary has a "createGrids" key, which contains a list of tuples. Each tuple represents a forecast grid, which includes the forecast type (e.g., "Fcst"), the weather element being forecasted (e.g., "Swell", "Swell2", "Period", "Period2"), the type of the data (e.g., "VECTOR", "SCALAR"), the start and end times of the forecast, the forecast value, and the area for which the forecast is valid.
+
+There are also "checkStrings" keys, which appear to contain expected output strings for the forecast scenarios. These might be used for testing purposes to ensure that the forecast data is being processed correctly.
+
+The "cmdLineVars" key seems to contain command-line variables for the forecast, such as the product issuance time and the issuer of the product.
+
+The "gridsStartTime" and "drtTime" keys appear to specify the start time of the forecast grids and the "drt" (possibly "discrete rainfall time") time, respectively.
+
+In some dictionaries, there are "fileChanges" keys, which seem to specify changes to be made to certain files as part of the forecast scenario.
+
+The "comboFlag" key might be a flag used to indicate whether or not the forecast scenario should be combined with others.
+
+Finally, the "productType" key specifies the type of product that the forecast is for, such as "CWF" (Coastal Waters Forecast) or "ZFP" (Zone Forecast Product).
+
+This code appears to be a part of a larger script that is used for generating and testing weather forecasts. It contains a series of dictionaries, each representing a different test case or scenario for the forecasts.
+
+Each dictionary contains several key-value pairs:
+
+- "name" specifies the name of the test case.
+- "commentary" provides a brief description of the test case.
+- "productType" appears to specify the type of weather forecast.
+- "createGrids" is a list of tuples that specify the forecast parameters, such as the type of weather, the duration of the forecast, and the expected conditions.
+- "checkStrings" is a list of strings that are expected to appear in the forecast.
+- "notCheckStrings" is a list of strings that should not appear in the forecast.
+- "comboFlag" is a flag that may be used to indicate whether or not to combine certain conditions or forecasts.
+- "cmdLineVars" is a string representation of a dictionary that may be used to pass command line variables to the script.
+- "gridsStartTime" and "drtTime" appear to specify the start time of the forecast grids and the time of the data retrieval, respectively.
+
+The "fileChanges" key is used to specify changes to be made to certain files, likely as part of the testing process. The value is a list of tuples, each specifying the file to be changed, the utility to be used for the change, the type of change, the changes to be made, and an undo command.
+
+The different test cases seem to be testing different weather conditions and forecast periods, such as a 20 percent chance of thunderstorms, period combining labelling for CWF, and visibility phrase tests.
+
+This code appears to be a part of a larger script that is used for weather forecasting. It contains a series of dictionaries, each representing a different weather scenario or forecast model. Each dictionary contains several key-value pairs that provide information about the forecast model and the conditions it represents.
+
+Here's a breakdown of some of the keys and what they represent:
+
+- "name": This is the name of the forecast model.
+- "commentary": This provides additional information or notes about the model.
+- "productType": This indicates the type of product or output the model generates, in this case, it's "ZFP".
+- "createGrids": This is a list of tuples, each representing a different weather condition or parameter to be forecasted. It includes the type of forecast (e.g., "Fcst"), the specific weather condition (e.g., "Wx" for weather, "PoP" for probability of precipitation, "T" for temperature, etc.), the time range for the forecast, and the expected value or description of the condition.
+- "checkStrings": This is a list of strings that appear to be used for verifying the output of the forecast.
+- "gridsStartTime" and "drtTime": These seem to indicate the start time of the grid and the drt time respectively.
+- "fileChanges": This key-value pair appears to indicate changes made to the file.
+- "cmdLineVars": This key-value pair appears to store command line variables.
+- "comboFlag" and "combinations": These key-value pairs appear in one of the dictionaries and seem to be used for combining different forecast models or scenarios.
+
+Overall, this code seems to be used for generating and validating different weather forecasts.
+
+This code appears to be a part of a weather forecasting system, specifically a testing script for different weather scenarios. 
+
+The script contains a list of dictionaries, each representing a different test case. Each dictionary contains:
+
+- "name": The name of the test case.
+- "commentary": A brief description of what the test is for.
+- "productType": The type of weather product being tested.
+- "createGrids": A list of tuples, each representing a forecast parameter (like weather, snow amount, probability of precipitation, wind chill, etc.) to be created for the test, along with its corresponding values.
+- "checkStrings": A list of strings that are expected to be present in the forecast output.
+- "notCheckStrings": A list of strings that are expected not to be present in the forecast output.
+- "fileChanges": A list of changes to be made to specific files for the test.
+- "deleteGrids": A command to delete certain grids after the test.
+- "gridsStartTime": The start time for the grids.
+
+The function `testScript` at the end of the code is used to run these test cases. It takes three arguments: `self`, `dataMgr`, and `level`. The `dataMgr` is likely a data manager that handles the interaction with the database where the forecast data is stored. The `level` argument probably indicates the level of detail or complexity of the test. 
+
+The function sets some default values, calculates some absolute times from local times, and then loops through each script in the `scripts` list, adjusting the start time and drtTime (probably "discrete real-time") for each script based on its settings. Finally, it calls `TestScript.generalTestScript` to run the tests with the given scripts and default settings.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>AddAllCapsEmphasis.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>AddAllCapsEmphasis.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to modify certain text phrases in .vm and .xml files located in a specific directory path. The phrases it looks for are specific weather warning phrases such as "TAKE COVER NOW", "SEEK SHELTER NOW", "IMMINENT DANGEROUS WEATHER CONDITIONS", etc. 
+
+The script does the following:
+
+1. It defines a list of regular expression patterns that it will search for in the files. These patterns correspond to the weather warning phrases.
+
+2. It defines a function `__backupFile(orig)` that creates a unique backup file name for a given original file. If a backup file with the same name already exists, it appends a count to the file name to make it unique.
+
+3. It defines a function `__replaceWithUpper(matchobj)` that replaces a matched phrase with its uppercase version.
+
+4. In the `main()` function, it loops over all the .vm and .xml files in the specified directory path. For each file, it reads the file content and checks if it contains any of the specified weather warning phrases. If it does, it replaces the phrase with its uppercase version. 
+
+5. If the file content was modified, it creates a backup of the original file using the `__backupFile(orig)` function. Then it writes the modified content back to the original file.
+
+6. The script is executed if it is run as a standalone program (i.e., not imported as a module in another script).</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>LLWSMonitor.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>LLWSMonitor.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script, named LLWSMonitor.py, is a part of a software developed or modified by Raytheon Company. It is a module for monitoring low-level wind shear data. 
+
+The script starts with a detailed header containing information about the software's development, export control, contractor details, and a detailed revision history. The revision history provides a chronological record of the changes made to the script, including the date of the change, the person who made the change, and a brief description of what was changed.
+
+The script then imports required modules and sets up logging. It defines two classes: Monitor and WSinRadar. 
+
+The Monitor class is a child class of MonitorP.Monitor. It has a method named __compare which retrieves low-level wind shear data, processes it, and applies certain rules to the data. If the data is missing, it logs a debug message. 
+
+The WSinRadar class is a child class of MonitorP.Rule. It checks if the wind shear value is below a certain threshold and whether 'llws' is not in the taf. If these conditions are met, it sets a message indicating that the measured low-level wind shear is not in TAF.
+
+Overall, this script appears to be part of a larger system for monitoring and analyzing meteorological data.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

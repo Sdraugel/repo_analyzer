@@ -1,0 +1,72 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>iscTime.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>iscTime.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The code is a Python script that performs various operations on time ranges, which are represented as tuples of two elements (start time and end time). The operations include checking if a time range contains a specific time, if two time ranges overlap, and finding the intersection of two time ranges.
+
+The script also includes several functions to compare two time ranges in different ways, such as checking if one time range is inside another, if they overlap on the left or right, if one spans the other, or if they match exactly.
+
+The `mergeTR` function takes an incoming time range and a current inventory of time ranges, and returns a list of tuples containing the original time range, the new time range, and a flag indicating whether the input time range overlaps with the original one. This function uses the comparison functions defined earlier to determine how the input time range interacts with each time range in the inventory.
+
+The code also contains a significant amount of metadata and comments, including licensing information, a brief description of the software's purpose and history, and detailed comments explaining the purpose and behavior of each function.
+
+This code is a part of a function that seems to be dealing with overlapping intervals or ranges. The main purpose of this code is to modify the input range (`inputTR`) based on the overlapping ranges in `outList` and then merge the modified list (`newList`) with `outList`.
+
+Here's a step-by-step breakdown of what the code does:
+
+1. It first checks if `outList` is empty. If it is, it simply adds the `inputTR` to `newList` with a tuple format of `(None, inputTR, 0)`.
+
+2. If `outList` is not empty, it iterates over `outList`. For each element in `outList`, it checks if it overlaps with `inputTR` using the `overlaps()` function. 
+
+3. If there is an overlap and the starting point of the current range (`gTR[0]`) is not the same as the starting point of the `inputTR`, it appends a new tuple to `newList` with the format `(None, (modinputTR[0], gTR[0]), 0)`.
+
+4. It then modifies `modinputTR` to start from the end of the current overlapping range (`gTR[1]`).
+
+5. After checking all ranges in `outList`, if the modified `inputTR` (`modinputTR`) is not a zero-length range (i.e., its start and end points are not the same), it appends it to `newList`.
+
+6. Finally, it merges `newList` with `outList`, sorts `outList` based on the starting point of ranges, and returns `outList`.
+
+Please note that the actual functionality might vary depending on the context and the implementation of the `overlaps()` function.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

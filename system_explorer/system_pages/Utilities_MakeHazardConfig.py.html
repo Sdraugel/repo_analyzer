@@ -1,0 +1,68 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>MakeHazardConfig.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>MakeHazardConfig.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is part of a larger software system that is used for hazard management. It is in the public domain and comes without any warranty or technical support. The code has been updated several times by different engineers, as indicated in the software history comments.
+
+The code defines a function `sortHazardList(dict)`, which sorts the entries in a dictionary in alphabetical order. This function is used to sort the hazard types in a dictionary named `hazardDict`. This dictionary uses an `OrderedDict` to ensure that the hazard types are displayed in a specific order in a dialog box.
+
+The `hazardDict` dictionary contains different types of hazards, each associated with a list of codes. These codes could represent different levels or types of each hazard. For example, 'Winter Weather' is associated with codes like "BZ.W", "IS.W", "LE.W", etc. There's also an example of how to add local hazards.
+
+The `mapNames` dictionary associates each hazard type with a list of map names. These map names are used to display the areas affected by each hazard type. The `<site>` placeholder in the map names is replaced with the name of the actual site.
+
+The code also sets some default values, such as the default hazard type (`defaultHazardType`), the color of the selected areas in the map (`mapColor`), the initial map width (`defaultMapWidth`), the area coverage threshold (`areaThreshold`), and the end time of the time scales (`timeScaleEndTime`).
+
+The `tcmList` is an empty list that is used to define the tropical product used to identify a particular storm. This list is commented out for HLS sites.
+
+The provided code is written in Python and it seems to be a configuration file for some kind of weather-related application, possibly related to meteorology or climate studies. 
+
+1. The first section of the code defines a list `tcmList` which is commented out. There are four different versions of the list, each representing a different basin site: Atlantic, EPac, CPac, and WPac. The user is supposed to uncomment the line corresponding to the basin site they are interested in.
+
+2. The second section defines an empty dictionary `localEffectAreas`. There is a commented out version of the dictionary that associates the string 'Winter Weather' with a list of strings representing different altitude levels (both below and above certain values). This dictionary might be used to map different hazard types to applicable local effect areas.
+
+3. The third section defines an empty dictionary `localAreaData`. There is a commented out version of the dictionary that associates different altitude levels (both below and above certain values) with a tuple. Each tuple contains a number (presumably representing the altitude), an empty string (which could be used to display a "pretty" string in the UI), and an empty list (which could be used to auto-select zones). 
+
+All the commented out sections are likely examples or templates that the user can uncomment and modify according to their needs.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

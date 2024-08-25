@@ -1,0 +1,54 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>AvnConfigParser.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>AvnConfigParser.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code defines two classes: `MultiOrderedDict` and `AvnConfigParser`.
+
+`MultiOrderedDict` is a subclass of `collections.OrderedDict`. It overrides the `__setitem__` method to join values for duplicate keys into a comma-separated list instead of overwriting them. This is useful when you want to keep all values associated with a key in a dictionary-like data structure. The `keys` method is also overridden to return the keys of the dictionary.
+
+`AvnConfigParser` is a subclass of `configparser.ConfigParser`. It's designed to merge duplicate keys into a comma-separated list to better work with Java code that uses `org.apache.commons.configuration`. It also defaults to better match Python 2.7. This class overrides the `get` method to replace '""' or "''" with an empty string.
+
+The code also contains a software history log and a legal notice from Raytheon Company, the developer of the software. The notice includes information about export control restrictions, the contractor's name and address, and a reference to a master rights file for licensing information.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

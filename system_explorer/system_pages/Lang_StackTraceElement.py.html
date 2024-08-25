@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>StackTraceElement.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>StackTraceElement.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code defines a class named `StackTraceElement`. This class is used to represent a single element of a stack trace, which is a tool used for debugging to identify the point in the program where an error or exception has occurred.
+
+The `StackTraceElement` class has the following attributes:
+- `declaringClass`: The class where the method is declared.
+- `methodName`: The name of the method.
+- `fileName`: The name of the file where the method is declared.
+- `lineNumber`: The line number in the file where the method is declared.
+
+The class also includes getter and setter methods for each of these attributes. 
+
+The `isNativeMethod` method checks if the line number is -2, which is a convention used to indicate that the method is a native method (a method written in a language other than Java, typically C or C++).
+
+The `__str__` and `__repr__` methods are used to provide a string representation of the `StackTraceElement` object. The `__repr__` method constructs a string that includes the declaring class, method name, and either the file name and line number, just the file name, or "Unknown Source" if neither is available. If the method is a native method, it adds "(Native Method)" to the string.
+
+The initial comment block is a legal disclaimer and copyright notice from Raytheon Company, indicating that the software was developed under a specific contract with the US Government and is subject to export restrictions.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

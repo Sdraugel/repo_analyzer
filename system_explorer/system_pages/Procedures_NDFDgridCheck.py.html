@@ -1,0 +1,94 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>NDFDgridCheck.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>NDFDgridCheck.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This is a Python script that appears to be part of a larger weather forecasting system, possibly for the National Weather Service (NWS) given the email addresses provided in the comments. 
+
+The script is designed to check for the existence of specific weather-related data grids in a forecast database. The data grids it checks for are determined by the time of day and the season (summer or winter). 
+
+The script is configurable, allowing the user to specify which weather element groups to check for (Public, Fire Weather, Marine), the start of the day shift, and the start and end of the winter and summer seasons. 
+
+The script uses a class called Procedure that inherits from SmartScript.SmartScript. This class has methods that return lists of tuples. Each tuple represents a weather element to check for in the database. The tuples contain the name of the weather element, the start grid, the interval, and the final grid. 
+
+The script also includes some metadata at the top, including information about the software's development and export restrictions, as well as a disclaimer about its use. 
+
+Please note that the code provided is incomplete, and the last function `public_elements_dict_MidShift_Both(self)` is not finished.
+
+This code is defining several methods that return lists of tuples. Each tuple represents a weather element, and the values in the tuple represent the name of the weather element, the start grid, the interval, and the final grid. 
+
+The methods are divided into different categories based on the time of day (DayShift or MidShift) and the season (Winter, Summer, or None). There are also methods for marine and fire weather (fwx) elements. 
+
+The `execute` method seems to be the main method that would use the lists of weather elements. It determines whether it's the day or mid shift based on the current time, and it sets a missingFlag to 99 if no valid list is selected. The code provided cuts off before the full implementation of the `execute` method is shown. 
+
+This code seems to be part of a larger system for weather forecasting or analysis, where different sets of weather elements are used based on the time of day and season.
+
+The code is determining the season (summer, winter, both, or none) based on the month. It then checks for element groups (public or fire weather) and depending on the day and season, it assigns an element list. 
+
+For each element in the list, it loops through and creates a time range, retrieves grid information for the specified element and time range, and checks if the grid information is missing. If it is missing, it sets a flag and prints a message.
+
+Here's a more detailed breakdown:
+
+1. The code first checks if the current month falls within the summer or winter season. If it does, it sets the `Season` variable to "Summer", "Winter", or "Both" accordingly. If the month does not fall within either season, `Season` is left as "None".
+
+2. The code then prints the value of the "Which element group(s)?" key from the `varDict` dictionary and assigns it to `elementGroups`.
+
+3. It then loops through each `elementGroup` in `elementGroups`. If the `elementGroup` is "Public", it checks if it's the first day and the season, and based on these conditions, it assigns a corresponding dictionary to `element_list` and sets `endInterval3` to either 84 or 60.
+
+4. The code then loops through each element in `element_list`, creates a time range, retrieves grid information for the specified element and time range, and checks if the grid information is missing. If it is, it sets `missingFlag` to 1 and prints a message.
+
+5. If the `elementGroup` is "Fire Weather", the code checks if it's the first day and assigns a corresponding dictionary to `element_list`. It then performs the same operations as in the "Public" case.
+
+The code seems to be incomplete as it starts a condition for the "Marine" `elementGroup` but does not provide any operations for it.
+
+This code is a part of a larger program that seems to be dealing with some kind of marine element data, perhaps related to weather forecasting or similar field. The code is written in Python.
+
+The code first checks if a certain condition is true (the condition is not provided in the snippet). Depending on the condition, it selects a list of marine elements either for the day shift or the mid shift.
+
+Then it iterates over the elements in the selected list. For each element, it retrieves the start time, interval, and final time. It then enters a while loop that runs until the current time (Grid) is less than or equal to the final time.
+
+In the while loop, it creates a time range for each hour from the start time to the final time. It then tries to retrieve some grid information for the current element and time range. If the grid information is not found (i.e., if getGridInfo returns an empty list), it sets a flag indicating that some grid information is missing and displays a message in the status bar.
+
+After iterating over all the elements and their respective time ranges, it checks the missingFlag. If no grid information was missing (missingFlag is 0), it displays a message saying that all necessary grids were found. Otherwise, it displays a message indicating that some grids are missing.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

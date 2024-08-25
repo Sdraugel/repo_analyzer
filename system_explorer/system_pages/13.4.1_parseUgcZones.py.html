@@ -1,0 +1,70 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>parseUgcZones.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>parseUgcZones.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This script is a part of a larger system that updates warning tables. It is specifically used to parse the UGC (Universal Geographic Code) zones in table updates. 
+
+The script does the following:
+
+1. It imports necessary modules and classes. The `sys` module is used to work with command line arguments. The `ParmID` and `DatabaseID` classes are imported from the `dynamicserialize.dstypes.com.raytheon.uf.common.dataplugin.gfe.db.objects` package.
+
+2. It takes two command line arguments: the name of a table and a file name. The table name is stored in the variable `table` and the file name is stored in `fileName`.
+
+3. It opens the file with the name stored in `fileName` in read mode and a new file named `tableUgcZonesUpdates.sql` in write mode.
+
+4. It initializes variables `prevParentId`, `parentId`, and `ugcZones` to `None`.
+
+5. It reads the file line by line. Each line is split into columns by the '|' character.
+
+6. If a line has more than one column, it strips whitespace from the first and second columns and assigns them to `parentId` and `ugcZone` respectively.
+
+7. If the current `parentId` is the same as the previous one, it appends the current `ugcZone` to the `ugcZones` list. 
+
+8. If the `parentId` is different, it writes the `ugcZones` from the previous `parentId` to the `tableUgcZonesUpdates.sql` file in the format of an SQL UPDATE statement, then resets the `ugcZones` list to only include the current `ugcZone` and updates `prevParentId` to the current `parentId`.
+
+9. After all lines are processed, if there are any `ugcZones` left, it writes them to the `tableUgcZonesUpdates.sql` file in the format of an SQL UPDATE statement.
+
+10. Finally, it closes both the input and output files.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

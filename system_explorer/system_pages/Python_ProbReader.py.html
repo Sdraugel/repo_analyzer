@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ProbReader.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ProbReader.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script, named `ProbReader.py`, is part of a software developed or modified by Raytheon Company. The script is designed to read and process data from a specific type of file, known as an HDF5 file, which is a common format for storing large amounts of numerical data.
+
+The script defines a function `prob_reader(siteId, fDate)`, which takes two arguments: a site ID and a date. This function reads the appropriate thresholds for the given site ID based on the Julian day (represented by `fDate`).
+
+The function `prob_reader` uses several helper functions:
+
+- `_translate_season(season)`: This function translates a season name into a numerical value.
+- `_season(jday, row)`: This function determines the season based on the Julian day and a row of data.
+- `translateRow(dataset, row)`: This function translates a row of data into a dictionary.
+
+The `prob_reader` function opens an HDF5 file that corresponds to the given site ID and reads data from it. It determines the season for each element in the file, reads data from a specific table in the file, and stores the data in a dictionary. If an error occurs while reading the file, the function logs the error message.
+
+The script also contains import statements for several libraries, including `h5py` for reading HDF5 files, `logging` for logging error messages, and several modules from the `com.raytheon.uf.common.localization` package for handling localization.
+
+The script also includes detailed comments and metadata about the software's development history, licensing information, and export restrictions.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

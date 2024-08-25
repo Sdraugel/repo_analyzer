@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>diffAreaDictionary.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>diffAreaDictionary.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This script is written in Python and it is designed to compare two Python files (specifically AreaDictionary.py files) and report on the differences between them. 
+
+The script first defines a list of dictionary keys that it will look for in the files. Then it defines a function `diffCities` which takes two city strings, splits them into lists of cities, and then compares these lists to find out which cities have been added or removed.
+
+The `printEntry` function is used to print out the values of a dictionary for a given set of keys.
+
+The `main` function is the entry point of the script. It first checks if the user has provided two file paths as command-line arguments. If not, it prints out a usage message and exits. If two file paths are provided, it loads these files as Python modules using the `imp.load_source` function. 
+
+It then retrieves the `AreaDictionary` attribute from each module, which is expected to be a dictionary. It creates a set of all keys present in either dictionary, and iterates over these keys. For each key, it checks if the key is present in both dictionaries, and if so, it compares the values for this key in both dictionaries. If the values are different, it prints out the old and new value. If the key is 'ugcCityString', it calls the `diffCities` function to compare the city lists. If a key is only present in one of the dictionaries, it prints out which key was added or removed.
+
+The script is intended to be run from the command line, as indicated by the `if __name__ == "__main__":` line at the end. This line ensures that the `main` function is only called if the script is run directly, and not if it is imported as a module.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

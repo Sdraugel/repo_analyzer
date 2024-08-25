@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>QPF_SmartTool.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>QPF_SmartTool.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be a tool for meteorological data processing. It's named "QPF_SmartTool.py", where QPF likely stands for Quantitative Precipitation Forecast, a measure used in meteorology to predict rainfall.
+
+The script imports several libraries, including numpy, MetLib, and time, and defines a class named Tool that inherits from SmartScript.SmartScript. 
+
+The Tool class has two methods:
+
+1. `smoothGrid(self, grid, factor)`: This method smooths a given grid by a specified factor. It uses a smoothing algorithm that works by averaging the values in a square neighborhood around each grid cell. The size of this neighborhood is determined by the factor. If the factor is less than 3, the original grid is returned as it is. 
+
+2. `execute(self, QPF, Wind, varDict)`: This is the main method of the tool. It takes in three parameters: QPF (Quantitative Precipitation Forecast), Wind, and varDict (a dictionary of variables). The method calculates the gradient of the topography grid, converts wind to its u and v components, calculates the dot product which indicates the direction of the wind relative to the slope (upslope or downslope), smooths the dot product grid, and finally adjusts the QPF grid using the scale and dot product. The adjusted QPF grid is then returned.
+
+The script also defines a VariableList which seems to be used for setting up the tool's parameters. In this case, it contains one variable named "Vertical Motion Influence" with a default value of 50 and a range of 0 to 100.
+
+Overall, this script seems to be a tool for adjusting precipitation forecasts based on the influence of vertical motion (likely due to wind) on the topography.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,92 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>StringUtils.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>StringUtils.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python file named `StringUtils.py`. It defines a class `StringUtils` with methods for manipulating strings. The methods include:
+
+1. `sentence(self, s, addPeriod=1)`: This method takes a string `s` and an optional boolean `addPeriod` (default is `1` or `True`). It converts the string into a sentence by capitalizing the first letter and optionally adding a period at the end. If the string is entirely whitespace, it returns an empty string.
+
+2. `endline(self, phrase, linelength=66, breakStr=[" ", "..."])`: This method takes a string `phrase`, an optional `linelength` (default is `66`), and an optional list of `breakStr` (default is `[" ", "..."]`). It inserts line breaks into the phrase at the specified line length, breaking at the specified break strings.
+
+3. `linebreak(self, phrase, linelength, breakStr=[' ', '...'], forceBreakStr=[" ","/"])`: This method takes a string `phrase`, a `linelength`, an optional list of `breakStr` (default is `[' ', '...']`), and an optional list of `forceBreakStr` (default is `[" ","/"]`). It breaks the phrase into lines of the given line length, preventing a line break on a number. If no `breakStr` is found for a given line length of characters, it forces a break on the rightmost `forceBreakStr`.
+
+4. `findRightMost(self, text, breakStr=[" "], nonNumeric=1)`: This method takes a string `text`, an optional list of `breakStr` (default is `[" "]`), and an optional boolean `nonNumeric` (default is `1` or `True`). It returns the index of the rightmost break string characters and the break characters that were found. If `nonNumeric` is `True`, it ensures the index does not refer to a numeric character.
+
+The code also contains a detailed history of software changes and modifications, as well as licensing and export control information.
+
+This code is a part of a text processing module that performs several operations on strings of text. Here's a breakdown of what each function does:
+
+1. `combineSentences(self, textStr)`: This function takes a string of sentences and combines consecutive single-word sentences. For example, "Warm. Dry." would be converted to "Warm...Dry.".
+
+2. `combinePhrases(self, phrases, separator=", ", conjunction=", ")`: This function takes a list of phrases and combines them into a single string, separated by the specified separator and conjunction. For example, ["apple", "banana", "cherry"] would be converted to "apple, banana, cherry".
+
+3. `labelIndent(self, phrase, descriptor)`: This function indents a given phrase by the length of a given descriptor. The indented phrase is then returned.
+
+4. `indentText(self, text, indentFirstString = '', indentNextString = '', maxWidth=69, breakStrings=[" "])`: This function formats a given string of text so that it is at most maxWidth characters wide. The first line is indented by indentFirstString and subsequent lines are indented by indentNextString.
+
+5. `splitIntoWords(self, words, breakStrings=[" "])`: This function breaks a list of words further using a list of specified breakStrings. The resulting list of words is then returned.
+
+The first block of code appears to be a part of a larger function that is not fully included in the provided code. It seems to be finding the index of the rightmost occurrence of a character from a list of break characters in a given string of text. If the character is a space and the character before it is a digit, it continues searching to the left. The function returns the index and the character that was found.
+
+This code contains a set of utility functions that perform various string manipulations. Here's a brief description of each function:
+
+1. `removeLast(self, str, removeStr)`: This function removes the last occurrence of `removeStr` from `str` if it is present at the end.
+
+2. `addTextList(self, words, wordList, preposition=" with ", conjunction=" and ", oxford=True)`: This function appends a list of words (`wordList`) to a given string (`words`) using a specified preposition and conjunction. It also handles the addition of an Oxford comma if specified.
+
+3. `addSpace(self, str, place="trailing")`: This function adds a leading or trailing space to a string (`str`) if it doesn't already have one.
+
+4. `removeSuffixes(self, names, suffix)`: This function removes a specified suffix from a list of names if they end with that suffix.
+
+5. `convertToUpper(self, text)`: This function converts a text string to uppercase.
+
+6. `convertToLower(self, text, allLower=0)`: This function converts a text string to lowercase. If `allLower` is not set, it capitalizes the first letter of each word in the string.
+
+7. `replaceLast(self, str, str1, str2)`: This function replaces the last occurrence of `str1` in `str` with `str2`.
+
+8. `punctuateList(self, items)`: This function joins a list of strings into a comma-separated list, using the Oxford comma if there are more than two items in the list.
+
+The first part of the code seems to be a part of a larger function which is not completely included. It appears to be manipulating a list of words (`strWords`), possibly breaking them up and reassembling them into a new list (`newStrWords`). The resulting list is then added to another list (`newWords`).</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

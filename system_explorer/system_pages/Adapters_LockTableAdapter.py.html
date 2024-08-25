@@ -1,0 +1,56 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>LockTableAdapter.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>LockTableAdapter.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is part of a software developed by Raytheon Company. It acts as an adapter for a LockTable class from the package 'com.raytheon.uf.common.dataplugin.gfe.server.lock'. The LockTable class is likely a part of a larger system, possibly related to data handling or security given the name 'LockTable'.
+
+The code primarily contains two functions: serialize and deserialize. 
+
+The serialize function takes a context and a lockTable object as arguments. It first extracts the workspace ID (wsId) from the lockTable and stores it in a dictionary (wsIds) with an associated index. Then it retrieves all the locks from the lockTable. For each lock, it checks if the wsId is already in the wsIds dictionary. If it is, it appends the corresponding index to the lockWsIdIndex list. If it's not, it adds the wsId to the wsIds dictionary with a new index and appends this index to the lockWsIdIndex list. After that, it writes the parmId of the lockTable and the number of wsIds to the context. It also writes each wsId and the number of locks to the context. Finally, it writes the start time, end time, and wsIndex of each lock to the context.
+
+The deserialize function does the reverse of the serialize function. It reads data from the context, reconstructs the wsIds list, the locks list, and the lockTable object, and returns the lockTable.
+
+In summary, this code is used to serialize and deserialize a lockTable object, which is a part of a larger system developed by Raytheon Company. The serialization and deserialization process is necessary for transmitting the lockTable object over a network or storing it in a file.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

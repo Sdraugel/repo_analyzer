@@ -1,0 +1,132 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>RoutineLevel1_FWFTable_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>RoutineLevel1_FWFTable_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code appears to be a part of a larger system, possibly a weather forecasting application, given the variables and parameters used. The code is written in Python.
+
+The top part of the code is a comment section that provides information about the software, its development, and usage restrictions. It mentions that the software was developed or modified by Raytheon Company under a contract with the US Government. It also states that the software contains export-restricted data and its dissemination requires an export license or other authorization.
+
+The code then defines a list named `FWFTable_createGrids`. This list contains tuples, each representing a forecast parameter. Each tuple includes the following information:
+
+1. The type of forecast ("Fcst").
+2. The name of the parameter (e.g., "MaxT", "MinT", "MaxRH", "MinRH", "Wind", "TransWind", "WindGust").
+3. The type of the parameter ("SCALAR" or "VECTOR").
+4. The start time for the forecast of the parameter.
+5. The end time for the forecast of the parameter.
+6. The value of the parameter. For "VECTOR" type, it's a tuple containing magnitude and direction.
+7. A string "all", which could be an indicator for the areas where the forecast applies.
+
+The parameters include maximum temperature, minimum temperature, maximum relative humidity, minimum relative humidity, wind (with direction), transport wind (with direction), and wind gust. The times for these parameters are given in different intervals, possibly hours.
+
+The last line of the code is incomplete and might cause an error if executed.
+
+The code you provided appears to be a series of tuples, each representing a forecast of some weather-related parameter. Each tuple has the following structure:
+
+- "Fcst" - This likely stands for "Forecast" and is a constant across all the tuples.
+- The second element represents the parameter being forecasted. In your code, these are "WindGust", "Sky", "Wx", "LAL", "PoP", "CWR", "QPF", and "Haines".
+- The third element represents the type of the parameter. In your code, these are "SCALAR" and "WEATHER".
+- The fourth and fifth elements represent the forecast period in hours.
+- The sixth element represents the forecasted value of the parameter.
+- The seventh element is "all", which might represent that the forecast applies to all areas.
+
+Here's a breakdown of what each parameter could represent:
+
+- "WindGust" could represent the forecasted wind gust speed.
+- "Sky" could represent the forecasted sky condition (e.g., cloud cover percentage).
+- "Wx" could represent the forecasted weather condition (e.g., rain, snow, fog).
+- "LAL" is unclear without more context, but in some meteorological contexts, it could represent Lightning Activity Level.
+- "PoP" likely represents Probability of Precipitation.
+- "CWR" could represent Chance of Wetting Rain, a term used in fire weather forecasting.
+- "QPF" likely represents Quantitative Precipitation Forecast, which is the expected amount of melted precipitation.
+- "Haines" could represent the Haines Index, which is used to indicate the potential for wildfire growth.
+
+Please note that without more context or comments in the code, these are educated guesses based on common meteorological abbreviations.
+
+The provided code appears to be a part of a larger script that is used for generating weather forecasts. It seems to be written in Python and it is likely part of a larger system used for meteorological data processing.
+
+The code is defining a list of tuples, each representing a forecast variable. Each tuple contains information about the forecast variable's name, type, time range, and value. The variables include "Haines", "MixHgt", "Wind20ft", "VentRate", "Stability", "HrsOfSun", and "DSI".
+
+For example, ("Fcst", "Haines", "SCALAR", 0, 12, 2, "all") represents a forecast variable named "Haines" of type "SCALAR". The time range for this forecast is from 0 to 12 hours and the value is 2. The "all" likely refers to this forecast being applicable to all areas.
+
+The "scripts" variable is a list of dictionaries, each representing a script for generating a specific type of weather forecast. Each script includes information such as the name of the script, the type of product it generates, command line variables, a flag indicating whether it's a combo script, grids to delete, and strings to check.
+
+For example, the script named "FWFTable_1" is used to generate a "FWFTable" product. It has a commentary "Morning test", and it uses certain command line variables. It also specifies that it's a combo script (comboFlag is 1), and it deletes "Ttrend" and "RHtrend" grids from the "Fcst" forecast. It also checks for certain strings in the output.
+
+The code snippet ends with a partially defined string, so it's not clear what the full context or functionality of this script is.
+
+This code appears to be a part of a weather forecasting system. It is generating a fire weather planning forecast for specific days, with various weather parameters such as cloud cover, precipitation type, chance of precipitation, temperature, relative humidity, wind speed and direction, precipitation amount and duration, mixing height, transport wind, vent rate, dispersion, sunshine hours, and others.
+
+The code is divided into two main sections, each representing a different forecast table. The first table provides the forecast for tonight, Saturday, and Saturday night, while the second table provides the forecast for Sunday, Monday, Tuesday, Wednesday, and Thursday.
+
+Each table includes a list of check strings, which seem to be the output of the forecast in a human-readable format. The "deleteGrids" section in the second table indicates that the "Ttrend" and "RHtrend" grids are being removed for some reason, perhaps to ensure they are not used for trends.
+
+The "cmdLineVars" section in the second table suggests that the forecast is being issued in the afternoon by a forecaster with the number 99.
+
+The "comboFlag" field is set to 1 in the second table, which might indicate that some combination of data or operations is being performed, but without more context, it's hard to say exactly what this flag is used for.
+
+The "internalStrip" field is set to 0 in the first table, but it's unclear what this field represents without more context.
+
+This code appears to be a part of a weather forecasting application. It contains a series of dictionaries, each representing a different forecast scenario or test case.
+
+Each dictionary contains the following keys:
+
+- "name": A unique identifier for the forecast scenario.
+- "productType": The type of forecast product, in this case, all are "FWFTable".
+- "commentary": A description or comment about the forecast scenario.
+- "comboFlag": A flag variable, although its specific use is not clear from this snippet.
+- "checkStrings": A list of strings, possibly used for validation or testing.
+- "internalStrip": Another flag variable, its use is also not clear from this snippet.
+- "createGrids": A list of tuples, each representing a forecast variable (like temperature trend "Ttrend", relative humidity trend "RHtrend", precipitation "PoP", weather "Wx", and quantitative precipitation forecast "QPF"), its type ("SCALAR" or "WEATHER"), the forecast period, the value of the variable, and the area for which the forecast applies ("all").
+
+The forecast scenarios include tests for different weather conditions like strong winds, drizzle, thunderstorms, frost, and different types of precipitation. The "cmdLineVars" key in some dictionaries seems to contain additional parameters for the forecast scenario, like the time of product issuance and the forecaster number.
+
+This code appears to be a part of a larger script that is used for testing and managing data related to weather forecasting. 
+
+The first part of the code is a list of dictionaries, each containing information about a specific forecast parameter such as 'PoP' (Probability of Precipitation), 'MaxT' (Maximum Temperature), 'MinT' (Minimum Temperature), etc. Each dictionary has a 'name', 'commentary', 'productType', and 'deleteGrids' keys. The 'deleteGrids' key holds a list of tuples, each representing a specific grid of data to be deleted. The tuples contain the forecast parameter, its level ('SFC' likely stands for Surface), and the range of hours for which the data should be deleted (from 0 or -24 to 280).
+
+The second part of the code imports a module named 'TestScript' and defines a function 'testScript'. This function seems to be used for testing the data management process. It sets the start time for the grids and the drtTime (possibly "disaster recovery time"), and defines some default settings. It then calls a function 'generalTestScript' from the 'TestScript' module, passing in the data manager, the list of scripts (which is not defined in the provided code), and the default settings. 
+
+The 'generalTestScript' function is likely to perform some general tests on the data management process using the provided scripts and settings.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

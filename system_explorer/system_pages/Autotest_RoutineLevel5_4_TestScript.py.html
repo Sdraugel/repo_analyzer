@@ -1,0 +1,136 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>RoutineLevel5_4_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>RoutineLevel5_4_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code appears to be a part of a larger Python program, specifically two methods named `_10_503_issuance_list`. These methods are likely part of a class, although the class definition is not included in the provided code. 
+
+The methods define two lists of tuples, `seriesDefAM` and `seriesDefPM`, and return a list of tuples that represent different periods of a day. Each tuple in the returned list represents a specific period and contains information about that period, such as its name, start time, end time, description, and associated series definition.
+
+The `seriesDefAM` and `seriesDefPM` lists seem to represent different periods within a day, likely morning (AM) and afternoon/evening (PM) respectively. Each tuple within these lists seems to represent a specific period and its duration.
+
+The returned list of tuples seems to represent different issuance scenarios for a day. Each tuple includes the name of the issuance, the start and end times, a description, and the associated series definition (either AM or PM).
+
+The code also includes several commented-out lines, which are not executed when the code runs. These lines may be alternate configurations or they may be remnants from previous versions of the code.
+
+Please note that without the full context of the code, some assumptions had to be made based on common coding practices.
+
+This code seems to be part of a larger system that generates weather forecasts. 
+
+The first part of the code is defining a series of time periods and associated labels for different parts of the day. Each tuple represents a different time period, with various parameters such as the start and end times, labels for different parts of the day, and other related information.
+
+The `Period_2_3` function appears to be defining a component of a weather forecast. It's creating a dictionary with various keys such as "type", "methodList", "analysisList", and "phraseList". Each of these keys contains a list of methods or data that will be used to generate a forecast. For example, the "analysisList" contains methods for calculating things like minimum and maximum temperature, wind speed, and probability of precipitation.
+
+The commented-out lines in this function suggest that there are alternative methods or data points that could be used, but currently aren't.
+
+The last part of the code is defining a series of test scripts. Each script is represented as a dictionary with keys like "name", "commentary", "productType", "createGrids", and "checkStrings". These scripts seem to be used for testing the functionality of the weather forecast system, by creating specific scenarios and checking the output against expected results. For example, one test is checking that the system correctly generates the phrase "Near steady temperature around 50" when the temperature is consistently 50 degrees.
+
+This code appears to be part of a weather forecasting application. It defines a series of temperature ranges and the corresponding phrases to be used in the forecast.
+
+Each block of code defines a temperature range with a name, commentary, product type, grid creation instructions, and check strings. 
+
+- The `name` is a unique identifier for the temperature range.
+- The `commentary` provides a human-readable description of the temperature range.
+- The `productType` indicates the type of forecast product this temperature range applies to.
+- The `createGrids` section specifies how to create the forecast grid for this temperature range. It includes the forecast type (e.g., "Fcst"), the variable being forecasted (e.g., "T" or "MaxT"), the type of the variable (e.g., "SCALAR"), the start and end times for the forecast, the forecast value, and the elevation level (e.g., "AboveElev" or "BelowElev").
+- The `checkStrings` are the phrases that will be used in the forecast when the temperature falls within this range.
+
+The code defines temperature ranges for various scenarios, such as "Temp_50-54", "Temp_53-54", "Temp_98-103", "Temp_98-102", "Temp_100-105", "Temp_103-108", "Temp_25-30", "Temp_47-52", "Temp_57-59", "Temp_54-56", and so on. For each range, it specifies the corresponding phrase to be used in the forecast, such as "Highs in the lower 50s", "Highs around 100", "Highs 98 to 103", etc.
+
+This code appears to be part of a weather forecasting system. It's defining a series of temperature ranges and corresponding forecast phrases for different scenarios. 
+
+Each block of code represents a different temperature range scenario. For each scenario, it has a name, commentary, product type, a set of grids to create, and check strings.
+
+- The "name" field is a unique identifier for each scenario.
+- The "commentary" field provides additional information about the scenario.
+- The "productType" field specifies the type of product that the scenario applies to. In this case, it's "Phrase_Test_Local".
+- The "createGrids" field is a list of tuples, each representing a grid to be created. Each tuple includes the type of forecast ("Fcst"), the variable being forecasted ("T" or "MaxT"), the type of data ("SCALAR"), the start and end times for the forecast, the forecasted value, and the area for which the forecast applies.
+- The "checkStrings" field contains the forecast phrase that corresponds to the scenario.
+
+For example, the first block of code is defining a scenario where the maximum temperature ("MaxT") is between 53 and 54 degrees. The forecast phrase for this scenario is "Highs in the mid 50s".
+
+This code appears to be a part of a testing suite for a weather forecasting program. It contains multiple test cases, each of which is represented as a dictionary with specific keys. 
+
+Each test case has a "name" and "commentary" for identification and description purposes. The "productType" indicates the type of product being tested, which is "Phrase_Test_Local" in all cases.
+
+The "createGrids" key contains a list of tuples, each representing a forecast parameter. The parameters include the forecast type ("Fcst"), the parameter name ("T" or "MaxT" for temperature, "Sky" for sky conditions), the parameter type ("SCALAR"), the start and end times for the forecast, the parameter value, and the areas for which the forecast applies.
+
+The "checkStrings" key contains a list of strings that are expected to be present in the output of the test case. These strings represent the expected weather conditions.
+
+The test cases seem to cover different temperature and sky condition scenarios. For example, the "Temp_-5--10" test case tests for temperatures between -5 and -10, while the "SkyTrends1" test case tests for sky conditions transitioning from sunny to partly cloudy. 
+
+Some test cases also include a "notCheckString" key, which contains a list of strings that should not be present in the output, and a "fileChanges" key, which seems to indicate changes that should be made to the files for the test case.
+
+The provided code appears to be part of a larger script related to weather forecasting. It seems to be written in Python, and it's defining a series of forecast scenarios, each with a unique name, commentary, product type, and a set of grids and check strings. 
+
+The "createGrids" section in each scenario is defining a series of forecast data points. Each data point is represented as a tuple, with the following structure: ("Fcst", "Sky", "SCALAR", start_time, end_time, value, "all"). 
+
+- "Fcst" and "Sky" are likely indicating that this is a forecast for sky conditions.
+- "SCALAR" probably indicates the type of the data being represented.
+- The next two numbers represent the start and end times for this forecast data point.
+- The next number is the actual forecast value. The meaning of this value isn't clear from the provided code, but it could represent things like the percentage of cloud cover or the chance of precipitation.
+- "all" could be indicating that this forecast applies to all areas covered by the forecast model.
+
+The "checkStrings" section seems to contain a series of strings that are used to generate a textual description of the forecast. 
+
+The "fileChanges" section appears to define some changes that should be made to the files in the system, possibly as part of generating the forecast.
+
+Overall, this code seems to be part of a system for generating and testing weather forecasts.
+
+This code appears to be part of a test script for a weather forecasting system. The script is testing the functionality of the system's ability to generate forecasts for different sky conditions and precipitation probabilities. 
+
+The code is divided into several sections:
+
+1. The first section defines a series of forecast scenarios, each with a unique name, commentary, product type, and a set of grids for the forecast. Each grid represents a forecast for a specific time period and includes the forecast type ("Fcst"), the weather element being forecasted ("Sky" or "PoP"), the type of data ("SCALAR"), the start and end time of the forecast, the forecast value, and the area for which the forecast is valid ("all").
+
+2. The "checkStrings" section contains the expected output for each scenario, which will be compared to the actual output of the system to determine if the test passed or failed.
+
+3. The "fileChanges" section specifies any changes to be made to the system's files before running the test, such as adding periods or changing the time of day.
+
+4. The "maxT1" and "maxT2" variables appear to be used for testing the system's ability to handle different types of temperature data.
+
+5. The "testScript" function runs the test script, applying the scenarios and file changes, and comparing the system's output to the expected output. It also handles the setting of start times for the grids and the "drtTime" (presumably the "discrete real-time" or the time at which the test is run).
+
+Overall, this code is used for testing the functionality and accuracy of a weather forecasting system.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

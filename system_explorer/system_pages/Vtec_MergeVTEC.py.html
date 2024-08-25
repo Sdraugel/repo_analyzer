@@ -1,0 +1,102 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>MergeVTEC.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>MergeVTEC.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a part of a larger Python file that is used to merge two "active" tables together. It is a part of a software developed by Raytheon Company for the US Government, and is subject to US export control laws.
+
+The code starts with a series of comments that provide information about the software, its history, and its licensing. It also includes the contractor's name and address.
+
+The code then imports several modules and classes that it needs to function, such as `copy`, `os`, `time`, `iscUtil`, `ActiveTableRecord`, `siteConfig`, `TropicalCycloneUtil`, `VTECPartners`, `VTECTableSqueeze`, `VTECTableUtil`, `JUtil`, and several classes from `java.util` and `com.raytheon.uf`.
+
+The main class in this code is `MergeVTEC`, which inherits from `VTECTableUtil.VTECTableUtil`. The `__init__` method of this class sets up several instance variables and logs some initial information. It takes in parameters like the current active table records, the mode of the active table, new records to merge into the active table, an optional offset in seconds, a flag indicating whether to make backups, and an optional logger.
+
+The code then reads the active table and the table to be merged, logs their sizes, and makes a deep copy of the active table for backup purposes. The tables are then "squeezed" to remove obsolete records, and their sizes are logged again. The code ends abruptly, presumably because it is only a part of the whole file. The full file would likely continue with the merging of the tables and further processing.
+
+This code is part of a larger program that manages and manipulates tables of data, specifically related to VTEC (Valid Time Event Code) used in weather warnings and alerts. The code is written in Python.
+
+Here's a breakdown of what the code is doing:
+
+1. The first part of the code updates the active table, logs its size, and then squeezes it to remove unnecessary data. It also logs the size of the updated table after squeezing. If a change log is provided, it logs the number of entries tossed after merging.
+
+2. The code then determines the final changes to the active table by iterating through the updated table and checking for records that are not marked as 'Existing'. These changes are logged if a change log is provided.
+
+3. The code then resets the updated table, purged table, and changes list.
+
+4. If there are any tossed records, merged records, or changes, it logs the number of each and saves these lists for later retrieval. If backups are enabled, it also saves a backup copy of the old active table and purges old saved tables after a certain period of time.
+
+5. The function `_mergeTable` is defined, which merges the active table with another table and returns the merged table along with a list of changes that occurred. It compares records in the active table with those in the other table, removes records from the other table that have been cancelled and compacted in the active table, and processes each entry in the other table, filtering out certain records based on specific conditions.
+
+6. The function also handles cases where the remote table has a single cancelled record, copying the record if needed and removing the rest for the event.
+
+In summary, this code is responsible for updating and merging tables of data, tracking changes, and managing backups of the data.
+
+The code is part of a larger system that manages a table of active events or hazards, presumably related to weather or natural disasters. The code is structured to handle three different scenarios: when an event is canceled, when an event is currently active, and when an event has already passed.
+
+1. If an event is canceled (`canceled` is True), the code searches the active table for records matching the canceled event. It compares the issue year of the records and if they match, it adds the index to a list of matches. If the canceled event is the most recent, it replaces the corresponding records in the active table. If the record is not found in the active table, it is added. Any changes made are tracked.
+
+2. If an event is currently active (the event's `endTime` is greater than or equal to the current time), the code searches the active table for a matching record. If a match is found and the event from the other table is more recent and from the same issue year, the record in the active table is replaced. If a match is not found, the event is added to the active table. Any changes made are tracked.
+
+3. If an event has already passed (the event's `endTime` is less than the current time), the code only considers events from the current year. It searches the active table for the highest 'ETN' (Event Tracking Number) for the current year per 'phen/sig' (presumably some kind of event identifier). If a higher 'remote' record is found in the other table, the record in the active table is replaced. Special handling is provided for tropical storms, ensuring that only storms from the same basin are considered. 
+
+In all three scenarios, the code maintains lists of new and old records, records to be purged, and changes made. It also handles some error conditions, logging errors if it encounters a tropical storm record with an invalid ETN.
+
+This script is written in Python and it appears to be part of a larger system that manages and manipulates records in an active table. 
+
+The code snippet provided contains several functions that perform the following tasks:
+
+1. The first function checks if a record exists in the active table. If it does, it replaces the record and logs the change. If it doesn't, it adds the record and logs the change. The changes are stored in a list and logged if a logger is provided.
+
+2. The `getMergeResults` function collects the updated, purged, and changed records from the active table into separate lists and returns a `MergeResult` object containing these lists.
+
+3. The `_getFilterSites` function retrieves a list of filter sites, which includes the specified list of sites, SPC, TPC, and the current site. It returns None if no filtering is required.
+
+4. The `_get4ID` function converts 3-letter site IDs to 4-letter site IDs.
+
+5. The `__initLogging` function initializes a logger for the "MergeVTEC" module with a logging level of INFO.
+
+6. The `merge` function converts the active table and new records from Java objects to Python objects, merges the new records into the active table using the `MergeVTEC` class, and returns the merge results. The function also accepts optional parameters for time, whether to make backups, a logger, and a change log.
+
+Overall, this code is about managing and manipulating records in an active table, logging changes, and merging new records into the active table.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

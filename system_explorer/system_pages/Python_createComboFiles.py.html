@@ -1,0 +1,66 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>createComboFiles.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>createComboFiles.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a larger software system developed by Raytheon Company. It is designed to create combination files specific to a site, a process that has been partially ported from a previous version of the software (AWIPS-I).
+
+The script begins by importing several Python modules that it needs to function, such as glob (for file path handling), os (for interacting with the operating system), pprint (for pretty-printing Python data structures), stat (for interpreting status codes), and tempfile (for creating temporary files). It also imports a custom module named LogStream, which is presumably used for logging events and errors.
+
+The main function in this script is `createComboFiles(definitionDir, outputDir, mapDict)`. This function takes three arguments: a directory containing definition files, an output directory where the combination files will be written, and a dictionary mapping names to data.
+
+The function works as follows:
+
+1. It logs the definition directory and then uses the glob module to get a list of all Python files in that directory that end with 'Definition.py'.
+
+2. For each of these files, it tries to open the file and read its contents into a buffer. If it encounters an error (e.g., the file doesn't exist or can't be read), it logs the problem and moves on to the next file.
+
+3. It then tries to execute the contents of the buffer as Python code, which should define a dictionary named 'Definition'. If this fails (e.g., because the file doesn't contain valid Python code or doesn't define a 'Definition' dictionary), it logs the problem and moves on to the next file.
+
+4. It then checks whether the 'Definition' dictionary contains certain keys and whether the values associated with those keys are of the expected types. If so, it uses this information to generate a combination file, which it writes to the output directory.
+
+5. If it encounters any errors while writing the combination file, it logs the problem.
+
+This script also includes a significant amount of logging code, which records various events and errors that might occur during its execution. This can be useful for debugging and troubleshooting.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

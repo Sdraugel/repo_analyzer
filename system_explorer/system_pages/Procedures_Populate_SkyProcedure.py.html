@@ -1,0 +1,56 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Populate_SkyProcedure.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Populate_SkyProcedure.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code file is a part of a software developed by Raytheon Company. It appears to be a script for a weather forecasting tool, specifically for populating sky grids. The script is designed to be used in the Graphical Forecast Editor (GFE), a component of the Advanced Weather Interactive Processing System (AWIPS).
+
+The script begins with a list of menu items, tools, and variables that are used to configure the script's behavior. The variables include options for the model to use (GFS or NAM), the model run (current or previous), layer depth, whether to use relative humidity with respect to ice at temperatures below -25C, whether to include high clouds or clouds below 925mb, and various other settings related to sky cover and calibration.
+
+The main part of the script is a class named `Procedure` which inherits from `SmartScript.SmartScript`. This class has an `execute` method which is called with a time range and a dictionary of variables. This method calculates a start and end time based on the provided time range, then depending on the selected model, it deletes existing sky grids for the time range and creates new ones at specific intervals (every 3 hours for NAM, every 6 hours for GFS). For each new grid, it calls a smart tool named `Populate_SkyTool` to populate the grid.
+
+After all the grids for the time range have been created and populated, the script calls `interpolateCmd` to interpolate gaps in the sky grids.
+
+The script also contains a software history section, which documents changes made to the script over time, including the date, ticket number, engineer, and description of the changes.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

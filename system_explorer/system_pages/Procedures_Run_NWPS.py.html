@@ -1,0 +1,112 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Run_NWPS.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Run_NWPS.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a part of a software that is used to build wind forecast grids and send them to the NWPS model. The software is in the public domain and does not come with any warranty or technical support.
+
+The code is written in Python and uses several modules such as `SmartScript`, `time`, `os`, `shutil`, `TimeRange`, `AbsTime`, and `ProcessVariableList`. It defines a class `Procedure` which extends `SmartScript.SmartScript`. 
+
+The `Procedure` class has several methods:
+
+- `__init__`: This is the constructor method that initializes the class.
+
+- `fileNameFromIntTime`: This method takes a float time as input and returns a string representation of the time in the format "YYYYMMDD_HH00".
+
+- `getButtonNames`: This method calculates the current time and adjusts it to the nearest 6-hour interval. It then generates a list of times and their string representations for the next 30 hours in 6-hour intervals.
+
+- `getModelTimeRange`: This method takes a model ID and a parameter as input and returns the time range for which grids are available for the given model. It also updates the status bar message if no grids are available.
+
+- `getWEInventory`: This method takes a weather element name, a database name, a level, and a time range as input. It returns a list of time ranges for which data is available for the given field from the specified database and level. If there are any problems retrieving the wind grids, it updates the status bar message.
+
+The `MenuItems` list defines the GFE menu items under which the Procedure is to appear. The possible items are: "Populate", "Edit", "Consistency", "Verify", "Hazards". 
+
+The code also mentions that this is an absolute override file, meaning that a higher priority version of the file will completely replace a lower priority version of the file.
+
+The provided code appears to be a method in a Python class that is responsible for executing a specific task. The task seems to be related to running a weather forecast model, likely for oceanic conditions, given the references to "NWPS" (National Weather Prediction System), "SWAN" (Simulating Waves Nearshore) model, and various water level and wave conditions.
+
+Here's a breakdown of what the code does:
+
+1. It defines two lists of site identifiers (`gulfStreamSites` and `tafbSites`), which are likely used to determine specific settings based on the location of the forecast.
+
+2. It retrieves a list of button names and a domain name, and sets a variable `cron` to `True`.
+
+3. It checks if `varDict` is `None`. If it is, the code constructs a GUI (Graphical User Interface) for interactive use. It creates a list of variables (`variableList`) that the user can modify, such as the forecast length, model start time, water levels, etc. Some of these variables are appended conditionally based on whether the domain name is in the `gulfStreamSites` or `tafbSites` lists.
+
+4. If `varDict` is not `None`, it assumes that the procedure is being run from a command line with a variable list passed in using the `-V` option. It then extracts the necessary variables from `varDict`.
+
+5. It then retrieves a time range for the model and determines the start time based on the user's selection of `modelstarttime`.
+
+In summary, this code is responsible for setting up and running a weather forecast model either interactively via a GUI or from a command line, with settings that can vary based on the location of the forecast.
+
+This code is performing several tasks related to a weather forecasting model. Here's a breakdown of what it does:
+
+1. It sets the model start time (`starttime`) to `startHour`. If `startHour` is greater than `starttime`, it updates `starttime` to be `startHour`.
+
+2. It creates two time ranges (`timeRange1` and `timeRange2`) using the `starttime`. `timeRange1` is from one week before `starttime` to 8 days after `starttime`. `timeRange2` is from `starttime` to 8 days after `starttime`.
+
+3. It deletes the 'NWPSwind' command from the time range `timeRange1`.
+
+4. It finds a database called 'Fcst' and copies the 'Wind' command to 'NWPSwind' in the database for the time range `timeRange2`.
+
+5. It fragments the 'NWPSwind' command for the time range `timeRange2` and saves the 'NWPSwind' elements.
+
+6. It checks the inventory of 'NWPSwind'. If there are less than 144 hours of 'NWPSwind', it sends a status bar message saying "Not enough Wind grids. You need at least 144 hours." and returns.
+
+7. It creates a string `inp_args` with various forecast parameters separated by colons.
+
+8. It checks if a directory exists in the '/tmp' folder with the name 'nwps' followed by `GFEDomainname`. If it doesn't exist, it creates the directory and changes its permissions.
+
+9. It opens a file named 'inp_args' in the newly created directory, writes the `inp_args` string to it, and changes its permissions.
+
+10. It creates a directory on a remote server (pv2) in the '/awips2/GFESuite/nwps/' path with the name `GFEDomainname` followed by '_var' and changes its permissions.
+
+11. It copies the 'inp_args' file from the local '/tmp' directory to the remote server's directory.
+
+12. Depending on the value of `cron`, it runs a shell script on the remote server either in the background or in a new terminal window.
+
+13. Finally, it removes the directory it created in the '/tmp' folder.
+
+There's also a commented out line at the end that would send a message to a script on a different server, but it's not being used in this code.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

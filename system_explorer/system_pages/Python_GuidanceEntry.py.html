@@ -1,0 +1,88 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>GuidanceEntry.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>GuidanceEntry.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that appears to be part of a larger system, possibly for weather data processing and analysis, developed by Raytheon Company. The script primarily deals with data caching and retrieval, with a focus on METAR data. METAR is a format for reporting weather information.
+
+The script begins with a series of import statements to load necessary modules and libraries. It then defines a logger and some constants.
+
+The main part of the script is the definition of a `Cache` class. This class provides methods for adding, deleting, and retrieving data from a cache. The cache is organized by a siteID and a key. The cache also has a timeout feature, where data is removed from the cache if it is not accessed within a certain time period.
+
+The script also defines several cache objects for different types of data: gridgen, metargen, tafgen, and tampgen.
+
+There are also a few functions defined at the end of the script. These functions are used to clear the cache for specific siteIDs and to retrieve and process METAR data. The processing includes adding alert tags to the raw METAR data and formatting the data for display.
+
+The script also includes a detailed history of software changes and modifications, as well as licensing and export control information.
+
+The code is written in Python and it seems to be part of a larger system that retrieves, processes, and formats METAR and TAF weather data for specific sites. 
+
+1. The first function appears to be processing METAR data for a specific site (siteID). It retrieves the data, checks if it meets a certain cutoff time, sorts it, and formats it for viewing. If no data is found, it returns a message stating that no METARs were found for the specified hours.
+
+2. The `tafgenRetrieve` function retrieves TAF data for a specific site and model. It handles exceptions where data might not be available and highlights certain parts of the data if needed.
+
+3. The `tafgen` function processes the TAF data retrieved by `tafgenRetrieve`. It handles various scenarios, such as no data being available, and formats the data for viewing. It also has the ability to highlight flight categories in the data.
+
+4. The `__makeHeader` function creates a header for the data, including the model and the date/time.
+
+5. The `__highlightFlightCat` function highlights flight categories in TAF data.
+
+6. The `__highlightTableFlightCat` function highlights flight categories in a table of data.
+
+The code uses a mix of object-oriented and procedural programming styles. It makes use of Python's list comprehensions, exception handling, and lambda functions.
+
+This code file appears to be a part of a larger system that retrieves, generates, and formats weather data for specific sites. The code is written in Python and is likely part of a larger module or application.
+
+1. `tampgenRetrieve(siteID, model)`: This function retrieves weather data for a specific site and model. If no data is found, it returns None. Otherwise, it returns a pickled Java object containing the site ID and the retrieved data.
+
+2. `tampgen(selSite, siteObjs, model, format, taf, tafHeader, cvOnly, routine=False, highlightFlightCat=True)`: This function generates Terminal Aerodrome Forecasts (TAFs) for a selected site and a list of site objects. It handles missing data and errors, and can highlight flight categories. The generated TAFs are returned with a header.
+
+3. `gridgenRetrieve(siteID)`: This function retrieves grid data for a specific site at the current time. If data retrieval fails, it returns None. Otherwise, it returns a pickled Java object containing the site ID, the request time, and the retrieved data.
+
+4. `gridgen(siteObjs, format='short', routine=False, highlightFlightCat=True)`: This function generates grid data for a list of site objects. It handles cache out-of-date cases, missing data, and errors, and can highlight flight categories. The generated grid data is returned with a header.
+
+The first part of the code is a loop that appears to be formatting or manipulating a report (data.rpt) by inserting start and end tags around certain fields in each line of the report.
+
+Please note that the code snippet is incomplete and some of the functions it refers to (like `__makeHeader`, `__highlightFlightCat`, `TAMPGenerator.TAMPGenerator`, `AvnParser.getTafSiteCfg`, `GridData.makeTable`, `TafGen.TafGen`) are not defined in the provided code.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

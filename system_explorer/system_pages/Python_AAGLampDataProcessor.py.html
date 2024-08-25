@@ -1,0 +1,100 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>AAGLampDataProcessor.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>AAGLampDataProcessor.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code file appears to be a part of a larger software system developed by Raytheon Company. It contains a series of classes and functions that seem to be related to aviation forecasting. Here's a breakdown of what each part does:
+
+1. The comments at the top provide information about the software's history, the contractor who developed it, and the export control restrictions.
+
+2. It imports several modules, including logging, os, time, and a few custom modules such as Avn, AvnConfigParser, AvnLib, TafGen, and AAGData from com.raytheon.uf.edex.aviation.aag.
+
+3. It defines some constants like UNLIMITED, TO_KT, and FILL_VALUE.
+
+4. The `AAGTafGen` class appears to be a subclass of `TafGen.TafGen` and seems to be used for generating aviation forecasts. It initializes with a forecast, and it has several attributes related to the forecast such as start times, end times, and flight categories.
+
+5. The `_PointDataView` class seems to be a wrapper for a Java object, allowing Python code to interact with it. It provides methods to get data from the Java object.
+
+6. The `accumulate` function is a generator function that yields a running total of values from an iterable.
+
+7. The `_getCigProbs` and `_getVisProbs` functions seem to be used for getting probabilities related to visibility and cloud cover.
+
+8. The `getNumData` function reads a configuration file and returns a number of forecast hours.
+
+9. The `_GfsLampData` class seems to define some constants and mappings related to aviation forecasts.
+
+10. The code ends abruptly with the method `cigB`, which is incomplete.
+
+Overall, this code seems to be part of a system for generating and working with aviation forecasts.
+
+The code provided is a series of methods in Python that seem to be part of a larger class. These methods are used to process and manipulate weather-related data. Here's a brief summary of what each method does:
+
+1. `estCat(self, t)`: This method tries to return a formatted string of a value from the `CIG_COVT` dictionary based on the input `t`. If it fails, it returns an empty string.
+
+2. `visBestCat(self, t)`: Similar to `estCat`, but it uses the `VIS_COVT` dictionary.
+
+3. `makeObv(self, v)`: This method processes an observation dictionary `v` and returns a dictionary with a string value from `OBV_TYPE` based on the `obVis_bestCat` value in `v`. If the value is not found, it returns `None`.
+
+4. `makePcp(self, v, vsby, pdc, n, fcstHrList)`: This method processes precipitation-related data. It creates a dictionary `d` and populates it with various data points, including probability of precipitation (`pop`), lightning data (`ltg`), thunderstorm category (`tcat`), and precipitation type and intensity.
+
+5. `makeSky(self, ceiling_bestCat, clouds_bestCat)`: This method processes sky condition data. It returns a dictionary with sky cover and ceiling data.
+
+6. `makeWind(self, v, noToKt)`: This method processes wind-related data. It returns a dictionary with wind direction (`dd`), wind speed (`ff`), and maximum wind speed (`gg`).
+
+7. `makeVsby(self, var)`: This method processes visibility data. It returns the midpoint of the category range for the given visibility value.
+
+8. `makeData(self, pdc, ident)`: This method seems to be initializing some data for the class instance, including the number of data points (`numData`) and the issue time (`issuetime`).
+
+In general, these methods seem to be part of a larger system for processing and interpreting weather data.
+
+This code appears to be part of a larger program that deals with weather forecasting data. Here's a high-level overview of what each part of the code does:
+
+1. The `makePeriod` function reads weather forecast data for a specific period. It constructs a dictionary `g` that contains various weather parameters such as wind, visibility (`vsby`), obstruction to vision (`obv`), precipitation (`pcp`), and sky conditions. It also includes conditional visibility (`cvsby`), and probabilities for certain conditions (`pop6hr`, `cprob`, `ccprob`, `vprob`, `cvprob`). The function handles exceptions and edge cases, such as running out of data pairs and adjusting visibility and obstruction to vision based on certain conditions.
+
+2. The `tafPartToAAGData` function converts a part of a Terminal Aerodrome Forecast (TAF) into an `AAGData` object, which seems to be a custom data structure used in this program. It extracts various weather parameters from the TAF part and sets them in the `AAGData` object.
+
+3. The `getAAGData` function creates an `AAGData` object for each forecast type (`ocnl` and `prev`) in the TAF parts for a specific site ID. It uses the `GfsLampData` class to get the data, and the `AAGTafGen` class to generate the TAF parts. The resulting `AAGData` objects are returned in a list.
+
+Overall, this code seems to be part of a larger system for processing and manipulating weather forecast data. It's designed to handle a variety of weather parameters and forecast types, and to convert this data into a specific format for further use.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

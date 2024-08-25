@@ -1,0 +1,66 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>CommHandler.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>CommHandler.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code defines a class, `CommHandler`, which is used to handle HTTP communications. It also defines an exception class, `CommError`, which is raised when an error occurs in the `CommHandler` class.
+
+The `CommHandler` class has the following methods:
+
+- `__init__`: This is the constructor of the class. It initializes the connection, service, mode, status, reason, headers, and contents of the HTTP request.
+
+- `__str__`: This method returns a string representation of the `CommHandler` instance.
+
+- `process`: This method performs the HTTP request. It sets up and sends a message, receives the response, and stores the status, reason, headers, and contents of the response. If an error occurs during this process, it raises a `CommError`.
+
+- `formatResponse`: This method combines the status, reason, and contents of the response into a single, printable string.
+
+- `isGoodStatus`: This method checks if the HTTP request was successful by comparing the status to `http.client.OK`.
+
+- `getFullOutput`: This method returns a list containing the status, reason, headers, and contents of the response.
+
+- `getStatus`, `getReason`, `getHeaders`, `getContents`: These methods return the status, reason, headers, and contents of the response, respectively.
+
+The `CommError` class is a custom exception class. It contains a value and a cause, and overrides the `__str__` and `__repr__` methods to provide a custom string representation of the exception.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

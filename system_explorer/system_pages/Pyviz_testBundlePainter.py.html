@@ -1,0 +1,63 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>testBundlePainter.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>testBundlePainter.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is a test for the `BundlePainter` module. It appears to be part of a larger software system developed by Raytheon Company, as indicated by the header comments.
+
+The script begins by importing the `BundlePainter` module. It then defines a `main` function which does the following:
+
+1. Prints "Starting" to indicate the start of the function.
+2. Imports `DataCubeManagerStarter` from the `com.raytheon.uf.viz.core.datastructure` package. This is likely a custom package from the Raytheon software.
+3. Creates an instance of `DataCubeManagerStarter` and calls its `earlyStartup` method.
+4. Retrieves the first command-line argument (presumably the name of a data bundle) and assigns it to the variable `bundle`.
+5. Creates an instance of `BundlePainter` with the `bundle` name and dimensions of 800.0 by 600.0.
+6. Retrieves the data times associated with the `BundlePainter`'s descriptor.
+7. For each time in these data times, it calls the `paint` method of the `BundlePainter` instance, takes a screenshot, and saves the screenshot as a PNG file in the '/tmp/images/' directory. The filename of the image is the string representation of the time.
+8. Prints "Finished" to indicate the end of the function.
+
+The script then checks if it is being run as a standalone program (as opposed to being imported as a module). If it is, it calls the `main` function.
+
+The `TODO fix` comment suggests that the developer intends to change the output directory for the images in the future.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

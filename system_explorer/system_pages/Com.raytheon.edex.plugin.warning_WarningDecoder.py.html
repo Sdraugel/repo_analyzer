@@ -1,0 +1,166 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>WarningDecoder.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>WarningDecoder.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a part of a larger Python program developed by Raytheon Company. This program is designed to decode a product's UGC (Universal Geographic Code) and VTEC (Valid Time Event Code) strings. The UGC and VTEC are codes used in weather warning messages to specify the area and time validity of the warning.
+
+The code begins with a large comment section that includes information about the software's development, export restrictions, and a detailed history of changes made to the software over time. 
+
+Following the comments, several Python libraries are imported, including calendar, sys, os, time, re, and getopt. These libraries provide various functionalities such as date and time operations, system-specific parameters and functions, operating system interfaces, regular expressions, and command line options parsing.
+
+Next, a list of PILS (Product Identifier) codes for certain cities and a dictionary mapping U.S. state abbreviations to regions are defined. There are also dictionaries for bearings (directions) and speed conversions.
+
+The class `StdWarningDecoder` is defined with an `__init__` method that initializes various attributes of the class. This class seems to be responsible for decoding standard warning messages. The `__init__` method accepts three parameters: `text`, `filePath`, and `command`. The method sets the time zone to GMT0 and decodes the command line if a command is provided. 
+
+Please note that the full functionality of the `StdWarningDecoder` class is not visible in the provided code. The class likely contains additional methods that use the initialized attributes to perform the actual decoding of warning messages.
+
+This Python script appears to be part of a larger system that processes and decodes weather-related data, possibly from the National Weather Service or a similar organization. 
+
+The script starts by initializing several variables, including the raw message, a check for WMO (World Meteorological Organization) code, and the current time. If an incoming filename is provided, it attempts to extract a timestamp from the filename. If it fails, it logs an error message.
+
+The script then sets up several regular expressions (regex) to parse specific patterns in the incoming data. These patterns seem to be related to VTEC (Valid Time Event Code) and HVTEC (Hydrologic VTEC) codes, which are used in weather bulletins to provide detailed information about the event, its severity, location, and timing.
+
+The `decode` function appears to be the main function of the script. It extracts the product identifier (PIL) and issue time from the data, checks if the product is a WCL (Watch Coordination Message), and if so, sends it to a specific endpoint. If the product is segmented, it extracts the overview text and logs it. It then finds all UGCs (Universal Geographic Codes), VTEC strings, and segment text in the data.
+
+The function also checks for a polygon (possibly indicating the area affected by the weather event) and a storm. It then converts the UGC strings into a list and expands the VTEC codes. If no VTEC codes are found, it logs a message and returns.
+
+There are also a few additional functions defined, such as `_checkForDTG` which checks for a date-time group in the UGC string, and `_getPurgeTimeStrFromVTEC` which extracts the purge time from the VTEC strings.
+
+The script also includes a `_usage` function that prints out usage information for the script, and a partially defined `_decodeCommandLine` function that likely handles command-line arguments for the script.
+
+This Python code is part of a larger program that processes command line inputs and text files. Here's a breakdown of what each part of the code does:
+
+1. The first part of the code is a routine to decode the command line. It checks if a command has been provided and if it has the correct number of arguments. If not, it logs the problem and exits the program. It then uses the `getopt` module to parse command line options and arguments. It also sets some variables based on the options provided.
+
+2. The `_getProduct` method opens a file (or uses provided text), reads the content, and processes it. It checks for a specific pattern (WMO) in the text, removes unwanted characters, and splits the text into lines.
+
+3. The `_determineSegmented` method checks if a product is segmented or not. It does this by checking if certain patterns exist in the lines of the product.
+
+4. The `_getOverviewText` method extracts the overview text from the product. It does this by finding the start and end lines of the overview text and then joining all the lines in between.
+
+5. The `_getPilAndDTG` method extracts the product pil and date-time group from the product. It does this by searching for specific patterns in the lines of the product.
+
+In general, this code seems to be part of a larger system that processes and analyzes text data, possibly related to weather data given the use of terms like 'WMO' and 'GFE'.
+
+The code file appears to be a part of a larger program that processes and analyzes weather data. Here's a breakdown of what the different parts of the code are doing:
+
+1. The `_dtgFromDDHHMM` function: This function takes a string in the format "ddhhmm" (day, hour, minute) and converts it into a time object. It also handles edge cases where the day provided is more than 15 days away from the current day, adjusting the month and year accordingly.
+
+2. The `_getUGCAndVTECStrings` function: This function appears to process a weather product, extracting UGC (Universal Geographic Code) and VTEC (Valid Time Event Code) strings and segment text. It returns a list of tuples, each containing UGC keys, VTEC strings, and segment text. The function also includes error handling for cases where the UGC line does not end or a bad VTEC line is detected.
+
+3. The code block at the beginning: This block of code seems to be a part of a larger function. It logs verbose information, returns a tuple of information, and increments a count. If the count exceeds the length of `_lines` (presumably a list of lines in a file or data stream), it logs a problem and raises an exception.
+
+4. The code block at the end: This block of code seems to be a part of the `_getUGCAndVTECStrings` function. It appears to be in the middle of processing the text from a specific point in the data to a new VTEC or UGC line, or the end of the file. The code is cut off, so it's hard to say exactly what it's doing.
+
+Overall, this code seems to be part of a larger program for processing and analyzing weather data, likely from a text-based weather product.
+
+The provided code is a part of a larger Python program. It appears to be processing and analyzing text data, possibly from a file or a series of lines, which are stored in the `self._lines` list. 
+
+The main loop of the code is iterating over `self._lines` and performing different actions based on the content of each line. It uses regular expressions (`re.search`) to match specific patterns in the lines and perform different actions based on the matches.
+
+1. If a line matches the `_dlineRE` pattern and no Date-TimeGroup has been found yet, it sets the `cityLast` and `textFirst` variables and marks that a Date-TimeGroup has been found.
+
+2. If a line matches the `_endSegmentRE` pattern, it prepares the segment text from `textFirst` to the current line and breaks the loop.
+
+3. If a line matches the beginning of a segment (checked by `checkForBeginSegment` method), it prepares the segment text and backs up one line to redo the UGC outer loop.
+
+4. If it reaches the end of the file, it prepares the segment text and breaks the loop.
+
+After processing each line, it collects city information from a specific range of lines and splits the city text into a list of cities.
+
+The `ugcList` is then populated with tuples containing UGC, VTEC text, segment text, and cities. This list is returned at the end of the function.
+
+The `checkForBeginSegment` function checks if a line matches the `_ugcRE` pattern and is not a false UGC line.
+
+The `checkForFalseUGCLine` function checks if an apparent UGC line is an actual UGC line or a UGC-like line in the free-text.
+
+The `_expandUGC` function expands a UGC string into its individual UGC codes, returns the list. It handles four cases based on the length of the UGC string.
+
+The `_ugcCaseOne` and `_ugcCaseTwo` functions decode the UGC codes based on specific patterns.
+
+In summary, this code is processing and analyzing a series of lines, possibly from a text file, and extracting specific information based on the content of the lines. It seems to be related to weather or geographical data, as it references UGC (Universal Geographical Code) and VTEC (Valid Time Event Code).
+
+The code provided is a series of functions that are part of a larger program. Here's a brief description of what each function does:
+
+1. `_ugcCaseOne(self, ugc, state, code_type)`: This function takes in three arguments: `ugc`, `state`, and `code_type`. It checks if `ugc` matches a regular expression pattern of three digits. If it does, it concatenates `state`, `code_type`, and `ugc` and returns it as a list. If it doesn't, it returns `None`.
+
+2. `_ugcCaseThree(self, ugc, state, code_type)`: This function takes in the same arguments as the previous function. It checks if `ugc` matches a different regular expression pattern. If it does, it generates a list of codes from the start code to the end code and returns this list. If it doesn't, it returns `None`.
+
+3. `_ugcCaseFour(self, ugc)`: This function takes in `ugc` as an argument. It checks if `ugc` matches a regular expression pattern. If it does, it extracts the `state` and `code_type` from `ugc` and calls the `_ugcCaseThree` function with these values and a subset of `ugc`. It then returns a tuple containing `state`, `code_type`, and the list returned by `_ugcCaseThree`. If it doesn't, it returns `None`.
+
+4. `_getPolygon(self, linePos)`: This function takes in `linePos` as an argument and returns a list of polygons. It does this by searching through lines of text for a specific pattern and appending the matched text to the `polygons` list.
+
+5. `_getStorm(self, linePos)`: This function takes in `linePos` as an argument and returns a tuple containing information about a storm. It does this by searching through lines of text for a specific pattern and extracting information from the matched text.
+
+6. `_getStormFromEvent(self)`: This function returns information about a storm from an event. It does this by searching through the raw message for a specific pattern and extracting information from the matched text.
+
+7. `_calcTime(self, yymmdd, hhmm, allZeroValue)`: The function is not complete in the provided code, but it seems like it would take in three arguments: `yymmdd`, `hhmm`, and `allZeroValue` and return a tuple containing the time and an `allZeroFlag`. The time would likely be calculated based on the `yymmdd` and `hhmm` arguments.
+
+The provided code is written in Python and it seems to be part of a larger system that deals with weather data, specifically warnings and alerts. Here's a breakdown of what the different parts of the code are doing:
+
+1. The first function checks if two time strings are all zeros. If they are, it returns a value and a boolean. If not, it combines the two strings, converts them into a time structure, and returns the Unix timestamp in milliseconds and a boolean.
+
+2. The `_expandVTEC` function takes a list of VTEC (Valid Time Event Code) strings and expands them into the format of an active table. It processes each VTEC string, extracts various pieces of information using regular expressions, and stores them in a dictionary. It also calculates start and end times, handles exceptions, and appends the dictionary to a list of records. If there's a storm or flood, it includes additional information. The function returns the list of records.
+
+3. The `_remapPil` function remaps the product pil for certain phen/sig/pils. The VTECDecoder needs to relate hazards through all states from the same pil. Some short-fused hazards issue in one pil and followup/cancel in another pil. 
+
+4. The `_prepSegmentText` function removes leading and trailing blank lines from a list of lines and joins them into a single string.
+
+5. The `__containsT` function checks if a time range contains a specific time.
+
+6. The `__overlaps` function checks if two time ranges overlap.
+
+7. The `NoVTECWarningDecoder` class is a subclass of `StdWarningDecoder`. It's mentioned that it's a special case and no changes should be made to it, but the code for this class is not provided.
+
+This Python code appears to be part of a larger system for processing and decoding weather warnings. The code is organized into several classes and methods, each with a specific role. 
+
+The method `_makeRecordWithoutVTEC` is used to create a record (dictionary) from various input parameters such as `ugcstring`, `segment`, `segmentText`, `cities`, `purgeTime`, `ugcs`, and `polygon`. The record includes various properties such as `startTime`, `endTime`, `officeid`, `purgeTime`, `issueTime`, `state`, `xxxid`, `countyheader`, `cities`, `pil`, `ugcZoneList`, `region`, `wmoid`, `geometry`, `dataTime`, `rawmessage`, `motdir`, `motspd`, and `loc`. The method then appends the record to a list and returns it.
+
+The method `_expandVTEC` takes a list of VTEC strings and expands them into the format of the active table. It uses the `_expandUGC` method to expand the UGC string and then calls the `_makeRecordWithoutVTEC` method to create the record.
+
+The `WarningDecoder` class has an `__init__` method that initializes various properties of the class, including regular expressions for parsing VTEC strings. The `decode` method determines which type of warning to decode and creates an instance of the appropriate decoder class (`StdWarningDecoder` or `NoVTECWarningDecoder`) to decode it. The `_checkForVTEC` method checks if the input text or file contains a VTEC string and sets the `_stdWarningDecode` property accordingly.
+
+Overall, this code seems to be part of a system for processing and decoding weather warning data, specifically dealing with VTEC (Valid Time Event Code) and UGC (Universal Geographic Code) strings.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

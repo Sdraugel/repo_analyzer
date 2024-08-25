@@ -1,0 +1,70 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>retrieveActivity.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>retrieveActivity.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The given code is a Python script used to extract PGEN (Product Generation) products from EDEX (Environmental Data EXchange). The script can be run in batch mode by specifying various command line options or in interactive mode if no arguments are provided. Users can also override the default EDEX server and port name by specifying them in the shell environment variables.
+
+The script imports necessary modules including logging for logging purposes, tkinter for GUI, and other custom modules. It then initializes a logger with a specific format and level.
+
+The `__parseCommandLine()` function is used to parse command line arguments using the `argparse` module. It defines various options that can be provided as command line arguments and stores them in the `options` object. The function also sets some flags based on the provided options.
+
+The `main()` function is the entry point of the script. It initializes the logger, parses the command line arguments, and based on the `interactive` flag, either launches a GUI for interactive mode or retrieves activities and builds a map of records for batch mode. It also handles some specific cases like replacing a space with "_" in the type and forming the matching pattern for tag ID. It then iterates over the keys in the activity map and matches various fields with the provided options.
+
+The code ends abruptly and seems to be incomplete as the loop in the `main()` function is not closed and the script does not have an execution point (like `if __name__ == "__main__": main()`).
+
+This code is a part of a Python program that retrieves and manages product records from a database, and provides an interactive GUI for PGEN activity retrieval.
+
+The first part of the code is checking and manipulating some time-related variables (`latestRefTime`, `dbRefTime`, `shortTime`, `optionTime`). It's also checking if there are any records to write to files and logging the status of the operation.
+
+The `RetrieveGui` class is defining an interactive GUI for PGEN activity retrieval. It has several methods:
+
+- `__init__`: Initializes the frame and creates widgets.
+- `getProducts`: If an activity type and label have been selected, it gets products and writes them out.
+- `createWidgets`: Creates the GUI widgets, including labels, list boxes, and buttons.
+- `poll`: Continuously polls for user selection changes in the Activity Type ListBox.
+- `typeList_has_changed`: Replaces the list of Activity Labels in the Label Listbox with those associated with the current Activity Type selection.
+
+The `if __name__ == '__main__':` line at the end of the script is used to ensure that the `main()` function is only run when the script is executed directly (not when it's imported as a module in another script).</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

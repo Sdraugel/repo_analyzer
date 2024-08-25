@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>MockParm.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>MockParm.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script, which appears to be part of a larger system for testing. The script defines a class `MockParm` that is used as a stand-in for a Java Parm during unit testing. 
+
+The `MockParm` class has the following attributes and methods:
+
+- `__init__(self, id, outObj=sys.stdout)`: This is the constructor method for the class. It initializes an instance of the class with an id, an output object (defaulting to the system standard output), and empty lists for gridInventory and lockedTRs.
+
+- `deleteTR(self, timeRange)`: This method is a stub substitute for the `deleteTR()` method of the Java Parm interface. It checks if the provided timeRange is a valid Java object, and if it is, it writes a string containing the timeRange and the id of the instance to the output object.
+
+- `getGridInventory(self, timeRange)`: This method returns the grid inventory if the provided timeRange is a valid Java object.
+
+- `startParmEdit(self, dateList)`: This method starts editing the Parm. It creates a new time range for each date in the provided list, checks if it overlaps with any locked time ranges, and if not, it locks the time range, creates a new slice and grid data for it, and adds the grid data to a list that it returns.
+
+- `endParmEdit(self)`: This method ends the editing of the Parm by clearing the list of locked time ranges.
+
+The script also imports several modules at the beginning, including `sys`, `MockGridData`, `MockSlice`, `TimeRange`, and `TimeRange` from `com.raytheon.uf.common.time`. The first part of the script contains comments that provide information about the software's development and export control status, as well as the contractor's name and address.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

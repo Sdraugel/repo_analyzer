@@ -1,0 +1,68 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>configureTextProducts.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>configureTextProducts.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that is used to generate site-specific text products. 
+
+The script is designed to be run during the installation of a software package to customize a set of text products for a specific site. It appears to be part of a larger software package developed by Raytheon Company for the US Government, as indicated by the comments at the top of the script.
+
+The script uses the Python logging module to log its activities, and the log file is saved in the '/awips2/edex/logs/' directory with a filename that includes the current date.
+
+The main part of the script is a class named `ConfigureTextProducts`. This class has methods for parsing command line options and arguments, and a `main` method that is the entry point for the script. The `main` method sends a `ConfigureTextProductsRequest` to a host (default is localhost) using the ThriftClient from the AWIPS package. The request contains information about the mode of operation (create, delete, or display), the template directory, the site ID, and optionally the destination directory.
+
+The script is intended to be run from the command line, and it provides a usage message to guide the user in providing the correct command line arguments and options. The script will exit with an error message if the request fails or if the response from the host contains an error message.
+
+This part of the code is checking if the current script is the main program being executed, rather than being imported as a module by another script. If it is the main program, it will call the `main()` method of the `ConfigureTextProducts` class.
+
+However, it seems like there's a typo in your code. The correct syntax in Python should be:
+
+```python
+if __name__ == "__main__":
+
+    ConfigureTextProducts().main()
+```
+
+This `if __name__ == "__main__":` condition is a common Python idiom. If a Python file is run directly, `__name__` is set to `"__main__"`. If it is imported as a module in another file, `__name__` is set to the name of that file. So this condition is used to only run certain parts of the code if the file is being run directly, not when it's imported elsewhere.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

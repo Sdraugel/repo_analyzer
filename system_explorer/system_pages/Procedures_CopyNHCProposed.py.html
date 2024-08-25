@@ -1,0 +1,74 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>CopyNHCProposed.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>CopyNHCProposed.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is part of a larger software system, likely related to weather forecasting, specifically tropical weather events. This particular file appears to be a Python script that is responsible for handling and manipulating weather forecast data, specifically related to tropical storm hazards.
+
+Here's a high-level summary of what this script is doing:
+
+1. It imports two modules, `LogStream` and `TropicalUtility`. These modules likely contain utility functions and classes that are used in this script.
+
+2. It defines a class `Procedure` which inherits from `TropicalUtility.TropicalUtility`. This class has two methods: `__init__` and `execute`.
+
+3. The `__init__` method is the constructor of the class, which is used to initialize the object of the class. It calls the constructor of the parent class `TropicalUtility.TropicalUtility`.
+
+4. The `execute` method appears to be the main function of the class. It performs several operations:
+   - It sets a time range from the current time to 48 hours in the future.
+   - It deletes any existing collaboration difference grids.
+   - It sets a hard-coded list of hazards to copy.
+   - It removes any pre-existing grids.
+   - It copies any proposed nc grids into the forecast.
+   - It creates a difference grid between incoming NHC ProposedSS and what is already in Hazards Grid.
+   - It checks if there are any storm surge (SS) hazards in the Hazards grid. If there are, it adds them to a list.
+   - It checks if the time range of the Hazards grid overlaps with the time range of the created grid. If it does, it performs some operations (the code provided cuts off here).
+
+The comments in the code indicate that this script is a part of a larger system and that some of the functionality (like choosing hazards to copy) is currently hard-coded but should eventually come from a GUI. The script also seems to be a work in progress, as there are some commented-out sections and print statements used for debugging.
+
+This code is part of a larger program and seems to be related to weather forecasting, specifically storm surge prediction.
+
+1. The first part of the code is comparing all grids. It checks if any storm surge hazards are found (`anySSHazardsFound`) or if both storm surge hazards and another condition (`ssFound`) are found. If either of these conditions is true, it calls the `calcDiffGrid` method. This method likely calculates the difference between the current hazard grid (`HazardList[index][1]`) and a proposed grid (`proposedGrid`). The result is labeled as "CollabDiffSS". The `hazTRlist[index]` is passed as an argument, which could be a list of hazard time ranges. The `isWFO=True` argument suggests that this calculation is being done for a Weather Forecast Office (WFO).
+
+2. The second part of the code is related to displaying the storm surge area. It retrieves an edit area named "StormSurgeWW_EditArea_Local" by calling the `getEditArea` method and stores it in the `stormSurgeEditArea` variable. Then, it sets this edit area as the active one using the `setActiveEditArea` method. This could be a way to highlight or focus on the storm surge area in a graphical user interface.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

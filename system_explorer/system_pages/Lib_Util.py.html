@@ -1,0 +1,66 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Util.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Util.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code file is a utility module that provides several helper functions and classes for use in a larger software system. It was developed by Raytheon Company for the US Government, and contains export-restricted data.
+
+Here's a brief overview of the functions and classes:
+
+1. `isEmptyString(string, strip=False)`: This function checks if a string is empty. A string is considered empty if it's null or contains no characters. If the `strip` flag is set to `True`, it will first remove leading and trailing white space before checking.
+
+2. `printMessage(stream, header=None, body=None)`: This function prints a message to a specified output stream. The message can have a header and a body.
+
+3. `reportHTTPResponse(report)`: This function formats the error response from a script runner and prints it to the standard error stream.
+
+4. `convListToDict(list)`: This function converts a list into a dictionary. The list should have an even number of elements, alternating between keys and values. If the list has an odd number of elements, a `ValueError` is raised.
+
+5. `doWithinTime(target_function, description='complete the operation', max_tries = 3, max_try_time = 10.0, args=(), kwargs=None)`: This function tries to execute a target function within a specified time limit. If the function doesn't complete within the time limit, it tries again up to a maximum number of tries. If all tries fail, it raises an exception.
+
+6. `TimeoutException`: This is a custom exception class that is raised when a time limit is exceeded.
+
+7. `time_limit(seconds)`: This is a context manager that sets a time limit for the execution of a block of code. If the code doesn't complete within the time limit, a `TimeoutException` is raised.
+
+The code also imports several modules like `contextlib`, `signal`, `sys`, `queue`, `threading`, `traceback` and a module named `InputOutput` from the current package. These modules provide various functionalities used by the functions in this code file.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

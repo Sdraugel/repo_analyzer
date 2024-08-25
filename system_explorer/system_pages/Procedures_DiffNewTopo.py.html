@@ -1,0 +1,66 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>DiffNewTopo.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>DiffNewTopo.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is part of a software that appears to be used for terrain analysis or editing, possibly in a geographical information system (GIS) or similar application. The software is in the public domain and is provided without any warranty or technical support.
+
+The code defines a class `Procedure` that inherits from `SmartScript.SmartScript`. The `Procedure` class has two methods: `__init__` and `execute`. 
+
+The `__init__` method is the constructor that initializes the `Procedure` object. It calls the parent class's `__init__` method to set up the object.
+
+The `execute` method seems to perform the main functionality of the class. It takes a `timeRange` parameter and performs several operations:
+
+1. It checks if the current mutable database ID matches the ID of a database named "EditTopo_NewTerrain". If not, it displays an error message and exits the method.
+
+2. It retrieves grid data from several databases ("EditTopo_NewTerrain", "EditTopo_BaseTerrain", "EditTopo_Topo") for different terrain types ("NewTopo", "StdTopo", "GTOPO", "Topo").
+
+3. It unloads certain weather elements from the "EditTopo_NewTerrain" database.
+
+4. It calculates the difference between various pairs of terrain types (e.g., "NewTopo" and "Topo", "StdTopo" and "GTOPO", etc.) and creates new grids in the "EditTopo_NewTerrain" database for these differences. 
+
+5. For each difference, it calculates the maximum and minimum values, and uses these to set the range of the new grid. It also sets other properties of the grid, such as its name, color, and unit of measurement ("ft").
+
+The code also imports several modules (SmartScript, TimeRange, numpy, and DisplayMessageDialog) and defines two lists: `MenuItems` and `VariableList`. These may be used elsewhere in the software.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,70 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>importAdaptivePlot.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>importAdaptivePlot.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be part of a larger system, possibly for data processing or analysis. The script is designed to parse command-line arguments, validate the input file, and then send a request to a server. Here's a breakdown of what the script does:
+
+1. The script starts with a shebang line (`#!/awips2/python/bin/python3`) that specifies the interpreter for the script, which is Python 3 located at `/awips2/python/bin/`.
+
+2. The script then contains a block of comments providing information about the software's development, export restrictions, and licensing details.
+
+3. The script defines a class `MainData` with several attributes (`file`, `prefix`, `descriptiveName`, `server`) and corresponding setter methods.
+
+4. An instance of `MainData` is created and a dictionary `argumentMap` is defined to map command-line arguments to the appropriate setter methods of the `MainData` instance.
+
+5. The script then parses the command-line arguments and uses the `argumentMap` to call the appropriate setter methods on the `MainData` instance.
+
+6. The script checks if the file specified in the command-line arguments exists and is a valid file. If not, it prints an error message and exits.
+
+7. If the file is named "spotters.dat", the script performs some cleanup and modification operations on the file.
+
+8. The script then creates a `NewAdaptivePlotRequest` object, sets its attributes based on the `MainData` instance, and sends the request to the server.
+
+9. If the file was "spotters.dat", the script removes the temporary file it created earlier.
+
+10. Finally, the script prints a message indicating that the plots have been uploaded to the server.
+
+In summary, this script is used to parse command-line arguments, validate and possibly modify an input file, and then send a request to a server. The exact purpose of the request and the nature of the server are not clear from this script alone, but it seems to be related to data processing or analysis.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

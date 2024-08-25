@@ -1,0 +1,132 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>doConfig.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>doConfig.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be part of a larger software system developed by Raytheon Company. It's primarily focused on validating and converting server configurations into simple Java objects. The script imports several modules and Java classes to achieve this.
+
+The script contains several functions:
+
+1. `check`: This function checks if a Python sequence matches a given format. It takes four arguments: `data`, `fmt`, `message`, and `allData`. It raises an AssertionError if the length of the data does not match the length of the format, or if the type of each element in the data does not match the corresponding type in the format.
+
+2. `dictCheck`: This function checks if a dictionary's keys are strings and if its values/subvalues match the specified types. It raises a TypeError if the dictionary's keys are not strings, or if its values or subvalues do not match the specified types.
+
+3. `getWx`: This function seems to be processing weather data. It uses classes from the `com.raytheon.uf.common.dataplugin.gfe.weather` and `com.raytheon.edex.plugin.gfe.config` packages. It processes weather types, coverages, intensities, and attributes.
+
+The script also declares several global variables: `Databases`, `Projections`, and `DiscreteDef`.
+
+The script contains a detailed history of software changes, indicating that it has been maintained and updated over time. It also contains a disclaimer about U.S. export control laws, indicating that the software contains data that is restricted by U.S. law.
+
+The code is written in Python and appears to be part of a larger system for handling weather data. It defines several functions for parsing and validating different types of weather-related data, and for creating instances of different classes based on that data. Here is a brief overview of what each function does:
+
+1. `parseKeys`: This function checks if a given name exists in the `DiscreteDef` dictionary. If not, it creates a new entry with the name as the key and an `ArrayList` as the value. The `ArrayList` is populated based on the parameters passed to the function.
+
+2. `createParm`: This function creates a parameter based on the information passed to it. It checks the type of the parameter and creates a different kind of parameter based on that type. It also performs some validation checks on the parameter information.
+
+3. `getDB`: This function retrieves a database configuration for a given site and database information. If the database configuration doesn't exist, it creates a new one and adds it to the `Databases` dictionary.
+
+4. `parseDBItm`: This function parses a database item. It retrieves the database configuration for the item, then adds a set of parameters to the database's grids.
+
+5. `updateProjections`: This function updates the projection data for a given projection. It performs some validation checks on the projection data.
+
+The code also includes a few lines of code outside of these functions, which appear to be adding weather coverage, intensity, and attribute data to sets, and visibility data to an `ArrayList`. 
+
+The code makes use of several classes and functions that are not defined in the provided code, such as `WeatherCoverage`, `WeatherIntensity`, `WeatherAttribute`, `SimpleWeatherTypeConfig`, `SimpleGridParmConfig`, `SimpleModelConfig`, and `check`. These are likely defined elsewhere in the same project.
+
+The code provided is written in Python and it seems to be part of a larger system, possibly related to weather forecasting or geographical data processing, given the use of terms like 'gridSize', 'origin', 'extent', 'projection', 'weatherTypes', 'visibilities', etc. Here's a breakdown of what each function does:
+
+1. The first part of the code checks if a projection ID (`projID`) exists in the `Projections` dictionary. If it doesn't, it creates a new `ProjectionData` object and adds it to the dictionary.
+
+2. `parseGridLocation(domain)`: This function parses a grid location from a given domain. It checks the format of the domain data and raises errors if the data is not in the expected format. It returns a `SimpleGridLocation` object.
+
+3. `parse(siteId, databases, wxtypes, wxvisibilities, allSites, inProjections)`: This function parses various data related to a site. It checks the format of the data, raises errors if the data is not in the expected format, and returns several data structures related to the site.
+
+4. `d2dParse(d2dmodels)`: This function parses D2D model data. It checks the format of the data, raises errors if the data is not in the expected format, and returns a dictionary mapping D2D model names to GFE model names.
+
+5. `netcdfParse(netcdfDirs)`: This function parses NetCDF directory data. It checks the format of the data, raises errors if the data is not in the expected format, and returns a dictionary mapping directories to model names.
+
+6. `parseSat(satdata)`: This function parses satellite data. It checks the format of the data, raises errors if the data is not in the expected format, and returns a dictionary mapping directories to names.
+
+7. `otherParse(validSites, serverhost, mhsid, port, initmodules, accumElem, initskips, d2ddbver, prddir, home, extraWEPrec, vtecRequestTime, autoConfigureNotifyTextProd,)`: This function seems to parse other types of data, but the code for this function is not complete, so it's not clear what it does.
+
+In general, these functions seem to be part of a larger system that processes and validates various types of geographical and meteorological data.
+
+The provided code is a function that validates and processes a series of input parameters. Here's a breakdown of what it does:
+
+1. It checks the type of each input parameter. If the type of a parameter does not match the expected type, it raises a `TypeError` with a message that includes the name of the parameter and its actual type. The types checked for include `str`, `int`, `list`, and `bool`.
+
+2. It uses a function called `dictCheck` to validate and process parameters that are expected to be dictionaries. This function is not defined in the provided code, but it appears to take four arguments: the dictionary to check, the expected type of the dictionary's keys, the expected type of the dictionary's values, and a string that is presumably used in error messages.
+
+3. For the `extraWEPrec` parameter, it creates a new `LinkedHashMap` and populates it with entries based on the contents of `extraWEPrec`. If an entry in `extraWEPrec` is a string, it is added to the map with a value of `1`. If an entry is a tuple with two elements, the first of which is a string and the second an integer, it is added to the map with the string as the key and the integer as the value.
+
+4. For the `requestedISCsites` and `requestedISCparms` parameters, it creates new `ArrayList`s and populates them with the contents of the parameters, provided they are lists of strings. It also checks that each string is in a list of valid sites or matches a certain pattern, respectively.
+
+5. For the `requestISC`, `sendiscOnSave`, and `sendiscOnPublish` parameters, it checks that they are either booleans or integers with a value of `0` or `1`.
+
+6. For the `transmitScript` parameter, it checks that it is either a string or `None`. If it is `None`, it is replaced with an empty string.
+
+7. Finally, it returns a tuple containing all the processed parameters.
+
+The function `parseAdditionalISCRouting` is defined at the end, but its body is not included in the provided code. It appears to take a single parameter, `iscRoutingData`, and checks if it is iterable. If it is not, it raises a `TypeError`.
+
+This code snippet is part of a function that processes a list or tuple of data, `iscRoutingData`, related to ISC (Inter-System Communication) routing. The function is designed to handle a specific format of data and will raise a `TypeError` if the input is not a list or tuple.
+
+Here's a step-by-step breakdown of what the code does:
+
+1. If the `AdditionalISCRouting` is not a list or a tuple, it raises a `TypeError` with a message "AdditionalISCRouting should be a list or tuple."
+
+2. It then iterates over each `entry` in `iscRoutingData`.
+
+3. For each `entry`, it calls a function `check` which seems to validate the format of the `entry`. The `check` function is expected to return a tuple containing a list (`pyParms`), a string (`dbName`), and another string (`editAreaPrefix`). If the `entry` is not in the correct format, it raises an error with the message "AdditionalISCRouting entry not in correct format."
+
+4. It then creates an empty `ArrayList` called `javaParms`.
+
+5. It iterates over `pyParms` (which is a list), and for each `parm`, it converts the first element of `parm` to a string and adds it to `javaParms`.
+
+6. It then creates an `ISCRoutingConfig` object with `javaParms`, `dbName`, and `editAreaPrefix` as arguments, and adds this object to `retVal`.
+
+7. Finally, it returns `retVal`, which is presumably a list or collection of `ISCRoutingConfig` objects.
+
+Please note that some assumptions have been made in this analysis due to the absence of the full context of the code.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

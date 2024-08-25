@@ -1,0 +1,185 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>VTEC_CrossingYear_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>VTEC_CrossingYear_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code appears to be part of a testing or simulation script for a weather forecasting system. The script contains a series of test scenarios, each represented as a dictionary with various keys such as "commentary", "name", "productType", "drtTime", "createGrids", "checkStrings", and "clearHazardsTable". 
+
+Each scenario simulates a different situation, such as issuing a weather advisory, advancing the system's internal clock, and clearing the hazard table. The "commentary" field provides a human-readable explanation of what each scenario is intended to test or simulate.
+
+The "createGrids" field appears to define a series of operations on a forecast grid, such as creating a new grid or modifying an existing one. The "checkStrings" field contains a list of strings that are expected to be present in the output of the system under test.
+
+The "productType" field indicates the type of weather advisory being issued, and the "drtTime" field appears to set the system's internal clock to a specific date and time.
+
+The "clearHazardsTable" field, when set to 1, indicates that all hazards should be cleared from the system's hazard table.
+
+The code also contains a header with legal information about the software, including its developer, contract information, and export restrictions.
+
+This code appears to be a part of a larger program that generates weather advisories. The code is divided into several sections, each representing a different advisory or update to an existing advisory. 
+
+Each section contains a commentary that describes the situation, a name for the advisory, a time associated with the advisory (drtTime), the type of product being generated (productType), a series of commands to create grids (createGrids), and a series of checkStrings which seem to be the actual content of the advisory.
+
+The advisories are related to "Blowing Dust" hazards, and the code specifies the time periods for which the advisories are in effect. The checkStrings contain the actual text of the advisories, including the location (Coastal Pasco), the time the advisory is issued, the details of the advisory, and a caution message for travelers.
+
+The createGrids part of the code seems to be related to the time periods for which the advisories are in effect. The "DISCRETE" keyword suggests that these are specific, non-overlapping time periods.
+
+The code also contains some placeholders (e.g., "|*Overview headline (must edit)*|") which suggests that this is a template for advisories, and some parts of the text are meant to be filled in or edited for each specific situation.
+
+The code is a series of Python dictionaries that seem to be part of a larger weather forecasting system. Each dictionary represents a different scenario or event related to weather hazards, specifically a "Blowing Dust Advisory". Each dictionary has several key-value pairs that provide information about the scenario:
+
+1. "commentary": A description of the scenario.
+2. "name": The name of the scenario.
+3. "drtTime": The date and time of the scenario, in the format "YYYYMMDD_HHMM".
+4. "productType": The type of weather product, which is "Hazard_NPW_Local" for most scenarios.
+5. "createGrids": A list of tuples, each representing a forecast grid. Each tuple contains details about the forecast, such as the type of hazard, the start and end times, and the affected areas.
+6. "checkStrings": A list of strings that seem to be part of a weather message or advisory.
+7. "clearHazardsTable": A boolean value that indicates whether the hazards table should be cleared. This key is only present in one scenario.
+
+The code seems to be testing different scenarios for issuing, extending, and expiring a "Blowing Dust Advisory". It checks how the system handles these scenarios, especially when they span across different years.
+
+This code appears to be part of a larger system that generates weather advisories, specifically Blowing Dust Advisories. The code is structured as a series of dictionaries, each representing a different advisory or action.
+
+Each dictionary contains the following keys:
+
+1. "commentary": This key provides a description or commentary about the specific advisory or action. It seems to be used for internal documentation or logging purposes.
+
+2. "name": This key identifies the specific advisory or action.
+
+3. "drtTime": This key represents the time associated with the advisory or action, likely in the format "YYYYMMDD_HHMM".
+
+4. "productType": This key identifies the type of product, which in this case is "Hazard_NPW_Local".
+
+5. "createGrids": This key is associated with a list of tuples, each representing a forecast grid. Each tuple contains information about the forecast, including the type of hazard, the time range, and the affected area.
+
+6. "checkStrings": This key is associated with a list of strings, which seem to be parts of the actual text of the weather advisory.
+
+7. "clearHazardsTable": This key, found in the "Hazard_CrossingYear_Cleanup3" dictionary, seems to indicate that the hazards table should be cleared, likely as part of a cleanup or reset process.
+
+The code seems to be designed to handle weather advisories that cross over from one year to the next, as indicated by the "Hazard_CrossingYear" prefix in the "name" values. The advisories include information about the timing and nature of the blowing dust hazard, as well as a caution for travelers.
+
+The provided code seems to be a part of a larger script, likely written in Python, that is used for issuing and tracking weather events, specifically hazards. It appears to be a part of a weather forecasting system, possibly for the National Weather Service.
+
+The code consists of several dictionaries, each representing a different weather event. Each dictionary contains:
+
+1. "commentary": A string that provides a description or explanation of the event.
+2. "name": A unique identifier for the event.
+3. "drtTime": The time the event was issued, likely in the format YYYYMMDD_HHMM.
+4. "productType": The type of weather event, in this case, a local non-precipitation weather (NPW) hazard.
+5. "createGrids": A list of tuples, each representing a grid for the forecast. The tuples contain information about the forecast type, the hazard type, the time range of the forecast, the event code, and the affected area.
+6. "checkStrings": A list of strings that seem to be parts of the message that is issued for the event. This includes the issuing service, the time of issue, the type of hazard, the affected area, and the advisory message.
+
+The code seems to be handling events that span across the end of one year and the beginning of the next. It assigns each event a unique event tracking number (ETN) and handles the continuity of these events across the year boundary.
+
+This code appears to be part of a larger system related to weather forecasting and advisories. It's written in Python and contains a series of dictionaries, each representing a different event or scenario related to weather hazards.
+
+Each dictionary contains several key-value pairs:
+
+- "commentary": This provides a human-readable explanation of what the event or scenario represents.
+- "name": This is the unique identifier for the event or scenario.
+- "drtTime": This is the date and time of the event or scenario, likely in the format YYYYMMDD_HHMM.
+- "productType": This indicates the type of weather product or advisory that is being issued.
+- "createGrids": This is a list of tuples, each representing a forecast grid. Each tuple contains information about the type of hazard, its duration, and the affected area.
+- "checkStrings": This is a list of strings that appear to be part of the text of the weather advisory. These strings include information such as the advisory code, the issuing agency, the time of issuance, and the advisory message itself.
+
+The code appears to simulate different scenarios for issuing weather advisories, particularly for blowing dust. These scenarios include different times, durations, and affected areas. The scenarios also include different advisory codes, which likely correspond to different stages or types of advisories (e.g., new advisory, advisory remains in effect, advisory extended).
+
+The last dictionary in the provided code has a "decodeVTEC" key, which suggests that the system uses the VTEC (Valid Time Event Code) system for encoding weather advisories. The value of this key is set to 0, indicating that the VTEC decoding functionality should be turned off for this scenario.
+
+Overall, this code appears to be part of a testing or simulation system for weather advisories.
+
+This code appears to be a part of a weather forecasting system. It generates weather advisories for specific zones (in this case, FLZ149 and FLZ050, which seem to represent specific geographic areas) about a blowing dust advisory. 
+
+The code includes several scenarios, each representing a different point in time and the corresponding status of the weather event. For each scenario, it provides a commentary explaining the situation, a name for the scenario, the time it represents, the product type it generates, and the grids it creates for the forecast. 
+
+The "checkStrings" section seems to be a template for the weather advisory that will be issued, with placeholders for the specific details to be inserted. 
+
+For example, in the first scenario, a blowing dust advisory is issued for Pinellas and Coastal Pasco until 2 AM and 4 AM respectively. In the second scenario, the advisory for Pinellas has expired but continues for Coastal Pasco. 
+
+The code also includes placeholders for additional text (e.g., "|* SEGMENT TEXT GOES HERE *|.") and for sections that need to be edited (e.g., "|*Overview (must edit)*|."). 
+
+The lines starting with "#" seem to be commented out, meaning they won't be executed in the program. These lines might be alternative versions of the advisory or additional information that can be included as needed. 
+
+The "$$" might be a marker indicating the end of a section or message. 
+
+Overall, this code seems to be a part of a system for generating and managing weather advisories.
+
+The provided code appears to be a part of a larger system that deals with weather advisories, specifically blowing dust advisories. The code is structured as a series of dictionaries, each containing details about a specific advisory scenario.
+
+1. The first dictionary describes a scenario where a Blowing Dust Advisory remains in effect until 4 AM EST early in the morning. It contains a commentary, name, drtTime, productType, createGrids and checkStrings keys which provide information about the scenario.
+
+2. The second dictionary describes a scenario where the forecaster removes the grid prior to the ending time of the remaining event, which generates a CAN (cancel) message. 
+
+3. The third dictionary is for cleaning up hazard grids. It has a commentary, name, productType, checkStrings, and clearHazardsTable keys. The clearHazardsTable key is set to 1, indicating that the hazards table should be cleared.
+
+4. The fourth dictionary describes a scenario where a Blowing Dust Advisory is issued and is in effect until 7 PM EST Thursday.
+
+5. The fifth dictionary describes a scenario where the event is extended until 9z for the same zone, and a second zone is added starting at 0z until 7z.
+
+6. The sixth dictionary describes a scenario where a new event is added with starting times of 14z for both zones and continuing until 19z in one zone and 0z for the second zone.
+
+The "createGrids" key in each dictionary seems to be used for creating or modifying the forecast grids for the hazard. The "checkStrings" key contains the actual advisory message that would be sent out.
+
+Overall, this code is likely part of a weather forecasting or notification system, and these specific dictionaries are used to handle different scenarios related to a Blowing Dust Advisory.
+
+This code appears to be part of a weather forecasting system, specifically dealing with the issuance of Blowing Dust Advisories. The code is structured as a series of dictionaries, each representing a different advisory scenario. Each dictionary contains:
+
+- "commentary": A description of the advisory scenario.
+- "name": A unique identifier for the scenario.
+- "drtTime": The specific time associated with the scenario.
+- "productType": The type of weather advisory.
+- "createGrids": A list of tuples, each representing a forecast grid. Each tuple contains information about the forecast type, the hazard type, the time range, and the affected zones.
+- "checkStrings": A list of strings that seem to be used to generate the actual text of the advisory.
+
+The code seems to handle different scenarios, such as an advisory being issued, remaining in effect, expiring, or being extended. It also handles advisories that affect multiple zones and cross over into a new year. The advisory text includes information about the time, date, affected area, and the nature of the advisory, urging travelers to use caution due to restricted visibility caused by blowing dust.
+
+This code appears to be part of a weather forecasting system. It's written in Python and seems to be used for testing the system. 
+
+The first part of the code is a list of dictionaries. Each dictionary represents a different test case. The "checkStrings" key in each dictionary contains a list of strings that are expected to be found in the output of the test case.
+
+The first dictionary represents a test case for a weather advisory message. It includes details like the advisory code, the location, the date and time, and the specific weather condition (in this case, a blowing dust advisory). 
+
+The second dictionary represents a test case for a cleanup operation, where hazard grids are deleted. It has a "clearHazardsTable" key set to 1, indicating that the hazards table should be cleared during this test case.
+
+The last part of the code is a function named `testScript`. This function takes in a `dataMgr` parameter and sets up some default settings for the test. It then calls a method `generalTestScript` from the `TestScript` module, passing in the `dataMgr`, a list of scripts to be tested, and the default settings. The `generalTestScript` method likely runs each script and checks the output against the expected "checkStrings" for each test case.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

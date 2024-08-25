@@ -1,0 +1,64 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>combineH5Files.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>combineH5Files.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to traverse a directory structure, find files matching a specific pattern, and perform operations on those files. Here's a breakdown of what each part of the code does:
+
+1. The script starts by importing necessary modules. These include `os`, `subprocess`, `re`, `stat`, `sys`, and `time` for various system-level operations, and `h5py` for handling HDF5 files, a common format for storing large amounts of numerical data.
+
+2. `matchRe` is a regular expression that matches any string that contains one or two hyphens followed by six or more digits, and ends with `.h5`.
+
+3. `findEachGroup` is a recursive function that traverses the group hierarchy of an HDF5 file. If it encounters a group, it recursively calls itself on each subgroup. If it encounters a dataset, it adds the dataset's name to a list.
+
+4. `processFile` is a function that processes each file that matches the regular expression. It first renames the file by removing the matched part. If a file with the new name already exists, it opens the file, finds all datasets in it, and copies each dataset into the existing file using the `h5copy` command. If the copy operation is successful, it removes the original file.
+
+5. `fileWalk` is a recursive function that traverses a directory structure. If it encounters a directory, it recursively calls itself on each file or subdirectory. If it encounters a file, it checks if the file name matches the regular expression and if so, processes the file.
+
+6. `copy` is a function that copies a dataset from one HDF5 file to another using the `h5copy` command. If the copy operation is successful, it changes the permissions of the output file to make it readable, writable, and executable by the user, group, and others.
+
+7. `main` is the main function that takes an input directory as a command-line argument, measures the time it takes to traverse the directory structure and process all matching files, and prints the total time.
+
+8. The script is executed if it is run as a standalone program. If it is imported as a module, the `main` function is not executed.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

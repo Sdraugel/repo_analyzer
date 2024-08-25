@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>HeatIndexTool.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>HeatIndexTool.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is part of a larger software developed by Raytheon Company. The specific part of the code you provided is a tool for calculating the Heat Index, which is a measure of how hot it feels when relative humidity is factored in with the actual air temperature.
+
+The code begins with some metadata and licensing information about the software. It then imports necessary libraries and defines a class named `Tool` that inherits from `SmartScript.SmartScript`.
+
+Inside the `Tool` class, there are two methods: `__init__` and `execute`. The `__init__` method is the constructor for the class and it initializes the class by calling the constructor of the parent class.
+
+The `execute` method is where the main logic of the tool resides. It takes two parameters, `T` and `Td`, which represent the temperature and dew point temperature respectively. It first converts these temperatures from Fahrenheit to Celsius and calculates the relative humidity (`RH`).
+
+Then, it calculates the Heat Index using a complex formula that involves several constants and the temperature and humidity values. This formula is a result of multiple regression analysis performed on a set of data points.
+
+After calculating the initial Heat Index, the code makes adjustments for low and high humidity. For low humidity, it decreases the Heat Index when the temperature is between 80 and 112 degrees and the relative humidity is less than 13%. For high humidity, it increases the Heat Index when the temperature is between 80 and 87 degrees and the relative humidity is greater than 85%.
+
+Finally, if the temperature is less than 80 degrees, it simply returns the temperature as the Heat Index, otherwise, it returns the calculated and adjusted Heat Index.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

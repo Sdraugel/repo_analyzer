@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>CopyFromNewTopo.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>CopyFromNewTopo.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a larger system, possibly a Geographic Information System (GIS) or similar, that deals with topographical data ("Topo"). The script is designed to replace the current topographical data with a new set of data ("NewTopo"). 
+
+Here's a step-by-step breakdown of what the script does:
+
+1. The script first checks if the current database being used is the correct one ("EditTopo_Topo"). If not, it displays an error message and stops execution.
+
+2. It then checks if a "NewTopo" grid exists. If it doesn't, it displays an error message and stops execution.
+
+3. It asks the user for confirmation to replace the current topographical data with the new data. If the user declines, it stops execution.
+
+4. It then checks if a backup of the current topographical data ("PrevTopo") already exists. If it does, it asks the user for confirmation to overwrite this backup. If the user agrees, it saves the current topographical data as a backup.
+
+5. Finally, it replaces the current topographical data with the new data and saves this change. It then displays a success message to the user, informing them that they can revert to the previous version if needed.
+
+The script uses several modules, including `SmartScript` and `TimeRange`, and interacts with a database to retrieve and store topographical data. It also uses a GUI module (`DisplayMessageDialog`) to display messages to the user.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

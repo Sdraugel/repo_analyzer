@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ingestAT.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ingestAT.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a larger software system developed by Raytheon Company. The script is a port of the ingestAT code from AWIPS1. AWIPS stands for Advanced Weather Interactive Processing System, a meteorological software package used for weather forecasting.
+
+The script starts by importing necessary modules and setting up logging. It then defines a few classes and functions:
+
+1. `CaseInsensitiveStringSet`: A class that extends the `collections.Set` class to create a set that is case-insensitive.
+
+2. `StoreDrtTimeAction` and `ReadDeleteFileAction`: These classes are custom actions for the argparse module, which is used for parsing command-line arguments. `StoreDrtTimeAction` determines the DRT (Disaster Recovery Test) offset and stores it. `ReadDeleteFileAction` reads a file, stores its content, and then deletes the file.
+
+3. `process_command_line()`: This function sets up the command-line argument parser and defines the expected arguments.
+
+4. `main()`: This function is the main entry point of the script. It processes the command-line arguments, logs them, and then attempts to merge VTEC (Valid Time Event Code) data using the `MergeVTEC.merge()` function. If an exception occurs during the merge, it logs the exception. Finally, it attempts to remove a file specified by the command-line arguments.
+
+The script is intended to be run from the command line, with various arguments specifying details like the server host and port, the remote active table file name, the active table name, whether to make backups, XML info, and the site ID.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

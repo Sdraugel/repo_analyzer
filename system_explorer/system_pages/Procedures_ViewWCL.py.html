@@ -1,0 +1,108 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ViewWCL.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ViewWCL.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a software developed by Raytheon Company. It's a GUI application that fetches and displays an inventory of Weather Convective Level (WCL) products. The WCL products are fetched from a directory specified by the GFE (Graphical Forecast Editor) localization.
+
+Here's a high-level overview of the code:
+
+1. It imports necessary modules like `os`, `SmartScript`, `re`, `time`, `AbsTime`, `TimeRange`, `tkinter`, `HazardUtils`, and `numpy`.
+
+2. It defines a class `Procedure` that inherits from `SmartScript.SmartScript`. This class is used to create a GUI for viewing WCL products.
+
+3. The `Procedure` class has several methods:
+
+   - `__init__`: Initializes the class with a database session object (`dbss`).
+
+   - `setUpUI`: Sets up the user interface. It fetches the WCL inventory and creates a tkinter window with frames and buttons for each WCL product.
+
+   - `getWclDir`: Gets the directory where the WCL products are stored, using GFE localization.
+
+   - `getWCLInventoryDict`: Fetches the text inventory for WCL products and stores it in a dictionary.
+
+   - `makeInventoryButtons`: Creates a button for each entry in the inventory.
+
+The script also mentions that it's in the public domain, provided "as is", without technical support or warranty. It also contains information about the software's export restrictions under U.S. law.
+
+This Python code appears to be part of a larger program that uses the Tkinter library to create a graphical user interface (GUI). Here's what the different parts of the code do:
+
+1. The code first creates a button with a text label and a value. If the name of the button matches the first name, the button is selected by default.
+
+2. The `WCLSelected` function is a placeholder that currently does nothing when a selection is made.
+
+3. The `_deleteWCLGrids` function deletes grid information for a given time range.
+
+4. The `makeRunButton`, `makeRunDismissButton`, and `makeCancelButton` functions create buttons labeled "Run", "Run/Dismiss", and "Cancel" respectively, with associated commands to execute when each button is clicked.
+
+5. The `runCommand`, `runDismissCommand`, and `cancelCommand` functions are the commands associated with the "Run", "Run/Dismiss", and "Cancel" buttons respectively. The `runCommand` and `runDismissCommand` functions plot a product, while the `cancelCommand` function destroys the main window.
+
+6. The `execute` function sets up the user interface and starts the main event loop of the Tkinter application.
+
+7. The `plotWCL` function plots the watch areas by fetching a specified text product, decoding it, and creating a temporary grid that shows the areas of the proposed watches.
+
+The code appears to be part of a weather-related application, as it references weather-related terms like "watch areas", "Hazards Weather Element", and "active table".
+
+This code is part of a larger script, presumably for a weather-related application, that generates a grid representing proposed watch areas based on certain conditions.
+
+Here's a breakdown of what the code does:
+
+1. It starts by appending a tuple of `each` and `actualKey` to the `finalKeys` list. The `each` and `actualKey` variables are not defined in the provided code, but they are likely defined elsewhere in the script.
+
+2. It then calculates a time range. If the absolute difference between the current time and `startTime` or `endTime` is greater than 43200 seconds (12 hours), it adjusts these times to the nearest hour. It then creates a `TimeRange` object using these start and end times.
+
+3. It creates an empty grid of zeros using the `self.empty` method.
+
+4. It defines a list of allowed keys, which are presumably types of watches.
+
+5. It loops over the `finalKeys` list. For each key, it gets its index in the `keys` list. If the key is in the edit area list, it retrieves the corresponding edit area, encodes it, and sets the corresponding grid cell to `True`. It then sets the grid cell to the watch index.
+
+6. It checks the loaded parameters for a parameter named "ProposedWatches" at the "SFC" level in the "WCL" model. If it finds such a parameter, it deletes any existing grids.
+
+7. It creates a new grid with the name "ProposedWatches" in the "WCL" model, using the previously generated grid and keys. It sets this grid as the active element and assigns it a color table.
+
+8. Finally, it returns, ending the function.
+
+This code is likely part of a larger system for generating and displaying weather watch areas. The grid it generates represents different watch areas, with each cell corresponding to a different area and its value representing the type of watch in effect for that area.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

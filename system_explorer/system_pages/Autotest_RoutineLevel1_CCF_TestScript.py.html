@@ -1,0 +1,127 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>RoutineLevel1_CCF_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>RoutineLevel1_CCF_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code appears to be a part of a weather forecasting system. It's written in Python and is used to create a series of forecast grids for different weather conditions over a series of time periods and for different geographical areas.
+
+The code starts with a series of comments that provide information about the software's development, licensing, and usage restrictions. It also includes some information about the contractor, Raytheon Company.
+
+The main part of the code is a list of tuples, `CCF_createGrids`, each representing a forecast grid. Each tuple contains the following information:
+
+- The type of forecast ("Fcst")
+- The name of the grid (e.g., "Wx" for weather, "MaxT" for maximum temperature, "MinT" for minimum temperature, "PoP" for probability of precipitation, "Wind" for wind conditions, "SnowAmt" for snow amount)
+- The data type of the grid ("WEATHER", "SCALAR", "VECTOR")
+- The start and end times for the forecast period
+- The forecast data
+- The areas for which the forecast applies
+
+For example, the tuple `("Fcst", "Wx", "WEATHER", 0, 24, "NoWx", "all")` represents a weather forecast grid for all areas covering a 24-hour period, with the forecast being "NoWx" (no weather).
+
+The forecast data varies depending on the type of grid. For weather grids, it includes codes representing different weather conditions. For scalar grids (like temperature and probability of precipitation), it's a numerical value. For vector grids (like wind), it's a tuple representing the wind speed and direction.
+
+In summary, this code is used to generate a series of weather forecast grids for different conditions, times, and areas.
+
+This code appears to be part of a weather forecasting system. It's defining forecasts and operations to perform on grids of weather data.
+
+The first part of the code is a list of tuples, each representing a forecast. Each tuple contains the following information:
+
+1. The type of forecast (e.g., "Fcst").
+2. The variable being forecasted (e.g., "Wx" for weather, "MinT" for minimum temperature, "MaxT" for maximum temperature, "PoP" for probability of precipitation).
+3. The type of data (e.g., "WEATHER" or "SCALAR").
+4. The start and end times for the forecast period.
+5. The forecasted value or condition.
+6. The areas to which the forecast applies.
+
+The second part of the code, `CCF_deleteGrids`, is a list of tuples representing grids of weather data to be deleted. Each tuple contains:
+
+1. The type of operation (e.g., "Fcst").
+2. The variable associated with the grid (e.g., "PoP", "MaxT", "MinT", etc.).
+3. The type of data (e.g., "SFC").
+4. The start and end times for the period of data to be deleted.
+
+In summary, this code is defining weather forecasts for different variables and periods, and specifying certain weather data grids to be deleted.
+
+This code is a part of a weather forecasting system. It is defining a series of tests for a product called "CCF" (likely standing for some kind of forecast). Each test is defined as a dictionary with various properties.
+
+There are four tests defined:
+
+1. The "Morning CCF test" where wind dominates in the weather grids. It sets various parameters such as commentary, name, product type, command line variables, combo flag, check strings, and creates grids for the forecast.
+
+2. The "Afternoon CCF test" is similar to the morning test but presumably runs at a different time and may have different conditions. It also sets parameters and creates grids for the forecast.
+
+3. Another "Morning CCF test" where the maximum temperature is changed to include a "VRYHOT = G" and "VRYCOLD = I" weather code. The winds are set to "0" so they would not dominate over the other weather grids, except at 0-24 hours where it is kept at "35" to output a "BLZZRD = P" weather code.
+
+4. The "Afternoon CCF test" where the winds are changed to "0" so they would not dominate over the other weather grids.
+
+In each of these tests, the "createGrids" property is defining a series of forecasts for different conditions (like "Sky" or "Wind") over different periods of time. The "checkStrings" property seems to be a list of expected outputs or conditions to check the forecast against.
+
+The provided code appears to be a part of a larger script for weather forecasting. It's written in Python and seems to be used for creating and managing weather forecast grids. 
+
+1. The first part of the code is creating a series of forecast grids for different weather parameters such as wind direction and speed (denoted as "Wind" and "VECTOR"), sky conditions (denoted as "Sky" and "SCALAR"), and probability of precipitation (denoted as "PoP" and "SCALAR"). The grids are created for different time intervals and have specific values assigned to them.
+
+2. The second part of the code is related to an afternoon CCF (Centralized Configuration File) test. It sets weather grids to "NoWx" (no weather), wind grids to 0, and makes sky weather code visible. It also includes a series of check strings and creates a new set of forecast grids.
+
+3. The third part of the code is for cleaning up for a CCF6 test. It deletes the "Sky" grids from the forecast.
+
+4. The fourth part of the code is for running a CCF6 test. It sets weather grids to "NoWx", wind grids to 0, and makes sky grids absent to get a "FAIR = A" weather code. It also includes a series of check strings and creates a new set of forecast grids.
+
+5. The final part of the code defines default edit areas for the weather forecast.
+
+6. The code also imports two modules, TestScript and AbsTime, which are likely used for testing and time manipulation respectively.
+
+This code appears to be part of a larger Python script, specifically a method within a class. It's a bit difficult to provide a detailed analysis without the full context, but here's a general idea:
+
+1. The method is creating a dictionary with keys as strings and values as lists. The lists contain strings which could be names of other methods or functions, or possibly arguments for these functions.
+
+2. The dictionary is then passed as an argument, along with other parameters (`self`, `dataMgr`, `scripts`, `defaults`, `level`), to a method called `generalTestScript` of the `TestScript` class.
+
+3. The `generalTestScript` method might be using this dictionary to perform some operations or tests based on the keys and values. For example, it might be calling the methods specified in the dictionary and passing the corresponding list items as arguments.
+
+4. The `level` argument is optional and has a default value of `level`. This could be used to control the depth or intensity of the testing process.
+
+5. The method returns the result of the `generalTestScript` method.
+
+Please note that this is a high-level interpretation and the actual functionality could vary based on the implementation of the `generalTestScript` method and the overall context of the code.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

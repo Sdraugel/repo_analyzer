@@ -1,0 +1,170 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>MosData.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>MosData.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This is not a code in itself, but rather a detailed history and documentation of the changes made to a Python file named "MosData.py". This file was developed or modified by Raytheon Company under a contract with the US Government.
+
+The documentation includes:
+
+1. Information about the software's export control status, stating that it contains export-restricted data and its dissemination requires an export license or other authorization.
+
+2. Contractor details, including the name, address, and contact information of the Raytheon Company.
+
+3. A reference to a Master Rights File for further licensing information.
+
+4. A detailed revision history of the file, including the revision number, status (delivered, approved, etc.), creation date, and the name of the person who made the changes. Each entry also includes a brief description of the changes made in that revision.
+
+The revisions show that this file has gone through multiple updates and modifications, addressing various issues and adding new features over time. The changes range from fixing bugs and errors, updating to work with new interfaces, removing obsolete features, to extracting additional information from files, and more.
+
+This code is written in Python and it appears to be a part of a larger system, possibly related to meteorological data processing given the references to terms like "precip intensity", "LAMP", "MOS", and "snow". 
+
+The large section at the top is a revision history, detailing changes made to the code over time, including the date of the change, the person who made the change (referred to as the engineer), the revision status, and a brief description of what was changed or fixed. This is a common practice in software development to keep track of modifications and to understand the evolution of the code.
+
+The actual executable code starts after the revision history. It begins by importing several Python modules: `logging` (for logging events for debugging or information), `os` (for interacting with the operating system), `time` (for handling time-related tasks), `netCDF4` (a scientific data package to manipulate netCDF files, which are often used in meteorology and climate science), `Avn`, and `AvnConfigPars` (these last two appear to be custom modules, likely specific to the larger system this code is part of).
+
+The comment at the end suggests that this is a base file, meaning it likely contains functionality that is used across multiple other scripts or modules in the system. It is not intended to be overridden, implying that changes should not be made directly to this file, but rather to the files that import it.
+
+This Python code appears to be part of a larger system for processing and interpreting meteorological data. It imports a library called AvnLib and a NoDataException for handling exceptions when data is not available. 
+
+The PARAMETERS list contains the names of various meteorological parameters that the system is interested in. These include information about wind speed, precipitation, cloud cover, temperature, and visibility, among others.
+
+The code defines several functions for converting different types of meteorological data into specific formats. These include functions for converting temperature from Kelvin to Fahrenheit (_textKtoF), wind direction (_textDD), wind speed (_textFF), probability (_textProb), precipitation type (_textPcpType), and cloud cover (_textCld), among others. 
+
+The _getCigProbs and _getVisProbs functions are used to get the probabilities of different categories of ceiling (the height above the ground of the base of the lowest layer of cloud) and visibility, respectively.
+
+The getNumData function reads a configuration file to get the number of hours of data to be used.
+
+The _NetCDFFile class appears to be used for handling NetCDF files, which are commonly used for storing and sharing scientific data. It includes methods for processing wind data (makeWind), visibility data (makeObv), and sky condition data (makeSky). 
+
+Overall, this code is used to process and interpret various types of meteorological data.
+
+This code is part of a larger program that appears to be processing and analyzing weather data. Here's a breakdown of what each part does:
+
+1. The `elif cover == 0:` block checks if the variable `cover` is equal to 0. If it is, it sets `d` to a dictionary with specific values. If `cover` is not 0, it returns `None`.
+
+2. The `makePcp` function seems to be processing precipitation data. It takes several parameters, including `v` (presumably a data vector), `vsby` (possibly visibility), `pdc` (unknown), `n` (an index), and `fcstHrList` (a forecast hour list). It calculates precipitation type, intensity, and other related values, and returns a dictionary `d` with this information.
+
+3. The `getRecord` function retrieves a record from `_sitedict` dictionary using `ident` as a key. If the key is not found, it raises an error.
+
+4. The `cigBestCat` and `visBestCat` functions return a formatted string of `t` if `t` is between 0 and 100, otherwise they return an empty string.
+
+5. The `makePeriod` function seems to be creating a forecast for a specific period. It takes data from various sources, processes it, and returns a dictionary `g` with the forecast data.
+
+6. The `close` function attempts to close a file handler `_fh`. If it fails, it logs an error.
+
+7. The `getFile` function attempts to open a NetCDF4 dataset from a given path and extracts various data from it, including issue time, valid times, and station names. If it fails to open the file, it logs an error and returns `False`.
+
+8. The `makeData` function generates a dictionary `d` with various weather data for a specific location `ident` and reference time `refTime`.
+
+9. The `loopAll` function loops over all forecast hours in `fcstHrList` and appends the corresponding data from `pdc` for a given key to the `result` list.
+
+10. The `makeReport` function generates a weather report for a specific location `ident`. It retrieves the weather data, formats it, and appends it to the `rpt` list.
+
+This code is written in Python and it appears to be part of a larger system for processing and analyzing weather forecast data, possibly from a numerical weather prediction model. The code is structured around several classes that represent different types of NetCDF files, which are a common format for storing multi-dimensional scientific data.
+
+The first part of the code is a method that checks if certain parameters exist in the data (e.g., wind direction, wind speed, visibility, cloud coverage, precipitation type, etc.). If these parameters exist, it processes the data and appends it to a report (rpt).
+
+The classes `_AvnNetCDFFile`, `_GfsNetCDFFile`, and `_EtaNetCDFFile` are subclasses of a parent class `_NetCDFFile`. These subclasses seem to represent different types of NetCDF files, possibly from different weather models or sources. Each class has specific attributes like `NumData`, `NumVsbyCat`, `NumCigCat`, `POP6hr`, `SEVERE6hr`, `VsbyValues`, `CigValues`, `Header`, and `Model`. These attributes are likely specific to the data format or characteristics of the respective weather model.
+
+The `_GfsNetCDFFile` and `_EtaNetCDFFile` classes also have methods `cigBestCat` and `visBestCat` that seem to convert some kind of category value for visibility and cloud coverage into a formatted string.
+
+In general, this code seems to be part of a larger system for processing, analyzing, and reporting weather forecast data from different sources or models.
+
+The provided code appears to be part of a larger Python program that processes and categorizes meteorological data. The code defines two classes, each with several methods and attributes. 
+
+1. The first class is not named, but it appears to be a base class for a specific type of meteorological model, possibly called 'ETA'. It defines several methods for categorizing visibility and cloud cover data. 
+
+2. The second class, `_GfsLampNetCDFFile`, extends a class named `_NetCDFFile`. This class appears to be designed to handle data from the GFS LAMP (Global Forecast System - Localized Aviation Model Output Statistics Program) model stored in a NetCDF file. NetCDF (Network Common Data Form) is a set of software libraries and self-describing, machine-independent data formats that support the creation, access, and sharing of array-oriented scientific data.
+
+The class `_GfsLampNetCDFFile` has several methods:
+   - `cigBestCat(self, t)`: This method categorizes cloud cover data.
+   - `visBestCat(self, t)`: This method categorizes visibility data.
+   - `makeObv(self, v)`: This method appears to create an observation from visibility data.
+   - `makePcp(self, v, vsby, pdc, n, fcstHrList)`: This method seems to create a precipitation forecast from various input data.
+   - `makeSky(cls, ceiling_bestCat, clouds_bestCat)`: This class method creates a sky forecast from ceiling and cloud cover data.
+   - `makePeriod(self, pdc, n, fcstHrList)`: This method appears to create a forecast for a specific period.
+
+The code also includes several dictionaries that map numerical codes to specific values, likely used for categorizing the meteorological data.
+
+This code appears to be part of a larger system for weather forecasting. It is processing and analyzing various weather data such as wind, visibility, cloud cover, and precipitation. 
+
+Here's a breakdown of what the code does:
+
+1. It first sets a time range of one hour, with `f` and `t` representing the start and end of this range respectively.
+
+2. It then creates a dictionary `g` with the time range and starts populating it with various weather parameters. These parameters are obtained by calling various methods like `makeWind`, `makeVsby`, `makePcp`, `makeObv`, `makeSky`, etc. on the data `v`. If these methods return a value, it is added to the dictionary `g`.
+
+3. The code then checks and adjusts the visibility and obstruction values based on certain conditions.
+
+4. It also calculates the probability of precipitation for the next 6 hours and adds it to the dictionary.
+
+5. It calculates the probability of different ceiling and visibility categories and adds these to the dictionary.
+
+6. Finally, it returns the dictionary `g` which now holds a comprehensive set of weather data for the specified hour.
+
+The `makeReport` function seems to generate a weather report for a specific location (`ident`). It retrieves the forecast data for this location and formats it into a report. The report includes data for parameters like temperature, dew point, wind direction and speed, visibility, and others. The data is formatted into a string and appended to the report list `rpt`.
+
+The code snippet ends before we can see what happens with the `obVis_bestCat` parameter, but it's likely that it follows a similar pattern to the other parameters.
+
+This code is written in Python and is part of a larger program that deals with weather data. 
+
+The first part of the code is a function that generates a report based on various weather parameters such as visibility, cloud cover, ceiling, precipitation type, snow, freezing precipitation, probability of precipitation, lightning, and thunderstorms. It checks if each parameter exists in the data collection object `pdc`. If a parameter exists, it applies a function to the data for that parameter, formats the data, and appends it to the report `rpt`. 
+
+The second part of the code is a function `_cleanup` that removes files from a specified path that are older than a certain number of hours. It lists all files in the given path, checks their timestamps, and removes the files whose timestamps are earlier than the current time minus the specified number of hours.
+
+The third part of the code is a function `retrieve` that retrieves weather data for a list of identifiers from a specified model. The model can be one of 'avnmos', 'gfsmos', 'etamos', 'nammos', or 'gfslamp'. Depending on the model, it creates an instance of the appropriate class. For each identifier in the list, it tries to generate a report and data. If successful, it appends the data and report to the list `ids`. If an error occurs during this process, it logs the error and appends the error message to `ids`. The function returns the list `ids`.
+
+This Python script is designed to be run from the command line and it takes two command-line arguments. 
+
+The `if __name__ == '__main__':` line is used to ensure the code that follows is only executed if the script is run directly (not imported as a module).
+
+The script starts by importing two modules: `pprint` and `sys`. `pprint` is a module that provides a capability to print Python data structures in a format which can be used as input to the interpreter, and `sys` is a module that provides access to some variables used or maintained by the Python interpreter and to functions that interact strongly with the interpreter.
+
+The `path` variable is set to a string that includes the first command-line argument (`sys.argv[1]`).
+
+Then, it creates an instance of the `_GfsLampNetCDFFile` class and tries to open the file at the specified `path`. If the file is found and opened successfully, it creates a `PrettyPrinter` object with an indent of 2 spaces and uses it to pretty-print the data from the file (the data is obtained by calling the `makeData` method of the `_GfsLampNetCDFFile` instance with the second command-line argument (`sys.argv[2]`)).
+
+If the file is not found, it prints 'File not found' to the console.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

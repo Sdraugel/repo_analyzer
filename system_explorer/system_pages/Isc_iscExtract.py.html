@@ -1,0 +1,132 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>iscExtract.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>iscExtract.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be a part of a larger system, possibly for weather forecasting, developed by Raytheon Company. The script is primarily concerned with extracting and transmitting data to various destinations. It makes use of several libraries, including ifpnetCDF and iscUtil, as well as various Java libraries.
+
+The script defines several global variables, such as `parms`, `dbid`, `startTR`, `endTR`, `xmlDestinations`, `ancf`, `bncf`, `xmtScript`, `serverHost`, `serverPort`, `serverProtocol`, `mhsid`, `siteID`, and `startT`. These variables seem to be related to the parameters of the data extraction, the database identifier, the start and end times, the destinations for the extracted data, the server details, and the site identifier.
+
+The script also defines several logging functions (`logEvent`, `logProblem`, `logException`, `logVerbose`, `logDebug`) to log various types of information and errors.
+
+The main function in this script is `executeIscExtract`, which appears to be responsible for the actual data extraction and transmission. It takes several parameters, including the names of the parameters to be extracted, the database name, the start and end times, the addresses of two IRT tables, a transmit script, server details, a MHS site identifier, a site identifier, and an optional list of destinations.
+
+The function first sets the global variables to the values of its parameters. It then gets the active IFPServer for the given siteID. If no active server is found, it raises an exception. It then determines the office type of the server.
+
+The function then attempts to determine the list of destination servers. It first checks if the destinations were provided as a parameter. If not, it tries to get the destinations from a cache file. If the cache file is too old or does not exist, it contacts the IRT to get the destinations. The function then attempts to parse the XML destinations obtained from the IRT.
+
+This code appears to be part of a larger program that is responsible for managing and sending data packets to different servers. The data packets are in XML format and the servers are identified by their addresses. The code is also responsible for error handling and logging.
+
+1. The code first checks if a time string (`isoTimeStr`) has a specific index (`idx`). If it does, it eliminates subseconds from the string and converts it to a time object (`useUntilTime`). If there's an error (for example, if the XML is malformed), it logs the problem and returns.
+
+2. If `useUntilTime` is not set, it defaults to the current time plus 180 seconds (3 minutes). 
+
+3. It then writes the `useUntilTime` and `xmlDestinations` to a cache file (`cacheFilename`). If it can't access the IRT for send addresses, it tries again for 10 minutes. If it still can't access it, it logs the problem and uses the cached values if available.
+
+4. If the cache is expired, it logs the problem and sends a GFE notification if it's been more than 30 minutes since the last alert.
+
+5. The code then checks the XML for quality control. If the XML is malformed, it logs the problem and returns.
+
+6. It then determines how many transmissions are necessary by creating a list of individual transmissions (`xmt`).
+
+7. It checks if the XML tag is "destinations". If it's not, it logs a problem and returns.
+
+8. It then creates a list of individual transmissions. If the tag is "doclip", it sets the `doClip` variable accordingly.
+
+9. For each address, it decodes the XML address and checks if certain keys are in the `serverInfo`. If a key is missing, it logs the problem and skips to the next destination.
+
+10. It then gets the destination office type. If the site id is unknown, it logs the problem and skips to the next destination.
+
+The code seems to be part of a larger system, possibly a server or a network management system. It handles XML data, time management, file I/O operations, and error logging.
+
+This script is performing a number of operations on a set of server parameters, which are presumably related to some kind of data transmission. Here's a breakdown of what it's doing:
+
+1. It iterates over a list of parameters from a server's information. For each parameter, it removes a specific string (`"_SFC"`) if it exists. 
+
+2. It then checks if the office type of the current system and the destination office type are different. If they are, it removes the office type from the parameter name. If the office type is not found in the parameter name, it skips to the next iteration.
+
+3. It checks if the modified parameter name exists in a list of parameters (`parms`). If it does, it appends a dictionary of information to a list (`xmt`), and if this is the first time a parameter has been found, it adds some server information to a string (`destStr`).
+
+4. It logs the `destStr` string.
+
+5. It then attempts to combine transmissions by finding entries in `xmt` with the same domain, area, and parameters, and combines their server information.
+
+6. It then tries to combine common parameter lists by finding entries in `xmt` with the same domain, area, and server information, and combines their parameters.
+
+7. If a flag `doClip` is set, it gathers some required information from the server.
+
+8. It prepares output files by iterating over the `xmt` list, logging some information about each entry, and creating a temporary file in a specific directory for each one.
+
+9. It then performs some operations to determine the domain edit area, including checking for overlap with another domain and trimming it to just the overlapping section.
+
+10. Finally, it creates a reference set and converts the destination site's domain to gridpoints.
+
+This script seems to be part of a larger system for managing and transmitting data between different offices or servers, possibly related to geographical or meteorological data given the references to domains, areas, and gridpoints.
+
+The provided Python code is a part of a larger script that appears to be involved in the processing and transmission of grid data, possibly related to meteorological or geographical information. Here's a high-level breakdown of what this section of the code is doing:
+
+1. The `etGrid()` function is called, but without context, it's unclear what this function does.
+
+2. A mask is created by performing a bitwise AND operation on `iscSendAreaGrid` with `iscMask`. If no bits are set in the resulting mask (i.e., there is no intersection of domain points), a log event is created and the current iteration of the loop is skipped.
+
+3. If there is an intersection, the mask is stored back into the `ifpServer` and a unique name is generated for the mask using the current time.
+
+4. If no clipping is needed or the projections are different, the mask name is set to "ISC_Send_Area".
+
+5. The `ifpnetCDF.main()` function is called with a dictionary of arguments. This function likely processes the grid data and generates a NetCDF file, a format commonly used for storing array-oriented scientific data.
+
+6. The size of the generated file is logged, and the time taken for the `ifpnetCDF.main()` function to run is calculated and logged.
+
+7. An XML file is created with information about the source server and destination servers. The XML file is written to a temporary file.
+
+8. The `irt.transmitFiles()` function is called to transmit the grid data and the XML file to the destination servers.
+
+9. If the mask used was not the default "ISC_Send_Area", it is deleted.
+
+10. The time taken for the transmission is calculated and logged.
+
+11. If any exceptions occur during the execution of the code, they are caught and logged.
+
+This code is likely part of a larger system for processing and transmitting grid data, possibly for weather forecasting or similar applications.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

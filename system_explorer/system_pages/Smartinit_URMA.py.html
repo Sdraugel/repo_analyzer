@@ -1,0 +1,94 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>URMA.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>URMA.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a larger software developed by Raytheon Company. The script defines a class `URMAForecaster` that inherits from a parent class `Forecaster`. The class `URMAForecaster` is intended to transform URMA25 D2D grids into corresponding GFE URMA grids.
+
+The class `URMAForecaster` has several methods that perform various calculations and transformations on data:
+
+- `__init__`: This is the constructor method which initializes the class with the name "URMA".
+
+- `calcWind`: This method takes wind data and converts the speed from meters per second to knots.
+
+- `calcQPE` and `calcQPE01`: These methods convert precipitation data from millimeters to inches and clip values greater than 1000mm to 0. The values are also clipped between 0 and 10 inches.
+
+- `calcSky`: This method clips the total cloud cover data between 0 and 100.
+
+- `calcT` and `calcTd`: These methods convert temperature and dew point temperature from Kelvin to Fahrenheit.
+
+- `calcMaxT` and `calcMinT`: These methods calculate the maximum and minimum of hourly temperatures.
+
+- `calcPressure` and `calcPressUnc`: These methods return the surface pressure and pressure analysis uncertainty data as is.
+
+- `calcRH`, `calcMaxRH`, and `calcMinRH`: These methods calculate the relative humidity from temperature and dew point temperature data, and the maximum and minimum of hourly relative humidity.
+
+- `vaprtf`: This method calculates the vapor pressure given a temperature in Fahrenheit.
+
+- `calcTUnc` and `calcTdUnc`: These methods convert the temperature and dew point temperature analysis uncertainty from Kelvin to Fahrenheit.
+
+Note: There is a commented out method `calcQPE06` which seems to sum up all QPF grids within each 6 hour period. This method is not currently in use.
+
+This code file contains several methods for calculating different types of uncertainties and conversions related to weather forecasting. Here's a breakdown of what each method does:
+
+1. `calcTdUnc`: This method calculates the uncertainty in dew point temperature. It multiplies the input value `dpterranl_FHAG2` by 1.8.
+
+2. `calcWSpdUnc`: This method calculates the uncertainty in wind speed. It converts the input value `wserranl_FHAG10` from meters per second to knots.
+
+3. `calcWDirUnc`: This method returns the uncertainty in wind direction, which is the same as the input value `wderranl_FHAG10`.
+
+4. `calcWGustUnc`: This method calculates the uncertainty in wind gusts. It converts the input value `wgserranl_FHAG10` from meters per second to knots.
+
+5. `calcSkyUnc`: This method calculates the uncertainty in sky condition. It clips the input value `tccerranl_EA` between 0 and 100.
+
+6. `calcVis`: This method converts visibility from meters to statute miles.
+
+7. `calcVisUnc`: This method calculates the uncertainty in visibility. It converts the input value `viserranl_SFC` from meters to statute miles.
+
+8. `calcWindGust`: This method converts wind gusts from meters per second to knots.
+
+The `main` function at the end runs the `URMAForecaster` object, but this object is not defined in the provided code. 
+
+Please note that the methods `convertMsecToKts`, `clip`, and `convertMtoSM` are used in the code but they are not defined in the provided code snippet. These methods presumably convert values between different units of measure and clip values within a certain range.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

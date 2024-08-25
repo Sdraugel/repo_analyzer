@@ -1,0 +1,303 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>SRF.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>SRF.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code file appears to be a configuration file for a software developed by Raytheon Company. The software is related to the production of a Surf Zone Forecast, which seems to be a weather forecast specifically for surf areas. 
+
+The file contains information about the software's history, licensing, and export control restrictions. It also provides the contractor's name and address.
+
+The code file then goes on to describe the software's functionality and customization points. These include:
+
+1. `displayName`: Defines how the product appears in the GFE (Graphical Forecast Editor) GUI (Graphical User Interface).
+
+2. `areaDictionary`: This is used to create a SurfAreaDictionary with entries as described in the code. This dictionary specifies which areas to use for each type of phrase in the forecast.
+
+3. `landSeaArea`, `marineArea`, `surfAreas`: These are edit areas that need to be created by the user. They contain grid points along the coast, including both land and sea, and are used to generate different parts of the forecast.
+
+4. `uviCity`: Specifies the city name from which to report the UV index.
+
+5. `tideTables`: A list of the tide tables from which you want tides reported for each public zone.
+
+6. `defaultEditAreas`: Defines edit areas, default is Combinations.
+
+7. `productName`: Defines the name of the product e.g. "Zone Forecast Product".
+
+8. `fullStationID`: Full station identifier, 4 letter, such as "KSLC".
+
+9. `wmoID`: WMO ID.
+
+The code file also includes instructions on how to customize the software to generate forecasts for specific areas and conditions. For example, it describes how to create and use different edit areas to generate forecasts for different parts of the coast, and how to use tide tables to include tide information in the forecasts.
+
+The provided code appears to be a part of a configuration file or a script for a weather forecasting application, possibly used by the National Weather Service (NWS) or a similar organization. It is not an executable code but rather a set of instructions or guidelines for configuring the application. Here are the main points:
+
+1. The script defines several variables related to the product, such as the product header, product pil, area name, and WFO location.
+
+2. It also defines optional configuration items, such as the map name for combinations, source database for product, output file location, debug mode, product identifiers for AWIPS text database and AWIPS WAN, and several others.
+
+3. It outlines the conditions for combining periods, generating extended forecasts, including labels, enabling local effects for temperature and wind, and other specific features.
+
+4. The script also provides instructions for setting up grids for wave height, rip current, and water spout, including an outlook section, creating tide files, and more.
+
+5. The script mentions the weather elements needed, such as Hazards, Sky, Wind, PoP, MaxT, MinT, T, HeatIndex, LAL, Wx, WaveHeight or SurfHeight, Swell, Period, Swell2, Period2, and optional elements like rip current grid and water spout grid.
+
+6. It also mentions other inputs like Tides from file, UVI from Awips, and component products like SurfPeriod, ExtendedLabel, and SurfExtended.
+
+7. The script also includes contact information for the product team and FSL POC, and mentions a task reporting system for tracking development tasks.
+
+8. Finally, it provides implementation notes and guidelines for developers. 
+
+This script is likely used by developers or system administrators to configure the application according to specific requirements or to troubleshoot issues.
+
+This Python code defines a class `TextProduct` which inherits from two other classes: `TextRules` and `SampleAnalysis`. The class is part of a system for generating text-based weather forecasts, likely for a specific geographical area.
+
+The class has a dictionary attribute `Definition` which contains various configuration options for the product. These options include:
+
+- The type of issuance (routine, update, correction)
+- The product name and identifiers (WMO ID, station ID, etc.)
+- The database source for the product
+- The location of the weather forecast office (WFO)
+- The type of maps used for creating combinations
+- The grid types used for different weather phenomena (wave height, rip current, waterspout)
+- The inclusion of an outlook section and tide heights
+- The file paths for tide data
+- The language of the product
+- The inclusion of a multiple element table (e.g., temperature, humidity, probability of precipitation)
+- The dictionary used for city and area names
+- The maximum line length for the product
+
+The class also has an `__init__` method which initializes the parent classes.
+
+The comments at the beginning of the code snippet describe how combinations of areas are stored and used in the forecast narrative. The `_combinedAreaDict` is used to store combinations of areas, and these combinations can be used in creating additional areas and intersect areas. The `_setSurfAreaLabel` method is used to set the area label for a phrase.
+
+This code is written in Python and appears to be part of a larger system for generating weather forecasts or reports. Here's what each part does:
+
+1. `minMax_std_deviation`: This function takes three arguments: `parmHisto`, `timeRange`, and `componentName`. It returns a fixed value of 1.4, which is likely used as a standard deviation for some calculations elsewhere in the code.
+
+2. `element_outUnits_dict`: This function takes a `tree` and a `node` as arguments and returns a dictionary where the keys are weather elements and the values are their corresponding units of measurement. It overrides the `element_outUnits_dict` method from the `TextRules` class, and specifically sets the units for "Wind" and "WindGust" to "mph".
+
+3. `phrase_descriptor_dict`: This function also takes a `tree` and a `node` as arguments and returns a dictionary. The keys are various weather elements and the values are descriptors or labels for those elements. This is likely used to generate human-readable weather reports.
+
+4. `_getSurfPeriod_phraseList`: This function returns a list of phrases or methods that are used to generate a surf period report. The list includes phrases for sky weather, pop max, day or night, severe weather, fire wind, wave height, swell, period, chop, sst, uvi, rip, heat index, lal, and water spout (if applicable).
+
+5. `_additionalAreasDict`: This function takes a `component` as an argument and returns a dictionary that specifies which areas to use for which phrases and how to analyze the data for those areas. The dictionary is used to build the SurfPeriod.
+
+6. `_surfPeriodAdditionalAreasDict`: This function returns a dictionary that specifies how to analyze and phrase the data for the land sea area and the marine area when generating a surf period report. 
+
+The code is designed to be flexible and customizable, with many of the functions designed to be overridden with custom behavior in subclasses or instances.
+
+The provided code is written in Python and seems to be part of a larger system related to weather analysis, specifically focusing on surf conditions. Here's a brief description of what each part does:
+
+1. The first three methods (`_surfExtendedAdditionalAreasDict`, `_extraSamplingAdditionalAreasDict`, `_PoP_analysisMethod`) are returning dictionaries with specific configurations for different types of weather analysis. These dictionaries include lists of methods to be used for analysis and phrase generation.
+
+2. The `SurfPeriod` method returns a dictionary that configures a component of the system. It includes methods for consolidating sub-phrases and assembling indented phrases, as well as methods for additional analysis, intersection areas, and more.
+
+3. The `_getSurfPeriod_additionalAreas` method returns a list of additional areas to be analyzed for surf period. It combines areas from a predefined list of additional areas and surf areas.
+
+4. The `_getAdditionalAreas` method returns a list of additional areas for a given component. It creates a dictionary of elements and their corresponding area types, and then retrieves the areas listed in the SurfAreaDictionary for the given area types.
+
+5. The `_getSurfPeriod_additionalAnalysisList` method returns a list of additional analyses for surf period. It adds extra elements if certain conditions are met.
+
+6. The `_getAdditionalAnalysisList` method returns a concatenated list of analysis lists from the additionalAreasDict.
+
+7. The `_getSurfPeriod_intersectAreas` method returns a list of areas to be intersected for surf period based on local effects.
+
+8. The `_getSurfPeriod_intersectWithAreas` method seems to return all the landSeaArea combinations from the `_combinedAreaDict`, but the code is incomplete.
+
+Overall, the code is designed to handle complex weather analysis, with a focus on surf conditions. It uses a variety of methods to analyze data, generate phrases, and handle additional areas and intersections.
+
+This code appears to be part of a larger system, possibly related to weather forecasting or a similar field. Here's a high-level overview of what each function does:
+
+1. The first function is looping through a dictionary of combined area data and appending the 'landSeaArea' values to a list, which is then returned.
+
+2. The `_getSurfPeriod_intersectAnalysisList` function is creating and returning a list of tuples, each containing a string, a function, and possibly another list. This could be used to perform different types of analysis on various weather-related parameters.
+
+3. The `_tempLocalEffects_list` function is creating and returning a list of local effects, which are defined by the `LocalEffectArea` function.
+
+4. The `ExtendedLabel` and `SurfExtended` functions are creating and returning dictionaries with specific keys and values. These could be used to define components of a larger system, possibly related to generating weather forecast reports.
+
+5. The `ExtraSampling` function is similar to the previous two, but it includes an 'analysisList' key, which suggests that it might be used to perform additional analysis on weather data.
+
+6. The `ExtendedNarrative` function is creating and returning a dictionary that defines a narrative component of a forecast report.
+
+7. The `removeEmptyPhrase` function is checking if a node's ancestor's name is "fireWind_label_phrase". If it is, the function returns 0; otherwise, it returns 1.
+
+8. The `_setSurfAreaLabel` function is setting the area label for a given phrase in a tree node. It uses a dictionary of additional areas and a dictionary of combined areas to do this.
+
+9. The `generateForecast` function is the main function that generates a forecast. It first gets variables and checks for errors. Then, it gets an area list and checks if it's empty. After that, it determines time ranges and samples data, checking for errors at each step. Finally, it initializes an output string and pre-processes the product.
+
+The code is well-structured and modular, with each function performing a specific task. However, without the full context or the rest of the codebase, it's hard to provide a more detailed analysis.
+
+This code appears to be part of a larger program that generates a weather forecast product. Here's a breakdown of what each part does:
+
+1. The first block of code is a loop that iterates over a list of areas (`self._areaList`). For each area, it pre-processes the forecast, generates the product, and then post-processes the forecast. It also updates a progress message and percentage. The final forecast is then post-processed and returned.
+
+2. The `_getVariables` method extracts variables from a provided argument dictionary (`argDict`) and sets them as attributes of the object. It also handles the case where the key in the dictionary is a tuple.
+
+3. The `_determineTimeRanges` method sets up the narrative definition and initial time range, calculates current times, and recalculates the expiration time.
+
+4. The `_sampleData` method samples and analyzes the data for the narrative using a `ForecastNarrative` object.
+
+5. The `_preProcessProduct` method prepares the product header, which includes the product name, issued by string, and a synopsis from a previous SRF.
+
+6. The `_preProcessArea` method prepares the header for an edit area combination, which includes the area header and the hazards text.
+
+7. The `_makeProduct` method generates the forecast and, if necessary, adds a multiple element table to the forecast.
+
+8. The `_postProcessArea` method adds outlook and tide information to the forecast.
+
+9. The `_postProcessProduct` method updates the progress message and percentage to indicate that the product is complete. It also cleans out extra areas that had to be saved.
+
+10. The comment `# PRODUCT-SPECIFIC METHODS` at the end indicates that the following code (not shown) likely contains methods that are specific to the type of product being generated.
+
+The provided code is written in Python and appears to be part of a larger system, possibly related to geographical or meteorological data management. Here's a breakdown of the three methods:
+
+1. `_getCombinedAdditionalAreas(self, argDict, components)`: This method combines additional areas based on the user's combinations for the public zones. It creates a dictionary with an entry for each areaList combination, letting the system know the combined landSea, marine, surf, and tide areas. The method also handles surf areas and tide areas separately. If there are multiple areas, it creates a union of these areas. If there's only one area, it uses that area. If there are no areas, it uses the combined area itself.
+
+2. `_getCombinedSurfAreas(self, argDict, components, comboList, comboLabel)`: This method gets the surf areas for a combination and combines surf areas that have the same label. If a surf area has a different label in different entries, it just uses the first label. It creates a dictionary of surfLabel: surfAreas and makes combinations. If there are multiple surf areas, it creates a union of these areas. If there's only one surf area, it uses that area.
+
+3. `_issuance_list(self, argDict)`: This method seems to be incomplete, but it appears to be setting up a list of narratives and extended periods related to surf conditions. It checks some conditions related to individual extended periods and extended labels, but the actions for these conditions are not provided in the code snippet.
+
+The code also uses a ModuleAccessor class to access some variables, and it has debug prints which can be turned on or off with the `_surfDebug` variable.
+
+This code appears to be a part of a larger Python script, possibly for a weather forecasting application. It's defining several methods that manipulate and return information about weather conditions and forecasts.
+
+1. The first block of code is appending tuples to the lists `narrativeDefAM` and `narrativeDefPM`, and then concatenating these lists with another list called `extended`. It also appends another tuple to each list, and then returns a list of tuples, each containing information about a specific time period of the day (morning, afternoon, etc.), and the corresponding narrative definitions.
+
+2. The `lateDay_descriptor` and `lateNight_descriptor` methods return descriptions for late day and late night time periods respectively, based on whether the given time range is within the first period.
+
+3. The `valleyRidgeAreaNames` method returns the names "Inland" and "Coastal", possibly representing different geographical areas for weather forecasting.
+
+4. The `untilPhrasing_flag_dict` and `untilPhrasing_format_dict` methods return dictionaries that control how "until" time descriptor phrasing is used and formatted.
+
+5. The `fireSky_setUp`, `weather_setUp`, `popMax_setUp`, and `dayOrNight_setUp` methods seem to be setting up different weather conditions (like sky conditions, weather, probability of precipitation, and day or night conditions) for a specific area. They use various helper methods and properties to do this.
+
+6. The code ends abruptly with the beginning of the `severeWeather_s` method, so it's not clear what this method does.
+
+Note: This code uses a lot of methods and properties that aren't defined in the provided snippet, so it's difficult to provide a more detailed analysis without the full context.
+
+This code is a series of method definitions in Python, likely part of a larger class. These methods seem to be related to weather forecasting or reporting, with a focus on various weather conditions such as wind, wave height, and sky conditions. 
+
+1. `setUp(self, tree, node)`: This method sets up a node in a tree with severe weather information. It also sets a flag for the method `checkWeatherSimilarity`.
+
+2. `wind_setUp(self, tree, node, gustFlag=0, element="Wind", connectorMethod=None)`: This method sets up a node in a tree with wind information. It can also handle wind gust information if the `gustFlag` is set to 1.
+
+3. `wind_summary_setUp(self, tree, node)`: This method sets up a node in a tree with a summary of wind conditions.
+
+4. `fireWind_label_setUp(self, tree, node)`: This method sets up a node in a tree with fire wind label information. It checks if the current area contains ridge or valley areas.
+
+5. `fireRidgeValleyWind_setUp(self, tree, node)`: This method sets up a node in a tree with fire ridge or valley wind information. It checks if the current area contains ridge or valley areas and sets up an intersect area for the node.
+
+6. `waveHeight_setUp(self, tree, node)`: This method sets up a node in a tree with wave height information. It checks if the node has arguments and if it needs to spawn phrases.
+
+7. `waveHeight_words(self, tree, node)`: This method creates a phrase for waves based on the statistics of the node.
+
+8. `sky_setUp(self, tree, node)`: This method sets up a node in a tree with sky condition information.
+
+9. `reportTrends_setUp(self, tree, node)`: This method sets up a node in a tree with report trends information. It seems to be incomplete as the code is cut off.
+
+Each method seems to return a call to `self.DONE()`, which is likely a method defined elsewhere in the class that signifies the successful completion of the setup.
+
+This code file contains a series of methods that are used to set up and generate phrases for different weather conditions. The phrases are used to describe the weather conditions in a more human-readable format. Here is a brief description of each method:
+
+1. `lf.getPeriod(timeRange, 1)`: This method is used to get a specific period of time. 
+
+2. `lows_setUp` and `highs_setUp`: These methods are used to set up phrases for minimum and maximum temperatures respectively. They create an element information list with "MinT" or "MaxT" and pass it to the `subPhraseSetUp` method.
+
+3. `_lal_phrase`, `lal_setUp`, `lal_words`: These methods are used to set up and generate phrases for the "LAL" (Lightning Activity Level) weather condition. The `lal_words` method generates a phrase based on the maximum LAL value.
+
+4. `_waterSpout_phrase`, `_waterSpout_setUp`, `_waterSpout_words`: These methods are used to set up and generate phrases for the "WaterSpout" weather condition. The `_waterSpout_words` method generates a phrase based on the maximum WaterSpout value.
+
+5. `pop_lower_threshold`, `pop_wx_lower_threshold`, `pop_upper_threshold`: These methods are used to set the thresholds for the "Pop" (Probability of Precipitation) weather condition.
+
+6. `chop_setUp`, `chop_words`: These methods are used to set up and generate phrases for the "Chop" (Wind) weather condition. The `chop_words` method generates a phrase based on the maximum wind speed and direction.
+
+In general, each weather condition has a `setUp` method to prepare the necessary data and a `words` method to generate the phrase. The `setUp` methods use the `subPhraseSetUp` method to prepare the data and the `words` methods use the `getStats` and `getValue` methods to retrieve the necessary statistics and values.
+
+The code is part of a larger program that seems to be related to weather forecasting, specifically for marine conditions. 
+
+The first part of the code defines a method that determines the sea conditions based on the wind direction (`dir`) and maximum wind speed (`maxWind`). It uses the wind direction to check if the wind is offshore. If it is, the sea condition is set to "smooth". If the wind is not offshore, the sea condition is determined based on the maximum wind speed, with different ranges of wind speed corresponding to different sea conditions.
+
+The second part of the code defines several methods related to the Ultraviolet Index (UVI). The `_uvi_phrase` method returns a dictionary containing setup and word methods for UVI. The `_uvi_setUp` method sets up some data for UVI, including getting the UVI product from a previous forecast. The `_uvi_words` method gets the UVI value for a specific city and state from the UVI product and uses the `_uvi_value` method to convert this value into a descriptive word.
+
+The third part of the code defines a method for setting up heat index data.
+
+The fourth part of the code defines a method `_getTideInfo` for getting tide information from a daily tide file. It reads tide tables for different locations and adds the tide information for the current date to the forecast. The tide information includes low and high tide times and heights.
+
+The provided code seems to be a part of a larger Python script, possibly related to weather forecasting or marine conditions. Here's a breakdown of what the code does:
+
+1. The `_getTideTable` function attempts to open a file that contains tide information. If the file cannot be found, it returns a warning message.
+
+2. The `_sst_phrase` function, `_sst_setUp`, and `_sst_words` functions seem to be related to setting up and generating a phrase related to Sea Surface Temperature (SST). However, the actual SST value is not included in the code and is represented by a placeholder.
+
+3. The `_areaDictErrorMsg` function generates a warning message when an entry for a specified area cannot be found in a dictionary.
+
+4. The `swell_compoundPhrase`, `swell2_compoundPhrase`, `swell_finishUp`, `swell2_finishUp`, `get_swell_finishUp`, `swell_summary`, `swell2_summary`, `swell_summary_setUp`, `swell_summary_words`, `swell2_summary_words`, `simple_swell_phrase`, `simple_swell2_phrase`, `simple_swell_setUp`, `simple_swell2_setUp`, `get_swell_setUp` functions are related to setting up and generating phrases related to swell conditions. These functions seem to handle two types of swells (Swell and Swell2), and generate summaries and simple phrases for each.
+
+5. The `get_swell_setUp` function sets up swell information for a given element (Swell or Swell2). However, the code is incomplete and it's not clear what happens if the `connectorMethod` is None.
+
+Please note that without the full context or the complete code, it's hard to provide a more accurate analysis.
+
+The given code appears to be a part of a larger Python program that is used for weather forecasting, specifically for analyzing and summarizing weather conditions related to wind, swell, and rip currents. 
+
+1. The `vector_summary_valueStr` function takes a value and an element name as inputs. If the element name is "Swell" or "Swell2", it calls the `swell_summary_valueStr` function, otherwise it calls the `wind_summary_valueStr` function. These functions return a string describing the condition of the swell or wind based on the input value.
+
+2. The `swell_summary_valueStr` function checks the value of swell and returns a string ("", "moderate", or "large swells") based on the range in which the value falls.
+
+3. The `wind_summary_valueStr` function checks the value of wind speed and returns a string ("", "breezy", "windy", "very windy", "strong winds", or "hurricane force winds") based on the range in which the value falls.
+
+4. The `period_phrase`, `period2_phrase`, `get_period_setUp`, and `period_words` functions appear to be related to setting up and generating phrases for a period of time.
+
+5. The `rip_phrase`, `rip_setUp`, `rip_words`, `ripPhrases`, `ripGrid_value`, and `rip_value` functions are related to analyzing and summarizing rip current conditions. The `rip_phrase` function sets up the rip current conditions, the `rip_words` function generates the rip current phrases, and the `ripPhrases` function contains the phrases to be used based on the rip current conditions.
+
+The code is not complete, so it's difficult to provide a comprehensive analysis.
+
+This code is written in Python and it seems to be part of a larger class or module related to weather or marine conditions. 
+
+The first part of the code is a function that assigns a phrase to the variable `words` based on the conditions of `maxWind` and `maxWave`. These conditions are likely related to the maximum wind and wave heights. The phrases are taken from a dictionary `ripPhrases` which has keys `"lowPhrase"`, `"modPhrase"`, and `"highPhrase"`. Depending on the conditions, one of these phrases is assigned to `words`. For example, if `maxWind` is greater than or equal to 20 and `maxWave` is less than 6, `modPhrase` is assigned to `words`.
+
+The second part of the code is a function `allowedHazards` which returns a list of tuples. Each tuple consists of a hazard code, a list of all possible actions related to that hazard, and a category of the hazard. For example, `'SU.W'` is a code for 'HIGH SURF WARNING', and the possible actions related to it are `"NEW"`, `"EXA"`, `"EXB"`, `"EXT"`, `"CAN"`, `"CON"`, `"EXP"`. The category of this hazard is 'Marine'. 
+
+This code likely belongs to a weather or marine forecasting application, where it is used to generate hazard warnings based on certain conditions.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ExSS7.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ExSS7.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be part of a weather forecasting software developed by Raytheon Company. The script is used to edit a weather element ("Wx") based on the probability of precipitation ("PoP"). 
+
+The script first imports the necessary modules, including the numpy library and a module named SmartScript. It then defines a class named Tool that inherits from SmartScript.SmartScript. 
+
+Within the Tool class, there are two methods: `__init__` and `execute`. 
+
+The `__init__` method is the constructor of the class and is used to initialize the instance of the class. It takes a parameter `dbss` and passes it to the constructor of the parent class.
+
+The `execute` method takes two parameters: PoP (probability of precipitation) and Wx (weather). It separates Wx into components, and then assigns values to wxValues based on the value of PoP. 
+
+If PoP is less than 20, wxValues is assigned the index of "<NoCov>:<NoWx>:<NoInten>:<NoVis>:". If PoP is between 20 and 35, wxValues is assigned the index of "Chc:R:-:<NoVis>:". If PoP is between 35 and 55, wxValues is assigned the index of "Sct:RW:m:<NoVis>:". If PoP is greater than or equal to 55, wxValues is assigned the index of "Wide:R:+:<NoVis>:". 
+
+Finally, the method returns a tuple containing wxValues and keys.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

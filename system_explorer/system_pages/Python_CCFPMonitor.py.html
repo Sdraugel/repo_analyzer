@@ -1,0 +1,72 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>CCFPMonitor.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>CCFPMonitor.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The given code is a Python script named `CCFPMonitor.py` developed by Raytheon Company. It appears to be a part of a larger software system, possibly related to weather forecasting, as it references terms like "forecast" and "convection". 
+
+The script begins with a detailed header that includes licensing information, the history of revisions, and the changes made by different engineers over time. 
+
+The script imports several modules including `logging`, `time`, `Avn`, `MonitorP`, and `CCFPData`. It also initializes a logger and a dictionary named `_Code`.
+
+The main part of the script defines a class `Monitor` that inherits from `MonitorP.Monitor`. This class has two methods: `__makeData` and `__compare`. 
+
+The `__makeData` method appears to process some sort of data (possibly related to weather forecasting) and returns a dictionary with two keys: 'hourly' and 'text'. 
+
+The `__compare` method seems to compare the forecast data with some other data (possibly a TAF, or Terminal Aerodrome Forecast). It logs a warning if the forecast data is missing or cannot be processed, and returns a dictionary with the key 'status' and possibly 'text'.
+
+The script ends abruptly, suggesting that the provided code is not the complete file.
+
+This Python code is defining two classes: `TSNotInTaf` and `CBNotInTaf`, which are both subclasses of `MonitorP.Rule`. These classes seem to be used for monitoring weather conditions, specifically looking for certain conditions in Terminal Aerodrome Forecasts (TAFs).
+
+The `TSNotInTaf` class checks if a condition 'ts' (possibly standing for 'thunderstorm') is not in the TAF and if the CCFP (Collaborative Convective Forecast Product) meets certain confidence and coverage thresholds. If these conditions are met, it sets a message indicating this and returns True. Otherwise, it returns False.
+
+The `CBNotInTaf` class does a similar check, but for the condition 'cb' (possibly standing for 'cumulonimbus clouds').
+
+In both classes, the `__init__` method sets some default values that can be overwritten by a configuration file. These include the type of condition being monitored ('wx' for weather), whether the rule is unique, the severity of the rule, and the default confidence and coverage thresholds.
+
+The `method` function in both classes is where the actual checking of the TAF and CCFP occurs. It first checks if the specific condition ('ts' or 'cb') is in the TAF. If it is, the function immediately returns False. If the condition is not in the TAF, it then checks if the CCFP meets the confidence and coverage thresholds. If it does, it sets a message indicating this and returns True. If it doesn't, it returns False.
+
+The first part of the code is a try-except block that attempts to assign some values to `elf.args['items']` and `tmp`. If an IndexError occurs during this assignment, it logs the exception and sets the status of `result` to NIL. It then returns `result`.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

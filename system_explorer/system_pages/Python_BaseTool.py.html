@@ -1,0 +1,102 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>BaseTool.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>BaseTool.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code file seems to be part of a larger software system, possibly related to meteorology or geophysics, given the use of terms like 'height', 'vector', 'scalar', 'magnitude', 'direction', and 'levels'. It's developed by Raytheon Company under a US government contract and contains export-restricted data.
+
+The code defines a class named `BaseTool` that inherits from `UnitConvertor.UnitConvertor`. The `BaseTool` class provides several methods for mathematical operations, likely used in the larger software system. Here's a brief description of the methods:
+
+1. `__init__`: This is the constructor of the class. It initializes the `BaseTool` instance by calling the constructor of the parent class `UnitConvertor`.
+
+2. `interpolateValues`: This method performs interpolation between two sets of values (`values1` and `values2`) based on a given `height`. It handles both scalar and vector values.
+
+3. `linear`: This method performs a linear transformation on a given value `we` using the provided parameters.
+
+4. `extrapolate`: This method performs extrapolation from two sets of values (`values1` and `values2`) based on a given `height`. It handles both scalar and vector values.
+
+5. `interpolateScalarValues` and `interpolateVectorValues`: These methods are similar to `interpolateValues` but specifically for scalar and vector values, respectively.
+
+6. `getLevels`: This method returns a list of levels between and including `level1` and `level2`. The levels are calculated in either ascending or descending order depending on the order of arguments.
+
+7. `round`: This method rounds a given value `val` based on a specified `mode` and `increment`. The `mode` can be "RoundUp", "RoundDown", or "Nearest".
+
+The code also contains several import statements at the beginning, importing the `math` and `numpy` libraries, as well as a module named `UnitConvertor`.
+
+This code file is a module written in Python that provides some additional routines for NumPy, a popular package for scientific computing with Python. It includes several functions that perform various mathematical and statistical operations on arrays, such as checking for infinite or NaN values, reshaping arrays, rounding, and calculating the sign, diagonal, correlation coefficients, covariance, maximum, minimum, mean, variance, standard deviation, and differences of arrays.
+
+Here's a brief overview of some of the functions:
+
+- `fformat`: This function returns a string representation of a floating point value, truncated to the resolution given by `roundVal`.
+
+- `isinf` and `isnan`: These functions return a condition array, which is true where the input array `m` has an Inf or NaN value, respectively.
+
+- `aindex`: This function shows multidimensional indices where a condition is true.
+
+- `DelAxis`: This function removes all axes with length one from the input array `m`.
+
+- `around`: This function rounds the input array `m` in the way Python's built-in round function does.
+
+- `sign`: This function returns an array with the shape of `m`, where the array is -1 where `m` is less than 0, 1 where `m` is greater than 0, and 0 elsewhere.
+
+- `diag`: This function returns the diagonal of `m` with offset `k`.
+
+- `corrcoef` and `cov`: These functions calculate the correlation coefficients and covariance matrix, respectively, of the input arrays.
+
+- `amax`, `amin`, `mean`, `var`, `std`, `diff`, and `ndiff`: These functions return the maximum, minimum, mean, variance, standard deviation, difference, and N-th forward difference, respectively, of the input array `m` along a specified axis.
+
+This code file contains several functions that perform various mathematical operations on arrays. Here's a brief description of each function:
+
+1. `diff(m, n=1, axis=0)`: This function calculates the n-th order discrete difference along the given axis. It raises an error if the length of the axis is less than 2.
+
+2. `zonec(m, axis=0)`: This function reduces the field from the corners to the middle of the vertices. It also raises an error if the length of the axis is less than 2.
+
+3. `gradient(var, x, axis=0)`: This function calculates the partial derivative of the variable `var` with respect to `x`. Both `var` and `x` are assumed to have the same shape.
+
+4. `maverage(x, width)`: This function creates a running mean of a specified width over the vector `x`. The vector `x` needs to be 1-dimensional. The function raises an error if the input array `x` is not 1-dimensional.
+
+5. `raverage(x, width, offset=0)`: This function creates a centered mean over a specified width of data points in the array `x`. The function also has an optional offset parameter.
+
+All these functions are designed to work with numpy arrays and use various numpy functions like `shape`, `slice`, `asarray`, `zeros`, `floor`, `indices`, `reshape`, `take`, `mean`, and `arange`.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>CoordAdapter.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>CoordAdapter.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that acts as an adapter for the `Coordinate` class from the `org.locationtech.jts.geom` package. This package is part of the Java Topology Suite (JTS), a library of spatial predicates and functions for processing geometry objects.
+
+The script includes two main functions: `serialize` and `deserialize`. 
+
+The `serialize` function takes two arguments: `context` and `coordinate`. It writes the x and y coordinates of a given `Coordinate` object to the `context`. This is typically used to convert the `Coordinate` object into a format that can be easily stored or transmitted.
+
+The `deserialize` function, on the other hand, reads the x and y coordinates from the `context` and uses them to create a new `Coordinate` object. This function is used to convert data that has been serialized back into a `Coordinate` object.
+
+The script also includes a `ClassAdapter` variable that stores the name of the class this adapter is intended for, which in this case is `org.locationtech.jts.geom.Coordinate`.
+
+The comments at the top of the script provide additional context, including a warning about U.S. export control restrictions, contact information for the contractor (Raytheon Company), and a software history log.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

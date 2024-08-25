@@ -1,0 +1,479 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>PhraseBuilder.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>PhraseBuilder.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that defines a class named `PhraseBuilder`. This class appears to be part of a larger system, possibly for generating weather forecasts or similar narrative products. The class inherits from four other classes: `ConfigVariables`, `TimeDescriptor`, `UnitConvertor`, and `StringUtils`.
+
+The `PhraseBuilder` class has several methods for manipulating and building phrases. For example, the `useCommas` method replaces multiple instances of 'and' with commas for better readability. The `postProcessPhrase` method performs several specific text replacements and translations. The `findWords` method appears to generate a text string from a tree-like structure based on specific criteria.
+
+The class also defines a number of constants, such as `SCALAR`, `MAGNITUDE`, `DIRECTION`, etc., which return integer values. These are likely used elsewhere in the system to represent different types of data or operations.
+
+The code also includes a detailed history of changes made to the software, as well as a disclaimer stating that the software is in the public domain and is provided without warranty. It also includes a note about export restrictions due to U.S. law.
+
+The script imports several modules at the beginning, presumably to use their functionalities within the `PhraseBuilder` class. These modules include `types`, `functools`, `TimeDescriptor`, `ConfigVariables`, `StringUtils`, `UnitConvertor`, `TimeRange`, and `WeatherSubKey`.
+
+The provided code is written in Python and appears to be part of a larger program. It contains several methods that manipulate and extract information from a tree-like data structure. Here's a breakdown of what each method does:
+
+1. `getLeaves(self, tree, node)`: This method returns a list of "leaves" for the component to which the node belongs. In this context, "leaves" are nodes that have no children (sub-phrases), except if a node has words set and its children do not. 
+
+2. `addToDictionary(self, dictionary, key, value)`: This method adds a value to a dictionary where the key entry is a list of values. If the key already exists in the dictionary, it appends the value to the list of values associated with that key. If the key does not exist, it creates a new list with the value as its first element.
+
+3. `dayOrNight_element(self, tree, node, dayElement, nightElement)`: This method determines whether it's day or night based on the time range of the node and returns the corresponding element.
+
+4. `removeComponentPhrases(self, tree, node, phraseName, exceptions=[], areaLabels=[])`: This method removes all phrases with the given phraseName in the current component. If areaLabel is not None, it checks for a match there as well and only removes the phrase if it is for that area.
+
+The first part of the code before these methods seems to be a method that finds words in the tree structure based on a variety of conditions (such as areaLabel, phraseList, etc.). If the `attributes` parameter is not None, it returns a dictionary with attributes and their corresponding values for leaves with words. Otherwise, it just returns the words.
+
+The provided code is written in Python and appears to be part of a larger program. It includes several classes and methods. Here's what each part does:
+
+1. `else:` block: If a certain condition is not met (which isn't included in the provided code), a child object is removed. There are commented out lines that could be used for debugging, such as printing a message and showing a traceback.
+
+2. `ElementInfo` class: This class is used to store information about an element. It includes attributes like `name`, `mergeMethod`, `statLabel`, `primary`, `dataType`, and `phraseDef`. The commented out methods seem to return the respective attribute values.
+
+3. `LocalEffectArea` class: This class represents a local effect area. It includes attributes like `areaLabel`, `areaWords`, `conjAreaWords`, and `intersectFlag`. It seems to be used to describe a specific area and its properties.
+
+4. `LocalEffect` class: This class represents a local effect. It includes attributes like `leAreaList`, `triggerMethod`, and `exceptionWords`. It seems to be used to handle local effects in certain areas.
+
+5. `makeRangeStats` method: This function checks if the stats are by range and returns the stats if they are. If not, it returns a list with the stats and the time range.
+
+6. `sumPrevStats` method: This function calculates the sum of stats going backward in time until a zero value is found. It seems to be used for calculating the amount of snow in the past and forecast periods.
+
+7. `getScalarRangeStr` method: This function returns a string representation of a range of scalar values. If the minimum and maximum values are the same, it returns the representation of just one value. Otherwise, it returns a range.
+
+8. `makeSentence` method: This function creates a sentence from the words at the node level. If there are no words, it returns None. If the words are an empty string, it assigns "MISSING" to the words variable. The rest of this method is not shown in the provided code.
+
+This code appears to be part of a larger program, possibly a text generation or natural language processing system. It's written in Python and contains several methods that manipulate and organize words and phrases, possibly for generating text based on some sort of tree structure. Here's a brief overview of what each method does:
+
+1. `chooseElement`: This method iterates over a list of element names and returns the first one for which there are stats available. If no stats are available, it returns the last element name.
+
+2. `assembleChildWords`: This method concatenates the words from all child nodes of a given node.
+
+3. `noWords`: This method sets the words of a component to an empty string.
+
+4. `assembleSentences`: This method constructs sentences from a node's child nodes. It orders and consolidates phrases, qualifies words, and concatenates them into a forecast string.
+
+5. `assemblePhrases`: This method constructs phrases from a component's child nodes. It removes empty word phrases, orders and consolidates phrases, qualifies words, and concatenates them into a forecast string. It also adds a label to the forecast.
+
+6. `adjustWords`: This method makes special adjustments to phrases, particularly for the 'popMax_phrase' case.
+
+7. `assembleIndentedPhrases`: This method constructs indented phrases from a component's child nodes. It consolidates phrases, orders them, qualifies words, and concatenates them into a forecast string.
+
+The code seems to be part of a larger system, possibly for generating weather forecasts or similar reports, given the frequent use of the term 'forecast' and 'phrase'. However, without more context, it's hard to be certain about its exact purpose.
+
+The code provided is written in Python and seems to be part of a larger system that manipulates and processes tree-like data structures, possibly for natural language processing or some sort of hierarchical data analysis. Here's a high-level overview of what each part does:
+
+1. The first part of the code is a function that appears to be processing a phrase from a tree structure. It retrieves an indent label, creates a label, checks if the label is empty and if so, assigns the indent label to it. It then checks if the words are empty and if so, assigns a space to it. The words are then indented with the label. The phrase and words are printed, and the words are appended to a forecast string. It then determines a time shift and creates a label based on various parameters. The function ends by setting the words of a component to the label and forecast.
+
+2. The `consolidateLEPerPhraseInstance` function seems to consolidate or combine local effects for each phrase in a component. It creates a pseudo component, groups phrases with local effects, consolidates these local effects, and then replaces the original nodes with the consolidated ones in the component. The pseudo component is then deleted.
+
+3. The `consolidatePerPhraseNameGroup` function is similar to the previous function, but it consolidates or combines local effects for each phrase name group in a component.
+
+4. The `weatherPhraseNames` function returns a list of weather phrase names.
+
+5. The `orderWxPhrases` function sorts weather phrases according to their time span for non-empty sub-phrases and replaces the weather phrases in the component's child list.
+
+6. The `sortPhraseTimeSpans` function is a property that seems to be used for sorting phrases based on their time spans. However, the function is incomplete and its full functionality cannot be determined from the provided code.
+
+This code file appears to be part of a larger program that deals with processing and organizing phrases and sub-phrases based on their time spans. It's written in Python and includes several functions and methods.
+
+1. The first part of the code is determining the time span of each phrase. It iterates over two phrases (phrase1 and phrase2), and for each phrase, it calculates the start and end time by iterating over its sub-phrases. If a phrase's time span has already been calculated, it skips it. If the start and end time are not None, it creates a new TimeRange for the phrase. If they are None, it assigns a default TimeRange to the phrase.
+
+2. After calculating the time span for each phrase, it orders the phrases according to their time spans. It uses the `orderTimeRanges` method to compare the start and end times of the two phrases' time spans.
+
+3. The `orderTimeRanges` method is a property that returns a comparison function. This function compares two time ranges based on their start and end times. If the start times are equal, it compares the end times and puts the one with the shortest span first.
+
+4. The `consolidateSubPhrases` method is used to check for duplicate sub-phrases and consolidate them into one. It first ensures that all sub-phrases have completed, i.e., have words set. If there are no local effects, it skips this method. It then creates a dictionary of sub-phrases grouped by their words, time range, and local effect phrase name group.
+
+5. The code ends abruptly with a comment about checking for duplicates, suggesting there's more code that follows this section. 
+
+Overall, this code seems to be part of a larger system for organizing and processing phrases and their associated time spans, possibly for some sort of scheduling or event planning application.
+
+This code appears to be part of a larger program that processes and manipulates phrases. The main function is to consolidate duplicate subPhrases based on different cases. Here's a breakdown of what each part does:
+
+1. The code first retrieves the area label of a component. It then iterates over a dictionary of subPhrases. If there's only one subPhrase, it continues to the next iteration.
+
+2. If there are duplicate subPhrases, it gathers the area labels for these duplicates and the possible local effect area labels.
+
+3. Depending on the number of area labels and whether all local effect areas are covered, it handles three cases:
+    - Case 1: If all duplicates are for the same area label, it sets the area label for the consolidated subPhrase to that. It removes all but the first subPhrase.
+    - Case 2: If the duplicates are for a local effect and cover all possible local effect areas for their phrase, it creates a new phrase with this subPhrase wording and removes the local effect subPhrases.
+    - Case 3: If the duplicates are for a local effect and they cover a subset of the local effect areas, it removes any duplicate subPhrases for the component's area label and leaves the local effect ones alone.
+
+4. The `gatherDupAreaLabels` function collects the area labels and local effect areas for a given set of subPhrases.
+
+5. The `allLeAreasCovered` function checks if all possible local effect areas are covered by the subPhrases.
+
+6. The `consolidateSubPhrases_trigger` function checks if the consolidation of subPhrases has been completed.
+
+7. The `consolidateLocalEffectPhrases` function organizes the local effect and non-local effect phrases, converting to embedded local effect phrases if appropriate and applying local effect thresholds. It checks if a node has a local effect and breaks the loop if it does.
+
+The code also includes debug print statements to help with troubleshooting.
+
+This code appears to be part of a larger system that processes and manipulates phrases related to weather forecasts. The main purpose of this code is to handle local and non-local effect phrases, and convert them into a more readable format.
+
+1. The `incorporateNonLocalEffectPhrases` function tries to incorporate non-local effect phrases into local effect phrases. If certain conditions are met (e.g., there is exactly one leArea group, the group is composed of intersect areas, there is more than one local effect phrase, and the number of non-local effect phrases is below a certain threshold), the function converts the non-local effect phrases into conjunctive local effect phrases and returns 1. Otherwise, it returns 0.
+
+2. The `convertToEmbedded` function converts conjunctive local effects into embedded phrases if certain conditions are met. It does this by creating a dictionary of phrase groups (`lePhraseDict`), determining a repeat threshold, creating a dictionary of qualifiers (`qualifiersDict`), creating embedded phrases, and then inserting these embedded phrases.
+
+3. The `createLePhraseDict` function organizes phrases in the component by lePhraseNameGroups. It creates a dictionary where each entry contains qualifiers, phrases, and the name of the first element.
+
+4. The `createQualifiersDict` function determines how many potential embedded phrases there are for each unique set of qualifiers. It creates a dictionary where each entry is a set of qualifiers and its count. If a phrase group can be embedded (i.e., there are no mandatory conjunctives), it flags it as such and increases the count for its qualifier set.
+
+In summary, this code is manipulating and reformatting weather forecast phrases to make them more readable and understandable.
+
+This code appears to be part of a larger program that processes and manipulates phrases, possibly in the context of natural language processing or a similar domain. 
+
+The first function, which is not named in the provided code, appears to be processing a list of phrases. It checks if each phrase has exactly one subphrase, and if the subphrase's words attribute is not empty and its time range matches the parent phrase's time range. It also counts the occurrences of each area label in the phrases and stops processing if a label exceeds a certain threshold (`repeatThreshold`). If a phrase passes all these checks, it is considered "embedded". The function then sorts and removes duplicates from a list of qualifiers, stores them as a tuple in a dictionary, and returns this dictionary.
+
+The `createEmbeddedPhrases` function goes through a dictionary of phrases (`lePhraseDict`). If a phrase is marked as "embedded" and its count in `qualifiersDict` does not exceed `repeatThreshold`, it creates an "embedded phrase" using the `makeEmbeddedFromConjunctiveLE` method.
+
+The `insertEmbeddedPhrases` function inserts these embedded phrases into the proper places in a list of phrases (`component.get("childList")`) and removes the associated conjunctive phrases.
+
+The `getLePhraseNameGroup` function determines the name group for a given phrase. It checks if the phrase's name is in a list of name groups (`lePhraseNameGroups`). If not, it creates a new name group by concatenating the phrase's name with the name of its first element.
+
+The `orderLocalEffectPhrases` function seems to be intended to group all conjunctive local effect phrases for each local effect area together, but its implementation is not provided in the given code.
+
+Overall, the code seems to be part of a larger system that processes and manipulates phrases, possibly for natural language processing or a similar application.
+
+This code appears to be part of a larger program, possibly a weather forecasting tool, that generates weather reports or forecasts. It seems to be written in Python.
+
+1. The first function `combineConjunctivePhrases` is checking for phrases that have local effects and making sure that the indented label is not repeated. It's combining phrases that have the same name and element, and are not embedded. 
+
+2. The second function `makeEmbeddedFromConjunctiveLE` is creating an embedded phrase from a list of conjunctive phrases. It's gathering words from each phrase in the list, getting rid of duplicate descriptors, and adding area words. It also sets the 'embedded' attribute of the phrase to 1 and post-processes the phrase.
+
+3. The third function `qualifyWords` seems to be incomplete and it's not clear what it does based on the provided code.
+
+The comments in the code provide examples of how the phrases should be formatted. The code uses methods like `get`, `set`, `append`, `index`, `replace`, and `continue` to manipulate the phrases and their attributes.
+
+The provided code is a part of a larger Python file and includes several methods. Here's a brief description of what each method does:
+
+1. `qualifyWords`: This method qualifies words with local effect qualifiers. If the `makeSentence` parameter is set to 1, it makes the words into a sentence when appropriate. It returns the modified words and the qualifier (if any).
+
+2. `getNext_nonEmpty`: This method gets the next non-empty attribute of a node.
+
+3. `namesEqual`: This method checks if two names are equal. It also checks if both names are in a list of weather phrases.
+
+4. `wordWrap`: This method wraps the words of a component based on a given line length.
+
+5. `createLabel`: This method creates a label given the time range in GMT and the shift to convert it to local time. It also takes into account whether to use holidays or not.
+
+6. `orderPhrases`: This method reorders highs and lows based on the start period.
+
+7. `moveAbove`: This method moves a phrase above another phrase in the component list.
+
+8. `subPhraseSetUp`: The method is not fully included in the provided code, but it seems to be setting up sub-phrases in some way.
+
+The code seems to be part of a larger system that processes and manipulates text, possibly for a weather forecasting application given the references to weather phrases and time ranges.
+
+This code is a part of a larger system that appears to be processing and organizing data related to phrases and subphrases, possibly for some kind of language processing or data analysis task. 
+
+The main function in this code snippet sets up attributes for phrases and subphrases based on the information provided in the `elementInfoList`. If the `elementInfoList` is empty, it creates an empty subphrase. If there is no data for the first element in the `elementInfoList`, it also creates an empty subphrase.
+
+The function then checks the time range of the first element and decides whether to merge sub-phrases based on the duration. It also checks if a particular time resolution is being requested. If a resolution is provided, it divides the time range into sub-ranges and gets statistics for each time range. If no resolution is provided, it gets statistics for the entire time range.
+
+The function then creates subphrases based on the first element and adds each additional element to the sub range statDict. It then creates SubPhrase children and sets their attributes.
+
+The `makeEmptySubPhrase` function is used to create an empty subphrase when there is no data for the first element or when the `elementInfoList` is empty.
+
+Overall, this code is manipulating and organizing data in a hierarchical structure of phrases and subphrases, each with associated statistics and attributes.
+
+The provided code is written in Python and appears to be part of a larger system, possibly a weather forecasting or data analysis system. It includes several methods that are used to compare and analyze different sets of data.
+
+1. `checkForDifferences`: This method checks for differences between sub-phrases of data. It takes several parameters including a tree, a node, element information, and optional flags for magnitude and direction. It checks if there are differences among the subPhrase values for the given element. If the data type is scalar, vector, weather, or discrete, it uses different methods to check for differences. It returns 1 if a difference is found, and 0 otherwise.
+
+2. `checkScalarDifference`: This method checks for differences between scalar values. It compares minimum and maximum pairs of values and returns 1 if a difference is found, and 0 otherwise.
+
+3. `checkVectorDifference`: This method checks for differences between vector values. It compares minimum, maximum, and direction pairs of values and returns 1 if a difference is found, and 0 otherwise. It also includes a special check for marine wind combining flag.
+
+The code also includes several helper methods that are used to get and compare values, such as `getValue`, `checkScalarDifference`, `checkVectorDifference`, `null_nlValue`, `nlValue`, `null_alwaysDistinct_flag`, `scalar_difference_nlValue`, `direction_difference`, `vector_dir_difference_nlValue`, `marine_wind_combining_flag`, and `getWarnThreshold`.
+
+Overall, this code is focused on comparing and analyzing different sets of data, and determining whether there are significant differences between them.
+
+The code appears to be part of a larger system, possibly related to weather forecasting or analysis. Here's a breakdown of the functions:
+
+1. The first function checks if two sets of values (min-max pairs) are similar or not. It first checks if both max values are below certain thresholds. If they are, it returns 0. If only one of them is below the threshold, it checks a certain condition (null_alwaysDistinct_flag) and returns 1 if the condition is met. It also checks if the min and max of one set are equal and if they match the min or max of the other set. If this is true, it returns 0. It also checks for magnitude differences and returns 1 if the difference is significant. Otherwise, it returns 0.
+
+2. The getWarnThreshold function returns a warning level based on the input max value. The higher the max value, the higher the warning level.
+
+3. The maskSubkeys function creates a new list of weather keys, masking the given intensity with a given value.
+
+4. The checkWeatherSimilarity function checks if two sets of subkeys (rankLists) are significantly different or not. If they are similar, it returns a value based on which set of keys presides. If they are different, it returns 0. It also has an optional feature to check for similar weather conditions over different time ranges and areas.
+
+5. The code also includes a function to check the similarity of weather types, intensities, attributes, and coverages. If all these factors are similar, it returns a flag value. If not, it returns 0.
+
+6. The code also includes a function to check the similarity of subkeys when there are more than one subkeys.
+
+7. The code ends with a function that checks the PoP (probability of precipitation) for two different time periods and areas. The function is incomplete in the provided code.
+
+The provided code seems to be part of a larger Python program, possibly related to weather data analysis. Here's a brief summary of what each function does:
+
+1. `checkSubkeysSimilarity`: This function checks whether two sets of subkeys in the rankLists are significantly different. If they are not, it returns a new rankList of the combined subkeys and ranks sorted in rank order. It also checks if the wxTypes (possibly weather types) are similar and can be combined.
+
+2. `removeNoWx`: This function removes any subkeys from a rankList that have a wxType of "<NoWx>", which might represent a lack of weather data.
+
+3. `similarWxTypes`: This function checks if two subkeys have similar wxTypes. It returns 1 if they should be similar, and 0 otherwise.
+
+4. `similarIntensities`: This function checks if the intensities of two subkeys are close enough. It returns 1 if they are, and 0 otherwise.
+
+5. `similarCoverages`: This function checks if the coverages of two subkeys are significantly different. It returns 0 if they are, 1 if the coverages are similar and the coverage of subkey1 is dominant, and 2 if the coverages are similar and the coverage of subkey2 is dominant.
+
+6. `similarAttributeLists`: This function returns a list of weather attributes that can be combined or considered equal.
+
+7. `similarAttributes`: This function checks if the weather attributes of two subkeys are similar. It returns True if they are, and False otherwise.
+
+8. `removeSpecialAttributes`: This function removes certain special attributes from a given list of attributes.
+
+The code seems to be part of a larger system that analyzes and compares weather data, possibly for the purpose of forecasting or detecting patterns.
+
+This code defines several methods for a class (not shown in the code). The methods are used to manipulate and analyze data structures, likely related to some form of natural language processing or data analysis. Here's a brief description of each method:
+
+1. `matchAttrs(self, attrs1, attrs2)`: This method checks if all attributes in `attrs1` are present in `attrs2` by using the `checkAttrs` method. It returns `True` if all attributes are present, `False` otherwise.
+
+2. `checkAttrs(self, attr1, attrs2)`: This method checks if a given attribute `attr1` is present in `attrs2` or if `attr1` and any attribute in `attrs2` are part of the same attribute list in `similarAttributeLists`.
+
+3. `consolidatePhrase(self, tree, phrase)`: This method seems to be processing a phrase from a tree structure. It separates out primary elements that are constant throughout the phrase and secondary elements that remain with the first element. It then splits off elements that are not in the same list as the first element.
+
+4. `splitPhrase(self, tree, phrase, curElements, splitElements)`: This method splits a phrase into two parts based on the `curElements` and `splitElements`. It also sets the `disabledElements` for the current phrase and the new phrase.
+
+5. `consolidateDirection(self, tree, phrase)`: This method checks if the vector direction is progressive and magnitudes are similar. If so, it only uses the first and last subPhrases.
+
+6. `consolidateTrends(self, tree, phrase)`: The method seems to consolidate trends in a phrase. However, the code for this method is incomplete, so it's hard to tell exactly what it does.
+
+In general, these methods seem to be part of a larger system for analyzing and manipulating phrases in some form of tree structure. The exact purpose would be clearer with more context or comments in the code.
+
+The code provided is written in Python and appears to be a part of a larger program. It seems to be performing some kind of data analysis or processing, specifically looking for trends or progressions in a dataset. Here's a breakdown of what the code is doing:
+
+1. The `ignoreTrends` function checks if a node's name is in a specific list of phrases. If it is, the function returns 1 (True), otherwise it returns 0 (False).
+
+2. The `checkProgression` function calculates the difference between consecutive elements in a list, normalizes the difference, and checks if all differences are of the same sign and within a certain range. If they are, it returns 1 (True), otherwise it returns 0 (False).
+
+3. The `checkTrend` function checks if the maximum values in a list of statistics are either increasing or decreasing. If they are, it returns 1 (True), otherwise it returns 0 (False).
+
+4. The `chooseMostImportant` function seems to be selecting the most important sub-phrase from a list of sub-phrases based on their minimum or maximum values. It nulls out the other sub-phrases and sets up the most important descriptor.
+
+5. The `getSubStats` function returns a list of statistics for the sub-phrases.
+
+6. The first part of the code seems to be a method (though the name is missing) that uses these functions to process a phrase. It checks if the phrase should ignore trends, if it's ready to process, if there's a progression of magnitudes, and if there's an increasing or decreasing trend. If there's a trend, it takes the first and last children only and turns off time descriptors. 
+
+Please note that without the full context or the complete code, this is a high-level analysis and some details might be missing.
+
+The provided code appears to be a part of a larger program, possibly written in Python. It seems to be dealing with some sort of tree data structure, where each node in the tree represents a "phrase" or a "component" of some sort. 
+
+The `splitWxPhrase` method appears to be splitting a node (or "phrase") in the tree into two, with certain properties (like "disabledSubkeys" and "doneList") being propagated or set for the new node. If a `newPhraseDef` is provided, it is used to create the new phrase, otherwise, the current node is duplicated.
+
+The rest of the methods (`combinePhraseStats`, `recallCombinePhraseStats`, `combineComponentStats`, `combineWords`, `combineChildren`, `combineComponents`) seem to be focused on combining nodes or components in the tree under certain conditions. For example, `combineComponentStats` combines child nodes of a given node if they are similar, as determined by the `combineComponents` method.
+
+The `combineComponents` method checks if two components can be combined based on their names and the time past the product start. If the names are different or the time is less than a certain threshold, the components are not combined.
+
+The comments suggest that these methods can be overridden to alter the combining criteria, indicating that this code might be part of a class intended to be subclassed for customization. 
+
+Please note that without more context or the complete code, this analysis might not be 100% accurate.
+
+This code is part of a larger system that seems to be analyzing and combining weather data. 
+
+1. The first method, `similarWind`, compares two components of wind data to determine if they are similar. It checks if the magnitude and direction of the wind are within certain thresholds. If the wind data is past the first 5 periods, it automatically combines them. If either of the wind data is missing, it returns false.
+
+2. The method `hoursPastProductStart` calculates the number of hours past the product start time. It adjusts the start time based on whether the product time range is a multiple of 12 or not.
+
+3. The `similarSky`, `similarWx`, `similarPoP` methods are checking if the sky, weather, and probability of precipitation statistics are similar between two components respectively.
+
+4. The `similarMaxT` method is checking if the maximum temperature statistics are similar between two components.
+
+5. The main part of the code is trying to combine two components if they are similar. It does this by iterating over a list of elements and checking if the 'similar' method for each element returns true. If all elements are similar, it combines the two components and returns a new combined component. If any element is not similar, it does not combine the components and returns None.
+
+This code file appears to be a set of methods for comparing different aspects of two components, likely related to weather forecasting or climate data. 
+
+1. `similarMinT` and `similarMaxT` methods: These methods compare the minimum and maximum temperatures respectively of two components. They first check if the time range between the two components is within 24 hours or if the duration of the time range is within 12 hours and it's either daytime or nighttime. If either of these conditions is true, it returns 1. Then, it gets the average temperature stats for each component and if either is None, it returns 0. If the absolute difference between the two stats is less than a threshold (5 degrees), it returns 1, otherwise it returns 0.
+
+2. `similarWaveHeight` method: This method compares the wave heights of two components. It gets the average wave height stats for each component and if either is None, it returns 0. If the absolute difference between the two stats is less than a threshold (4 feet), it returns 1, otherwise it returns 0.
+
+3. `similarDiurnalSkyWx` and `similar_diurnal` methods: These methods compare the diurnal (day-night) cycle of two components for given elements (like Sky, Wx). It divides the time range of the second component into two and compares each half with a corresponding time range from the first component. It uses a method named after the element (like `similarSkyLogic`) to do the comparison. If any comparison returns false, it returns 0, otherwise it returns 1.
+
+4. `similarSkyLogic` method: This method compares the sky conditions of two components. It gets the average sky stats for each component and if either is None, it returns 0. It then gets the sky value words for each component and compares them (though the comparison part of the code is not shown).
+
+The code provided is written in Python and appears to be part of a larger system for analyzing and comparing weather-related data. Here's a breakdown of what each method does:
+
+1. The first block of code is not inside a method, but it appears to be comparing two sets of words (presumably weather conditions) and returning 1 if they are the same, and 0 if they are not.
+
+2. `similarWxLogic`: This method compares two sets of weather statistics. If either set is None, it returns 0. If not, it cleans the statistics using `cleanOutNoWx` method and checks their similarity using `checkWeatherSimilarity` method. If they are not similar, it returns 0; if they are, it returns 1.
+
+3. `cleanOutNoWx`: This method cleans a list of weather statistics by removing any tuples where the weather type is "<NoWx>". It returns the cleaned list.
+
+4. `combineStats`: This method combines two sets of weather statistics based on their data type. It calls different methods to combine the statistics based on whether they are scalar, vector, weather, or discrete data types. It returns a flag and a new subphrase.
+
+5. `combineScalars`: This method combines two sets of scalar weather data. It checks if there is a significant difference between the two sets of data. If there is, it returns 0 and None. If there isn't, it combines the data and returns 1 and the new value.
+
+6. `combineVectors`: This method combines two sets of vector weather data. Similar to `combineScalars`, it checks for significant differences before combining the data.
+
+7. `combineWeather`: This method is used to combine weather statistics for skyPopWx and visibility phrases. The method is incomplete in the provided code, so it's not clear what the final return values would be.
+
+Overall, this code seems to be part of a system for comparing and combining weather statistics.
+
+This code appears to be part of a larger system that processes and manipulates phrases, possibly in the context of natural language processing or a similar domain. 
+
+The code defines several methods for combining different elements such as subphrases, components, children, and discrete elements. The combination is often based on the similarity of certain properties, such as visibility or weather conditions. 
+
+The `combineDiscrete` method, for example, compares two statistical dictionaries and returns one if they are identical, or None if they are not or if either of them is None. 
+
+The `combineChildWords` method combines two children if their "words" property is identical. 
+
+The `combine2SubPhrases` method combines the time ranges of two subphrases and creates a new subphrase with a new time range and statistical dictionary. 
+
+The `combine2Components` and `combine2Children` methods also combine time ranges of components and children respectively, creating new components or modifying existing ones. 
+
+The `fillNulls` method fills in subphrases designated as "null" with configurable null phrases. 
+
+The `collapsePhraseWords` method collapses empty word sub-phrases. 
+
+Overall, this code seems to be part of a larger system that processes and manipulates phrases, possibly in the context of natural language processing or a similar domain.
+
+The code is written in Python and it seems to be part of a larger system that processes and manipulates phrases and sub-phrases, possibly in a natural language processing or text generation context.
+
+The first part of the code is appending subphrases to a new list. If there's an empty index, it appends the child at the empty index to the new list. It then updates the child list of the phrase with the new list.
+
+The `timeDescriptorModeration` function moderates the time descriptor for a phrase. It checks whether the phrase should have a time descriptor based on certain conditions. For example, if the phrase has the attribute "noTimeDescriptors" set to 1, all its subphrases will not have a time descriptor. If the phrase has the attribute "allTimeDescriptors" set to 1, all its subphrases will have a time descriptor. If the phrase has only one subphrase, it will have a time descriptor only if its time range differs from the phrase's time range. For multiple subphrases, it uses an algorithm based on whether the last subphrase is null and whether the number of subphrases is odd or even.
+
+The `isNull` function checks if a subphrase is null, either by having the "null" attribute set to 1 or by having no words.
+
+The `checkPhrasesDone` function checks if all phrases (except those listed in exceptions) are done for a component associated with a node. If an areaLabel is provided, it checks only those phrases that have the given areaLabel. It returns a list of phrases that are done.
+
+The `phrase_trigger` function checks if a trigger is met for a phrase. It returns 1 if the trigger is met, else 0. If the setUpOnly parameter is set to 1, the trigger will be met if the setUp method has been completed.
+
+The `assembleSubPhrases` function assembles subphrases, adding the time descriptor. It checks if it's ready to process and if it should consolidate subphrases. If the useUntilPhrasing condition is met, it assembles until subphrases. It then iterates over the child list of the phrase, checking if each subphrase has words.
+
+This code appears to be part of a larger program that processes and formats phrases. It seems to be written in Python and contains two main methods: `assembleUntilSubPhrases` and `getTimeStr`.
+
+The `assembleUntilSubPhrases` method appears to take a tree and a phrase as arguments. It then processes the phrase and its subphrases, formatting them according to certain rules. For example, it adds descriptors, connectors, and time descriptors to the phrases. It also checks for consecutive subphrases and formats them accordingly. The method seems to be used for creating a phrase that reports a list of (value, timeRange) tuples, with optional associated ranges added to the phrase values.
+
+The `getTimeStr` method appears to take a format, a timeRange, and an endBegin as arguments. However, the code for this method is incomplete, so it's hard to determine exactly what it does. Based on the name and arguments, it likely returns a string representation of a time, formatted according to the provided format and timeRange, and depending on whether the time is an end time or a start time.
+
+The code also includes several checks and conditions to ensure the phrases are formatted correctly, such as checking if words are None or empty, and handling different cases based on the index of the subphrase. It also handles special cases, like adding a conjunctive "THEN" for better flow in 3+ subphrase phrases.
+
+This code seems to be part of a larger program, possibly a weather forecasting application. It contains several methods that perform various tasks:
+
+1. The first block of code checks the format of the time. If the format is "military", it returns the time in military format (24-hour format). If the format is not "military", it returns the time in 12-hour format. If the time string starts with a "0", it removes the "0".
+
+2. The `useUntilPhrasing` method checks if the given phrase warrants "until" phrasing. It checks the time ranges of the phrase and its sub-phrases. If the end time or start time of a sub-phrase is not a multiple of 3 hours back from the end time of the phrase, it returns 1, otherwise it returns 0.
+
+3. The `format` method checks if the given string is None. If it is, it replaces it with an empty string. Then it adds a leading space to the string and returns it.
+
+4. The `subPhrase_timeDescriptor` method checks if the sub-phrase has a time descriptor. If it does, it returns a descriptor based on the time range of the phrase and the sub-phrase.
+
+5. The `scalarConnector` method returns a connector phrase to connect a sub-phrase and the previous one. It checks for increasing or decreasing values and returns a connector phrase accordingly.
+
+6. The `wxConnector` method returns a connector string to connect a sub-phrase and the previous one. If the sub-phrases cover neighboring time ranges, it connects them with "then". Otherwise, it connects them with ". ". It also ensures that no more than two sub-phrases are connected in a row with a "then" connector.
+
+This code appears to be part of a larger program that processes and manipulates phrases, possibly for a natural language processing (NLP) application. It defines three methods: `visConnector`, `vectorConnector`, and `marine_vectorConnector`. 
+
+1. `visConnector` method: This method seems to be used to connect sub-phrases based on some conditions. It first checks if the sub-phrase or its previous sub-phrase is null, and if so, it returns a connector phrase with the word "then". If the sub-phrase or its previous sub-phrase has a connector, it returns that connector. It also checks for increasing or decreasing values in the sub-phrases and returns a connector phrase accordingly.
+
+2. `vectorConnector` method: This method also connects sub-phrases but it uses vector data (magnitude and direction) to determine the connector. It checks if the directions are the same or different and if the magnitudes are the same or different, and returns a connector phrase accordingly. In some cases, it also checks if the magnitude exceeds a certain threshold and modifies the connector phrase based on that.
+
+3. `marine_vectorConnector` method: This method seems to be a specialized version of the `vectorConnector` method for marine data. It also uses vector data to determine the connector phrase but it gets the element name from the parent of the sub-phrase instead of the sub-phrase itself. The rest of the method is cut off, but it likely follows a similar logic to the `vectorConnector` method.
+
+In the first part of the code, it seems to be setting a flag `useThenConnector` to 1 and modifying the first word of the sub-phrase to be uppercase. This might be used to control how the sub-phrases are connected in the methods described above.
+
+This code appears to be part of a larger program that processes and analyzes weather data. It seems to be written in Python and includes several methods that perform various operations.
+
+1. The first block of code is a conditional statement that determines the connector to be used in a phrase based on the magnitude of two values (`mag1` and `mag2`). The `phrase_connector` method is used to create a connector phrase.
+
+2. The `removeDirection` method removes the direction from the subPhrase words.
+
+3. The `getVectorData` method retrieves vector data for a given subPhrase and elementName.
+
+4. The `getScalarData` method retrieves scalar data for a given subPhrase and elementName.
+
+5. The `seaBreeze_flag` method checks for an onshore breeze from the prior range and returns 1 if detected, otherwise 0.
+
+6. The `checkRepeatingString` method checks if a given text string repeats in the previous phrase, sub-phrase or embedded phrase. If the string repeats, it returns an empty string, otherwise it returns the original string.
+
+The code is incomplete, so it's not possible to provide a full analysis. However, it appears to be part of a system that processes and analyzes meteorological data, possibly for the purpose of generating weather forecasts or reports.
+
+This code seems to be part of a larger system that handles and manipulates tree-like data structures (possibly for some kind of language processing or data organization). The specific part of the code you've provided appears to be concerned with checking and handling 'local effects' in the tree.
+
+Here's a breakdown of what each function does:
+
+- The first part of the code checks if the area label of the previous phrase is not equal to the area label of the current node. If they are not equal, it returns a string. If they are equal, it checks if the name of the previous phrase is equal to the name of the current phrase. If they are equal and the previous phrase has only one child, it gets the string name from the child of the previous phrase. If the child of the previous phrase does not have any words, it returns -1. If the string from the child of the previous phrase is equal to the previous string, it returns an empty string.
+
+- `checkLocalEffects(self, tree, node)` function: This function checks for local effects in the given tree and node. It first checks if there are any local effects. If there are none, it returns a done signal. It then checks if the node has any children. If it doesn't, it returns a done signal. If there are local effects and the node has children, it checks each child for local effects and groups them accordingly.
+
+- `checkLocalEffect(self, tree, node, localEffect)` function: This function checks each local effect area against all others for the given node. It groups the local effect areas according to similar statistics and returns a flag to indicate if any local effect areas showed differing statistics and the groups.
+
+- `getLocalEffectsList(self, tree, node)` function: This function retrieves the list of local effects from the node.
+
+- `getLeAreaList(self, tree, node, localEffect)` function: This function retrieves the list of local effect areas from the local effect.
+
+- `getLeAreaLabel(self, tree, node, leArea)` function: This function retrieves the area label of the local effect area. If the area label is "__Current__", it returns the area label of the node. If the area has an intersect flag, it returns the intersect name.
+
+This code is written in Python and it contains several methods that are likely part of a larger class. Here's a breakdown of what each method does:
+
+1. `getLeQualifiers`: This method takes a tree, a node, and a group as arguments. It iterates over the group and checks if `areaWords` and `conjWords` are methods. If they are, it calls these methods with the tree, node, and leArea as arguments. It then concatenates these words to `embeddedQualifier` and `conjQualifier` respectively. If the current leArea is not the last in the group, it adds " and " to both qualifiers. The method returns both qualifiers.
+
+2. `checkThreshold`: This method checks if the difference between the stats of `leArea1` and `leArea2` is greater than a certain threshold. It gets the labels of both leAreas and checks if `triggerMethod` is a method. If it is, it calls this method with several arguments. If it's not, it retrieves stats for both leAreas and checks if the difference between these stats is greater than the threshold. It returns a flag indicating the result of this check.
+
+3. `applyDisabled`: This method takes a tree, a node, and stats as arguments. If stats is not None, it checks if there are any disabled subkeys and removes them from the stats. If the stats are empty after this, it adds a default value. The method returns the modified stats.
+
+4. `checkLocalEffectDifference`: This method checks if there's a significant difference between the stats of two areas based on a threshold. The type of check performed depends on the data type. For discrete data, it checks if the stats are different. For weather data, it checks if there's a difference in weather similarity. For vector data, it checks if the absolute difference between the stats is greater than the threshold. It returns 1 if there's a significant difference, and 0 otherwise.
+
+5. `checkSkyWxDifference`: This method checks if there's a difference in weather conditions between two areas. It retrieves the weather stats for both areas, applies any disabled subkeys, and then checks if the weather conditions are similar. The code snippet is cut off before we can see the rest of this method.
+
+This Python code appears to be part of a larger system that performs some sort of analysis on a tree-like data structure. Here's a breakdown of what each function does:
+
+1. `getIncludeSky`: This function retrieves the value of the attribute "skyLE" from a node. If "skyLE" is true, it returns None, otherwise it returns 0. This might be used to check if a certain condition related to "sky" is met at the local effect (LE) level.
+
+2. `checkSkyDifference`: This function calculates the difference between the "Sky" values of two areas (leArea1Label and leArea2Label) over a certain time range. It then checks if the words describing the sky in these two areas are similar. If they are not, it returns True.
+
+3. `localEffect_hook`: This function doesn't do anything. It might be a placeholder for future code or a method that can be overridden in a subclass.
+
+4. `rangeIncluded`: This function checks if a range (min1, max1) is included within another range (min2, max2). It returns 1 if it is, and 0 if it's not.
+
+5. `absDiff`: This function calculates the absolute difference between two values, taking into account negative values.
+
+6. `makeLocalEffectNodes`: This function creates a new node for each group of local effect areas in the input "groups". It copies certain attributes from the original node to the new node and sets some new attributes. It returns a list of these new nodes.
+
+7. `printCompPhrases`: This function prints the component phrases of a node. It seems to be used for debugging or logging purposes.
+
+The code at the top before the function definitions checks if a certain condition (wxSame) is met. If it's not, it sets wxDiff to 1, otherwise it sets it to 0. It then checks the difference in the sky between two areas and stores this information in the parent node. It finally returns whether there is a difference in either the sky or the condition checked earlier.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,74 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>MkDirLockManager.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>MkDirLockManager.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a part of a software developed by Raytheon Company. The code is responsible for managing the locking of files for reading and writing. This is often necessary in multi-threaded or multi-process environments to prevent data corruption or inconsistencies.
+
+The code defines several constants for timeouts and sleep times, as well as some string constants for appending to filenames. It also specifies a directory for storing lock files.
+
+The main functions in this code are `_dirCheck`, `getLock`, `_getLockInternal`, and `releaseLock` (though `releaseLock` is not defined in the provided code).
+
+- `_dirCheck(filename)`: This function checks if the directory for the given filename exists, and if it doesn't, it tries to create it.
+
+- `getLock(filename, mode)`: This function is used to acquire a lock on a file. It first ensures the directory for the lock file exists, then calls `_getLockInternal` to actually try to acquire the lock. It also logs debug information and measures the time taken to acquire the lock.
+
+- `_getLockInternal(filename, mode)`: This function is where the actual lock acquisition is attempted. It checks if the lock directory exists, and then depending on the mode ('r' for read, 'w' or 'a' for write), it tries to acquire the lock. If the lock cannot be acquired immediately, it waits and retries until a maximum time limit is reached.
+
+The code also includes a mechanism for checking for and dealing with "orphan" locks (locks that were not properly released), though the `_checkForOrphans` function is not defined in the provided code.
+
+This code uses a directory-based locking mechanism, where the existence of a directory signifies a lock. This is a common technique for file locking, especially in Unix-like systems where the creation of a directory is an atomic operation (it either fully succeeds or fully fails, with no in-between states).
+
+This code is part of a file handling system that manages read and write locks to prevent conflicts when multiple processes are trying to access the same file or directory. Here's a breakdown of what each function does:
+
+1. `raise RuntimeError`: This line raises an exception if the system is unable to get a write lock because read locks are not releasing.
+
+2. `_getSleepTime(timeWaiting)`: This function calculates the sleep time based on the time spent waiting. The sleep time is adjusted to be within a range defined by `MIN_SLEEP_TIME` and `MAX_SLEEP_TIME`. It also updates the `approxLockSleepTime` key in the `timeMap` dictionary with the calculated sleep time.
+
+3. `releaseLock(lockPath)`: This function releases a lock on a file or directory. If the lock ends with `.pid`, it's a read lock and the function removes the lock and, if possible, the directory. If the lock doesn't end with `.pid`, it's a write lock and the function removes the directory. The function also logs the time taken to release the lock.
+
+4. `cleanUp(basePath)`: This function walks through a directory structure and removes any directories that haven't been modified in the last 10 minutes. It logs the number of directories deleted and the time taken to complete the operation.
+
+5. `_checkForOrphans(lockPath)`: This function checks for orphan locks (locks that have been left behind by processes that have ended unexpectedly) in the read and write lock directories. If it finds any, it removes them and logs the time taken to check for orphans.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

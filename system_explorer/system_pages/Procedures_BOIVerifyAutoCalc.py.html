@@ -1,0 +1,118 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>BOIVerifyAutoCalc.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>BOIVerifyAutoCalc.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that calculates verification statistics for specified parameters across all models and edit areas listed in a predefined edit area list. This script is a part of the BOIVerifyAutoCalc software, which is in the public domain and does not come with any warranty or technical support.
+
+The script imports several libraries, including numpy, os, time, calendar, traceback, SmartScript, and BOIVerifyUtility. It defines a class named Procedure, which inherits from SmartScript.SmartScript. 
+
+The Procedure class has an __init__ method that initializes the class and an execute method that performs the main functionality of the script. The execute method reads parameters from a file, checks if the data is too recent to calculate, and if not, it calculates statistics for each parameter. It also handles exceptions that might occur during the reading of the file.
+
+The script also includes a section for software history, which records changes made to the script over time. The script is designed to be run as a procedure, not as a standalone tool, and it should not be shown in any menu. 
+
+The script uses numpy arrays to store data and uses several configuration variables, such as AUTOCALC_DAYS and AUTOCALC_TOO_RECENT, to control its operation. 
+
+The script also includes a section for setting up the edit areas and looping over all observation models, but this part of the code is incomplete.
+
+This code is part of a larger program that processes and analyzes observation models and parameters. 
+
+1. It first loops over a list of observation models and parameters. For each parameter, it checks if it is in the list of all parameters. If not, it skips to the next iteration.
+
+2. It then gets the data type of the parameter. If the data type is 1, it initializes two arrays, `statMagSums` and `statDirSums`, with zeros. Otherwise, it initializes `statSums` with zeros.
+
+3. It retrieves the number of thresholds and the thresholds for the parameter. If the data type is 1, it splits the thresholds into `magThresholds` and `dirThresholds`.
+
+4. It retrieves the observed parameter and the read mode for the observed model and parameter.
+
+5. It then loops over a list of models. If the model is in the list of observed models, it skips to the next iteration. It retrieves the read mode for the model and parameter.
+
+6. It gets the common cases for the parameter, model, observed parameter, and observed model over the past `DAYSBACK` days. If there are no cases, it skips to the next iteration.
+
+7. It sorts the case keys by the starting time in reverse order. It then loops over the case keys. For each case key, it splits it into `basetimestr`, `stimestr`, and `etimestr`, and converts these to integers. It also gets the forecast hour.
+
+8. It checks if the observed key is not equal to the last observed key. If so, it gets the observed grid and calculates the sums that only depend on the observed grid.
+
+9. It gets the last time the forecast record was updated. If the period ends less than `TOO_RECENT` hours before now, it skips to the next iteration.
+
+10. If the stats already exist, it checks if the forecast/observed grids are newer than the last time the stats were calculated. If not, then stats do not need to be re-calculated.
+
+The code is not complete, so it's not clear what happens next. However, it appears that the code is part of a larger system for processing and analyzing weather or climate data.
+
+This script appears to be a part of a larger program, possibly for weather forecasting or a similar field that involves grid-based data analysis. Here's a breakdown of what it does:
+
+1. It checks if a certain calculation needs to be done again by calling `getDoAgain` method on `lf.VU` and `self.VU` objects with different parameters. If the calculation doesn't need to be done again, it logs a message and continues to the next iteration of the loop.
+
+2. If the calculation does need to be done, it logs the parameters and time being calculated.
+
+3. It reads a forecast grid from a model using the `getVerGrids` method. If the forecast grid can't be read, it logs a message and continues to the next iteration.
+
+4. It retrieves the forecasters associated with the last grid.
+
+5. Depending on the datatype, it calculates error grids and statistical sums for direction and magnitude or just the error grid.
+
+6. It calculates sums for each area in the grid and logs the time taken for this calculation.
+
+7. It writes the statistical sums to a file using the `writeStats` method.
+
+8. After processing all the cases for a model, it deletes the cases.
+
+9. After processing all the parameters, it deletes the internal storage space.
+
+10. The script ends with an incomplete line `self.VU.l`, which seems to be a typo or an incomplete method call.
+
+The code is written in Python and uses several libraries, such as numpy (for mathematical operations) and possibly a custom library represented by `self.VU` and `lf.VU` objects.
+
+The code is written in Python and it's used for memory usage debugging.
+
+The first part of the code logs a message "BOIVerifyAutoCalc Procedure Finished" and then returns from the function or procedure it is in.
+
+The second part of the code is more complex. It defines a path to a file in the /proc directory, which is a virtual file system in Unix-like operating systems that provides process and system information. The file it's looking for is the status file for the current process, as indicated by os.getpid() which returns the current process ID.
+
+The _scale dictionary is used to convert memory sizes from kilobytes or megabytes to bytes.
+
+The _VmB function is used to read the specified key (like 'VmSize:' or 'VmRSS:') from the status file of the current process. It opens the file, reads its content, and then closes the file. If it encounters an IOError (likely because the file doesn't exist), it returns 0.0. Otherwise, it finds the index of the specified key in the file content, splits the string at that index into at most 3 parts, and returns the second part (the value of the key) multiplied by the scale factor for its unit (kB, mB, KB, or MB).
+
+The memory() function returns the size of the virtual memory used by the current process, while the resident() function returns the size of the resident set size (the portion of the process's memory that is held in RAM).</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

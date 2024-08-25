@@ -1,0 +1,204 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>VectorRelatedPhrases.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>VectorRelatedPhrases.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a software developed by Raytheon Company. It seems to be a module for generating text forecasts from some kind of statistical analysis. The module is named `VectorRelatedPhrases.py` and it was authored by a person named Hansen.
+
+The script defines a class `VectorRelatedPhrases` that inherits from `PhraseBuilder.PhraseBuilder`. This class contains methods for generating phrases related to vectors, which are likely meteorological vectors such as wind speed and direction.
+
+The `VectorRelatedPhrases` class has several methods:
+
+- `standard_vector_phraseMethods`: This method returns a list of methods that are used to build a standard vector phrase.
+
+- `lake_wind_thresholds`: This method returns the upper and lower thresholds for lake wind speeds.
+
+- `lake_wind_areaNames`: This method returns a list of area names for which a lake wind phrase should be generated.
+
+- `useWindsForGusts_flag`: This method returns a flag that indicates whether the maximum wind speed should be used for reporting gusts if a WindGust grid is not found.
+
+- `lake_wind_phrase`, `lake_wind_setUp`, `lake_wind_words`: These methods are used to generate a phrase related to lake wind.
+
+- `wind_phrase`, `wind_withGusts_phrase`, `wind_withGusts_setUp`, `wind_setUp`: These methods are used to generate phrases related to wind and wind gusts.
+
+The script also contains some metadata at the top, such as the name and address of the contractor (Raytheon Company), and a note that the software is in the public domain.
+
+The exact functionality of this script would depend on the rest of the software it's a part of, but it seems to be related to weather forecasting, specifically for generating text descriptions of wind conditions based on statistical data.
+
+This code appears to be part of a larger system that deals with meteorological data, possibly for weather forecasting. 
+
+The `vector_words` function is creating a string that describes the wind conditions at a given node in a tree. It first checks if there is an ancestor node called "firstElement", and if not, it sets the words for the current node to an empty string. If there is such an ancestor, it generates a phrase using the `simple_vector_phrase` function. If the phrase is "null", it sets the words for the current node to "null". If the phrase is not empty, it checks if there is a gust flag set in the ancestor nodes. If there is, it retrieves wind statistics and generates a gust phrase using the `embedded_gust_phrase` function.
+
+The `embedded_gust_phrase` function generates a phrase that describes gusts. It checks if tropical conditions should be included, and if so, it rounds gusts and maxWind to the nearest 5 kt. It then checks if the gusts are above a certain threshold, and if they are, it generates a phrase describing the gusts.
+
+The `simple_vector_phrase` function creates a subphrase that describes a vector. It retrieves statistics for the element at the current node, and if there are no statistics, it returns an empty string. Otherwise, it generates a string that describes the magnitude and direction of the vector. It also checks if the magnitude or direction is repeating from the previous node, and if so, it omits that part of the phrase.
+
+In summary, this code is generating descriptive phrases for wind conditions, including gusts, based on the data stored in a tree structure.
+
+This Python code seems to be part of a larger system that generates text descriptions of weather conditions, specifically focusing on wind conditions. Here's a breakdown of what each part does:
+
+1. `vector_mag`: This function generates a phrase describing the range of wind magnitudes. It checks if the magnitude is below a certain threshold, and if so, returns "null". It also checks if the magnitude is above a maximum reported threshold and adjusts the magnitude if necessary. The function then generates a phrase based on whether the magnitude is a single value or a range. The phrase is further customized by `vector_mag_hook`.
+
+2. `vector_mag_hook`: This function is meant to further refine and customize the wind phrase. In this code, it simply returns the phrase without any modifications, but it could be overridden in a subclass to provide more specific behavior.
+
+3. `marine_wind_mag`: This function generates a phrase describing wind conditions for marine environments. It uses special descriptors like "storm force winds" or "gales" if the wind magnitude is above certain thresholds. If no special descriptor is used, it generates a phrase similar to `vector_mag`.
+
+4. `embedDescriptor`: This function embeds a descriptor into the first part of a non-empty subphrase in a node of a tree structure. It checks if the node is ready to process, and if it is, it finds the first non-empty phrase and embeds the descriptor into it.
+
+5. `wind_summary`: This function returns a dictionary that seems to be used to configure how wind summaries are generated. The dictionary includes methods for setting up the summary, generating the words for the summary, and the phrase methods to use.
+
+This code file appears to be part of a larger system, possibly a weather forecasting system, that deals with wind statistics and summaries. It contains several methods that perform various tasks related to wind data.
+
+1. `wind_summary_setUp`: This method sets up the wind summary by calling the `subPhraseSetUp` method with a list, tree, node, and scalar connector.
+
+2. `wind_summary_words`: This method gets a summary of wind statistics and sets these words to a node.
+
+3. `vector_summary`: This method calculates a summary of a given element (like wind) using average, median, and min-max vector values.
+
+4. `vector_summary_valueStr`: This method returns a string describing the wind speed based on the value passed to it. It uses different thresholds to determine the appropriate description.
+
+5. `gust_wind_difference_nlValue`: This method returns a threshold value (10 mph) below which gusts are not mentioned.
+
+6. `gust_phrase`: This method returns a dictionary with methods for setting up, getting words for, and standard phrase methods for gusts.
+
+7. `gust_setUp`: This method sets up gust information.
+
+8. `gust_words`: This method gets the gust words based on the statistics of the gust and wind speed. If the gust value is less than a threshold or the difference between gust and max wind is less than a wind difference, it returns "null". Otherwise, it returns the gust value and units.
+
+9. `windSpdProb_thresholds`: This method returns a list of tuples representing wind speed probability thresholds.
+
+10. `firstComponentPeriod`: This method returns the forecast period number for the first component of a product.
+
+11. `includeOnlyPhrases_list`: This method determines which phrases to keep in each period of the product. It uses the period number and product type to decide which phrases to include.
+
+This code file seems to be part of a larger weather forecasting program. It is written in Python and contains several methods that are used to process and analyze weather data, specifically wind speed probabilities.
+
+The code first checks if the current period is day or night, then retrieves the corresponding wind speed probabilities (pws64 and pws34) for that period. If these values are not found, the function returns an empty list.
+
+Next, it retrieves the maximum magnitude of wind speed (maxMag) from a list of wind speeds. If the product type is "ZFP", the maxMag is converted from knots to miles per hour.
+
+The code then retrieves a list of headline keys, which seem to be identifiers for specific weather conditions or warnings. Depending on the product type, the current period, and the headline keys, the function may limit the phrases it will report, or it may keep all phrases.
+
+The last part of the code defines methods for a probabilistic wind phrase. These methods set up the phrase, generate the words for the phrase, and assemble the sub-phrases. It also includes debugging print statements to help track the flow of data and execution.
+
+In summary, this code is designed to analyze wind speed data and generate appropriate phrases to describe the wind conditions. It takes into account the time of day, the maximum wind speed, and specific weather conditions or warnings.
+
+This code seems to be part of a larger system, possibly a weather forecasting system. It appears to be analyzing and processing weather data, specifically related to wind speed and potential hazards.
+
+Here's a breakdown of what the code is doing:
+
+1. It first calculates a component period (`compPeriod`) and checks if the product type is "ZFP" or "CWF".
+
+2. If the product type is not "ZFP" or the component period is less than or equal to 5, it proceeds with a certain set of operations. It retrieves a list of phrases related to wind, finds words related to wind in these phrases, and retrieves the maximum magnitude of wind speed from a list. If the product type is "ZFP", it converts the maximum magnitude to a different unit.
+
+3. If the product type is "ZFP" and the component period is greater than 5, it retrieves wind statistics and converts the maximum magnitude to a different unit.
+
+4. It then determines whether it's day or night based on the time range, and retrieves the probability of wind speeds of 34 and 64 knots.
+
+5. It initializes an empty string `words`, gets the area label, and prints the time range.
+
+6. It retrieves hazard data and prints various data including maximum magnitude of wind speed and the probabilities of wind speeds of 34 and 64 knots.
+
+7. If there are any headlines (presumably related to weather warnings or hazards), it sorts them by start time, filters out any that are not allowed, and adds the keys of the remaining headlines to a list.
+
+The code seems to be incomplete, as the last comment suggests there's more to follow. The purpose of this code seems to be to analyze and process weather data, possibly for the purpose of generating weather forecasts or warnings.
+
+This code appears to be part of a larger program that analyzes weather data, specifically related to tropical cyclones. 
+
+The first part of the code is looping through some keys, checking if they are not None and if they are not already in the `headlineKeys` list. If they are not, they are appended to the list. It also sets the `headlineKeys` to the component node for later examination.
+
+If `headlines` is `None` or `NoData`, it will append the result of `getTropicalDescription` to `words`.
+
+If `words` is not `None` and contains more than just whitespace, it removes the wind summary phrase from this component and any local effect areas. 
+
+The `getTropicalDescription` function determines which tropical descriptions to use for the current period based on the component period. It also sets the tropical boolean variables using the current set of headlines. 
+
+The `tropicalBooleanConditions` function sets the conditions needed by subsequent methods to form the appropriate wording. Each entry in the `conditionsList` is the condition name and the hazard keys whose presence will trigger the condition. 
+
+The commented out part of the code seems to be an older or alternative implementation of the `tropicalBooleanConditions` function. It sets various boolean variables used by the `pws_phrase` logic based upon contents of current headlines.
+
+This code appears to be part of a larger program that deals with weather forecasting, specifically related to tropical cyclones. 
+
+The first part of the code seems to be defining conditions based on the length of a list of keys (`keyList`). It creates a `conditionName` by concatenating the keys in `keyList` with underscores. If the length of the `keyList` is equal to `kLen`, the condition is set to True, otherwise it's False. If any key in `keyList` is not in `headlineKeys`, the condition is set to False. The `conditionName` is then modified to replace any periods with underscores. The condition is then set as an attribute of the current object (`self`).
+
+The second part of the code prints out the values of a series of attributes of the current object, presumably for debugging purposes.
+
+The third part of the code defines a method `getPeriod_1_Desc` which determines the contents of a PWS (Public Weather Service) phrase for a first period forecast. It does this based on various conditions such as the maximum magnitude (`maxMag`), and the probability of wind speeds of 34 knots (`pws34`) and 64 knots (`pws64`). The method uses a series of if-else conditions to determine the description (`desc`) based on these variables. The description appears to be a short code that represents a specific forecast scenario. 
+
+For example, if the maximum magnitude is greater than or equal to 34.0 and `pws34` is greater than or equal to `thresh34high`, the description is set to "iminTSposHR". If the maximum magnitude is greater than or equal to 64.0, the description is set to "posHR". 
+
+The method also prints out various debugging information, such as the period time range, the PWS34 warning, the PWS64 warning, and the 34 kt and 64 kt thresholds.
+
+This code is part of a larger system that seems to be related to weather forecasting, specifically dealing with tropical storms and hurricanes. It contains three methods: an unnamed method and two methods named `getPeriod_2_Desc` and `getPeriod_3_Desc`. 
+
+The unnamed method checks the maximum magnitude (`maxMag`) and the probability of wind speed (`pws64` and `pws34`) against certain thresholds (`thresh64low` and `thresh34low`). Depending on the values, it assigns a description (`desc`) which could be "posTS", "posHR", or an empty string.
+
+The `getPeriod_2_Desc` and `getPeriod_3_Desc` methods are similar in structure. They both take in five parameters: `tree`, `node`, `maxMag`, `pws64`, and `pws34`. These methods seem to be determining the contents of a PWS (Probabilistic Wind Speed) phrase for a second and third period forecast respectively. 
+
+In both methods, thresholds for the period are grabbed and compared with the provided parameters. Depending on the values of the parameters and some internal flags (`_Hurricane_A`, `_TropStorm_W`, `_Hurricane_W`, etc.), the description (`desc`) is set to different strings such as "expTSposHR", "posTSbcmgposHR", "expHR", "posHR", "posTS", or an empty string. 
+
+The methods also contain debug print statements which would be useful for troubleshooting and understanding the flow of the program during execution. 
+
+The code seems to be written in Python, and the methods are likely part of a larger class or module.
+
+The code provided is a part of a larger Python file that seems to be dealing with weather forecasting, specifically tropical storms and hurricanes. It contains three methods: `getPeriod_4_Desc`, `getPeriod_5_9_Desc`, and a part of `getPeriod_10_14_Desc`.
+
+1. `getPeriod_4_Desc`: This method determines the contents of a PWS (Probabilistic Wind Speed) phrase for a fourth period forecast. It takes in a tree, a node, maxMag (maximum magnitude), pws64, and pws34 as parameters. It sets the description (`desc`) based on certain conditions related to maxMag, pws64, and pws34. The conditions are related to thresholds (`thresh34`, `thresh64`) which are fetched from the `windSpdProb_thresholds` method. The `desc` is then returned.
+
+2. `getPeriod_5_9_Desc`: This method is similar to the `getPeriod_4_Desc` method but it determines the contents of a PWS phrase for a fifth to ninth period forecast. The conditions for setting the `desc` are slightly different.
+
+3. `getPeriod_10_14_Desc`: Only a part of this method is visible in the provided code. It seems to follow a similar pattern to the previous methods, but it's not possible to provide a full analysis without the complete method.
+
+The conditions in these methods are checking whether certain variables are greater than or equal to certain thresholds, and based on these conditions, they set the `desc` variable to different string values. These string values seem to represent different states or descriptions of a weather forecast. Debug print statements are used throughout to help with troubleshooting and understanding the flow of the code.
+
+This function, `esc`, is used to determine the contents of a PWS (Probabilistic Wind Speed) phrase for a fourth period forecast. It takes in several parameters including a tree, a node, the maximum magnitude (`maxMag`), and two PWS values (`pws64` and `pws34`).
+
+The function first prints some debug information, including the time range for the period, and the PWS34 and PWS64 warning values.
+
+Next, it grabs the wind speed probability thresholds for the current period. It specifically extracts the 10th element from the `windSpdProb_thresholds` (indexed as 9 since Python uses 0-based indexing), which contains the thresholds for 34 kt and 64 kt winds.
+
+The function then checks these thresholds against the provided PWS values and the maximum magnitude. Depending on these comparisons, it sets the `desc` variable to either "posHR" (possibly indicating a high risk) or "posTS" (possibly indicating a tropical storm), or leaves it as an empty string.
+
+Finally, the function returns the `desc` value. This value can be used to describe the forecast for the fourth period based on the wind speed probabilities.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

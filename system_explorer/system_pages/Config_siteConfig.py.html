@@ -1,0 +1,68 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>siteConfig.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>siteConfig.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This is a Python script that is part of a software developed or modified by Raytheon Company under a contract with the US Government. The software contains export-restricted data, and its dissemination to non-US persons requires an export license or other authorization.
+
+The script sets up several environment variables for the software. It imports the 'os' and 'socket' modules, which are used for interacting with the operating system and for network communications respectively.
+
+The script then defines several constants:
+
+1. `GFESUITE_HOME`: This is the path to the home directory of the software, which is "/awips2/GFESuite".
+
+2. `GFESUITE_SERVER`: This is the server where the software is running, which is set to "localhost", indicating that the software is running on the same machine where this script is executed.
+
+3. `GFESUITE_PORT`: This is the port number that the software uses for network communications, which is set to '98000000'.
+
+4. `GFESUITE_SITEID`: This is the site ID for the software, which is set to 'OAX'.
+
+5. `GFESUITE_PRDDIR`: This is the path to the directory where the software's products are stored. It is constructed by appending "/products" to the `GFESUITE_HOME` path.
+
+6. `GFESUITE_LOGDIR`: This is the path to the directory where the software's logs are stored. It is constructed by appending "/logs/" and the `GFESUITE_SITEID` to the `GFESUITE_HOME` path.
+
+7. `GFESUITE_MHSID`: This is the MHS ID for the software, which is set to 'OAX'. 
+
+The purpose of these constants is to configure the software's environment.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

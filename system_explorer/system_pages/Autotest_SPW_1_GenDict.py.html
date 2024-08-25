@@ -1,0 +1,70 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>SPW_1_GenDict.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>SPW_1_GenDict.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code appears to be part of a testing framework for a weather forecasting application. It defines two dictionaries, `XTestGenerationDictionary` and `TestGenerationDictionary`, which contain test cases for different weather elements like precipitation and sky conditions.
+
+Each dictionary is structured with keys representing different weather elements ("Precip", "Sky", etc.). Each key maps to another dictionary, which contains an "element" key (indicating the type of weather element) and a "cases" key. The "cases" key maps to yet another dictionary, which contains keys for different scenarios ("noLE", "LE", etc.) and their corresponding test cases.
+
+Each test case is a tuple that seems to represent a forecast, with elements indicating the forecast type ("Fcst"), the weather element type ("Wx" or "Sky"), the forecast data type ("WEATHER" or "SCALAR"), the forecast period (e.g., 0 to 6 hours or 6 to 12 hours), the forecast data, and a list indicating whether the forecast applies to areas above or below a certain elevation.
+
+The code also contains a header with licensing information and a disclaimer that the software is provided "as is", without warranty. It also includes export control information, stating that the software contains export-restricted data and its dissemination requires an export license or other authorization.
+
+The given code seems to be a configuration or definition file for a weather forecasting system. It's defining different weather conditions and their corresponding values for different time intervals and elevations. 
+
+1. The first part of the code defines weather conditions for different categories like "noLE", "LE", "LE1", and "LE2". Each category has a set of tuples that define the forecast type, weather type, time interval, weather condition, and elevation level.
+
+2. The "Consolidation" part seems to be defining the consolidation of weather conditions for the same categories and time intervals.
+
+3. The "Sky" part is defining the sky conditions (probably cloud cover or similar) for the same categories and time intervals.
+
+4. The "PoP" part is defining the probability of precipitation for the same categories and time intervals.
+
+5. The "periodVer1" and "periodVer2" variables seem to be defining versions of a period, possibly for version control or for different scenarios.
+
+6. The "ExtraVariables" is a list that contains the "periodVer1" and "periodVer2" variables.
+
+7. The "TestScriptCall" part seems to be a function that tests the script. It imports a module named "TestScript" and defines a function "testScript". This function takes two arguments: "self" and "dataMgr". It defines a dictionary "defaults" that contains command line variables, product type, and file changes. It then calls a function "generalTestScript" from the "TestScript" module with the "self", "dataMgr", "scripts", and "defaults" as arguments.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

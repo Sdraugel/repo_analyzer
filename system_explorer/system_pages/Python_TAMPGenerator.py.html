@@ -1,0 +1,167 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TAMPGenerator.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TAMPGenerator.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a Python script named TAMPGenerator.py developed by Raytheon Company. It appears to be a part of a larger software system, possibly related to weather forecasting given the references to terms like 'cloud layers', 'wind averaging', and 'forecast hours'. 
+
+The script begins with a detailed header that includes information about the software's development, export control restrictions, contractor details, and a history of revisions and changes made to the script. The history section documents the changes made in each revision, who made them, and when they were made.
+
+The actual code begins with the import of several Python modules, including 'copy', 'logging', 'math', 're', and 'itertools.groupby', as well as some custom modules like 'Avn', 'AvnLib', and 'TafGen'. 
+
+The script defines several lists and regular expressions, as well as two custom exception classes: 'NoEntries' and 'OcnlTimeLimit'. 
+
+The script then defines several functions, which appear to be used for various calculations and data manipulations. These functions include '_findBestCategory', '_findCategory', '_inCategory', '_getCldHt', '_nearesthr', '_checkOcnlGrp', and '_prjAverage'. 
+
+The code snippet ends partway through the definition of the '_prjAverage' function, so it's not clear what the full functionality of this function is.
+
+Overall, without more context or the full code, it's hard to say exactly what this script does. However, it seems to be a part of a larger system for processing and possibly forecasting weather data.
+
+The given code is a part of a larger program that seems to be processing and analyzing meteorological data, possibly for forecasting purposes. The code contains several functions that perform various operations:
+
+1. The first block of code is checking the continuity and type of a group of data (ocnlgrp). If the group is not continuous or of the same type, an IndexError is raised. It also checks for specific conditions and raises an OcnlTimeLimit error if they are met. The group is then processed and appended to a list of strings (TAFStrings).
+
+2. The `_avgNSW`, `_avgLLWS`, `_mostFrequent`, `_freqList` functions are helper functions that perform various operations on a list of data. `_avgNSW` returns 'NSW' if the list is not empty, `_avgLLWS` returns the first item in the list, `_mostFrequent` returns the most frequent string in the list, and `_freqList` counts unique items in the list.
+
+3. The `_avgWind` function calculates the average wind speed and direction from a list of wind data. It handles various edge cases and returns a string representing the average wind.
+
+4. The `_avgSky` function analyzes cloud layer data and returns the most frequently occurring layers. It handles various conditions and edge cases to ensure the data is accurate.
+
+5. The `_buildString` function takes a list of elements and optional lampdata and tafDuration parameters. It seems to be used for generating a string representation of the data, possibly for output or further processing.
+
+The overall purpose of this code seems to be to process and analyze meteorological data, possibly for the purpose of generating weather forecasts or reports.
+
+This code appears to be part of a larger weather data processing system, possibly for aviation purposes. 
+
+The first part of the code is creating a dictionary `rec` from the `elements` list. It extracts the time and type from the first element and then iterates over a list of functions and elements, applying the function to the elements if they exist. It also performs some checks and modifications on the `rec` dictionary.
+
+The `_addPrj` function seems to be a helper function that checks whether two or more of the same flight category exist in a certain condition.
+
+The `_summarizeTAFPrjs` function appears to be grouping and summarizing Terminal Aerodrome Forecasts (TAFs) based on previous TAFs. It iterates over TAFData, and for each group, it identifies the projections and the flight category they correspond to. It then determines whether to add the projection to the average based on the function `_addPrj`.
+
+The `TUGPrj` class appears to represent a projection of some sort. It has methods for checking and adjusting the sky and ceiling conditions based on certain thresholds and conditions.
+
+The `checkSky` method adjusts the ceiling conditions if the guidance strongly differs. It checks for both prevailing and occasional groups and adjusts the ceiling if necessary.
+
+The `_checkCeiling` method adjusts the ceilings if necessary based on whether the condition is wet or not. It uses LAMP (Localized Aviation Model Output Statistics Program) data for the adjustments. 
+
+In general, this code seems to be part of a system for processing and analyzing aviation weather data.
+
+The provided code appears to be part of a larger system, likely related to weather forecasting or analysis, specifically dealing with visibility and cloud conditions. Here's a breakdown of what the code does:
+
+1. The code first checks if the 'cig' (possibly short for 'ceiling', a term used in meteorology to denote the altitude of the lowest layer of clouds) value of the 'lamp' and 'taf' objects are both equal to 99999. If so, it returns early, ending the execution of the function.
+
+2. It then checks certain conditions related to thresholds and categories of 'lampBestCat' and 'tcat'. If these conditions are met, the function returns early.
+
+3. If the conditions are not met, the code sets 'cig_changed' and 'changed' attributes of 'self' to True, and initializes 'newsky' and 'newceiling' as empty lists.
+
+4. The code then processes the 'str' attribute of 'taf', looking for layers ending with 'CB' (possibly 'Cumulonimbus' clouds), and stores the first three characters of such layers in 'cb_skyamt'.
+
+5. The code then adjusts the sky and ceiling conditions based on the 'lampBestCat' and 'tcat' categories, and the cloud height of each layer in the 'str' attribute of 'taf'. 
+
+6. If 'cb_skyamt' is not None, the code checks the 'newsky' list for layers ending with 'CB'. If none are found, it tries to append 'CB' to a layer in 'newsky' that matches certain conditions.
+
+7. Finally, the 'str' and 'cig' attributes of 'taf' are updated with the new sky conditions and cloud height.
+
+8. The code also includes definitions for 'checkVsby', '_adjustSNDZIntensity', and '_checkVisibility' methods, which seem to adjust visibility and precipitation intensity based on certain conditions.
+
+Please note that without additional context or comments in the code, some assumptions had to be made about the purpose and functionality of the code.
+
+This code seems to be part of a larger system, possibly a weather forecasting system. It is manipulating a dictionary named `taf` which likely stands for Terminal Aerodrome Forecast, a type of aviation weather forecast.
+
+The code is checking and adjusting various weather conditions based on the values of `lampBestCat` (which seems to represent some kind of category or rating) and the contents of `taf`. It is handling visibility (`vsby`), obstructions to vision (`obv`), and precipitation (`pcp`). 
+
+For instance, if `lampBestCat` is less than `tcat`, it adjusts the visibility and changes the obstruction to vision from 'BR' (mist) to 'FG' (fog) if certain conditions are met. It also adjusts the intensity of precipitation.
+
+If `lampBestCat` is greater than `tcat`, it does similar adjustments but changes the obstruction to vision from 'FG' to 'BR' under certain conditions.
+
+The `checkWind` function copies wind data from `lampdata` to `tprev` if it's not missing. The `_genOcnlPcp` and `_genPrevailingPcp` functions seem to generate occasional and prevailing precipitation data respectively. 
+
+The `checkPrecip` function compares guidance and official TAF to see if they agree with respect to precipitation. It uses a scoring system to determine if precipitation is warranted, and adjusts the forecast accordingly. 
+
+In summary, this code is adjusting a weather forecast based on various conditions and thresholds, likely with the goal of improving the forecast's accuracy.
+
+This Python code appears to be part of a larger system for weather forecasting, specifically for generating Terminal Aerodrome Forecasts (TAFs) using LAMP (Localized Aviation MOS Program) guidance. 
+
+The code includes several methods for handling and modifying weather data:
+
+- The `_tsCheck` method checks if a thunderstorm (TS) is present in the weather data.
+- The `_rmvTS` method removes thunderstorm data from a weather string.
+- The `checkTstms` method checks for thunderstorms in the LAMP data and either removes or adds them based on certain conditions.
+- The `_isGroupWet` method checks if a group of weather data indicates precipitation.
+- The `_isWet` method checks if either of two groups of weather data indicate precipitation.
+- The `checkSyntax` method checks for inconsistencies in the forecast.
+- The `printOfficalTAFPrj` method formats and prints the TAF data.
+- The `flightCategory` method returns the flight category of the previous TAF data.
+- The `_rmvBestCategoryBounces` function removes "bounces" (fluctuations) in the best category of LAMP data.
+- The `TAMPGenerator` function combines the latest TAF with LAMP guidance.
+
+The code also includes logic for handling precipitation and thunderstorm data, promoting or removing certain types of weather data based on specific conditions, and formatting and printing weather data.
+
+This code appears to be a part of a larger program that generates Terminal Aerodrome Forecasts (TAFs) based on LAMP (Local Analysis and Prediction System) data. TAFs are weather forecasts issued for the area around an airport, typically covering a 24-hour period, and are used for flight planning.
+
+Here's a breakdown of what the code does:
+
+1. The `_rmvBestCategoryBounces` function is called multiple times with different parameters. This function seems to be used for data preprocessing, possibly to remove outliers or noise from different categories of data.
+
+2. The code then checks if the first character of the `amdmt` string is a space. If it is, it generates a new TAF using the `TafGen` class and appends it to the existing TAF data. If there's an error during this process (such as a KeyError or IndexError), it simply passes and continues execution.
+
+3. If the first character of `amdmt` is not a space, it creates a new configuration dictionary using the `TafGen.Config` class.
+
+4. The code then maps each LAMP forecast hour to the TAF data and fills out the rest of the sequence.
+
+5. The code creates a new projection object and adds additional information to it.
+
+6. It then constructs a list of TAF projections using the `TUGPrj` class, which seems to represent a TAF projection. For each projection, it checks various weather conditions (precipitation, thunderstorms, sky condition, visibility, wind, syntax) and appends the projection to the `newTAF` list.
+
+7. If the `longFmt` flag is set, it prints the official TAF projection and appends it to the `newTAF` list.
+
+8. If the `longFmt` flag is not set, it summarizes the TAF projections and appends them to the `newTAF` list.
+
+9. The code then indents the TAF data for better readability.
+
+10. If the `amdmt` string starts with 'A', it inserts 'TAF AMD' at the beginning of the `newTAF` list. Otherwise, it inserts 'TAF'.
+
+11. Finally, it returns the `newTAF` list, which contains the generated TAF data.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

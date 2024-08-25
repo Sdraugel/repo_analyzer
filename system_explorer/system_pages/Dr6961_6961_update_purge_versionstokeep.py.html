@@ -1,0 +1,68 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>6961_update_purge_versionstokeep.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>6961_update_purge_versionstokeep.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script updates all purge XML files in a specific directory and its subdirectories. The script is specifically designed to modify the 'versionsToKeep' elements in the XML files.
+
+Here's a step-by-step breakdown of what the script does:
+
+1. The script begins by defining a prefix for the directory path where the XML files are located.
+
+2. The `main()` function is defined. This function is the main driver of the script.
+
+3. The function starts by printing a message indicating that the update process has begun.
+
+4. It then uses the `subprocess.check_output()` function to execute a shell command that finds all XML files in the directory and its subdirectories. The paths to these files are stored in the `paths` variable.
+
+5. The script then iterates over each path in the `paths` list. For each path, it parses the corresponding XML file and gets the root of the XML tree.
+
+6. The script then iterates over each 'rule' element in the XML tree. If a 'rule' element contains a 'versionsToKeep' child element with a value of 0, this child element is removed from the 'rule' element. If a 'versionsToKeep' element is removed, the `modified` variable is set to True.
+
+7. If the XML tree was modified (i.e., if `modified` is True), the script creates a backup of the original XML file. It then attempts to write the modified XML tree back to the original file. If an error occurs during this process, the original file is restored from the backup.
+
+8. After all paths have been processed, the function prints a message indicating that the update process is complete.
+
+9. Finally, the script checks if it is being run as a standalone program (as opposed to being imported as a module). If it is, it calls the `main()` function and exits with the status code returned by this function.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

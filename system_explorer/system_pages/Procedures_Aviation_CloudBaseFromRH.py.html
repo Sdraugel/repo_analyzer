@@ -1,0 +1,88 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Aviation_CloudBaseFromRH.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Aviation_CloudBaseFromRH.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is part of a software that is used for predicting cloud base heights in aviation. The software is in the public domain and does not come with any warranty or technical support.
+
+The code starts with a configuration section where various parameters are set. These include the list of models to be used (NAM12, GFS, RAP13), the number of hours to adjust selected time range before and after (AdjustTR), the frequency of soundings (InterpHours), the maximum cloud base height (MaxCloudBase), and a toggle for creating debug grids (CreateDebugGrids).
+
+Next, it sets up variables to be solicited from the user. It starts with an empty dialog and adds controls for altering RH thresholds and selecting which cloud field to populate. For each model configured, it adds a slider bar to handle the last two versions of the model and adds these names to the dialog list.
+
+The code then imports necessary Python modules and defines a class named Procedure. This class inherits from GridManipulation and includes methods for processing the variable list, determining which cloud field to populate, and determining model levels and RH threshold which will result in a cloud at each level.
+
+The code is incomplete and ends with the construction of a pressure cube.
+
+This Python code is part of a larger program that seems to be related to meteorological data processing, specifically dealing with cloud base height calculations from relative humidity (RH) data.
+
+The code first sorts the keys of the `_cloudRH` dictionary in reverse order and appends the result of the `newGrid` method applied to each key to the `rhKnots` list. It then converts `rhKnots` to a numpy array and assigns it to `_rhThreshold`. It also creates a meshgrid for rows and columns of a single grid.
+
+The `execute` method is defined, which takes `timeRange` and `varDict` as arguments. It logs the start of the procedure, processes the variable list, and checks if any models are selected. If no models are selected, it sends a message to the status bar and returns.
+
+The method then retrieves the topography of the domain and, if debugging, displays these data. It makes a list of all CloudBasePrimary or CloudBaseSecondary grids locked by other users, deletes all the grids in the adjusted time range, and cycles through each time.
+
+For each time, it checks if the time range overlaps with `executeTR` and if the time range is not locked. It also restricts based on the hour of the day.
+
+It then prepares to compute weighted-average height and RH cubes, as well as cloud base height. It constructs a list of all model data for this time and loops through all the chosen models. For each model, it fetches the cubes, extracts the height and RH cubes, and adjusts these data by the chosen model weight.
+
+This code is part of a larger program that calculates and displays the cloud base height in aviation weather forecasting. Here's a breakdown of what it does:
+
+1. The code first calculates the weighted average of the height and relative humidity cubes (`avgHgtCube` and `avgRhCube`) based on the model weights. If the total weight is zero, it skips the current iteration and moves to the next one.
+
+2. The average height cube is then converted from meters to feet by dividing it by 0.3048. If the program is set to use Above Ground Level (AGL) heights, the topography height is subtracted from the average height cube.
+
+3. The height is then converted to hundreds of feet by dividing the average height cube by 100.
+
+4. If the program is in debug mode, it creates grids for each level of the average relative humidity and height cubes and displays them.
+
+5. The code then calculates the cloud base for each point. It creates a mask where the average relative humidity is greater than or equal to a certain threshold. It then finds the lowest level in the cube where the cloud is indicated.
+
+6. The 3-D mask is collapsed into a 2-D mask. If the program is in debug mode, it creates and displays grids for the 2-D mask, the index, and each level of the 3-D mask.
+
+7. The lowest cloud base is then assigned to the corresponding points in the `cloudBaseHgt` array.
+
+8. The cloud base height is clipped between 1 and 250, and a grid is created for it in the database.
+
+9. Finally, the code logs the time taken to complete the operation and displays a status message indicating that the operation has been completed.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

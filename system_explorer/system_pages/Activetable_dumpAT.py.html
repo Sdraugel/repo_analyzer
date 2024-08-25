@@ -1,0 +1,72 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>dumpAT.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>dumpAT.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This script, developed by Raytheon Company, is designed to output the active table of a system. The active table seems to be related to some form of weather data, as inferred from the usage of terms like "VTEC phenomena code", "VTEC significance", "VTEC action code", "VTEC etn", "VTEC product pil", and "VTEC geographical area".
+
+The script accepts a number of command-line arguments, which are used to filter the active table data. These arguments include site id, VTEC phenomena code, VTEC significance, VTEC action code, VTEC etn, VTEC product pil, VTEC geographical area, and the table name. The user can specify multiple entries for each of these filters.
+
+The script then sends a request to a server to dump the active table data. The server's host and port can be specified via command-line arguments, with default values of 'localhost' and 9581, respectively.
+
+The script logs the number of records in the active table both before and after filtering, as well as the filtered records themselves. It also logs the wall-clock time and CPU time taken to execute the script.
+
+There is also a commented-out sorting function that sorts records first by issuance time and then by phenomena.
+
+Please note that the script contains export-restricted data, and its export/transfer/disclosure is restricted by U.S. law.
+
+This commented out Python code seems to be part of a larger script that filters and sorts records, then logs the results.
+
+1. It first checks if each record `r` meets certain criteria. If the list of certain attributes (`sites`, `phens`, `sigs`, `pils`, `ids`, `actions`, `etns`) is empty or if the corresponding attribute of the record is in the list, the record is appended to the `filt` list. This is a way of filtering records based on multiple conditions.
+
+2. The filtered records are then sorted by a function `sortFunc`, which is not defined in this code snippet.
+
+3. An instance of `VTECTableUtil` class is created. This class is not defined in the snippet, but it appears to be a utility for working with a table of records.
+
+4. The code then logs the number of records before and after filtering, and the records themselves using the `printActiveTable` method of the `VTECTableUtil` instance.
+
+5. Finally, it calculates and logs the wall-clock time and CPU time taken by the script. The wall-clock time is the actual time taken from start to finish, while the CPU time is the time for which a CPU was used for processing instructions.
+
+Please note that this is a rough analysis based on the provided code snippet. The exact functionality might vary depending on the rest of the code, the input data, and the definitions of the undefined elements in this snippet.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,168 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>GridManipulation.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>GridManipulation.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is named GridManipulation and it is version 2.1. It was created by Matthew H. Belk and is in the public domain. The script is an absolute override file, meaning that a higher priority version of the file will completely replace a lower priority version of the file.
+
+The script imports several modules, including regular expressions (re), LogStream, SmartScript, TimeRange, AbsTime, and numpy.
+
+The script defines a class called GridManipulation, which is a subclass of SmartScript. The class has several methods:
+
+1. `__init__`: This is the constructor method that initializes the GridManipulation object.
+
+2. `GM_getWEInventory`: This method returns a list of time ranges with available data for a weather element from a specific database and level. It takes four arguments: the name of the weather element to inventory, the name of the database to search (default is 'Fcst'), the level of data to inventory (default is 'SFC'), and a time range to limit the inventory to grids overlapping this time range.
+
+3. `GM_getParmLocksByOthers`: This method returns a list of time ranges locked by other CAVE sessions within the current mutable database (typically 'Fcst'). It takes two arguments: the name of the field to inventory and the level of data to inventory (default is 'SFC').
+
+4. `GM_overlappingTRs`: This method returns a list of time ranges of locked data within the current mutable database (typically 'Fcst'). It takes three arguments: a Python time range object, a list of Python time range objects, and a boolean indicating whether to force the new time range list to start and end with the times closest to the start and end of the initial selected time range.
+
+The script is incomplete as it ends abruptly in the middle of the `GM_overlappingTRs` method.
+
+This Python code appears to be part of a larger program that deals with time ranges, possibly in a data analysis or data processing context. 
+
+The first part of the code is checking if a given time is within a certain range. If the time is within the range, it marks the grid as the closest to the selected start time or end time. If there are no grids in the list, it adds the closest start and end time ranges to the selected time range. The time ranges are then sorted and returned.
+
+The `GM_mergeTRLists` function merges two lists of time ranges and sorts them in ascending order by start time.
+
+The `GM_makeMaxTimeRange` function returns the maximum possible time range.
+
+The `GM_logToolUse` function logs a given message with a timestamp.
+
+The `GM_makeTimeRange` function creates a time range given a start and end time.
+
+The `GM_makeTimeRangeList` function creates a list of time ranges from a specified time range, with a specified number of hours between each time step and a specified duration for each time range.
+
+The `GM_getPrevNextModelTimes` function searches a grid inventory for the first available time ranges before and after a target time range and returns those objects. If the target time range is before or after all available model data, it returns None.
+
+This code is part of a larger system that seems to be working with weather data models and their respective time ranges. It contains several methods that perform different tasks:
+
+1. The first method searches through a model inventory to find two model time ranges that surround a target time range. If it finds such models, it returns them; otherwise, it returns None.
+
+2. The `GM_interpolateSounding` method is used to interpolate a sounding at a specified time range. If the previous and next time ranges are available, it calculates the time-weighted average of the geopotential height and the specified field. If the field is a wind field, it breaks up the wind into u and v components, interpolates them, and then computes the final wind magnitude and direction.
+
+3. The `GM_interpolateGrid` method is similar to the `GM_interpolateSounding` method, but it works with grid fields instead of soundings. It also handles wind fields differently, breaking them up into u and v components for interpolation.
+
+4. The `GM_makeNewTRlist` method is not fully shown, but it appears to produce a list of Python time ranges based on available data, data locks, and a requested time step in hours. 
+
+Overall, these methods seem to be part of a larger system for managing and manipulating weather data models and their associated time ranges.
+
+The provided Python code seems to be part of a larger program that deals with time range data. It defines three methods:
+
+1. `GM_makeNewTRlist(self, dataDict, dataLocks, interpHours=3)`: This method creates a new list of time ranges (`newTRlist`) from a dictionary of data (`dataDict`). The time ranges are filtered based on whether they are not already locked by someone else (checked against `dataLocks`), and if the start hour of the time range is a multiple of `interpHours`. The time ranges are then sorted by their start time and returned.
+
+2. `GM_adjustDeleteTimeRange(self, timeRange, TRlist, adjustTR=0)`: This method adjusts a given time range (`timeRange`) for the purpose of deleting grids. It checks each time range in a list (`TRlist`) to see if it overlaps with the given time range. If it does, it adjusts the start and end times of the time range by a specified number of hours (`adjustTR`). The adjusted time range is then returned, or if no adjustment was made, the original time range is returned.
+
+3. `GM_interpolateData(self, dataDict, TRlist, interpHours=3, vector=[], singleLevel=[])`: This method interpolates data where needed in a dictionary (`dataDict`). The method first determines the structure of the data dictionary, then cycles through each time period already present. The method is not fully shown, so the full functionality cannot be determined.
+
+Overall, this code seems to be part of a larger system for managing and manipulating time range data, possibly related to weather or climate data given the references to models and grids.
+
+This script is performing time interpolation on a set of data. It appears to be used for weather data, specifically soundings, which are measurements of atmospheric conditions at various altitudes.
+
+Here's a step-by-step breakdown of what the code is doing:
+
+1. It retrieves the time range of the current and next soundings from a list (`TRlist`).
+
+2. It calculates the starting times of each sounding time range in Unix time format.
+
+3. It calculates the difference in time between the two soundings.
+
+4. If the gap between the two data time steps is larger than a specified threshold (`interpHours`), it starts to interpolate the data.
+
+5. It keeps track of the seconds between data time steps and creates a new time range every three hours.
+
+6. For each new time step, it computes a linear interpolation weight, creates a new `TimeRange` object, and initializes an empty string to hold all interpolated data.
+
+7. It then iterates over each field of data. For each field, it creates a data structure for interpolated data. If the field is a vector, it creates component data structures.
+
+8. It retrieves data from the current and next time steps. If it fails to retrieve data for any reason, it sends a message to the status bar and moves on to the next time step.
+
+9. If the field is a vector, it separates it into its u and v components.
+
+10. If the field is a single level, it calculates the interpolated data. If the field is not a vector, it directly interpolates the data. If the field is a vector, it separately interpolates the u and v components.
+
+11. Finally, it retrieves the newly interpolated grids. If the field is not a vector, it retrieves the data grid. If the field is a vector, it retrieves the u and v grids separately.
+
+The commented out `print` statements suggest this code was used for debugging or development and may not be in its final form.
+
+This Python code appears to be part of a larger program that processes and manipulates meteorological data, possibly for weather forecasting or climate modeling. Here's a detailed breakdown of the code:
+
+1. The code first checks if the data is a vector field or not. A vector field is a type of data that includes both a magnitude and a direction for each point in space. In meteorology, wind speed and direction are examples of vector fields.
+
+2. If the data is not a vector, it creates a new data structure `data%d` (where `%d` is a placeholder for the field number) from `dataGrid`. If it is a vector, it creates two new data structures, `data%dU` and `data%dV`, from `uGrid` and `vGrid` respectively. These are likely the components of the vector in the U (usually east-west) and V (usually north-south) directions.
+
+3. If there are multiple levels in the data (for example, data from different altitudes), it cycles through each level. It calculates new values for the data or its U and V components at each level, based on a weighting factor. It then adds these values to the appropriate data structure.
+
+4. After cycling through all levels, it converts the data structures back into arrays. If the data is a vector, it also calculates the magnitude and direction of the vector from its U and V components.
+
+5. It then adds the current interpolated data for this time step to the final data structure `finalData`.
+
+6. This process is repeated for each field in the data. Once all fields have been processed, it adds the interpolated data to a dictionary `dataDict` with the new time step as the key.
+
+7. The code then moves on to the next desired time step, and the process is repeated until all time steps have been processed.
+
+8. Finally, the completed data dictionary is returned.
+
+9. The last part of the code defines a method `GM_smoothGrid` to smooth a numpy grid. This could be used to reduce noise or variability in the data. The level of smoothing is controlled by the `factor` argument, and an optional `mask` can be used to limit the area being smoothed. The method has not been fully included in the provided code.
+
+In general, this code seems to be part of a larger system for processing and interpolating meteorological data, possibly as part of a weather forecasting or climate modeling system.
+
+This code is performing a smoothing operation on a 2D grid. It's written in Python and uses the numpy library for numerical operations. 
+
+The code first checks the data type of the grid. If it's not a float, it converts it to a float32 type. This is done because the smoothing operation involves division, which can lead to decimal values. 
+
+The code then subtracts the minimum value from all the elements in the grid. This is done to prevent the cumulative sum from getting too large and causing precision issues. 
+
+The smoothing operation is performed in two stages: first along the y-axis (rows), then along the x-axis (columns). The smoothed values are stored in a new grid. 
+
+The smoothing operation is different for the edges and the middle of the grid. For the edges, it calculates a running average from the start to a certain point. For the middle, it calculates a running average over a window around each point. 
+
+If a mask is provided, the code handles it by only considering the masked elements in the smoothing operation. The mask should be a boolean array of the same shape as the grid, where True indicates the elements to consider and False indicates the elements to ignore. 
+
+After the smoothing operation, the code adds back the minimum value that was subtracted at the start. 
+
+Finally, if the original data type of the grid was not a float, the code rounds the smoothed values to the nearest integer and converts the data type back to the original one. 
+
+The smoothed grid is then returned.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

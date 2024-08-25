@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ProductRetriever.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ProductRetriever.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code defines a Python class named `ProductRetriever` which is used to retrieve all PGEN (Product Generation) products for a given Activity (identified by `dataURI`) and write them to separate files.
+
+Here's a breakdown of what each part of the code does:
+
+- The `__init__` method initializes the class with a `dataURI` and a `label`. It also sets up a Thrift client to communicate with a server. The server's host and port are retrieved from environment variables, or default to "localhost" and "9581" if the environment variables are not set.
+
+- The `setOutputDir` method allows the user to specify a different directory for output files.
+
+- The `setFullpath` method allows the user to specify whether to use the full path of the file or not.
+
+- The `_writeout` method is a helper function that writes data to a file in the output directory.
+
+- The `getProducts` method sends a request to the server to retrieve all products for the given `dataURI`. It then loops through the response, writing each item to a separate file. If the item is a `StringDataRecord`, it's encoded before being written; if it's a `ByteDataRecord`, it's written as is. The method also prints a message for each file that's extracted.
+
+The imported modules at the top of the file are libraries that the class uses to perform its tasks. `os` is a standard Python library for interacting with the operating system, `awips` is a library for interacting with the Advanced Weather Interactive Processing System, and `dynamicserialize` is a library for serializing and deserializing data.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

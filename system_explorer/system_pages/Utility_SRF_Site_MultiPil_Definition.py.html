@@ -1,0 +1,76 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>SRF_Site_MultiPil_Definition.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>SRF_Site_MultiPil_Definition.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code appears to be a configuration file for a software product developed by Raytheon Company. This software product is related to weather forecasting, specifically for the Short-Range Forecast (SRF) formatter. 
+
+The code begins with a legal disclaimer and copyright notice, stating that the software was developed or modified by Raytheon Company, and that it contains export-restricted data. It also provides the contractor's name and address.
+
+The code then moves on to define a dictionary called `Definition`, which is used to store configuration settings for the SRF formatter. These settings include display name, whether to show a zone combiner, default edit areas, map name for combinations, and settings for tide files, among others.
+
+There are also specific configurations for certain sites, as seen in the `if "<site>" == "AFG":` block. This block provides different settings based on the site and the MultiPil value.
+
+The code also contains configurations for the product's header, such as the product name, full station identifier, WMO ID, product PIL, name of the state, location of the WFO, and other identifiers.
+
+Finally, the code includes optional configuration items, such as the source database, debug mode, hazard sampling threshold, period combining, outlook inclusion, and others. These settings can be enabled or disabled as needed.
+
+Note that some parts of the code are commented out, suggesting that these settings are either optional or not currently in use.
+
+This code is a part of a configuration file or a setup file, where various parameters are being set for a program to use. 
+
+1. `elementList`: This parameter seems to be a list of elements that the program will be using. Two versions are shown here, one with "Temp", "Humidity", and "PoP", and another with just "Temp" and "PoP". The first one is commented out, so the program will use the second one.
+
+2. `singleValueFormat`: This parameter is set to 1, which is not the default value (0). This could be a flag that changes how the program formats or handles certain data.
+
+3. `areaDictionary`: This parameter is set to "SurfAreaDictionary". It might be referring to a specific area dictionary that the program will use, possibly for product headers.
+
+4. `language`: This parameter is set to "english", which could be the language that the program will use for its output or user interface.
+
+5. `passLimit`: This parameter is set to 20, which might be the limit on passes allowed through a narrative tree. This could be a part of a loop control or a recursion limit in the program.
+
+6. `trace`: This parameter is set to 1, which might be a debugging tool. When trace is turned on (set to 1), the program might output additional information for troubleshooting.
+
+All these parameters are currently commented out (with #), which means they are not active in the current state of the program. To use them, the programmer would need to remove the '#' at the beginning of each line.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

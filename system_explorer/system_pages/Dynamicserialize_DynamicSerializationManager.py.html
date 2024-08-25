@@ -1,0 +1,66 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>DynamicSerializationManager.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>DynamicSerializationManager.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is part of a software developed or modified by Raytheon Company. The software contains export-restricted data, and its dissemination to non-U.S. persons requires an export license or other authorization.
+
+The code defines a class called `DynamicSerializationManager` which is a port of the Java DynamicSerializeManager. It is used to read and write DynamicSerialize binary data.
+
+The `DynamicSerializationManager` class has several methods:
+
+- `__init__`: This is the constructor method that initializes the `DynamicSerializationManager` object. It sets the `transport` attribute to `None`.
+
+- `_deserialize`: This method takes a context `ctx` as an argument and returns the result of the `deserializeMessage` method of the context.
+
+- `deserializeBytes`: This method takes `bytes` as an argument, builds a serialization context with these bytes, reads the start and end of a message from the context, and returns the deserialized message.
+
+- `_buildSerializationContext`: This method builds a serialization context. It takes optional `bytes` as an argument, creates a memory buffer transport with these bytes, creates a self-describing binary protocol with the transport, and returns a Thrift serialization context with the protocol.
+
+- `serializeObject`: This method takes an `obj` as an argument, builds a serialization context, writes the start and end of a "dynamicSerialize" message to the context, serializes the object, and returns the value of the transport.
+
+- `_serialize`: This method takes a context `ctx` and an `obj` as arguments and serializes the object with the context.
+
+The software history indicates that the initial creation of this part of the file was done by an engineer named njensen on 06/09/10.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

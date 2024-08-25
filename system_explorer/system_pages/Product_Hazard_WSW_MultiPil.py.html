@@ -1,0 +1,77 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Hazard_WSW_MultiPil.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Hazard_WSW_MultiPil.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that appears to be part of a larger system related to weather forecasting or alerting, possibly developed by Raytheon Company for the US Government. 
+
+The script defines a class `TextProduct` that inherits from `GenericHazards.TextProduct`. This class is likely used to generate text-based weather hazard warnings or advisories. 
+
+The class has several attributes defined in the `Definition` dictionary, which seem to be configuration parameters for the product, including display name, default edit areas, map name for combinations, product name, station ID, WMO ID, product ID, output file, purge time, and several others.
+
+The script also includes a conditional statement that sets different `subDomainUGCs` based on the site and MultiPil values. These are likely codes for specific geographic areas.
+
+The `allowedHazards` method returns a list of hazard codes and their allowed actions, which seem to be related to different types of winter weather conditions like blizzards, ice storms, lake effect snow, winter storms, wind chill, etc.
+
+The `_bulletDict` method appears to be setting default bullet points for each hazard phenomenon. However, the code is incomplete and it's not clear what the final implementation would look like.
+
+Please note that the code contains several placeholders (like `<site>`, `<MultiPil>`, `<fullStationID>`, etc.) which would likely be replaced with actual values in the final implementation.
+
+This code appears to be part of a larger program that generates weather forecasts. It seems to be written in Python and contains several methods.
+
+1. The first part of the code defines a dictionary where the keys are weather conditions ("FR" for Freezing Rain, "IS" for Ice Storm, "WC" for Wind Chill) and the values are bullet lists associated with each condition.
+
+2. The `_bulletOrder` method returns the default bullet order, which is stored in the `_hazSimpBullets` variable.
+
+3. The `_makeProduct` method seems to be the main function of this part of the code. It takes three arguments: `fcst` (likely short for forecast), `segmentAreas`, and `argDict` (short for argument dictionary).
+
+   - It first sets the language of the forecast using the `_language` variable.
+   - Then, it generates a headline for the forecast segment based on the `segmentAreas` and other arguments.
+   - It also generates attribution statements and calls-to-action based on the hazards in the `argDict`.
+   - It removes any attribution section before the bullets or cancellation framing code using regular expressions.
+   - If an overview exists for the product, it calculates it.
+   - Finally, it cleans up the forecast by adding end lines and breaking the text at certain characters (" ", "-", "..."). The cleaned-up forecast is then returned.
+
+In summary, this part of the code seems to be responsible for generating a formatted weather forecast based on various inputs, including weather conditions and hazards.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

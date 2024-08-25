@@ -1,0 +1,76 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Maps.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Maps.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code file is part of a larger software system developed by Raytheon Company. It appears to be related to a map background configuration for a server, possibly for a weather forecasting system (as suggested by the use of terms like 'zones', 'marine', 'firewx', etc.). 
+
+The file contains a number of functions that seem to be used for filtering and manipulating geographical data. For instance, there are functions to handle FIPS codes, public zones, fire weather zones, marine zones, and offshore marine zones. These functions seem to be used to extract and format specific attributes from a given data set.
+
+The code also contains filters for public zones, fire weather zones, and marine zones. These filters seem to be used to select specific data based on certain conditions, such as whether the 'cwa' attribute matches a certain value.
+
+Moreover, the code imports modules like 'ShapeTable', 'siteConfig', 'LogStream', and 'JUtil', which are likely used for handling shapefiles, site configuration data, logging, and some utility functions, respectively.
+
+The file also contains some metadata and comments about its history, usage, and restrictions. For example, it mentions that the file should not be modified by users, and instead, users should refer to the documentation for how to override entries in the file. It also mentions that the software contains export-restricted data, and its export/transfer/disclosure is restricted by U.S. law.
+
+This code file appears to be written in Python and seems to be part of a larger system that deals with geographic data, possibly related to weather forecasting or similar geospatial analysis. 
+
+The code includes several functions and classes, and it seems to be primarily concerned with filtering and managing different types of geographic zones (e.g., marine zones, fire weather zones, counties, etc.). 
+
+Here's a breakdown of what the different parts of the code are doing:
+
+1. The `ALU data` and `offshoreZoneFilter` functions: These are filtering functions that take in a dictionary of attributes (`atts`) and return a boolean value based on whether the data matches certain criteria. For example, in `offshoreZoneFilter`, if the 'wfo' attribute is not in the dictionary, the function returns 0 (or False). If it is, and it equals 'AFC', then the function checks if the 'CWA' attribute equals 'AER', 'ALU', or 'AICE', and returns True if the 'id' is in a specific list of zone codes.
+
+2. The `ShapeTable` class: This seems to be a class that represents a table of geographic shapes. Instances of this class are created for different types of geographic zones (e.g., counties, zones, fire weather zones, marine zones, etc.). These instances are then filtered based on certain criteria, and various attributes are set, such as the name, edit area name, and group name.
+
+3. The `getMaps` function: This function seems to convert all the `ShapeTable` instances into Java objects (using the `toJavaObj` method), set their instance names, and return a list of these Java objects.
+
+4. The `runFilter` and `runNamer` functions: These functions take in an instance name and some information, convert the information from a Java object to a Python value, and then either filter the information or get the edit area name of the information, respectively.
+
+5. The `maps` list: This is a list of all the `ShapeTable` instances.
+
+6. The `if not BASELINE` block: This block tries to import a local maps file. If it can't find one, it logs an event saying so.
+
+Overall, this code seems to be part of a system for managing and filtering geographic data, possibly for use in weather forecasting or similar geospatial analysis.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,124 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>SFT.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>SFT.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a software header and configuration file for a weather forecasting product developed by Raytheon Company. It includes the following sections:
+
+1. **Software Information**: This section includes the details about the software like the developer, contract details, export control restrictions, and contact information of the contractor.
+
+2. **Software History**: This section records the changes made to the software over time. It includes the date of modification, ticket number, engineer who made the changes, and a description of the changes. For example, on May 09, 2018, an engineer named 'randerso' fixed the casing of weather types.
+
+3. **Software Description**: This section describes what the software does. In this case, it creates a Tabular State Forecast, which includes a 7-day forecast over multiple areas, with elements like MaxT/MinT, daytime weather, PoP, QPF, and Snow.
+
+4. **Copying**: This section states that the software is in the public domain, provided "as is", without technical support or warranty.
+
+5. **Configuration Variables**: This section includes variables that can be configured by the user. These include display name, default edit areas, product name, full station ID, WMO ID, product PIL, zone code, state name, WFO city state, and other optional configuration items.
+
+6. **Weather Elements Needed**: This section lists the weather elements needed for the forecast, such as MinT, MaxT, PoP, Wx, Sky, Wind, QPF.
+
+7. **Edit Areas Needed**: This section lists the areas needed for the forecast, such as area1, area2, area3.
+
+8. **Additional Information**: This section provides additional information about the software, such as development tasks in progress, and notes about the software.
+
+9. **Example Output**: This section provides an example of what the output of the software looks like when it generates a weather forecast.
+
+The provided code is written in Python and appears to be a part of a weather forecast generation system. It defines a class named `TextProduct` that inherits from two other classes: `TextRules` and `SampleAnalysis`. 
+
+The `TextProduct` class has a `VariableList` attribute, a `Definition` dictionary that contains various settings and identifiers for the product, and several methods.
+
+The `__init__` method initializes the class and calls the `__init__` methods of the parent classes.
+
+The `generateForecast` method is the main method of the class. It generates a formatted product for a list of edit areas. It does this by getting variables from a dictionary, determining time ranges, sampling data, and then generating the product for each edit area in the list.
+
+The `_getVariables` method retrieves variables from the `argDict` dictionary and the `Definition` dictionary and sets them as attributes of the class.
+
+The `_determineTimeRanges` method calculates the time ranges for the product. It sets up several lists of tuples that represent different time periods.
+
+The code also includes methods for pre-processing and post-processing the product and each area, as well as making the product for each area.
+
+The code at the top of the file seems to be a representation of a weather forecast for different regions and cities, with different weather conditions and temperatures for different time periods. However, this part of the code is commented out and does not affect the execution of the program.
+
+This code appears to be part of a larger program related to weather forecasting. It is defining several time ranges for different types of weather data, such as precipitation, snow, temperature, and other weather codes. These time ranges are then used to sample the relevant data.
+
+The `_sampleData` method is used to sample the data for each type of weather data. It creates a list of tuples, each containing an analysis list and the corresponding periods. This list is then used to create a sampler object.
+
+The `_preProcessProduct` method is used to prepare the forecast string. It adds various details such as the product name, the weather service name, and the time of issuance.
+
+The `_preProcessArea` method is used to process the area for which the forecast is being made. It separates the region and area names and only prints the region if it is different from the last one.
+
+The `_makeProduct` method is used to create the final forecast. It gets the statistical list for each type of weather data and adds it to the forecast string. The method also handles special cases for the precipitation data.
+
+Overall, this code seems to be part of a system that processes and presents weather data in a specific format.
+
+This code appears to be part of a larger script that generates weather forecasts. Here's a breakdown of what each part of the code does:
+
+1. The first part of the code generates a forecast (`fcst`) by calling the `makeRow` method with various parameters. It does this for both POP (probability of precipitation) and QPF (quantitative precipitation forecast) if the `_alwaysIncludeQPF` attribute is not 0.
+
+2. The `_postProcessArea` and `_postProcessProduct` methods seem to format the forecast string (`fcst`) by appending new lines and replacing certain characters. The progress of the forecast generation is also updated in `_postProcessProduct`.
+
+3. The `expireOffset` method calculates an expiration time offset based on whether the product issuance is in the morning or not.
+
+4. The `_analysisListTemp`, `_analysisListCode`, `_analysisListQPF`, and `_analysisListPoP` methods return lists of tuples that define the analysis to be performed on temperature, code, QPF, and PoP respectively.
+
+5. The `_popValue` and `_qpfValue` methods return strings representing the PoP and QPF values respectively.
+
+6. The `_getCCFCode` method translates weather codes into their corresponding words.
+
+7. The `_mxmnValue` method returns a string for the max or min temperatures.
+
+8. The `_tableHeader`, `_popTimeLabel`, `_qpfTimeLabel`, and `_rowDescription` methods generate various parts of the forecast output, such as the table header, time labels for PoP and QPF, and the row description.
+
+9. The last part of the code seems to be incomplete, but it appears to be building a string (`s`) that describes the rows in the forecast output.
+
+This code appears to be part of a larger weather forecasting application. It is responsible for generating formatted strings that represent various aspects of a weather forecast.
+
+The first part of the code is creating a string `s` that includes information about forecast temperatures, the probability of precipitation (PoP), and other miscellaneous data such as whether the temperature is below zero or if any data is missing. If the flags `_alwaysIncludePoP` and `_alwaysIncludeQPF` are set, it will also include information about the probability of precipitation and the quantitative precipitation forecast (QPF), respectively.
+
+The `_calcPeriodLabels` function is generating three strings: `fcstString`, `dayNumString`, and `dateString`. These strings represent the forecast, the day number, and the date for each period in the forecast. The function loops over each period, generating the appropriate string for each one and appending it to the corresponding string.
+
+The `_formatDate` function is used to format the date for each period. It takes a `timeRange` object, calculates the local time, and returns a string representation of the date.
+
+The `_periodNumString` function is used to generate a string that represents the day of the week for each period. If the period is the first one and the product issuance is in the morning, it returns "Today". Otherwise, it calculates the day of the week based on the start time of the period and returns a string representation of that day.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

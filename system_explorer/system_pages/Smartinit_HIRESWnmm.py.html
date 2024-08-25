@@ -1,0 +1,90 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>HIRESWnmm.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>HIRESWnmm.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code file appears to be part of a weather forecasting software developed by Raytheon Company. The software is subject to U.S. export control laws and cannot be exported or transferred without proper authorization.
+
+The code defines a class, `HIRESWnmmForecaster`, which inherits from a parent class named `Forecaster`. This class is used to generate weather forecasts based on model output.
+
+Here's a breakdown of the class's methods:
+
+- `__init__`: This is the constructor method that initializes an instance of the class. It sets the model name to "HIRESWnmm" and initializes a variable `oldqpf` to 0.0.
+
+- `levels`: This method returns a list of pressure levels in millibars, which are used to create vertical soundings in the model.
+
+- `calcMaxT` and `calcMinT`: These methods return the maximum and minimum of the specified MaxT and T grids, respectively.
+
+- `calcT` and `_calcT`: These methods calculate the temperature at the elevation indicated in the topography grid. They interpolate the temperature value from the model's isobaric temperature cube.
+
+- `calcTd`: This method calculates the dew point from the specified pressure, temperature, and relative humidity fields.
+
+The code also contains comments that provide additional context and instructions for how to use the file. It's mentioned that this file can be subclassed to override behavior, and users are referred to the GFE Online Help for guidance on creating a new smart initialization.
+
+This code file appears to be a collection of methods for a class in Python that performs various calculations related to meteorology. Here's a summary of what each method does:
+
+1. `calcRH(self, T, Td)`: This method calculates the Relative Humidity (RH) using temperature (T) and dew point (Td) grids. The temperatures are first converted from Fahrenheit to Celsius, and then used to calculate the saturation vapor pressures. The RH is then calculated as the ratio of the actual to the saturation vapor pressure, multiplied by 100 to give a percentage.
+
+2. `calcMaxRH(self, RH, MaxRH)`: This method returns the maximum of the specified MaxRH and the RH grids. If MaxRH is None, it returns RH.
+
+3. `calcMinRH(self, RH, MinRH)`: Similar to the previous method, this one returns the minimum of the specified MinRH and the RH grids. If MinRH is None, it returns RH.
+
+4. `calcQPF(self, tp_SFC)`: This method calculates the Quantitative Precipitation Forecast (QPF) from the total precipitation field out of the model. The precipitation is converted from millimeters to inches.
+
+5. `calcFzLevel(self, gh_c, t_c, topo)`: This method calculates the freezing level based on height and temperature cubes. It finds the height at which freezing occurs and converts it to feet.
+
+6. `calcMixHgt(self, topo, t_c, gh_c)`: This method calculates the mixing height for the given surface temperature, temperature cube, height cube and topography. It calculates a running average of potential temperature and determines the mixing height based on deviations from this average.
+
+7. `calcWind(self, wind_FHAG10)`: This method converts the lowest available wind level from meters per second to knots.
+
+8. `calcFreeWind(self, gh_c, wind_c, topo)`: This method calculates the wind at 3000 feet Above Ground Level (AGL). It finds the points that are above the 3000 foot level and stores the first point it finds that's above the topography + 3000 feet level. The wind speed is then converted to knots.
+
+This Python code file appears to be part of a weather forecasting system. It contains two main functions: `calcTransWind` and `calcCWR`.
+
+The `calcTransWind` function calculates the average wind vector in the mixed layer as defined by the mixing height. It first converts the mixing height from feet to meters. Then, it gets the wind grids and sets a mask at points between the topography and the topography plus the mixing height. It sets the points outside the layer to zero. It then calculates the average value in the mixed layer and converts the wind speed and direction to magnitude and direction. The wind speed is converted to knots and clipped to a maximum of 125 knots.
+
+The `calcCWR` function calculates the chance of wetting rain based on Quantitative Precipitation Forecast (QPF). It identifies all the places that are dry (QPF less than 0.01), wet (QPF greater than or equal to 0.3), and in between. It assigns 0 to the dry grid points, 100 to the wet grid points, and a ramping function to all points in between.
+
+The `main` function runs the `HIRESWnmmForecaster` class, which is not defined in this part of the code, but presumably contains methods for high-resolution weather forecasting.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

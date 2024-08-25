@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>iscSendSampleDef.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>iscSendSampleDef.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is a configuration file for a software called ifpnetCDF. It is used to define and control which data grids are included in the output file. 
+
+The script starts by defining an hour (HR) as 3600 seconds. 
+
+Then, it creates an empty dictionary called SampleDef. 
+
+In this dictionary, it sets a default key that contains a tuple. The first element of the tuple is a list containing a single element, 0*HR (which is 0), representing the base time. 
+
+The second element of the tuple is another list, containing a tuple (-24*HR, 1*HR). This tuple represents the offset from the base time and the interval at which data is sampled. 
+
+In this case, the offset is -24 hours (meaning the data starts 24 hours in the past), and the interval is 1 hour. This means that the software will sample data every hour, starting from 24 hours in the past. 
+
+This configuration is the default for ifpnetCDF when used with ISC traffic. The data is sent from 24 hours in the past to the future in 1-hour intervals.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

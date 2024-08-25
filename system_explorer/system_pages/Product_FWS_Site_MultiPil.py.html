@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>FWS_Site_MultiPil.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>FWS_Site_MultiPil.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be a part of a larger software system, possibly related to weather forecasting, developed by Raytheon Company. The code is primarily concerned with importing and managing various configuration settings for different levels of the system (national, regional, and site-specific).
+
+The script begins with a series of comments providing information about the software, its licensing, and its export restrictions. It also includes a brief history of software changes.
+
+The script then imports several modules, including a base module called FWS, a module for patch overrides, and the copy and importlib modules from the Python Standard Library.
+
+Next, it constructs the names of several modules that contain configuration settings for different levels of the system. It uses the importlib module to dynamically import these modules, and then retrieves the class objects from these modules.
+
+The script then retrieves the 'Definition' attribute from each of these modules, which presumably contains configuration settings for the system.
+
+The script then defines a new class, TextProduct, which inherits from several classes, including the classes imported earlier and two classes from the FWS and Patch_Overrides modules. This class contains a 'Definition' attribute, which is a deep copy of the 'Definition' attribute from the FWS.TextProduct class. This attribute is then updated with the configuration settings from the national, regional, and site-specific modules.
+
+The script also retrieves a 'VariableList' attribute from each of the modules, if it exists, and assigns it to a class variable of the same name.
+
+Finally, the script defines an __init__ method for the TextProduct class, which simply calls the __init__ method of the FWS.TextProduct class.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

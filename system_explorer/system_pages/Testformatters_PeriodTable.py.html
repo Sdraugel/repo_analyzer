@@ -1,0 +1,70 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>PeriodTable.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>PeriodTable.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code appears to be a configuration for a software tool that generates a weather report in a tabular format. The report includes information about various weather elements for different areas over a specified time period. 
+
+Here's a breakdown of the code:
+
+1. The initial section is a legal notice from Raytheon Company, the developer of the software. It specifies that the software contains export-restricted data and its dissemination requires an export license or other authorization.
+
+2. The next section describes the "PeriodTable", a table that is generated based on user input. The user can set the time range and select the areas for which the report should be generated.
+
+3. An example output of the table is provided, showing different weather elements like sky condition, wind speed, maximum and minimum temperature, and precipitation for different areas.
+
+4. The "Definition" dictionary contains configuration for generating the table:
+
+   - "type", "displayName", and "outputFile" specify the type of the report, its name in the product generation menu, and the default output file respectively.
+   
+   - "constantVariable", "rowVariable", and "columnVariable" define the layout of the table. The table will have time periods as constant, areas as rows, and weather elements as columns.
+   
+   - "beginningText" and "endingText" define the text that will appear at the beginning and end of the report.
+   
+   - "defaultEditAreas" and "runTimeEditAreas" specify the default areas for the report and whether the user should be prompted to select areas at runtime.
+   
+   - "defaultRanges" and "runTimeRanges" specify the default time ranges for the report and whether the user should be prompted to select time ranges at runtime.
+   
+   - "elementList" specifies the weather elements that should be included in the report, their labels, how they should be analyzed, reported, their data type, rounding, and conversion method if needed.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

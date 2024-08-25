@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TropicalCycloneUtil.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TropicalCycloneUtil.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is part of a utility module for dealing with tropical cyclone hazards in an active table. 
+
+The code starts with a list of tropical phenomena (TROPICAL_PHENS) which includes 'TR', 'TY', 'HU', and 'SS'. 
+
+Then, it defines a function named `get_tropical_storm_basin` that takes a record as an argument. This function is used to determine the basin of a tropical storm based on its 'etn' (Estimated Time of Arrival) value. 
+
+The function first checks if the 'phen' (phenomenon) of the record is in the list of tropical phenomena. If not, it raises a ValueError with a message indicating that the active table record is not for a tropical hazard. 
+
+If the 'phen' is in the list, the function then checks the 'etn' value of the record. Depending on the range this 'etn' falls into, the function returns a string indicating the basin of the storm: 'AT' for Atlantic, 'TEST' for testing, 'EP' for Eastern Pacific, 'CP' for Central Pacific, and 'WP' for Western Pacific. 
+
+If the 'etn' doesn't fall into any of these ranges, the function raises a ValueError with a message indicating that the tropical hazard has an 'etn' outside any known basin 'etn' range. 
+
+The initial comments in the code indicate that this software was developed or modified by Raytheon Company, and it contains export-restricted data whose export/transfer/disclosure is restricted by U.S. law. The comments also provide some software history, including the dates of initial creation and a subsequent modification.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

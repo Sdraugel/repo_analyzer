@@ -1,0 +1,114 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>RecreationFcst.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>RecreationFcst.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is part of a software developed by Raytheon Company for creating a text-based forecast for different areas. The forecast includes information about dew points, humidity, wind chill, wind speed, precipitation, and lightning for consecutive time periods. 
+
+The code imports three modules: TextRules, SampleAnalysis, and ForecastNarrative. It then defines a class called TextProduct that inherits from the TextRules and SampleAnalysis classes. 
+
+The TextProduct class has a list of variables that can be set by the user, such as the product title, the starting time range, the number of days for the forecast, and whether to include an extended forecast. 
+
+The class also has a dictionary called Definition that sets some default values and parameters for the forecast, such as the default edit areas for which the forecast will be generated, the line limit for the forecast text, and whether to trace the execution of the code.
+
+The class has an initialization method (__init__) and a method called generateForecast. The generateForecast method gets the variables, determines the time ranges, samples the data, and generates the forecast for each edit area in the list. 
+
+The forecast generation process includes pre-processing the product and each area, making the product, and post-processing each area and the product. 
+
+The code also includes a method called _getVariables that makes the argument dictionary accessible and gets the definition variables.
+
+This code appears to be part of a larger system that generates narrative forecasts for different areas. The code is written in Python and is object-oriented, with methods defined within a class (though the class definition itself is not included in the given code).
+
+The methods perform various tasks related to the generation of the forecast:
+
+1. The first method sets up some variables based on the input argument dictionary (`argDict`), including the language of the forecast.
+
+2. The `_determineTimeRanges` method sets up the narrative definition and initial time range for the forecast.
+
+3. The `_sampleData` method samples and analyzes the data for the narrative.
+
+4. The `_preProcessProduct` and `_preProcessArea` methods appear to be placeholders for preprocessing steps, currently returning the forecast (`fcst`) as is.
+
+5. The `_makeProduct` method generates the narrative forecast for a given area.
+
+6. The `_postProcessArea` and `_postProcessProduct` methods are placeholders for post-processing steps. The latter method currently converts the forecast to uppercase.
+
+7. The `_createNarrativeDef` method determines the start time for the product and creates a narrative definition.
+
+8. The `_td_phrase`, `_td_setUp`, and `_td_words` methods handle the creation of a phrase related to dew points.
+
+9. The `_rh_phrase`, `_rh_setUp`, and `_rh_words` methods handle the creation of a phrase related to relative humidity.
+
+10. The `_windChill_heatIndex_compoundPhrase` and `_windChill_heatIndex_finishUp` methods handle the creation of a compound phrase related to wind chill and heat index.
+
+The code is incomplete, as the definition for the `_wind_phrase` method is not provided.
+
+The code is written in Python and it seems to be part of a larger system that generates weather reports based on some input data. 
+
+The code is divided into several methods, each responsible for a specific part of the weather report:
+
+1. `_wind_setUp` and `_wind_words`: These methods are responsible for setting up and generating the wind-related part of the report. They check the maximum wind speed and add a phrase about the expected chop on area rivers and lakes based on the wind speed.
+
+2. `_wx_setUp` and `_wx_words`: These methods are responsible for setting up and generating the precipitation-related part of the report. They check the weather conditions and the quantity of precipitation forecasted (QPF), and add a phrase about the expected amount of precipitation.
+
+3. `_ltng_setUp` and `_ltng_words`: These methods are responsible for setting up and generating the lightning-related part of the report. They check the weather conditions and add a phrase about the likelihood of lightning based on the coverage of thunderstorms.
+
+Each of these pairs of methods is encapsulated in a dictionary that maps the setup and word generation methods to specific keys. These dictionaries are returned by the methods `_wind_phrase`, `_wx_phrase`, and `_ltng_phrase`.
+
+The code also contains some methods that override certain thresholds and variables, presumably from a parent class. These methods include `temporalCoverage_percentage`, `temporalCoverage_dict`, `pop_wx_lower_threshold`, and `phrase_descriptor_dict`.
+
+Finally, the code modifies some descriptors for phrases, such as "DEW POINTS...", "Minimum humidity...", "WIND CHILL...", "Heat index...", and "WIND...".
+
+This code is written in Python and appears to be part of a larger system for weather forecasting or reporting. The code is defining several methods and dictionaries that are used to generate and format weather-related phrases and data.
+
+The first part of the code is setting up a dictionary with keys and values related to weather conditions like precipitation, lightning, heat index, and wind chill.
+
+The "RecreationPhrases" method returns a dictionary that defines a component for recreational weather phrases. This dictionary includes a list of methods for assembling these phrases, a list of analyses to be performed on various weather data (like temperature dew point 'Td', relative humidity 'RH', temperature 'T', wind chill, heat index, wind, weather 'Wx', quantitative precipitation forecast 'QPF', and probability of precipitation 'PoP'), and a list of phrases to be included in the final output.
+
+The "ExtendedLabel" method returns a dictionary that defines a component for setting an extended label. It has a method list that includes a method for setting the label and empty lists for analysis and phrase list.
+
+The "setLabel" method is used to set the label of a component with the string "\n.EXTENDED...\n".
+
+The "Extended" method returns a dictionary that defines a component for extended weather phrases. Similar to the "RecreationPhrases" method, it includes a list of methods for ordering and assembling these phrases, a list of analyses to be performed on various weather data (like minimum temperature 'MinT', maximum temperature 'MaxT', temperature 'T', sky condition 'Sky', wind, weather 'Wx', and probability of precipitation 'PoP'), and a list of phrases to be included in the final output.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

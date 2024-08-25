@@ -1,0 +1,270 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>RoutineLevel1_AFM_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>RoutineLevel1_AFM_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be a part of a larger software system developed by Raytheon Company for testing purposes. The code is primarily concerned with creating a list of data sets for testing. 
+
+The script begins by importing a module named `TestScript`. It then defines a variable `Day` and assigns it the value of `24`, which represents a day in hours. 
+
+The script then creates a list named `AFM1_createGrids`. Each item in this list is a tuple, which seems to represent a data set for testing. Each tuple contains seven elements:
+
+1. The type of forecast ("Fcst").
+2. The variable being forecasted (e.g., "MaxT", "MinT", "T", "Td").
+3. The data type of the variable ("SCALAR").
+4. The start time of the forecast.
+5. The end time of the forecast.
+6. A value associated with the forecast.
+7. A string "all", which might represent the area for which the forecast applies.
+
+The start and end times of the forecast are represented as strings that are calculated based on the `Day` variable. For example, "MaxTBegin + 24" represents the start time of a forecast 24 hours after the start of the "MaxT" forecast. 
+
+The forecasted variables include "MaxT" (maximum temperature), "MinT" (minimum temperature), "T" (temperature), and "Td" (dew point temperature).
+
+The script does not contain any functions or classes, and it does not execute any code. It seems to be a module that is meant to be imported by other scripts, which can then use the `AFM1_createGrids` list for testing purposes.
+
+This code appears to be part of a weather forecasting system. It's defining a series of forecasts for different variables over different time periods.
+
+The code is structured as a series of tuples, each with seven elements:
+
+1. The string "Fcst", which likely stands for "Forecast".
+2. A string indicating the type of forecast, which can be "Td" (possibly standing for "Dew Point Temperature"), "Sky" (possibly indicating cloud cover or sky condition), or "PoP" (possibly standing for "Probability of Precipitation").
+3. The string "SCALAR", which suggests that the forecast value is a single number, not a vector or matrix.
+4. The start time for the forecast period, calculated as a multiple or sum of a variable called "Day".
+5. The end time for the forecast period, also calculated as a multiple or sum of "Day".
+6. The forecast value, which is a number. For "Td", this might be a temperature in degrees; for "Sky", this might be a percentage of cloud cover; for "PoP", this might be a percentage chance of precipitation.
+7. The string "all", which might indicate that the forecast applies to all locations or conditions.
+
+The code covers a sequence of time periods, from 6 hours into the forecast up to 8 times the value of "Day". It seems to be forecasting the dew point temperature, sky condition, and probability of precipitation for each of these periods.
+
+This code appears to be part of a weather forecasting system. It's defining a series of forecasts for different weather parameters over a series of time intervals. 
+
+1. The first section of the code is forecasting the probability of precipitation (PoP) over a series of time intervals. Each line represents a different time interval, and the numbers represent the start and end times of the interval (in terms of days), and the forecasted probability of precipitation during that interval.
+
+2. The second section of the code is forecasting the weather conditions (Wx) over a series of time intervals. Each line represents a different time interval, and the strings represent the forecasted weather conditions during that interval. The strings appear to be coded in a specific format that represents different weather conditions.
+
+3. The third section of the code is forecasting the wind conditions over a series of time intervals. Each line represents a different time interval, and the tuples represent the forecasted wind speed (in knots) and direction during that interval.
+
+In all three sections, the "all" at the end of each line likely means that the forecast applies to all areas covered by the system.
+
+The given code appears to be a part of a weather forecasting system. It's defining forecast parameters for different weather conditions over a period of time. 
+
+1. The first part of the code is forecasting wind conditions. It's using a VECTOR type to represent the wind, which typically includes both direction and magnitude (speed). For each forecast, it specifies a time period (in days), the wind speed (in knots, as per standard meteorological practice), and the wind direction (as a string representing compass directions).
+
+2. The second part of the code is forecasting Quantitative Precipitation Forecast (QPF), which is the expected amount of liquid precipitation accumulated over a specified time period. It's using a SCALAR type to represent the QPF, which typically includes only magnitude. For each forecast, it specifies a time period (in days) and the amount of expected precipitation.
+
+3. The third part of the code is forecasting snow amounts. It's also using a SCALAR type to represent the snow amount. For each forecast, it specifies a time period (in days) and the amount of expected snowfall.
+
+The "all" in each line likely refers to the area for which these forecasts apply, suggesting that these forecasts are intended to be general overviews for a large region rather than specific to any one location.
+
+The code is defining several lists of tuples, each representing a forecast grid. Each tuple contains information about a specific forecast variable, its type, the time range for the forecast, the forecast value, and the area for which the forecast is valid.
+
+1. The first list of tuples, unnamed in the provided code, is defining forecast grids for the amount of snow ("SnowAmt"). Each tuple represents a different 6-hour period, starting from the 5th day and ending at the end of the 8th day. The forecast value for each period is 0.
+
+2. The second list, `AFM_createGrids2`, is defining forecast grids for a variety of variables, including maximum temperature ("MaxT"), minimum temperature ("MinT"), temperature ("T"), dew point temperature ("Td"), wind speed and direction ("Wind"), sky cover ("Sky"), weather conditions ("Wx"), snow amount ("SnowAmt"), precipitation amount ("QPF"), and probability of precipitation ("PoP"). The time range, forecast value, and area for each variable are specified in each tuple.
+
+3. The third list, `AFM_deleteGrids`, is defining a set of forecast grids to be deleted. Each tuple specifies the variable and the time range for the grid to be deleted.
+
+4. The fourth list, `AFM_shortenGrids`, is defining a set of forecast grids with shortened time ranges. Each tuple specifies the variable, the new time range, the forecast value, and the area for the grid.
+
+In summary, this code is manipulating forecast grids for a variety of weather variables. It is creating new grids, deleting some existing grids, and modifying the time ranges of some grids.
+
+This code appears to be part of a weather forecasting system. It is setting up forecast data and scripts for different time periods and locations.
+
+The first part of the code is defining forecast values for a parameter called "WindChill" at different time intervals.
+
+The second part of the code is setting up time zone information for different areas. The 'AreaDictionary' seems to be a dictionary where each key is a location code (like 'FLZ050') and the value is the time zone for that location.
+
+The third part of the code is defining scripts for generating Area Forecast Matrices (AFM). Each script is a dictionary containing various properties like the name of the script, the type of product it produces, commentary about the issuance, command line variables, combinations of areas it applies to, check strings, and a function to create grids.
+
+The check strings seem to be parts of the forecast that the script will generate. They include things like the forecast area, the date and time of the forecast, temperature, dew point, wind direction and speed, cloud cover, and various types of precipitation.
+
+The 'createGrids' entry in each script dictionary appears to be a function that generates the forecast data in a grid format. The actual function isn't included in the code you've provided, it's just referenced by name.
+
+This code appears to be a part of a weather forecasting system. It is divided into three main sections, each of which is a dictionary containing information about a specific aspect of the weather forecast.
+
+1. The first section seems to be a template for a weather forecast, with placeholders for various weather conditions such as temperature, dew point, wind direction, wind characteristics, cloud coverage, and precipitation probabilities. It also includes placeholders for different types of precipitation like drizzle, freezing drizzle, freezing rain, and snow.
+
+2. The second section is testing for obstructions to visibility and volcanic ash. It includes a forecast for different weather conditions over a period of time. The "createGrids" key in this section seems to be a function call to `AFM1_createGrids` which probably generates a grid of forecast data.
+
+3. The third section is testing weather rows. It seems to be a template for a weather forecast similar to the first section but with a focus on different weather conditions such as temperature, dew point, relative humidity, wind direction, wind speed, cloud coverage, and precipitation probabilities.
+
+The "checkStrings" key in each section appears to be a list of strings that are used to check the output of the forecast against expected results.
+
+The "cmdLineVars" key in each section is a dictionary that seems to be used for setting variables via the command line.
+
+The "comboFlag" and "combinations" keys in each section appear to be used for combining different forecasts.
+
+Overall, this code is likely part of a larger system for generating and testing weather forecasts.
+
+This code seems to be part of a weather forecasting system. It is structured in a way to provide weather forecasts for different periods of time, with specific weather conditions, and the likelihood of those conditions occurring.
+
+The first part of the code appears to be a template for a weather report, with placeholders (MM) for various weather conditions such as snow, drizzle, rain, sleet, etc. It also includes placeholders for date and time, temperature, dew point, wind direction, and other weather-related parameters.
+
+The "createGrids" section seems to be a series of forecasts, each for a different time period. Each forecast includes the type of weather expected (e.g., rain, sleet, snow), the visibility conditions, and the likelihood of the forecasted weather occurring.
+
+The last part of the code, "AFM_Spans", appears to be a testing module for the maximum and minimum spans of the Quantitative Precipitation Forecast (QPF), and snow. The QPF is a prediction of the amount of liquid precipitation expected over a certain period. The "AFM" likely stands for Area Forecast Matrices, a type of weather forecast product.
+
+Overall, this code seems to be part of a larger system for generating detailed weather forecasts.
+
+This code appears to be part of a weather forecasting system. It contains forecast data and configurations for different weather variables and hazards. Here's a breakdown of what each part does:
+
+1. "cmdLineVars": This sets command line variables. It's setting the 'Product Issuance' to 'Morning' and 'Issued By' to None.
+
+2. "comboFlag": This is a flag variable, which is set to 1. The purpose of this flag isn't clear without more context.
+
+3. "combinations": This is defining combinations of weather zones (like FLZ050, FLZ151, FLZ251) for which the forecast is applicable.
+
+4. "checkStrings": This is a list of strings that seem to represent a formatted weather forecast, including timestamps, weather variables (like temperature, dew point, wind direction, wind speed, etc.), and forecast values.
+
+5. "createGrids": This is a list of tuples that seem to represent forecast data for different weather variables (like MaxT for maximum temperature, QPF for Quantitative Precipitation Forecast, SnowAmt for Snow Amount) for different zones and time periods.
+
+6. "name", "productType", "commentary": These are metadata about the forecast, like its name, type, and commentary.
+
+7. The second part of the code is similar to the first but seems to be focused on testing hazards. It includes a list of "checkStrings" that contain hazard warnings like Blizzard, Dense Fog, Excessive Heat, etc.
+
+The code seems to be written in Python, but it's not clear what the surrounding context is. It could be part of a larger system for generating, formatting, and distributing weather forecasts.
+
+This code appears to be a template for a weather forecast report. It seems to be structured to provide weather data for different areas (e.g., Hillsborough, Polk, Manatee) at different times (e.g., every 3 hours, every 6 hours). 
+
+The template includes placeholders for various types of weather data, including:
+
+- "Max/Min": Presumably the maximum and minimum temperatures.
+- "Temp": The temperature at different times.
+- "Dewpt": The dew point, or the temperature at which air must be cooled to become saturated with water vapor.
+- "RH": Relative humidity.
+- "Wind dir": The direction from which the wind is coming.
+- "Wind spd": Wind speed.
+- "Clouds": Possibly the amount or type of cloud cover.
+- "PoP 12hr": Probability of Precipitation for the next 12 hours.
+- "QPF 12hr": Quantitative Precipitation Forecast, or the expected amount of melted precipitation, for the next 12 hours.
+- "Snow 12hr": The amount of snow expected in the next 12 hours.
+- "Trop Storm", "Typhoon", "Hurricane": These seem to be placeholders for some sort of data or status related to tropical storms, typhoons, and hurricanes.
+
+The "MM" in the template likely stands for missing measurement, indicating that the actual data should be filled in these places. 
+
+The "EST 3hrly" and "UTC 3hrly" lines appear to be time stamps for the data, in Eastern Standard Time and Coordinated Universal Time respectively. 
+
+The "$$" could be a delimiter or marker of some sort, possibly indicating the end of a section of data.
+
+The provided code appears to be a part of a larger script that generates weather forecasts. It seems to be written in Python, but it's not a complete script, just a part of it.
+
+The first part of the code is a list of strings that seem to represent a formatted output of a weather forecast. The "MM" placeholders probably stand for values that will be filled in later.
+
+The "createGrids" section appears to be creating a series of forecast grids. Each grid is defined by a tuple with various parameters such as the type of forecast ("Fcst"), the type of hazard ("Hazards"), the forecast method ("DISCRETE"), the start and end time of the forecast, the hazard codes, and the area for which the forecast is made (e.g., 'FLZ050').
+
+The last part of the code seems to be defining a test case for a product named "AFM_TimeZone1". This test case includes various parameters such as the product type ("AFM"), commentary, command line variables, combinations, and check strings. The check strings seem to be expected outputs for this test case.
+
+Overall, this code seems to be a part of a larger system for generating and testing weather forecasts.
+
+This code appears to be a weather forecast data for different locations, possibly in a raw format from a weather data API or similar source. The data includes information about temperature, dew point, relative humidity (RH), wind direction, wind speed, cloud cover, probability of precipitation (PoP) over 12 hours, quantitative precipitation forecast (QPF) over 12 hours, snowfall over 12 hours, and other weather conditions.
+
+The data is organized in 3-hourly and 6-hourly intervals in both local (EST, CST, AST) and Coordinated Universal Time (UTC). The "MM" likely stands for missing data. The data also includes maximum and minimum temperatures for each day.
+
+The code also includes location identifiers, such as "FLZ052-012100-", "Polk-", and "Manatee-", which might be used to map the weather data to specific locations. The commented out line "# Including the cities of Lakeland, Winter Haven" suggests that the data might be for specific cities within these regions.
+
+The "$$" could be a delimiter used to separate different sections of the data.
+
+The code appears to be a part of a larger script related to weather forecasting. It seems to be defining a series of tests or configurations for generating weather forecasts for different areas, with a focus on handling multiple time zones.
+
+The script includes a series of dictionaries, each representing a different test or configuration. Each dictionary includes several key-value pairs that define the properties of the test.
+
+- "name": The name of the test.
+- "productType": The type of product the test is associated with.
+- "commentary": A description or commentary about the test.
+- "cmdLineVars": Command line variables for the test.
+- "comboFlag": A flag that may indicate whether combinations are used in the test.
+- "combinations": The combinations of areas for which the forecast is generated.
+- "checkStrings": A list of strings that seem to represent a template for the forecast output.
+
+The "checkStrings" list includes a series of strings that represent different parts of a weather forecast, including timestamps, temperature, dew point, relative humidity, wind direction and speed, cloud cover, probability of precipitation, and other weather conditions.
+
+Overall, this script seems to be a part of a testing or configuration setup for a weather forecasting system, where each test or configuration is used to generate forecasts for different areas and time zones.
+
+The code seems to be a part of a larger system, likely a weather forecasting system. It appears to be defining and manipulating data related to weather forecasts. Here's a breakdown of the different sections:
+
+1. The first part of the code seems to be defining a set of weather data, with each line representing a different weather parameter such as wind speed, clouds, precipitation, temperature, dew point, etc. The "MM" seems to represent missing data.
+
+2. The "fileChanges" section seems to be tracking changes made to the file, with each change being represented as a tuple containing the name of the area that was changed, the utility that made the change, the type of change (add), the definition of the change (tzdef), and the action to undo the change.
+
+3. The "createGrids" section seems to be a function call to create weather grids.
+
+4. The next sections are defining different test scenarios for the weather forecasting system. Each test scenario has a name, a product type, some command line variables, a flag, some combinations, check strings, and start times for the grids. Each scenario also seems to have a different function call to create the weather grids.
+
+5. The "checkStrings" section within each test scenario seems to be defining the expected output of the test. The strings appear to be formatted as a weather forecast.
+
+6. The "gridsStartTime" and "drtTime" sections within each test scenario seem to be defining the start time for the weather grids and the time at which the test is run, respectively.
+
+7. The "createGrids" section within each test scenario seems to be a function call to create the weather grids for the test scenario. The function being called appears to be different for each test scenario.
+
+The provided code appears to be a part of a larger script that is used for weather forecasting. It seems to be written in Python and includes several dictionaries, each representing a different forecast scenario. 
+
+Each dictionary contains various keys:
+
+- "commentary": A brief description of the scenario.
+- "name": The name of the scenario.
+- "productType": The type of product, in this case, "AFM" which might stand for "Area Forecast Matrices".
+- "cmdLineVars": Command line variables, possibly used for customization or configuration.
+- "comboFlag": A flag variable, typically used to indicate whether a certain condition is met.
+- "combinations": An array of combinations, the purpose of which is unclear without additional context.
+- "checkStrings": An array of strings that seem to represent different weather parameters (like temperature, dew point, wind chill, heat index, etc.) for different dates and times.
+- "gridsStartTime" and "drtTime": These appear to be timestamps, possibly indicating the start time of the forecast period and the time the forecast was made.
+- "createGrids": This might be a function that creates grids for the forecast, but without the function definition, it's hard to say for sure.
+
+The "MM" in the checkStrings likely stands for missing measurements or data that is not available at the time of forecast. 
+
+Overall, this code seems to be part of a system that generates different weather forecast scenarios, possibly for testing or comparison purposes.
+
+This code appears to be part of a larger script written in Python. It seems to be related to weather forecasting or meteorological data processing. Here's a breakdown of what the different parts of the code are doing:
+
+1. The first part of the code is a list of dictionaries. Each dictionary represents a different set of data or operation. The first dictionary contains a list of strings that appear to represent some kind of weather data or forecast, with placeholders ("MM") where actual data might be inserted. It also includes a start time and a time for some operation, and a reference to a function `AFM_shortenGrids`.
+
+2. The second dictionary in the list is named "AFM_Final_CleanUp". It seems to be responsible for cleaning up or deleting some grids, as indicated by the `deleteGrids` key and the `AFM_deleteGrids` function.
+
+3. The `testScript` function appears to be a test function that sets up some default values and then calls a general test function. The `getAbsFromLocal` method is used to convert local time to absolute time. The `TestScript.generalTestScript` function is then called with these defaults, along with the `scripts` and `level` parameters.
+
+4. The `gridsStartTime` and `drtTime` are timestamps, probably representing the start and end times for the data represented in the grids. The `orderStrings`, `internalStrip`, `vtecMode`, and `deleteGrids` keys in the `defaults` dictionary are likely configuration options for the test.
+
+Without more context or the rest of the code, it's hard to say exactly what this script is doing, but it seems to be testing some kind of weather forecasting or meteorological data processing system.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

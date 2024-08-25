@@ -1,0 +1,168 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Aviation_LLWSFromModels.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Aviation_LLWSFromModels.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is a tool for analyzing aviation data, specifically focusing on Low-Level Wind Shear (LLWS) from different meteorological models. The script is part of a larger software system, likely used for weather forecasting or aviation safety.
+
+Here's a breakdown of what the script does:
+
+1. It starts with a configuration section where it sets up several variables, including a list of meteorological models (`ModelList`), the frequency of soundings (`InterpHours`), the shear magnitude at which LLWS should be reported (`ReportLLWS_dict`), and some debug settings.
+
+2. It then sets up variables to be solicited from the user, such as the model to be used and the scale for the last two versions of this model.
+
+3. The script imports several modules, including time, numpy, and several custom modules likely related to aviation and grid manipulation.
+
+4. It defines a class `Procedure` which inherits from several utility classes. This class is used to process and analyze the data from the selected models.
+
+5. The `Procedure` class has several methods, including `_processVariableList` which processes the user input, and `_computeShear` which calculates the vertical wind shear between two levels.
+
+6. The `execute` method is where the main logic of the script resides. It logs the use of the procedure, processes the variable list, sets the tool type to "numeric", and checks if any models have been selected. If no models are selected, it aborts the execution and notifies the user.
+
+This script is designed to be used in a larger system, and it's likely that the output of this script feeds into other processes or analyses. It's also worth noting that this script has been modified over time by different authors, indicating it's part of a maintained system.
+
+This script appears to be part of a weather forecasting system. It's performing a series of operations on weather data, specifically related to wind speed and direction at different altitudes (1000ft and 2000ft). Here's a breakdown of what it does:
+
+1. It first checks for any locked grids of two parameters, "LLWS" and "LLWSHgt", to avoid modifying them.
+
+2. It then deletes all the grids in a specified time range.
+
+3. The script then creates a list of time ranges and iterates through each one.
+
+4. For each time range, it checks if it overlaps with the execution time range and if it's locked. If either condition is true, it skips to the next time range.
+
+5. It also checks if the start time of the time range falls within a specified range of hours. If not, it skips to the next time range.
+
+6. For each valid time range, it initializes variables to compute weighted-average vector components at 1000ft and 2000ft.
+
+7. It then fetches wind data for the time range from various models. If the data is missing, it logs a message and skips to the next model.
+
+8. The wind data is converted into U and V vector components, adjusted by the weight of the model, and added to the average components.
+
+9. After processing all models for a time range, it computes the average vector components at 1000ft and 2000ft.
+
+10. It then converts these average components back into wind speed and direction.
+
+11. Finally, it fetches the surface wind data from the forecast database and breaks it into its vector components.
+
+The overall purpose of this script seems to be to process and average wind data from various models for a series of time ranges, while handling potential issues like locked data grids and missing data.
+
+This code is part of a larger program that appears to be calculating and displaying wind data at various altitudes. Here's a breakdown of what each section is doing:
+
+1. The first section checks if the `CreateVectorComponents` flag is set to `True`. If it is, the code creates a series of grids for the U and V components of the wind at the surface level and at 1000 and 2000 feet above ground level (AGL). These grids are created with a precision of 2 decimal places. It also creates vector grids for the wind at 1000 and 2000 feet AGL.
+
+2. The next section calculates a mean wind around 500 feet AGL, if the necessary data is available. It does this by averaging the U and V components of the wind at the surface and at 1000 feet AGL. It then calculates the magnitude and direction of this mean wind. If the `CreateVectorComponents` flag is set to `True`, it creates grids for the U and V components of this mean wind, as well as a vector grid for the mean wind itself.
+
+3. The third section does a similar calculation for a mean wind around 1500 feet AGL, this time averaging the U and V components of the wind at 1000 and 2000 feet AGL. It also creates the corresponding grids if the `CreateVectorComponents` flag is set to `True`.
+
+4. The fourth section initializes grids to store the maximum wind shear and height.
+
+5. The final section of the provided code begins to compute the wind shear from the surface to 500 feet AGL, if the necessary data is available. It also appears to be set up to create a grid for this data if a `CreateDebugGrids` flag is set to `True`, but the code for this is not included in the provided snippet.
+
+The provided Python code appears to be part of a larger script that calculates wind shear at different altitudes, specifically between 500 to 2000 feet Above Ground Level (AGL). Wind shear is a difference in wind speed or direction over a relatively short distance in the atmosphere.
+
+Here's a breakdown of what the code does:
+
+1. The code first checks if the necessary data for each altitude range (500-1000ft, 1000-1500ft, 1500-2000ft) is available. If the data is available, it computes the wind shear using the `_computeShear` method.
+
+2. If the `CreateDebugGrids` flag is set to `True`, it creates a grid for the calculated shear using the `createGrid` method. The grid is displayed in the GFE (Graphical Forecast Editor) with specific parameters like precision, min and max allowed values, units, and a default color table.
+
+3. It then calculates the difference between the computed shear and a predefined shear threshold (`shearThreshold`). 
+
+4. The code creates a mask (`maxShearMask`) where the difference in shear is greater than or equal to the maximum difference in shear computed so far (`maxDiffShear`). 
+
+5. It also creates another mask (`llwsMask`) where the shear meets the Low-Level Wind Shear (LLWS) criterion for the current layer depth and this is the maximum shear computed so far.
+
+6. The maximum shear, maximum difference in shear, and maximum height grids are then updated based on these masks.
+
+7. The wind magnitude (`maxMag`) and direction (`maxDir`) are updated to report in the LLWS group. These are updated only where the `llwsMask` is `True`.
+
+The repeated blocks of code for each altitude range (500-1000ft, 1000-1500ft, 1500-2000ft) could potentially be refactored into a function to avoid repetition and make the code more maintainable.
+
+This code is part of a larger program that calculates and analyzes wind shear, which is a difference in wind speed or direction over a relatively short distance in the atmosphere. It's often used in meteorology and aviation.
+
+The code is divided into three main sections, each computing wind shear for different layers of the atmosphere:
+
+1. The first section calculates wind shear from 1500 to 2000 feet above ground level (AGL). It uses the function `_computeShear` to do the calculation, and if `CreateDebugGrids` is true, it displays the grid in the GFE (Graphical Forecast Editor). It then determines the difference between the calculated shear and the LLWS (Low-Level Wind Shear) threshold, and updates the maximum shear, height, wind magnitude, and direction.
+
+2. The second section calculates wind shear from the surface to 1000 feet AGL. It follows the same process as the first section.
+
+3. The third section calculates wind shear from 1000 to 2000 feet AGL. Again, it follows the same process as the previous sections.
+
+In each section, the code uses NumPy functions to create masks where the shear meets certain conditions, and updates the maximum shear and height grids accordingly. It also updates the wind magnitude and direction to report in the LLWS group.
+
+This code is part of a larger program that calculates and analyzes wind shear, a difference in wind speed and direction over a relatively short distance in the atmosphere. Wind shear is a significant factor in aviation safety, particularly as it relates to low-level wind shear (LLWS).
+
+The code is divided into several sections, each computing wind shear for different layers of the atmosphere:
+
+1. The first section calculates the maximum shear and height grids. It uses numpy's `where` function to update the maximum shear, difference in shear, maximum height, maximum wind magnitude, and maximum wind direction based on certain conditions.
+
+2. The second section calculates the shear in 1500 ft layers from the surface to 2000 ft above ground level (AGL). It first retrieves the shear threshold for these layers from a dictionary. It then checks if certain wind data is available. If it is, it computes the shear, displays debug grids if necessary, calculates the difference of shear and the LLWS threshold, defines masks where the shear is maximum or meets the LLWS criterion, and updates the maximum shear, difference in shear, maximum height, maximum wind magnitude, and maximum wind direction.
+
+3. The third section calculates the shear from 500 ft to 2000 ft. It follows the same steps as the second section.
+
+4. The fourth section calculates the shear from the surface to 2000 ft AGL. It again follows the same steps as the previous sections.
+
+The code uses a variety of numpy functions to perform these calculations and comparisons, and it appears to be part of a larger system that includes functions for creating grids and converting feet to meters. The results of these calculations would likely be used to generate reports or alerts related to potential LLWS conditions.
+
+This code appears to be part of a larger program that calculates and displays data related to Low-Level Wind Shear (LLWS). Here's a breakdown of what this part of the file is doing:
+
+1. If the `CreateDebugGrids` flag is set to true, the code creates a grid in the Forecast (Fcst) database with the name "shear0020". The grid data is derived from the `shear` variable, which is converted to a float32 data type.
+
+2. The code calculates the difference between the `shear` and the `shearThreshold` and stores the result in `diffShear`. If the `shear` is less than the `shearThreshold`, `-1` is stored.
+
+3. The code then creates two masks: `maxShearMask` which identifies where `diffShear` is greater than or equal to `maxDiffShear`, and `llwsMask` which identifies where `shear` is greater than or equal to `shearThreshold` and `maxShearMask` is true.
+
+4. The `maxShear`, `maxDiffShear`, `maxHeight`, `maxMag`, and `maxDir` variables are updated based on the `maxShearMask` and `llwsMask` masks.
+
+5. The `maxHeight` variable is then clipped to ensure it lies within the range of 0 to 20.
+
+6. If the `CreateDebugGrids` flag is set to true, the code creates additional grids in the Fcst database with the names "maxShear", "maxMag", and "maxDir". The grid data is derived from the respective variables.
+
+7. The `maxWind` variable is created by converting the `maxMag` from meters per second to knots and pairing it with `maxDir`.
+
+8. The code then creates two more grids in the Fcst database with the names "LLWS" and "LLWSHgt". The grid data is derived from the `maxWind` and `maxHeight` variables, respectively.
+
+9. Finally, the code logs the completion of the LLWS calculation and displays a completion message on the status bar.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

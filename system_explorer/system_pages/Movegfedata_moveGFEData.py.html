@@ -1,0 +1,94 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>moveGFEData.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>moveGFEData.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This script is a part of the AWIPS II (Advanced Weather Interactive Processing System) software developed by Raytheon Company. It's a Python script designed to move GFE (Graphical Forecast Editor) data from one user to another.
+
+The script starts by importing necessary modules such as base64, json, logging, os, sys, urllib, and others. It also imports some modules from the AWIPS package.
+
+The script sets up some global variables including SourceUser, DestUser, SourceSite, DestSite, Source, Dest, CopyOnly, Action, and LOCALIZATION_DICT. The LOCALIZATION_DICT is a dictionary that maps GFE data types to their corresponding paths in the file system.
+
+The script then sets up a logger named "moveGFEData" with a specific format and level.
+
+The function `validateArgs()` is defined to collect and validate command-line arguments for the script. It uses the argparse module to define the expected arguments, their types, and help messages. It also checks for some specific conditions related to the source and destination users and hosts, and raises errors if these conditions are not met.
+
+The script seems to be cut off after this point, but based on the provided information, it's clear that this script is used to move GFE data between different users, possibly on different servers. It validates the provided command-line arguments and likely uses these arguments to perform the data transfer operation.
+
+This code appears to be part of a larger script that is used for moving data between different servers or services. 
+
+The first part of the code is validating and setting up the source and destination servers. It checks if the source and destination are the same, and if so, it ensures that the source and destination users are not the same. It then creates ThriftClient instances for the source and destination servers and sends a request to get active sites. If the source and destination site IDs are not provided, it attempts to determine them from the active sites. If it can't, it throws an error. It also checks if the source and destination are the same and if the source and destination site IDs are the same, it throws an error. Finally, it sets up the source and destination URL formats.
+
+The `textShuffle` function appears to move single categories of text data from one place to another. It first gets an inventory of the text data, then it prompts the user to select which data to move. It then moves the selected data.
+
+The `moveText` function is used to move text data from a source URL to a destination URL. It first retrieves the data from the source URL, then it saves the data to the destination URL. If the `CopyOnly` flag is not set, it also deletes the data from the source URL. If any errors occur during these operations, it logs the error and returns False. Otherwise, it returns True.
+
+This Python code is a script for managing localization files. Localization files are used to adapt a product to a specific locale or market. The script includes functions to retrieve, save, and delete these files from a data store. Here's a breakdown of each function:
+
+1. `getTextInventory(category)`: This function retrieves the localization inventory for a given file type. It builds a URL using the `buildURL` function and sends a request to that URL. It then loads the JSON response and maps each filename to its URL on the source host.
+
+2. `buildURL(formatString, localizationType, user, siteID, localizationPath)`: This function constructs a URL based on the provided arguments.
+
+3. `getTextData(url)`: This function retrieves a localization file from the specified URL and returns the file contents and its MD5 checksum.
+
+4. `saveTextData(data, url, user)`: This function saves a file to the localization data store. It sends a PUT request to the specified URL with the file data and user authorization.
+
+5. `deleteTextData(url, user, checksum)`: This function deletes a localization file from the data store. It also handles the deletion of Python compiled files in the `__pycache__` directory.
+
+6. `deleteFile(url, user, checksum=None)`: This function sends a DELETE request to the specified URL with the file checksum and user authorization.
+
+7. `main()`: This is the main function of the script. It sets global variables based on command line arguments and initiates the process of moving GFE data.
+
+The script uses Python's built-in `urllib` module to send HTTP requests and `json` module to parse JSON data. It also uses a `logger` for logging events and errors.
+
+This part of the code is a command-line interface that allows a user to select a category of data from a list of options. 
+
+The code first prints out a list of categories to the console, each with a corresponding number. The categories are defined in the `textCategories` list, which contains tuples where the first element is the name of the category and the second is a related identifier.
+
+The user is then prompted to enter a number corresponding to the category they want to select. If the user enters 0, the function returns 1 and the program ends. 
+
+If the user enters a number within the range of the categories list (1 to the length of the list), the code subtracts 1 from the entered number to get the corresponding index in the list (since Python list indices start at 0). The code then logs a debug message indicating which category was selected and calls the `textShuffle` function with the name and identifier of the selected category as arguments.
+
+Finally, if this script is run directly (not imported as a module), it calls the `main` function.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,54 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ESTOFS.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ESTOFS.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be part of a larger software package developed by Raytheon Company for the US Government. The script is subject to export control restrictions due to the sensitive nature of the data it may handle.
+
+The script defines a class called `ESTOFSForecaster` that inherits from a base class called `Forecaster`. The `ESTOFSForecaster` class has two methods: `calcStormSurge` and `calcAstroTide`. Both methods take a single argument and return the argument multiplied by 3.2808. This multiplication likely serves to convert the units of the input data, possibly from meters to feet, given that 1 meter equals approximately 3.2808 feet.
+
+The `calcStormSurge` method is described as ingesting gridded ESTOFS storm surge guidance, while the `calcAstroTide` method ingests gridded ESTOFS astrological tide guidance. ESTOFS likely refers to the Extratropical Storm Surge model from the National Oceanic and Atmospheric Administration (NOAA).
+
+The script also defines a `main` function that creates an instance of the `ESTOFSForecaster` class and calls its `run` method. This `main` function is executed if the script is run as a standalone program (i.e., not imported as a module in another script).</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,134 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TCStormSurgeThreat_HFO.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TCStormSurgeThreat_HFO.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a part of a software that appears to be used for predicting and analyzing storm surge threats. The software is in the public domain and does not come with any warranty or technical support.
+
+The code imports several modules, including TropicalUtility, LogStream, SmartScript, numpy, TimeRange, AbsTime, time, and re. These modules are used for various tasks such as logging, mathematical operations, time management, and regular expressions.
+
+The code defines a list of menu items and a list of variables. The variables include instructions for running the procedure, options for replacing or appending to existing inundation grids, options for choosing the bin/product ID of the storm, a legend for storm surge inundation impacts/threats, and options for setting the start and end times for inundation timing.
+
+The code then defines a class named Procedure that inherits from TropicalUtility.TropicalUtility. The class has several methods that define the weather element name of the threat, set the inundation threshold for warning, define the mapping between UI names and key names, list elements for which threats/information will be created, define the order in which grid values are set, return a list of weather element names to create for proposed storm surge grids, create a status bar message if the storm bin number is invalid, compute the base time for guidance, and create an ETN from TCP.
+
+The code is well-documented with comments explaining the purpose of each section and method. The code also includes a software history section that records changes made to the code, the date of the changes, the ticket number associated with the changes, and the engineer who made the changes.
+
+This code appears to be part of a larger Python script, likely a class definition, that performs various operations related to weather data. Here's a breakdown of the different parts:
+
+1. The first part of the code seems to be handling some error conditions related to a TCP (Transmission Control Protocol) or a storm number. If certain conditions are not met, it displays a status bar message and returns from the function.
+
+2. `trimTimeRange` function: This function trims the time range for a given weather element. It checks if the time range list is empty and if it has more than one element, it creates a new time range and deletes the old one.
+
+3. `makeInundationMaxGrid` function: This function creates a grid for maximum inundation (flooding) based on timing grids. It uses numpy to create an array from the timing grids and finds the maximum value. It then creates a new grid with these maximum values.
+
+4. `deleteAllGrids` function: This function deletes all grids of weather elements in a list. It iterates over the list of weather elements, gets the start and end times, makes a time range and then deletes the command.
+
+5. `getVDATUM` function: This function fetches VDATUMS (vertical datum) for a specific siteID for Weather elements. It also handles some error conditions.
+
+6. `getMSLtoNAVD`, `getMSLtoMLLW`, `getMSLtoMHHW`, `getNAVDtoMLLW`, `getNAVDtoMHHW` functions: These functions extract corrections from the VDATUMS D2D Database.
+
+7. `makeTimingTRs` function: This function makes a list of timeRanges that will be used to make InundationTiming grids.
+
+8. `getTimingGrids` function: This function gets timing grids.
+
+9. `modifyExistingGrids` function: This function modifies existing grids (append or replace) for further manipulation. It checks if the selected area intersects with the StormSurgeEditArea and if the end hour is after the start hour.
+
+Please note that some parts of the code are commented out.
+
+This Python code is part of a larger program that manipulates and analyzes grid data, possibly related to weather or environmental conditions. Here's a breakdown of what each function does:
+
+1. `replaceTimingGrids`: This function replaces timing grids. It loops through a list of time ranges (`trList`), and for each time range that falls within the specified start and end hours, it replaces the corresponding timing grid with `surgePctGrid`.
+
+2. `appendTimingGrids`: This function appends new information to the timing grids for "InundationTiming". It checks if the start and end times of each time range fall within the specified hours. If they do, it retrieves the corresponding grid and appends it to a list (`itGrids`). Then, it modifies each grid in `itGrids` and creates a new grid.
+
+3. `keepCurrentGrids`: This function keeps the current grids for "InundationTiming". It retrieves the last grid from "InundationMax" and checks if the current time range matches a specified time range. If it doesn't, it deletes and creates new grids as necessary.
+
+4. `setInundationMaxValues`: This function modifies the values in `surgePctGrid`. If a value is greater than 1.0 and less than 1.5, it sets the value to 1.5.
+
+5. `createThreshDict`: This function creates a dictionary (`threshDict`) where the keys are from `keyMap` and the values are integers representing thresholds.
+
+6. `createNewGrids`: This function deletes old guidance grids and replaces them with new grids. It creates a new grid for "InundationMax", creates a key map and a threshold dictionary, and then loops through a list of keys to get the corresponding threshold.
+
+The code appears to be part of a larger system for managing and analyzing grid data, possibly related to storm surge or flood modeling.
+
+This code appears to be part of a larger system for forecasting and managing storm surge threats. The code is structured into several methods, each performing a specific task.
+
+1. `checkForUpgrade`: This method checks for potential upgrades in the storm surge threat level. If the hazard keys are not equal to "<None>", it sends a message to the status bar asking the user to check the ProposedSS for possible needed changes.
+
+2. `logEvent`: This method logs the time taken for an event to complete.
+
+3. `createProposedSS_Mask`: This method creates a mask based on the storm surge edit area. It sets a key based on the start hour of the inundation and the current ETN. It then creates a surge mask by checking if the surge percentage grid is greater than the inundation threshold and if it intersects with the sea and selected mask.
+
+4. `createEmptyGrid`: This method creates an empty grid that will be populated with ProposedSS.
+
+5. `createHazardSS`: This method extracts the existing storm surge hazards from the hazard grid and inserts them into the storm surge grid.
+
+6. `checkForConflicts`: This method checks for conflicts between the Hazard Grid and ProposedSS Grid.
+
+7. `mergeHazardGrid`: This method merges any existing storm surge hazards into the ProposedSS grid.
+
+8. `updateNoHazardsAreas`: This method updates the hazard areas where there was no hazard, using the surge grid.
+
+9. `upgradeSS`: This method upgrades watch areas to warnings over the edit area if necessary.
+
+10. `createFinalizedSS_Grid`: This method creates a new and final storm surge hazard grid.
+
+11. `createDiffGrid`: This method creates a difference grid so the forecaster can visualize differences between ProposedSS and Hazard grid. It checks if there are any hazard grids and if there are, it checks for storm surge hazards in each hazard grid.
+
+The code seems to be written in Python and uses numpy for array operations. It also seems to be part of a class, as it uses `self` to refer to instance variables and methods.
+
+This code appears to be part of a larger program that deals with hazard analysis, specifically related to storm surges. 
+
+The first part of the code is checking if any storm surge hazards have been found. If a hazard is found, it breaks the loop and appends the result to the `HazardList`. Then, it iterates over the `HazardList` and checks if the hazard overlaps with a given time range. If it does, it calculates a difference grid.
+
+The `execute` function seems to be the main function that runs the program. It first sets up some variables and checks the user's choice for handling existing inundation grids. Depending on the user's choice, it either modifies, replaces, appends, or keeps the current grids.
+
+The function then sets the maximum values for the surge percentage grid and retrieves some keys related to the threat. It creates new grids based on the element list, key list, surge percentage grid, time range, threat keys, and other variables.
+
+If the user chose to keep the current grids, it checks for an upgrade. Otherwise, it creates a proposed storm surge mask, an empty grid, and a hazard storm surge. It then checks for conflicts, merges hazard grids, updates no-hazard areas, upgrades the storm surge, and creates a finalized storm surge grid.
+
+Finally, it creates a difference grid with the proposed grid and logs the event. 
+
+This code seems to be part of a larger system for managing and analyzing hazard data, particularly related to storm surges.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,68 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>iscQPF.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>iscQPF.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code seems to be part of a larger software system developed by Raytheon Company. The code defines a class named `VCParm` which appears to be used for handling and manipulating time ranges (possibly related to weather forecasting data, as suggested by the variables `QPF` and `QPF_ISC`).
+
+The `VCParm` class has several methods:
+
+1. `splitTR(self, tr, inv)`: This method splits a given time range (`tr`) based on overlaps with a list of other time ranges (`inv`). It returns a list of time ranges that do not overlap with any time range in `inv`.
+
+2. `tcmp(self, t1, t2)`: This method compares two time ranges based on their starting times.
+
+3. `getInventory(self, QPF, QPF_ISC)`: This method takes two lists of time ranges (`QPF` and `QPF_ISC`) and returns a list of tuples, each containing a time range and two lists of overlapping time ranges from `QPF` and `QPF_ISC` respectively.
+
+4. `poverlap(self, tr1, tr2)`: This method calculates the percentage of overlap between two time ranges.
+
+5. `calcGrid(self, QPF, QPF_ISC)`: This method calculates a grid based on the overlap between the time ranges in `QPF` and `QPF_ISC`.
+
+6. `calcHistory(self, QPF_ISC)`: This method returns a list of all time ranges in `QPF_ISC`.
+
+7. `getWEInfo(self)`: This method returns a tuple of information, possibly related to weather forecasting.
+
+8. `_containsTR(self, tr1, tr2)`, `_contains(self, timerange, time)`, `_overlaps(self, tr1, tr2)`, and `_intersect(self, t1, t2)`: These are helper methods used for checking if a time range contains another time range or a specific time, if two time ranges overlap, and for finding the intersection of two time ranges.
+
+The code also imports the `numpy` library and defines several constants at the beginning.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

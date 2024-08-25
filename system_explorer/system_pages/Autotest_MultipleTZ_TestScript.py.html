@@ -1,0 +1,89 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>MultipleTZ_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>MultipleTZ_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code appears to be a part of a weather forecasting system, possibly for issuing weather warnings or alerts. It's written in Python and contains a series of scripts that are used to test the system's handling of multiple time zones.
+
+The code starts with a block of comments providing information about the software's development, export restrictions, and licensing details. It also includes the contractor's name and address.
+
+The `tzdef` variable is a string that defines time zones for different areas. It appears to be used for mapping certain area codes (like 'FLZ050', 'FLZ052', etc.) to their respective time zones.
+
+The `scripts` list contains a series of dictionaries, each representing a different test scenario. Each dictionary has several key-value pairs that define the properties of the test, such as:
+
+- `commentary`: A brief description of the test.
+- `name`: The name of the test.
+- `productType`, `clearHazardsTable`, `checkStrings`, etc.: Various parameters used in the test.
+- `createGrids`: A list of tuples that represent instructions for creating grids in the forecast system.
+
+Each grid creation instruction includes the type of forecast ("Fcst"), the type of hazard ("Hazards"), the type of grid ("DISCRETE"), the start and end times, the hazard code ("HT.Y"), and the areas affected.
+
+The `checkStrings` list appears to contain expected outputs for the test. These strings seem to represent a formatted weather message or alert, including details like the issuing service, the time of issue, the areas affected, and the details of the weather hazard.
+
+Overall, this code is used for testing how the weather forecasting system handles different time zones, particularly when issuing weather alerts.
+
+This code appears to be part of a larger weather forecasting system. It's defining a series of weather advisories for different times and locations, specifically focusing on heat advisories. 
+
+Each advisory is defined as a dictionary with several key-value pairs. The keys include:
+
+- "commentary": This seems to be a note for the developers or users of the system, describing the specific advisory.
+- "name": This is the unique identifier for each advisory.
+- "drtTime" and "gridsStartTime": These are timestamps, likely indicating the time the advisory is issued and the start time of the weather event, respectively.
+- "createGrids": This is a list of tuples, each representing a forecast grid. Each tuple includes the type of forecast ("Fcst"), the type of hazard ("Hazards"), the method of hazard prediction ("DISCRETE"), the start and end times of the prediction, the hazard code ("HT.Y" for heat advisory), and a list of affected zones.
+- "checkStrings": This is a list of strings that seem to be used to generate the actual advisory message. It includes placeholders for areas that need to be edited with specific information, as well as some fixed text about what a Heat Advisory means and what precautions to take.
+
+The code includes several different advisories, each for different time zones and dates. The time zones are indicated in the "commentary" field and also reflected in the "checkStrings" field. The dates are indicated in the "drtTime" and "gridsStartTime" fields.
+
+This code seems to be part of a larger script related to weather forecasting and hazard warnings. 
+
+The first part of the code defines a list of dictionaries, each representing a different script. Each script has a "commentary" field, a "name" field, a "productType" field, a "clearHazardsTable" field, a "checkStrings" field, and a "fileChanges" field. The scripts seem to be related to weather hazards, with one script providing a heat advisory warning and the other deleting hazard grids.
+
+The second part of the code defines a function called `testScript`. This function takes in three parameters: `self`, `dataMgr`, and `level`. The function sets up some default values in a dictionary, then calls a method `generalTestScript` from the `TestScript` module, passing in the `self`, `dataMgr`, the scripts defined earlier, the default values, and the `level` parameter.
+
+The `generalTestScript` method is likely to be a test method that simulates the execution of the scripts under certain conditions, as specified by the parameters and the default values. The `testScript` function returns the result of this method call.
+
+The `deleteGrids` field in the defaults dictionary suggests that all hazard grids for the surface (SFC) level in the forecast (Fcst) will be deleted.
+
+The `fileChanges` field indicates that there will be changes made to the "AreaDictionary" file in the "TextUtility" directory. The changes involve adding and deleting time zone definitions (`tzdef`).</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

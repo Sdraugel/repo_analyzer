@@ -1,0 +1,64 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>determineRefTimeDirectory.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>determineRefTimeDirectory.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This script is written in Python and is used to extract the date and hour from a filename passed as a command-line argument. The filename is expected to be in a specific format, namely 'modelsounding-YYYY-MM-DD-HH.h5'. 
+
+Here is a step-by-step breakdown:
+
+1. The script imports two modules: `re` (a module for regular expressions) and `sys` (a module that provides access to some variables used or maintained by the Python interpreter and to functions that interact strongly with the interpreter).
+
+2. The filename is taken from the command-line arguments (`sys.argv[1]`).
+
+3. A regular expression is used to search for a specific pattern in the filename. The pattern is 'modelsounding-YYYY-MM-DD-HH.h5', where YYYY represents the year, MM the month, DD the day, and HH the hour.
+
+4. If the filename matches the pattern, the date and hour are extracted from the filename and stored in the `date` and `hour` variables respectively.
+
+5. The `date` and `hour` are then concatenated with a string to form `reftimeDirName` in the format 'YYYY-MM-DD_HH:00:00.0'.
+
+6. `reftimeDirName` is then printed to the console.
+
+7. If the filename does not match the expected pattern, an error message is printed to the console and the script exits with a status code of -1, indicating an error.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

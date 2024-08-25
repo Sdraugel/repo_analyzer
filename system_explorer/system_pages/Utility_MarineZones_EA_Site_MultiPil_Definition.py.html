@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>MarineZones_EA_Site_MultiPil_Definition.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>MarineZones_EA_Site_MultiPil_Definition.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a configuration file for a software developed by Raytheon Company for the US Government. It contains export-restricted data and cannot be disseminated to non-U.S. persons without proper authorization. 
+
+The code is part of a public domain software, provided without warranty or technical support. It's used to generate a combinations file that contains all MarineZones codes for a given site. This file is similar to a product definition file, but only contains what is needed for the installation to generate a combinations file.
+
+The code starts by defining an empty dictionary called `Definition`. 
+
+It then sets two keys in the `Definition` dictionary: `defaultEditAreas` and `mapNameForCombinations`. The values for these keys are strings that include placeholders for a site and a MultiPil.
+
+The code then checks if the site is "AJK" or "GUM". If it is, it checks the value of MultiPil and sets the `subDomainUGCs` key in the `Definition` dictionary to a list of specific codes. These codes represent different marine zones. 
+
+In summary, this code is used to define specific marine zones for different sites and MultiPils, and to generate a combinations file with this information.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

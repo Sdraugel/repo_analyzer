@@ -1,0 +1,68 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>CheckSkyWithPoP.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>CheckSkyWithPoP.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This script appears to be a weather forecasting tool that analyzes cloud cover ("Sky") and the probability of precipitation ("PoP") to highlight areas where there may not be enough cloud cover to support the given probability of precipitation.
+
+The script begins with a header containing information about the software's development and export control restrictions. It also includes information about the contractor, Raytheon Company.
+
+The script then defines a class `Tool` that inherits from `SmartScript.SmartScript`. The `Tool` class has an `execute` method which takes in parameters for Sky, PoP, GridTimeRange, and varDict. 
+
+The `execute` method creates a mask for a local forecast area and applies different logical operations based on the user's input for the Sky vs PoP relationship. The logical operations are used to create a mask that highlights areas where the cloud cover is insufficient to support the given probability of precipitation.
+
+The script also includes a `VariableList` which appears to be used for soliciting user input for various parameters, such as the Sky vs PoP relationship, the factor by which to add or multiply, and the minimum Sky cover needed to support weather.
+
+The script ends with a comment about optional methods that can be included in the class, but no such methods are defined in the provided code.
+
+This code defines a method `preProcessTool` in a class (not shown in the code). The method is designed to preprocess some variables before the main tool is run. The method takes a dictionary `varDict` as an argument, which contains various settings for the tool.
+
+The method first retrieves the operator for the Sky vs PoP (Probability of Precipitation) relationship from the dictionary. It then retrieves and processes several other variables related to Sky and PoP, including factors for addition and multiplication, limits for Sky and PoP, and the minimum Sky cover for a 5% PoP.
+
+The method also includes several checks to ensure that the retrieved values are within certain ranges. For example, the minimum PoP for measurable precipitation is ensured to be between 15% and 25%, the minimum Sky cover for weather is ensured to be between 50% and 100%, and the Sky cover for a 5% PoP is ensured to be between 10% and 100%. If the values are outside these ranges, they are adjusted to the closest limit.
+
+Finally, the method calculates a slope based on the Sky limit, the Sky minimum, and the PoP limit.
+
+The commented out sections at the end of the code provide some guidance on how to use the `self` keyword in Python, how to handle errors in the tool, and how to define other methods in the class.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

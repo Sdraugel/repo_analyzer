@@ -1,0 +1,84 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ISmartScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ISmartScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code file appears to be part of a larger software system developed by Raytheon Company. It's a library of methods for a class called ISmartScript, which is a subclass of SmartScript. This class seems to be used for managing and manipulating data in a database or similar data structure.
+
+Here's a brief summary of the methods in this class:
+
+- `__init__`: This is the constructor for the class. It initializes the class with a database session manager (`dbss`) and sets up a parameter manager.
+
+- `executeCmd`: This method executes a command on a server, removing any trailing ampersands from the command before executing it.
+
+- `getDataType`: This method retrieves the data type of a given element in the database.
+
+- `writeActiveComboFile`: This method writes a combination file to the server. It seems to be used for combining different areas in a Geographic Information System (GIS) or similar application.
+
+- `saveElements`: This method saves given forecast elements to the server.
+
+- `getAbsTime`: This method creates an absolute time object from a string.
+
+- `getTimeStr`: This method creates a time string from an absolute time object.
+
+- `getAbsFromLocal`: This method returns an absolute time object in GMT given the year, month, day, local hour, and minute.
+
+- `_makeEmptyHazardGrid`: This method creates an empty hazard grid with a specified name and time range.
+
+- `_makeMask`: This method creates a mask from a list of zones.
+
+The code is well-commented, which helps in understanding its functionality. However, without more context or access to the rest of the codebase, it's difficult to provide a more detailed analysis.
+
+This code defines several methods within a class in Python.
+
+1. `_addHazard` method: This method is used to add a hazard to a given weather element (`weName`) over a specified time range (`timeRange`) and spatial area (`mask`). The hazard to be added is specified by `addHaz`. The method first sets up the hazard inventory for the weather element and time range. It then retrieves the inventory and for each time range in the inventory, it retrieves the grid of data and the hazard key. It gets the unique keys in the grid and for each unique key, it creates a new key by combining the unique key with the hazard to be added. It then calculates a mask which is the intersection of the old index values and the mask passed into the method. It replaces the old values in the grid with the new index where the mask is true. Finally, it creates a new grid with the updated data and hazard key.
+
+2. `dirList2` method: This method returns a dictionary that maps cardinal directions (N, NE, E, SE, S, SW, W, NW) to their corresponding angles in degrees.
+
+3. `textToDir` method: This method takes a text direction (`textDir`) as input and returns its corresponding numeric direction by looking it up in the dictionary returned by the `dirList2` method.
+
+4. `output` method: This method is used to output a message (`msg`) to a specified file (`outFile`). If `prt` is set to 1, it also prints the message. If writing to the file fails for any reason, it silently ignores the error.
+
+5. `internalStrip` method: This method takes a string (`inStr`) as input and repeatedly replaces any occurrence of two consecutive spaces with a single space. It continues doing this until there are no more occurrences of two consecutive spaces in the string. It then returns the resulting string.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

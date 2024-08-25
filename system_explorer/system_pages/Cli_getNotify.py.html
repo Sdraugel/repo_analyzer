@@ -1,0 +1,80 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>getNotify.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>getNotify.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a larger software system developed by Raytheon Company. It provides a Python-based interface for listening to GFE (Graphical Forecast Editor) notifications.
+
+The script imports several modules and libraries, including time, sys, threading, collections, dynamicserialize, and QpidSubscriber from awips. 
+
+The script defines several classes and functions:
+
+1. `GetGfeNotifyTopicListener` class: This is a thread that listens to a specific topic on a Qpid message broker. It receives messages, deserializes them, and adds them to a message queue based on their type.
+
+2. `decodeOptions` function: This function processes command-line options passed to the script. It uses the getopt module to parse the options and returns a dictionary mapping option names to their values.
+
+3. `usage` function: This function prints usage information for the script. It's called if the script is invoked with invalid command-line options.
+
+4. `printLoop` function: This function runs in an infinite loop, printing the number of messages in each queue every 3 seconds. If a command-line option is set, it also prints the messages in the corresponding queue.
+
+The script also defines several dictionaries and lists:
+
+1. `printoutMap` and `classMap`: These dictionaries map codes to notification types and notification types to codes, respectively.
+
+2. `topicList`: This list contains the names of the topics that the script listens to.
+
+3. `messageQueueMap`: This dictionary maps codes to lists of messages. Each list is a queue of messages of a specific type.
+
+The script is designed to be run from the command line with various options that control its behavior.
+
+This code is written in Python and appears to be part of a larger program that listens for notifications on various topics. 
+
+The first part of the code snippet removes an object from a map (dictionary) where the keys are letters and the values are lists. If the list for a given letter is empty, it sets the value for that letter in the map to an empty list. It then flushes the output buffer. If a KeyboardInterrupt exception is raised, it is silently ignored.
+
+The `main` function first prints a message indicating that it is a diagnostic program for getting notifications. It then decodes some options (the details of which are not included in the provided code). If the options are not None, it creates a list of threads. For each topic in a list of topics (which is not defined in the provided code), it creates a new `GetGfeNotifyTopicListener` thread with the options and topic name, and adds it to the list of threads.
+
+It then starts each thread in the list of threads and calls a function `printLoop` with the options. If any exception is raised during this process, it will stop all the threads in the list of threads.
+
+The last part of the code checks if this script is the main module being run (as opposed to being imported by another script). If it is the main module, it calls the `main` function.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,238 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>iscMosaic.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>iscMosaic.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that was developed by Raytheon Company. It appears to be a part of a larger software system, possibly related to weather forecasting or atmospheric science, given the references to grids, mosaics, and other meteorological terms.
+
+The first part of the script is a comment section that provides information about the software's development, licensing, and export control restrictions. It also includes a detailed software history log, documenting changes made to the code over time, including the date, the ticket number, the engineer who made the change, and a description of the change.
+
+The second part of the script is the actual Python code. It starts by importing several Python modules and libraries, including os, stat, time, calendar, gzip, shutil, netCDF4, numpy, and JUtil. These libraries provide various functionalities for operating system interaction, file and time manipulation, data compression, scientific computing, and Java-Python integration.
+
+The script then imports several classes and methods from the Java-based Raytheon libraries, which are likely specific to the larger software system this script is a part of. These imported classes and methods are related to data handling, time range management, geometric coordinates, and grid data processing.
+
+The purpose of this script can't be determined from the provided code alone, as the actual functionality of the script (i.e., the operations it performs) is not included in the provided code.
+
+This Python code is part of a larger system, likely a weather forecasting or meteorological data processing system, given the use of terms like "weather element", "grid", and "time range". 
+
+The code starts by importing various classes from the com.raytheon.uf.common.dataplugin.gfe, com.raytheon.edex.plugin.gfe.util, and com.raytheon.uf.edex.database.cluster libraries. These libraries are likely specific to the Raytheon software package being used.
+
+The code then defines some constants, creates a logger, and defines a few utility functions for formatting time ranges and getting the current time.
+
+The main part of the code defines a class called WECache. This class represents a cache for storing weather element grids that overlap a certain time range. It is designed to keep a limited number of grids in memory, with the limit determined at initialization based on the maximum cache bytes (or a minimum of 2). The cache is not general purpose, but is specifically designed to match the access patterns of the "iscMosaic" system.
+
+The WECache class has several methods for loading grids into the cache, handling cache misses, and getting items from the cache. The cache is implemented as a dictionary with time ranges as keys and grid data as values. The class also keeps track of which grids have been loaded into the cache, which grids are currently in the cache, and which grids have been written to but not yet flushed to disk.
+
+The provided code is a part of a Python class that manages a cache of "grids" (which could be any data structure, but the context suggests it might be related to weather or geographical data). The cache has a maximum size and operates on a batch basis. 
+
+The code includes three methods:
+
+1. `__getitem__`: This method handles a cache miss. If a requested item is not in the cache, it determines the next batch of keys to read. If the cache is full, it flushes (writes to disk and removes from cache) the earliest grids to make room for the new batch. The grids to be flushed are first those marked as "dirty" (modified since last saved), and then "clean" ones if necessary. The grids are then loaded into the cache.
+
+2. `__flushGrids`: This method flushes a list of time ranges from the cache. It writes the dirty time ranges to disk in `_batchSize` groups. It also handles the process of saving the grids in batches and purging clean grids from the cache.
+
+3. `__setitem__`: This method sets a new item in the cache. If the cache is full, it removes overlapping grids. If the value is `None`, it erases the grid. If the value is not `None`, it sets the grid and history. 
+
+In all these methods, the cache is managed to ensure it does not exceed its maximum size, and that the most relevant (recent and dirty) grids are kept in the cache. The code also includes extensive logging for debugging and tracking the cache's operations.
+
+This code is written in Python and seems to be part of a larger system dealing with grid data. Here's a breakdown of what the different parts of the code are doing:
+
+1. The first part of the code is managing a cache of grid data. If the cache size exceeds a maximum limit, it flushes some grids to disk. It first flushes dirty grids (grids that have been modified), then clean grids if necessary. It also adds a new grid to the cache and marks it as dirty and loaded.
+
+2. The `flush` method writes all dirty time ranges in the cache to a database or an HDF5 file.
+
+3. The `overlaps` method checks if two time ranges overlap.
+
+4. The `__encodeGridSlice` method encodes grid data depending on the grid type. It supports scalar, vector, weather, and discrete grid types.
+
+5. The `__encodeGridHistory` method encodes the history of grid data into a tuple.
+
+6. The `__buildJavaGridSlice` and `__buildJavaGridHistory` methods convert the grid data and history into a format suitable for Java.
+
+7. The `IscMosaic` class seems to be a higher-level class for managing a mosaic of grids. It initializes with various parameters, including site ID, user ID, parameters to process, and others. It also has a `prepare` method which prepares an input file and adds necessary lock names to a job.
+
+8. The `__commonStartup` method sets up some common configurations, such as getting the weather and discrete definitions, and fetching the office type information.
+
+9. The `__prepareInputFile` method opens an input file and prepares it for processing. It also logs the elapsed time for preparation.
+
+Please note that without the full context or the rest of the code, some assumptions had to be made, and some functions or methods might have different purposes in the full program.
+
+This code is a part of a larger program that processes and manipulates data from a netCDF file. 
+
+1. The `penNcFile(self, filename)` function opens a file, checks if it's gzipped and if so, unzips it. It then reads the file using the netCDF4 library and checks its version. If the version is not compatible, it raises an exception. It also retrieves the creation time of the file and its processing times. If the processing times are not available, it returns None. Otherwise, it returns the opened netCDF file.
+
+2. The `__getParmMap(self, ncfile)` function processes each parameter in the netCDF file, renames the weather element if necessary, checks if the parameter should be ignored or skipped, and then adds the parameter to a dictionary called `parmMap`.
+
+3. The `processParm(self, job, lockName)` function processes parameters for a given lock name. It prepares for the notification message, processes the parameter, announces storage and modified/adjusted data, and logs the elapsed time.
+
+4. The `dispose(self)` function closes the netCDF file if it's open.
+
+5. The `__processParm(self, parmName, ncvars, history, filename, lockName)` function processes a given parameter. It attempts to open the weather element from the ifpServer and retrieves general info for the parameter. If it encounters an error, it retries up to five times. 
+
+This code seems to be part of a larger system for processing weather data, possibly for a meteorological or climate research application.
+
+The provided code appears to be part of a larger Python script that processes and manages geospatial data, specifically grid-based data, likely from NetCDF files. NetCDF (Network Common Data Form) is a set of software libraries and machine-independent data formats that support the creation, access, and sharing of array-oriented scientific data.
+
+Here's a high-level overview of what this code does:
+
+1. It first extracts geographical information and fill values from the input file.
+
+2. It then checks if an area mask exists. If not, it computes one.
+
+3. It creates an instance of the `MergeGrid` class, which presumably merges multiple grids into one.
+
+4. It then attempts to split grids on the processing boundary. If this fails, it logs an exception.
+
+5. If the `__eraseFirst` flag is set, it erases all existing grids.
+
+6. It then processes each incoming grid. If the grid delay is greater than 0, it introduces a delay to avoid overloading the server. 
+
+7. For each grid, it gets the grid from the NetCDF file, validates and adjusts keys if necessary, remaps the grid, adjusts the values if it's a rate parameter, and then processes the incoming grid.
+
+8. If any of these steps fail, it logs an exception and increments a failure counter.
+
+9. If the `__blankOtherPeriods` flag is set, it blanks out any gaps in the grid data.
+
+10. Finally, it returns a tuple containing the parameter name, total time range, number of processed grids, and number of failures.
+
+The `__processIncomingGrid` function appears to merge the incoming grid with existing grids in the database. It updates a cluster lock time to avoid timeout, retrieves the associated database grids, and performs the merge operation.
+
+The given code is written in Python and seems to be part of a larger system that deals with grid-based data, possibly in the context of geographical or meteorological data. Here's what each part does:
+
+1. The first part of the code is a conditional block that checks certain conditions and merges grids based on those conditions. It checks if a flag (`m[2]`) is set and if so, it merges the grid data using the `mergeGrid` method of the `mGrid` object. The merging process varies based on the value of `self.__replaceOnly`.
+
+2. The second part of the code is similar to the first, but it also adjusts data values based on times using the `__adjustForTime` method before merging the grids.
+
+3. The `__storeGrid` method stores the merged grid. It checks if the grid and its components are not `None` before storing it in `self._wec`. If the time range (`tr`) is not in `self.__dbinv`, it updates `self.__dbinv` with the keys of `self._wec`.
+
+4. The `__getDbGrid` method retrieves a grid from the database based on a given time range (`tr`). If the requested grid is not the same as the current one (`self.__dbGrid`), it retrieves the new grid and updates `self.__dbGrid`.
+
+5. The `__getFileProcessingTimes` method calculates the start and end times for processing a file. It decodes the start and end times from the file, finds their intersection with `self.__processTimePeriod`, and returns the result.
+
+6. The `__decodeTimeString` method converts a time string in the format "YYYYMMDD_HHMM" into an integer time.
+
+7. The `__getNetCDFInputVariables` method retrieves input variables from a netCDF file based on the parameter name. It handles different types of grid data (scalar, vector, weather, discrete) and retrieves the history information for each grid.
+
+This code appears to be part of a larger Python script that interacts with a netCDF file, which is a format for storing large and complex scientific data. 
+
+The first function checks the grid type of a variable from the netCDF file. Depending on the grid type (SCALAR, VECTOR, WEATHER, DISCRETE), it performs different operations and returns different results. If the grid type is not recognized, it returns None.
+
+The second function, `__getInputGeoInfo(self, var)`, retrieves geographical input information from the netCDF variable. It extracts data such as the latitude and longitude of the lower left and upper right corners, the projection type, and the grid size. Depending on the projection type, it further extracts specific information.
+
+The third function, `__determineFillValue(self, var)`, determines the fill value for input. The fill value is a special value that is used to represent missing or undefined data. Here, it returns -30000.0 for SCALAR or VECTOR grid types, and -127 for other types.
+
+The fourth function, `__computeAreaMask(self)`, computes the area mask based on the site ID. It seems to be used for handling missing data or for defining a specific region of interest in the data.
+
+The fifth function, `__splitGridsOnProcBoundary(self, processTimePeriod)`, appears to split grids based on a processing time period. It seems to be part of a larger function as the code is cut off.
+
+Overall, this code seems to be part of a larger system for processing and manipulating geospatial data stored in a netCDF file.
+
+This Python code appears to be part of a larger program that handles grid data, likely from a netCDF file. netCDF (Network Common Data Form) is a set of software libraries and machine-independent data formats that support the creation, access, and sharing of array-oriented scientific data.
+
+Here's a breakdown of what each part of the code does:
+
+1. `__rateParm:`: This seems to be a part of a larger block of code that is not included. It appears to adjust and store grid data.
+
+2. `__getIncomingValidTimes(self, var)`: This method retrieves the valid times from a netCDF variable. It returns a list of time pairs.
+
+3. `__getGridFromNetCDF(self, gridType, ncvars, index)`: This method retrieves a grid from a netCDF file based on the grid type (scalar, vector, weather, or discrete). It flips the grid data vertically and, if necessary, scales it.
+
+4. `__scaleGrid(self, var, grid)`: This method scales the grid data if necessary. If the grid data has a multiplier or offset, it applies these to the data. It also changes the fill value if necessary.
+
+5. `__remap(self, we, grid, inGeoDict, inFillV)`: This method remaps the grid data based on its type (scalar, vector, weather, or discrete). It uses a mapper to remap the data.
+
+6. `__decodeGridSlice(self, we, value, tr, history=None)`: This method decodes a slice of the grid data based on its type (scalar or vector). It creates a new grid slice with the decoded data.
+
+This code seems to be part of a larger system for handling and manipulating grid data, likely for some sort of scientific or geographical analysis.
+
+The provided code appears to be part of a larger Python program that deals with grid data, possibly related to geographical or meteorological data. The code contains several methods that perform a variety of tasks:
+
+1. The first method is unnamed but appears to create a grid slice based on the type of grid ('SCALAR', 'VECTOR', 'WEATHER', or 'DISCRETE'). The grid slice is then populated with data and other information.
+
+2. The `__decodeProj` method is used to decode projection data. It takes in a dictionary of projection data and returns an instance of `ProjectionData` with the decoded values.
+
+3. The `__getSize` method returns the dimensions of the grid based on its type.
+
+4. The `__compressKey` method is used to compress keys, eliminating any "blank" keys that may exist in the input key from the netCDF file.
+
+5. The `__adjustForTime` method adjusts a rate-dependent grid based on time durations. It returns a new grid that has been adjusted by duration changes.
+
+6. The `__calcBlankingTimes` method calculates blanking times. It appears to create a list of time ranges where no data is present.
+
+7. The `__processBlankTime` method processes blank time ranges. It merges the time ranges with the database inventory and stores the merged grid.
+
+8. The `__siteInDbGrid` method is not fully shown in the provided code, but it seems to check if a site is in the database grid.
+
+Overall, this code seems to be part of a larger system for handling and manipulating grid data.
+
+This code is written in Python and it seems to be part of a larger system, possibly a weather forecasting system or a system that works with geospatial data. 
+
+The first part of the code is checking if a variable `tr` is `None`. If it is, it returns `None`. If `tr` is not `None`, it retrieves a grid and history from the `_wec` attribute of the current object. If the history exists, it checks if the site ID with "_GRID" appended is in the history. If it is, it returns `True`. If it's not, it returns `False`.
+
+The next part of the code defines a method `__validateAdjustDiscreteKeys(self, grid, parmName, tr)`. This method seems to validate and potentially adjust the keys in a discrete grid. It takes in a grid, a parameter name, and a time range. It separates the grid into its components, checks and modifies the parameter name if necessary, sets up an error message, retrieves a list of allowed discrete keys for the parameter, and logs an error if no definitions are found. Then, it iterates through the keys in the incoming grid, validating and potentially modifying each one. The modifications are logged and stored.
+
+The last part of the code defines a method `__validateAdjustWeatherKeys(self, grid, parmName, tr)`. This method seems to validate and potentially adjust the keys in a weather grid. It takes in a grid, a parameter name, and a time range. It separates the grid into its components, checks and modifies the parameter name if necessary, sets up an error message, and then iterates through the keys in the incoming grid, validating and potentially modifying each one. The modifications are logged and stored. The code snippet ends abruptly, so the full functionality of this method is not clear.
+
+This Python script appears to be part of a larger system that processes and validates weather data. Here's a breakdown of the main parts:
+
+1. The code first checks if the weather type is known. If it is not, it sets the visibility symbol to 0, assigns an empty string to attributes, and appends "Unknown Weather Type" to a list of changed reasons.
+
+2. If the weather type is known, it validates other components such as coverage, intensity, and attributes. If any of these components are unknown, it sets their values to a default and appends the corresponding "Unknown" message to the changed reasons list.
+
+3. The code then updates the record with the validated data and logs any changes that were made.
+
+4. The `__eraseAllGrids` function erases all grids from a given weather element over a specified time period.
+
+5. The `convertList` function converts a list from a Java object to a Python value if necessary.
+
+6. The `prepareJob` function prepares a job by creating an `IscMosaic` object and preparing it for the job.
+
+7. The `prepareMosaicRequest` function prepares a mosaic request. It converts Java types to Python, prepares the job, and sends it to `IscMosaic` for execution.
+
+8. The `processParm` function processes one parameter for a given job and lock name. It tries to reuse the `IscMosaic` object from the previous call if the job is the same.
+
+9. The `cleanUpJob` function disposes of the last `IscMosaic` object and resets the last job and `IscMosaic` to `None`.
+
+Overall, this script appears to be part of a system for processing and validating weather data, possibly as part of a larger weather forecasting or climate modeling system.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

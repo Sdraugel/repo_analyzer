@@ -1,0 +1,72 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>testStatOutput.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>testStatOutput.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to generate and log a series of random requests related to different plugins in a system. Here's a breakdown of what each part of the script does:
+
+1. It imports the `random` module, which is used to generate random numbers, and a module named `StatsThread`.
+
+2. It defines two lists: `pluginNames` and `reqNames`. The `pluginNames` list contains the names of different plugins, and the `reqNames` list contains the names of different types of requests.
+
+3. The `main` function is defined. Inside this function:
+
+   - An instance of `StatsThread` is created.
+   
+   - For each plugin in the `pluginNames` list, it constructs a file path by appending the plugin name to a base path.
+   
+   - It generates a random number between 5 and 20000, and for each number in this range, it:
+   
+     - Picks a random request type from the `reqNames` list.
+     
+     - Creates a dictionary with the file path, a random time between 0 and 5, and the request type.
+     
+     - Adds this dictionary as a record to the `StatsThread` instance.
+   
+   - After all records have been added, it creates a log statement from the `StatsThread` instance's minute stats and prints it.
+
+4. The script checks if it is being run directly (as opposed to being imported as a module). If it is, it calls the `main` function.
+
+In summary, this script simulates a random number of requests for each plugin, logs these requests in a `StatsThread` instance, and then prints a summary of the requests made per minute. The purpose of this could be to test the system's performance under different loads, or to generate dummy data for testing or development purposes.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

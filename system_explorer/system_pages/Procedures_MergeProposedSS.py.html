@@ -1,0 +1,86 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>MergeProposedSS.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>MergeProposedSS.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be a part of a larger software system, likely related to weather forecasting or hazard prediction, given the usage of terms like "hazard grids", "ProposedSS", and "GFE" (which might stand for Graphical Forecast Editor, a tool used in meteorology). This script is designed to merge proposed hazard scenarios (ProposedSS) into a main hazard grid.
+
+The script begins with a software history log, detailing changes made to the script over time by different engineers.
+
+The script then imports several modules, including time, numpy, and several custom modules like HazardUtils, LogStream, TimeRange, TropicalUtility, and SmartScript.
+
+The main part of the script is a class named Procedure, which inherits from TropicalUtility.TropicalUtility. The class has several methods that perform various tasks:
+
+- `__init__`: This is the constructor method that initializes the class with a database session (dbss) and sets up some properties based on the site ID.
+
+- `checkGFE_ForConflicts`: This method checks for conflicts or errors with the GFE before running the tool.
+
+- `createPropTR`: This method creates a time range for ProposedSS, checks if ProposedSS exists, and then sets the time range to span the full inventory of ProposedSS.
+
+- `checkForMaskConflicts`: This method checks each site for any conflicts and returns a list of conflicting sites.
+
+- `removeHazards`: This method removes all hazards found in a specific key list from the Hazards grid.
+
+- `makeHazardGrids`: This method creates Hazard Grids based on a list of time ranges.
+
+- `addProposedSS_ToHazards`: This method adds ProposedSS to the Hazard Grid.
+
+The script ends abruptly, suggesting that the provided code is a part of a larger file.
+
+This code appears to be part of a larger system, possibly related to weather forecasting or hazard detection, given the terms used in the code such as "Hazards", "ProposedSS", "cwaMask", and "NHC". Here's a breakdown of what each part does:
+
+1. `continue`: This keyword is used in loops to skip the current iteration and move on to the next one. Here, it seems to be out of context as it is not inside a loop.
+
+2. `for propKey in propKeys:`: This loop goes through each key in the `propKeys` list. If the key is not "<None>", it gets the index of the key in the list, creates a mask where the `propGrid` equals the index, and adds a hazard with the key and mask.
+
+3. `checkForAnyConflicts(self, cwaMask)`: This function checks for conflicts with any future NHC and WFO hazards and returns a list of CWAs conflicting with NHC hazards. It does this by getting the inventory of proposed grids and hazard grids, checking if any of the hazard time ranges end before the current time, and checking if there are any conflicts between the hazard grid and the proposed grid.
+
+4. `makeEmptyHazardGrid(self, timeRange)`: This function creates an empty hazard grid with a single key "<None>".
+
+5. `checkProposedSS(self, propTRList)`: This function checks if there is a ProposedSS grid before beginning. If not, it sends a message to the status bar and cancels the operation.
+
+6. `execute(self)`: This function seems to be the main function that runs the whole process. It checks for conflicts, creates a proposed time range, checks for mask conflicts, removes certain hazards, gets the inventory of hazards, makes hazard grids, adds the proposed SS to the hazards, and if the site ID is 'HFO', it calls the 'Finalize_KML' procedure.
+
+Please note that without the full context or the complete code, it's hard to provide a more detailed explanation.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

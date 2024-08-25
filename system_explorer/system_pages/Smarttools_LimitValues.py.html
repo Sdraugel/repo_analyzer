@@ -1,0 +1,74 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>LimitValues.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>LimitValues.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that is part of a software developed by Raytheon Company. This script is a tool that limits grid values to user-specified limits. It is particularly useful when there are many disconnected areas with values greater or less than a certain amount, and the user wants to remove them. 
+
+Here's a brief overview of the main parts of the script:
+
+1. **Metadata and History**: The beginning of the script contains metadata about the software, including its developer, contract details, export control information, and a history of software changes.
+
+2. **Tool Configuration**: The script defines the type of tool it is ("numeric"), the weather element being edited, and the screen list.
+
+3. **Imports and Class Definition**: The script imports necessary modules and defines a class called `Tool` that inherits from `SmartScript.SmartScript`.
+
+4. **Initialization**: In the `__init__` method, the script initializes the `Tool` class.
+
+5. **Preprocessing Grid**: In the `preProcessGrid` method, the script prepares the grid for processing. It creates a mask of the current edit area, sets up a grid of the min/max value for the element, checks for mins and maxs, finds the current max/min in the edit area, figures the resolution for the variable, and prepares a variable list for the dialog with the min/max.
+
+6. **Dialog Execution**: The script runs a dialog to get the min/max values from the user, and ensures that the min value is not more than the max value.
+
+7. **Execution**: The `execute` method is the main routine that reads in the variable element and limits it to the values set up via the dialog in the `preProcessGrid` routine. However, the code is cut off and does not show the complete implementation of this method.
+
+The script is designed to be user-friendly and efficient, making it faster to limit grid values than manually querying and setting values. It also handles query-based edit areas gracefully.
+
+This code is a function that takes an input `variableElement` and applies some limits to it. If the `variableElement` is a list, it assumes the first element is a value and the second element is a direction. If it's not a list, it assumes it's a single value.
+
+The function then creates a copy of the value(s) and checks if any of them are greater than `self.maxlimit` or less than `self.minlimit`. If so, it sets them to the respective limit.
+
+Finally, it puts the limited values back into the original format (either a tuple of value and direction, or a single value) and returns it.
+
+In summary, this function is used to limit the values of a variable to a specified range (`self.minlimit` to `self.maxlimit`). If the variable is a list, it treats the first element as the value to be limited and the second element as a direction that is not affected by the limiting process.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

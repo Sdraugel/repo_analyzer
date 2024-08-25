@@ -1,0 +1,97 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>RoutineLevel1_SFT_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>RoutineLevel1_SFT_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a Python script that appears to be part of a weather forecasting system. The main part of the script is a list of tuples, `SFT_createGrids`, which seems to define a series of weather forecasts for different areas and times. Each tuple in the list represents a forecast, with various parameters that could be related to the type of forecast, the time period it covers, the forecasted weather, and the area it applies to.
+
+The first part of each tuple is always "Fcst", which could stand for "forecast". The second part is either "Wx" or "MaxT" or "MinT", which could stand for "weather", "maximum temperature", and "minimum temperature" respectively. The third part is either "WEATHER" or "SCALAR", which could represent the type of data being forecasted.
+
+The next two parts of the tuple seem to represent the start and end times of the forecast, in hours. The sixth part of the tuple is a string that seems to describe the forecasted weather, using a shorthand notation. The last part of the tuple is a list that contains the area or areas to which the forecast applies.
+
+The script also contains a header with information about the software's development and licensing. It mentions that the software was developed by Raytheon Company for the US Government, and that it contains export-restricted data. It also mentions that the software is in the public domain and is provided without warranty or technical support.
+
+The provided code appears to be a series of tuples that represent forecast (Fcst) data for different areas and different time periods. Each tuple contains:
+
+1. The string "Fcst", which likely stands for "Forecast".
+2. A string that represents the type of forecast data (e.g., "MinT" for minimum temperature, "MaxT" for maximum temperature, "PoP" for probability of precipitation, "Wind" for wind speed and direction, and "QPF" for Quantitative Precipitation Forecast).
+3. The string "SCALAR" or "VECTOR", which likely represents the type of data (scalar for single values like temperature or precipitation, vector for data with magnitude and direction like wind).
+4. Two strings that represent the start and end times for the forecast data (e.g., "MinTBegin + 120" and "MinTEnd + 120").
+5. A number that likely represents the forecasted value for that time period.
+6. A list that contains the area for which the forecast data applies (e.g., ["area1"], ["area2"], ["area3"]).
+
+For example, the tuple `("Fcst", "MinT", "SCALAR", "MinTBegin + 120", "MinTEnd + 120", 49, ["area1"])` likely represents a forecast of a minimum temperature of 49 for area1, starting at "MinTBegin + 120" and ending at "MinTEnd + 120".
+
+The tuples that contain "VECTOR" instead of "SCALAR" also contain a tuple with two values (e.g., (40, "SW")). This likely represents the magnitude and direction of the wind.
+
+The last tuple in the provided code is incomplete, so it's not clear what it represents.
+
+This code appears to be part of a weather forecasting system. It's defining a series of forecasts for different areas and time periods, as well as scripts for generating weather reports.
+
+The tuples at the beginning are forecasts. Each tuple represents a forecast for a specific area and time period. The first element in each tuple is "Fcst", which likely stands for "Forecast". The second element is the type of forecast (either "QPF" or "Sky"). "QPF" stands for Quantitative Precipitation Forecast, which is a measure of the amount of rain expected to fall over a period of time. "Sky" likely refers to the forecast for the sky condition (clear, cloudy, etc.). The third element is "SCALAR", which likely means these forecasts are single values, not arrays or other data structures. The fourth and fifth elements are numbers that likely represent the start and end times for the forecast period. The sixth element is the forecast value, and the last element is the area for which the forecast applies.
+
+The "scripts" variable is a list of dictionaries. Each dictionary represents a script for generating a weather report. The "commentary" key contains a description of the script. The "name" and "productType" keys likely identify the script. The "cmdLineVars" key seems to contain variables that can be set when running the script from the command line. The "comboFlag" and "internalStrip" keys are unclear without more context, but they likely control some aspect of how the script runs. The "checkStrings" key contains a list of strings that are likely used to generate the weather report. The "createGrids" key refers to a function that likely creates a grid of forecast data.
+
+This code appears to be a part of a weather forecasting system. It's defining several tests or scenarios, each with different settings and expected results. 
+
+1. The first block of code doesn't have a name or commentary, but it includes a list of check strings and a function for creating grids, `SFT_createGrids`.
+
+2. The second block, named `SFT_3`, is an afternoon test where wind grids are set to 0 and all weather code is visible. It includes a list of check strings that seem to be a forecast for different cities in Florida, and it also includes a function for creating grids, `SFT_createGrids`, with additional wind vector forecasts.
+
+3. The third block, named `SFT_4`, is another afternoon test where weather grids are set to `NoWx`, wind grids are set to 0, and the sky weather code is visible. It includes a list of check strings that seem to be a forecast for different cities in Florida, and it also includes a function for creating grids, `SFT_createGrids`, with additional weather and wind vector forecasts.
+
+4. The last block, named `SFT_CleanUp`, is used to clean out grids. It doesn't have a product type, but it includes a list of grids to delete.
+
+The code seems to be written in Python, and the blocks are likely elements in a list of dictionaries, where each dictionary represents a different test or scenario.
+
+This Python code is defining a test script for a weather forecasting system. The code is part of a testing framework, likely designed to verify the functionality of the system's components.
+
+The first part of the code is defining a list of tuples. Each tuple represents a forecast parameter (like temperature, weather, precipitation amount, snow amount) at the surface level (SFC) for a duration of 0 to 280 hours.
+
+The `testScript` function is defined to test the script. It first calculates the start time (`gridsStartTime`) and the disaster recovery time (`drtTime`) using a method `getAbsFromLocal` which likely converts a local time to an absolute time. The year, month, day, hour, and minute are specified as 2010, 1, 1, 6, 0 respectively.
+
+Then, it sets up some default settings for the test. The `cmdLineVars` setting seems to be specifying that the product issuance is 'Morning' and the issuer is not specified. The `orderStrings` setting is set to 1, and `internalStrip` is set to 0, though without further context it's not clear what these settings do.
+
+Finally, the function calls `TestScript.generalTestScript` with the data manager, scripts, and defaults as arguments. This likely runs the test script with the specified parameters and settings. The results of this test script are then returned.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

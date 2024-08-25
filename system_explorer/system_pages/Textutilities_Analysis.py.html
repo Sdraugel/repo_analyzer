@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Analysis.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Analysis.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a software developed by Raytheon Company. The script is named Analysis.py and is used for the analysis of grid data to produce summary statistics. The script is not intended to be overridden and is in the public domain.
+
+The script imports the ParmID class from the com.raytheon.uf.common.dataplugin.gfe.db.objects module.
+
+The script defines a class named Analysis. The Analysis class has an initializer (__init__) that accepts a histoSampler as an argument. The initializer checks if the histoSampler is a dictionary. If it is, it tries to get the first value from the dictionary. If the histoSampler is not a dictionary, it assigns the histoSampler to the sampler variable. It then gets the ParmID from the sampler and checks if it equals a new instance of ParmID. If it does, it sets the __parmID to None.
+
+The Analysis class also defines a method named getParmID that accepts a parmNameAndLevel and a databaseID as arguments. This method finds the index of the underscore character in the parmNameAndLevel. If it doesn't find an underscore, it sets the name to parmNameAndLevel and the level to "SFC". If it does find an underscore, it splits the parmNameAndLevel at the underscore to get the name and level. It then returns a new instance of ParmID with the name, databaseID, and level.
+
+The Analysis class also defines a method named createStats that accepts an analysisDef, referenceID, timeRange, and component as arguments. This method creates a dictionary named statDict. It then loops over the analysisDef. For each analysis in the analysisDef, it gets the parmNameAndLevel and method. If the analysis has more than two elements, it also gets the args. It then gets the dbID from the __parmID and the parmID by calling the getParmID method. If the histoSampler is a dictionary, it gets the sampler for the parmNameAndLevel. If the sampler is not None, it gets the parmHisto. It then creates the statName by concatenating the parmNameAndLevel and the name of the method. If the sample length of the parmHisto is 0 or the sampler is None, it sets the stats to None. Otherwise, it calls the method with the parmHisto, timeRange, and component (and args if they exist). It then adds the stats to the statDict with the parmNameAndLevel and statName as keys. The method finally returns the statDict.
+
+The script also has a main section that prints "Cannot run stand-alone" if the script is run directly.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,56 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>getAT.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>getAT.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a larger software developed by Raytheon Company. It is designed to interact with a server to retrieve specific data related to active tables and default VTEC sites. 
+
+The script starts by importing necessary modules and setting up logging. It then defines two functions: `getActiveTable` and `getDefaultVtecSites`.
+
+The `getActiveTable` function is designed to retrieve an active table from a server. It takes several parameters including a table name, a list of sites, an optional site ID, and the host and port to connect to. If no sites are provided, it calls `getDefaultVtecSites` to get a list of default sites. It then creates a `GetActiveTableDictRequest` object and sets various parameters on it. This request is sent to the server using a `ThriftClient` object. If there's an error during this process, it logs the exception and returns None. Otherwise, it returns the active table received from the server.
+
+The `getDefaultVtecSites` function is used to get a list of default VTEC sites from the server. It sends a request to the server to get the 'BackupDict' attribute, which is then converted to a dictionary if it's a string. The keys of this dictionary, which represent the site IDs, are returned as a list.
+
+The script also contains a comment block at the top that provides information about the software's development and export control status, as well as licensing information.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

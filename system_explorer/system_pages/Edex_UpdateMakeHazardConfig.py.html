@@ -1,0 +1,75 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>UpdateMakeHazardConfig.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>UpdateMakeHazardConfig.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be a utility script for updating a configuration file named `MakeHazardConfig.py`. The script is designed to handle local effects based hazards work assignment. 
+
+Here's a breakdown of what the script does:
+
+1. It imports necessary modules: `os`, `re`, `string`, and `sys`.
+
+2. It defines several string patterns and regular expressions that will be used to search and replace sections in the configuration file.
+
+3. It defines a list `fixed` and a status variable `status`.
+
+4. It defines several functions:
+    - `fixEntry(m)`: This function modifies the format of an entry in the configuration file.
+    - `fixHazardDict(m)`: This function modifies the format of the `hazardDict` dictionary in the configuration file.
+    - `unindent(s)`: This function removes leading spaces from a string.
+    - `comment(s)`: This function adds a '#' at the beginning of each line in a string, effectively commenting out the lines.
+    - `processDir(arg, srcDir, names)`: This is the main function of the script. It processes a directory and its files, looking for the `MakeHazardConfig.py` file. If the file is found and has not been processed yet, it reads the file, checks if it contains the old `hazardDict` pattern, and if it does, updates the file by applying the changes defined by the other functions. If any error occurs during the process, it prints an error message and sets the status variable to 1.
+
+5. The script does not actually call the `processDir` function, so it seems to be a module intended to be imported and used by another script.
+
+The code is written in Python and is used to update files in a specific directory and handle any errors that may occur during the process. Here's a breakdown of what the code does:
+
+1. The `processDir` function (not shown in the code snippet) presumably processes a directory and updates its files. If it encounters an error, it will print an error message and set `status` to 1, indicating that an error occurred.
+
+2. The `main` function walks through the directory `/awips2/edex/data/utility/cave_static/site` and applies the `processDir` function to each subdirectory. If `status` is not 0 (indicating that an error occurred), it prints an error message.
+
+3. If the script is run as a standalone program (i.e., not imported as a module), the `main` function is called and the program exits with the return value of `main` (which will be 0 if no errors occurred, and 1 otherwise).
+
+The error handling in this code is robust. If there's an error while writing to a file or closing a file, the code will print an error message, print the exception that caused the error, suggest a way to recover from the error, and set `status` to 1 to indicate that an error occurred.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

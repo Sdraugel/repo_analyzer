@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ExTool2.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ExTool2.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a part of a software developed by Raytheon Company. It contains export-restricted data, and its export/transfer/disclosure is restricted by U.S. law.
+
+The code defines a tool named "ExTool2" for editing the weather element "SnowAmt" (presumably Snow Amount). It is written in Python and uses the numpy and SmartScript libraries.
+
+The tool is defined as a class named "Tool" that inherits from SmartScript.SmartScript. It has an initialization method (__init__) and an execute method.
+
+The __init__ method is used to initialize the Tool object. It takes a parameter 'dbss' and passes it to the initialization method of the parent class.
+
+The execute method is the main function of the tool. It takes two parameters, QPF and T, and calculates the SnowAmt based on these parameters. If the temperature (T) is less than 20, it multiplies the QPF by 40. If the temperature is less than 25 (but not less than 20), it multiplies the QPF by 20. For temperatures 25 and above, it multiplies the QPF by 10. The method then returns the calculated SnowAmt.
+
+The QPF (Quantitative Precipitation Forecast) is a measure of the amount of rain that is expected to fall and T is the temperature. The calculation seems to be a simple model for estimating the amount of snowfall based on the temperature and the amount of expected precipitation.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

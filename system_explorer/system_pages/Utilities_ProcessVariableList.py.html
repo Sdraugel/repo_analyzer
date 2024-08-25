@@ -1,0 +1,72 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ProcessVariableList.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ProcessVariableList.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The given code is a Python script that provides an interface to the Java runtime UI SWT component. This interface is used to link user-created Python scripts to a Java-driven user interface. It is designed to be called from within Java through a jep interface.
+
+The script starts with a detailed comment section that includes information about the software's development, export control, contractor details, and software history. It also mentions that the file is an absolute override file, meaning a higher priority version of the file will completely replace a lower priority version.
+
+The script then imports necessary modules and defines a namedtuple "FieldDef" with default values. This namedtuple is used to define fields with properties like name, defaultValue, entType, valueList, res, prec, and newRow.
+
+The script then defines a class "ProcessVariableList" which appears to be used for handling a list of process variables in a UI dialog. The class constructor initializes the dialog with a title, a list of widgets, a dictionary to add widget values, and optional parameters for a callback function and its arguments.
+
+The class also contains a method for building the widget list and constructing the dialog. The values from the dialog are then converted from a Java Map to a Python dictionary and added to the variable dictionary. The selection status is also set based on the dialog's return code.
+
+The script ends with a comment suggesting that the user interface will remain open until the user clicks the Cancel or Run/Dismiss button. When the Run button is selected, the callback function is evaluated and the display remains.
+
+This Python code is part of a larger program that appears to be related to a graphical user interface (GUI), possibly for a weather forecasting application (based on the references to "raytheon.uf.common.dataplugin.gfe.db.objects").
+
+The `__callbackLoop` method opens a dialog, checks the status of a button press, and if the button is "Run" or "Run/Dismiss", it executes a callback function with provided arguments and updates a variable with the result of the callback. If the button is "Cancel" or "Run/Dismiss", it breaks the loop. If none of these conditions are met, it recursively calls itself with the same arguments, effectively creating a loop until one of the conditions is met.
+
+The `__convertJavaObjToPyWrapper` method converts a Java object to a Python object. It checks the type of the Java object and based on that, it creates a corresponding Python object.
+
+The `status` method returns the status of the dialog button that was pressed.
+
+The `varDict` method returns a dictionary of the values from the widgets.
+
+The `lastOkReturn` method returns the result of the last successful callback.
+
+The `buildWidgetList` function takes a list of Python widgets, and converts them into a Java ArrayList of widgets. It goes through each widget in the Python list, and if the widget is not an instance of FieldDef, it converts it into one. It then creates a new FieldDefinition object with the widget's properties and adds it to the Java ArrayList. Finally, it returns the Java ArrayList.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

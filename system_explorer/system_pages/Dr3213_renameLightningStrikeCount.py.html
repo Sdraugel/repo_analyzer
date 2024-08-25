@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>renameLightningStrikeCount.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>renameLightningStrikeCount.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is used to rename a specific attribute in HDF5 files. HDF5 is a data model, library, and file format for storing and managing large amounts of data. 
+
+The script first imports necessary modules: h5py for handling HDF5 files, os for interacting with the operating system, and sys for accessing system-specific parameters and functions.
+
+The script then defines constants: the path to the directory containing the HDF5 files (LIGHTNING_H5_PATH), the old attribute name (OLD_NAME as 'strikeCount'), and the new attribute name (NEW_NAME as 'pulseCount').
+
+The script then iterates over each file in the specified directory. If a file ends with '.h5' (indicating it's an HDF5 file), it attempts to open the file for reading and writing ('r+'). 
+
+For each group in the HDF5 file, it checks if the new attribute name is not already in the group and if the old attribute name is in the group. If these conditions are met, it renames the attribute by assigning the value of the old attribute to a new attribute with the new name. 
+
+If there's an error during this process (e.g., the file can't be opened, the attribute can't be renamed), it prints an error message. 
+
+Finally, whether or not an error occurred, it ensures the HDF5 file is closed before moving on to the next file. This is important to prevent data corruption and to free up system resources.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>JTSEnvelopeAdapter.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>JTSEnvelopeAdapter.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a larger software system developed by Raytheon Company. The code is designed to serialize and deserialize objects of the `Envelope` class from the `org.locationtech.jts.geom` package. Serialization is the process of converting an object's state to a byte stream, and deserialization is the reverse process.
+
+The `Envelope` class is likely a representation of a geometric shape, possibly a rectangle, given the presence of minimum and maximum X and Y coordinates.
+
+The `serialize` function takes an `Envelope` object and a context (likely a stream or buffer where the serialized data will be written) as arguments. It writes the minimum and maximum X and Y coordinates of the `Envelope` object to the context.
+
+The `deserialize` function, on the other hand, reads four double values from the context, which it assumes represent the minimum and maximum X and Y coordinates of an `Envelope` object. It creates a new `Envelope` object, sets its coordinates to the read values, and returns it.
+
+The script also contains a `ClassAdapter` variable which is set to the string 'org.locationtech.jts.geom.Envelope'. This could be used elsewhere in the code to dynamically load the `Envelope` class or to check the type of objects.
+
+The code also includes a detailed header with information about the software's development, export restrictions, and licensing.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

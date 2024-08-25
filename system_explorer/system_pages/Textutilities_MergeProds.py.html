@@ -1,0 +1,122 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>MergeProds.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>MergeProds.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This is a Python script named MergeProds.py. It is a TextUtility that merges previous issuance text into the current issuance. It is used for narrative products like the ZFP and CWF, where short term updates from the text can be merged with the text for the longer range periods from the previously issued product. The number of periods to replace are selectable at run time.
+
+The script is divided into methods that handle different tasks:
+
+1. `_splitSegProd(self, product)`: This is the primary method for decoding a product. It splits products into "groups" and then each group is parsed for a UGC line and periods.
+
+2. `_mergeNarrative(self, new, old, index, synopsis=0)` and `_mergeGeneric(self, new, old, hdlns=1)`: These are the primary methods for merging products.
+
+3. There are also specific methods for merging different types of products, such as `_mergeZFP(self, new, old, index)`, `_mergeCWF(self, new, old, index)`, `_mergeNSH(self, new, old, index)`, etc. These methods generally call either `_mergeNarrative` and `_mergeGeneric`.
+
+The script also includes a class `MergeProds` with methods for parsing UGC encoded strings into a list of UGC codes (`_parseUGCLine(self, ugcString)`) and for extracting the individual period forecasts from ZFP text (`_splitPeriods(self, text, offset)`).
+
+The script has a history of updates for various fixes and improvements, such as Python 3 compatibility, formatting to PEP8 standards, and adding a logging function.
+
+The code provided is a part of a larger Python script that seems to be used for parsing and analyzing a specific type of text data, possibly related to weather forecasts or similar reports. 
+
+The first function, `_splitPeriods`, takes a string `text` and an `offset` as input. It uses regular expressions to find and process periods within the text. It returns a list of tuples, each containing the start and end indices of the period in the text, the period label, and the period text itself.
+
+The second function, `_splitSegProd`, takes a `product` string as input. This function seems to be a parser for a segmented product, where a group is defined by a line that starts with what looks like UGC (Universal Geographic Code) encoding, followed by text and then terminated by a blank line followed by "$$". 
+
+The function returns a tuple containing a dictionary and a list. The dictionary has keys of UGC codes and values of group index the UGC belongs to. The list is a list of dictionaries for each group, with each dictionary containing information about the group such as the start and end character indices of the text for the entire group, UGC line, issuance time line, all headline lines at the top of the group text, remaining text after any headlines, list of UGC codes valid for this group, and list of period information.
+
+The function uses regular expressions to parse the product string and extract the required information. It also uses helper functions like `_parseUGCLine` to further process the data.
+
+The code also contains extensive logging functionality, which suggests that it's part of a larger system where tracking the execution flow and debugging is important.
+
+This code appears to be part of a larger Python program, possibly related to processing and analyzing text data. Here's a high-level overview of what this part of the code is doing:
+
+1. It checks for a special case where the string ".NOW..." is found at the start of a group of text. If found, it adjusts the start of the text accordingly.
+
+2. It then looks for headlines at the top of a forecast section. The logic ensures that anything that looks like a headline but is not at the top will not be captured. All headlines must be grouped together at the top and a blank line must separate the end of the headlines and the beginning of the rest of the text.
+
+3. The code creates a dictionary (`groupDict`) with keys for a list of UGCs (`ugcList`), headline text (`hdlnText`), forecast text (`fcstText`), and a list of periods (`periodsList`). It then appends this dictionary to a list of groups (`groupList`).
+
+4. The `_mergeNarrative` function is defined. This function merges a previous forecast into an updated forecast. It takes in the new and old forecast text, an index of the last period to keep in the new forecast, and a synopsis flag. The function returns the merged text or the new text if any problems are encountered.
+
+5. The function first checks the validity of the index value. It then splits the new and old forecasts into dictionaries and lists.
+
+6. It then loops through the new list, checking for enough periods and matching zones to previous zone groups. If it can't match the zones, it aborts and returns the new text.
+
+7. The function then attempts to match periods in the old and new products based on the period label. If it can't match, it uses the index as passed in. If it can match the periods, it copies the periods from the old product.
+
+Please note that without the full context or the rest of the code, some assumptions had to be made and some functionality might not be fully explained.
+
+The code you provided is written in Python and it contains several methods that are used to merge and clean up forecast text data. Here's a breakdown of what each method does:
+
+1. `_mergeGeneric(self, new, old, hdlns=1)`: This method merges the previous forecast into the current one. It takes three arguments: `new` (the product text from the formatter), `old` (the old product text), and `hdlns` (a flag to preserve any headlines in the new product/filter out headlines in the old). The method splits the new and old forecasts into dictionaries and lists, and then iterates over the new list to merge the old forecast into the new one. It also cleans up the merged forecast by removing extra newlines and adding an extra blank line if there is a headline but no forecast.
+
+2. `_mergeZFP(self, new, old, index)`, `_mergeCWF(self, new, old, index)`, `_mergeNSH(self, new, old, index)`, and `_mergeESF(self, new, old, hdln=0)`: These methods are wrappers for the `_mergeNarrative` method. They take the new and old forecasts and an index as arguments and return the result of the `_mergeNarrative` method.
+
+3. `_mergeNarrative(new, old, index, 0)`: This method is not shown in the provided code, but based on the context, it likely merges the new and old forecasts in a specific way based on the given index.
+
+The code also includes regular expressions to clean up the forecast text, such as removing extra newlines and adding an extra blank line if there is a headline but no forecast. It also checks for framing codes in the new forecast and replaces them with the old text if they are found.
+
+The provided code seems to be a part of a larger Python class or module that is responsible for merging and manipulating text data, specifically forecast data. Here's a breakdown of what each part does:
+
+1. `_mergeNOW`, `_mergePNS`, `_mergeSPS`, `_mergeRWS`: These are methods that take three arguments: `new`, `old`, and `hdln`. They call the `_mergeGeneric` method with these arguments and return its result. The purpose of these methods seems to be merging new and old data, possibly related to different types of forecasts or reports.
+
+2. `_mergeHWO`: This is a more complex method that merges previous forecast data into the current one. The method takes two arguments: `new` and `old`, which represent the new product text from the formatter and the old product text, respectively. The method splits the new and old products into dictionaries and lists, logs the old and new dictionaries, and then merges the new and old data based on certain conditions. The method also uses regular expressions to find and replace certain patterns in the forecast text.
+
+3. `logmsg`: This method is used for logging messages. It takes multiple arguments and keyword arguments, and it allows for different levels of logging (`error`, `info`, `debug`). The method can print messages with optional prefixes and line numbers, and it can also print the calling method name and line number if the `loglines` argument is set to `True`.
+
+The code seems to be well-documented with docstrings, which provide detailed explanations of what each method does, its input arguments, and its return values. However, without the full context or the rest of the class or module, it's hard to provide a more detailed analysis.
+
+This part of the code is a logging function that prints out log messages with various levels of detail based on the arguments passed in.
+
+First, it sets the log level to either the value provided in the keyword arguments (kwargs) or to "info" if no log level is provided.
+
+Then, it checks if the log level is less than or equal to the current log level. If it's not, the function returns without doing anything. This means that log messages with a level higher than the current log level will not be printed.
+
+Next, it sets the tag for the log message. By default, the tag is the name of the module. If a "logtag" is provided in the kwargs, it uses that instead.
+
+If "loglines" is in the kwargs and it's set to True, it adds the name of the current function and the line number to the tag. This can be useful for debugging, as it tells you exactly where the log message came from.
+
+Finally, it constructs the log message. If there are any additional kwargs, it adds them to the end of the message. This can be useful for logging the arguments to a function call. Then it prints the log message.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

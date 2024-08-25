@@ -1,0 +1,187 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>FWF.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>FWF.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a configuration file for a software developed by Raytheon Company. The software is used to produce a narrative Fire Weather Forecast. The configuration file contains both required and optional configuration items that define various aspects of the software's operation.
+
+Here are some key points about the code:
+
+1. The software is subject to U.S. export control laws due to the presence of export-restricted data. This means it cannot be exported/transferred/disclosed without an export license or other authorization.
+
+2. The software is provided in the public domain, without any warranty or technical support.
+
+3. The configuration items in the code allow the user to customize various aspects of the software. For example, `displayName` defines how the product appears in the GUI, `productName` defines the name of the product, `fullStationID` is the full station identifier, `wmoID` is the WMO ID code for the product header, and so on.
+
+4. There are also optional configuration items that allow further customization of the software. These include `editAreaSuffix`, `mapNameForCombinations`, `database`, `outputFile`, `debug`, `textdbPil`, `awipsWANPil`, `periodCombining`, `defaultEditAreas`, `areaDictionary`, `useRH`, `summaryExtended`, `summaryArea`, `individualExtended`, `extendedLabel`, `lightningPhrases`, `windAdjustmentFactor`, `tempLocalEffects`, and `windLocalEffects`.
+
+5. The software seems to be designed to generate weather forecasts for specific areas, with the ability to customize the output based on various factors such as temperature, wind, humidity, etc. It also appears to support different output formats and destinations.
+
+This code file appears to be a configuration or setup file for a weather-related application, possibly related to fire weather forecasting. The comments provide detailed instructions on how to customize the behavior of the application.
+
+Here are some key points:
+
+1. Local Effects: The code mentions defining areas for 'Ridges' and 'Valleys' to enable local effects for wind.
+
+2. Output Formatting: The 'lineLength' variable defines the length of lines in the output.
+
+3. Hazard Sampling Threshold: This defines the percentage coverage or number of grid points in a zone that must contain the hazard for it to be considered.
+
+4. Multiple Element Table: Instructions are provided to include a MultipleElementTable for each area or period in the current combination. This table may include temperature, probability of precipitation (PoP), and/or humidity.
+
+5. Weather-related Flags: There are flags for specifying hours past the beginning of the first period of the product to stop including 'Slight Chance' or 'Isolated' weather types, using holidays in time period labels, and including temperature and relative humidity trends.
+
+6. Trouble-shooting Items: There are limits on passes allowed through the Narrative Tree and a trace flag to turn on trace through the Narrative Tree.
+
+7. Narrative Customization Points: The phrases in the product can be customized by overriding infrastructure methods in the Local file.
+
+8. Weather Elements Needed: The code lists the weather elements needed for the application, including optional elements.
+
+9. Edit Areas Needed: Instructions are provided for defining areas for local effects and for Valley/Ridge Winds.
+
+10. Associated Utilities Files: The code mentions a 'Combinations' file.
+
+11. Component Products: The code lists several component products.
+
+12. Development Tasks: The code mentions a task reporting system for tracking development tasks.
+
+13. Additional Information and Common Overrides: The code provides additional customization options and common overrides for various aspects of the application.
+
+This Python code is part of a larger system that generates text-based weather forecasts, specifically for fire weather services. It imports several modules and defines a class named `TextProduct` that inherits from two other classes: `TextRules` and `SampleAnalysis`.
+
+The `TextProduct` class has a dictionary named `Definition` that contains various configuration settings for the product, such as the source database, output file location, product identifiers, product-specific variables, weather-related flags, and more. These settings include details like the product name, the station ID, the WMO ID, the product pil, and the name of the state. It also includes settings for the product's output, such as the line length and whether to include a multiple element table.
+
+The class also has several methods:
+
+- `__init__`: This is the constructor method that initializes instances of the class.
+- `wxCombinations`: This method returns a list of combinations that the system should collapse when generating the forecast text. For example, if the combination ("RW", "R") is in the list, the phrase "scattered rain showers and widespread rain" will collapse to "scattered rain showers".
+- `minMax_std_deviation`: This method replaces the `MINMAX_STD_DEVIATION` method and returns the number of standard deviations to compute around the weighted average for a `stdDev_MinMax`.
+- `element_outUnits_dict`: This method overrides the `element_outUnits_dict` method in the `TextRules` class to specify the units for various elements in the forecast.
+
+The code also contains comments that suggest there are more methods in the `TextProduct` class that aren't shown in the provided code.
+
+This code file appears to be part of a larger system that deals with weather data, specifically focusing on wind and fire weather conditions. Here's a breakdown of what each function does:
+
+1. `adjust_method_dict`: This function returns a dictionary where the key is "Wind" and the value is a method that adjusts wind values.
+
+2. `_adjustWind`: This function adjusts a given wind value by a factor.
+
+3. `wind_summary_words`: This function generates a summary of wind data. It checks if there's data for "Wind20ft" and then generates a summary based on the chosen element.
+
+4. `wind_setUp`: This function sets up wind data. It checks if there's data for "Wind20ft", and if there is, it sets up the wind data accordingly. If the gustFlag is set, it also sets up wind gust data.
+
+5. `phrase_descriptor_dict`: This function returns a dictionary of descriptors for phrases. If the component name is "FirePeriod", it makes the descriptors for "Wind" and "Wind20ft" empty.
+
+6. `nextDay24HourLabel_flag`: This function returns 1 to label 24 hour periods starting after 1600 as the next day. This is needed for the Fire Weather Extended product.
+
+7. `untilPhrasing_flag_dict`: This function returns a dictionary that determines whether "until" time descriptor phrasing will be used.
+
+8. `_PoP_analysisMethod`: This function returns a method for analyzing PoP (Probability of Precipitation) data.
+
+9. `FirePeriod`: This function returns a dictionary that defines a component of the system related to fire weather conditions.
+
+10. `ExtraSampling`: This function returns a dictionary that defines a component of the system related to extra sampling of weather data.
+
+11. `getFirePeriod_analysisList`: This function returns a list of analyses to be performed for the FirePeriod component.
+
+12. `getFirePeriod_phraseList`: This function appears to be incomplete as it ends abruptly. It seems like it was intended to return a list of phrases related to the FirePeriod component.
+
+This Python code appears to be part of a larger module or class that is used for weather forecasting, specifically for fire weather forecasting. Here's a breakdown of what the code is doing:
+
+1. The first part of the code defines a list of phrases or methods to be used in the weather forecast. These phrases or methods seem to be related to various weather parameters like temperature, relative humidity, wind, smoke dispersal, etc. The list of phrases is modified based on certain conditions. For example, if trends are not to be included (`self._includeTrends != 1`), all trend-related phrases are removed from the list.
+
+2. The `getFirePeriod_intersectAreas` method defines two lists: `tempList` and `windList`. These lists contain tuples that represent different weather parameters and their corresponding local effects. The method returns the combined list of these tuples.
+
+3. The `_tempLocalEffects_list`, `_rhLocalEffects_list`, `_tempTrendLocalEffects_list`, and `_rhTrendLocalEffects_list` methods all return a list of local effects for different weather parameters. These local effects are represented as instances of the `LocalEffect` class, which seems to be defined elsewhere in the code.
+
+4. The `_rhTrigger` and `_trendTrigger` methods are used to calculate the local effects for relative humidity and temperature trends, respectively. These methods seem to be using some form of statistical analysis to determine the local effects.
+
+5. The code ends abruptly with the definition of the `skyPopWx_excludePoP_flag` method, which is not completed in the provided code snippet.
+
+In summary, this code is part of a larger system that generates weather forecasts, with a particular focus on fire weather conditions. It defines and manipulates various weather parameters and their local effects.
+
+The provided code appears to be a part of a larger system, likely a weather forecasting application. It defines several methods that are used to generate and format weather forecasts.
+
+1. `ExtendedLabel`: This method returns a dictionary with a specific structure. It appears to be a configuration for a component, specifying a list of methods to be called (`methodList`), an empty list of analyses (`analysisList`), and an empty list of phrases (`phraseList`).
+
+2. `setLabel`: This method sets a label in a component of a tree structure. The label is a string that seems to be a part of a weather forecast.
+
+3. `FireExtendedShortTerm` and `FireExtended`: These methods return similar dictionaries to `ExtendedLabel`, but they include more complex configurations. They specify lists of methods to be called, analyses to be performed, and phrases to be used. The methods and analyses include operations related to weather data, such as temperature (`MinT`, `MaxT`, `T`), sky conditions (`Sky`), wind (`Wind`, `Wind20ft`), weather conditions (`Wx`), and probability of precipitation (`PoP`).
+
+4. `ExtendedNarrative`: This method returns a dictionary that seems to be a configuration for a narrative, specifying a list of methods to be called and a narrative definition.
+
+5. `generateForecast`: This is a more complex method that appears to generate a weather forecast for a list of areas. It retrieves variables, determines time ranges, samples data, and generates the product (likely the forecast) for each area in the list.
+
+6. `_getVariables` and `_determineTimeRanges`: These are helper methods used by `generateForecast`. `_getVariables` retrieves variables from an argument dictionary and `_determineTimeRanges` sets up the time range for the forecast.
+
+The code appears to be written in Python and uses object-oriented programming principles. It seems to be a part of a larger system, as it references several other methods not included in the provided code.
+
+The provided code appears to be part of a larger Python program, possibly related to weather forecasting. Here's a breakdown of what the code is doing:
+
+1. The code defines several methods within a class (the class definition is not included in the provided code). These methods appear to be part of a system for generating a weather forecast narrative.
+
+2. The `_sampleData` method seems to be responsible for gathering and analyzing data for the forecast narrative.
+
+3. The `_preProcessProduct` method is preparing a product header. It's appending various strings to the `fcst` variable, which seems to be the forecast message that's being built.
+
+4. The `_preProcessArea` method is preparing the header for a specific area of the forecast. It also generates product hazards for the area.
+
+5. The `_makeProduct` method is generating a narrative forecast for a specific area and potentially a multiple element table.
+
+6. The `_postProcessArea` and `_postProcessProduct` methods are finalizing the area-specific and overall forecast messages, respectively. They append additional information and replace placeholders with actual data.
+
+7. The `_addHeadlines` method is adding headlines to the list of product headlines.
+
+8. The `_issuance_list` method is defining the schedule for issuing forecasts. It seems to be creating two lists, `narrativeDefAM` and `narrativeDefPM`, which might represent the schedule for AM and PM forecasts.
+
+Overall, the code is part of a system for generating weather forecast narratives, including gathering data, preparing headers, generating narratives, and finalizing messages.
+
+This code seems to be part of a larger weather forecasting application. It's defining some updates and alerts for different times of the day, and also defining some hazard warnings.
+
+1. The first part of the code is defining a list of tuples, each representing a different update or alert. Each tuple contains information like the name of the update, the time it should be issued, the time range it covers, the narrative definition to be used, etc.
+
+2. The `lateDay_descriptor` and `lateNight_descriptor` methods are used to return descriptors for late day and late night times respectively. If the time range is in the first period, it returns the period1 descriptor for late day/night, otherwise it returns a default descriptor.
+
+3. The `allowedHazards` method returns a list of tuples, each representing a different type of hazard warning that is allowed for this product. Each tuple contains the VTEC code for the hazard, the actions that can be taken for this hazard, and the category of the hazard. Some examples of hazards are fire weather warnings, wind advisories, and heat warnings.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

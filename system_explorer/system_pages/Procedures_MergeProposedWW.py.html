@@ -1,0 +1,76 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>MergeProposedWW.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>MergeProposedWW.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is part of a larger software that is used to merge hazard data from the ProposedTropWindWW grid onto the hazard grid. The software is in the public domain and is provided without any warranty or technical support. 
+
+The code imports several utility modules and defines a class named `Procedure` that inherits from `TropicalUtility.TropicalUtility`. The `Procedure` class has several methods that perform various operations such as checking for conflicts between existing hazards and the WFO hazards, making an empty Hazards grid, fetching the NHCCoastalZone mask, removing the ETN from the hazKey, and removing all the tropical wind hazards from the specified grid and time.
+
+The `execute` method appears to be the main method of the `Procedure` class. It checks if the Hazards Weather Element is loaded in the GFE, ensures there are no temp grids loaded, checks if the grid is locked by another user, and fetches the coastal mask.
+
+The code also contains a variable list and a menu item list, which are likely used in the user interface of the software. The variable list contains a single item, a tuple that represents a radio button with two options: "Coastal Only" and "Coastal and Inland". The menu items list contains a single item: "Populate".
+
+This code is part of a larger program that manages and manipulates weather forecasting data. This specific section is focused on handling and updating hazard grids, particularly those related to tropical wind conditions. 
+
+Here's a breakdown of what the code does:
+
+1. It first checks if there is a `ProposedTropWindWW` (Proposed Tropical Wind Watch/Warning) grid. If not, it aborts the operation and sends a status bar message.
+
+2. It then gets a user option from a dictionary `varDict` to determine whether to merge hazards from the coastal area only or the entire domain. Depending on the user's choice, it sets the hazard mask accordingly.
+
+3. It retrieves the `ProposedTropWindWW` grid and checks for any conflicts with the current site. If there are conflicts, it sends a status bar message and aborts the operation.
+
+4. If there are no existing hazard grids, it creates empty ones based on the time range of the `ProposedTropWindWW` grid.
+
+5. If there are existing hazard grids, it checks if new ones need to be created at the beginning or end of the time range. If necessary, it creates these new grids and then splits the hazard grid at the `ProposedTropWindWW` time range.
+
+6. It then re-fetches the hazard inventory, retrieves the `ProposedTropWindWW` grid, and identifies areas where the grid is not `None`.
+
+7. For each hazard in the hazard inventory, it removes current hazards that will be replaced and adds proposed hazards where the hazards overlap.
+
+8. Finally, it separates the hazard grids for easier updating in the future.
+
+In summary, this code is used to manage and update hazard grids based on proposed tropical wind watch/warning data, taking into account user preferences and potential conflicts.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

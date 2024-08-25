@@ -1,0 +1,306 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TCMWindTool.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TCMWindTool.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This is a Python script for a software called TCMWindTool. The software appears to be used for decoding and analyzing meteorological data, particularly related to tropical cyclones. It has undergone various modifications over the years to fix bugs, improve performance, and add new features.
+
+The script begins with a detailed history of the software's modifications, including the dates, version numbers, and brief descriptions of the changes made. The authors and contributors of the software are also mentioned.
+
+The script then imports several Python libraries and modules that are necessary for its functionality, such as calendar, copy, time, numpy, AbsTime, DefineMaxWindGUI, SmartScript, TimeRange, and OrderedDict from the collections module.
+
+The script defines a list called MenuItems and a list of tuples called VariableList. These seem to be used for setting up the user interface of the software, specifically the options available in the software's menu and the variables that the user can manipulate.
+
+The script then defines a class called TCMDecoder. The class has an __init__ method that initializes some instance variables and a dictionary called keyWordDict. The dictionary's keys are strings that appear to be keywords in the meteorological data that the software processes, and the values are methods that handle the corresponding data.
+
+The code seems to be part of a larger class or module that is designed to parse and decode weather forecast data, specifically related to wind and storm conditions. 
+
+Here's a breakdown of what the code does:
+
+1. The code starts with a list of tuples, where each tuple contains a keyword and a corresponding method to decode the data associated with that keyword. This list is likely used to parse a text-based weather forecast product.
+
+2. It then initializes several instance variables such as `fcstList`, `text`, `currentFcst`, `baseProductTime`, `foundEyeDiameter`, and `AltFileName`.
+
+3. The `calcEyeDiameter` method calculates the diameter of the eye of a storm based on the storm's center and maximum wind speed.
+
+4. The `stripText` method removes specific characters from the text of the forecast.
+
+5. The `getFcstList`, `getBaseProductTime`, `getAltInfoFileName`, `currentLine`, and `nextLine` methods are getter methods that return the respective instance variables.
+
+6. The `monthNum` method converts a month name to a corresponding number.
+
+7. The `convertBaseTime` and `convert_ddhhmm` methods are used to convert time strings into a standardized format.
+
+8. The `decodeProductTime`, `decodeAltFileName`, `decodeCenterLocation`, `decodeCentralPressure`, and `decodeMaxSustainedWinds` methods are used to parse specific pieces of information from the forecast text. These methods likely use the keyword-method pairs defined at the beginning of the code to identify and decode the relevant data.
+
+The code ends abruptly, so it's not clear what the `decodeMaxSustainedWinds` method does.
+
+This code appears to be part of a larger program that decodes weather forecast data, specifically related to tropical cyclones. Here's a breakdown of what each function does:
+
+1. `ne()`: This function checks if a keyword is in a string, `windStr`. If it is, it splits the string into tokens and appends the preceding token to `windList` if "KT" is found in the token. It then checks if `windList` is empty and returns if it is. It then stores the max wind and gust values and calculates the eye diameter if a center location and max wind are present.
+
+2. `decodeMaxWind()`: This function decodes the maximum wind speed from a line of data. It splits the line into tokens and stores the max wind and gust values. It then calculates the eye diameter if a center location and max wind are present.
+
+3. `decodeRadii()`: This function decodes the wind radii from a line of data. It splits the line into tokens and stores the radii info.
+
+4. `decodeWindForecast()`: This function decodes a wind forecast. It saves the old forecast if a new one is being decoded, splits a line into tokens, decodes the valid time and center location, and initializes a new forecast.
+
+5. `decodeEyeDiameter()`: This function decodes the eye diameter from a line of data. It splits the line into tokens, stores the eye diameter, and sets the default diameter.
+
+6. `decodeTCMProduct()`: This function decodes a TCM (Tropical Cyclone Message) product. It strips the text, loops through each line, checks for keywords, and stores the forecast.
+
+7. `decodeLatLonToken()`: This function decodes a latitude or longitude token. It checks for direction indicators (N, S, E, W) in the token.
+
+Overall, this code is used to parse and decode weather data related to tropical cyclones. It extracts important information like wind speed, gust speed, eye diameter, and location from the data.
+
+This is a Python script that contains several classes and methods for decoding and processing meteorological data, specifically related to wind forecasts. 
+
+The first part of the code is a method that attempts to decode latitude and longitude values from a string. If the string is not decodable, it prints an error message and returns None. If the string is decodable, it converts the string to a float and checks if it's in the southern or western hemisphere (indicated by "S" or "W"). If it is, it flips the sign of the value.
+
+The `decodeJTWCProductTime` method splits a line of data into tokens, extracts the time data, and converts it to an integer representing the number of hours.
+
+The `decodeJTWCTimeCenter` method splits a line of data into tokens, extracts the date, time, latitude, and longitude data, and stores it in a dictionary.
+
+The `decodeJTWCWindForecast` method does something similar, but it also checks for the presence of a 'Z' in the time string, which indicates Zulu time (Coordinated Universal Time).
+
+The `decodeJTWCRadii` method decodes information about the radius of the wind speed in different quadrants. It stores this information in a list and then in a dictionary.
+
+The `endJTWCWindForecast` and `stopDecodingJTWC` methods are used to end the decoding process.
+
+The `CircleEA` class is used to create circular edit areas and quadrants thereof. It calculates distances and angles based on latitude and longitude data.
+
+The `Procedure` class contains a method to create a time range based on start and end times.
+
+Overall, this script seems to be part of a larger system for processing and analyzing meteorological data.
+
+This code is a part of a larger program that seems to be dealing with weather data, specifically wind data. Here's a breakdown of what each method does:
+
+1. `getParmTimeConstraints`: This method retrieves time constraints for a given weather element (weName) from a specific database (dbName). It returns the start time, duration, and repeat interval of the parameter.
+
+2. `getTextProductFromFile`: This method reads a file line by line and appends each line to a list, which it then returns. This could be used to read data from a text file.
+
+3. `printFcst`: This method prints out the forecast information for a given forecast object. It prints the time, lead time (if a base time is provided), center location, eye diameter, maximum wind, and radii.
+
+4. `getWEInventory`: This method returns a list of time ranges for a given weather element (WEName) from a specific model (modelName) at a certain level.
+
+5. `getClosestWindGrid`: This method returns a wind grid from a specified model that is most closely matched in time to a target time. If no background grids are available or if the closest grid is more than 4 hours off, it returns a calm grid.
+
+6. `makeDirectionGrid`: This method creates a direction grid where winds blow counter-clockwise about the specified center. It uses a combination of cyclonic circulation and convergence.
+
+7. `interpRadii`: This method interpolates radii information based on the specified info. It returns a new set of radii.
+
+8. `interpolateWindFcst`: This method interpolates the wind forecasts between two specified forecasts. If the interval between the two forecasts is too big, it just returns the first forecast.
+
+The last part of the code seems to be a part of another method that was cut off. It seems to be preparing to interpolate between two forecasts based on various parameters like location, eye diameter, and valid time.
+
+This code is part of a larger system that seems to be dealing with weather forecasting, specifically related to cyclones or hurricanes. It calculates and manipulates data related to the storm's characteristics such as its location, wind speed, and radius of impact over time.
+
+The first part of the code is calculating differences in latitude, longitude, eye diameter, and maximum wind speed between two forecast points (f1 and f2) over a certain number of time slots. It also checks if there are any edited maximum wind speeds in the first forecast point and calculates the difference if there are.
+
+Then, it creates a list of forecasts, starting with the first forecast. For each time slot, it calculates a new forecast by adding the appropriate difference to the original forecast's values. If there are edited maximum wind speeds, it also calculates a new value for this. It then appends the new forecast to the list.
+
+The `calcRadiusList` method seems to be calculating a list of radii based on the maximum wind speed, the radius of maximum wind (rmw), the radius at 34 knots (rad34), and a list of new radii. It uses a linear interpolation formula to calculate each new radius.
+
+The `extrapolateRadii` method is extrapolating the radii of the storm's impact for each forecast in the list. It uses different methods for the 36-72 hour period and the 72-120 hour period to add more data values to the wind field, making the wind grids look more realistic.
+
+The `smoothGrid` method is smoothing a specified grid by a specified factor. It creates a new grid with the same shape as the original and fills it with the average of each cell's surrounding cells, based on the specified factor. This could be used to smooth out the data in the wind grids.
+
+The provided code seems to be part of a larger program, possibly related to weather forecasting or simulation. Here's a breakdown of what the different parts of the code are doing:
+
+1. The first part of the code appears to be dealing with slicing and manipulating a grid-like data structure, possibly a 2D array or matrix. It's creating slices based on the values of `x` and `y`, and then using those slices to update the `target` and `src` arrays. It's also updating the `sg` and `count` arrays with values from `grid` and `gridOfOnes`.
+
+2. The `smoothDirectionGrid` function is smoothing a direction grid without regard to the magnitude. It's converting magnitude and direction to UV components, smoothing them, and then converting back to magnitude and direction.
+
+3. The `makeWindGrid` function is creating a grid with the same shape as the input `gridShape`, and filling it with the input `mag` and `direct` values.
+
+4. The `decreaseWindOverLand` function is reducing wind speed over land areas. It's using a wind reduction factor grid to adjust the wind speed in a cyclone mask area. If no such grid is found, it uses a standard reduction. It also has the option to apply the reduction based on a specific edit area.
+
+5. The `getWindReductionFactorGrid` function is fetching wind reduction factor grids from a forecast database. If no overlapping grids are found, it returns None.
+
+6. The `getTimeConstraintDuration` and `getParmMinMaxLimits` functions are fetching certain parameters related to time constraints and minimum/maximum limits from a forecast database.
+
+7. The `getMaxAllowableWind` function is returning the maximum allowable wind speed based on directives from the National Weather Service.
+
+8. The `getOutlookRadius` function is interpolating a radius based on input radii.
+
+9. The `blendGrids` function is blending two input grids, using the wind grid for the cyclone and the background grid everywhere else.
+
+10. The `getShiftedLatLonGrids` function is fetching latitude and longitude grids from a forecast database, or creating them if they don't exist. It's also adjusting the longitude grid if needed.
+
+The code seems to be written in Python, and it uses the numpy library for numerical operations. It's also using some custom functions and methods, which are not defined in the provided code.
+
+This code seems to be part of a larger program that deals with geographical data, possibly related to weather forecasting or climate modeling. Here's a breakdown of what each section does:
+
+1. The first part of the code creates two scalar grids, `latGrid` and `lonGrid`, which likely represent the latitude and longitude values of a geographical grid. The latitude values are constrained between -90 and 90 degrees, and the longitude values are constrained between -360 and 180 degrees.
+
+2. The `shiftPacLonGrid` method adjusts the `lonGrid` if the basin is "Pacific", changing longitude coordinates from -180/180 to 0/360. This adjustment allows for the correct handling of storms and radii crossing the International Date Line.
+
+3. The `interpolateQuadrants` method interpolates the specified radii in `rDict` to the number of slices specified in `pieSlices`. This increases the angular resolution of the wind forecast, which typically comes with 4 slices.
+
+4. The `getBackgroundGrids` method fetches and returns all of the wind grids specified by the model name. It seems to be used before any new wind grids are created.
+
+5. The `secondsToYYYYMMDDHH` method converts a time given in seconds since the Unix epoch (January 1, 1970) to a string in the format YYYYMMDDHH.
+
+6. The `findFcst` method returns the index corresponding to the specified `timeStr` and `fcstHour` in the `fcstList`.
+
+7. The `interpWindMax` method interpolates a list of defined wind values to a new resolution, given the number of slices.
+
+The last comment suggests there might be another method to calculate the radius of the maxWind based on the specified eyeDiameter, but the method is not included in the provided code.
+
+This code appears to be part of a larger program that models the wind speeds and radii in a cyclone. 
+
+The `maxWindRadius` function calculates the radius of maximum wind based on the eye diameter of the cyclone. If the eye diameter is not provided, it returns a default value of 12.5.
+
+The `adjustMaxWind` function adjusts the maximum wind speed and radius based on the quadrant of the cyclone. It takes in the current outer and inner speeds and radii, the global maximum wind speed, a list of maximum wind speeds for each quadrant, the maximum wind radius, and the quadrant number. It then checks which speed/radius should be modified based on whether the outer or inner speed is equal to the global maximum wind speed. If neither is, it raises an error.
+
+The `makeRankine` function creates a Rankine Vortex wind speed grid that decreases exponentially from known values at known radii. Inside the radius of maximum wind, the wind decreases linearly towards the center. This function takes in several parameters including a file `f` containing data about the cyclone, a latitude and longitude grid, the number of pie slices to divide the cyclone into, a factor for radii, and a time range. It then proceeds to calculate the wind speeds for each quadrant of the cyclone, adjusting them based on any edited values if they exist. 
+
+The code also contains checks for errors, such as if no eye diameter is found, or if neither the inner or outer speed is the maximum.
+
+This code seems to be part of a larger system, possibly related to meteorological data analysis or weather forecasting, given the references to wind speed, radius, and quadrants. 
+
+1. The first part of the code is adjusting the maximum wind radius based on certain conditions. If the outer speed is in a specific set and the outer radius is less than or equal to the maximum wind radius, it adjusts the inner radius. If the inner speed is 1.0 and the last radius of the quadrant is not null, it adjusts the outer radius. 
+
+2. It then resets the speeds if they exceed the maximum wind and the forecast lead time is less than or equal to 72 hours. 
+
+3. It sets the center value to the maximum forecast wind if the inner speed is 1.0. 
+
+4. It also takes care of cases where the speed or radius is zero, setting them to a small value to avoid mathematical errors. 
+
+5. It ensures that no wind speed can exceed the maximum allowable wind speed. 
+
+6. It skips trivial cases where the inner and outer radius are less than 2.0 or the inner radius is greater than the outer radius. 
+
+7. It calculates an exponent based on the inner and outer speeds and radii. 
+
+8. It then creates a grid based on these calculations, with different calculations for inside and outside the radius of maximum wind (RMW). 
+
+9. The code then applies a correction outside the RMW if a certain condition is met. 
+
+10. It then resets the maximum wind before clipping the values between zero and the maximum allowable wind speed. 
+
+11. It applies a wind reduction over land and returns the grid and direction grid. 
+
+12. The `makeMaxWindGrid` function calculates the maximum wind grid and saves it. 
+
+13. The `validateCycloneForecast` function checks each forecast to ensure that there is a radius for any standard wind values less than the maximum wind. 
+
+14. The `makeWindDict` function creates a dictionary that lists the minimum and maximum allowed wind for each hour. 
+
+This code seems to be part of a larger system that analyzes and processes meteorological data, possibly for weather forecasting or cyclone tracking.
+
+This is a Python code snippet that appears to be part of a larger program related to weather forecasting, specifically related to wind speed and cyclone forecasts. Here's a breakdown of the main parts:
+
+1. `makeWindDict(self, fcstList)`: This function creates a dictionary where the keys are hours and the values are tuples of minimum and maximum wind speeds. It takes a list of forecasts as input.
+
+2. `launchMaxWindGUI(self, fcstList)`: This function launches a graphical user interface (GUI) that displays maximum wind values for each quadrant and time. It uses the `makeWindDict` function to create a dictionary of wind data, and then passes this to the GUI. It returns the new maximum wind values.
+
+3. `makeCorrectionGrid(self, latGrid, lonGrid, center)`: This function creates a correction grid based on the forecast. It uses a set of polynomial coefficients to calculate the correction grid.
+
+4. `execute(self, varDict, timeRange)`: This is the main function that executes the program. It takes a dictionary of variables and a time range as input. It sets various parameters, retrieves data from a text product, and decodes the product using the `TCMDecoder` class. It also handles errors if the product could not be retrieved.
+
+The code snippet also includes error handling and validation checks, and it interacts with a database to fetch and store data. It seems to be part of a larger system, possibly a weather forecasting or analysis tool.
+
+The code is part of a larger script that processes and manipulates forecast data, likely related to weather or climate. Here's a breakdown of what the code is doing:
+
+1. The code starts by checking if a Tropical Cyclone Message (TCM) is found. If not, it returns None, indicating that something is wrong.
+
+2. If a TCM is found, it decodes the TCM product and gets the forecast list and base product time.
+
+3. It then checks if the forecast is complete and if the base times of the TCM and RCL (another type of message) are the same. Depending on the result, it sets the forecast list, base time, and product ID accordingly.
+
+4. It prints the number of decoded forecasts.
+
+5. The code then attempts to print the center location of the first forecast. If there's an error (like the list is empty or the key doesn't exist), it simply passes and continues.
+
+6. If the basin is the Pacific, it adjusts the center point longitude of each forecast in the list.
+
+7. It sets the base decoded time as the valid time of the first entry minus 3 hours.
+
+8. If the user has chosen to define asymmetrical max winds, it launches a GUI to get the new max winds and updates the forecast list with these values.
+
+9. It then extrapolates the radii of the forecasts.
+
+10. It checks if the decoded forecast is close to the current time. If the selected time range is less than an hour or the user has chosen to make grids over the selected time only, it sets test mode to True.
+
+11. It then interpolates the wind forecasts from the decoder and appends them to a new list if they are within the selected time range or if test mode is not enabled.
+
+12. If there's only one forecast, it sets the interpolated forecast list to the forecast list.
+
+13. If there are no interpolated forecasts, it sends a message to the status bar. Otherwise, it adjusts the valid time for the first forecast if the wind grids are more than 3 hours long and prints the number of wind grids being generated.
+
+14. It then gets the latitude and longitude grids.
+
+15. Finally, it checks the user's choice for reducing radii and adjusts the radii of the forecasts accordingly.
+
+This code is part of a weather forecasting tool, specifically handling wind data. It appears to be written in Python and is using a mix of custom and built-in functions to process and generate wind-related data.
+
+Here's a step-by-step breakdown:
+
+1. It checks if a certain bias correction method ("NC State Bias Correction") is applied. If so, it sets a flag `_applyNCSCorrection` to True.
+
+2. It initializes a counter `gridCount` to keep track of the number of grids created.
+
+3. It then enters a loop over `interpFcstList`, which seems to be a list of interpolated forecasts.
+
+4. For each forecast, it sets the time range, calculates the valid time, and retrieves the closest wind grid for that valid time.
+
+5. It then sets the start and end times for the forecast, creates a new time range, and assigns this range to `_cycloneTimeRange`.
+
+6. It creates a Rankine vortex model for the wind grid and calculates the time taken to do so.
+
+7. It then blends the wind grid with the background grid, and smooths both the magnitude and direction grids.
+
+8. It creates a new grid with the smoothed data, naming it "Wind" and setting certain parameters like precision and allowed values.
+
+9. It increments the grid counter and prints out a message with the product ID, the current grid count, the total number of grids, and the start time of the time range.
+
+10. If `maxwindswath` is set to "Yes", it generates a composite max wind grid from the wind grids and prints out the time taken to do so.
+
+11. If there's any message in `msg`, it displays this message in the status bar.
+
+12. The function returns None.
+
+In summary, this code is processing wind forecast data, creating and smoothing wind grids, and optionally generating a composite max wind grid. It also keeps track of and prints out information about the processing time and the number of grids generated.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

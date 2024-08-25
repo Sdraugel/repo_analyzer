@@ -1,0 +1,70 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>DGT_Site_MultiPil_Definition.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>DGT_Site_MultiPil_Definition.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a configuration file for a Drought Monitor (DGT) product for a specific site. It sets up all the product definition overrides for the DGT formatter for a given site.
+
+The code begins by creating an empty dictionary named `Definition`. This dictionary is then populated with key-value pairs that define various configuration settings for the DGT product.
+
+The configuration settings include:
+
+- `displayName`: The name of the DGT product.
+- `fullStationID`: The full station identifier.
+- `wmoID`: The World Meteorological Organization ID.
+- `pil`: The product pil.
+- `stateName`: The name of the state.
+- `wfoCityState`: The location of the Weather Forecast Office (WFO).
+- `textdbPil`: The product ID for storing to the AWIPS text database.
+- `awipsWANPil`: The product ID for transmitting to the AWIPS WAN.
+- `outputFile`: The path and name of the output file.
+- `areaType` and `mapNameForCombinations`: These are optional and can be uncommented if issuing for zones.
+- `localWebsites`: A list of local websites related to the DGT product.
+- `acknowledgements`: A string containing acknowledgements to local, regional, or national agencies.
+- `addressWFO`: The address of the local WFO.
+
+There are also optional configuration items like `debug` and `purgeTime` that can be uncommented and set as needed. 
+
+The code also mentions that there are additional definition settings that can be set in the `DGT.py` TextProduct.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

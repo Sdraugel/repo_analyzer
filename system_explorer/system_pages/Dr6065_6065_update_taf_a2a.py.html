@@ -1,0 +1,70 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>6065_update_taf_a2a.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>6065_update_taf_a2a.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to update the afos2awips files for a weather forecasting system. The afos2awips files are used to map AFOS (Automation of Field Operations and Services) codes to AWIPS (Advanced Weather Interactive Processing System) identifiers. 
+
+The script is written to be run on a specific machine (dx1) as the root user. It was created to add entries for new TAF IWXXM products at the site level.
+
+Here's a breakdown of what the script does:
+
+1. It defines a pattern (A2A_PATTERN) that it will use to match lines in the afos2awips files.
+
+2. It defines a function (get_new_entries) that opens a specified file, reads each line, and checks if the line matches the defined pattern. If it does, it creates a new entry with a specific format. If the line is identical to the new entry, it is added to a set of already existing entries. If the line contains specific codes ('TAF' or 'FT'), it is added to a set of new entries. The function then returns the set of new entries after removing any that already exist.
+
+3. In the main function, it first prints a message that the update is starting. It then defines the root directory where the afos2awips files are located and gets a list of all site IDs.
+
+4. For each site ID, it constructs the paths to the afos2awips and blacklist files in both the 'site' and 'configured' directories.
+
+5. It then checks each file. If the file doesn't exist, it skips to the next one. If the file does exist, it calls the get_new_entries function to get a set of new entries.
+
+6. If there are new entries, it adds them to the file and prints a message that the file was updated. If there are no new entries, it prints a message that no changes were necessary.
+
+7. If no afos2awips files were found in either the 'site' or 'configured' directories, it prints a warning message.
+
+8. Finally, it prints a message that the update is done. 
+
+The script is designed to be run as a standalone program. If it's run as the main program (not imported as a module), it calls the main function to start the update process.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

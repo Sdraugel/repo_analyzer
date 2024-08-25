@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>removeGFSPostProcessor.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>removeGFSPostProcessor.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is used to modify an XML file containing configurations for a system called AWIPS2. Specifically, it removes configurations related to a component called GFSPostProcessor.
+
+The script starts by defining a custom XML parser that preserves comments in the XML file. This is done by extending the XMLTreeBuilder class from the xml.etree.ElementTree module and adding handlers for comments and processing instructions.
+
+The script then checks if the correct number of arguments have been passed. It expects two file names: the input XML file and the output file where the modified XML will be written.
+
+The XML file is parsed and the root element is checked to ensure it is "postProcessedModels". If not, the script exits with an error message.
+
+The script then iterates over all "postProcessedModel" elements in the root. For each "postProcessedModel", it checks all its child elements. If a child element is a "processorName" and its text contains "GFSPostProcessor", it is removed from the "postProcessedModel".
+
+If a "postProcessedModel" ends up having no "processorName" elements (i.e., all its processors were removed), the "postProcessedModel" itself is removed from the root. A comment is then inserted at the same position, indicating that the "postProcessedModel" was removed because its only processor, GFSPostProcessor, is no longer in use.
+
+Finally, the modified XML tree is written to the output file.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

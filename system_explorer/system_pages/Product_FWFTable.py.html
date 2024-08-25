@@ -1,0 +1,254 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>FWFTable.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>FWFTable.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code file appears to be a configuration file for a software developed by Raytheon Company. The software is related to weather forecasting, specifically Fire Weather Forecast in a tabular format. 
+
+The code file contains:
+
+1. A legal notice and contract details: This section mentions that the software was developed under a specific contract with the US Government. It also includes export control details, stating that the software contains export-restricted data.
+
+2. Software history: This section records changes made to the software, including the date, ticket number, engineer responsible, and a description of the changes.
+
+3. Description and copying details: This section describes the software's purpose and mentions that it is in the public domain, furnished "as is", without technical support or any warranty.
+
+4. File names and locations: This section provides information about standard and local file names and locations.
+
+5. Customization points: This section contains a list of required and optional configuration items. These items include various identifiers, names, and settings related to the software's functionality, such as display name, product name, station ID, WMO ID code, product pil, area name, WFO location, and many more.
+
+6. The code also includes various settings for how the software should handle different aspects of the weather forecast, such as how to handle hazards, how to combine time periods, how to justify columns, how to handle relative humidity grids, and how to report lightning activity, among others.
+
+This code file appears to be a part of a weather forecasting system, specifically for fire weather planning. It imports several modules, including TextRules, SampleAnalysis, time, TimeRange, and AbsTime, and defines a class named TextProduct that inherits from TextRules and SampleAnalysis.
+
+Within the class, a VariableList is defined, which contains tuples of information related to the product issuance. The Definition dictionary contains various configuration settings for the product, such as the type, display name, database, output file location, debug mode, map name for combinations, line length, edit areas, product identifiers, and more.
+
+The comments in the code provide detailed explanations of various weather-related flags and thresholds, such as wind adjustment factors, light wind thresholds, humidity recovery percentages, and more. These are likely used to adjust and fine-tune the weather forecasting algorithms.
+
+The code also mentions a number of weather elements that are needed, such as Sky, PoP, Wx, MaxT, MinT, T, Wind, Wind20ft, QPF, MaxRH, MinRH, MixHgt, TransWind, VentRate, HrsOfSun, CWR, Haines, LAL, RH, Ttrend, and RHtrend. These might be variables representing different weather conditions or measurements.
+
+The code also mentions the need for area editing, and references to associated utility files and component products. It also mentions common overrides from FWF_Table and WxPhrases, which are likely other parts of the same system.
+
+The provided code is written in Python and appears to be part of a larger program related to weather analysis and forecasting. Here's a breakdown of what the code is doing:
+
+1. The code begins by defining a dictionary with various configuration settings. These settings include options for handling data transmission, data formatting, and specific parameters related to weather analysis such as humidity recovery percentage, wind adjustment factor, and others.
+
+2. The `__init__` method is the constructor for this class. It appears to be inheriting from two parent classes, `TextRules` and `SampleAnalysis`.
+
+3. The `_rowList` method returns a list of tuples. Each tuple contains a label and a method. This seems to be used for creating a table of weather data, where each row of the table corresponds to a different weather parameter (like cloud cover, precip type, temp, etc.).
+
+4. The `ExtendedNarrative` method appears to be part of the process of generating a detailed weather forecast. It checks if period combining is enabled and sets a method list accordingly. However, the provided code is incomplete and does not show what happens next with this method list.
+
+In summary, this code is part of a weather analysis and forecasting system, providing configuration settings and methods for handling and presenting weather data.
+
+This code file appears to be a part of a weather forecasting system. The code is written in Python and includes a number of methods that are used to analyze and generate weather forecasts. Here's a breakdown of what some of the methods do:
+
+1. `Extended`: This method returns a dictionary that defines a component of the weather forecast. It includes a list of methods to be used, a list of weather elements to be analyzed, and a list of phrases to be included in the forecast.
+
+2. `rounding_method_dict` and `_adjustWind`: These methods are used to adjust the wind speed values. The wind speed is multiplied by a factor and then rounded to the nearest whole number.
+
+3. `wind_summary_words`: This method generates a summary of the wind conditions. It chooses whether to use data for "Wind20ft" or "Wind", and then generates a summary based on the chosen data.
+
+4. `wind_setUp`: This method sets up the wind data for analysis. It chooses whether to use data for "Wind20ft" or "Wind", and then sets up the data for further analysis.
+
+5. `nextDay24HourLabel_flag`: This method is used to label 24-hour periods starting after 1600 as the next day. This is needed for the Fire Weather Extended product.
+
+6. `wxCombinations`: This method returns a list of weather combinations that should be collapsed into a single phrase in the forecast.
+
+7. `temporalCoverage_hours_dict`: This method returns a dictionary that defines the hours of overlap of a grid with the time range in order to include it in the analysis.
+
+8. `minMax_std_deviation`: This method returns the number of standard deviations to compute around the weighted average for a stdDev_MinMax.
+
+9. `element_outUnits_dict`: This method returns a dictionary that defines the units to be used for different weather elements.
+
+10. `generateForecast`: This method generates the formatted product for a list of edit areas. It gets variables from varDict and Definition, gets the areaList, determines time ranges, and samples the data.
+
+This code seems to be a part of a larger program, possibly related to weather forecasting. It contains several methods that perform different tasks:
+
+1. The first method is not named, but it seems to be generating a product for each area in a list. It initializes an output string, `fcst`, and then loops over a list of areas, processing each one and updating the `fcst` string. It also updates a progress message as it goes through the list. Finally, it post-processes the product and returns the `fcst` string.
+
+2. The `_getVariables` method makes the `argDict` (argument dictionary) accessible to the class and retrieves variables from the `Definition` and `VariableList` in `argDict`. It also sets up some product-specific variables.
+
+3. The `_determineTimeRanges` method determines the time ranges that need to be sampled. It sets up a list of time ranges and labels, determines the time range to begin the extended forecast, and calculates the current times.
+
+4. The `_sampleData` method gets a sampler or set of samplers. It creates a list of samplers and gets a sampler for the first 12 hours of the extended period.
+
+5. The `_preProcessProduct` method adds a product heading to the `fcst` string. It builds up the `fcst` string with various pieces of information, including the product name, the National Weather Service location, the issue time, and a placeholder for headlines.
+
+6. The `_preProcessArea` method adds an area header to the `fcst` string. It also appears to retrieve some hazard text, but the method is cut off.
+
+Overall, this code seems to be part of a system for generating weather forecast products for different areas.
+
+The provided code appears to be part of a larger Python program that generates a forecast report. The report is created by gathering and formatting various weather-related statistics for a specific area and time range. Here's a more detailed breakdown:
+
+1. The first function you provided is not fully included, but it seems to be responsible for generating a forecast (fcst) by adding headlines to it.
+
+2. The `_makeProduct` function creates a text string representing the product for a given edit area. It formats column headings based on time ranges, gathers statistics for the area and time ranges, and formats each row of the table with these statistics. It also has the capability to produce an individual extended forecast.
+
+3. The following functions, such as `_cloudCover_row`, `_precipType_row`, `_chancePrecip_row`, `_tempWithTrend_row`, `_temp_row`, `_rhWithTrend_row`, `_rh_row`, `_windValleyMph_row`, and `_windRidgeMph_row` are responsible for creating individual rows in the forecast table. Each function is specific to a certain type of weather data (e.g., cloud cover, precipitation type, temperature, relative humidity, wind speed). They use the `makeRow` method to format the data for each row.
+
+4. The `makeRow` method, which is not included in the provided code, presumably takes in various parameters related to the weather data and formats them into a string that represents a row in the forecast table.
+
+Overall, this code is part of a weather forecasting system that generates detailed forecast reports based on various weather statistics.
+
+The provided code is a part of a Python file that contains several methods. Each method is responsible for creating a row in a forecast (fcst) based on different parameters. 
+
+The methods take in four arguments: `fcst`, `label`, `statList`, and `priorStatDict`. `fcst` is the forecast string that is being built, `label` is the label for the row, `statList` is a list of statistics, and `priorStatDict` is a dictionary of prior statistics. 
+
+Each method adds a row to the forecast string using the `makeRow` method. The `makeRow` method takes in several parameters including the label, column width, time range list, stat list, a specific value (e.g., wind, precipitation amount, etc.), a unit (e.g., "PM", "Wx", "ft", etc.), row label width, fixed value width, and column justification. 
+
+The methods are named based on the specific value they are adding to the forecast (e.g., `_precipAmount_row` adds a row with precipitation amount, `_mixHgtFt_row` adds a row with mixing height in feet, etc.). 
+
+Each method then returns the updated forecast string. 
+
+In summary, these methods are used to build a forecast string row by row, with each row containing different weather-related data.
+
+The provided code is written in Python and appears to be part of a larger system for generating weather forecasts. Here's a breakdown of what each function does:
+
+1. `_rhRecovery_row`, `_mixHgt500_row`, `_stability_row`: These functions are creating rows for a forecast table. They take a forecast string, a label, a list of statistics, and a dictionary of prior statistics as input. They add a row to the forecast string using the `makeRow` method, which takes several parameters including the label, column width, time range list, statistics list, and others. The row is then added to the forecast string, which is returned.
+
+2. `_postProcessArea`: This function adds a new line and the string "$$\n\n" to the forecast string.
+
+3. `_postProcessProduct`: This function post-processes the forecast string by adding extended forecasts, outlooks, and headlines. It also replaces the "<HEADLINES>" placeholder with the actual headlines. It sets the progress percentage to 100 and displays a completion message.
+
+4. `expireOffset`: This function returns an offset from today's midnight based on the product issuance time. If the product was issued in the morning, it returns 16, otherwise, it returns 28.
+
+5. `_getAnalysisList`, `_priorAnalysisList`, `_getExtAnalysisList`: These functions return lists of tuples, where each tuple represents a weather element and a method for analyzing that element.
+
+6. `_getLabel`: This function returns a column label given a time range.
+
+7. `_sky`, `_wind`: These functions return a sky or wind value given a statistics dictionary, a time range, and an argument list. The `_wind` function uses wind stats from 20ft if available, otherwise, it adjusts the wind stats.
+
+The code ends abruptly, so it's not clear what the `_wind` function does if wind stats are not available.
+
+The provided code appears to be a part of a larger Python script that is used to process and analyze weather data, specifically wind and precipitation data. Here's a breakdown of what the code is doing:
+
+1. The code first retrieves wind statistics from a data structure `windStats`. It checks if there are more than one set of wind statistics, and if there aren't, it duplicates the first set. It then converts the wind speed from knots to miles per hour (mph) and applies an adjustment factor if necessary.
+
+2. Next, it retrieves gust statistics from the `statDict` dictionary. If there are no gust statistics, it sets the gust speed to 0. Otherwise, it retrieves the gust speed, converts it from knots to mph, and applies an adjustment factor.
+
+3. The code then determines whether to use the morning (AM) or afternoon/evening (PM) wind statistics based on the time of day. If it's morning, it uses the first set of wind statistics; if it's afternoon or evening, it uses the second set.
+
+4. The code then constructs a string `windString` to represent the wind speed and direction. If the wind speed is below a certain threshold, it uses a predefined phrase to represent light wind. Otherwise, it calculates a range for the wind speed and direction.
+
+5. The code also constructs a string `gustString` to represent the gust speed if the gust speed is above a certain threshold and the difference between the gust speed and wind speed is above a certain threshold.
+
+6. The code then returns the `windString` and `gustString` concatenated together.
+
+7. The subsequent functions `_qpfVal`, `_duration`, `_begin`, `_end`, and `_getTR` appear to be related to analyzing precipitation data. They retrieve precipitation statistics, determine the duration of precipitation, and calculate the start and end times of precipitation. They return formatted strings representing these values.
+
+Please note that without the complete code or more context, some assumptions have been made in this analysis.
+
+The provided code appears to be a part of a larger Python program, possibly related to weather forecasting or meteorological data analysis. Here's a breakdown of what the different parts of the code are doing:
+
+1. The `_getTR` function seems to be the main function in this part of the code. It appears to be analyzing a list of weather statistics (`statList`) and time ranges (`trList`). It's looking for a time range (`noWxTimeRange`) where there is no weather event ("<NoWx>"). If it finds such a time range, it checks if the precipitation start time or end time matches the start or end time of the current time range. If it does, it checks the previous or next time range to see if the precipitation is "Continuing". The function returns the time range where there is no weather event.
+
+2. The `_getIndex` function is a helper function that returns the index of a given time range in a list of time ranges.
+
+3. The `_mixHgt` and `_mixHgtValue` functions seem to be related to reporting the mixed layer height (a meteorological term), possibly in different units. The `_getMixHgt` function is used to get the minimum and maximum mixed layer height.
+
+4. The code also includes some logic for handling different units (meters) and methods of calculating the mixed layer height. 
+
+5. There are also several print statements commented out, which were likely used for debugging purposes.
+
+Please note that without the full context or the complete code, it's hard to provide a more detailed analysis. The actual functionality might differ based on how these functions are used in the larger program.
+
+This code file appears to be a part of a larger system that deals with weather data. 
+
+1. The `_getCorrelatedStats` function takes a dictionary of statistics, an element, and a minMax value as arguments. It returns the minimum or maximum value for the given element that correlates with the minimum or maximum Mixing Height. It uses a method to find the subRange that has the minimum or maximum mixing height and then finds the first stats that overlap the mixing height subRange.
+
+2. The `_transWind` function returns the transport wind as a string. It checks if the day is 1 and if it is, it gets the transport wind value and returns it as a string. If the day is not 1, it returns an empty string.
+
+3. The `_transWindValue` function returns the transport wind as a tuple of magnitude and direction. It checks the units and converts the magnitude accordingly.
+
+4. The `_getVectorRange` function returns a text representation of a vector value. It checks if the value is empty or None and returns a string accordingly.
+
+5. The `wxVal` function returns a weather text string value. It gets the stats for the given element and then loops through the stats to create a string value. It replaces certain phrases with shorter versions.
+
+6. The `short_weather_phrase` function develops a short phrase for weather in a table. It checks if the stats are None and returns an empty string if they are. It then creates a subkey list from the stats and loops through the list to create a string value. It checks for certain conditions (like if it's freezing, liquid, snow, or sleet) and adjusts the value accordingly.
+
+This code appears to be part of a larger weather-related program. Here's a breakdown of what each function does:
+
+1. The first part of the code checks if certain conditions are met (isLiquid, isSleet, isSnow) and assigns a value "snow/rain" if they are. It then replaces certain substrings in the value with other substrings.
+
+2. The `precip_related` function checks if a given weather type (represented by a code like "ZR", "R", etc.) is related to precipitation. It returns 1 if it is, and 0 if it isn't.
+
+3. The `wxOrder` function assigns a numerical order to different weather conditions. For example, "thunderstorms" and "tstms" are assigned 0, "freezing rain" and "frz rain" are assigned 1, and so on.
+
+4. The `_stability` function appears to calculate a stability value based on some statistics and assigns a letter (from "A" to "F") based on the calculated value.
+
+5. The `_getLightning` function calculates a LAL (Lightning Activity Level) value based on some statistics. The value is a string that represents the level of lightning activity.
+
+6. The `_haines` function calculates an average Haines Index, which is a measure used to indicate the potential for wildfire development.
+
+7. The `_rhRecovery` function calculates the recovery of relative humidity (RH) and assigns a label ("Excellent", "Good", "Moderate", "Poor") based on the calculated value.
+
+8. The `_calcVentRate` function calculates a ventilation rate, which is a measure of the potential for the dispersion of pollutants in the atmosphere.
+
+9. The `_ventRate` function calculates a ventilation rate for either a day or night period.
+
+10. The `_dispersion` function calculates a dispersion value, which is a measure of the spreading of pollutants in the atmosphere. It assigns a numerical value based on the calculated ventilation rate.
+
+Please note that some of the functions refer to other functions or variables that are not included in this code snippet, so I can't provide a full explanation of how they work.
+
+The provided code is a series of methods in Python, presumably part of a larger class. Here's a brief description of what each method does:
+
+1. `_dsi`: This method returns a statistic called "DSI" from a given dictionary. If the statistic is not found, it returns "N/A".
+
+2. `_sunHours`: This method returns the hours of sunshine from the given statistics dictionary. If the statistics are not found or if the time range is not during the day, it returns "N/A" or an empty string respectively.
+
+3. `_popVal`: This method returns the maximum Probability of Precipitation (PoP) if there is weather in the given time range. If there is no precipitation, it returns "0".
+
+4. `_checkPrecip`: This method checks if there is precipitation in the given time range by checking the weather, QPF (Quantitative Precipitation Forecast), and PoP. It returns a flag indicating whether there is precipitation or not, along with the weather, QPF, and PoP values.
+
+5. `_cwr`: This method returns the maximum Chance of Wetting Rain (CWR) if the weather is not "None". If the weather is "None", it returns "0".
+
+6. `_mixHgt500`: This method returns the 500m Mixing Height for daytime only. If it's not daytime or the statistics are not found, it returns "N/A" or an empty string respectively.
+
+7. `_cigHeight`: This method returns the ceiling height in feet from the given statistics. If the ceiling height is not found, it returns "N/A". It also rounds the height based on certain conditions.
+
+8. `_addHeadlines`: This method adds headlines to a list of product headlines, after splitting the input headlines string by "...". It ignores empty headlines or headlines that start with a newline character.
+
+9. `allowedHazards`: This method returns a list of allowed hazards for a product in VTEC (Valid Time Event Code) format. The hazards are sorted in priority order, with the most important ones first.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

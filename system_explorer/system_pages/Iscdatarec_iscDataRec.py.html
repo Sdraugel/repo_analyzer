@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>iscDataRec.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>iscDataRec.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is a command-line interface (CLI) tool developed by Raytheon Company. It is designed to process incoming ISC (Inter-System Communication) requests. 
+
+The script receives an incoming request via MHS (Message Handling System) and resends the request to EDEX (a data exchange system) for processing. To do this, it uses a Thrift client, which is a software framework for scalable cross-language services development. 
+
+The script has two main functions: `main()` and `getConnectionParams()`. 
+
+In the `main()` function, it first gets the connection parameters (host and port) from the environment variables `SVCBU_HOST` and `CDSPORT`. Then it creates an ISC Data Rec Request and sends it to the server using the Thrift client. If any errors occur during this process, it logs the exception and exits the program with a status code of 1. If the server response is not okay, it logs an error message and also exits the program with a status code of 1.
+
+The `getConnectionParams()` function simply returns a tuple of the host and port, which are read from the environment variables `SVCBU_HOST` and `CDSPORT`.
+
+The script also sets up a logger named "iscDataRec" with a specific format and date format. The logging level is set to INFO.
+
+The script is executed if it is run as a standalone program (i.e., not imported as a module in another script). In this case, it calls the `main()` function.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

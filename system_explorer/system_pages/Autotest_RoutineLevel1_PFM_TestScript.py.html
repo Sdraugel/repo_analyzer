@@ -1,0 +1,393 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>RoutineLevel1_PFM_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>RoutineLevel1_PFM_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This script appears to be a testing script for a weather forecasting system, possibly the Advanced Weather Interactive Processing System (AWIPS) II, as indicated by the reference to the AWIPS II Master Rights File in the comments. 
+
+The script starts with a copyright notice and a disclaimer about export restrictions, followed by the contractor's name and address.
+
+The script then imports a module called `TestScript`.
+
+Three different sets of default edit areas are defined, each with different sets of coordinates and identifiers.
+
+A variable `Day` is defined with a value of 24, presumably representing a day in hours.
+
+The script then defines a list `PFM1_createGrids` that contains tuples. Each tuple represents a forecast, with the first element being the type of forecast ('Fcst'), the second being the type of weather variable (e.g., 'MaxT' for maximum temperature, 'MinT' for minimum temperature, 'T' for temperature, 'Td' for dew point temperature), the third being the data type ('SCALAR'), the fourth and fifth being the start and end times of the forecast, the sixth being the forecasted value, and the seventh being the area for which the forecast applies ('all').
+
+The start and end times of the forecasts are incremented in steps, and the forecasted values also change. This suggests that the script is creating a series of forecasts for different times and different weather variables, possibly for testing purposes.
+
+The code appears to be a part of a weather forecasting application or system. It seems to be creating a series of forecast entries, each represented as a tuple with multiple values.
+
+Each tuple seems to represent a forecast for a specific weather parameter ("Td", "Sky", "PoP") over a specific time period. The time period is defined by two values, which appear to be calculated relative to a variable named `Day`.
+
+- "Td" likely stands for Dew Point Temperature. The numbers following the time period probably represent the forecasted Dew Point Temperature.
+- "Sky" likely represents sky cover or cloudiness. The numbers following the time period probably represent the percentage of the sky that is expected to be covered by clouds.
+- "PoP" likely stands for Probability of Precipitation. The numbers following the time period probably represent the chance of precipitation.
+
+The last element in each tuple, "all", could be indicating that these forecasts apply to all areas covered by the system.
+
+There's also a commented out line, which might have been used for testing or might be temporarily disabled due to missing data.
+
+This code appears to be a part of a weather forecasting system. 
+
+1. The first section of the code is making a forecast for the Probability of Precipitation (PoP). It's doing this for a number of different time periods, each represented by a tuple. The time periods are calculated as multiples of a variable named `Day`. The forecast is given as a scalar value, which is the percentage chance of precipitation. 
+
+2. The second section of the code is making a forecast for the weather conditions (`Wx`). It's doing this for different time periods, each represented by a tuple. The time periods are calculated as multiples of a variable named `Day`. The forecast is given as a string, which describes the expected weather conditions. 
+
+3. The third section of the code is making a forecast for the wind conditions. It's doing this for different time periods, each represented by a tuple. The time periods are calculated as multiples of a variable named `Day`. The forecast is given as a vector, which includes the speed and direction of the wind. 
+
+Each tuple in the code includes the type of forecast (`Fcst`), the variable being forecasted (`PoP`, `Wx`, or `Wind`), the type of data (`SCALAR`, `WEATHER`, or `VECTOR`), the start and end times for the forecast, the forecasted value, and a string `all` which could be indicating that the forecast applies to all areas.
+
+The provided code appears to be a part of a weather forecasting system. It's defining a series of forecasts for different weather conditions over a range of time periods. 
+
+1. The first section is forecasting wind conditions. The "VECTOR" type suggests that the forecast includes both magnitude (speed) and direction. The tuples like (22, "NW") represent the wind speed and its direction. The time periods for these forecasts are defined by Day, Day+3, Day+6, etc., where "Day" is likely a variable representing the current day.
+
+2. The second section is forecasting QPF (Quantitative Precipitation Forecast), which is the expected amount of liquid precipitation. The "SCALAR" type suggests that these forecasts are single values, not vectors. The numbers following the time periods represent the forecasted amount of precipitation.
+
+3. The third section is forecasting SnowAmt (Snow Amount). Like the QPF forecasts, these are scalar values representing the expected amount of snowfall.
+
+In each case, the "all" at the end of the line likely indicates that these forecasts apply to all areas covered by the system. However, without more context, it's hard to say for sure.
+
+The code provided appears to be a part of a weather forecasting program. It's defining several lists of tuples, each of which represents a different type of forecast or operation on the forecast data.
+
+1. The first list of tuples is defining a series of snow amount forecasts ("SnowAmt") for different periods of time. The time periods are calculated based on a variable `Day` (which is not defined in the provided code). Each tuple represents a forecast of snow amount for a specific time period, with the snow amount set to 0 for all these periods.
+
+2. The second list, `PFM_createGrids2`, seems to be creating a series of forecast grids for different weather parameters like maximum temperature ("MaxT"), minimum temperature ("MinT"), temperature ("T"), dew point ("Td"), wind, sky condition ("Sky"), weather ("Wx"), snow amount ("SnowAmt"), precipitation forecast ("QPF"), and probability of precipitation ("PoP"). Each tuple represents a forecast grid for a specific weather parameter, for a specific time period, with a specific value.
+
+3. The third list, `PFM_deleteGrids`, is defining a series of operations to delete certain forecast grids. Each tuple represents a grid to be deleted, specified by the weather parameter and the surface ("SFC").
+
+4. The fourth list, `PFM_shortenGrids`, seems to be creating a series of shortened forecast grids for different weather parameters. Each tuple represents a forecast grid for a specific weather parameter, for a specific shortened time period, with a specific value.
+
+Please note that without the full context of the code, some assumptions have been made based on the provided code snippet.
+
+The provided code seems to be a part of a weather forecasting system. It appears to be written in Python and is defining various settings and parameters for weather forecasts in different areas. 
+
+1. The first part of the code is defining a list of tuples, each representing a forecast. Each tuple contains the type of forecast (e.g., "Fcst"), the parameter being forecasted (e.g., "PoP" for probability of precipitation, "HeatIndex", "WindChill"), the type of the parameter ("SCALAR"), the start and end times for the forecast, the value of the parameter, and the area for which the forecast is applicable ("all").
+
+2. The next part of the code is defining time zones for different areas. It's assigning different time zones to different areas using their codes (e.g., 'FLZ050', 'FLZ251', etc.).
+
+3. The "defaultEditAreas" sections define the default areas for editing the forecasts. Each area is represented by a tuple containing the area code and a string with details about the area.
+
+4. The "latLonEditAreas" section defines areas based on latitude and longitude coordinates.
+
+5. The "scripts" section appears to define a list of scripts for generating weather forecasts. Each script is represented by a dictionary with details about the script, including its name, the type of product it generates, commentary about the script, command line variables, and check strings.
+
+In summary, this code is setting up parameters and areas for weather forecasting, and defining scripts for generating the forecasts.
+
+This code appears to be a part of a larger script that is used to generate and manage weather forecast data. The code is structured as a list of dictionaries, each representing a different forecast issuance. Each dictionary contains the following keys:
+
+1. "name": This is the name of the forecast issuance.
+2. "productType": This indicates the type of product, which is "PFM" in all cases here.
+3. "commentary": This provides a brief description of the forecast issuance.
+4. "cmdLineVars": This is a dictionary of command line variables used in the script. It appears to specify the time of product issuance and the issuer.
+5. "fileChanges": This key is present in the first dictionary and it seems to specify some changes to be made to a file. However, the actual changes are not clear from the provided code.
+6. "checkStrings": This is a list of strings that seem to represent different aspects of the weather forecast, including date, time, temperature, dew point, relative humidity, wind direction and speed, cloud cover, precipitation, and different types of weather conditions (rain, snow, drizzle, etc.).
+7. "createGrids": This appears to be a function call to create grids for the forecast data, but the function definition is not provided in the code snippet.
+
+Overall, this code seems to be a part of a larger system for managing and generating weather forecasts.
+
+This code appears to be part of a larger script for generating weather forecasts. It seems to be written in Python and uses a dictionary data structure to store information about different types of forecasts.
+
+The first part of the code seems to be a list of strings representing different weather conditions, such as temperature, dew point, wind direction, wind characteristics, cloud coverage, and precipitation. It also includes some special weather conditions like drizzle, freezing drizzle, freezing rain, and snow.
+
+The second part of the code defines a dictionary with keys such as "name", "productType", "commentary", "cmdLineVars", and "checkStrings". The "checkStrings" key contains a list of strings that seem to represent a template for a weather forecast report.
+
+The "createGrids" key seems to be associated with a function called PFM1_createGrids, which is likely used to generate a grid of weather data.
+
+The third part of the code defines another dictionary for testing Obvis and new volcanic ash. It follows a similar structure to the second part, but the "createGrids" key here contains a list of tuples, each representing a forecast with specific weather conditions.
+
+The fourth part of the code defines another dictionary for testing weather rows. It also follows a similar structure to the previous parts.
+
+In summary, this code seems to be used for generating and testing different types of weather forecasts.
+
+The code appears to be a part of a larger script, likely written in Python, that is used for weather forecasting. It seems to be a configuration or input for a weather forecasting model or system. 
+
+The first part of the code is a list of strings that seem to represent different weather conditions (like "Drizzle", "Flurries", "Rain", etc.) and their corresponding data. The "MM" likely stands for missing data, while the other characters (O, S, C, L, D, etc.) could be codes for specific weather conditions or their intensity. 
+
+The "createGrids" section seems to be defining a series of forecast periods (6, 9, 12, 15, etc.), each with a specific weather condition and its characteristics. The "Fcst" likely stands for "Forecast", "Wx" could be short for "Weather", and "WEATHER" is probably the type of forecast. The numbers (6, 9, 12, etc.) likely represent hours or some other time unit, defining the duration of each forecast period. The strings following these ("Wide:R:-:<NoVis>:^Iso:RW:-:<NoVis>:^SChc:S:-:<NoVis>:^Sct:SW:-:<NoVis>:", etc.) could be codes for specific weather conditions expected during each period.
+
+The last part of the code, "Testing Spans", seems to be a setup for a test of the system, specifically testing the spans for Max/Min, QPF (Quantitative Precipitation Forecast), and Snow. The test likely checks if there are any spans (continuous periods) of these weather conditions.
+
+This code appears to be a part of a weather forecasting system. It's written in Python and uses a dictionary-like structure to store and manipulate data. 
+
+The first part of the code, under "neVars" and "checkStrings", seems to be setting up variables and strings related to the issuance of a weather product. It includes details like the product issuance time, the issuer, and various weather data strings like temperature, dew point, wind direction, and speed, among others.
+
+The "createGrids" section appears to be creating forecast grids for different weather parameters such as maximum temperature (MaxT), precipitation forecast (QPF), and snow amount (SnowAmt). These grids are created for different forecast periods and areas.
+
+The second part of the code, under "name":"PFM_WWA", "productType":"PFM", seems to be setting up a different type of weather product. It includes similar elements as the first part, but also includes a "fileChanges" section that seems to be used for updating the definition of the product.
+
+The "checkStrings" section in this part includes additional weather parameters like blizzard, dense fog, excess heat, hurricane, etc. These could be potential hazards that are being forecasted. 
+
+Please note that "MM" is often used as a placeholder for missing or yet-to-be-defined data.
+
+This code appears to be a template for a weather forecast report for different test areas. The template includes placeholders for various weather parameters such as temperature, dew point, relative humidity, wind direction and speed, cloud cover, probability of precipitation, and snowfall. The placeholders are represented by "MM". 
+
+The code also includes placeholders for dates and times in both Eastern Standard Time (EST) and Coordinated Universal Time (UTC). 
+
+Each section of the code corresponds to a different test area, with the latitude, longitude, and elevation specified for each. 
+
+The code also includes placeholders for weather conditions related to tropical storms, typhoons, and hurricanes. 
+
+The "$$" symbols likely represent the end of a section or a break in the data. 
+
+However, this code does not contain any functional programming elements, such as loops or conditionals, and it does not appear to be written in a specific programming language. It seems to be more of a structured data file or template.
+
+The provided code appears to be a part of a weather forecasting system. It seems to be written in Python and is likely used to generate weather forecasts for different areas. 
+
+The first part of the code seems to be a template for a weather forecast, with placeholders (MM) for actual data. It includes fields for date, time (in both EST and UTC), temperature, dew point, wind direction, wind characteristics, average cloud cover, and probability of precipitation for different periods of the day.
+
+The "createGrids" section of the code seems to be creating forecasts for various hazards, such as tropical storms (TR), hurricanes (HU), blizzards (BZ), etc. Each forecast is associated with a specific time period and area (e.g., 'FLZ050'). The hazards are represented by codes like "TR.W:1080", "HU.W:1081", etc. 
+
+The last part of the code seems to be a test for the system's ability to handle multiple time zones. It generates a forecast for two test areas, with fields for date, time (in both EST and UTC), maximum and minimum temperatures, dew point, relative humidity, wind direction and speed, cloud cover, probability of precipitation, and quantities of precipitation and snow. 
+
+Please note that the code is incomplete, and a full analysis would require the entire code.
+
+The provided code appears to be a part of a weather forecasting or reporting system. It's not written in a typical programming language, but rather seems to be a structured data set or a configuration file.
+
+The data includes various weather parameters such as temperature ("Temp"), dew point ("Dewpt"), relative humidity ("RH"), wind direction ("Wind dir"), wind speed ("Wind spd"), cloud cover ("Clouds"), probability of precipitation ("PoP 12hr"), quantity of precipitation ("QPF 12hr"), snowfall ("Snow 12hr"), and others. 
+
+The "MM" entries likely represent missing or not applicable data. The data is organized in a time-series manner with entries for different dates and times. 
+
+There are also geographical coordinates and elevation data for different test areas, which suggests that this data might be used for weather simulations or predictions for these specific locations.
+
+The "fileChanges" part at the end seems to be a placeholder or an incomplete piece of code, as it doesn't provide any clear information. It might be related to some kind of version control or file modification tracking system.
+
+This code appears to be part of a larger script related to weather forecasting. It seems to be defining a series of weather-related data strings, possibly for testing or for use in a weather application.
+
+The code is structured as a list of dictionaries, each containing various key-value pairs. The keys include "name", "productType", "cmdLineVars", and "checkStrings". 
+
+The "name" key appears to be used to identify the specific weather forecast, such as "PFM_TimeZone2am". 
+
+The "productType" key indicates the type of weather product, in this case, "PFM" which could stand for Point Forecast Matrices.
+
+The "cmdLineVars" key seems to be used for setting command line variables, possibly for customizing the forecast.
+
+The "checkStrings" key contains a list of strings that seem to represent various aspects of a weather forecast. These strings include information like the forecast source, date and time, geographical coordinates, weather conditions (like temperature, dew point, wind direction and speed, cloud cover, etc.), and forecast periods.
+
+The values "MM" in the forecast data likely represent missing or not yet determined data. 
+
+This code seems to be part of a larger system, possibly for generating, testing, or parsing weather forecasts.
+
+This code appears to be a structured textual representation of weather data, likely extracted from a weather forecasting system. It's not a programming code, but a structured data in text format. Here's a breakdown of what each part of the data might represent:
+
+1. Dates and times: The code includes several dates and times, likely representing when the weather data was recorded or the forecast period. For example, "Sun 07/04/10" represents July 4, 2010.
+
+2. Weather parameters: The code includes several weather parameters, such as temperature ("Temp"), dew point ("Dewpt"), wind direction ("PWind dir"), wind speed ("Wind spd"), cloud cover ("Avg clouds"), and probability of precipitation ("PoP 12hr"). Each parameter is followed by a series of "MM" placeholders, which likely represent missing or yet-to-be-filled data.
+
+3. Location data: The code includes geographical coordinates (e.g., "35.00N  90.00W Elev. 394 ft"), likely representing the location where the weather data was recorded.
+
+4. Weather phenomena: The code includes references to specific weather phenomena, such as rain showers ("Rain shwrs") and thunderstorms ("Tstms").
+
+5. Timezone information: The code includes timezone information (e.g., "tz=CST6CDT"), likely indicating the timezone of the location where the weather data was recorded.
+
+6. Other weather data: The code includes other weather-related data, such as snowfall ("Snow 12hr") and rainfall ("QPF 12hr").
+
+7. Section identifiers: The code includes identifiers (e.g., "FLZ248-012100-"), which might be used to separate different sections of the data.
+
+In summary, this code is a structured textual representation of weather data, including various weather parameters, location data, and timestamps.
+
+This code appears to be a part of a weather forecast data file. It contains information about various weather parameters such as wind direction and speed, cloud cover, probability of precipitation (PoP) over 12 hours, quantity of precipitation (QPF) over 12 hours, snowfall over 12 hours, and temperature. 
+
+The data is organized in a time series format, with entries for different dates and times (in both Mountain Daylight Time (MDT), Coordinated Universal Time (UTC), Pacific Daylight Time (PDT), and Pacific Standard Time (PST)). 
+
+The entries "MM" seem to represent missing or not measured data. The entries like "FLZ251-012100-", "tz=MST7", and "35.00N  90.00W Elev. 397 ft" appear to be metadata, possibly indicating the forecast zone, time zone, and the location's latitude, longitude, and elevation respectively. 
+
+The lines "Rain shwrs" and "Tstms" could be indicating the presence of rain showers and thunderstorms. 
+
+The data seems to be repeated for different time zones or locations.
+
+This code appears to be a weather forecast data in a text format, possibly from a weather station or a meteorological service. It's not a programming code, but a structured data.
+
+Here's a breakdown of some of the elements:
+
+- The lines with "07 10 13 16 19 22 01 04 07 10 13 16 19 22 01 04 07 10 13 16" and similar are likely representing times in 24-hour format.
+- "UTC 3hrly" and "UTC 6hrly" probably represent Universal Time Coordinated in 3-hour and 6-hour intervals.
+- "Max/Min", "Temp", "Dewpt", "RH", "Wind dir", "Wind spd", "Clouds", "PoP 12hr", "QPF 12hr", "Snow 12hr" are weather parameters like maximum and minimum temperature, dew point, relative humidity, wind direction, wind speed, cloud cover, probability of precipitation in 12 hours, quantitative precipitation forecast in 12 hours, and snowfall in 12 hours.
+- "MM" likely stands for missing measurement or data not available.
+- "tz=America/Anchorage" and "tz=AKST9" are time zone information.
+- "35.00N  90.00W Elev. 400 ft" and similar lines are likely the geographical coordinates and elevation of the weather station.
+- "Date" lines indicate the dates for which the forecasts are made.
+- "Rain shwrs" and "Tstms" likely stand for rain showers and thunderstorms.
+- The lines starting with "$$" might be separators between different data sections.
+- "FLZ056-012100-", "FLZ057-012100-" could be identifiers for specific forecasts or weather zones.
+
+Remember, this is an educated guess based on the given data. The exact meaning could be different based on the source and context of this data.
+
+This code appears to be part of a weather forecasting system. It contains a series of strings that represent different weather data for specific locations and times. The data includes temperature, dew point, relative humidity, wind direction and speed, cloud cover, probability of precipitation, and other similar parameters. 
+
+The "MM" in the strings seems to represent missing data or placeholders for future data. The code also includes timezone information for different locations, such as "tz=Pacific/Honolulu" and "tz=Pacific/Guam". 
+
+The "fileChanges" section suggests that this code is part of a larger system that involves file operations, possibly updating or modifying weather data files.
+
+The "gridsStartTime" and "drtTime" fields appear to be timestamps related to the weather data, possibly indicating the start time for the data grid and a "disaster recovery time", respectively.
+
+The "createGrids" field refers to a function, likely used to generate or update the weather data grids.
+
+The second part of the code seems to be a different forecast matrix, possibly issued at a different time ("Afternoon") and for a different location ("tz=America/Puerto_Rico"). It contains similar weather data strings as the first part. 
+
+Overall, this code seems to be part of a system for generating, updating, and managing weather forecast data.
+
+This code appears to be a text-based weather forecast or report. It includes information about various weather conditions such as wind direction and speed, cloud cover, probability of precipitation (PoP) over 12 hours, quantity of precipitation (QPF) over 12 hours, snow over 12 hours, and the presence of rain showers or thunderstorms. 
+
+The data is organized in a time-series format, with dates and times provided in both local (AST, EST, EDT) and Coordinated Universal Time (UTC). The 'MM' entries likely represent missing data or data that is not applicable at the given time.
+
+The code also includes geographic information, such as latitude and longitude coordinates and elevation, which likely represents the location for which the weather data is relevant. 
+
+The "$$" symbols might be used to denote the end of a section of data. 
+
+Overall, this code seems to be a part of a larger system that processes or displays weather data.
+
+The code provided appears to be a weather forecast data in a specific format, not a traditional programming language. It seems to be a series of strings that represent different weather data for different locations and times. Here's a breakdown of the data:
+
+1. "FLZ248-010900-", "FLZ249-010900-", and "FLZ050-010900-" seem to be identifiers for different weather forecast zones.
+2. "tz=CST6CDT", "tz=CST6", and "tz=MST7MDT" indicate the time zones for these forecast zones.
+3. "35.00N  90.00W Elev. 394 ft", "35.00N  90.00W Elev. 395 ft", and "35.00N  90.00W Elev. 396 ft" are the geographical coordinates and elevation of these zones.
+4. The rest of the data seems to be weather forecasts for specific dates and times. The data includes information like temperature ("Temp"), dew point ("Dewpt"), relative humidity ("RH"), wind direction ("Wind dir"), wind speed ("Wind spd"), cloud cover ("Clouds"), probability of precipitation ("PoP 12hr"), quantitative precipitation forecast ("QPF 12hr"), snowfall ("Snow 12hr"), and occurrences of rain showers ("Rain shwrs") and thunderstorms ("Tstms").
+5. The "MM" seems to represent missing data or data that is not available at the time of the forecast.
+
+This data is likely used in a weather forecasting application or system to provide detailed forecasts for specific locations.
+
+The provided text seems to be a part of a weather forecast report or meteorological data file. It contains various parameters related to weather conditions for different dates and times. However, it's not a code file in any programming language.
+
+Here's a breakdown of some of the elements:
+
+- "MDT 6hrly", "UTC 6hrly", "MST 3hrly", "UTC 3hrly", "PDT 6hrly", "UTC 6hrly", "PST 3hrly", "UTC 3hrly": These lines seem to represent time intervals in different time zones (Mountain Daylight Time, Coordinated Universal Time, Mountain Standard Time, Pacific Daylight Time, Pacific Standard Time) for weather data collection.
+
+- "Max/Min", "Temp", "Dewpt", "PWind dir", "Wind char", "Avg clouds", "PoP 12hr", "QPF 12hr", "Snow 12hr", "Rain shwrs", "Tstms": These lines represent different weather parameters like maximum and minimum temperatures, dew point, predominant wind direction, wind characteristics, average cloudiness, probability of precipitation in the next 12 hours, quantitative precipitation forecast for the next 12 hours, snow forecast for the next 12 hours, rain showers, and thunderstorms.
+
+- "MM": This seems to be a placeholder for missing or yet-to-be-filled data.
+
+- "35.00N  90.00W Elev. 397 ft", "35.00N  90.00W Elev. 398 ft", "35.00N  90.00W Elev. 399 ft": These lines represent geographic coordinates (latitude and longitude) and elevation of the location for which the weather data is provided.
+
+- "700 PM MST Wed Jun 30 2010", "700 PM PDT Wed Jun 30 2010", "600 PM PST Wed Jun 30 2010": These lines represent the date and time of the weather report.
+
+- "FLZ251-010900-", "FLZ052-010900-", "FLZ255-010900-": These could be identifiers for different sections of the report or different geographical areas.
+
+- "tz=MST7", "tz=PST8PDT", "tz=PST8": These lines represent the time zones related to the data.
+
+The provided code appears to be a structured text file, likely used for weather data. It contains information about various weather parameters for different dates and times. Here's a breakdown of what each line represents:
+
+1. "RH" likely stands for Relative Humidity, which is given at different times. "MM" likely represents missing data.
+2. "Wind dir" and "Wind spd" represent the wind direction and speed respectively.
+3. "Clouds" could represent the cloud cover.
+4. "PoP 12hr" could represent the Probability of Precipitation over the next 12 hours.
+5. "QPF 12hr" could represent the Quantitative Precipitation Forecast over the next 12 hours.
+6. "Snow 12hr" could represent the snowfall amount expected in the next 12 hours.
+7. "Rain shwrs" and "Tstms" could represent the occurrence of rain showers and thunderstorms respectively.
+8. "Date" represents the date for which the weather data is provided.
+9. "PST 6hrly" and "UTC 6hrly" could represent the time in PST and UTC respectively at 6-hour intervals.
+10. "Max/Min" could represent the maximum and minimum temperatures.
+11. "Temp" represents the temperature at different times.
+12. "Dewpt" could represent the dew point temperature.
+13. "PWind dir" could represent the predominant wind direction.
+14. "Wind char" could represent the characteristics of the wind.
+15. "Avg clouds" could represent the average cloud cover.
+
+The lines starting with "FLZ056-010900-", "tz=America/Anchorage", "35.00N  90.00W Elev. 400 ft", "600 PM AKDT Wed Jun 30 2010" seem to be providing metadata about the location and time zone for which the weather data is provided.
+
+The code repeats this structure for different dates and times, likely providing a forecast for each period.
+
+The given code appears to be a part of a larger script, likely written in Python, that is used for generating weather forecast reports. The script seems to be generating forecast matrices for different geographical locations. Here are some key points:
+
+1. The script uses a list of strings to define the forecast data. The strings contain information about the date, time (in both HST and UTC), temperature, dew point, relative humidity, wind direction and speed, cloud cover, precipitation probability, and other weather-related data. The "MM" in these strings likely stands for missing data.
+
+2. The "fileChanges" list suggests that the script might be used to modify certain files or data structures, specifically "AreaDictionary" and "PFM_<site>_Definition".
+
+3. The "gridsStartTime" and "drtTime" fields seem to be related to the timing of the weather forecast, possibly indicating the start time for the forecast grid and a disaster recovery time.
+
+4. The "createGrids" field refers to a function, likely used to generate the forecast grids.
+
+5. The second part of the code seems to be a different forecast matrix for a different location or time, with similar data fields but different values.
+
+6. The "cmdLineVars" field suggests that the script accepts command-line variables, which are used to customize the forecast report.
+
+7. The "checkStrings" list appears to contain strings that are used to verify the correctness of the forecast report.
+
+Please note that without the full context or the rest of the script, this is a high-level analysis and some details might be interpreted differently in the full context of the code.
+
+The given code seems to be a part of a weather forecast system. It contains data and functions related to weather conditions for different periods and geographical locations. 
+
+The data includes:
+- Date and time in both Eastern Standard Time (EST) and Coordinated Universal Time (UTC).
+- Maximum and minimum temperatures.
+- Current temperature and dew point.
+- Relative humidity (RH).
+- Wind direction and speed.
+- Cloud conditions.
+- Probability of precipitation (PoP) over a 12-hour period.
+- Quantity of precipitation (QPF) over a 12-hour period.
+- Snowfall over a 12-hour period.
+- Occurrence of different types of precipitation like drizzle, rain, rain showers, sprinkles, thunderstorms, freezing drizzle, freezing rain, and snow.
+- Predominant wind direction and wind characteristics.
+- Average cloud conditions.
+
+The function `PFM1_createGrids` is mentioned, which might be responsible for creating a grid-based representation of the weather data.
+
+The `fileChanges` list seems to be tracking changes made to the weather data file, with entries indicating the type of change (addition in this case), the affected area, and an undo function.
+
+The code also includes a test named `PFM_Shorten1` which seems to be testing the system's ability to handle shortened periods of weather data. The test includes command line variables and check strings to verify the output.
+
+This code appears to be a part of a larger script that generates weather forecast data. It seems to be written in Python, and it's likely part of a larger system for generating and managing weather forecasts.
+
+The code includes three main sections, each representing a different test case for generating a Point Forecast Matrix (PFM). Each section includes a commentary describing the test, a name for the test, the type of product being generated (PFM), some command line variables, and a list of check strings.
+
+The check strings seem to represent the format of the forecast data. They include various weather parameters like temperature, dew point, wind direction and speed, cloud cover, and more. The "MM" in these strings likely stands for missing data.
+
+Each section also includes a start time for the forecast grid, a reference time, and a function call to `PFM_shortenGrids`, which presumably shortens the forecast grids in some way.
+
+Overall, this code seems to be testing the generation of weather forecast data in different scenarios.
+
+This code appears to be a part of a weather forecasting system, specifically for generating point forecast matrices (PFM). It seems to be written in Python and contains several dictionaries and a function.
+
+The dictionaries contain information about different forecast periods and their respective data. The data includes details like the start time of the grid, the time of the day relative to true (drtTime), and various weather parameters like temperature, dew point, wind direction, cloud cover, etc. The "MM" in the data likely stands for missing measurements.
+
+The function `testScript` seems to be a test function to verify the functionality of the forecasting system. It takes three parameters: `self`, `dataMgr`, and `level`. The function sets the start time for the grids and the drtTime, and it also sets some default parameters. It then calls a method `generalTestScript` on the `TestScript` object, passing the data manager, the scripts, the default parameters, and the level.
+
+The `createGrids` and `deleteGrids` keys in the dictionaries refer to functions that are not defined in the provided code. They likely create and delete weather data grids respectively. 
+
+The `fileChanges` key in the last dictionary suggests that some file operations are performed, possibly to update the forecast data.
+
+In summary, this code is part of a weather forecasting system that generates, tests, and manages point forecast matrices.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

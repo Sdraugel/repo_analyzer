@@ -1,0 +1,244 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>HLSTCV_Common.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>HLSTCV_Common.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code appears to be part of a larger Python program, specifically a module or class definition for a text product related to hazard warnings. Here's a breakdown of the different sections:
+
+1. **Header Comments**: The initial comments provide information about the software's development, the contractor's details, and export control restrictions. It also includes a brief explanation of the file's purpose and a software history log detailing changes made to the code over time.
+
+2. **Imports**: The code imports several modules and functions that are likely used in other parts of the program. These include built-in Python libraries like `collections`, `copy`, `errno`, `os`, `pprint`, `re`, `time`, and `datetime`, as well as other custom modules like `IFPDialog`, `CAVEMode`, `AbsTime`, `DiscretePhrases`, `EditAreaUtils`, `GenericHazards`, `JsonSupport`, `LocalizationSupport`, `ModuleAccessor`, and `SampleAnalysis`.
+
+3. **Class Definition**: The `TextProduct` class is defined, which inherits from `GenericHazards.TextProduct`. The class appears to be a template for creating text products related to hazard warnings, with several methods and properties that are not fully implemented in this snippet.
+
+4. **Initialization**: The `__init__` method initializes an instance of the `TextProduct` class. It calls the initializer of the parent class and creates a `PrettyPrinter` object.
+
+5. **Methods**: Two methods, `allowedHazards` and `allowedHeadlines`, are defined. These methods return lists of tuples representing different types of hazard warnings and their associated actions.
+
+6. **Comments**: There are several commented sections indicating the structure of the class and where additional methods related to hazards, initialization, analysis, product parts, dictionary methods, sampling, statistics, area, zone, segment, time, storm information, TCP, advisory, and GUI would be implemented. These sections are placeholders for future code.
+
+The version of the software is also mentioned in the comments as `2021.01.29-0`.
+
+This code is written in Python and it appears to be part of a larger system for processing and analyzing weather data, possibly for the purpose of generating weather reports or alerts. 
+
+The first part of the code is a function called `_initializeVariables`. This function takes an argument `argDict` and uses it to initialize a number of variables. It also calls several other initialization functions, such as `_initializeTimeVariables` and `_initializeHazardsTable`. If there is an error during the initialization, the function returns the error. Otherwise, it returns None.
+
+The second function, `moderated_dict`, is used to specify the lower and upper percentages of data to be thrown out for moderated stats. This function takes three arguments: `parmHisto`, `timeRange`, and `componentName`. It retrieves baseline thresholds from `SampleAnalysis` and then modifies these thresholds for a number of different parameters, such as wind speed, wind gust, and various storm-related parameters.
+
+The third part of the code contains several methods related to the generation of a product, possibly a weather report. The `_wmoHeader` and `_productHeader` methods are used to generate headers for the product. The `_ugcHeader` method is used to format a list of UGCs (Universal Geographic Codes) along with an expire time.
+
+The last method, `_getPartMethod`, is used to identify and return the method object for an associated product part. It takes two arguments: `productGenerator` and `part`. It seems to be used for handling complex method objects that are nested within a dictionary structure.
+
+The given code is a part of a larger Python class, which seems to be involved in processing and formatting data related to weather products. Here's a summary of the key parts:
+
+1. The first method in the code is not fully shown, but it seems to be involved in obtaining a method from a dictionary object based on the keys provided. It uses Python's built-in `getattr` function to access an attribute of an object dynamically.
+
+2. The `_processProductParts` method takes in several parameters including a product generator, a dictionary of product data, a group of product segments, and a list of product parts. It processes these parts and updates the product dictionary accordingly. If a part is a tuple, it processes it as a subpart and updates the product dictionary with the processed subparts. If a part is not in the `_noOpParts` (probably a method that returns parts that don't need processing), it evaluates a method from the product generator and applies it to the product dictionary.
+
+3. The `_createProductDictionary` method creates a product dictionary by grouping segments, initializing the product dictionary, and processing the product parts. It uses an instance of `ETLogger` to log the elapsed time for each operation.
+
+4. The `_initializeProductDictionary` method sets up the product dictionary for a given product consisting of a group of segments. It fills in the dictionary information for the product header.
+
+5. The `_formatProductDictionary` method formats the product dictionary using a specified formatter class and returns the formatted product.
+
+6. The `_getStatValue` method retrieves a statistical value from a dictionary of statistics based on the provided element, method, and data type.
+
+7. Finally, a `StatisticsException` class is defined, which is a custom exception class likely used to handle errors related to missing statistics.
+
+This Python code file appears to be part of a larger system related to weather forecasting or hazard prediction. It seems to be handling and manipulating geographic and hazard data. 
+
+Here's a brief overview of what each function does:
+
+- `_allAreas()`: This function returns a list of all areas by combining inland and coastal areas.
+
+- `_groupSegments()`: This function groups segments into products. It creates a dictionary that contains information about the product segment group, such as product ID, product name, geoType, mapType, whether the product parts are segmented, and the product parts themselves.
+
+- `_getSegmentVTECRecordsTuples()`: This function creates a list of tuples, where each tuple contains a segment and its corresponding VTEC records.
+
+- `_computeIntersectAreas()`: This function computes the intersection of different areas. It creates a new edit area for each intersection that isn't empty and registers it with the system.
+
+- `_initializeHazardsTable()`: This function initializes a hazards table. It sets up the VTEC mode, sets the VTEC active table, and checks hazards against all edit areas.
+
+- `_getHazardsTable()`: This function sets up the hazards table. It processes the hazards and returns a HazardsTable object.
+
+- `_ignoreActions()`: This function returns a list of action codes to be ignored in the overview headlines.
+
+- `_setVTECActiveTable()`: This function sets the VTEC active table based on the GFE mode.
+
+- `_getVtecRecords()`: This function gets the VTEC records for a given segment and modifies the action codes for tropical hazards.
+
+- `_getAllowedHazardList()`: This function returns a list of allowed hazard codes.
+
+- `_altFilterMethod()`: This function removes hazards that are not in the allowed headlines list.
+
+The code seems to be part of a larger system, and without more context, it's hard to say exactly how these functions are used. However, they all appear to be related to processing and handling hazard and geographic data.
+
+This Python code defines several methods in a class (which is not shown in the snippet). Here's a brief overview of each method:
+
+1. `_filterHazards`: This method filters a list of hazards based on a provided list of allowed hazards. It can also filter out lower priority hazards of the same type for each zone if the `allowedHazardsOnly` flag is set to False.
+
+2. `_getAdditionalHazards`: This method retrieves additional hazards from a consolidated table. It ignores certain actions and consolidates across action codes. The method then prints debug information and returns a list of hazard headlines and hazard areas.
+
+3. `_checkHazard`: This method checks a list of hazards against a list of phenSigList (a list of tuples where each tuple contains a phenomenon and a signal). It can check against specific area types and specific areas. It can return a list of keys and areas that meet the criteria or a boolean value indicating whether any key meets the criteria. It can also optionally include or exclude CAN hazards.
+
+4. `_initializeTimeVariables`: This method initializes several time-related variables. It sets the creation time, issue time (in seconds and milliseconds), ddhhmmTime, purgeHours, expireTime, and timeLabel.
+
+The code seems to be part of a larger system that deals with hazard warnings or alerts, possibly for weather-related events. The system appears to be able to filter and check hazards based on various criteria, and it also handles time-related data for these hazards.
+
+The given code is defining several methods in a class that are used to manage time ranges and periods for some sort of weather forecasting system. Here's a brief overview of what each method does:
+
+1. `_determineTimeRanges`: This method creates several time ranges of different resolutions (1-hour, 3-hour, and 6-hour) starting from the issue time of the forecast. These time ranges are used for different sections of the forecast (Wind, Flooding Rain, Tornado, and Storm Surge). It also creates a time range to look back 12 hours from the current time, and a list of 10 periods corresponding to 6AM and 6PM times.
+
+2. `_createTimeRangeList`: This method takes a time range and a number of hours, divides the time range into sub-ranges of that length, and creates a list of these sub-ranges.
+
+3. `_createPeriodList`: This method creates a list of 10 periods starting from a given start time. Each period starts at the next 6AM or 6PM time and lasts for 12 hours.
+
+4. `_calculateStartTime`: This method calculates the start time of a time block given the local creation time and the resolution of the time block.
+
+5. `_formatPeriod`: This method formats a given time range into a string representation. If `wholePeriod` is True, it formats the time range as "FROM ... TO...".
+
+6. `_getTimeDesc`: This method creates a phrase describing a given start time, such as "Tuesday morning". It can handle phrases like "today", "tonight", and "this morning/afternoon/etc.".
+
+The provided code seems to be a part of a larger Python program that deals with time and storm information. 
+
+The first part of the code is a method that takes the current time and determines the part of the day (morning, afternoon, evening, etc.) based on the hour. It also checks if the current time is today or a different day, and adjusts the output accordingly. 
+
+The `_getPartOfDay` method is used to determine the part of the day based on the hour and the resolution. It returns a boolean indicating if it's the previous day and a string indicating the part of the day.
+
+The second part of the code is related to storm information. It initializes storm information variables, retrieves a TCP (Tropical Cyclone Report) for the storm, and parses it to extract information such as the storm type, storm name, advisory type, advisory number, storm number, and storm ID. 
+
+The `_parseTCP` method uses regular expressions to extract specific information from the TCP text. 
+
+There are also getter methods for each of the storm information variables, which return the respective values.
+
+The `_useTestTCP` and `_testTCP` methods seem to be used for testing or debugging purposes. The `_useTestTCP` method returns a boolean value indicating whether to use the test TCP or not, and the `_testTCP` method returns a hardcoded TCP text.
+
+This is not a code file but a weather advisory report from the National Hurricane Center in Miami, Florida. It provides detailed information about Tropical Storm Isaac, which was active in August 2012. 
+
+The advisory includes the following information:
+
+1. The current status and location of the storm, including its latitude and longitude, distance from specific locations (Port Au Prince, Haiti and Guantanamo, Cuba), maximum sustained winds, current movement direction and speed, and minimum central pressure.
+
+2. Watches and warnings issued due to the storm. This includes a hurricane watch and a tropical storm warning for various locations, including all of the Florida Keys, the coast of the southern Florida peninsula, the southeastern Florida coast, Lake Okeechobee, the northwestern Bahamas, the east-central Florida coast, and the Cayman Islands.
+
+3. A summary of the watches and warnings in effect for various locations.
+
+4. A discussion and 48-hour outlook of the storm's expected movement and strength.
+
+5. Information about hazards affecting land, including potential rainfall accumulations, wind conditions, and storm surge information.
+
+The advisory is intended to inform the public and relevant authorities about the storm's status and potential hazards, enabling them to take necessary precautions and actions.
+
+This Python code is part of a larger system that deals with weather advisories, specifically tropical cyclone advisories. It appears to be designed to handle and process weather advisory data, likely in the context of a weather forecasting or reporting application. Here's a breakdown of what the different methods do:
+
+- `_initializeAdvisories`: Initializes the current advisory as a dictionary and loads the last two advisories.
+
+- `_synchronizeAdvisories`: Retrieves a directory which causes synchronization to occur. It returns the file.
+
+- `_getLocalAdvisoryDirectoryPath`: Returns the path of the local advisory directory. It also creates the directory if it doesn't exist.
+
+- `_getStormAdvisoryNames`: Returns a list of storm advisory names. It can filter the advisories to return only those of a specific type (HLS or TCV).
+
+- `_loadLastTwoAdvisories`: Loads the last two advisories. It sorts the advisories in reverse order so the latest advisories come first.
+
+- `_loadAdvisory`: Loads an advisory given its name. It returns a dictionary representation of the advisory.
+
+- `_getAdvisoryPath`: Returns the path to the advisory files. The path depends on the mode of operation (practice or not).
+
+- `_getAdvisoryFilename`: Returns the filename of an advisory given its name.
+
+- `_processVariableList`: Processes a list of variables from a given definition. It also displays a GUI for an overview.
+
+The code also contains a lot of debug print statements, which suggests it's used for development or troubleshooting purposes. It uses several external modules such as `os`, `JsonSupport`, `LocalizationSupport`, and `CAVEMode`.
+
+This code appears to be a part of a larger Python program that uses the Tkinter library to create a graphical user interface (GUI). 
+
+The first part of the code defines several methods that return dictionaries. These dictionaries contain various settings and configurations for the GUI, such as the size of the GUI, the buttons to be included, and the font settings.
+
+The second part of the code defines a class named `Common_Dialog` that inherits from a class named `Dialog`. This class is used to create dialog boxes in the GUI. It has several methods for creating and configuring these dialog boxes, including methods for creating radio buttons and checkboxes, entry fields, and for setting the values of variables.
+
+The `Common_Dialog` class also has a method named `cancelCB` that sets the status of the dialog box to "Cancel" and then cancels the dialog box. The `buttonbox` method is overridden to remove the existing OK/Cancel button box so that custom functions can be attached.
+
+The third part of the code defines a class named `TextProductCommon` that inherits from a class named `DiscretePhrases`. This class appears to be used for handling text products. It has methods for setting up an area dictionary and for getting the time zones for a list of areas. The time zones are retrieved from the environment variable "TZ" and from the area dictionary.
+
+This Python code file seems to be part of a larger system, possibly related to weather or environmental monitoring, given the use of terms like 'vtecRecords', 'issueTime', 'purgeHours', 'expireTime', and 'hazard'. 
+
+The first part of the code is managing a list of time zones ('zoneList'). It ensures that if the list is empty, it adds a default time zone ('thisTimeZone'). If the default time zone is in the list but not at the first position, it moves it to the first position.
+
+The 'getExpireTime' function calculates an expiration time based on the issue time, purge hours, and vtec records. The expiration time is the earliest of the specified expiration time, 1 hour if a CAN code is detected, or the ending time of ongoing events. The function also includes logic to round the expiration time to the nearest increment of 'roundMinutes' (default is 15 minutes).
+
+The 'getHeadlinesAndSections' function seems to be organizing and formatting information from vtec records. It sorts the records, removes any that are expired or don't have a 'hdln' entry, and then assembles a string ('hazStr') that includes the vtec record type, action words, and possibly other information. The function also calls a 'hazard_hook', which suggests that this function might be part of a plugin or extension system where additional functionality can be added. 
+
+The code is cut off at the end, so it's not clear what the final part of the 'getHeadlinesAndSections' function does.
+
+The provided code seems to be a part of a larger Python class that is not included in the snippet. The class appears to be designed to handle and format various types of data, specifically related to time and geographical codes (UGCs). Here's a breakdown of the methods included in the snippet:
+
+1. `formatUGCs(self, ugcs, expireTime)`: This method formats a list of UGCs (Universal Geographic Codes) and an expiration time into a string. The UGCs are formatted into a string using the `makeUGCString` method, and the expiration time is formatted using the `getFormattedTime` method.
+
+2. `getFormattedTime(self, time_secs, format, shiftToLocal, upperCase, stripLeading)`: This method formats a given time in seconds into a string based on the provided format. It also allows for shifting to local time, converting to uppercase, and stripping leading characters.
+
+3. `formatUGC_names(self, ugcs, alphabetize, separator)`: This method formats a list of UGCs into a string of names. The names are retrieved from an area dictionary, and can be alphabetized if desired.
+
+4. `formatNameString(self, nameList, separator, state)`: This method formats a list of names into a single string, separated by the provided separator. If a state is provided, it is appended to the end of the string.
+
+5. `getVal(self, dictionary, key, default, altDict)`: This method retrieves a value from a dictionary based on a key. It accounts for potential suffixes on the key, and can use an alternate dictionary if the key is not found in the primary dictionary.
+
+6. `formatDatetime(self, dt, format, timeZone)`: This method formats a datetime object into a string based on the provided format and time zone.
+
+7. `flush(self)`: This method flushes the print buffer.
+
+8. `makeUGCString(self, ugcs)`: This method formats a list of UGCs into a single string. It removes blank and duplicate UGCs, and formats sequences of UGCs with a '>' character.
+
+9. `checkLastArrow(self, inSeq, ugcStr)`: This method appears to be a helper method for `makeUGCString`. It likely checks if the last character in the UGC string is an arrow ('>'), and modifies the string accordingly. However, the body of this method is not included in the provided code.
+
+The provided code snippet is written in Python and contains two main parts.
+
+The first part is a conditional statement that checks if the variable `inSeq` is equal to 1. If it is, the code searches for the last occurrence of the character ">" in the string `ugcStr`. If it finds this character, it replaces it with a "-". This could be used to change a sequence format from something like "062>063" to "062-063".
+
+The second part of the code defines a class named `ETLogger`. This class is used to log elapsed time for a specific method. 
+
+When an instance of `ETLogger` is created, it takes a `method` as an argument and stores it in the private instance variable `__method`. It also gets the current time using `datetime.datetime.now()`, stores it in the private instance variable `__initTime`, and prints a message with the current time, the method name, and the elapsed time (which is 0 at the moment of initialization). The current time is also stored in another private instance variable `__lastLogTime`.
+
+The `ETLogger` class has a method named `logElapsedTime` which takes a `signature` as an argument. This method gets the current time, prints a message with the current time, the method name, the signature, the elapsed time since the `ETLogger` instance was created, and the time elapsed since the last log. It also updates `__lastLogTime` with the current time. This method could be used to log the elapsed time at different points in the execution of a method.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

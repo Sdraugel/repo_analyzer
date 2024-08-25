@@ -1,0 +1,63 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TestMetarDecoder.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TestMetarDecoder.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to test a METAR (Meteorological Aerodrome Report) decoder module named `MetarDecoder`. 
+
+The script begins with a detailed comment section that includes information about the software's development, export control, contractor details, and usage instructions. It also specifies that the file is a base file and is not intended to be overridden.
+
+The main function of the script is defined in the `main()` function. This function does the following:
+
+1. Imports the `sys` and `MetarDecoder` modules.
+2. Retrieves the filename provided as a command-line argument.
+3. Opens the file, reads its lines, and then closes the file.
+4. Creates an instance of the `Decoder` class from the `MetarDecoder` module.
+5. Decodes the lines from the file using the `Decoder` instance.
+6. Prints the result of the decoding.
+7. Retrieves a list of errors and warnings from the decoding process using the `errors` method of the `MetarDecoder` module.
+8. Prints the errors and warnings, along with their indices.
+
+The script is executed if it is run as the main program (i.e., not imported as a module in another script). The filename of the METAR data to be decoded is expected to be provided as a command-line argument when running the script.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

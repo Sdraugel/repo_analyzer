@@ -1,0 +1,68 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>RefTimePointDataRetrieve.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>RefTimePointDataRetrieve.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code file is part of a larger software system developed by Raytheon Company. The code is used for retrieving and organizing point data related to time references. 
+
+The code first imports necessary modules and classes, including PointDataView, PointDataContainer, NoDataException, and PointDataRetrieve. 
+
+The main class defined in this code is `RefTimePointDataRetrieve`, which inherits from the `PointDataRetrieve` class. This class is used to retrieve and organize point data based on time references. It has several methods:
+
+1. `__init__`: This is the constructor method for the class. It initializes the class with several parameters including pluginName, site, parameters, keyId, refTime, constraint, and maxSize.
+
+2. `_query`: This method queries for data based on the parameters and maxSize. It organizes the data and stores it in a PointDataContainer.
+
+3. `__queryRefTimes`: This method queries for reference times from a database using DbQueryRequest and ThriftClient. It returns a list of reference times.
+
+4. `__requestData`: This method requests point data based on available times, parameters, and maxSize. It uses PointDataRequest to make the request and returns the requested data.
+
+5. `_createJarray`: This method creates a Java array of DataTime objects based on available times and maxSize. It returns the created array.
+
+The code also defines a function `retrieve` outside of the class. This function creates an instance of `RefTimePointDataRetrieve` with the given parameters and returns the PointDataContainer from the instance. 
+
+The code has a detailed history of software changes, including the date, ticket number, engineer, and description of each change. 
+
+The code also includes a disclaimer about export control, stating that the software contains export-restricted data and its export/transfer/disclosure is restricted by U.S. law. The contractor's name, address, and contact information are also provided.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

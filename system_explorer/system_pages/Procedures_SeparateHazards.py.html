@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>SeparateHazards.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>SeparateHazards.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This is a Python script developed by Raytheon Company for the US Government. It appears to be a part of a larger software system, possibly related to weather forecasting or hazard detection, given the references to "hazards grids" and "weather elements". 
+
+The script starts with a legal notice and a disclaimer, stating that the software is in the public domain, provided without warranty or technical support. 
+
+The script defines a class named `Procedure` that inherits from `SmartScript.SmartScript`. This class has two methods: `__init__` and `execute`. 
+
+The `__init__` method is the constructor that initializes the `Procedure` object with a `dbss` parameter and calls the parent class's constructor with the same parameter.
+
+The `execute` method appears to be the main functionality of the `Procedure` class. It creates an instance of `HazardUtils.HazardUtils` and checks if the Hazards Weather Element is loaded in the GFE (Graphical Forecast Editor, a tool used in meteorology). If not, it aborts the tool. 
+
+Then it sets the tool type to "numeric" and calls the `_separateHazardGrids` method from the `HazardUtils` instance. If the separation status is `FAIL_REDUNDANT`, it sends a message to the status bar and if the status is not `SUCCESS`, it cancels the operation.
+
+The script also defines a variable `MenuItems` which is a list containing the string "Hazards". This likely determines under which menu item the Procedure is to appear in a GUI. 
+
+The script imports two modules: `SmartScript` and `HazardUtils`, which are presumably part of the larger software system this script is a component of.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

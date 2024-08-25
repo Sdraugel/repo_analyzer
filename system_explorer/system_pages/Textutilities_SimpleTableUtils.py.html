@@ -1,0 +1,82 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>SimpleTableUtils.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>SimpleTableUtils.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The code is written in Python and is part of a software developed by Raytheon Company. It appears to be a utility for creating simple tables related to weather data. The software is in the public domain and is furnished without any warranty or technical support.
+
+The code defines a class `SimpleTableUtils` that inherits from `TextUtils.TextUtils`. This class contains methods for creating and formatting tables. It appears to be designed to handle both scalar and vector data, with special methods for handling vector data.
+
+Here are some key methods in the class:
+
+1. `__init__`: This is the constructor method that initializes the class.
+
+2. `table_light_winds_phrase`: This method returns the string "CALM", which is likely used in the tables to represent calm wind conditions.
+
+3. `table_wind_threshold`: This method returns the integer 5, which is likely used as a threshold for determining if wind conditions are calm.
+
+4. `singleValue`: This method takes in a single value and formats it for display in a table. It handles both scalar and vector data.
+
+5. `avgValue`: This method takes in multiple values, calculates their average, and formats the result for display in a table. It also handles both scalar and vector data.
+
+6. `range2Value`: This method takes in two values and formats their range for display in a table. It handles both scalar and vector data.
+
+7. `range4Value`: This method takes in four values and formats their range for display in a table. It's likely used to report the range of two averages.
+
+The code seems to be unfinished as the `range4Value` method is not complete.
+
+This piece of code is a function that takes in a list of statistical data (stats) and an object (element) as inputs. The object seems to have methods for data type, conversion, rounding value, and maximum width. The function processes the statistical data based on the data type of the object.
+
+If the stats input is None, the function returns an empty string.
+
+If the data type of the object is "Vector", the function calculates the average of the first two and the next two elements in the stats list, converts these averages using a method from the object, rounds them, formats them, and justifies the resulting strings to the right based on the maximum width from the object. It also takes the fifth and sixth elements from the stats list as directions, and adds them to the beginning of the corresponding formatted strings.
+
+If the data type of the object is not "Vector", the function performs similar operations but without the direction part.
+
+Finally, if the two resulting strings are the same, the function returns one of them. If they are different, it returns a string that contains both, separated by " - ".
+
+The function returns the final string. 
+
+Please note that the function uses several methods (average, callMethod, round, fformat) that are not defined in the provided code. Their exact behavior would affect the overall functionality of this function.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

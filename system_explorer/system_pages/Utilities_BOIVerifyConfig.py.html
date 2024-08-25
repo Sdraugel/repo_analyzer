@@ -1,0 +1,90 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>BOIVerifyConfig.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>BOIVerifyConfig.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a configuration file for a software developed by Raytheon Company. It contains various settings and parameters for the software's operation.
+
+Here's a breakdown of what different parts do:
+
+1. The first part is a legal notice and information about the software's development. It includes details about the contractor and export restrictions.
+
+2. The "SOFTWARE HISTORY" section records changes made to the software over time, including the date, ticket number, engineer responsible, and a description of the changes.
+
+3. The "absolute override file" comment indicates that this file's settings will completely replace any lower priority settings.
+
+4. The "B O I V E R I F Y   C O N F I G U R A T I O N" section contains various settings for the software. These include:
+   - Directory paths (e.g., "VERDIR").
+   - File names (e.g., "EDITAREAS").
+   - Color table name for percentage displays (e.g., "PERCENT_COLOR").
+   - Number of days to keep grids and stats in the database (e.g., "GRIDDAYS", "STATDAYS").
+   - Names of databases that can be used for "truth" (e.g., "OBSMODELS").
+   - Configuration info for each parameter to verify (e.g., "VERCONFIG").
+   - Names of GFE databases to archive (e.g., "SAVE_MODELS").
+   - Possible Model Cycles (e.g., "ALLCYCLES").
+   - Rounding used in scale entries (e.g., "NOMINALSPACING").
+   - Maximum number of hours in any forecast from any model (e.g., "MAXFORECASTHOUR").
+   - Settings related to forecaster list trimming and administrators (e.g., "FORECASTER_LIST_TRIMMING", "FORECASTER_LIST_TRIMMING_ADMINISTRATORS").
+   - Format and sorting of the forecaster list (e.g., "FORECASTER_LIST_FORMAT", "FORECASTER_LIST_SORT").
+
+The code is written in Python and is likely used to configure a weather forecasting or verification tool.
+
+This code appears to be a configuration file for a weather forecasting system, possibly the Graphical Forecast Editor (GFE) used by the National Weather Service. It sets various parameters for the system, including:
+
+- `ACCUM_RESOLUTION`: The resolution for verifying accumulated weather data. If set to 3, verification can be done on periods 3, 6, 9, 12 hours long, etc.
+
+- `ACCUM_LENGTH_DEFAULT` and `ACCUM_FREQUENCY_DEFAULT`: The default length and frequency of accumulation periods.
+
+- `END_OFFSET_HOURS` and `START_OFFSET_HOURS`: These are used to adjust the start and end times of a UTC day when looking for grids that are "in" a particular day. This is necessary for 'long' grids, like MaxT or MinT, which may span over two days in some timezones.
+
+- `BASE_OFFSET`: This is used when figuring out common cases. For any model listed here, the specified number of hours is added to its real base time to get its "effective" base time.
+
+- `PARMINFO_ORDER`: The order in which parameters are listed in the BOIVerifyInfo.
+
+- `SAVE_MAXVERSIONS`: The maximum number of old GFE databases to scan for data that has not yet been moved to the BOIVerify databases.
+
+- `AUTOCALC_DAYS` and `AUTOCALC_TOO_RECENT`: These parameters are used when pre-calculating scores in BOIVerifyAutoCalc. The former is the normal number of recent days observations to scan for new data, while the latter is the number of hours within which an observation grid won't calculate scores yet.
+
+- `BIASCORR_DAYS` and `BIASCORR_MINDAYS`: These parameters are used for the Bias Correction regression in BOIVerifyBiasCorr. The former is the normal number of recent days forecasts to use for the Bias Correction, while the latter is the minimum number of recent days that have to exist before performing a Bias Correction regression.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

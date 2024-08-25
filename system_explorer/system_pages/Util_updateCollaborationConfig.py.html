@@ -1,0 +1,68 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>updateCollaborationConfig.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>updateCollaborationConfig.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is a utility for updating a collaboration configuration to support blacklists. It is not intended to be run as a standalone script, but rather in conjunction with a shell script in its parent directory.
+
+The script takes an XML file as an argument, parses it, and then modifies it according to certain rules. The XML file is expected to have a specific structure, with a root element that contains one or more "config" elements.
+
+Here is a step-by-step breakdown of what the script does:
+
+1. It imports necessary modules: `sys` for interacting with the command-line arguments and `xml.etree.ElementTree` for parsing and manipulating the XML file.
+
+2. It defines several constants that represent the names of XML tags and attributes it will be looking for in the XML file.
+
+3. It checks if exactly one command-line argument (the name of the XML file) has been provided. If not, it writes an error message to standard error and exits with a status code of 1.
+
+4. It parses the XML file and gets the root element of the XML tree.
+
+5. It finds all "config" elements in the XML tree. If no such elements are found, it writes an error message to standard error and exits with a status code of 0.
+
+6. For each "config" element, it checks if the element has a "listType" attribute. If not, it adds one with a value of "WHITELIST".
+
+7. It then finds all "subscribedSites" elements within the "config" element, creates a new "listEntry" element for each one, copies the text from the "subscribedSites" element to the "listEntry" element, and removes the "subscribedSites" element.
+
+8. Finally, it writes the modified XML tree to standard output.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

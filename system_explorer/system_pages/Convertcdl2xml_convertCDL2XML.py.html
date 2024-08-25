@@ -1,0 +1,80 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>convertCDL2XML.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>convertCDL2XML.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided Python code is a script that converts A1 CDL (Common Data Language) files to A2-formatted gridParamInfo XML files. 
+
+The script starts by importing necessary libraries and initializing a logger. The main function of the script is defined in the `main()` function. It starts by checking if the `ncgen` program is installed, which is required for the script to run. If not, it logs an error and exits. 
+
+It then parses command-line arguments to get the user's options, which include the input CDL files to convert and the output directory to save the converted XML files. 
+
+The script then attempts to create the output directory if it doesn't exist. If it fails, it logs an error and exits. 
+
+Next, it loops over each input file and calls the `__convertFile()` function to convert it. After all files are processed, it logs a message indicating the completion of the conversion process.
+
+The `__convertFile()` function is responsible for the actual conversion of each CDL file. It first converts the CDL file to a temporary CDF (Common Data Format) file. If this fails, it logs a warning and skips the current file. 
+
+It then reads data from the CDF file. If it fails to read any data, it logs a warning and skips the current file. 
+
+After reading the data, it deletes the temporary CDF file. If this fails, it logs an error. 
+
+It then creates an XML structure from the read data and writes it to a nicely formatted XML string. 
+
+Finally, it writes the XML string to an output file in the output directory.
+
+The script also includes several helper functions like `__initLogger()`, `__parseArgs()`, `__convertToCdf()`, and `__parseCdfFile()`, which are used to perform specific tasks within the main function and the `__convertFile()` function.
+
+This script appears to be for processing and analyzing data from a NetCDF file, which is a common format for storing large scientific datasets, particularly in the fields of meteorology and climatology.
+
+The script has three main functions:
+
+1. The first function appears to be the main function that processes the NetCDF file. It first tries to sort a variable `timesVar` and store it in `valueMap`. If it encounters an `AttributeError` or `ValueError`, it logs the error and returns an empty dictionary. Then it iterates through the variables in `cdfObj` (presumably the NetCDF file object), checking for certain conditions, and if they are met, it gets the attributes of the variable and stores them in `valueMap`. It also appends the variable name to `parmNames`.
+
+2. The second function, `__getParmAtts`, is used to get the attributes of a variable from the NetCDF file. It creates a dictionary `attrMap` with the variable's name and tries to add several attributes to it (units, udunits, long_name, uiname, valid_range, fillValue, n3D, levelsDesc, levels). If it encounters an `AttributeError` while trying to access an attribute, it logs a debug message and continues. It also handles a special case where the variable's levels are returned as a numpy MaskedArray.
+
+3. The third function, `__createXML`, creates an XML tree from the data in `cdfData` (presumably the `valueMap` returned by the first function). It first creates a root element and a child element for forecast times, then it iterates through the parameter names and creates a child element for each one, adding the parameter's attributes as sub-elements.
+
+Finally, if the script is run as a standalone program (i.e., not imported as a module), it calls the `main()` function. The `main()` function is not shown in the provided code, but presumably it would call the other functions and handle their output in some way.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

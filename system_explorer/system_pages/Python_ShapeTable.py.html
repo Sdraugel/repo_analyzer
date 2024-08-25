@@ -1,0 +1,64 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ShapeTable.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ShapeTable.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that defines a wrapper class for a PostGIS table. It's designed to interact with a database of geographic features, likely as part of a larger software system developed by Raytheon Company.
+
+The script starts with a header that includes legal and contact information for the Raytheon Company, as well as a brief history of the software's development.
+
+The main part of the script defines a class called `ShapeTable` that inherits from `JUtil.JavaWrapperClass`. This class is used to interact with a PostGIS table, which is a type of database table used for storing and querying geographic objects.
+
+The `ShapeTable` class has several methods:
+
+- `__init__`: Initializes a new instance of the class with a given identifier and sets up some initial values.
+- `filename`: Raises a `NotImplementedError`, indicating that this method is obsolete and should not be used.
+- `filter`: Sets a filter function for the table, which can be used to filter the data in the table in some way.
+- `doFilter`: Applies the filter function to a set of attributes.
+- `getEAName`: Gets the name of the edit area, which is a specific part of the geographic data.
+- `toJavaObj`: Converts the Python object to a Java object, setting some additional properties on the Java object.
+- `__repr__`: Returns a string representation of the object, which in this case is the identifier of the object.
+
+The script also imports several modules at the beginning, which are likely used elsewhere in the larger software system.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

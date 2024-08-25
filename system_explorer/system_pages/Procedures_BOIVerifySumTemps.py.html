@@ -1,0 +1,175 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>BOIVerifySumTemps.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>BOIVerifySumTemps.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a script for a weather forecasting system. It's designed to generate a summary of verification information about maximum or minimum temperatures. The summary is then sent as an HTML-formatted email and posted on an internal webpage.
+
+The script is configurable with various parameters, such as the number of past days to use for comparisons, the name of the edit area to use for stats, the name of the database to use for "truth", the threshold for error percentages, the list of models for comparisons/rankings, and email-related settings.
+
+The script also contains a history of software updates, with details about the changes made and the engineers who made them.
+
+The main part of the script is a class named `Procedure` which inherits from `SmartScript.SmartScript`. The `execute` method of this class is where the main logic of the script is implemented. It sets up some initial parameters, gets the current system time, and logs the time the script is running. 
+
+The script is written in Python and uses libraries such as numpy, AbsTime, TimeRange, SmartScript, BOIVerifyUtility, time, calendar, os, and re.
+
+This code is part of a larger program that seems to be performing weather data analysis and verification. It's written in Python and uses the time and calendar modules to manipulate and format dates and times. 
+
+The first part of the code checks the current hour of the day. If it's before 12 noon, it prepares to do a summary for the previous day's maximum temperature (MaxT). If it's after 12 noon, it prepares to do a summary for the current day's minimum temperature (MinT). 
+
+The code then gets the start and end time of the grid on the verification day and logs a message about the verification being done. It retrieves a list of records for the observation period and checks if there's only one record. If there's more than one, it logs an error message and aborts the process.
+
+The code then gets forecast hours for 14 periods, difficulty information, information for the 14 periods verifying today, and average forecast error information for the 14 periods over the past NUMDAYS days.
+
+The code then formats the output in three ways: with all forecaster IDs, without any forecaster IDs, and for each individual forecaster. It sends the full message to admin people via email and the individual output to known email addresses. It also saves a clean output for use on webpages.
+
+The `getNow` function checks if there's a specified time in a file. If there's no file or if there's trouble reading the file, it uses the current system time as 'now'. 
+
+The `getPeriods` function gets the forecast hours to the start of the grid so that it knows which 'period' to store forecasts under. It assumes that forecasts are from 00 or 12Z.
+
+The code provided is written in Python and it appears to be part of a larger system, possibly for weather forecasting or climate analysis. Here's a brief overview of what each part of the code does:
+
+1. The first part of the code checks the time of the day and based on that, it sets a base time (sbase). If the hour is between 6 and 18, the base time is set to 00Z of the same day. Otherwise, the base time is set to 12Z of the current or previous day, depending on the time of the day.
+
+2. It then calculates the forecast hours for 14 periods based on the base time and the start time.
+
+3. The second part of the code is a function named `emailMessage`. This function takes in an email address, a parameter, a verification day, and an output message. It formats an email with these details and writes it to a temporary file. If there are any email commands, it executes them. 
+
+4. The third part of the code is a function named `getDifficultyRankings`. This function seems to analyze observation grids for the past number of days and ranks the current day compared to all others. The comparisons are done in three ways: Standard Deviation, 24hr Changes, and Climate anomalies. 
+
+5. It gets observed records over the last number of days and calculates various statistical measures like variance, average change, and average absolute value of change. 
+
+6. It also reads the climatology for that day and calculates average anomaly and average absolute anomaly.
+
+Please note that the code is cut off at the end, so the full functionality of the `getDifficultyRankings` function is not clear.
+
+This code is part of a larger program that performs various operations on climate data. 
+
+The first part of the code calculates the anomaly of some observed grid data (obsgrid) compared to a climatology grid (climgrid). It calculates both the average anomaly and the average absolute anomaly, and stores these in dictionaries with keys corresponding to specific days. It also logs a message with information about the standard deviation, absolute change, and anomaly for each day.
+
+Next, the code finds the "difficulty information" for the current day (todaykey). This includes the average absolute anomaly, average anomaly, rank of the anomaly, and total number of anomalies. It does similar calculations for changes and standard deviations.
+
+The getClimoGrid function retrieves a climatology grid for a specific day, using a weighted average between the mid-month climatology grids. It first determines the previous and next month, then retrieves the climatology grids for these months. It calculates weights for the previous and next month based on the distance from the midpoint of each month, and uses these weights to calculate the final climatology grid.
+
+The convertKtoF function converts a temperature grid from Kelvin to Fahrenheit.
+
+The getTodayInfo function retrieves forecast errors for the current day. It loops over a list of models, adjusting the cycle times based on a base offset for each model. It then retrieves statistical cases and full cases for each model, and stores these in dictionaries.
+
+The provided code seems to be a part of a larger program, possibly a weather forecasting system. It is written in Python and appears to be analyzing and ranking forecast errors from different models over a certain period of time. Here's a breakdown of what the code does:
+
+1. It first gets the keys from a dictionary called `gridcases` and logs the number of cases if there are any. 
+
+2. It then sorts these keys and for each key, it checks if it exists in another dictionary called `statkeys`. If it does, it assigns the corresponding value from `statkeys` to `srecList`, otherwise `srecList` is set to None.
+
+3. The `gridkey` is then split into three parts: `basestr`, `stimestr`, and `etimestr`, which are converted into integers.
+
+4. It then calls a method `getVerStat` from an object `self.VU` with several parameters including the model name, base time, parameter, start time, end time, and others. The returned value is stored in `valx`.
+
+5. If the model is "Official", it saves additional statistics like bias, mae (Mean Absolute Error), and bad percentages in their respective dictionaries. It also saves the forecaster ID and base time.
+
+6. Then it sorts the data for each period (14 periods are mentioned in the code). It gets errors for all models making a forecast for this period and sorts them to find the model with the best error value for this period.
+
+7. It also gets the Official results and rank if they exist, and the rankings of other models.
+
+8. Finally, it appends all this information to a list `perInfos` and returns it.
+
+The last part of the code seems to be the start of another function `getPastInfo` which appears to rank forecast errors over the past few days. It initializes several dictionaries and a list called `cycleList`. 
+
+Please note that without the complete code or context, this is a high-level interpretation and some details might be missing or misinterpreted.
+
+This code is part of a larger program that appears to be analyzing and processing statistical data from different models, possibly in a weather forecasting context. Here's a breakdown of what the code is doing:
+
+1. It first checks if a variable `baseOffset` is not equal to zero. If it's not, it adjusts the values in `cycleList` by the `baseOffset` and ensures the adjusted values are within the range of 0 to 23 (likely representing hours in a day). 
+
+2. It then retrieves statistical and grid data for a given model, parameter, and observation model, for a specified period length, forecast hour range, and number of days.
+
+3. The code checks if there are any records for the model. If there are no records, the model is skipped. If there are records, it logs the number of cases being read.
+
+4. It then iterates over the grid keys. For each key, it checks if it exists in the statistical keys. If it does, it assigns the corresponding statistical record to `srecList`, otherwise `srecList` is set to None.
+
+5. The forecast hour for the case is calculated and adjusted by the `baseOffset`. If the forecast hour is not in the list of forecast hours (`fhours`), the current iteration is skipped.
+
+6. It retrieves a main statistical value for the model. If the value can't be read or calculated, the current iteration is skipped. If the value is valid, it's added to a running total and count for the model.
+
+7. If the model is "Official", additional statistics are calculated and added to their respective totals and counts.
+
+8. After all models have been processed, the code calculates the average of the totals for each statistic over the past `numdays` days.
+
+9. It then retrieves the forecast periods and sorts them.
+
+10. The code then iterates over the forecast periods, and for each period, it retrieves the total statistic for each model and ranks the models based on the total statistic in descending order.
+
+11. For the "Official" model, it retrieves the error, mean absolute error, and bad threshold percentage.
+
+The code appears to be incomplete as it ends abruptly.
+
+This code is part of a larger program that seems to be performing some sort of analysis and generating a report in HTML format.
+
+The first part of the code is extracting some values from a dictionary called `modVals` and storing them in variables. It then creates a tuple `perInfo` with these values and appends it to a list `pastInfos`.
+
+The function `getMinMaxFhr` takes a list of information for each period and calculates the minimum and maximum forecast hours (`minfhr` and `maxfhr`).
+
+The function `formatOutput` generates an HTML report. It takes several parameters including `parm`, `verifday`, `stime`, `etime`, `diffInfo`, `perInfos`, `pastInfos`, `showFcstr`, and `fcstrName`. It starts by creating the HTML header and then adds various sections to the report. These sections include:
+
+- A title that includes the parameter `parm` and the verification day `verifday`.
+- The starting and ending time of the analysis.
+- Information about the edit area.
+- Measures of difficulty, which are calculated from `diffInfo`.
+- A table that displays the difficulty info.
+- A table that is set up to display info for all verifying forecasts (this part is not completed in the provided code).
+
+The code uses several functions and variables that are not defined in the provided code, such as `time.gmtime`, `DAYS`, `MONS`, `EDITAREA`, `self.numpoints`, `self.getDifficultyColor`, etc. These are likely defined elsewhere in the program.
+
+This code is generating an HTML table that presents forecast data. 
+
+The table includes columns for the period, forecast made, who made the forecast, the official Mean Absolute Error (MAE), the official bias, the official percent error above a certain threshold, the official percent error below a certain threshold, the official rank among guidance, the best guidance, the second best guidance, and the worst guidance.
+
+The code iterates over a list of forecast information (`perInfos`), extracting various pieces of data for each forecast. This data is then formatted and added to the HTML table. If certain data is not available (e.g., `basetime` is 0), the corresponding table cell is left empty. 
+
+The code also includes two methods, `getDifficultyColor` and `getRankColor`, that determine the CSS class to be applied to a table cell based on the rank of the forecast. These classes presumably correspond to different color codes, which would allow the difficulty and rank of the forecast to be visually represented in the table.
+
+Finally, the code generates a summary row that presents averages over the past `NUMDAYS` days. This row is added to the table after all the individual forecast rows.
+
+The generated HTML table is returned as a string, which could then be written to an HTML file or incorporated into a larger HTML document.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

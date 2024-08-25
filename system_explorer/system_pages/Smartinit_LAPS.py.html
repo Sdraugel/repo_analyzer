@@ -1,0 +1,65 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>LAPS.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>LAPS.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is a part of a larger software developed by Raytheon Company. It is a module for the LAPS (Local Analysis and Prediction System) Forecaster, which is used for weather forecasting. 
+
+The module imports the 'Init' module and 'numpy' library. It defines a class 'LAPSForecaster' that inherits from the 'Forecaster' class in the 'Init' module. 
+
+The class 'LAPSForecaster' contains several methods that perform calculations on weather data, such as:
+
+- 'calcT': Converts LAPS surface temperature from Kelvin to Fahrenheit.
+- 'calcTd': Converts LAPS surface dew point temperature from Kelvin to Fahrenheit.
+- 'calcWind': Converts LAPS surface wind speed from meters per second to knots and ensures the wind direction is within the range of 0 to 359.5 degrees.
+- 'calcSky': Clips the LAPS skyCover grid to a range between 0 and 100.
+- 'calcSnowAmt': Converts LAPS one-hour snow amount grids to inches.
+- 'calcQPF': Converts LAPS precipitation grids to inches.
+- 'calcRadar': Returns the LAPS low level radar analysis.
+- 'calcWx': Uses LAPS weather grids to initialize weather and ensures the weather type is within a valid range.
+
+The script also contains a 'main' function that creates an instance of 'LAPSForecaster' and runs it.
+
+The comments in the code indicate that this file is not intended to be overridden but can be subclassed to override behavior. The code also includes a software history section that tracks changes made to the code over time.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

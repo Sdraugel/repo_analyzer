@@ -1,0 +1,54 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>EditTopo.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>EditTopo.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is a configuration file for a software developed by Raytheon Company. It appears to be part of a larger system called AWIPS II, as referenced in the comments. The software is subject to U.S. export control laws due to the technical data it contains.
+
+The purpose of this configuration file is to modify the topographical grid (Topo grid) stored on the ifpServer. When the software is started with this configuration file, it should bring up a special version of the software with only the Topo parameter.
+
+The script imports the base configuration from the gfeConfig file and then overrides some of the settings. It hides the configuration file from users, auto-loads a group called "EditTopo", sets the mutable model to "EditTopo_Topo", and sets the viewable database types to "EditTopo". 
+
+The script also turns off the split boundary display for performance reasons, as the grids have a 1-second resolution. This is likely to improve the speed and efficiency of the software when dealing with high-resolution data.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

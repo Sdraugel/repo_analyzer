@@ -1,0 +1,68 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Calc_GFDI.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Calc_GFDI.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is a tool for calculating the Grassland Fire Danger Index (GFDI). The GFDI is a measure used in Australia and New Zealand for predicting the risk of wildfires in grassland areas.
+
+Here's a breakdown of what the script does:
+
+1. It imports necessary modules, including numpy and SmartScript. Numpy is a Python library for mathematical operations, and SmartScript seems to be a custom module, possibly for handling weather data.
+
+2. It defines a class `Tool` that inherits from `SmartScript.SmartScript`. This class has a method `execute` which takes several parameters related to weather conditions, such as temperature (T), relative humidity (RH), wind speed and gust (Wind, WindGust), and a measure of the dryness of vegetation (Curing).
+
+3. In the `execute` method, it first converts the temperature from Fahrenheit to Celsius. Then, it calculates the mean wind speed in kilometers per hour.
+
+4. It retrieves the Curing and RH values from the forecast data.
+
+5. It calculates the GFDI using a formula that takes into account the temperature, wind speed, relative humidity, and curing. The formula involves several mathematical operations, including exponentiation and square roots.
+
+6. The calculated GFDI is then rounded to an integer and clipped to a maximum value of 150.
+
+7. The `execute` method returns the calculated GFDI.
+
+8. There are also some commented out methods (`preProcessTool` and `postProcessTool`) and notes about error handling, which suggest that this script might be part of a larger system where this tool is used.
+
+The script also includes some comments explaining Python concepts like `self` and how to handle errors in a script.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

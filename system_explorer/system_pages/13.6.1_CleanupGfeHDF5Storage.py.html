@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>CleanupGfeHDF5Storage.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>CleanupGfeHDF5Storage.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to clean up a specific directory by removing certain files and any empty directories. Here's a detailed breakdown of what the script does:
+
+1. The script first sets up a logging system, which will log events that occur when the script is run. The logging level is set to INFO, meaning the logger will handle both informational messages and all the levels of severity above it.
+
+2. The script defines a function `processDir(hdf5Dir)`. This function walks through the directory tree of the provided directory `hdf5Dir`. 
+
+3. For each file in the directory, if the file ends with "_GridParm.h5", the script logs that it is removing the file and then attempts to delete it. If it cannot delete the file (due to an OSError), it logs an exception message.
+
+4. For each directory in the directory tree, the script checks if the directory is empty. If it is, the script logs that it is removing the directory and then attempts to delete it. If it cannot delete the directory (due to an OSError), it logs an exception message.
+
+5. The `main()` function calls the `processDir(hdf5loc)` function with `hdf5loc` as the argument. `hdf5loc` is a string that contains the path to the directory that the script will clean up.
+
+6. The script checks if it is being run directly (as opposed to being imported as a module). If it is, it calls the `main()` function to start the cleanup process.
+
+In summary, this script is designed to clean up the "/awips2/edex/data/hdf5/gfe" directory by removing all files that end with "_GridParm.h5" and any empty directories. It logs its actions and any errors that occur during the process.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,68 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>CopyForecasts.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>CopyForecasts.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script named `CopyForecasts.py` that seems to be part of a larger software system developed by Raytheon Company. The script is designed to allow for the interactive copying of forecasts in a collective. 
+
+The script uses the `tkinter` library to create a graphical user interface (GUI). The GUI includes two list boxes labeled 'Source' and 'Destn', a 'Copy' button, and 'OK' and 'Cancel' buttons. The 'Source' list box is used to select a forecast to be copied, and the 'Destn' list box is used to select one or more destinations to which the selected forecast should be copied.
+
+The `Gui` class is the main component of this script. It initializes the GUI, sets up the widgets (list boxes, buttons, etc.), and defines the behavior of the 'Copy', 'OK', and 'Cancel' buttons. 
+
+The `copy` method of the `Gui` class is responsible for the actual copying of forecasts. It retrieves the selected source and destination(s) from the list boxes, and then copies the source forecast to each selected destination.
+
+The script also includes a function `_getIds` which extracts a 4-character ID from a given string, but this function is not used anywhere in the provided code.
+
+Please note that the code ends abruptly and seems to be incomplete, as the last line `self.fcsts[d] = se` is not a valid Python statement and the `se` is not defined anywhere in the provided code.
+
+This code is written in Python and appears to be part of a larger GUI application, possibly for managing and updating forecasts. It uses the Tkinter library for creating the GUI.
+
+1. The first part of the code is replacing a value in a dictionary `lf.fcsts` at key `srcid` with a new value `d`. It then changes the background color of a message bar to green and displays the text 'Copy completed'. After 5000 milliseconds (or 5 seconds), it resets the message bar to its original color and disables it.
+
+2. The `ok` method checks if `self.fcsts` is not None. If it's not, it iterates over `self.items` and appends '=\n' to each item in `self.fcsts`. It then withdraws the root window, updates idle tasks, sets focus to the root window, and destroys it. This method seems to be used to finalize some operations and close the application window.
+
+3. The `cancel` method sets `self.fcsts` to None and calls the `ok` method. This seems to be a way to cancel any ongoing operations and close the application.
+
+4. The `updateTafs` function is a standalone function that takes two arguments, `bbb` and `fcsts`. It creates a list of IDs from `fcsts` using the `_getIds` function. It then creates a `Gui` object with `items` and `fcsts` as arguments and returns the `fcsts` attribute of the `Gui` object. This function seems to be used to update forecasts and possibly display them in a GUI. It's noted in the comments that this function may raise an `AvnError`, which is likely a custom exception defined elsewhere in the code.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

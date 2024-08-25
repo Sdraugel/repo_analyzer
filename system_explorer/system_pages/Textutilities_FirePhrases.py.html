@@ -1,0 +1,130 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>FirePhrases.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>FirePhrases.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that is part of a larger software developed by Raytheon Company. It appears to be a part of a weather forecasting system, specifically for fire weather phrases.
+
+The script starts with a detailed comment section that includes the software's history, licensing information, and the developer's details. It also mentions that the software is in the public domain and comes without any warranty or technical support.
+
+The code then imports four modules: ScalarPhrases, VectorRelatedPhrases, WxPhrases, and DiscretePhrases. These modules likely contain classes or functions that are used in the FirePhrases class defined in this script.
+
+The FirePhrases class is a subclass of the four imported classes. It contains methods that seem to be used for generating text forecasts from weather data. The methods in this class seem to be related to the formatting and phrasing of weather forecasts, such as including sky ranges, handling sky and weather phrases, and dealing with trends in temperature and relative humidity.
+
+For instance, the `includeSkyRanges_flag` method appears to control whether or not ranges are reported with sky phrases. The `fireSky_words` method seems to generate a textual description of the sky condition based on statistical data.
+
+The `trend_DayOrNight_phrase` method appears to generate a phrase describing the trend of a weather element (like temperature or humidity) during the day or night. The specific element is determined by the `trend_DayOrNight_setUp` method, which checks whether the current time period is day or night and chooses the appropriate element accordingly.
+
+Overall, this script seems to be a part of a larger system that generates textual weather forecasts, specifically focusing on fire weather conditions.
+
+This code is part of a larger system that analyzes and reports on weather trends. 
+
+The `trend_DayOrNight_words` function compares the current analysis to the previous one for trends in weather data. It checks for specific elements (like MinT, MaxT, MaxRH, MinRH, RH) and assigns units accordingly. It then retrieves the trend data and sets the appropriate descriptors (higher, lower, unchanged, missing) based on the trend.
+
+The `getTrend` function calculates the trend for a given weather element. It retrieves the time range and area label for the element, and calculates the absolute difference and raw difference in the element's values. If the absolute difference is greater than or equal to a threshold, it sets a descriptor (positive or negative) and constructs a string of words to describe the trend.
+
+The `getTrendStats` function retrieves statistics for a given trend element. If the statistics are not available, it retrieves the statistics for the maximum and minimum values of the element. It then calculates the absolute and raw differences between the current and previous statistics.
+
+The `dayOrNight_phrase` function returns a dictionary of methods for setting up and generating phrases for day or night trends. 
+
+The `dayOrNight_setUp` function sets up the node for day or night trend analysis. It determines the element name and method based on the time of day and sets up the subphrase for the trend analysis.
+
+The `fire_dayOrNight_words` function generates the words for the day or night trend. It retrieves the statistics for the element and generates a phrase to describe the trend. If the statistics are not available, it sets the words to "MISSING". 
+
+Overall, this code is used to analyze and describe trends in weather data.
+
+This code appears to be part of a larger system, possibly a weather forecasting or reporting system. It defines several methods for generating phrases or sentences based on certain weather conditions or parameters. 
+
+1. `cwr_phrase`, `cwr_setUp`, and `cwr_words` methods: These methods are related to the "CWR" (Chance of Wetting Rain) parameter. The `cwr_phrase` method returns a dictionary with setup, word, and phrase methods. The `cwr_setUp` method sets up the node for the CWR phrase, and the `cwr_words` method generates the phrase based on the CWR value.
+
+2. `smokeDispersal_phrase`, `smokeDispersal_setUp`, `smokeDispersal_words`, and `smokeDispersal_valueStr` methods: These methods are related to the "Smoke Dispersal" parameter. The `smokeDispersal_phrase` method returns a dictionary with setup, word, and phrase methods. The `smokeDispersal_setUp` method sets up the node for the smoke dispersal phrase, and the `smokeDispersal_words` method generates the phrase based on the VentRate values. The `smokeDispersal_valueStr` method converts the smoke dispersal value to a corresponding category.
+
+3. `transportWind_phrase`, `transportWind_setUp`, `freeWind_phrase`, and `freeWind_setUp` methods: These methods are related to the "Transport Wind" and "Free Wind" parameters. The `transportWind_phrase` and `freeWind_phrase` methods return dictionaries with setup, word, and phrase methods. The `transportWind_setUp` and `freeWind_setUp` methods set up the nodes for the transport wind and free wind phrases, respectively.
+
+4. `ridgeValleyAreas` and `valleyRidgeAreaNames` methods: These methods are related to the areas for valleys and ridges. The `ridgeValleyAreas` method returns a list of edit area names for which ridge/valley winds are reported, and the `valleyRidgeAreaNames` method returns the areas for valleys and ridges, respectively.
+
+5. `fireWind_compoundPhrase`, `fireWind_finishUp`, and `fireWind_label_phrase` methods: These methods are related to the "Fire Wind" parameter. The `fireWind_compoundPhrase` method returns a dictionary with a phrase list and phrase methods. The `fireWind_finishUp` method creates a phrase for winds, and the `fireWind_label_phrase` method seems to be a setup method for a fire wind label phrase, but the method body is not provided in the given code.
+
+This code appears to be part of a larger program, likely related to weather or environmental conditions, specifically focused on fire conditions and related factors. 
+
+1. `fireWind_label_setUp`: This function sets up a label for wind conditions in a fire situation. It checks if the current area contains a ridge or valley, and if not, it sets the words for the node to an empty string. It also sets the descriptor and indent label for the node.
+
+2. `fireValleyWind_compoundPhrase` and `fireRidgeWind_compoundPhrase`: These functions return dictionaries containing phrase lists and phrase methods. They seem to be used for setting up and finishing phrases related to wind conditions in valleys and ridges during a fire.
+
+3. `fireValleyWind_finishUp` and `fireRidgeWind_finishUp`: These functions create phrases for winds. They get the words from the node, check if the words exist or are empty, and set the descriptor, indent label, and compound for the node.
+
+4. `hainesDict`: This function returns a dictionary that maps numbers to potential for large plume dominated fire growth. It seems to be used for interpreting the Haines Index, a measure of the potential for dry, unstable air to contribute to the development of large or erratic fires.
+
+5. `haines_phrase`, `haines_setUp`, `haines_words`: These functions set up, create, and return phrases for the Haines Index.
+
+6. `humidityRecovery_percentage`, `humidityRecovery_phrase`, `humidityRecovery_setUp`: These functions seem to be related to humidity recovery, which could be a factor in fire conditions. The `humidityRecovery_percentage` function returns a percentage (50), which might be a threshold for determining whether humidity recovery is excellent. The `humidityRecovery_phrase` and `humidityRecovery_setUp` functions set up and return phrases for humidity recovery.
+
+The code seems to be written in Python and uses object-oriented programming concepts. The use of `self` suggests that these functions are methods within a class.
+
+This code is part of a larger program that seems to be related to weather forecasting. It defines methods for analyzing and describing humidity recovery and Lightning Activity Levels (LAL).
+
+The `humidityRecovery_words` method calculates the difference in humidity levels between the current and previous time periods. It then assigns a label ("Poor", "Moderate", "Good", "Excellent") based on the percentage difference. The thresholds for these labels are defined in the `humidityRecovery_valueList` method.
+
+The `lal_phrase`, `lal_setUp`, and `lal_words` methods are related to Lightning Activity Levels (LAL). The `lal_phrase` method returns a dictionary of methods that are used to create a phrase describing the LAL. The `lal_setUp` method sets up the necessary information for the LAL phrase, such as waiting for all weather phrases to complete and matching the resolution of the weather phrase. The `lal_words` method creates the actual phrase for the LAL based on the weather conditions. If the population is low, the LAL is set to 1. Otherwise, it matches the LAL to the weather conditions. The `lal_value` method returns a string representation of the LAL.
+
+In the comments, there's an explanation of what LALs are and how they are numbered from 1 through 6, with each number representing a different level of lightning activity.
+
+This code appears to be part of a larger system that generates weather forecasts or reports. It includes several methods that handle different weather phenomena, such as lightning activity level (LAL) and mixing height. 
+
+1. The `lal_wx_value` method checks if the weather type is a dry thunderstorm, and if so, it returns a tuple of (6, 6). If not, it returns a tuple value from a dictionary (`lal_dict`) based on the coverage of the weather.
+
+2. The `lal_2_3` method checks the probability of precipitation (PoP). If it's greater than 10 and the weather type is a dry thunderstorm, it returns a tuple of (6, 6). Otherwise, it returns a tuple of (3, 3). If the PoP is less than or equal to 10, it returns a tuple of (2, 2).
+
+3. The `coverageLAL_table` method returns a dictionary where the keys are different types of weather coverage, and the values are methods or tuples that represent the LAL ranges.
+
+4. The `coverageLAL_value` method returns the LAL range for a given weather coverage.
+
+5. The `mixingHgt_phrase` method returns a dictionary with methods that handle the setup, wording, and phrase methods for mixing height.
+
+6. The `mixingHgt_setUp` and `mixingHgt_words` methods handle the setup and wording for the mixing height respectively. They generate a phrase for the mixing height, which can be a single value or a range.
+
+7. The `marineLayer_phrase`, `marineLayer_setUp`, and `marineLayer_words` methods handle the marine layer in a similar way to the mixing height. They generate a phrase for the marine layer, which can be a single value, a range, or "none" if the marine layer is 0.
+
+The code seems to be part of a larger system, possibly for generating weather forecasts or reports. The methods are designed to handle different weather phenomena and generate appropriate phrases for them.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

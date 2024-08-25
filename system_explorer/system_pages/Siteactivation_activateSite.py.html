@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>activateSite.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>activateSite.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script provides a command-line utility to activate a site. It uses the Thrift framework to send requests to a server and listens for responses.
+
+The main function of the script is to validate command-line arguments, create an activation request for a specific site, send the request to a server, and monitor the activation process.
+
+Here's a breakdown of the main components:
+
+1. `validateArgs()`: This function sets up a command-line argument parser and defines the expected arguments. These include the host and port of the request server and JMS broker, the plugin name, and the site to be activated. The function then parses the command-line arguments and returns them.
+
+2. `main()`: This function is the entry point of the script. It first calls `validateArgs()` to get the command-line arguments. It then creates an activation request and a Thrift client to send the request. It also starts a thread to listen for activation messages. The script then sends the activation request and waits for the activation process to complete. If an error occurs, it prints the error trace and exits with a non-zero status code. Finally, it stops the listener thread.
+
+3. `if __name__ == '__main__': main()`: This line ensures that the `main()` function is called when the script is run directly, but not when it's imported as a module.
+
+The script is designed to be run from the command line and requires certain arguments to be provided. It uses environment variables as default values for some of these arguments.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

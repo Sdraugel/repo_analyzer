@@ -1,0 +1,109 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>RoutineLevel1_FWF_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>RoutineLevel1_FWF_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code appears to be part of a larger software system developed by Raytheon Company. It contains a number of definitions and methods that seem to be related to weather forecasting or analysis, possibly for the purpose of fire prediction or management.
+
+The code includes several test definitions, which appear to be settings or configurations for different aspects of the software's functionality. For example, `Definition["tempLocalEffects"] = 1` might enable local temperature effects in the software's calculations.
+
+The `ridgeValleyAreas` method appears to specify certain geographical areas (in this case, "FLZ142" and "FLZ242") for which the software should report ridge and valley winds.
+
+The `skyWeather_byTimeRange_compoundPhrase` methods return dictionaries that include phrase lists and phrase methods. These might be used to generate weather reports or descriptions.
+
+The `getFirePeriod_intersectAreas` methods return lists of tuples that specify different weather-related variables (like temperature, wind, and relative humidity) and the areas where these variables should be measured or reported.
+
+The `localEffectSetup` section includes methods that define local effect areas and return lists of these areas. These methods might be used to set up or configure the software's handling of local weather effects.
+
+Overall, this code seems to be part of a complex system for weather analysis and prediction. Without more context, it's difficult to say exactly how this code is used within the larger system.
+
+The provided code appears to be a part of a larger Python script that is used for testing weather forecast models. The script is divided into several test scenarios, each represented as a dictionary within the `scripts` list.
+
+The first part of the code defines a local effect area `leArea2` and sets a threshold for sky local effect. It then returns a list with a local effect object.
+
+The rest of the code is a list of test scripts. Each script is a dictionary with the following keys:
+
+- `commentary`: A string that describes what the test is about.
+- `name`: The name of the test.
+- `productType`: The type of the product being tested.
+- `cmdLineVars`: Command line variables used in the test.
+- `checkStrings`: Strings that are expected to be in the output.
+- `notCheckStrings`: Strings that are not expected to be in the output.
+- `createGrids`: A list of tuples that define the grids to be created for the test.
+- `fileChanges`: A list of tuples that define the changes to be made to the files for the test.
+
+Each test is designed to simulate a different weather condition and check the output of the forecast model under these conditions. The tests include checks for temperature, humidity, wind speed and direction, and other weather-related parameters.
+
+This code appears to be a part of a larger script that is used for weather forecasting. It contains several dictionaries, each representing a different test case or scenario for the forecast. Each dictionary contains the following keys:
+
+1. "commentary": This key provides a description or explanation of the test case. It seems to be used for documentation purposes.
+
+2. "name": This key is used to identify the test case.
+
+3. "productType": This key indicates the type of forecast product that the test case pertains to. In all the given cases, the product type is "FWF".
+
+4. "cmdLineVars": This key contains a dictionary of command line variables that are used in the test case.
+
+5. "checkStrings": This key contains a list of strings that are expected to be present in the forecast output for the test case.
+
+6. "createGrids": This key contains a list of tuples, each representing a grid of forecast data to be created for the test case. Each tuple contains the forecast type, the forecast parameter, the data type, the start time, the end time, the forecast value, and the areas for which the forecast is valid.
+
+7. "drtHour": This key, present in some of the test cases, seems to represent a specific hour related to the test case.
+
+8. "fileChanges": This key, present in some of the test cases, contains a list of tuples, each representing a change to be made to a file for the test case. Each tuple contains the file name, the utility to be used for making the change, the type of change, the change to be made, and the action to be taken if the change needs to be undone.
+
+The code also contains comments that describe known bugs and potential issues with the forecast system.
+
+The provided code appears to be written in Python and seems to be part of a larger script related to weather forecasting.
+
+The code defines a list of dictionaries, each representing a script. Each script dictionary contains various properties such as "name", "commentary", "productType", and others. These properties seem to define the characteristics and behaviors of the script.
+
+The "createGrids" property is a list of tuples, each representing a forecast grid. Each tuple contains information about the forecast type (e.g., "MaxT", "MinT", "MaxRH", "MinRH", "RH"), its format ("SCALAR"), the start and end times, a value, and a location (e.g., "AboveElev", "BelowElev", "all").
+
+The "fileChanges" property is a list of tuples representing changes to be made to certain files.
+
+The "testScript" function appears to be the main function of this script. It takes three parameters: self, dataMgr, and level. The function sets up some default values, including start times for the grids and a drtTime. It then iterates over the scripts defined earlier, checks if a "drtHour" is defined for each script, and if so, it updates the "drtTime" for that script. Finally, it calls a function named "generalTestScript" with several parameters, including the scripts and the default values, and returns its result. 
+
+This function seems to be a part of a testing framework, where each script in the scripts list is a test case with specific configurations. The "generalTestScript" function is likely to execute these test cases and return the results.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,59 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>FireWxZones_EA_Site_MultiPil_Definition.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>FireWxZones_EA_Site_MultiPil_Definition.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that appears to be part of a larger system, possibly related to weather forecasting or fire weather (FireWx) monitoring. It is a configuration file used to generate a combinations file that contains all FireWx codes for a given site.
+
+The script begins with a header that includes legal information about the software's development, export restrictions, and licensing details. It also specifies that it is a base file not intended to be overridden.
+
+The main part of the script defines a dictionary named `Definition` which is used to store configuration settings. These settings include:
+
+- `defaultEditAreas`: The name of the generated combinations file.
+- `mapNameForCombinations`: The map background used for creating the combinations file.
+
+The script then checks if the `<site>` value is equal to "AFG" and if the `<MultiPil>` value is equal to "_AFG", "_NSB", or "_WCZ". Depending on these values, it sets the `subDomainUGCs` key in the `Definition` dictionary to a list of specific codes. These codes likely represent specific geographic areas or zones.
+
+The purpose of this script is to dynamically generate a configuration for a specific site and product, based on the provided `<site>` and `<MultiPil>` values.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

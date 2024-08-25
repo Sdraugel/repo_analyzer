@@ -1,0 +1,112 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>GFS75.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>GFS75.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is part of a weather forecasting software developed by Raytheon Company. The software uses data from the GFS75 model to calculate various weather elements. 
+
+The code file contains a class named `GFS75Forecaster` which is a subclass of `Forecaster`. The `GFS75Forecaster` class has several methods to calculate different weather elements:
+
+1. `__init__(self)`: This is the constructor of the class which initializes the class with the name "GFS75".
+
+2. `levels(self)`: This method returns a list of levels that will be used to create vertical soundings. These levels are model dependent.
+
+3. `calcMaxT(self, T, MaxT)`: This method returns the maximum of the specified MaxT and the T grids.
+
+4. `calcMinT(self, T, MinT)`: This method returns the minimum of the specified MinT and T grids.
+
+5. `calcT(self, t_FHAG2, stopo, topo)`: This method calculates the temperature at the elevation indicated in the topo grid.
+
+6. `calcTd(self, gh_c, t_c, rh_BL030, rh_MB850, rh_MB800, rh_MB750, rh_MB700, rh_MB650, topo)`: This method calculates dew point from the specified pressure, temperature and relative humidity fields.
+
+7. `calcRH(self, rh_BL030, rh_MB850, rh_MB800, rh_MB750, rh_MB700, rh_MB650, topo)`: This method calculates relative humidity from the T and Td grids.
+
+8. `calcMaxRH(self, RH, MaxRH)`: This method returns the maximum of the specified MaxRH and the RH grids.
+
+9. `calcMinRH(self, RH, MinRH)`: This method returns the minimum of the specified MinRH and RH grids.
+
+The code also contains some export control and licensing information at the top. It mentions that the software contains export-restricted data and its export/transfer/disclosure is restricted by U.S. law.
+
+The code provided defines several methods in a class that seem to be used for weather forecasting or climate modeling. Here's a breakdown of what each method does:
+
+1. `calcMinRH`: This method calculates the minimum relative humidity (RH). If the minimum RH is not provided (None), it returns the current RH. Otherwise, it returns the smaller of the current RH and the minimum RH.
+
+2. `calcQPF`: This method calculates the Quantitative Precipitation Forecast (QPF), which is the expected amount of liquid precipitation. It converts the total surface precipitation from millimeters to inches.
+
+3. `calcSky`: This method calculates the sky index based on the relative humidity at various atmospheric pressure levels (900, 850, 800, 750, 700). The sky index is then clipped between 0 and 500, and a linear transformation is applied to map it to a scale from 0 to 100.
+
+4. `calcPoP`: This method calculates the Probability of Precipitation (PoP) based on the relative humidity at various atmospheric pressure levels and vertical velocity at 700MB. The PoP index is then clipped between 0 and 500, and a linear transformation is applied to map it to a scale from 0 to 100.
+
+5. `calcFzLevel`: This method calculates the freezing level based on the height and temperature. It finds the height at which freezing occurs and returns it in feet.
+
+6. `calcSnowLevel`: This method calculates the snow level based on the height, temperature, and relative humidity. It finds the height at which the wet-bulb temperature crosses zero (indicating the level where snow is likely to form) and returns it in feet.
+
+The last method is cut off, but it appears to be a method for calculating snow amount based on various factors like temperature, freezing level, QPF, topography, and a weather grid.
+
+This code file contains several methods that calculate various meteorological parameters. 
+
+1. `calcSnowAmt`: This method calculates the amount of snow based on temperature, freezing level, QPF (Quantitative Precipitation Forecast), topography, and weather condition. It calculates the snow to liquid ratio based on temperature and then calculates the snow amount using the QPF and the ratio. It also applies a mask to only consider points where the weather is snow.
+
+2. `calcHaines`: This method calculates the Haines index, which is a measure of the potential for dry, unstable air to contribute to the development of large or erratic wildfires. The index is calculated based on temperature and relative humidity.
+
+3. `calcMixHgt`: This method calculates the mixing height for given surface temperature, temperature cube, height cube, and topography. The mixing height is the height at which the atmosphere becomes too stable to allow vertical mixing of pollutants.
+
+4. `calcWind`: This method calculates the wind speed and direction at different altitudes based on topography and wind data at different pressure levels. It also applies a correction factor to the wind speed based on topography.
+
+5. `calcFreeWind`: This method calculates the wind speed and direction at 3000 feet above ground level (AGL). It finds the wind data points that are above the 3000 foot level and stores the first point found that's above the topography + 3000 feet level.
+
+6. `calcAvgWind`: The description suggests that this method calculates the average wind vector in the mixed layer as defined by the mixing height. However, the method implementation is not provided in the given code. The mixed layer is the part of the atmosphere that is well mixed by turbulence, typically close to the surface.
+
+This Python code file appears to be part of a weather forecasting system. It contains several methods that calculate different aspects of weather conditions. Here's a breakdown of what each function does:
+
+1. `calcTransWind(self, MixHgt, wind_c, gh_c, topo)`: This method calculates a vector average of the wind field in a specific layer. It takes the mixing height, wind components, geopotential height, and topography as inputs. The wind speed is converted to knots and the speed is limited to 125 knots.
+
+2. `calcWx(self, t_MB850, t_MB700, t_MB500, rh_MB850, rh_MB700, cape_SFC, PoP)`: This method calculates the K-index to establish the threat of heavy rain. It also calculates the weather conditions based on the K-index and the probability of precipitation (PoP). It returns the weather conditions and a key for interpreting the conditions.
+
+3. `calcCWR(self, QPF)`: This method calculates the chance of wetting rain based on the Quantitative Precipitation Forecast (QPF). It assigns a value of 0 to dry grid points, 100 to wet grid points, and a ramping function to all points in between.
+
+4. `calcLAL(self, tp_SFC, sli_SFC, rh_c, rh_BL030)`: This method calculates the Lightning Activity Level based on total precipitation, the surface lifted index, and 3-D relative humidity. It increases the Lightning Activity Level based on certain conditions, such as if the QPF is greater than 0.5, if the mid-level relative humidity is high and the low-level relative humidity is low, and if the lifted index is less than -3 or -5.
+
+5. `main()`: This is the main function that runs the GFS75Forecaster. It's likely that the GFS75Forecaster class contains the methods defined above and uses global forecast system data to predict weather conditions.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

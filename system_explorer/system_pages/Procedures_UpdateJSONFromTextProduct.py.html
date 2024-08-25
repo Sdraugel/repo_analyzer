@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>UpdateJSONFromTextProduct.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>UpdateJSONFromTextProduct.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a larger software system that is in the public domain. The script is designed to extract and process JSON text from a text product, specifically related to weather data.
+
+The script imports various modules and classes, including time, math, and several custom modules such as AbsTime, SmartScript, TropicalUtility, WindWWUtils, and json.
+
+The main class in this script is `Procedure`, which inherits from `TropicalUtility.TropicalUtility`. The `Procedure` class is initialized with a database session (`dbss`) and creates an instance of `WindWWUtils` with the same database session.
+
+The `extractJSONText` method in the `Procedure` class is designed to strip the header text from the text product. It searches for the start of the JSON text (indicated by "{\n") and returns everything from that point onwards. If the start string is not found, an error message is displayed and an empty string is returned.
+
+The `execute` method is the main method in the `Procedure` class. It takes in an edit area, a time range, and a variable dictionary. It retrieves the site ID and forecast basins, and for each basin, it fetches storm information and extracts the text product from the database. The text product is then converted to a JSON dictionary. If the text product is not recent (older than 3 hours), it is ignored. If the JSON data is newer than the existing data for the bin, it is saved to the server. 
+
+The `execute` method is likely called by the larger software system to update the storm information based on the latest text products.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

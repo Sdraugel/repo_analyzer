@@ -1,0 +1,78 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>PathManager.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>PathManager.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is part of a software developed by Raytheon Company. It is a module that provides an interface to localization files, which are files that contain localized resources for different languages and regions.
+
+The code defines a class `PathManager` that implements the `IPathManager` interface. The `PathManager` class provides methods for accessing and managing localization files. It uses the `PathManagerFactory` from the `com.raytheon.uf.common.localization` package to get a path manager object, which is used to perform operations on localization files.
+
+The `PathManager` class has several methods:
+
+- `__init__`: This is the constructor of the `PathManager` class. It initializes the `jpathManager` attribute with a path manager object obtained from `PathManagerFactory`.
+
+- `getLocalizationFile`: This method returns a localization file based on the given context and name. The context is obtained by calling the `_getContext` method with the given localization type, level, and name.
+
+- `getTieredLocalizationFile`: This method returns a dictionary of localization levels available for the given file. The dictionary keys are localization level names, and the values are `LocalizationFile` objects.
+
+- `listFiles`: This method returns a list of fully qualified file paths for a directory or a directory and its sub-directories. The files are filtered based on the given extensions, and the search can be recursive and include directories.
+
+- `getAvailableLevels`: This method returns a list of available localization levels.
+
+- `_convertType`: This method converts a localization type or a list of localization types to their Java counterparts.
+
+- `_convertLev`: This method seems to convert a localization level or a list of localization levels to their Java counterparts, but the code is incomplete.
+
+The code also imports several modules and classes, such as `os`, `os.path`, `IPathManager`, `JUtil`, `LocalizationFile`, `File`, `PathManagerFactory`, `LocalizationContext`, `File`, and `String`.
+
+This code is defining three methods in a class, presumably related to localization. 
+
+1. `el(self, loclevel)`: This method takes a parameter `loclevel` which can be either a string, a list or None. If `loclevel` is a string, it converts it to a `LocalizationLevel` object using the `valueOf` method. If `loclevel` is a list, it creates a new list `jlevel` and for each element in `loclevel`, it converts the element to a `LocalizationLevel` object using the `_convertLevel` method. If `loclevel` is None, it simply returns `loclevel`.
+
+2. `_getContext(self, loctype, loclevel, locname=None)`: This method takes three parameters: `loctype`, `loclevel`, and `locname` (which is optional and defaults to None). It converts `loctype` and `loclevel` to their corresponding objects using `_convertType` and `_convertLevel` methods respectively. If `jtype` (converted `loctype`) is not a list, it makes it a list. Similarly, it makes `jlevel` (converted `loclevel`) a list if it is not already. It then returns the result of the `_contextForList` method with `jtype`, `jlevel`, and `locname` as arguments.
+
+3. `_contextForList(self, loctypes, loclevels, locname=None)`: This method takes three parameters: `loctypes`, `loclevels`, and `locname` (which is optional and defaults to None). It creates a `contexts` array with the length of `loctypes` and type `JavaLocalizationContext`. For each index in `loctypes`, it checks if `locname` and `loclevels` are None. If they are not, it sets the `contexts[i]` to the context obtained from `jpathManager.getContext(loctypes[i], loclevels[i])`. If `locname` is not None, it sets the context name of `contexts[i]` to `locname`. Finally, it returns `contexts`.
+
+In summary, these methods are used to process and convert localization related data (type, level, name) into a specific format (list of `JavaLocalizationContext` objects) for further use.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

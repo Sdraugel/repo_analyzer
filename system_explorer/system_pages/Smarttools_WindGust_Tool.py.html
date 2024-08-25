@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>WindGust_Tool.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>WindGust_Tool.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script developed by Raytheon Company. It appears to be a part of a larger software system, possibly related to weather forecasting given the references to wind gusts. 
+
+The script begins with a legal notice and contract information. It also mentions that the software is in the public domain and provided "as is", without any warranty or technical support.
+
+The script defines a tool for calculating wind gusts. It imports the numpy library and a module named SmartScript. The tool is defined as a class named Tool, which inherits from SmartScript.SmartScript. 
+
+The class has two methods: 
+- `__init__` is the constructor method that initializes an instance of the class.
+- `execute` is a method that takes a wind magnitude as input and calculates the wind gusts based on certain conditions.
+
+The `execute` method calculates wind gusts by multiplying the wind magnitude by different factors depending on the magnitude's value. For example, if the wind magnitude is greater than or equal to 0.0 but less than 46.0, it's multiplied by 1.40. If it's greater than or equal to 46.0 but less than 47.0, it's multiplied by 1.38, and so on. The calculated wind gust is then returned by the method.
+
+The script also mentions that this is an absolute override file, which means that a higher priority version of this file will completely replace a lower priority version.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

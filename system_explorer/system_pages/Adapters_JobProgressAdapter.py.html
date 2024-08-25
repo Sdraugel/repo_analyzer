@@ -1,0 +1,56 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>JobProgressAdapter.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>JobProgressAdapter.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is an adapter for the `JobProgress` class from the `com.raytheon.uf.common.dataplugin.gfe.svcbu` package. The adapter provides two main functions: `serialize` and `deserialize`.
+
+The `serialize` function takes a `context` and a `mode` as arguments. The `context` is likely an object that provides a protocol for serialization. The `mode` is the object to be serialized. The function begins writing a field to the protocol with the name '__enumValue__', a type of `TType.STRING`, and an id of 0. It then writes the value of the `mode` object to the protocol as a string.
+
+The `deserialize` function also takes a `context` as an argument. It creates a new `JobProgress` object and reads a field from the protocol. This field is expected to be a string with the name '__enumValue__'. The function discards the field name, type, and id, and only keeps the actual value, which it reads as a string and assigns to the `value` attribute of the `JobProgress` object. The function then returns the `JobProgress` object.
+
+The script also contains a software history log, which shows that the initial creation of this part of the code was done by an engineer named 'randerso' on 06/22/2015.
+
+The comments at the top of the file indicate that the software was developed and/or modified by Raytheon Company under a contract with the US Government. The software contains export-restricted data, and its export/transfer/disclosure is restricted by U.S. law.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

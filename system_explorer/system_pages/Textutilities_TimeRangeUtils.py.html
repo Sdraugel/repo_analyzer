@@ -1,0 +1,92 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TimeRangeUtils.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TimeRangeUtils.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The code file is a Python module named `TimeRangeUtils.py` which is part of a larger software system developed by Raytheon Company. This module provides utility functions for dealing with time ranges in text products. It is not intended to be overridden and is in the public domain.
+
+The module imports the `time` module from the Python Standard Library and other custom modules like `TextUtils`, `AbsTime`, and `TimeRange`.
+
+The `TimeRangeUtils` class is defined in this module, which inherits from `TextUtils.TextUtils`. The class contains several methods to create and manipulate time ranges:
+
+1. `__init__`: This is the constructor method that initializes the `TimeRangeUtils` object.
+
+2. `makeTimeRange`: This method takes a start time and an end time and returns a `TimeRange` object. If an exception occurs, it converts the start and end times to `AbsTime` objects and then creates a `TimeRange` object.
+
+3. `createTimeRange`: This method creates a `TimeRange` object given a start hour and an end hour. The mode can be either "LT" (Local Time) or "Zulu".
+
+4. `getTimeRange`: This method returns a time range corresponding to the named time range.
+
+5. `getPeriod`: This method returns 1 if the time range is during the day, 0 if it's at night, and -1 if the duration is greater than or equal to 24 hours.
+
+6. `shiftedTimeRange`: This method shifts the given time range to local time.
+
+7. `getTimeRangeList`: This method makes a list of time range and label tuples for the given time ranges and label method.
+
+8. `getPeriods`: This method makes a list of time range and label tuples for the given time range, period, and span.
+
+The code also contains some comments that provide additional information about the software and its licensing.
+
+This code is part of a larger program that handles and manipulates time ranges. It is written in Python and uses a custom TimeRange class to represent periods of time.
+
+Here's a breakdown of what each method does:
+
+1. The first method creates a list of time periods based on the given parameters, such as the start and end times, the duration of each period, and the number of periods. It also provides options for labeling each period with a custom method or format.
+
+2. The `adjustTimeRange` method takes a time range and a number of hours, and returns a new time range that is shifted by the given number of hours.
+
+3. The `localTime` method calculates the local time based on a given start time, a number of hours, and a shift value.
+
+4. The `hrToSec` method converts a given number of hours to seconds.
+
+5. The `daylight` method checks if the current local time is in daylight saving time.
+
+6. The `determineShift` method calculates the difference between local time and GMT.
+
+7. The `determineTimeShift` method returns the current local time and the difference between local time and GMT.
+
+8. The `timeDisplay` method creates a formatted string representation of a given time range. The format can be customized with the given parameters.
+
+The code uses the `time` module from Python's standard library to handle time-related operations, and the `TimeRange` class to represent and manipulate periods of time. The `TimeRange` class is not part of Python's standard library, so it's likely defined elsewhere in the program or in a separate module.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

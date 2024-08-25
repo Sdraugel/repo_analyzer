@@ -1,0 +1,96 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ThriftSerializationContext.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ThriftSerializationContext.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code file is part of a software developed or modified by Raytheon Company. The code is subject to U.S. export control laws due to the presence of export-restricted data.
+
+The code file provides a Python port of the Java ThriftSerializationContext. It is used for reading and writing DynamicSerialize objects to and from Apache Thrift, a software framework for scalable cross-language services development.
+
+The code does not have knowledge of the expected types in other languages. Instead, it inspects the types of the Python objects and primitives passed to it. Therefore, it is important to ensure that the types of Python objects and primitives match what they should be in the destination language.
+
+The code includes a software history that provides a log of changes and improvements made to the code over time.
+
+The code imports several modules including Thrift, inspect, sys, dynamicserialize, adapters, SelfDescribingBinaryProtocol, and numpy.
+
+The code defines several mappings between Python and Thrift types, and it also defines the class ThriftSerializationContext. This class includes methods for serializing and deserializing various data types, including strings, integers, lists, maps, sets, floats, bytes, and structures.
+
+The code is cut off at the end, so it's not clear what the final methods in the ThriftSerializationContext class are.
+
+This code is part of a serialization/deserialization library. It is designed to convert complex data structures into a format that can be stored or transmitted and then reconstructed later (serialization), and to do the reverse operation (deserialization).
+
+Here's a breakdown of what the code is doing:
+
+- `readMessageStart` and `readMessageEnd`: These methods are used to start and end the reading of a message from the protocol.
+
+- `deserializeMessage`: This method is used to read a message from the protocol and convert it back into its original data structure. It handles different types of data structures, including nested classes and enums.
+
+- `_deserializeType`, `_deserializeField`, `_deserializeArray`, `_deserializeMap`, and `_deserializeSet`: These methods are used to deserialize different types of data structures, such as arrays, maps, and sets.
+
+- `_lookupType`: This method is used to determine the type of the object that is being serialized.
+
+- `serializeMessage`: This method is used to convert a data structure into a format that can be written to the protocol. It handles different types of data structures and uses the `_serializeField` and `_serializeType` methods to serialize individual fields and types.
+
+- `_serializeField` and `_serializeType`: These methods are used to serialize individual fields and types.
+
+The code uses the Thrift binary protocol for serialization and deserialization. Thrift is a software framework for scalable cross-language services development. It combines a software stack with a code generation engine to build services that work efficiently and seamlessly between multiple programming languages.
+
+This code is a part of a serialization and deserialization class in Python. Serialization is the process of converting an object's state to a byte stream, and deserialization is the reverse operation where the byte stream is used to recreate the actual Python object. This class is used to serialize and deserialize different types of data structures for communication between two entities (like client and server) or for storing data.
+
+Here's a breakdown of the code:
+
+1. `_serializeArray(self, obj)`: This method is used to serialize an array. It checks the type of the array and serializes it accordingly. If the array is of type bytes, it is converted into a list. If the array is of type numpy.ndarray, it uses a map to find the corresponding Thrift type. It then writes the serialized array to the protocol.
+
+2. `_serializeMap(self, obj)`: This method is used to serialize a dictionary. It writes the size of the dictionary to the protocol, then iterates over the dictionary items and serializes each key-value pair.
+
+3. `_serializeSet(self, obj)`: This method is used to serialize a set. It writes the size of the set to the protocol, then iterates over the set items and serializes each item.
+
+4. `_decodeString(self, s)`: This method is used to decode a string. If the string is a byte string, it decodes it. Otherwise, it converts the string to a str type.
+
+5. `writeMessageStart(self, name)`, `writeMessageEnd(self)`, `readBool(self)`, `writeBool(self, b)`, etc.: These methods are used to write and read different types of data (like boolean, byte, double, float, etc.) to/from the protocol.
+
+6. `readBinary(self)`, `readFloatArray(self)`, `writeFloatArray(self, floats)`, `readObject(self)`, `writeObject(self, obj)`: These methods are used to read and write complex data types (like binary data, float array, object, etc.) to/from the protocol.
+
+In summary, this class provides a way to serialize and deserialize different types of data structures for communication or storage.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,64 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TransWind_NoVar.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TransWind_NoVar.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a tool called TransWind2_Tool, which is a numeric version of a Transport Wind smart tool. The tool is designed for the NAM (North American Mesoscale Forecast System) but can be adapted for other models. It has two major modes of operation: 1) including boundary layer winds, or 2) using only pressure "layers". 
+
+The script begins by importing necessary libraries and defining the class `Tool` which inherits from `SmartScript.SmartScript`. The `Tool` class has two methods: `__init__` and `execute`. 
+
+The `__init__` method initializes the object with a database session (`dbss`).
+
+The `execute` method is where the main functionality of the tool is implemented. It takes in several parameters including `GridTimeRange`, `Topo`, `MixHgt`, and `Wind`. 
+
+The method first determines the model source based on the `FireModel` object's `ModelType` attribute. It then calculates the average wind in the mixed layer. It sets up the model and prints the model used for Transport Wind Calculation and the Transport Wind time range. 
+
+The script then defines a list of layers and gets the `ghCube` (geopotential height cube). If `ghCube` is None, it calls the `noData` method. 
+
+It then calculates the average winds at pressure levels between `Topo` and `MixHgt`. It does this by iterating through each layer and checking if the layer is between `Topo` and `MixHgt`. If it is, it increments the `levels` count and adds the u and v components of the wind to `uTotal` and `vTotal` respectively. 
+
+Finally, it calculates the magnitude and direction of the wind, converts the magnitude from meters per second to knots, and returns the `TransWind` as a tuple of magnitude and direction.
+
+The script also includes two helper functions `getUV` and `getMD` which convert between magnitude/direction and u/v representations of wind.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

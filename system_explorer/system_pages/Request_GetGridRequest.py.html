@@ -1,0 +1,68 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>GetGridRequest.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>GetGridRequest.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is written in Python and appears to be part of a larger system, possibly for weather forecasting or similar geospatial data processing, developed by Raytheon Company. The code defines a class named `GetGridRequest`.
+
+The `GetGridRequest` class has several methods and attributes:
+
+- `__init__(self, parmId=None, trs=[])`: This is the constructor of the class. It initializes the object with a `parmId` (parameter ID) and `trs` (possibly standing for "time ranges"). If a `parmId` is provided, it creates `GFERecord` objects for each item in `trs` and appends them to the `records` list.
+
+- `getRecords(self)`: This method returns the `records` list.
+
+- `setRecords(self, records)`: This method sets the `records` list to a new list provided as an argument.
+
+- `getParmId(self)`: This method returns the `parmId`.
+
+- `setParmId(self, parmId)`: This method sets the `parmId` to a new value provided as an argument.
+
+- `getConvertUnit(self)`: This method returns the `convertUnit` boolean.
+
+- `setConvertUnit(self, convertUnit)`: This method sets the `convertUnit` boolean to a new value provided as an argument.
+
+The `GFERecord` and `WsId` classes are imported from the `dynamicserialize.dstypes.com.raytheon.uf.common.dataplugin.gfe.db.objects` and `dynamicserialize.dstypes.com.raytheon.uf.common.message` packages respectively, suggesting that this code is part of a larger system that involves data serialization and possibly network communication.
+
+The initial comment block provides information about the software's licensing and export restrictions, as well as the contractor's details.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

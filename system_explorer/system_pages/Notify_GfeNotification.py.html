@@ -1,0 +1,54 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>GfeNotification.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>GfeNotification.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a Python script that defines an abstract base class named `GfeNotification`. The script begins with a comment block that includes licensing information and a brief history of the software's development. 
+
+The `GfeNotification` class is defined with two instance variables: `siteID` and `sourceID`, both of which are initialized as `None` in the class's constructor method (`__init__`). This class is an abstract base class, as indicated by the `metaclass=abc.ABCMeta` argument in the class definition and the `@abc.abstractmethod` decorator before the `__init__` method. This means that this class is intended to be a base class for other classes and cannot be instantiated on its own.
+
+The class also includes getter and setter methods for both `siteID` and `sourceID`. The getter methods (`getSiteID` and `getSourceID`) return the current value of the respective instance variable. The setter methods (`setSiteID` and `setSourceID`) accept a parameter and assign its value to the respective instance variable.
+
+Overall, this script is defining a blueprint for a type of notification within a larger system, where each notification has a site ID and a source ID. Other classes in the system can inherit from `GfeNotification` and utilize its structure while adding their own additional functionality.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

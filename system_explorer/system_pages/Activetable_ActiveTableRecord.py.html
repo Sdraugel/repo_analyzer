@@ -1,0 +1,80 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ActiveTableRecord.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ActiveTableRecord.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The code you provided is written in Python and it defines a class named `ActiveTableRecord`. This class is a subclass of `PersistableDataObject` and uses the `abc.ABCMeta` metaclass, indicating that it is an abstract base class (ABC). 
+
+The `ActiveTableRecord` class has a number of instance variables, all of which are initialized to `None` in the `__init__` method. These variables represent different properties of an active table record, such as `wmoid`, `pil`, `xxxid`, `countyheader`, `vtecstr`, `productClass`, `act`, `startTime`, `endTime`, `issueTime`, `purgeTime`, etc.
+
+The class also includes getter and setter methods for each of these instance variables. These methods are used to access (get) or modify (set) the values of the instance variables.
+
+For example, the `getKey` method returns the value of the `key` instance variable, and the `setKey` method sets the value of the `key` instance variable.
+
+In addition, the `setIssueTime` method contains some logic to convert a timestamp into a datetime object and set the `issueYear` of the `key` accordingly.
+
+Overall, this class seems to be a part of a larger system (possibly a weather or environmental data system given the variable names) and is used to represent and manipulate data related to an "active table record".
+
+This code is defining a class in Python, although the class declaration itself is not shown. The class seems to be related to flood data, as the methods are getter and setter methods for various attributes related to floods.
+
+Here's a brief description of each method:
+
+- `getLocationID` and `setLocationID`: These methods get and set the value of the `locationID` attribute, respectively. This attribute might be used to store the ID of a location where a flood event occurred.
+
+- `getFloodSeverity` and `setFloodSeverity`: These methods get and set the value of the `floodSeverity` attribute, respectively. This attribute might be used to store the severity of a flood event.
+
+- `getImmediateCause` and `setImmediateCause`: These methods get and set the value of the `immediateCause` attribute, respectively. This attribute might be used to store the immediate cause of a flood event.
+
+- `getFloodRecordStatus` and `setFloodRecordStatus`: These methods get and set the value of the `floodRecordStatus` attribute, respectively. This attribute might be used to store the status of a flood record.
+
+- `getFloodBegin` and `setFloodBegin`: These methods get and set the value of the `floodBegin` attribute, respectively. This attribute might be used to store the date/time when a flood event began.
+
+- `getFloodCrest` and `setFloodCrest`: These methods get and set the value of the `floodCrest` attribute, respectively. This attribute might be used to store the date/time when a flood event reached its peak.
+
+- `getFloodEnd` and `setFloodEnd`: These methods get and set the value of the `floodEnd` attribute, respectively. This attribute might be used to store the date/time when a flood event ended.
+
+- `getIdentifier` and `setIdentifier`: These methods get and set the value of the `identifier` attribute, respectively. This attribute might be used to store a unique identifier for a flood event.
+
+In general, these methods are used to encapsulate the data (i.e., to keep the data safe from outside interference and misuse). This is a common practice in object-oriented programming.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

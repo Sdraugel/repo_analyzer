@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ReturnGFETimeRange.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ReturnGFETimeRange.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be part of a larger software system, possibly related to the Graphical Forecast Editor (GFE) given the reference to "GFE menu item(s)" in the comments. The GFE is a tool used by meteorologists to produce weather forecasts.
+
+The script is defining a class called `Procedure` that inherits from `SmartScript.SmartScript`. This class has two methods: `__init__` and `execute`.
+
+The `__init__` method is the constructor for the class. It takes one argument, `dbss`, and passes it to the parent class's constructor.
+
+The `execute` method takes two arguments: `timeRange` and `varDict`. It modifies `varDict` to include a new key-value pair where the key is "SelectedTimeRange" and the value is a tuple containing the start and end times of `timeRange` in Unix time.
+
+The script also imports several modules: `LogStream`, `time`, `math`, and `SmartScript`. However, it doesn't seem to use `LogStream` or `math` in the provided code.
+
+The `MenuItems` list is defined with one item, "Edit". This might be used elsewhere in the software to determine where in the GFE's menu this procedure should appear.
+
+Finally, the `VariableList` is defined but left empty. This might be populated elsewhere in the code.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,117 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>VTEC_ETN_Reuse_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>VTEC_ETN_Reuse_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be a series of test cases for a weather forecasting system, possibly for marine forecasts. The script contains a list of dictionaries, each representing a test case. Each dictionary contains several key-value pairs that provide information about the test case:
+
+- "commentary": A description of what the test case is doing.
+- "name": The name of the test case.
+- "productType": The type of weather forecast product being tested.
+- "clearHazardsTable": A flag indicating whether to clear the hazards table.
+- "drtTime": The date and time for the forecast.
+- "gridsStartTime": The start time for the forecast grid.
+- "createGrids": A list of tuples that define the forecast grids to be created for the test case.
+- "checkStrings": A list of strings that are expected to be in the output of the test case.
+
+The test cases appear to be simulating different weather conditions, such as clear conditions, gale warnings, and storm warnings. The "checkStrings" are used to verify that the forecast output includes the expected warnings and other information.
+
+The first part of the file is a legal disclaimer and copyright notice from Raytheon Company, the developer of the software. It includes information about U.S. export control restrictions and the contractor's contact information.
+
+This code appears to be a part of a larger system for generating weather forecasts and hazard warnings. It seems to be written in Python, and it's defining a series of dictionaries, each representing a different step in the forecast generation process. 
+
+Each dictionary includes details such as:
+- "commentary": A description of what this step is doing.
+- "name": A unique identifier for this step.
+- "drtTime" and "gridsStartTime": Timestamps for when this step is supposed to take place.
+- "productType": The type of forecast or warning being generated.
+- "createGrids": A list of tuples, each representing a different hazard warning to be included in the forecast. Each tuple includes the type of hazard, the time period it applies to, and the areas it applies to.
+- "checkStrings": A list of strings that seem to be parts of the final forecast message.
+
+For example, the first dictionary is generating a "CWF" (Coastal Waters Forecast) for the area "GMZ870", with a gale watch ("GL.A") in effect at certain times. The "checkStrings" list includes parts of the forecast message, such as the forecast header, the synopsis, and the specific warnings for each day.
+
+The code also includes some commented out lines (starting with '#') which might be used for testing or debugging purposes. 
+
+The last dictionary in the provided code is part of a series of steps for generating a local hazard warning ("Hazard_NPW_Local") for heat advisory ("HT.Y") in the areas "FLZ050" and "FLZ151".
+
+This code appears to be part of a larger script for a weather forecasting system. It seems to be generating weather alerts for specific forecasted conditions. 
+
+The code is divided into several sections, each with a unique name and a commentary that describes what the section is doing. Each section also has a "createGrids" list that contains tuples. Each tuple represents a forecasted weather condition with specific parameters such as the type of hazard (like "HT.Y" for Heat Advisory and "EH.W" for Excessive Heat Warning), the time period for which the condition is forecasted, and the areas affected by the condition (like "FLZ050","FLZ151").
+
+The "checkStrings" list in each section seems to contain the text of the weather alert that will be issued based on the forecasted conditions. This includes information like the issuing authority, the time of issue, the areas affected, and the details of the forecasted conditions.
+
+In summary, this code appears to be part of a system that generates and issues weather alerts based on forecasted conditions.
+
+This code is a part of a test script for a weather forecasting system. It appears to be testing the system's ability to handle and generate various types of weather advisories, particularly heat advisories and excessive heat warnings. 
+
+The code is structured as a list of dictionaries, where each dictionary represents a different test case or step in the testing process. Each dictionary contains various keys that provide information or instructions for that particular test case.
+
+For example, the "commentary" key provides a description of what the test case is doing, the "name" key gives the test case a unique identifier, and the "productType" key specifies the type of weather advisory being tested.
+
+The "createGrids" key is used to generate a set of hypothetical weather data for the test case. This data includes the type of advisory ("EH.W" for an excessive heat warning, "HT.Y" for a heat advisory), the time period for which the advisory is in effect, and the geographical areas affected by the advisory.
+
+The "checkStrings" key contains a list of strings that are expected to be generated by the system when it processes the test case. These strings include the advisory text that would be sent out to the public, as well as various codes and timestamps used by the system internally.
+
+The final part of the code defines a function `testScript` that appears to run the test cases using a data manager object. The "database" and "decodeVTEC" keys in the `defaults` dictionary likely provide some default settings for the test run.
+
+This piece of code is written in Python and appears to be a part of a larger function or method. It's defining a dictionary with several key-value pairs and then returning it as part of a call to a method named `generalTestScript` of a class or object named `TestScript`.
+
+Here's a brief description of the keys and their values in the dictionary:
+
+1. `"gridsStartTime"`: The value `"20100101_0500"` is likely a timestamp representing the start time of the grids. It seems to be in the format `YYYYMMDD_HHMM`.
+
+2. `"orderStrings"`: This key has a value of `1`, which might be a boolean flag or an integer used for ordering strings.
+
+3. `"vtecMode"`: The value `"O"` could be a mode setting for a system or process referred to as 'vtec'.
+
+4. `"comboFlag"`: This key has a value of `1`, which might be a flag used to indicate whether combinations should be used or not.
+
+5. `"combinations"`: This key has a list of tuples as its value. Each tuple contains a list and an empty string. The list in the tuple contains a string `"GMZ870"`.
+
+6. `"cmdLineVars"`: This key has a string representation of a dictionary as its value. The dictionary contains two key-value pairs, each of them is a tuple. The first tuple is `('Product Issuance', 'productIssuance')` with a value of `'Morning'` and the second tuple is `('Issued By', 'issuedBy')` with a value of `None`.
+
+7. `"deleteGrids"`: This key has a list of tuples as its value. Each tuple contains several string values. The tuple in this case is `("Fcst", "Hazards", "SFC", "all", "all")`.
+
+After the dictionary is defined, it is passed as an argument to the `generalTestScript` method of the `TestScript` object or class, along with `self` (which refers to the instance of the class where this code is defined) and `dataMgr` and `scripts` (which are not defined in this piece of code, but are likely defined elsewhere in the larger code file). The `generalTestScript` method is then called, and its return value is returned by the code block you provided.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>purgeAllGrids.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>purgeAllGrids.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script provides a command-line utility to purge selected GFE (Gridded Forecast Editor) grids. The script is developed by Raytheon Company and contains export-restricted data, as indicated by the comments at the top of the file.
+
+The script starts by importing necessary modules, including logging, os, sys, and some specific classes from the 'dynamicserialize' and 'awips' packages.
+
+The logging module is configured to log messages with a specific format and level of logging set to INFO. A logger named 'purgeAllGrids' is created.
+
+The main function of the script is defined next. It validates the command-line arguments, creates a purge request, sends the request to a server using a Thrift client, and handles any exceptions or errors that occur during this process.
+
+The 'validateArgs' function validates the command-line arguments provided by the user. It checks for the presence of a host name, port number, and database ID. If the host name or port number are not provided, it attempts to retrieve them from the environment variables 'CDSHOST' and 'CDSPORT'. If these are not set, it raises an error.
+
+The 'createRequest' function creates a new instance of the 'PurgeGfeGridsRequest' class, sets its database ID, workstation ID, and site ID, and returns the object.
+
+The script is designed to be run as a standalone program, as indicated by the 'if __name__ == '__main__': main()' line at the end of the file. This line calls the main function when the script is executed directly, but not when it is imported as a module.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

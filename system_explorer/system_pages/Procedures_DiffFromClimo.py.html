@@ -1,0 +1,80 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>DiffFromClimo.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>DiffFromClimo.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This is a Python script that is part of a larger software developed by Raytheon Company. It appears to be a weather-related application, possibly for forecasting or climate analysis. 
+
+The script defines a class `Procedure` that inherits from `SmartScript.SmartScript`. The class has several methods, including `_cubicSpline`, `_spline3_coef`, `_spline3_eval`, and `_getWEInventory`.
+
+The `_cubicSpline` method takes a list of grids and times, along with a list of times for which grids are to be calculated. It returns a corresponding list of grids that match the interpolation times. This method uses cubic spline interpolation, a mathematical technique used for smoothing data.
+
+The `_spline3_coef` and `_spline3_eval` methods are helper methods for the `_cubicSpline` method. They calculate the coefficients for the cubic spline curve and evaluate the spline, respectively.
+
+The `_getWEInventory` method gets the list of time ranges at the grid whose element name is `WEName`. It assumes the level of the weather element is `LEVEL`. It returns time ranges at which `WEName` has data.
+
+The `VariableList` and `MenuItems` at the beginning of the script are likely used for some sort of user interface, allowing the user to select a weather element and a climatology source.
+
+The script imports several modules, including `numpy`, `SmartScript`, `time`, `AbsTime`, and `TimeRange`. These are likely used for numerical operations, time handling, and range operations, respectively.
+
+This code is a part of a larger program that is used for weather data analysis. It retrieves climatology grids, assigns appropriate times to each grid, and calculates the grid values between the given climatology grids. The grids created are of MinT or MaxT over the selected time range in the GridManager.
+
+Here's a breakdown of what each part of the code does:
+
+1. The first part of the code defines a function that retrieves the grid inventory for a given time range. If the inventory is empty or none, it sends a status bar message. It then creates a list of TimeRange objects from the inventory and returns it.
+
+2. The `gridRound` function rounds the grid values based on the provided mode and number of digits. The mode can be "RoundUp", "RoundDown", or "Nearest". If the mode is not one of these, it raises a TypeError.
+
+3. The `execute` function is the main method. It retrieves the climatology grids, assigns appropriate times to each, and calls the `_cubicSpline` method to calculate the grid values in between the given climatology grids. 
+
+   - It first gets the climatology source and the times for all the grids that overlap the selected time range.
+   - If the time range is None or there are no grid times, it sends a status bar message and returns.
+   - It then gets all of the grids from the climatology database and fetches the grids from the database, warping the times so that they are set to the current year.
+   - It also adds the December at the beginning and the January at the end to ensure calculations from Dec 15 to Jan 15 are correct.
+   - It then interpolates the grids using the `_cubicSpline` method.
+   - It gets the forecast grid inventory and for each grid time, it converts the temperature from Kelvin to Fahrenheit, clips the grid to min/max limits, and rounds the grid to the precision of the parameter.
+   - If the grid time is in the forecast inventory, it gets the forecast grid, rounds it, calculates the difference grid between the forecast grid and the climatology grid, and creates a new grid with this difference. 
+
+The code seems to be part of a larger weather forecasting or climate modeling system.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

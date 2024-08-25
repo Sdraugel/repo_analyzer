@@ -1,0 +1,92 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TCTornadoThreat.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TCTornadoThreat.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a part of a software tool named "TornadoFloodThreat". This software is in the public domain and is provided without any warranty or technical support. The software has been updated and modified multiple times by various authors, with the changes documented in the comments.
+
+The software is written in Python and is designed to be used with the Graphical Forecast Editor (GFE) software, which is used by meteorologists to create weather forecasts. The software appears to be a procedure that is added to the GFE's menu under the "Populate" item.
+
+The software imports several Python modules, including a custom module named "TropicalUtility", as well as standard modules like "time" and "sys". It also imports "AbsTime" and "TimeRange" which are likely custom modules related to handling time data in weather forecasts, and "numpy", a popular numerical computation library in Python.
+
+The software defines a class named "Procedure" that inherits from "TropicalUtility.TropicalUtility". The class includes methods for checking if a variable exists in a model, getting the inventory of a weather element (WE) from a model, making a time range of 6 hours, and getting a list of database identifiers that match a specified model.
+
+The code is incomplete, so the full functionality of the getModelList method and any subsequent methods or class definitions are not visible.
+
+This code appears to be part of a larger system that processes and analyzes weather data, specifically related to tornado threats. Here's a breakdown of what each part of the code does:
+
+1. `delList.append(dbID.modelIdentifier())` and `return modelList`: This part of the code is appending a model identifier to a list called `delList`, and then returning another list called `modelList`.
+
+2. `determineDay(self, modelTime, validTime)`: This function determines the day number based on the difference between the valid time and the model time. The comments explain that the data for different days come at different times, and this function helps to identify which day the data belongs to.
+
+3. `getModelTime(self, modelName)`: This function extracts the time from the model name and converts it into a Unix timestamp.
+
+4. `getTornadoGrid(self, varName, dayNum)`: This function retrieves a grid of tornado data for a specific day. It loops through a list of models, retrieves the inventory for each model, and checks if the data is for the specified day.
+
+5. `adjustTornadoGrid(self, tornadoThreat, threatKeys, var, dayNum, extThreshold)`: This function adjusts an existing tornado threat grid based on certain conditions. It increases the threat level where the threat is greater than zero and the extreme grid is greater than or equal to the threshold.
+
+6. `setTornadoGrid(self, tornadoThreat, threatKeys, var, dayNum, threshDict)`: This function sets the values in the tornado threat grid based on the tornado probability grid and thresholds. It updates the threat grid only in areas where the temporary grid exceeds the threat grid.
+
+7. `execute(self, varDict)`: This function sets up the data for processing the various grids. It defines a list of actions, each of which consists of the D2D variable to be checked, the day number of that grid, and a dictionary that defines each threshold value and the corresponding discrete value.
+
+This code is part of a larger system that seems to be analyzing and predicting tornado threats. Here's a breakdown of what's happening:
+
+1. It starts by defining an `actionList` (not visible in the provided code), which appears to be a list of tuples. Each tuple contains information about a variable (`var`), a day number (`dayNum`), a dictionary of thresholds (`threshDict`), another variable (`xVar`), and a threshold (`xThreshold`).
+
+2. It then creates a grid of zeros, `tornadoThreat`, using the `self.empty()` method. This grid is likely used to represent the tornado threat level across different geographical areas.
+
+3. It initializes two counters, `TotalDays1` and `TotalDays2`, to zero. These are used to keep track of the total number of days for which data is processed.
+
+4. It then iterates over the `actionList`. For each item in the list, it updates the `tornadoThreat` grid and the total day counters using the `setTornadoGrid` and `adjustTornadoGrid` methods. These methods likely update the tornado threat level based on the provided data and thresholds.
+
+5. It logs the total number of days processed for two variables (`var1` and `var2`).
+
+6. If the total number of days processed is not equal to 3 for either variable, it displays a status bar message indicating that the SPC (Storm Prediction Center) probabilities for days 1, 2, and 3 have not been retrieved. This could be because the tool was run between 05Z and 08Z, and the new data for days 1-3 is still coming in.
+
+7. It then creates a time range (`threatTR`) that is 6 hours long, rounded to the nearest hour.
+
+8. It removes any old grids that are lying around, likely to free up memory or to ensure that outdated data is not used.
+
+9. Finally, it creates the `TornadoThreat` grid using the `createGrid` method. This grid is likely used to visualize the tornado threat level across different geographical areas. The grid is created with the `tornadoThreat` data and `threatKeys`, and it uses the "DISCRETE" grid type and the "Hazards" color table.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

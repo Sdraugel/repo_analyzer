@@ -1,0 +1,56 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>LtgMonitor.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>LtgMonitor.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script named `LtgMonitor.py` developed by Raytheon Company. It's a module for monitoring lightning data. The script is part of a larger software system, as indicated by the import statements at the beginning of the script. 
+
+The script contains two classes: `Monitor` and `TSObsDelta`.
+
+The `Monitor` class is a subclass of `MonitorP.Monitor` and it is designed to monitor lightning data for a specific period (10 minutes as defined in the script). It has a method named `__compare` which compares the number of lightning strikes in the last 10 minutes with the forecast data (`taf`). Depending on the number of strikes, it sets the result text to 'No strikes', '1 strike', or '%d strikes'. It also applies some rules to the data and updates the status of the result.
+
+The `TSObsDelta` class is a subclass of `MonitorP.Rule`. It represents a rule that checks if there is thunder but it's not in the TAF (Terminal Aerodrome Forecast). It has a method that checks if the number of strikes is less than a certain number (3 by default). If the number of strikes is greater or equal to this number and 'ts' (thunderstorm) is not in the TAF, it sets a message indicating that thunder is present but not in the TAF.
+
+The script also includes a detailed revision history, contractor information, and U.S. export control and licensing information.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

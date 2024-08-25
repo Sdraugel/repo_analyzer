@@ -1,0 +1,90 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>SmartElementTable.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>SmartElementTable.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script for a weather forecasting product. It appears to be part of a larger system, possibly AWIPS II, as mentioned in the comments. 
+
+The script defines a class `TextProduct` that inherits from two other classes, `TextRules` and `SampleAnalysis`. 
+
+The `TextProduct` class contains several methods:
+
+1. `__init__`: This is the constructor method that is called when an instance of the class is created. It initializes the parent classes.
+
+2. `generateForecast`: This method generates a formatted forecast for a list of areas. It retrieves variables, determines time ranges, samples data, and generates a product for each area in the list.
+
+3. `_getVariables`: This method retrieves variables from a dictionary and sets up any other product-specific variables.
+
+4. `_determineTimeRanges`: This method determines time ranges for the product.
+
+5. `_sampleData`: This method samples the data.
+
+The `TextProduct` class also has a `VariableList` and a `Definition` dictionary that define various properties and settings for the forecast product. 
+
+The `VariableList` is a list of tuples that define the forecast product type, which can be either "Morning" or "Afternoon".
+
+The `Definition` dictionary contains various settings for the forecast product, such as the type of product, the output file, default edit areas, region list, element list, and other product-specific variables.
+
+It's important to note that the actual functionality of these methods would depend on the implementation in the parent classes `TextRules` and `SampleAnalysis`, which are not provided in the code snippet.
+
+This code appears to be a part of a larger Python class that is used to process and format weather forecast data. Here's a breakdown of what each method does:
+
+1. `_preProcessProduct`: This method takes a forecast and a dictionary of arguments. It sets up the formatting for the forecast, including the spacing and title line. It then creates a title line based on the elements in the forecast.
+
+2. `_preProcessArea`: This method adds a region header to the forecast if the area is in a new region.
+
+3. `_makeProduct`: This method gets the statistics for the forecast and adds them to the forecast string.
+
+4. `_postProcessArea`: This method doesn't seem to do anything currently, but it could be used to add additional processing to the forecast after the area has been processed.
+
+5. `_postProcessProduct`: This method simply adds a newline to the end of the forecast.
+
+6. `_getAnalysisList`: This method returns a list of tuples. Each tuple contains a string and a method. This could be used to specify which statistics should be calculated for the forecast.
+
+7. `_titleDict`: This method returns a dictionary that maps element names to their full names.
+
+8. `_getTempValues`, `_getHumidityValues`, `_getPoPValues`: These methods take a list of statistics and a dictionary of arguments, and return a string of values for temperature, humidity, and probability of precipitation respectively.
+
+9. `_getPoPValue`: This method takes a dictionary of statistics and returns a string of the probability of precipitation value. If the value is None, it returns a string of four spaces.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,68 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>JGeometryData.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>JGeometryData.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code defines a class named `JGeometryData` that implements the `IGeometryData` interface and extends the `JData` class. This class is designed to wrap around a Java `IGeometryData` object, providing a Pythonic interface to interact with it.
+
+Here's a breakdown of the methods in the `JGeometryData` class:
+
+- `__init__(self, wrappedObject)`: This is the constructor of the class. It initializes the `JGeometryData` object by calling the constructor of the superclass `JData` with the `wrappedObject` parameter.
+
+- `__getitem__(self, key)`: This method is used to make the `JGeometryData` objects behave like dictionaries, allowing users to access the object's data using square brackets. Depending on the `key` provided, it returns different data from the wrapped Java object.
+
+- `getGeometry(self)`: This method returns the geometry data from the wrapped Java object. It uses the `shapely.wkt` module to load the geometry data.
+
+- `getParameters(self)`: This method returns a list of parameters from the wrapped Java object.
+
+- `getString(self, param)`: This method returns a string representation of a specified parameter from the wrapped Java object.
+
+- `getNumber(self, param)`: This method returns a numerical representation of a specified parameter from the wrapped Java object. Depending on the type of the number (int, long, float, or double), it may convert the number to an appropriate Python type.
+
+- `getUnit(self, param)`: This method returns the unit of a specified parameter from the wrapped Java object.
+
+- `getType(self, param)`: This method returns the type of a specified parameter from the wrapped Java object.
+
+The code also includes a software history section, which provides a log of changes made to the software over time. This is a common practice in software development to keep track of modifications, who made them, and why.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

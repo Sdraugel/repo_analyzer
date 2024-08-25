@@ -1,0 +1,78 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>InputOutput.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>InputOutput.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code defines a class named `InputOutput` which is designed to handle input and output operations on file objects. The class has several methods to read from and write to file streams. 
+
+Here's a brief overview of the methods:
+
+- `__init__(self,stream=None)`: This is the initializer method for the class. It sets the stream attribute to the provided stream object or to None if no stream is provided.
+
+- `read(self,stream=None)`: This method reads from the input stream until an end of file marker is encountered and returns the data received.
+
+- `readln(self,stream=None)`: This method reads a single line of input from the specified stream and returns the data received.
+
+- `write(self,stream=None,data=None)`: This method writes to the specified output stream until all the data has been written. Once the data is written, the stream is flushed.
+
+- `writeln(self,stream=None,data=None)`: This method writes to the specified output stream until all the data has been written. A single new line character is appended to the data once it has been written. Once the data is written, the stream is flushed.
+
+- `setStream(self,stream)`: This method sets the stream to be used for subsequent operations.
+
+- `__read(self,stream)`: This private method reads from the specified input stream until an end of file marker is encountered and returns the data received.
+
+- `__readln(self,stream)`: This private method reads from the specified data stream until an end of line is encountered.
+
+- `__write(self,stream,data,nl=False)`: This private method writes data to the specified stream until the data has been written. Once the data is written, a newline is written (if the new line flag is True), and then the stream is flushed.
+
+The code also contains a header with information about the software's development and export control restrictions. It specifies that the software was developed and/or modified by Raytheon Company under a contract with the US Government and contains export-restricted data. The dissemination of this data to non-US persons, whether in the United States or abroad, requires an export license or other authorization.
+
+This code defines a few methods and a custom exception class related to input/output operations.
+
+1. The `__validate(self, stream, mode)` method is used to validate a stream object. It checks whether the stream is None, whether it is an instance of io.IOBase (which means it's a stream object), whether the stream is closed, and whether the stream's mode matches the expected mode ('r' for read or 'w' for write). If any of these checks fail, it raises an IOError with an appropriate message.
+
+2. The `__dataToString(self, data)` method is used to convert input data to a string. It handles different types of data: if the data is already a string, it returns it as is; if it's bytes, it decodes it to a string; if it's a list or tuple, it joins the elements into a string with newline characters in between. If the data is none of these types, it converts it to a string using the str() function.
+
+3. The `InputOutputError` class is a custom exception class. It's meant to be raised when errors occur in an InputOutput class (which is not shown in this code). The exception includes a value (the main error message) and an optional cause (another exception that caused this one). The `__str__` and `__repr__` methods are used to convert the exception to a string for printing or logging.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

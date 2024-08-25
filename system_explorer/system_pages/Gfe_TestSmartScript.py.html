@@ -1,0 +1,64 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TestSmartScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TestSmartScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code file appears to be a helper script for testing a module named 'SmartScript'. It is written in Python and uses the numpy library for numerical computations. The script is designed to be run from within Jepp, which is likely a specific environment or system.
+
+The script first sets up some test data, including a numpy array of floats (scalarGrid), a tuple for a discrete grid (discreteGrid), and a numpy byte array (numpyByteArray).
+
+There are several functions defined in this script, each of which seems to test a different aspect of the SmartScript module:
+
+1. `testGetGridShape(dataMgr)`: This function tests the `getGridShape` method of the SmartScript module. It checks if the returned grid shape matches the expected value (145, 145).
+
+2. `testGetGridInfo(dataMgr, model, element, level, timeRange, mostRecentModel=0)`: This function tests the `getGridInfo` method of the SmartScript module. It checks if the returned grid time is not None.
+
+3. `testSortUglyStr(dataMgr, uglyStr)`: This function tests the `sortUglyStr` method of the SmartScript module. It returns the result of the method without any further checks.
+
+4. `testGetIndex(dataMgr, keyList, uglyStr)`: This function tests the `getIndex` method of the SmartScript module. It returns the result of the method without any further checks.
+
+5. `getParm(dataMgr, model, element, level)`: This function tests the `getParm` method of the SmartScript module. It returns the result of the method without any further checks.
+
+The `dataMgr` argument in these functions is likely an instance of a DataManager, which is used to create a SmartScript instance. The other arguments are inputs to the methods being tested.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

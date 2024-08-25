@@ -1,0 +1,84 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>convertUgcCities.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>convertUgcCities.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to convert the `ugcCitiesString` to a `ugcCities` list in a specific set of files. 
+
+The script is set up to look for files with the name `AreaDictionary.py` or `SurfAreaDictionary.py` in a particular directory path (`AREA_DICTIONARY_PATH`). It then reads the contents of these files and extracts the header information. 
+
+The `writeAreaDictionary` function is used to write a new version of the `AreaDictionary.py` or `SurfAreaDictionary.py` file. It first checks if a backup of the original file exists, and if not, it creates one. It then writes a new version of the file with the updated `AreaDictionary` information.
+
+The `main` function is the entry point of the script. It uses the `glob` module to iterate over all files that match the `AREA_DICTIONARY_PATH` pattern. For each file, it checks if the file name is `AreaDictionary.py` or `SurfAreaDictionary.py`. If it is, the script processes the file, otherwise it skips it. The processing involves reading the file contents and extracting the header.
+
+The script uses regular expressions (`re` module) to match and extract the header from the file contents. It also uses the `pprint` module to pretty-print Python data structures.
+
+Please note that the code provided is incomplete, and the actual processing of the file contents is not shown.
+
+This script appears to be a part of a larger program that processes and cleans data from a module's "AreaDictionary". 
+
+Here's a step-by-step breakdown of what the code does:
+
+1. It tries to match a pattern (presumably defined earlier in the code) to the contents of a header. If a match is found, it assigns the first group of the match to the variable `header`. If it can't read the header, it prints an error message.
+
+2. It loads a module from a file at a given path.
+
+3. If the loaded module does not have an attribute named "AreaDictionary", it prints a message and skips the rest of the current iteration.
+
+4. If "AreaDictionary" is present, it iterates over its keys. For each key, it does the following:
+
+   - Checks if the key "ugcCityString" is in the dictionary entry. If it is, it performs several cleaning operations on the string value of "ugcCityString": removing leading and trailing whitespace, removing leading and trailing ellipses ("..."), and removing whitespace again.
+   
+   - If the cleaned string is not empty, it splits the string by the ellipsis into a list of cities and assigns this list to a new key "ugcCities" in the dictionary entry.
+   
+   - It then removes the old "ugcCityString" key from the dictionary entry.
+   
+   - If any error occurs during this process, it prints an error message containing the path and the problematic city string.
+
+5. After processing all the entries in the "AreaDictionary", it writes the updated dictionary back to a file (presumably the function `writeAreaDictionary` is defined elsewhere in the code).
+
+6. It then deletes the loaded module and all its attributes to free up memory.
+
+7. If this script is run as a standalone program (not imported as a module), it calls the `main()` function (which is not shown in the provided code).</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

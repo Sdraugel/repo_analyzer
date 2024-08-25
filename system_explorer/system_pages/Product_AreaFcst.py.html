@@ -1,0 +1,213 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>AreaFcst.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>AreaFcst.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code appears to be a configuration file or a part of a larger software system, likely related to weather forecasting given the references to terms like "StormTotalSnow", "Sky", and "Humidity". The software was developed or modified by Raytheon Company under a US Government contract.
+
+The code includes a software history log, which records changes made to the software. For example, on May 01, 2015, an engineer named Ryu changed analysis methods for StormTotalSnow.
+
+The code also includes a description of the software's function, which is to create a series of text phrases for consecutive time periods for a list of edit areas. These phrases can be used to create a ZFP (Zone Forecast Product) or an SAF (presumably another type of forecast product).
+
+The code then provides a series of configuration points. These are variables that can be set to customize the behavior of the software. These include display name, product name, full station ID, WMO ID code, product pil, area name, city and state where the WFO (Weather Forecast Office) is located, and many others.
+
+There are also optional configuration items that can be set, such as the source database for the product, the output location of the finished product, debug mode, the desired maximum length of each line, and more.
+
+The code also includes some instructions on how to include a MultipleElementTable for each area in the current Combination, with options for including "Temp", "PoP", and/or "Humidity".
+
+This code file appears to be a part of a weather forecasting system. It contains a class definition for a text product that includes weather forecasts. The code file also includes various settings and configurations for the system, such as flags related to weather conditions, troubleshooting items, customization points for the narrative, and the weather elements needed for the forecast.
+
+The file also includes details about the utilities files associated with the system, such as the Combinations file, and the component products that the system uses. There are also sections for development tasks that are in progress and additional information about common overrides.
+
+The class `TextProduct` inherits from `TextRules` and `SampleAnalysis`. It contains a variable list and a definition dictionary. The variable list appears to contain settings that can be toggled on or off, such as whether to include flooding or tropical weather in the forecast. The definition dictionary contains various settings for the text product, such as the type, display name, source database, output file, and product identifiers.
+
+The code file also includes import statements for the modules `TextRules`, `SampleAnalysis`, `ForecastNarrative`, and `TimeRange`, which are likely used in the weather forecasting system.
+
+The code appears to be a part of a larger Python script that is used for weather forecasting. It sets up a number of parameters and rules for a weather forecast model. Here's a breakdown of what some of the sections do:
+
+1. The first part of the code sets up a dictionary with various parameters that are used in the weather forecast model. These include location, product IDs, line length, whether to combine periods, whether to include analysis for Sky, whether to use StormTotalSnow grid, and many other parameters.
+
+2. The `__init__` method is the constructor for the class. It initializes the class by calling the constructors of the parent classes `TextRules` and `SampleAnalysis`.
+
+3. The `lake_wind_areaNames` and `lake_wind_thresholds` methods return a list of area names for which the lake wind phrase should be generated and the upper and lower lake wind thresholds in mph, respectively.
+
+4. The `element_outUnits_dict` method returns a dictionary with the units of measurement for wind and wind gusts.
+
+5. The `range_nlValue_dict` method returns a dictionary that sets thresholds for reporting data as a single value.
+
+6. The `splitDay24HourLabel_flag` method returns a flag that determines how 24-hour periods are labeled.
+
+7. The `gust_wind_difference_nlValue` method returns the difference between gust and max wind below which gusts are not mentioned.
+
+8. The `temporalCoverage_hours` method returns the number of hours for which wind grids are used.
+
+9. The `moderated_dict` method returns a dictionary that defines the low and high limit at which outliers will be removed when calculating moderated stats.
+
+In general, this code is used to set up and control the behavior of a weather forecast model.
+
+The code provided is a part of a larger weather forecasting system. It includes several methods that manipulate and analyze weather data. Here's a breakdown of what each method does:
+
+1. The first method changes the thresholds for Wind, WindGust, WaveHeight, and Swell if the `_includeTropical` flag is set. This could be used to adjust the sensitivity of these measurements in tropical weather conditions.
+
+2. The `maximum_range_nlValue_dict` method adjusts the maximum range of wind speeds that can be reported within a phrase. It also checks the `_includeTropical` flag and adjusts the wind speed ranges accordingly for tropical cyclone situations.
+
+3. The `_PoP_analysisMethod` method returns the method to be used for the Probability of Precipitation (PoP) analysis.
+
+4. The `addTropical` method modifies the analysis list and phrase list for tropical formatting. It adds specific wind and hazard statistics to the analysis list and a specific phrase to the phrase list.
+
+5. The `Period_1` method defines the analysis list and phrase list for a specific forecast period. It includes various weather elements like temperature, sky condition, precipitation, wind, weather, wind chill, heat index, etc. If the `_includeTropical` flag is set, it modifies these lists using the `addTropical` method. It then constructs a component dictionary with various methods and lists, and possibly additional and intersect areas for more detailed analysis.
+
+The code seems to be written in Python and uses object-oriented programming principles. It's part of a larger system, and the context suggests it's used for generating detailed and specific weather forecasts.
+
+This code defines three methods, each of which creates a dictionary named `component` with specific keys and values. The keys are "type", "methodList", "analysisList", and "phraseList". 
+
+1. The first method adds the tuple ("Sky", self.binnedPercent, [3]) to the "analysisList" of the dictionary `ent` if the `_useStormTotalSnow` attribute is True. It then replaces the `total_snow_phrase` in the "phraseList" with `stormTotalSnow_phrase` and returns the updated `component`.
+
+2. The `Period_2_3` method creates an `analysisList` and a `phraseList` with specific values. If `_includeTropical` is True, it calls the `addTropical` method to modify these lists. It then creates the `component` dictionary. If `_arealSkyAnalysis` is True, it appends the tuple ("Sky", self.binnedPercent, [6]) to the "analysisList". If `_useStormTotalSnow` is True, it replaces the `total_snow_phrase` in the "phraseList" with `stormTotalSnow_phrase`. Finally, it returns the `component`.
+
+3. The `Period_4_5` method is very similar to `Period_2_3`, but it uses a different `phraseList` and `analysisList`. The `phraseList` includes `descriptive_snow_phrase` instead of `total_snow_phrase`.
+
+In general, these methods seem to be part of a larger system for generating weather reports or forecasts, with the ability to customize the analysis and phrasing based on certain conditions (like whether to include tropical weather or use a total snowfall amount). The "methodList" in each `component` likely contains functions that process the "analysisList" and "phraseList" to generate a text report.
+
+This code appears to be part of a larger Python program, possibly related to weather analysis or forecasting. It contains several methods that return dictionaries, which could be used to configure or control the behavior of other parts of the program.
+
+1. `Period_6_14`: This method creates an analysis list and a phrase list. The analysis list contains tuples with different weather parameters and the methods to analyze them. The phrase list contains methods to generate phrases or summaries about different weather conditions. It also checks if tropical weather analysis is included and modifies the lists accordingly. If areal sky analysis is included, it appends additional analysis to the list. Finally, it returns a component dictionary with the analysis and phrase lists, and a list of methods to process the phrases.
+
+2. `ExtraSampling`: This method returns a dictionary with a type, a method list with a single method `self.noWords`, an analysis list with two elements for maximum and minimum temperature, an empty phrase list, and an empty intersect areas list.
+
+3. `TotalSnowSampling`: This method returns a dictionary similar to `ExtraSampling`, but the analysis list contains one element for snow amount.
+
+4. `FirstFcstPeriod`: This method is similar to `Period_6_14`, but it includes more elements in the analysis and phrase lists. It also checks if areal sky analysis or storm total snow is used, and modifies the lists accordingly.
+
+5. `AreaFcstPeriod`: This method seems to be incomplete, but it appears to begin similarly to the other methods that return a dictionary.
+
+The methods seem to be part of a class, as they reference `self`, which refers to the instance of the class. The code is well-structured and seems to follow good coding practices. However, without the full context or the rest of the class, it's hard to determine the exact purpose or functionality of this code.
+
+This code appears to be part of a larger Python program, possibly related to weather forecasting or analysis. It defines several methods (or periods of time) such as "Evening", "LaterPeriod", and "LaterPeriodWithoutLows". Each of these methods returns a dictionary (or 'component') with specific keys: "type", "methodList", "analysisList", and "phraseList".
+
+- "type" is simply a string that indicates the type of the component.
+- "methodList" is a list of methods to be applied, possibly in order, to some data. These methods might perform operations like consolidating sub-phrases, assembling phrases, and word wrapping.
+- "analysisList" is a list of tuples. Each tuple contains a string (possibly indicating a type of weather data), a method to be applied to that data, and sometimes a list with a single integer. Some of the methods are commented out, meaning they won't be used.
+- "phraseList" is a list of methods that presumably generate phrases for a weather report.
+
+The code also contains conditional statements that append additional analysis methods to the "analysisList" if certain conditions are met.
+
+In the "Evening" method, the "phraseList" and "analysisList" are shorter, suggesting that less data is analyzed and fewer phrases are generated for this period.
+
+The "LaterPeriod" and "LaterPeriodWithoutLows" methods are similar, but the latter does not include analysis for "MinT" (minimum temperature), suggesting that it's a period without low temperatures.
+
+Overall, this code seems to be part of a system that generates weather reports for different periods of the day, with different levels of detail and analysis depending on the time period.
+
+The provided code appears to be part of a larger script, likely written in Python, which is used to generate a weather forecast report. 
+
+Here's a breakdown of the main parts:
+
+1. `st`, `C11Extended`, and `ExtendedLabel` are methods that return a dictionary with specific keys such as "type", "methodList", "analysisList", and "phraseList". Each of these keys contains a list of methods or values that are used elsewhere in the code. For example, "methodList" contains methods for processing phrases, wrapping words, etc. If `_arealSkyAnalysis` is True, an additional tuple is appended to the "analysisList".
+
+2. `setLabel` is a method that sets a label for a component in a tree structure.
+
+3. `generateForecast` is a method that generates a forecast for a list of areas. It first retrieves variables and checks for errors. Then, it gets the list of areas and checks if it's empty. It determines time ranges, samples data, and initializes an output string. It then generates a product for each area in the list, processes the area, and finally post-processes the product. If there are any errors during these steps, it returns the error.
+
+4. `_getVariables` is a method that retrieves variables from a dictionary and sets them as attributes of the current object. It also handles some exceptions for tropical forecasts.
+
+5. `_determineTimeRanges` is a method that sets up the narrative definition and initial time range for the forecast. It also adds a custom component to sample SnowAmt for 12 hours prior to product start if `_useStormTotalSnow` is False.
+
+The code is cut off at the end, so it's not possible to provide a full analysis of the entire script.
+
+This code appears to be part of a larger program that generates weather forecasts. 
+
+The `_sampleData` method appears to be responsible for gathering and analyzing data for the narrative of the forecast. It uses an instance of `ForecastNarrative` to get the data, and if there's an error, it returns that error.
+
+The `_preProcessProduct` method seems to be responsible for creating a product header. It checks if the area name is not an empty string and then creates a product name based on the area name. It also creates a string for the issued time and adds these to the forecast.
+
+The `_preProcessArea` method generates a header for an edit area combination and adds it to the forecast. It also gets the hazards text and generates a product for hazards, adding it to the forecast.
+
+The `_makeProduct` method generates a narrative forecast for an edit area and adds it to the forecast. If the `_includeMultipleElementTable` flag is set, it also adds a multiple element table to the forecast.
+
+The `_postProcessArea` method simply adds a new line and the string "$$\n\n" to the forecast.
+
+The `_postProcessProduct` method replaces the string "%expireTime" in the forecast with the expire time string, sets the progress percentage to 100, and adds a progress message indicating that the product is complete.
+
+The `_issuance_list` method appears to set up configurable issuance times with associated narrative definitions. It checks the `directiveType` and calls the appropriate method to get the issuance list.
+
+The `_C11_issuance_list` method sets up the issuance list for directive type "C11". It checks if the `includeEveningPeriod` flag is set and creates the narrative definitions accordingly.
+
+This code appears to be part of a larger program, likely a weather forecasting system, that generates narrative descriptions of weather conditions for different periods of the day. 
+
+The `_10_503_issuance_list` and `_10_502_issuance_list` methods define the narrative definitions for the morning and afternoon periods. These definitions include the period name, start and end hours, expiration hour, period label, late night and late day phrases, a flag for the current day, and the narrative definition itself.
+
+The narrative definitions (`narrativeDefAM` and `narrativeDefPM`) are lists of tuples, each representing a period of time. The periods are labeled with strings like "Period_1", "Period_2_3", "Period_4_5", and "Period_6_14". Each period is associated with a duration in hours. There are also some custom periods defined with "ExtraSampling".
+
+The `if self._includeExtended == 1:` block in the `_10_502_issuance_list` method checks if extended periods should be included in the narrative definitions. If so, it appends the extended periods to the narrative definitions.
+
+The `lateDay_descriptor` and `lateNight_descriptor` methods return phrases describing the late day and late night periods, respectively. These methods check if the given time range is within the first period and return the appropriate descriptor phrase.
+
+In case of any exceptions, the `narrativeDefAM` and `narrativeDefPM` are set to `None`.
+
+The code snippet ends abruptly, so it's not clear what the `lateNight_descriptor` method does in full.
+
+The code provided is written in Python and appears to be part of a larger system for weather forecasting and alerting. Here's a breakdown of what each part does:
+
+1. The first part of the code checks if a given time range falls within a specified period (3am-6am). If it does, it returns a phrase for that period; if not, it returns the string "early in the morning".
+
+2. The `_temp_pop_statement` function creates a special statement for the forecast. It determines the number of periods based on the product being issued, creates a header, and loops through each period to append labels. The function then punctuates the list of labels, adds line breaks, and appends the header to the forecast.
+
+3. The `_temp_pop_statement_header` function returns a string that describes what the temperatures and probabilities are for.
+
+4. The `_flood_statement` function checks if there is flooding occurring. If flooding is occurring, it adds a flood statement to the forecast.
+
+5. The `_flood_statement_wording` function returns a string that warns of flood watches and/or warnings.
+
+6. The `allowedHazards` function returns a list of hazards allowed for the product in VTEC (Valid Time Event Code) format. These hazards are sorted in priority order, with the most important ones listed first. The hazards include various weather conditions like hurricanes, typhoons, winter storms, extreme cold, excessive heat, high wind, etc. Each hazard is represented by a code, a list of actions, and a category.
+
+This part of the code is a list of tuples. Each tuple represents a specific type of weather advisory or warning. The tuples are structured as follows:
+
+1. The first element is a string that appears to be a code for the type of advisory or warning. For example, 'UP.W' might stand for an Ice Accretion Warning, 'AS.Y' for an Air Stagnation Advisory, and so on.
+
+2. The second element, `allActions`, is not defined in the provided code. It's likely a variable that contains a list or other collection of actions to be taken when the corresponding advisory or warning is issued.
+
+3. The third element is a string that provides a more human-readable description of the type of advisory or warning. For example, 'IceAccr' is short for Ice Accretion, 'AirStag' is short for Air Stagnation, and so on.
+
+This list could be used in a variety of ways, such as to map the codes to their descriptions, to determine what actions to take for each type of advisory or warning, or to categorize or filter advisories and warnings based on their type.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

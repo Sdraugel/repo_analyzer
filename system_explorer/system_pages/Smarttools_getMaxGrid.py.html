@@ -1,0 +1,56 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>getMaxGrid.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>getMaxGrid.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that defines a tool for getting the maximum value from a set of grids. This tool is designed to be used within a larger software system, likely related to weather forecasting given the author's affiliation with the National Oceanic and Atmospheric Administration (NOAA) and the use of terms like "grid" and "element".
+
+The tool is defined as a class named `Tool` that inherits from `SmartScript.SmartScript`. It has an `execute` method that takes a `GridTimeRange` and a `varDict` as parameters. The `varDict` is expected to contain a key "Element" which specifies the set of grids from which to get the maximum value.
+
+The `execute` method first checks if `varDict` is `None` or if it does not contain the key "Element". If either condition is true, it calls the `noData` method with an error message. If the "Element" key is present, it retrieves the maximum value from the specified set of grids using the `getGrids` method with the mode set to "Max".
+
+The script also includes metadata about the software, including its developer (Raytheon Company), its contract with the US Government, and export control restrictions. It also states that the software is in the public domain and is provided without warranty or technical support.
+
+Finally, the script specifies that it is an "absolute override file", meaning that a higher priority version of the file will completely replace a lower priority version. It also specifies that the tool is of type "numeric" and that it edits a "variableElement".</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

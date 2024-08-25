@@ -1,0 +1,336 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ScalarPhrases.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ScalarPhrases.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is part of a weather forecasting software developed by Raytheon Company. It is a module named `ScalarPhrases.py` that is responsible for generating text forecasts based on SampleAnalysis statistics. 
+
+The code defines a class `ScalarPhrases` that inherits from `PhraseBuilder.PhraseBuilder`. The class contains several methods that are used to generate phrases for different weather elements like temperature, sky condition, etc. based on the provided statistics. 
+
+Here are some key methods:
+
+- `temp_trend_nlValue`: This method sets a threshold for reporting temperature trends. If the temperature change is more than 20.0, it will be reported.
+  
+- `pop_sky_lower_threshold`: This method decides whether to include an explicit Sky forecast based on the PoP (Probability of Precipitation) stats. If PoPs are >= 60% for the majority of the forecast period, the Sky forecast is not included.
+  
+- `clearing_threshold`: This method sets a threshold for phrases like "mostly cloudy in the morning then clearing". If the sky condition value is more than 31, such phrases will be used.
+  
+- `sky_valueList`: This method returns a list of tuples that define phrases for sky conditions given different threshold values. The tuples consist of a threshold, a daytime phrase, and a nighttime phrase.
+  
+- `similarSkyWords_list`: This method returns a list of pairs of sky words that will be considered "equal" when comparing for phrase combining and redundancy.
+
+- `similarSkyWords_flag`: This method checks if two given words are equal or similar according to the "similarSkyWords_list". It returns 1 if they are equal or similar, otherwise it doesn't return anything (implicitly returns None).
+
+The code also includes a detailed comment section at the top that provides information about the software's development, export restrictions, and licensing.
+
+The given code is a part of a larger program that seems to be related to weather forecasting or weather report generation.
+
+The first function `preferredSkyWords` returns the preferred weather condition from a pair of words. If either of the words is in the preferred list ["mostly sunny", "mostly clear", "cloudy"], it returns that word. If neither is in the preferred list, it returns the first word.
+
+The function `reportIncreasingDecreasingSky_flag` checks if the previous period had increasing or decreasing wording in the sky phrase. If it did, it returns 0 to avoid redundancy. If it didn't, it returns 1.
+
+The function `reportClearSkyForExtendedPeriod_flag` returns 1, indicating that it will report clear/mostly clear wording for periods that exceed 12 hours. Otherwise, it would report sunny/mostly sunny.
+
+The function `sky_value` checks for areal coverage term. If the value is not None, it accesses the sky_valueList and returns words corresponding to the value. It also checks for the flag from `reportClearSkyForExtendedPeriod_flag` and adjusts the words based on whether it's daytime or nighttime.
+
+The function `areal_sky_flag` returns 0, indicating that it does not want to use areal (e.g. patchy clouds, areas of clouds) vs. traditional sky wording when appropriate.
+
+The function `areal_sky_value` checks if the `areal_sky_flag` is not set. If it is set, it determines the percent in the highest bin and base wording on high bin percent. It also checks for sky-related weather conditions.
+
+Overall, this code seems to be part of a weather report generator, with functions to handle different weather conditions and their wording in the report.
+
+The code provided is written in Python and appears to be part of a larger system that generates weather forecasts or reports. Here's a breakdown of what each function does:
+
+1. `areal_skyPercentages`: This function returns a list of tuples, where each tuple represents a pair of sky coverage percentage and its corresponding description.
+
+2. `areal_skyRelatedWx`: This function returns a list of weather types related to sky cover.
+
+3. `disableSkyRelatedWx`: This function disables the weather subkeys related to sky coverage for a given node in the tree.
+
+4. `sky_phrase`: This function returns a dictionary of methods used to set up and generate a phrase describing the sky conditions.
+
+5. `sky_setUp`: This function sets up the necessary elements for generating a sky description.
+
+6. `combineSky` and `combine_sky`: These functions combine the sky conditions of two subphrases into a single phrase.
+
+7. `skySpecialCases`: This function handles special cases when generating a sky description, such as when the sky is clearing or when the cloud coverage is increasing or decreasing.
+
+8. `sky_timeDescriptorModeration`: This function modifies the time descriptors in the sky description when there are only two subphrases.
+
+The code seems to be part of a larger system that generates weather forecasts or reports, and it specifically handles the generation of phrases describing the sky conditions.
+
+This code appears to be part of a larger system that generates textual weather forecasts based on statistical weather data. The code is written in Python and contains several methods that each perform a specific task related to generating the forecast.
+
+1. The first block of code checks if two variables, `words0` and `words1`, are not empty. If neither is empty, it sets two flags, `flag0` and `flag1`, to different values. If either is empty, it sets both flags to 1 and, if `words0` is empty, it modifies the second element of `childList` by appending `words1` to the string "becoming ". Then, it sets the `timeDescFlag` attribute of the first two elements of `childList` to the values of `flag0` and `flag1`, respectively.
+
+2. The `sky_words` method generates a phrase describing the sky condition. It retrieves the sky condition from the node's statistical data and checks if it is overcast. If the sky condition is not overcast, it generates a phrase based on the duration of the time range and the sky condition.
+
+3. The `getSkyDiurnalWords` method generates a phrase describing the sky condition during different parts of the day (morning, afternoon, evening, and night). If the sky condition is the same for all parts of the day, it returns None.
+
+4. The `simple_sky_phrase` method returns a dictionary containing a list of methods to generate a simple sky phrase.
+
+5. The `simple_sky_words` method generates a simple sky phrase. It retrieves the sky condition for different time ranges and checks if it is overcast. If the sky condition is not overcast, it generates a phrase based on the sky condition during different parts of the time range.
+
+6. The code is cut off at the end, but it appears to be checking if the sky condition changes significantly between two time periods. If it does, it may generate a phrase describing this change.
+
+This code appears to be part of a larger program that generates weather forecasts. It includes several methods that handle different aspects of the forecast. Here's a brief description of each method:
+
+1. `wxQualifiedPoP_flag`: This method returns 1, indicating that the probability of precipitation (PoP) phrases will be qualified with the weather type (e.g., "Chance of rain and snow 20 percent." instead of "Chance of precipitation 20 percent.").
+
+2. `popMax_phrase`: This method returns a dictionary containing methods for setting up and generating phrases related to the maximum probability of precipitation.
+
+3. `popMax_setUp`: This method sets up the necessary elements for generating the PoP phrase.
+
+4. `popMax_words`: This method generates the phrase for the maximum probability of precipitation. It waits for the weather phrase to complete, retrieves the PoP value directly from the "matchToWx" method, checks PoP thresholds, and constructs the final phrase.
+
+5. `getPopStr`: This method converts the PoP value to a string for use in the phrase.
+
+6. `getPopType`: This method determines the type of precipitation (e.g., rain, snow, showers, thunderstorms) based on the reported weather types from the phrase. If there is more than one descriptor for precipitating weather or if they are general weather types, it returns "precipitation". Otherwise, it describes the specific weather type.
+
+The commented-out method `getPopType` at the end appears to be an alternative version that only reports the weather types that match the reported PoP.
+
+The first part of the code seems to be handling the description of the sky condition (increasing or decreasing clouds) based on the time and some other conditions. However, without the full context or the preceding code, it's hard to provide a detailed explanation.
+
+This code appears to be part of a larger weather forecasting application, possibly for generating textual weather forecasts based on meteorological data.
+
+The first part of the code is determining the type of precipitation (rain, snow, showers, thunderstorms, etc.) based on the reported weather conditions. It checks different types of weather conditions and assigns a corresponding value to the variable `popType`. 
+
+The next three methods `areal_or_chance_pop_descriptor`, `allAreal_or_chance_pop_descriptor`, and `highs_phrase` are used to generate phrases for the weather forecast based on the weather data. The first two methods determine whether to use the phrase "areal coverage of" or "chance of" based on the weather conditions. The third method generates a phrase for the high temperature.
+
+The `highs_setUp` and `lows_setUp` methods appear to be setting up data for generating phrases about the high and low temperatures, respectively. They both call the `subPhraseSetUp` method with different parameters.
+
+The `temp_words` method seems to be generating words or phrases based on temperature statistics. It calls the `getTempStats` method to get the temperature statistics and then uses this data to generate words or phrases.
+
+The code appears to be part of a larger program that generates human-readable phrases to describe temperature ranges. It takes minimum and maximum temperature values and converts them into phrases such as "in the lower 20's to upper 30's". 
+
+The `getTempPhrase` function is the main function that handles this conversion. It first checks for any exceptions that might require a special phrase. If no exceptions apply, it then checks if the difference between the maximum and minimum temperatures exceeds a certain threshold. If it does, it simply returns the range as "minVal to maxVal". 
+
+If the difference doesn't exceed the threshold, the function calculates the "decade" (e.g., 20's, 30's, etc.) and the "digit" (e.g., lower, mid, upper) for both the minimum and maximum temperatures. It then uses these values to generate a more specific phrase describing the temperature range.
+
+The `constructTempException` function is used to construct phrases for exception cases, replacing placeholders in the phrase with the actual minimum and maximum temperature values.
+
+The `getDecade` and `getDecadeStr` functions are used to calculate the "decade" for a given temperature and convert it into a string, respectively.
+
+The `getDigitStr` function is used to calculate the "digit" for a given temperature, based on predefined boundaries.
+
+The `tempPhrase_exceptions` function returns a list of exceptions that require special phrases. The comments indicate that these exceptions are processed before trying to generate a standard phrase.
+
+This code appears to be part of a larger program that generates phrases to describe temperature ranges. This could be used in a weather forecasting application or a similar context. Here's a breakdown of what the different parts of the code are doing:
+
+1. The first part of the code is a list of tuples. Each tuple contains two ranges and two phrases. The ranges seem to represent temperature ranges and the phrases are used to describe these ranges. The phrases include placeholders (`%min`, `%max`, etc.) that will be replaced with actual temperature values.
+
+2. `tempPhrase_boundary_dict` is a method that returns a dictionary with keys "lower", "mid", and "upper", each associated with a tuple representing a range. The purpose of this method is not clear from the provided code.
+
+3. `highs_range_phrase`, `lows_range_phrase`, `extended_highs_phrase`, and `extended_lows_phrase` are methods that return dictionaries with methods for setting up, generating words, and generating phrases for high and low temperature ranges.
+
+4. `tempRange_words` and `extended_temp_words` are methods that generate phrases for minimum or maximum temperatures.
+
+5. `getTempRangePhrase` is a method that generates a phrase describing a temperature range. It handles various cases, such as when the minimum and maximum temperatures are the same, when both are above zero, when both are below zero, and when one is below zero and the other is above zero.
+
+6. `getZeroPhrase` is a method that generates a phrase for a temperature value, with special handling for the value zero.
+
+7. `extended_temp_range` is a method that returns a fixed value, which seems to be used as a range for extended temperatures. The comment suggests that this value must be either 10 or 5.
+
+Overall, the code appears to be well-structured and modular, with different methods handling different aspects of the phrase generation process.
+
+This code appears to be part of a larger program that deals with weather data, specifically temperature. It contains several methods that perform the following functions:
+
+1. `getExtendedTempPhrase(self, tree, node, temp)`: This method takes a temperature value and returns a phrase that describes the temperature. For example, if the temperature is above 99, it returns the exact temperature. If the temperature is below 10, it returns a range phrase like "5 below to 15 below". For other temperatures, it determines a modifier (around, lower, mid, upper) and returns a phrase accordingly.
+
+2. `getExtTemp(self, val1, val2)`: This method takes two temperature values and returns a string that represents a temperature range.
+
+3. `getTempStats(self, tree, node)`: This method retrieves temperature statistics (MaxT or MinT) for a given node in a tree. It considers various conditions like whether the time period spans day and night, whether the maximum temperature is less than the minimum temperature, etc.
+
+4. `temp_trends_addToPhrase_flag(self, tree, node)`: This method returns a flag that determines how temperature trends are reported.
+
+5. `temp_trends(self)`: This method returns a dictionary that contains methods for setting up temperature trends, generating words for temperature trends, and standard phrase methods.
+
+6. `temp_trends_setUp(self, tree, node)`: This method sets up temperature trends for a given node in a tree. If the duration of the time range for the node is more than 12 hours, it sets the words for the node to an empty string.
+
+The code appears to be part of a larger system that generates human-readable weather reports from raw weather data.
+
+The provided code is written in Python and it appears to be part of a larger program that analyzes temperature trends. 
+
+The first function `etPeriod(timeRange, 1)` sets up a tree structure for storing temperature data. Depending on whether it's daytime or nighttime, it sets the element information to either "MinT" (minimum temperature) or "MaxT" (maximum temperature).
+
+The second function `temp_trends_words(self, tree, node)` analyzes temperature data to detect sharp increases or decreases. It checks whether the temperature rises or falls in a non-diurnal way. For a daytime period, it compares the maximum temperature to the temperature for the last grid of the period and reports "temperatures falling in the afternoon" if the difference exceeds a certain threshold. For a nighttime period, it compares the minimum temperature to the temperature for the last grid of the period and reports "temperatures rising overnight" if the difference exceeds a certain threshold.
+
+The third function `getToPhrase(self, tree, node, tempValue)` generates a phrase describing the temperature trend. It checks a flag and depending on its value, it generates a phrase that includes the temperature value and the decade it falls into.
+
+The commented-out code at the end is an alternative method for detecting temperature trends. It seems to be more detailed, looking at specific times of the day (12, 3, and 5 o'clock) and verifying the temperature trend. It then compares the temperature at 5 o'clock to the maximum/minimum temperature and reports a trend if the difference exceeds a certain threshold.
+
+This code appears to be part of a larger program that analyzes temperature trends and generates a report based on the analysis. 
+
+In the first part of the code, it seems to be checking for temperature changes at different points of the day (quarter way, half way, and end point). It then generates a phrase describing the temperature trend, such as "temperature falling" or "temperature rising", and adjusts the phrase based on the time of day and the degree of temperature change.
+
+The `reportTrends` function appears to be the main function that sets up the trend report. It calls other functions like `reportTrends_setUp` and `reportTrends_words` to prepare the data and generate the report.
+
+The `reportTrends_setUp` function seems to be preparing the data for the report. It gets the time range, determines whether it's day or night, and sets up the element information (minimum or maximum temperature).
+
+The `reportTrends_words` function appears to be generating the report. It compares the current temperature statistics to the previous ones and calculates the difference. It then generates a string describing the temperature trend.
+
+The `reportTrends_valueStr` function seems to be generating a string describing the temperature trend based on the difference between the current and 24-hour prior temperature. It uses a dictionary (`colder_warmer_dict`) to get the appropriate phrases for describing the temperature trend.
+
+This code appears to be part of a larger program that analyzes temperature data and provides natural language descriptions of the temperature trends. 
+
+The `colder_warmer_dict` function creates a dictionary that maps temperature ranges to descriptive phrases. This dictionary is used to provide more nuanced descriptions of temperature changes, such as "cooler" instead of "colder" for certain temperature ranges.
+
+The `extremeTemps_phrase` function seems to be a setup function for generating a phrase that describes extreme temperatures. It determines whether it should be looking at maximum or minimum temperatures based on the time of day, and sets up a list of elements to be analyzed.
+
+The `extremeTemps_setUp` function appears to be setting up the necessary data for the `extremeTemps_phrase` function. It determines whether it's daytime or nighttime, and sets up the necessary elements for analysis based on that.
+
+The `extremeTemps_words` function seems to be the main function that generates the descriptive phrases for the temperature trends. It retrieves the necessary statistics, determines whether it's daytime or nighttime, and then generates a descriptive phrase based on the temperature data. For example, if it's daytime and the temperature is above 99 degrees, it will describe the weather as "very hot". If it's nighttime and the temperature is below 5 degrees, it will describe the weather as "very cold". 
+
+The commented out `reportTrends_valueStr` function appears to be a simpler version of the temperature trend analysis, simply categorizing the temperature change as "warmer", "much warmer", "cooler", or "much colder" based on the difference in temperature. 
+
+Overall, this code seems to be part of a weather forecasting or analysis program that provides detailed, natural language descriptions of temperature trends.
+
+This Python code appears to be part of a larger weather forecasting system. It contains several methods that analyze weather data and generate human-readable weather forecasts.
+
+1. The first block of code checks the wind chill statistics (`chillStats`) and sets a descriptive phrase (`words`) based on the value of `chillStats`. If `chillStats` is `None`, it sets `words` to an empty string. If `words` is an empty string, it calls the `setWords` method with `node` and `words` as arguments.
+
+2. The `steady_temp_threshold` method returns a threshold value for steady temperatures, which is 4 in this case.
+
+3. The `steady_temp_trends` method returns a dictionary of methods for setting up, generating words for, and generating phrases for steady temperature trends.
+
+4. The `steady_temp_trends_setUp` method sets up a node for steady temperature trends.
+
+5. The `steady_temp_trends_words` method generates a human-readable phrase describing steady temperature trends. It calculates the maximum, minimum, and average temperature, and if the difference between the maximum and minimum temperature is less than the steady temperature threshold, it generates a phrase like "near steady temperature in the mid 20s".
+
+6. The `pop_snow_lower_threshold` method returns a threshold value for snow accumulation, which is 60 in this case.
+
+7. The `getSnowReportEndDay` method returns a time range for which we do not try to report total snow accumulation.
+
+8. The `snow_phrase` method returns a dictionary of methods for setting up, generating words for, and generating phrases for snow accumulation.
+
+9. The `snow_setUp` method sets up a node for snow accumulation. It calculates past snow accumulation and sets the minimum and maximum values.
+
+The code also contains several comments that provide additional information about what the code is doing. For example, the comment "Diurnal ranges less than this value will be reported as steady temperatures" explains what the `steady_temp_threshold` method does.
+
+This code appears to be part of a larger weather forecasting system, specifically dealing with snow accumulation. 
+
+The first part of the code checks if there was any previous snow accumulation. If there was and the first period is less than 12 hours long, it sets a "newFlag" to 1. If there was no previous snow accumulation, it still checks if the first period is less than 12 hours long and sets the "newFlag" to 1 if it is.
+
+The `snow_words` function seems to generate a phrase describing the snow accumulation. It first checks if a certain threshold has been met, and if not, it does not generate the phrase. It then waits for a weather phrase to complete and checks if there is mention of accumulating weather. If there is, it loads in the SnowAmt statistics, checks for low amounts, rounds to the nearest inch, and generates the snow accumulation phrase.
+
+The `checkAccumulatingWx` function checks if there are certain types of weather (snow, sleet, ice crystal) accumulating. If there are, it appends the type of weather to a descriptor and sets the parent and grandparent node's descriptor to this value.
+
+The commented section at the end describes modifications made by Tom Spriggs LSX for accurately reporting total snow. It explains how to use a SnowAmt grid that exists in the past to tell how much snow has already fallen from the current storm. This allows the system to produce an accurate total snow amount for an ongoing event.
+
+This Python code is part of a larger system that generates weather forecasts. It appears to be specifically focused on predicting and reporting snowfall amounts. 
+
+The `total_snow_phrase` method returns a dictionary with three methods that set up, generate words for, and process phrases for total snowfall.
+
+The `total_snow_setUp` method sets up the necessary elements for the snowfall forecast, such as the amount of snow and ice accumulation. It also sets the descriptor for the phrase.
+
+The `total_snow_words` method generates a phrase that describes the total snow accumulation. It first checks if the forecast is within the snow report end day. Then, it retrieves the snow statistics for the current and next periods, and checks if they meet the required probability of precipitation (PoP) threshold. If the conditions are met, it generates a phrase describing the total snow accumulation.
+
+The `getSnowValue` method returns the minimum and maximum snow values, taking into account the PoP threshold.
+
+The `getTotalSnow` method gets the sum of snowfall from previous periods. It uses the `getSnowValue` method to get the snow value if it's not provided. 
+
+Overall, this code is designed to provide detailed and accurate snowfall predictions in a human-readable format.
+
+The code provided is a part of a larger program that seems to be dealing with weather data, specifically snow accumulation and snow levels. 
+
+1. The first part of the code is a function that calculates the sum of the minimum and maximum snow values. It first checks if the snow value is None, if it is, it returns None. If not, it adds the current period's snow value to the sum of previous values, rounds the sums, and returns the minimum and maximum sums.
+
+2. The second part of the code contains three methods related to the phrase for storm total snow accumulation. The `stormTotalSnow_phrase` method returns a dictionary with setup, word, and phrase methods. The `stormTotalSnow_setUp` method sets up the element information list and calls the subPhraseSetUp method. The `stormTotalSnow_words` method creates a phrase for storm total snow accumulation. It first checks if the statistics for storm total snow are available. If not, it returns an empty string. If the statistics are available, it formats the minimum and maximum values and creates a phrase based on these values.
+
+3. The third part of the code contains methods related to a descriptive snow phrase. The `descriptive_snow_phrase` method returns a dictionary with setup, word, and phrase methods. The `descriptive_snow_setUp` method sets up the element information list and calls the subPhraseSetUp method. The `descriptive_snow_words` method creates a descriptive phrase for snow accumulation based on the maximum snow amount.
+
+4. The fourth part of the code contains methods related to snow level. The `pop_snowLevel_upper_threshold` method returns a threshold value. The `snowLevel_maximum_phrase` method seems to be incomplete, but it appears to be intended to return the maximum snow level value and the corresponding snow level phrase.
+
+This code appears to be part of a larger program that generates weather reports. 
+
+The `snowLevel_phrase` function sets up a dictionary with methods for setting up, generating words for, and creating phrases for snow level reports. The `snowLevel_setUp` function sets up the necessary elements for the snow level report, and the `snowLevel_words` function generates the actual words for the report. It checks for various conditions such as low population, weather conditions, and topographical percentages. If any of these conditions are not met, it returns an empty string. If all conditions are met, it generates a phrase reporting the snow level.
+
+The `iceAccumulation_phrase` function does something similar for ice accumulation reports. The `iceAccumulation_setUp` function sets up the necessary elements for the ice accumulation report, and the `iceAccumulation_words` function generates the actual words for the report. It checks for a significant ice accumulation and if it is found, it generates a phrase reporting the ice accumulation. If not, it returns an empty string.
+
+The `snowLevel_upper_topo_percentage` and `snowLevel_lower_topo_percentage` functions return a percentage value. If the percentage of the area above or below the snow level exceeds these values, the snow level is not reported.
+
+The `ice_accumulation_threshold` function returns a threshold value for ice accumulation. If the maximum ice accumulation is greater than this threshold, it will be reported instead of the snow amount in the snow phrase.
+
+The provided code seems to be part of a larger program, possibly related to weather forecasting. Here's a breakdown of what the code is doing:
+
+1. The first part of the code is creating a string (`icePhrase`) based on the values of `min` and `max`. It seems to be creating a phrase that describes the amount of ice in a certain unit. The phrases vary depending on whether the `min` and `max` values are the same (single value input) or different (range). 
+
+2. The `windChill_threshold` function returns a threshold for reporting wind chill, which is set to 0.0. 
+
+3. The `windChillTemp_difference` function returns a difference between wind chill and temperature for reporting wind chill, which is set to 5.
+
+4. The `windChill_phrase` function returns a dictionary with methods for setting up, creating words, and standard phrase methods for wind chill.
+
+5. The `windChill_setUp` function sets up sub-phrases for wind chill.
+
+6. The `windChill_words` function creates a phrase for wind chill based on certain conditions.
+
+7. The `windChill_wind_threshold` function returns a minimum wind speed required for reporting wind chill, which is set to 10.
+
+8. The `windBased_windChill_phrase` function returns a dictionary with methods for setting up, creating words, and standard phrase methods for wind chill based on wind speed.
+
+9. The `windBased_windChill_words` function creates a phrase for wind chill based on wind speed and certain conditions.
+
+The code seems to be part of a larger system that generates weather reports or forecasts, and it's specifically handling the phrases related to ice and wind chill.
+
+This code file appears to be part of a larger system that generates weather reports. It includes several methods for calculating and formatting different aspects of a weather report, such as heat index and relative humidity (RH).
+
+1. `heatIndex_threshold` method: This method returns a fixed threshold value for reporting the heat index, which is 108.0.
+
+2. `heatIndexTemp_difference` method: This method returns a fixed difference value between the heat index and temperature for reporting the heat index, which is 5.
+
+3. `heatIndex_phrase` method: This method returns a dictionary of methods for setting up and generating phrases related to the heat index.
+
+4. `heatIndex_setUp` and `heatIndex_words` methods: These methods set up and generate phrases for the heat index, respectively. The `heatIndex_words` method checks if the heat index is greater or equal to the threshold and at least two degrees higher than the maximum temperature. If so, it generates a phrase; otherwise, it returns an empty string.
+
+5. `rh_threshold` method: This method returns a threshold for reporting relative humidity (RH). If the `MinRH` grid is lower than this threshold, an RH phrase will be formatted.
+
+6. `rh_phrase` method: This method returns a dictionary of methods for setting up and generating phrases related to RH.
+
+7. `rh_setUp` and `rh_words` methods: These methods set up and generate phrases for RH, respectively. The `rh_words` method generates a phrase if the `MinRH` value is less than or equal to the threshold.
+
+8. `multipleElementTable_perPeriod_phrase` method: This method returns a dictionary of methods for setting up and generating a multiple element table for a specific period.
+
+9. `multipleElementTable_perPeriod_setUp` and `multipleElementTable_perPeriod_words` methods: These methods set up and generate a multiple element table for a specific period, respectively. The `multipleElementTable_perPeriod_words` method generates a table for the given period.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

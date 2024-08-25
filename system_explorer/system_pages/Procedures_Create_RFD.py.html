@@ -1,0 +1,64 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Create_RFD.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Create_RFD.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be part of a larger system, likely related to weather forecasting or a similar field, given the usage of terms like 'RFD', 'GFDI', 'Curing', etc. These might be specific meteorological terms or specific to the system this script is a part of.
+
+The script defines a class `Procedure` that inherits from `SmartScript.SmartScript`. This class contains two methods: `__init__` and `execute`.
+
+The `__init__` method is the constructor for the class, which is called when an instance of the class is created. It takes `dbss` as an argument and passes it to the parent class's constructor.
+
+The `execute` method appears to be the main function of the class. It takes `timeRange` as an argument and performs a series of operations:
+
+1. It first calculates a time range based on the current time and deletes certain data (like 'RFDmax', 'PERCENTGREEN', 'RFD', 'Curing', 'GFDI') for that time range.
+
+2. Then, it recalculates the time range based on whether the current hour is before or after 15 (3 PM). 
+
+3. It then finds a database named 'ISC', copies certain data from this database for the calculated time range, and creates new data from scratch for the same time range. It also calls a series of 'SmartTools' which might be specific operations or calculations related to the data.
+
+4. Finally, it repeats a similar set of operations for the next day (day 2) for planning purposes.
+
+The script also contains several commented-out lines of code, which might be used for debugging or future enhancements.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

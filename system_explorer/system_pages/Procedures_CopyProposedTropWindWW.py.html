@@ -1,0 +1,108 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>CopyProposedTropWindWW.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>CopyProposedTropWindWW.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The given code is a part of a larger software that is in the public domain, which means it is freely available for anyone to use, modify, and distribute. The software doesn't come with any warranty or technical support.
+
+The code is written in Python and it seems to be a part of a system that deals with meteorological data, specifically related to tropical storms or hurricanes. The code defines a class named `Procedure` which inherits from `TropicalUtility.TropicalUtility`. 
+
+The `Procedure` class has several methods that perform various tasks:
+
+1. `__init__`: This is the constructor method that initializes the class. It accepts a database session (`dbss`) as a parameter and initializes the `WindWWUtils` object.
+
+2. `getZoneList`: This method fetches a list of zones for a specified bulletin and hazard. 
+
+3. `getStormNumber`: This method fetches the storm number from a specified bulletin.
+
+4. `addETNToHazardKey`: This method adds an ETN (Event Tracking Number) string to a specified hazard key.
+
+5. `updateDisplay`: This method updates the spatial GFE (Graphical Forecast Editor) display based on the current state of the storm information data.
+
+6. `calcDiffGrid`: This method calculates a temporary grid that shows the difference between the initial discrete grid and the proposed grid.
+
+The code also imports several modules like `AbsTime`, `TimeRange`, `TropicalUtility`, `WindWWUtils`, `numpy`, `ProcessVariableList`, `functools`, `json`, and `operator` which are used in the class methods.
+
+The comments in the code provide a detailed history of updates made to the code, including the date of update, the person who made the update, and the changes that were made.
+
+The provided code appears to be part of a larger Python script that performs operations related to hazard analysis and management. Here's a breakdown of what each function does:
+
+1. `extractJSONText(self, textList)`: This function takes a list of text as input and extracts a JSON text from it by removing the header text. If the start string "{\n" is not found in the text list, it displays an error message.
+
+2. `fetchStormInfoFromTextProduct(self)`: This function fetches text products from a database, converts the text to a dictionary, and returns a dictionary indexed by bulletin. It iterates over a list of bulletins, fetches the text product for each bulletin, extracts JSON text from the product, loads the JSON text into a dictionary, and adds the dictionary to the `stormInfoDict`.
+
+3. `removeOldPropGrids(self)`: This function removes all previous Proposed grids. It does this by deleting the grid for each name in the `weList`.
+
+4. `noHazardsFound(self, stormInfoDict, bulletinList)`: This function checks if there are any hazards found in a list of bulletins. If no hazards are found, it returns True, otherwise False.
+
+5. `execute(self, varDict)`: This function sets up the GUI and enters the event loop. It initializes several variables, builds the GUI, displays the GUI, and extracts the selections.
+
+The first part of the code is a bit more complex. It seems to be comparing two hazard grids (initial and proposed) and identifying where changes have occurred. It creates a difference grid (`diffGrid`) that indicates where hazards have been added, removed, or changed. This grid is then added to the grid manager.
+
+The provided code appears to be part of a larger script that deals with weather forecasting, specifically handling weather bulletins and hazards.
+
+Here's a step-by-step breakdown of what the code does:
+
+1. It checks if the `_bulletinList` is empty. If it is, it displays a status bar message saying "Please select at least one bulletin." and then stops execution.
+
+2. It calls the `removeOldPropGrids()` function, which presumably removes outdated or irrelevant data grids.
+
+3. It retrieves the edit area for the given site ID (`cwaEA`) and encodes it into `_cwaMask`.
+
+4. It creates a time range (`_timeRange`) that spans 48 hours starting from the current time. This time range is likely used for displaying data within this period.
+
+5. It fetches storm information from a text product and stores it in `_stormInfoDict`.
+
+6. It checks if there are any hazards found in the selected bulletins. If none are found, it displays a status bar message saying "No Hazards found in the selected bulletin(s)" and then stops execution.
+
+7. It updates the display and generates a proposed grid (`propGrid`) and its associated keys (`propKeys`).
+
+8. It tries to fetch the "Hazards" grid. If it doesn't exist, it displays a status bar message saying "No Hazards grid was found. No difference grid made." and then stops execution.
+
+9. It retrieves the hazards grid (`hazGrid`) and its associated keys (`hazKeys`).
+
+10. It calculates the difference between the hazards grid and the proposed grid, presumably to identify changes or updates in the weather hazards. The result is likely stored or used in subsequent parts of the script.
+
+Please note that without the complete context or the full code, some assumptions had to be made based on common coding practices and the variable and function names.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

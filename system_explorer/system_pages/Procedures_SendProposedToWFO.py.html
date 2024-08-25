@@ -1,0 +1,70 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>SendProposedToWFO.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>SendProposedToWFO.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is part of a software that is used to send proposed weather forecasts to Weather Forecast Offices (WFOs). The software is in the public domain and is not provided with any warranty or technical support. The authors of the software are Tom LeFebvre and Pablo Santos.
+
+The code contains a class named `Procedure` that inherits from `TropicalUtility.TropicalUtility`. The class has two methods, `sendStormSurgeMessageToWFOs` and `sendWindMessageToWFOs`.
+
+The `sendStormSurgeMessageToWFOs` method is used to copy a proposed storm surge grid into an initial grid, save the elements, and send a notification to the WFOs. It fetches the storm surge edit area and creates a mask, sets all points outside the storm surge edit area to None, replaces the initial grid with the proposed one, removes earlier time ranges, processes fields that should be masked to the storm surge area only, saves those fields, and notifies the WFOs.
+
+The `sendWindMessageToWFOs` method is used to send a message to any WFO that overlaps any of the hazards defined in the `ProposedTropWindWW` grid. This alerts forecasters that guidance is available.
+
+The code also contains a history of changes made to the software, including the date of the change, the ticket number associated with the change, the engineer who made the change, and a description of the change.
+
+This Python code is part of a larger system that appears to be related to weather forecasting, specifically for tracking and warning about storms and wind hazards. 
+
+The `execute` function is the main function. It first instantiates the `WindWWUtils` module, which seems to be a utility module for handling wind-related weather warnings. It then retrieves the site ID and hazard types. Depending on the site ID, it populates a list of storms from different basins (Atlantic, Eastern Pacific, Central Pacific, Western Pacific). 
+
+If no hazard type or storm is selected, it sends a message to the status bar and returns. If a hazard type is selected, it calls either `sendStormSurgeMessageToWFOs` or `sendWindMessageToWFOs` functions, depending on the type of hazard.
+
+The `sendWindMessageToWFOs` function, which is not fully included in the provided code, seems to generate a list of weather forecast offices (WFOs) based on the site ID. It then loops through a list of storms, generates a command string, and executes it using the `os.system` function. 
+
+It retrieves a grid of hazards and finds places where any hazard is defined. It then loops through the WFO list, checks if the WFO overlaps with the hazard mask, and if it does, adds the WFO to a list of WFOs to send. 
+
+If not in test mode, it sends a message to the WFOs and displays a completion message in the status bar. It then saves some elements and returns. 
+
+In summary, this code is designed to handle and send weather warnings related to storms and wind hazards to relevant weather forecast offices.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

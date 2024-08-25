@@ -1,0 +1,124 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>RAP.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>RAP.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is part of a weather forecasting software developed by Raytheon Company. It contains a class called `RAPForecaster` that inherits from a `Forecaster` class. The `RAPForecaster` class is used to calculate various weather elements from the RAP (Rapid Refresh) model output. 
+
+Here's a brief rundown of the methods in the `RAPForecaster` class:
+
+1. `__init__(self)`: This is the constructor of the class. It initializes the `Forecaster` superclass with the string "RAP".
+
+2. `levels(self)`: This method returns a list of strings representing different atmospheric pressure levels.
+
+3. `calcMaxT(self, T, MaxT)`: This method calculates the maximum temperature. If `MaxT` is `None`, it returns `T`. Otherwise, it returns the maximum of `MaxT` and `T`.
+
+4. `calcMinT(self, T, MinT)`: This method calculates the minimum temperature. If `MinT` is `None`, it returns `T`. Otherwise, it returns the minimum of `MinT` and `T`.
+
+5. `calcT(self, t_FHAG2, t_BL030, t_BL6090, t_BL150180, p_SFC, topo, stopo, gh_c, t_c)`: This method calculates the temperature at the elevation indicated in the topo grid by interpolating the temperature value from the model's isobaric temperature cube.
+
+6. `calcTd(self, p_SFC, T, t_FHAG2, stopo, topo, rh_FHAG2)`: This method calculates the dew point from the specified pressure, temperature, and relative humidity fields.
+
+The code also includes a software history section, which documents changes made to the code over time. For example, on April 19, 2018, an engineer named randerso renamed and/or removed models and cleaned up the code.
+
+This code file appears to be a collection of functions used for meteorological calculations. Here's a brief description of each function:
+
+1. `calcRH(self, T, Td)`: This function calculates relative humidity (RH) from temperature (T) and dew point temperature (Td) grids.
+
+2. `calcMaxRH(self, RH, MaxRH)`: This function returns the maximum of the specified MaxRH and the RH grids.
+
+3. `calcMinRH(self, RH, MinRH)`: This function returns the minimum of the specified MinRH and the RH grids.
+
+4. `calcQPF(self, cp_SFC, lgsp_SFC)`: This function calculates Quantitative Precipitation Forecast (QPF) from the total precipitation field out of the model. It converts the result from millimeters to inches.
+
+5. `calcSky(self, rh_c, gh_c, topo, p_SFC)`: This function calculates the sky condition from relative humidity, geopotential height, topography, and surface pressure.
+
+6. `calcPoP(self, gh_c, rh_c, QPF, topo)`: This function calculates the probability of precipitation based on QPF and RH cube.
+
+7. `calcFzLevel(self, gh_FRZ)`: This function calculates the freezing level based on height and temperature cubes.
+
+8. `calcSnowLevel(self, gh_c, t_c, rh_c)`: This function calculates the snow level based on wet-bulb zero height.
+
+9. `calcSnowAmt(self, T, FzLevel, QPF, topo, Wx)`: This function calculates the snow amount based on the temperature, freezing level, QPF, topography, and weather grid.
+
+The code uses numpy for numerical operations and uses its functions such as `clip`, `maximum`, `minimum`, `where`, `less`, `greater_equal`, `add.reduce`, `not_equal`, `equal`, etc. for various calculations.
+
+This code file appears to be part of a weather forecasting or climate modeling program. It contains a number of functions that perform various calculations related to weather phenomena. Here's a brief description of what each function does:
+
+1. `calcSnow`: This function calculates the amount of snow based on QPF (Quantitative Precipitation Forecast) and the snow ratio. It only calculates snow at points where the weather is snow.
+
+2. `calcHaines`: This function calculates the Haines index, which is a measure of the potential for dry, unstable air to contribute to the development of large or erratic wildfires.
+
+3. `calcMixHgt`: This function calculates the mixing height, which is the height to which relatively warmer surface air will rise into the cooler atmosphere. It uses temperature, pressure, and topography data to do this.
+
+4. `calcWind`: This function converts the wind speed from meters per second to knots at the lowest available wind level.
+
+5. `calcFreeWind`: This function calculates the wind speed and direction at 3000 feet above ground level (AGL).
+
+6. `calcTransWind`: This function calculates the average wind vector in the mixed layer as defined by the mixing height. It creates a mask that identifies all grid points between the ground and the mixing height and calculates a vector average of the wind field in that layer.
+
+7. `calcPrecipType`: This function calculates the type of precipitation (rain, snow, sleet, etc.) using the Bourgouin algorithm, which determines precipitation type based on how long a hydrometeor is exposed to alternating layers of above and below zero temperature layers. It also determines the coverage and intensity of the precipitation.
+
+Overall, these functions are likely used in combination with other functions in the program to create a detailed and accurate weather forecast.
+
+The code provided is a part of a weather forecasting program. It contains three methods:
+
+1. `calcWx`: This method calculates the weather conditions based on various parameters like QPF (Quantitative Precipitation Forecast), temperature, pressure, and others. It determines the type of precipitation (rain, snow, freezing rain, ice pellets) based on the given parameters. It also takes into account the topography of the area. The method returns a weather code and a key to interpret the code.
+
+2. `calcCWR`: This method calculates the chance of wetting rain based on QPF. It assigns a value between 0 and 100 to each grid point, with 0 representing dry conditions and 100 representing wet conditions. The value is determined based on a ramping function for QPF values between 0.01 and 0.3.
+
+3. `calcLAL`: This method calculates the Lightning Activity Level based on total precipitation, lifted index, and 3-D relative humidity. It creates a new grid for the Lightning Activity Level and increments the level based on certain conditions like the amount of precipitation and relative humidity at different levels. 
+
+The code is written in Python and uses NumPy for numerical computations.
+
+This piece of code appears to be part of a larger script, possibly related to weather forecasting given the terms used. It is written in Python and seems to be using NumPy, a library for the Python programming language, adding functionality for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays.
+
+The function `logical_and(greater(midrh, 70), less(rh_FHAG2, 30))` is checking if the `midrh` value is greater than 70 and `rh_FHAG2` is less than 30 at the same time. If both conditions are true, it increments the corresponding element in the `lal` array by 1.
+
+The next two lines are checking if the `bli_SFC` value is less than -3 and -5 respectively. If the condition is true, it increments the corresponding element in the `lal` array by 1.
+
+The `main()` function is calling the `run()` method of an instance of `RAPForecaster` class. Without additional context, it's hard to say exactly what this does, but it's likely starting some kind of forecasting process.
+
+Please note that this is a high-level interpretation based on the provided code snippet. The exact functionality may vary depending on the rest of the code, the data being used, and the specific implementation of the functions and methods being called.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

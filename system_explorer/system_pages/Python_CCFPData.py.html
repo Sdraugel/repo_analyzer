@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>CCFPData.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>CCFPData.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a software developed by Raytheon Company under a contract with the US Government. The software contains export-restricted data, and its distribution to non-U.S. persons, whether within the United States or abroad, requires an export license or other authorization.
+
+The script imports the Avn module and the CcfpData class from the com.raytheon.viz.aviation.monitor package. 
+
+The main function in this script is `retrieve(siteID)`. This function retrieves cached ccfp (Collaborative Convective Forecast Product) data for a specific site identified by `siteID`. 
+
+The function works as follows:
+- It calls the `getReports` method of the `CcfpData` class, passing the `siteID` as an argument. This method returns a list of reports for the specified site.
+- It initializes an empty list `ret`.
+- It gets the size of the list of reports and stores it in the variable `sz`.
+- It then iterates over the range of `sz`. For each iteration, it gets the `i`th report from the list of reports, converts it to a string, and stores it in the variable `text`.
+- It then appends a new `Avn.Bunch` object, initialized with `text` as its argument, to the `ret` list.
+- Finally, it returns the `ret` list.
+
+The script also contains a software history section, which shows that the script was initially created on 09/15/09 by an engineer named njensen. A modification was made on Feb 09, 2018, to prevent adding blank data to the empty list.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

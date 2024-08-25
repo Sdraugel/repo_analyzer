@@ -1,0 +1,272 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Aviation_Finalize.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Aviation_Finalize.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The given code is a Python script for an aviation application. Here's a breakdown of the script:
+
+1. The script starts with some metadata and import statements, importing necessary modules such as `time`, `SmartScript`, `numpy`, `copy`, `tkinter`, `AbsTime`, `TimeRange`, `Aviation_EDASConfig`, and `Exceptions`.
+
+2. It defines a dictionary `wxTypesDict` that translates certain words into weather types.
+
+3. It defines a `CreateToolTip` class that creates tooltips for any widget in a GUI. The tooltips appear when the mouse hovers over the widget and disappear when the mouse leaves the widget.
+
+4. It defines a `Procedure` class which inherits from `SmartScript.SmartScript`. This class contains several methods:
+
+   - `getWEInventory`: Fetches the inventory as a list of time ranges of the specified model and weather element. This list will be restricted to the specified time range, if it's provided.
+   
+   - `cumulativeParm`: Returns True if the specified weather element name is a rate parameter.
+   
+   - `getWEType`: Gets the type of the specified weather element name.
+   
+   - `getParmMinMaxLimits`: Gets the minimum and maximum value limits of the specified weather element name.
+   
+   - `getTimeRanges`: Creates a list of hourly time ranges based on the specified time range.
+   
+   - `fetchAllGrids`: Fetches every grid within the specified time range for the elements in the weather element list.
+   
+   - `getWxMask`: Returns a mask where the weather grid matches the specified weather type and intensity.
+
+The script is not complete as the last method `getWxMask` is not finished.
+
+This code is part of a larger program that deals with weather data. It contains several methods that manipulate and analyze this data.
+
+1. The first block of code checks if certain conditions are met and updates the `gridMask` variable accordingly. It then returns the `gridMask`.
+
+2. The `bothTypesObstructions` method checks if both the `subType` and `newSubType` are in the `_obstructionTypes` list. If they are, it returns the `subType`, otherwise it returns an empty string.
+
+3. The `replaceWxSubKey` method replaces a subkey within an existing weather key (`wxKey`) with new weather data if the type matches the type to replace. If not, it adds the subkey to the existing key.
+
+4. The `removeWxType` method removes a specified weather type from a weather grid. It iterates over the keys in the grid, and if the key isn't the one to be removed, it adds it to a new key. If the new key is empty, it replaces it with a default string. It then updates the grid with the new key.
+
+5. The `addNewWx` method adds new weather data to a specified weather grid and keys. It checks for overlap with existing data and if there is, it creates a new key with the new weather data. If the new weather type matches an existing one, it replaces it. If not, it adds it to the existing key.
+
+6. The `makeNewWxKey` method creates and returns a new weather subkey based on the specified old key and new weather data. If the old key is a default string, it returns the new key to add. Otherwise, it initializes a new key as an empty string.
+
+The code is incomplete, so the functionality of the `makeNewWxKey` method is not fully clear.
+
+This code file seems to be part of a weather forecasting or meteorological application. It contains several methods that manipulate and analyze weather data. 
+
+1. The first method is checking if a subkey already has the 'F' or 'ZF' attributes and replaces it with new attributes. It splits the old key into subkeys and parses them. If the old type is 'F' and the new type is 'FZ' or vice versa, it replaces the subkey. It then constructs the new key.
+
+2. The second method, `popAssignsCBP`, adjusts the Cloud Base Primary (CBP) height based on different ranges of Probability of Precipitation (PoP) values. It also ensures that there are no "zero" ceilings if the sky is less than Overcast (OVC) and visibility is good.
+
+3. The third method, `getPrecipNonPrecipMask`, returns a mask where any precipitation type is found. It checks each key and each subkey within each key.
+
+4. The fourth method, `lowPoPNoWxVis10`, ensures the visibility remains consistent with the weather and PoP. It calculates various masks and adjusts the visibility accordingly.
+
+5. The fifth method, `popAssignsSky`, ensures that the sky is not less than the PoP value.
+
+6. The sixth method, `noZeroCeiling`, removes zero CBP values where the sky is not OVC and visibility is greater than 0.5.
+
+7. The seventh method, `calcCoverageLimits`, extracts the visibility limits based on weather type and coverage.
+
+8. The last method, `makePoTGridFromVis`, modifies the Probability of Type Fog (PoTFog) based on visibility. It creates masks of interesting places and adjusts the fog coverage accordingly.
+
+In general, this code seems to be manipulating and analyzing weather data to make forecasts or predictions. It's using masks to select certain conditions or ranges of data, and then applying changes to those selected areas.
+
+This code appears to be part of a larger weather forecasting system. It is manipulating and creating grids of data for different types of weather phenomena, such as fog, haze, and smoke. The grids are based on visibility, temperature, and dew point data.
+
+1. The first part of the code is updating 'potFogGrid' and 'potFreezingFogGrid' grids with a potential value ('potValue') where certain conditions are met (defined by 'mask' and 'tBelow32'). It then creates these grids using the 'createGrid' method.
+
+2. The next part of the code is handling the case where the weather type is 'Haze'. It creates a grid of zeros ('potHazeGrid'), then updates this grid with a potential value where certain conditions are met. It then creates the 'PotHaze' grid.
+
+3. The following section of the code does similar operations for the weather type 'Smoke', creating and updating a 'potSmokeGrid' and then creating the 'PotSmoke' grid.
+
+4. The 'addNewWxFromVis' function seems to be adding new weather types based on visibility values. It first removes the weather from the grid that will be changed, then defines criteria for obstruction weather based on visibility and temperature conditions. It then adds fog, haze, or smoke to the weather grid based on these conditions.
+
+5. The 'updateVisFromWx' function appears to modify the visibility based on the weather coverage and intensity. It sets visibility to 7SM where it is less than 7 and NoWx (no weather).
+
+Overall, this code is manipulating and creating data grids for different weather types based on various weather conditions.
+
+This code appears to be part of a larger program that deals with weather data. It is written in Python and contains several methods that perform various operations on the data.
+
+1. The first part of the code is setting visibility values based on different weather conditions. It uses bitwise operations to create and modify masks that represent different weather conditions. The masks are then used to set visibility values. For example, if the weather condition is regular fog ("F"), the visibility is set to 6.0. If the weather condition is heavy fog ("F+"), the visibility is set to 0.25. The same process is repeated for different snow intensities.
+
+2. The `parseCovTypeIntens` method is used to parse a weather string and return the first three coverage, type, and intensity.
+
+3. The `getWxTypeOrder` method is used to return the list of weather types in the proper order based on configuration.
+
+4. The `determineWxTypeToAdjust` method is used to determine which weather type to change based on configuration.
+
+5. The `wxTypeMatches` method is used to check if the weather types match. Snow and snow showers are treated as a match as are rain and rain showers.
+
+6. The `wxCovTypeIntensMatchType` method is used to return the weather coverage, type, and intensity if the type matches the given weather type. Otherwise, it returns None.
+
+7. The `updateWxIntensWithVis` method is used to update the weather intensity grid based on visibility. It allows the intensities of specific weather types to be updated.
+
+The code is well-structured and contains comments that explain what each section does, which makes it easier to understand.
+
+This code is a part of a larger program that seems to be dealing with weather data. It contains several methods that perform various operations:
+
+1. The first method is checking for certain weather conditions (like fog intensity) and updates the weather grid accordingly. It also checks if the grid has any points and if not, it skips the current iteration.
+
+2. The `updateWindGustWithWind` method updates the WindGust value with the WindSpeed value where gust is less than speed.
+
+3. The `addVisToWxKey` method adds a specified visibility to a specified weather key. It doesn't add visibility if the key is `<NoWx>`. It splits the key into subkeys and reassembles them with the new visibility.
+
+4. The `makeCeiling` method calculates the Ceiling grid based on the specified Cloud Base Primary and Sky grids. It initializes the Ceiling grid to -30000 and finds points above the sky threshold. It then assigns the CPB value at these points.
+
+5. The `removeVis` method removes all Visibility components from the Wx ugly string. It splits the string into subkeys and reassembles them without the visibility component.
+
+6. The `setWxVis` method returns a new weather grid that contains the corresponding Visibility string based on the Visibility at the same point for all values less than the specified visibility threshold. It defines the ranges for each visibility category and modifies the weather grid accordingly.
+
+This code appears to be part of a larger system for analyzing and manipulating weather data. Here's a breakdown of what each function does:
+
+1. The first block of code is manipulating visibility data. It creates a mask based on certain conditions, then iterates over a list of weather keys. For each key, it creates another mask and checks for overlap with the visibility mask. If there is overlap, it modifies the weather grid and updates a change mask.
+
+2. `inventoryIsComplete(self, weList, timeRange)`: This function checks if the weather forecast grid has any gaps. It iterates over a list of weather elements and checks if there are any missing grids or if the start and end times of the grids are not in the expected range. If any of these conditions are met, it returns False, indicating the inventory is not complete.
+
+3. `saveAndPublish(self)`: This function checks if the tool is configured to offer the Save and Publish option. If it is, it checks a variable to see if the option has been selected. If so, it returns True.
+
+4. `allDataAvailable(self, weDict, weList, tr)`: This function checks if all specified data are available. It iterates over a list of weather elements and checks if they exist in a dictionary of weather data. If any element is not in the dictionary, it returns False.
+
+5. `copyCeilingVisToCigHgtVsby(self)`: This function copies the Ceiling and Visibility grids into the CigHgt and Vsby grids, respectively. It clips the source grid to match the min and max values of the target grid.
+
+6. `applyFinalizeRules(self, editArea)`: This function applies a set of rules to finalize the weather data. It gets various parameters from the GUI, checks if the inventory is complete, and if it's not, it either stops or interpolates based on the configuration setting. It then fetches all the grids for the defined elements over the selected time range. If configured, it removes Pot grids.
+
+The code is written in Python and uses numpy for array operations and some other library (possibly a custom one) for handling weather data.
+
+The code is a part of a larger script that seems to be used for weather forecasting or modeling. It appears to be written in Python and uses a variety of rules to adjust different weather parameters based on certain conditions. 
+
+The first line of the code is calling a function named `teCmd` with a list of strings and a variable `selectedTR` as arguments. The purpose of this function is not clear from the provided code.
+
+The main part of the code is a loop that iterates over a list `trList`. For each item in the list, it checks if certain rules are selected by the user (stored in `self._userSelectedRules`). If a rule is selected and all necessary data is available (`self.allDataAvailable`), it performs certain operations on the data. The operations include adjusting cloud base, defining sky, adding new weather conditions based on visibility, adjusting visibility based on weather conditions, quality control of visibility with PoP & Wx, updating weather intensity using visibility, adjusting wind gust using wind, adding visibility to weather string, ensuring no zero ceiling values, and making ceiling.
+
+After all the operations, it saves and publishes the elements if the function `self.saveAndPublish()` returns `True`. If the configuration `self._config["MakePotFog"]` is set to "Yes", it also saves and publishes the potential fog elements.
+
+The last part of the code defines several functions that are called when certain buttons are clicked in a GUI. The `cancelCommand` function destroys the tkinter master widget, effectively closing the GUI. The `runCommand` function applies the finalize rules to the edit area. The `runDismissCom` function is not fully shown, but it likely performs some operation and then dismisses the GUI.
+
+The provided code is a part of a larger Python program that uses the Tkinter library to create a graphical user interface (GUI). Here's what each part of the code does:
+
+1. `mand(self)`: This function applies some finalizing rules to the `_editArea` object, cancels a command, and then returns.
+
+2. `makeBottomButtons(self, frame, row)`: This function creates a frame for buttons at the bottom of the GUI. It creates three buttons: "Run", "Run/Dismiss", and "Cancel", each of which is associated with a specific command when clicked.
+
+3. `enterEvent(self, event=None)`: This function is called when the cursor enters the GUI. It doesn't perform any action and just returns.
+
+4. `ruleSelected(self, event, ruleName)`: This function is triggered when a rule button is selected. It toggles the state of the selected rule button and performs different actions based on the rule name.
+
+5. `makeRuleCheckButtons(self, frame)`: This function creates a frame for rule check buttons in the GUI. It creates a check button for each rule in `_ruleList`. Some rules are selected by default and some are immutable.
+
+6. `wxTypeSelected(self)`: This function is called when a weather type button is selected. It removes the sliders for the previous weather type and creates new sliders for the selected weather type.
+
+7. `sliderChanged(self, sliderValue)`: This function is called when any slider is moved. It updates the labels of the sliders based on their current values and ensures that the sliders stay ordered.
+
+The code is incomplete at the end, so it's not possible to provide a full analysis of the last function.
+
+The code is written in Python and is part of a GUI application using the Tkinter library. Here is a breakdown of what the code does:
+
+1. `derValue:`: This seems to be a part of a larger function that is not included in the provided code. It adjusts the value of a scale widget based on the active slider value.
+
+2. `removeCovSliders(self, wxType)`: This method destroys a frame (`_sliderFrame`) which presumably contains sliders for coverage.
+
+3. `makeCovSliders(self, wxType)`: This method creates a new frame (`_sliderFrame`) and populates it with sliders. The sliders are created based on the `wxType` parameter. If `wxType` is "Fog", a special slider for Dew point depression scale is created. Then, for each coverage in the coverage list (`covList`), a new slider is created with a default value from the configuration.
+
+4. `makeAddNewWxWidgets(self, frame)`: This method creates a new frame (`_addWxFrame`) and populates it with radio buttons for each weather type. It also calls `makeCovSliders` to add coverage sliders for the default weather type.
+
+5. `removeAddWxFrame(self)`, `displayAddWxFrame(self)`, `removeAddVisToWxFrame(self)`, `displayAddVisToWxFrame(self)`, `removeIntensityFrame(self)`, `displayIntensityFrame(self)`: These methods are used to hide or display specific frames.
+
+6. `defineGeometry(self)`: This method defines the geometry for a time scale, including the size of the canvas, the size and position of markers, and the frequency of labels.
+
+7. `timeToX(self, timeInSec)`: This method converts a time in seconds to the corresponding x-coordinate on the time scale.
+
+The provided code is a part of a larger Python program that appears to be a graphical user interface (GUI) for selecting a time period. It uses the Tkinter library, which is a standard Python interface to the Tk GUI toolkit. Here's a breakdown of what each function does:
+
+1. `xToTime(self, xCoord)`: This function converts an x-coordinate to a time in seconds. It uses the start time, x-offset, and pixels per hour to calculate the time.
+
+2. `markerCoords(self, markerTime)`: This function calculates the coordinates of a time marker. It uses the marker's width and height to calculate the coordinates of a triangle that represents the marker.
+
+3. `drawTimeMarker(self, markerTime)`: This function draws a time marker at a specified time. The color of the marker depends on whether the marker time is the start or end of the editing period.
+
+4. `markerPress(self, event)`: This function is called when a time marker is pressed. It determines whether the start or end marker was pressed based on the proximity of the press to the marker's time.
+
+5. `markerMotion(self, event)`: This function is called when a time marker is moved or dragged. It rounds the marker time to the nearest hour and ensures that the marker does not go past the start or end time.
+
+6. `markerRelease(self, event)`: This function is called when a time marker is released. If the release is a click, it snaps the closest time marker to the click.
+
+7. `makeTimeScale(self)`: This function creates the time scale GUI. It first destroys any existing widgets in the time frame, then creates a label displaying the selected time period and a canvas for the time scale. It binds mouse button press, release, and motion events to the appropriate functions, then draws the time scale and markers.
+
+In summary, this part of the file is responsible for creating a time scale GUI that allows users to select a time period by dragging time markers.
+
+The provided code seems to be a part of a larger GUI application written in Python using the Tkinter library. Here's a breakdown of what each method does:
+
+1. `addVisToWxSliderChanged(self, event)`: This method is likely a callback for when a slider in the GUI changes. It updates the label of the slider to reflect its current value.
+
+2. `makeAddVisToWxScale(self, frame, row)`: This method creates a slider (or "scale" in Tkinter terms) in the GUI. The slider's range is from 0 to 10, and it calls `addVisToWxSliderChanged` whenever it's moved.
+
+3. `intensitySelected(self)`: This method seems to be a placeholder for a callback when an intensity is selected.
+
+4. `makeIntensityButtons(self, frame, row)`: This method creates a set of radio buttons for selecting an intensity ("Precip" or "Non-Precip").
+
+5. `savePubSelected(self)`: This method seems to be a placeholder for a callback when a save or publish action is selected.
+
+6. `makeSavePublishButtons(self, frame, row)`: This method creates a set of radio buttons for selecting whether to save and publish.
+
+7. `displayWindowOnCursor(self)`: This method adjusts the position of the window to be centered around the cursor.
+
+8. `setUpUI(self)`: This method sets up the entire GUI, calling the other methods to create the various widgets.
+
+9. `determineTAFTimes(self)`: This method calculates start and end times based on the current time, rounded up to the nearest three hours.
+
+10. `filterWeatherElements(self, weList)`: This method seems to be incomplete, but it appears to be intended to filter a list of weather elements in some way.
+
+This code appears to be part of a larger script, likely written in Python, that deals with weather forecasting. The script seems to be part of a tool that processes and presents weather data. Here's a breakdown of what the provided code does:
+
+- The first part of the code is a loop that iterates over a list called `weList`. For each item in the list, it calls a method `getParm` with parameters "Fcst", the item from the list, and "SFC". If the returned value is not None, it appends the item to the list `goodWEs`. The function then returns this list.
+
+- The `execute` method is the main method that is called when the tool starts. It sets up the configuration for the tool, including the time range, edit area, and various settings related to the tool's UI and functionality.
+
+- It sets up a list of weather elements (`_weList`), and a list of elements to be published (`_publishWEList`). It then filters out elements from these lists that are not configured.
+
+- It defines potential weather elements (`_potElements`) if the configuration allows it, and filters out elements that are not configured.
+
+- It sets up lists of elements that are not required (`_notRequiredWEs`) and elements that are not to be modified (`_immutableWEs`).
+
+- It defines a dictionary of weather types and their coverage (`_wxTypeCovDict`), and a list of all precipitation types (`_obstructionTypes`).
+
+- It initializes time variables based on the configuration, and sets the start and end times for editing.
+
+- It sets up the UI and starts the main event loop with `tk.mainloop()`. This is indicative of a graphical user interface, likely built with the Tkinter library in Python.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

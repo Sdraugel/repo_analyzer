@@ -1,0 +1,66 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>DiscreteKey.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>DiscreteKey.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code defines a class named `DiscreteKey`. The class represents a key object that has three attributes: `siteId`, `subKeys`, and `parmID`. 
+
+The class has several methods:
+
+1. `__init__`: This is the constructor method that initializes a new instance of the class. It sets the `siteId`, `subKeys`, and `parmID` attributes to None.
+
+2. `__str__` and `__repr__`: These methods are used to represent the object as a string. They return a string that joins all the `subKeys` with the `SUBKEY_SEPARATOR`, which is defined as '^'.
+
+3. `__getitem__`: This method allows the object to be indexed like a list. It takes an index as an argument and returns the subkey at that index. If the index is not an integer or is out of range, it raises an exception.
+
+4. `__hash__`: This method returns a hash value of the object, which is computed from the `parmID`, `siteId`, and `subKeys` attributes. This allows the object to be used in a hash table.
+
+5. `__eq__` and `__ne__`: These methods are used to compare two `DiscreteKey` objects for equality and inequality, respectively. They compare the `parmID`, `siteId`, and `subKeys` attributes of the two objects.
+
+6. `auxData` and `baseData`: These are static methods that take a subkey as an argument and return the auxiliary data and base data of the subkey, respectively. The auxiliary data and base data are separated by the `AUXDATA_SEPARATOR`, which is defined as ':'.
+
+7. `getSiteId`, `setSiteId`, `getSubKeys`, `setSubKeys`, `getParmID`, `setParmID`: These are getter and setter methods for the `siteId`, `subKeys`, and `parmID` attributes.
+
+The initial comment block suggests that this class is used as a container for deserialized data from EDEX, a data exchange system. It is not recommended to use this class for other purposes.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,564 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>BOIVerifyUtility.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>BOIVerifyUtility.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is part of a software utility named BOIVerifyUtility, developed by Raytheon Company. The utility is designed to support the maintenance of verification databases of both grids and stats. It is written in Python and is currently at version 2.0.5.
+
+The code starts with a detailed comment section that includes the software's history, authorship, and version updates. It also includes a disclaimer about the software being in the public domain and provided "as is", without any warranty or technical support.
+
+The code then imports several Python modules, including TimeRange, AbsTime, numpy, os, re, sys, time, calendar, math, netCDF4, SmartScript, and BOIVerifyConfig.
+
+The code defines several constants that are used in the software, such as the version number, the maximum number of areas to keep stats for, the maximum number of stats to keep, the maximum number of forecaster numbers saved for a grid or stat, the number of thresholds saved for each parameter, and the forecaster number file.
+
+The code then defines a class named BOIVerifyUtility, which inherits from the SmartScript class. The class has an __init__ method that initializes several instance variables and sets up the constant variables. The __init__ method also reads in configuration information from the BOIVerifyConfig module and stores it in a dictionary for easy access. 
+
+This code file appears to be part of a larger software system, as it references other files and modules not included in the provided code.
+
+The provided code is a part of a Python class and it seems to be configuring and setting up various parameters and variables for some kind of statistical analysis or forecasting system.
+
+1. The first part of the code is setting up configuration parameters such as `STATAREAS`, `STATTYPES`, `MAXFCSTRS`, `NUMTHRESH`, and `FCSTRNUMFILE`. These parameters are being stored in both the class instance (`self`) and in a configuration dictionary (`self.CFG`).
+
+2. Then, it sets up a debug level (`self.DEBUG`) to 0.
+
+3. It sets up variables related to observed file information, forecast grid file information, and forecast stat file information. These variables include parameters, model, modification status, and number of records.
+
+4. It calls three methods: `self.setupFcstrNums()`, `self.setupEditAreas()`, and `self.checkConfig()`. These are likely to further configure the system based on the previously set parameters.
+
+5. It creates a dictionary (`self.statNames`) that maps statistical metric names to their various possible names or abbreviations. It also creates a list of all these names (`self.allStats`).
+
+6. The `checkConfig` method is defined to check the configuration data. It seems to be checking if the parameters are well defined and logs messages about any problems. It returns 0 if the configuration is okay and 1 if there are any problems. The actual checking part of the code is not provided.
+
+This code is written in Python and it appears to be part of a larger class or module. It's primarily focused on verifying and managing configurations for some kind of parameters (referred to as 'parms' in the code). Here's a breakdown of what each section does:
+
+1. The first part of the code checks the configuration of a given parameter. It checks if the configuration is a tuple, if it has 8 elements, and if the first three elements are integers. It also checks if the parameter type and verification type are within the range 0-1, and if the save interval is within the range 0-24. If the configuration doesn't meet any of these criteria, it logs an error message and sets `badConfig` to 1.
+
+2. The next part of the code checks if the parameter is of a specific type (`wxType!=1`). If it is, it checks if the fourth element of the configuration is a tuple and if its length matches a predefined constant (`self.NUMTHRESH`). If these conditions aren't met, it logs an error message and sets `badConfig` to 1.
+
+3. The `getCFG` method returns the configuration for a given name if it exists in `self.CFG`, otherwise it returns None.
+
+4. The `getVerParms` method returns a sorted list of keys in `self.VERCONFIG`.
+
+5. The `getVerParmsVect` method returns a sorted list of parameters from `self.VERCONFIG`. If a parameter is of type 1, it appends "Spd" and "Dir" to the parameter name.
+
+6. The `getVerParmsVal` method returns a sorted list of parameters from `self.VERCONFIG` that are of type 0.
+
+7. The `getVerParmsObs` method returns a sorted list of observed parameters from `self.VERCONFIG`.
+
+8. The `getObsParm` method returns the observed parameter name for a given forecast parameter from `self.VERCONFIG`.
+
+9. The `getObsCondition` method returns the condition for the observed parameter for a given forecast parameter from `self.VERCONFIG`. If the parameter is not a probability parameter, it returns an empty string.
+
+This code is a part of a Python class that provides various methods for fetching and manipulating configuration data for different parameters (parms). The configuration data is stored in a dictionary called `VERCONFIG`. 
+
+Here is a brief description of each method:
+
+1. `getObsThreshold(self,fcstParm)`: This method returns the threshold for a given forecast parameter. If the parameter is not a probability parameter, it returns zero.
+
+2. `getVerConfig(self,parmName,element)`: This method fetches a specific element of the configuration for a given parameter. If the parameter is not configured, it returns None.
+
+3. `getVerParmType(self,parmName)`: This method returns the type of a given parameter, either 0 for SCALAR or 1 for VECTOR. If the parameter is not configured, it checks if the observed parameter of any configured parameter matches and returns whether that parameter is a SCALAR or VECTOR.
+
+4. `getVerType(self,parmName)`: This method returns the type of verification needed for a given parameter.
+
+5. `getVerSaveInterval(self,parmName)`: This method returns the save interval for a given parameter. 
+
+6. `getVerThresholds(self,parmName)`: This method returns the thresholds used in BOIVerify autocalc for a given parameter.
+
+7. `getVerBinWidth(self,parmName)`: This method returns the bin width used in BOIVerify histogram displays for a given parameter.
+
+8. `getVerBigErr(self,parmName)`: This method returns the big error value for a given parameter.
+
+9. `getVerErrColor(self,parmName)`: This method returns the error color for a given parameter.
+
+10. `getVerObsInfo(self,parmName)`: This method returns the observed information for a given parameter.
+
+11. `getBaseOffset(self,model)`: This method returns the base offset for a given model.
+
+In general, these methods are used to fetch and manipulate configuration data for different parameters.
+
+This code is part of a class that manages a list of forecasters, identified by a two-digit number, a name, and an 8-character ID. Here's a breakdown of what each method does:
+
+1. `setupFcstrNums(self)`: This method initializes two dictionaries, `FcstrNames` and `FcstrIDs`, with keys as two-digit numbers and values as forecaster names and IDs respectively. It reads a file from the disk, processes each line, and populates the dictionaries accordingly. If the debug flag is set, it logs the contents of the dictionaries.
+
+2. `getFcstrNames(self)`: This method returns the `FcstrNames` dictionary.
+
+3. `getFcstrName(self,num)`: This method returns the forecaster name corresponding to a given two-digit number. If the number is not found, it returns an empty string.
+
+4. `getFcstrIDs(self)`: This method returns the `FcstrIDs` dictionary.
+
+5. `getFcstrID(self,num)`: This method returns the forecaster ID corresponding to a given two-digit number. If the number is not found, it returns an empty string.
+
+6. `getFcstrNums(self)`: This method returns a sorted list of forecaster numbers.
+
+7. `setFcstrs(self,nameDict,idDict)`: This method takes two dictionaries as inputs and sets the `FcstrNames` and `FcstrIDs` dictionaries accordingly.
+
+8. `findFcstrNumFromID(self,id)`: This method takes a forecaster ID as input and returns the corresponding two-digit number. If the ID is not found, it returns 0.
+
+9. `findFcstrNumFromName(self,name)`: This method takes a forecaster name as input and returns the corresponding two-digit number. If the name is not found, it returns 0.
+
+10. `saveFcstrNums(self)`: This method writes the `FcstrNames` and `FcstrIDs` dictionaries to a file on the disk. The file is sorted by the keys of the `FcstrNames` dictionary.
+
+This code is written in Python and appears to be part of a larger class or module. It contains several methods that perform various operations related to "edit areas", "models", and "parameters" (parms). Here's a brief description of what each method does:
+
+1. `setupEditAreas`: This method reads an EDITAREAS file and sets up two lists: `EditAreas` and `EditAreaDescriptions`. It reads each line of the file, removes any comments, and splits the line into pieces. If there are more than two pieces, it attempts to convert the first piece into an integer. If successful, it checks whether the number is within a certain range and, if so, it adds the second and third pieces to the `EditAreas` and `EditAreaDescriptions` lists, respectively.
+
+2. `listEditAreas`: This method returns a list of all non-empty entries in the `EditAreas` list.
+
+3. `listEditAreaDescriptions`: This method returns a list of all non-empty entries in the `EditAreaDescriptions` list.
+
+4. `getEditAreaNumberFromName`: This method takes a name as an argument and returns the index of that name in the `EditAreas` list. If the name does not exist in the list, it returns 0.
+
+5. `listModels`: This method lists all models in the BOIVerify system by looking through Grids directories for different names. It does not include any models that are in the `OBSMODELS` list.
+
+6. `listParms`: This method (which is marked as deprecated) gets a list of parameters in the system by looping through all the directories and looking for names of files.
+
+7. `listModelParms`: This method, given a model, gets the parameters that have been archived by looking for data files.
+
+The code also contains some error handling, logging, and file permission modification. It seems to be part of a larger system for managing and verifying some kind of data, possibly related to weather or climate modeling given the references to "Grids", "models", and "edit areas".
+
+This code is written in Python and seems to be part of a larger class or module. It contains several methods that perform various operations on files and directories. Here's a summary of what each method does:
+
+1. `listStatParms`: This method lists statistical parameters by looping through all the directories and looking for file names. It ignores files that start with a dot (usually hidden files or directories in Unix-based systems).
+
+2. `closeObsFile` and `closeFcstFile`: These methods close open observation and forecast files respectively, and delete all associated data structures.
+
+3. `makeGridDir` and `makeStatDir`: These methods create new directories for grids and stats for a specified parameter, if they don't already exist.
+
+4. `checkFile`: This method checks if a file is open, and if not, it opens it. It determines whether the file is an 'observation' model or not. If `modify` is set to 1, it opens the file for writing, which locks it from being written by others.
+
+5. `checkObsFile`: This method checks if an observation file is open, and if not, it opens it. If `modify` is set to 1, it opens the file for writing, which locks it from being written by others. It also sets up the file names and checks if they exist.
+
+The code also seems to handle some error conditions, such as if a file or directory does not exist or if there is trouble opening a file. It also handles file permissions with the `os.umask(0o002)` command, which sets the file permission mask to allow group write permissions.
+
+This Python code appears to be part of a larger program that deals with the manipulation of data files in the netCDF (Network Common Data Form) format. netCDF is a set of software libraries and self-describing, machine-independent data formats that support the creation, access, and sharing of array-oriented scientific data.
+
+The code is divided into two main parts. The first part checks if the netCDF files (index and data) already exist. If they do not exist, it creates new ones and defines their structure by creating dimensions and variables. If the files do exist, it opens them and checks if they are corrupted by verifying the existence of certain variables. If the files are corrupted, it logs a message and returns 0, otherwise, it assigns the variables from the files to the corresponding variables in the program.
+
+The second part of the code is a function named `checkFcstFile`. This function checks if a forecast file is open and if not, it opens it. If the file is currently open, it closes it. It also sets up the file names and checks if they exist. If the files do not exist and the `modify` parameter is 0, it returns 0. It then determines the read-mode for the file based on the `modify` parameter and the existence of the file. It also determines the data type and the number of points in the grid. Finally, it opens the forecast files (index and data) and if they do not exist, it creates new ones and defines their structure by creating dimensions and variables.
+
+This code is part of a larger program that appears to be responsible for managing and manipulating data stored in netCDF files. netCDF (Network Common Data Form) is a set of software libraries and self-describing, machine-independent data formats that support the creation, access, and sharing of array-oriented scientific data.
+
+Here's a breakdown of what the code is doing:
+
+1. The code first checks if a file is new or old. If it's new, it creates several variables in the file with specific names and data types, such as 'stime', 'etime', 'vtime', 'scale', 'addit', and 'value'. If the datatype is 1, it also creates 'scale1', 'addit1', and 'value1'. It then synchronizes the changes with the file and changes the file permissions.
+
+2. If the file is old, it retrieves the names of all variables in the file and checks if certain variables exist. If they don't, it logs a message indicating a corrupt index or data file and returns 0. If the variables do exist, it assigns them to instance variables for further use. If the datatype is 1, it also checks for the existence of 'scale1', 'addit1', and 'value1' and assigns them if they exist.
+
+3. The function `checkStats` checks if a stats file is open for a given parameter, model, and obsmodel. If the file is not open, it closes any currently open file. It then sets up the filenames and checks if they exist. If they don't exist and the file is not set to modify, it returns 0. It then determines the read mode for the file and opens the index and data files.
+
+4. If the file is new, it creates several variables in the file, similar to the first part of the code. If it's an old file, it assigns the variables to instance variables for further use.
+
+In general, this code is designed to handle the reading and writing of data to netCDF files, with specific handling for new and old files. It also includes error checking to handle cases where expected variables are not found in the files.
+
+This code appears to be part of a larger class in Python that is designed to handle and manipulate data from a statistical model, possibly related to weather or climate prediction given the use of terms like 'forecast', 'base time', 'start time', etc. 
+
+The specific methods in this code are:
+
+1. `closeStatsFile`: This method closes any open statistical files and deletes all the associated variables. It also resets certain variables to their default values.
+
+2. `getBases`: This method retrieves a sorted list of all base times (model run times) stored for a given parameter and model. If the model is in the OBSMODELS list, it returns all the times of the saved OBSMODEL grids. If no data file exists for the input parameter and model, it returns an empty list.
+
+3. `getStarts`: This method retrieves a sorted list of all grid start times stored for a given parameter and model. If no data file exists for the input parameter and model, it returns an empty list.
+
+4. `getFhours`: This method retrieves a sorted list of all forecast hour times stored for a given parameter and model. If the model is in the OBSMODELS list, then start times are the same as base times, and only 0 should be in the list. If no data file exists for the input parameter and model, it returns an empty list.
+
+5. `getFcstRecords`: This method gets a sorted list of record numbers where the base time is the same as the specified base time.
+
+The code also starts a method `getFcstHour` but it is not completed in the provided code snippet. This method appears to be designed to calculate the forecast hour given a base time and a start time.
+
+The provided code appears to be part of a larger Python file that is used for handling and manipulating gridded data, possibly for weather forecasting or similar applications. Here's a breakdown of what each function does:
+
+1. `getFcstHour(self,Btime,Stime)`: This function calculates the number of hours between a base time (`Btime`) and a start time (`Stime`).
+
+2. `getRecFcstHour(self,rec)`: Given a record from a forecast file, this function calculates the forecast hour based on the base time and the start time.
+
+3. `getVerTimeRange(self,Stime,Etime)`: This function creates a TimeRange object that covers the time between a start time (`Stime`) and an end time (`Etime`).
+
+4. `readRecord(self,parm,model,rec)`: This function reads and unpacks a gridded data record. It handles opening/closing files and determines whether the model is an observed model or a forecast model. If the parameter is a vector, it returns a tuple with magnitude and direction. If it cannot read, it returns None.
+
+5. `packIt(self,grid)`: This function converts a scalar grid into a packed 16-bit integer equivalent, with a float scale and offset that can be used to get back all the data exactly.
+
+6. `writeVals(self,parm,model,fcstrID,Btime,Stime,Etime,Grid)`: This function writes gridded data. It overwrites data for the same time if it already exists, or replaces old data in the file (if any) or appends it to the file. It returns 0 if there is a problem writing and returns -1 if it skipped writing because it matches what is already there.
+
+The provided code is part of a larger Python program, and it seems to be involved in data management, specifically in handling records in a file. Here's a breakdown of what the code is doing:
+
+1. The code first checks if a record is old enough to be overwritten based on a comparison with a variable `veryOld`. If the record is old enough, it is selected for overwriting, otherwise, a message is logged indicating that it's not old enough.
+
+2. If no record is found for overwriting, a new record is added to the current file. The record number (`recnum`) is set to the current number of records (`onumRecs` or `fnumRecs`).
+
+3. The data in the record is then updated with new values for various fields such as `oncFcstr`, `oncBtime`, `oncStime`, `oncEtime`, `oncVtime`, `oncScale`, `oncAddit`, `oncValue`, etc. If the datatype is 1, additional fields are updated.
+
+4. If a new record was added, the indices and the number of records counter are increased.
+
+5. The file is then closed using the `closeObsFile()` or `closeFcstFile()` method.
+
+6. A message is logged indicating the completion of the `writeVals` method in `VerifyUtility`.
+
+7. The code then defines a method `getDoAgain()`, which checks if a record for certain statistics already exists. If the record exists and the time of the stat save is after both grid were saved, it returns 0 indicating that the stats do not need to be recalculated. Otherwise, it returns 1 indicating that the stats need to be recalculated or calculated for the first time.
+
+This code is written in Python and it seems to be part of a larger system that deals with some sort of data records, possibly related to weather forecasting given the variable names like 'fcstrNums', 'Btime', 'Stime', 'Etime', 'Cycle', 'Fhour', 'Stats'.
+
+1. `writeStats` function: This function is used to write statistical data. It checks if the data for the same time already exists, if so, it overwrites the data. If not, it either replaces old data in the file or appends it to the file. If there are no records in the current stat file, it adds a new record. If there are records, it checks if a record with the same times exists, if so, it overwrites that record. If no record is found, it checks if there are any old records to overwrite. If still no record is found, it adds to the current file. After changing the data, if a new record was added, it increases the indices and the number of records counter.
+
+2. `deleteRecord` function: This function is used to delete records from the grid data files. It stores dummy data in the records and sets the dates to the earliest possible system date so that these records are available for reuse. To actually remove these records, it suggests using another function called `compactFiles`. It checks if the model is in the 'OBSMODELS', if so, it changes the data for the observation file, if not, it changes the data for the forecast file.
+
+3. `findRecords` function: This function is used to get a logical numeric array of forecast records. In 'verify' mode, it gets records that valid period overlaps the start time to end time period at least some. In 'forecast' mode, it gets records issued during the start time to end time period. If a mask is provided, records also have to match that logical array.
+
+This code is part of a larger program that appears to be dealing with data records, possibly in a time series. It contains several methods that perform various operations on these records.
+
+1. The first method checks if a file is valid using the `checkFile` method. If the file is not valid, it returns `None`. It then checks if the mode is "verify" and if the model is in `OBSMODELS`. Depending on these conditions, it creates a `match` variable that checks if certain conditions are met related to `endtime` and `starttime`. If a mask is specified, it also checks if the mask shape matches the record shape and applies the mask to the match variable. It finally returns the `match` variable.
+
+2. The `listRecords` method calls the `findRecords` method and checks if the returned value is `None`. If it is, it returns an empty list. Otherwise, it compresses the `matchRecs` with either `oncRecs` or `fncRecs` depending on whether the model is in `OBSMODELS` and returns the list of records.
+
+3. The `findStatRecords` method is similar to the first method but it checks the statistics of the records using the `checkStats` method. It then performs similar operations to get the `match` variable and returns it.
+
+4. The `listStatRecords` method is similar to the `listRecords` method but it calls the `findStatRecords` method instead of the `findRecords` method.
+
+5. The `getPairList` method seems to be getting a list of matching record pairs. It checks if the forecast and observed files are open and if not, it logs a message and sets a flag. If neither file can be opened, it returns an empty list. The method is incomplete, so the full functionality can't be determined.
+
+This code seems to be part of a larger system for handling and analyzing data records, possibly in a meteorological or climatological context, given the use of terms like "forecast", "observed", and "model".
+
+This code appears to be part of a larger program that is used for processing and analyzing forecast data. 
+
+The first part of the code is filtering forecast records based on certain conditions, such as whether they are within the right forecast cycle and whether they have the correct forecast hours. 
+
+The next part of the code handles two different styles of dates: "Verifying On" and "Forecast On". For each style, it checks whether there are observed grids and forecast grids. If there are, it gets the list of matching records and appends them to a list called `pairList`. If there are no observed or forecast grids, it appends empty lists to `pairList`.
+
+The final part of the code defines a method called `getCases`. This method takes a number of parameters and uses them to either get common cases or create an empty dictionary called `caseInfo`. If common cases are being retrieved, it calls another method called `getCommonCases` with the provided parameters. If not, it creates an empty dictionary and then loops over the models, calling `getCommonCases` for each one. 
+
+This code seems to be part of a larger system for handling and analyzing forecast data, possibly for weather or climate prediction.
+
+The code is a method of a class, named `getCommonCases`. This method is used to obtain a dictionary of records for common cases. The keys of the dictionary are each model in the model list. The value for each model is another dictionary, with keys of 'basetime, starttime, endtime' and a value of a two-element list. The first element is a list with records that make up the forecast, and the second element is a list with records that make up the observation.
+
+The method takes several parameters including `parm`, `models`, `obsParm`, `obsModel`, `dateStyle`, `dateType`, `fromDay`, `numDays`, `dayList`, `fcstrs`, `cycles`, `fhrStart`, `fhrEnd`, `accumHours`, `accumFreq`, `requireObs`, `basetimeOffsets`, and `callbackMethod`.
+
+The method starts by getting all the verifying cases. It then checks if it should stop execution based on the `callbackMethod`. It then sorts the observed cases and logs the number of observed cases. It also logs the observation for each observed case if the debug level is greater than or equal to 5.
+
+The method then checks if the models parameter is a list or a single model and puts them into a model list for further processing. It then loops over all the models, gets the model cases, checks if it should stop execution based on the `callbackMethod`, and logs the number of potential cases for each model.
+
+If observations are required, it looks through the cases and makes sure that the period is available in the observed cases retrieved above. If the period is not available, it deletes the case and logs a message.
+
+Finally, if there is only one model, the final keys are the keys of the cases for that model. If there are multiple models, it gets the keys for each model, converts them to the offset basetime if `basetimeOffsets` is 1, and finds the common cases.
+
+This Python code appears to be part of a larger system, possibly related to data analysis or machine learning, as it involves working with models and cases. Here's a high-level overview of what this code does:
+
+1. It checks if a callback method is defined and if so, it calls this method with the message "filtering through models". If the callback method returns 1, it returns the final cases.
+
+2. It then iterates over a list of models, and for each model, it gets the keys and checks if they need to be offset. If so, it adjusts the keys accordingly. It also keeps track of the model with the fewest keys.
+
+3. It then checks each key of the model with the fewest keys against the keys of all other models. If a key is found in all models, it is added to the final keys.
+
+4. It logs the final number of cases and details about each case if the debug level is high enough.
+
+5. It then constructs the final case structure, which consists of a dictionary where each key is a model and each value is another dictionary. This inner dictionary has keys representing cases and values representing lists of forecast and observed records for each case.
+
+6. The `internCB` function is a callback function that concatenates a message to an internal message and calls another callback function if it is defined.
+
+7. The `getModelCases` function seems to be a method that returns a dictionary of forecast records for a specified model and period. It checks if the model file can be opened, sets up a logical array with records that contain the right Forecaster, cycle, and forecast hours. If the parameter is a probability or accumulative parameter, it finds cases where forecasts completely covered the possible periods. 
+
+Please note that without the complete code and context, this is a high-level interpretation and may not cover all details.
+
+This Python code appears to be part of a larger system, possibly related to weather forecasting or a similar time-series based prediction system. 
+
+The code is defining a method called `getModelCases` which takes several parameters including `parm`, `model`, `verPeriods`, `dateStyle`, `dateType`, `fromDay`, `numDays`, `dayList`, and `callbackMethod`. The method is used to generate a dictionary named `cases` where each key is a string of three integers separated by commas, and the value is a list of records. 
+
+The code starts by logging the number of periods in `verPeriods` and then loops over these periods to find matching records. If the `dateStyleLow` is "forecast on", it creates periods from the given parameters. 
+
+For each period in `verPeriods`, it checks if a callback method is provided and if so, it calls this method with the current count and total number of periods as arguments. If the callback method returns 1, it immediately returns the `cases` dictionary. 
+
+The code then checks for matching records and for each matching record, it checks if the period was covered by forecast grids. If the total coverage is greater than or equal to the total time, it adds the record list to the `cases` dictionary with the key being a string of `base`, `stime`, and `etime`.
+
+If `dateStyleLow` is not "forecast on", it checks if it's "verifying on" and based on the `dateTypeLow`, it gets the observation period or list. If `dateTypeLow` is not "period length", it loops over the `dayList` and for each day, it gets the list of records and appends them to `recList`.
+
+Finally, it makes case entries for each of these records and adds them to the `cases` dictionary. The method ends by logging a message and returning the `cases` dictionary.
+
+The code also starts defining another method called `getObsCases` but the code is cut off. This method seems to be similar to `getModelCases` but it's used to get observation cases instead of model cases.
+
+The provided code is written in Python and appears to be part of a larger system related to data analysis or modeling, possibly in a scientific or statistical context. 
+
+The first part of the code is a function that seems to be designed to process and analyze a set of observation periods. It first checks a condition using the `getRateFlag` method. If the condition is met, it creates a list of potential verifying periods using the `createObsPeriods` method. It then iterates over these periods, checks for matching records, and if found, calculates the total coverage. If the total coverage equals the total time, it adds the record number list to a dictionary called `cases` with the start and end time as the key.
+
+If the initial condition is not met, the function takes a different path, creating a list of records based on different conditions related to date style and type. It then makes case entries for each of these records, again adding them to the `cases` dictionary.
+
+The second part of the code defines a function `getStatCases` that gets case information for statistics. It checks whether it's dealing with 'common cases' or not. If it is, it calls the `getStatCommonCases` method. If not, it iterates over a list of models, calling `getStatCommonCases` for each model and storing the results in a dictionary called `caseInfo` with the model as the key.
+
+Throughout the code, there are checks for a `callbackMethod`. If it exists and returns 1, the function returns the current `cases`. This suggests that the `callbackMethod` is used to interrupt the process under certain conditions.
+
+This Python code defines a function `getStatCommonCases` that is part of a larger class (not shown in the provided code). The function's purpose is to obtain a dictionary of records for common cases. The keys of this dictionary are each model in a list of models. The value for each model is another dictionary, with keys of 'basetime,starttime,endtime' and a value of a list of stat records.
+
+The function takes several parameters including `parm`, `models`, `obsModel`, `dateStyle`, `dateType`, and several optional parameters with default values.
+
+The function starts by checking if the `models` parameter is a list or a tuple. If it is, it adds each model to `modelList`. If not, it adds the single model to `modelList`.
+
+It then loops over all the models in `modelList`, calling the `getStatModelCases` function for each model and adding the returned cases to the `allCases` dictionary.
+
+If there is only one model, it gets the keys from `allCases` for that model. If there are multiple models, it filters through the models and finds the model with the fewest keys.
+
+Finally, it logs all the common cases and creates the final case structure, which is a dictionary with a list of forecast/observed records for each case. If `basetimeOffsets==1`, then the final keys may need to be converted back to real keys for each model. The keys of returned lists will be with the offset 'basetimes'.
+
+The function ends by logging a message and returning `finalCases`.
+
+The code also includes a comment about another function `getStatModelCases` which is not included in the provided code. This function presumably returns a dictionary for the specified model of forecast records for the specified periods.
+
+This code defines a function `getStatModelCases` which is part of a larger program, possibly related to weather forecasting or some other time-series data analysis. The function seems to be used for retrieving and analyzing statistical model cases based on various parameters.
+
+The function takes several arguments, including parameters for the model (`parm`, `model`, `obsmodel`), date style and type (`dateStyle`, `dateType`), a range of days (`fromDay`, `numDays`, `dayList`), forecasters and cycles (`fcstrs`, `cycles`), forecast hours (`fhrStart`, `fhrEnd`), accumulation hours and frequency (`accumHours`, `accumFreq`), and a callback method (`callbackMethod`).
+
+The function starts by checking if the model file can be opened, and if not, it returns an empty dictionary. If the model file can be opened, it sets up a logical array with records that contain the right Forecaster, the right cycle, and the right forecast hours.
+
+Depending on the type of parameters (`verType` and `rateFlag`), the function either finds cases where forecasts completely covered the possible periods or gets forecast periods based on the forecast grids that were actually made.
+
+The function also includes a callback method, which can be used to provide progress updates or to stop the function prematurely.
+
+There are several nested conditional statements and loops in the function, which are used to handle different scenarios and to iterate over various data elements. The function uses several helper methods (e.g., `getVerType`, `getRateFlag`, `checkStats`, `getStatFcstrCycleFhr`, `createObsPeriods`, `getObsStatPeriod`, `getObsStatList`, `listStatRecords`) which are not defined in this code snippet.
+
+This Python code appears to be part of a larger system, possibly related to weather forecasting or a similar time-series data analysis task. It defines several methods in a class (the class definition itself is not included in the provided code).
+
+1. `getStatModelCases`: This method seems to be creating case entries for each record in `recList`. It converts each record to an integer, retrieves associated time information (`base`, `stime`, `etime`), creates a key from these time values, and stores the record in a dictionary (`cases`) under this key. The method ends by logging a message and returning the `cases` dictionary.
+
+2. `getVerifyingTimeRanges`: This method retrieves a list of time periods that match certain criteria and have observed data. It checks if a file can be opened for a given parameter and model, and if not, it logs a message and returns an empty list. It then handles different types of data and date styles/types, creating time periods based on the observed grids that exist. It also handles exceptions for string dates that can't be split into year, month, and day. The method ends by logging a message and returning a list of time periods.
+
+3. `createObsPeriods`: This method creates a list of time periods that are `accumHours` wide, start with `accumFreq` frequency, and cover the time periods requested. It handles different date styles/types and creates time periods accordingly. The method ends by logging a message. However, the provided code snippet ends before the method's conclusion, so a full analysis isn't possible.
+
+This code appears to be part of a larger program, possibly related to weather forecasting or some other time-series data analysis. It consists of several methods, each performing a specific task:
+
+1. `createObsPeriods`: This method seems to be creating observation periods based on the type of date provided. It handles three types of date formats: period length, sorted day list, and a default case. It then generates periods by calculating start and end times and appends them to the `periods` list.
+
+2. `createFromPeriods`: This method also creates periods but only handles two types of date formats: period length and a default case. It also generates periods by calculating start and end times and appends them to the `periods` list.
+
+3. `getFcstrCycleFhr`: This method appears to be filtering records based on the provided model, forecasters, cycles, and forecast hours. It creates logical arrays for each of these parameters and then combines them to get the records that satisfy all conditions.
+
+4. `getStatFcstrCycleFhr`: This method is similar to `getFcstrCycleFhr`, but it seems to be working with statistical records instead of regular records.
+
+The code uses several constants such as `DAYSECS` and `HOURSECS`, which likely represent the number of seconds in a day and an hour, respectively. It also uses `self.MAXFORECASTHOUR`, which seems to be the maximum forecast hour limit.
+
+The code also contains several error handling blocks (`try`/`except`) to handle exceptions, mainly when dealing with date conversions. 
+
+Please note that without the full context or the rest of the code, some assumptions had to be made in this analysis.
+
+The given code appears to be written in Python and is part of a larger system, possibly for data analysis or modeling. It contains several functions which perform various tasks.
+
+1. The first block of code checks the type of the variable `ctype` and `cycles`. If `ctype` is a tuple or list, it iterates over `cycles` and appends each element to `cycleList` after converting it to an integer if it's a string. If `ctype` is not a tuple or list, it directly appends `cycles` to `cycleList` after converting it to an integer if it's a string. It then checks if -1 is in `cycleList` and sets `rightCycle` accordingly. It also calculates `fhr` and `rightFhr` and finally returns `rightRecord`.
+
+2. The `getRateFlag` function takes a model and a parameter and returns a flag indicating if the parameter is a rate parameter. If the parameter data cannot be found, it returns 0.
+
+3. The `getStatID` function takes a statistic name and returns a unique, lowercase identifier for that statistic. If the statistic name is not found, it returns None.
+
+4. The `getVerStat` function is a main routine to get a statistic from BOIVerify for a particular model-run for a particular time for a particular area. It checks for stats it knows how to calculate, gets information about the parameter, and checks the type and existence of `editArea`. If `editArea` is a string and exists in the system, it tries to get the statistic from saved stats. If it fails or if `editArea` is not a string or does not exist in the system, it logs a message and returns `retVal`.
+
+The code seems to be part of a larger system for data analysis or modeling, possibly in a meteorological or climatological context, given the usage of terms like 'model', 'parm', 'cycle', 'forecast', and 'grid'.
+
+This script appears to be a part of a larger program that performs statistical analysis on forecast and observed grids of data. 
+
+Here's a high-level overview of what the code does:
+
+1. It first checks if the grid `eaGrid` has at least one point. If it doesn't, it logs a message and returns a value `retVal`.
+
+2. It then checks if a list of records `grecList` was provided. If it was, it splits the list into two separate lists `frecList` and `orecList`.
+
+3. The code then retrieves observed grid data `obsGrid` based on several parameters such as `obsmodel`, `trStart`, `obsParm`, `trEnd`, and `gridMode`. If it cannot retrieve the grid, it logs a message and returns `retVal`.
+
+4. Similar steps are performed to retrieve forecast grid data `fcstGrid`.
+
+5. The code then calculates basic point statistics based on the `statID` provided. It handles different types of vector errors and performs smoothing if required. It also calculates the error between the forecast and observed grids.
+
+6. Depending on the `statID`, it calculates and returns different statistical measures such as bias, mean absolute error (mae), root mean square error (rms), mean square error (mse), and probability error bias (peb).
+
+7. If the `statID` is not one of the above, it performs additional operations to calculate other statistical measures.
+
+The code seems to be a part of a weather forecasting system or a similar system that uses grid-based data for analysis. It's written in Python and uses NumPy for mathematical operations.
+
+This code appears to be part of a larger program that performs statistical analysis on forecast and observation data. 
+
+Here's a summary of what the code does:
+
+1. The code first checks a condition (`statCond`) and applies a comparison operation (greater than, less than, equal to, etc.) to the forecast and observation data grids (`obsGrid` and `fcstGrid`). The result is stored in `obsOccur` and `fcstOccur`.
+
+2. If the `statName` starts with "a" and `smooth` is greater than 0, it applies a smoothing operation on `obsOccur` and `fcstOccur`.
+
+3. It then calculates the number of hits, misses, false alarms, and correct negatives by applying logical operations on `obsOccur`, `fcstOccur`, and `eaGrid`. If the total doesn't match the expected number of points (`fnum`), it logs a message and returns 0.0.
+
+4. The `getBinaryStat` method calculates a specific statistic based on the `statID` and the counts of hits, misses, false alarms, and correct negatives. The calculated statistic is then returned. If the `statID` doesn't match any of the predefined IDs, the method returns `None`.
+
+5. The `getGridBinaryStat` method does a similar operation as `getBinaryStat`, but it operates on entire grids of data instead of single values. It calculates a statistic based on the `statID` and the counts of hits, misses, false alarms, and correct negatives in each grid cell. The resulting grid of statistics is then returned.
+
+The specific statistics calculated by `getBinaryStat` and `getGridBinaryStat` include hit rate, miss rate, false alarm rate, correct negative rate, frequency bias, probability of detection, false alarm ratio, threat score, equitable threat score, Hanssen and Kuipers discriminant, Heidke skill score, and odds ratio.
+
+The code seems to be part of a larger system, possibly a weather forecasting system, given the presence of variables like `hits`, `miss`, `falr`, `corn`, `total`, and `denom`. 
+
+The code is divided into several sections, each of which calculates a different type of statistical score based on the value of the `statID` variable. The scores calculated are likely related to the accuracy of the weather forecasts. 
+
+Here is a brief description of what each section does:
+
+1. If `statID` is "pod" or "apod", the score is calculated as the ratio of `hits` to the sum of `hits` and `miss`.
+
+2. If `statID` is "far" or "afar", the score is calculated as the ratio of `falr` to the sum of `falr` and `hits`.
+
+3. If `statID` is "pofd" or "apofd", the score is calculated as the ratio of `falr` to the sum of `falr` and `corn`.
+
+4. If `statID` is "ts" or "ats", the score is calculated as the ratio of `hits` to the sum of `hits`, `miss`, and `falr`.
+
+5. If `statID` is "ets" or "aets", the score is calculated as the difference between `hits` and a random number of `hits`, divided by the sum of `hits`, `miss`, `falr`, and the random number of `hits`.
+
+6. If `statID` is "hk" or "ahk", the score is calculated as the difference between the probability of detection (`pod`) and the false alarm rate (`pofd`).
+
+7. If `statID` is "hss" or "ahss", the score is calculated as the difference between the sum of `hits` and `corn` and a random number of `ecrand`, divided by the total minus `ecrand`.
+
+8. If `statID` is "oddsratio" or "aoddsratio", the score is calculated as the product of `hits` and `corn`, divided by the product of `falr` and `miss`.
+
+The `getVerStatScales` function seems to be the main routine for calculating a statistic for many scales. It takes in a number of parameters, checks for stats it knows how to calculate, retrieves the forecast and observed grids, and then calculates the stat from the grids. The function logs messages at various stages of its execution, which can be useful for debugging or understanding the flow of execution.
+
+This code is part of a larger program that performs statistical analysis on forecasted and observed data. It's likely used in a meteorological context, given the use of terms like "vector errors", "magnitude", "direction", and "grid".
+
+The code first checks if the statID is one of ["bias","mae","rms","mse","peb"]. If it is, it handles different types of vector errors based on the dataType and vectorType. It then checks if smoothing is needed, and if so, it applies a smoothing function to either the observed and forecasted grids or the error, depending on whether there's a vector error.
+
+Next, the code checks if the verType equals 1. If so, it calculates the observed grid based on the observed parameter and a threshold.
+
+Then, it calculates the error between the forecasted and observed grids. If there's a vector error, it uses the previously calculated error; otherwise, it calculates a new error.
+
+Finally, it performs statistical calculations based on the statID, such as bias, mean absolute error (mae), root mean square (rms), mean square error (mse), and probability error bias (peb), and appends the results to the retVal list.
+
+If the statID is not one of the above, it checks if it's one of a longer list of other statistical measures. If it is, it handles the data differently, including smoothing the observed and forecasted grids, getting grids of yes/no forecast/occurrence based on a condition, performing a neighborhood look, and calculating hits, misses, false alarms, and correct negatives.
+
+In summary, this code is performing a variety of statistical analyses on forecasted and observed data, handling different types of data and errors, and applying smoothing if necessary.
+
+This code appears to be part of a larger Python script, possibly for a weather forecasting or climate modeling application. It contains several methods that perform various operations related to statistical analysis and data verification.
+
+1. `readVerStat`: This method reads and calculates various statistical measures from a dataset. It checks if the given statistical measure (statName) is one of the predefined ones, and if so, it calculates that statistic for the given data. The statistics include error, bias, absolute error, mean absolute error, root mean squared error, mean squared error, Brier score, and percent error below a certain threshold.
+
+2. `getVerGridInfo`: This method retrieves information about a grid from a verification archive. It checks if a file for a given parameter and model exists, and if so, it finds grids that intersect with a given time range. The method returns a list of tuples, each containing a record number, start time, and end time, sorted by start time.
+
+The code includes several checks and error handling mechanisms to ensure that the input data is valid and the necessary files can be opened. It also contains numerous log messages for tracking the progress and debugging potential issues. 
+
+Please note that this is a high-level overview and the exact functionality might depend on the context and the rest of the code in the script.
+
+This code appears to be part of a larger Python class that deals with some sort of time-series data, possibly related to weather or climate modeling given the references to "grids", "models", and "parms" (parameters). 
+
+Here's a breakdown of the methods:
+
+1. `isCoverred`: This method checks if a given time period (start to end) is fully covered by the information in `infoList`. It returns 1 if the period is fully covered and 0 otherwise.
+
+2. `getReadMode`: This method determines the reading mode for a given model and parameter name. The mode can be "Sum", "Max", or "TimeWtAverage" depending on certain conditions.
+
+3. `getVerGrids`: This method retrieves grids of data from a verification archive. The grids are associated with a specific model and base time. The method also allows for different modes of operation, including "TimeWtAverage", "Average", "Max", "Min", "Sum", "First", and "List". The grids are also flipped vertically to match AWIPS II ordering.
+
+The code is incomplete, so it's hard to provide a full analysis. However, it seems to be part of a larger system for handling and analyzing gridded data, possibly for weather or climate modeling purposes.
+
+This code appears to be part of a larger program, possibly related to meteorological data processing or a similar field where data grids are used. Here's a breakdown of what the code is doing:
+
+1. The first part of the code is performing operations on a grid of data. It first flips the grid order to match the AWIPS II system (a weather prediction system). Then, depending on the value of `rateFlag`, it may adjust the grid data based on the ratio of `intersectHours` to `gridHours`.
+
+2. The code then checks the `mode` variable and performs different operations on the grid depending on its value. If the mode is "TimeWtAverage", "Average", or "Sum", it calculates a weighted sum or average of the grid data. If the mode is "Max", "Min", "First", or "List", it performs corresponding operations to find the maximum, minimum, first value, or a list of values in the grid.
+
+3. The next part of the code does similar operations but for two variables, `mag` and `direc`, which could represent magnitude and direction in a meteorological context. It also flips these variables to match AWIPS II order.
+
+4. After that, the code checks if there are multiple records in `recList`. If there are, and the mode is "TimeWtAverage", "Average", or "Sum", it calculates a weighted average or sum of the grid data or the `mag` and `direc` variables.
+
+5. The code then defines three methods: `getObsPeriod`, `getObsStatPeriod`, and `getEndOffset`. These methods seem to be used for retrieving observed records within a certain period and getting the end offset for a parameter.
+
+6. The `getObsPeriod` and `getObsStatPeriod` methods take in parameters like `model`, `parm`, `endDay`, `Ndays`, and `mask`, and return a list of observed records within a period of `Ndays` ending on `endDay`. The difference between these two methods appears to be the type of records they retrieve - `getObsPeriod` retrieves 'verify' records, while `getObsStatPeriod` retrieves 'stat' records.
+
+7. The `getEndOffset` method retrieves the end offset for a given parameter in hours, converted to seconds. If no end offset is specified for the parameter, it returns zero.
+
+This code defines several methods for a class in Python. The class is not shown in the provided code, but it appears to be related to handling and analyzing some sort of time-series data, possibly related to weather forecasting.
+
+1. `getStartOffset(self,parm)`: This method retrieves the start offset in seconds for a given parameter. If no start offset is specified, it returns zero.
+
+2. `getObsList(self,model,parm,dayList,mask=None,callbackMethod=None)`: This method generates a list of observed records within the days specified in `dayList`. It adds offsets to the beginning and end of each day. If a `callbackMethod` is provided, it is called with the progress of the operation, and if it returns 1, the method exits early.
+
+3. `getObsStatList(self,model,parm,obsmodel,dayList,mask=None,callbackMethod=None)`: This method is similar to `getObsList`, but it also takes an `obsmodel` parameter and calls `listStatRecords` instead of `listRecords`.
+
+4. `getForecasters(self,model,element,rec)`: This method retrieves a list of forecaster numbers for a given record from a specific model and element. If there are issues opening the file, it returns an empty list.
+
+5. `getRecFcstrs(self,rec)`: This method retrieves a list of forecaster numbers from the currently open forecast grid file for a given record.
+
+6. `trimFcstRecs(self,fcstrecs,model,cycles,fcstrIDlist,fhrStart=0,fhrEnd=0)`: This method filters a list of forecast records based on various criteria, such as the cycle, forecaster, and forecast hours. It returns a new list of records that meet all the criteria.
+
+The last method `getFcstPeriod` is not fully shown in the provided code, so its functionality cannot be determined.
+
+The code provided is written in Python and contains several methods that are likely part of a larger class. Here's a brief overview of what each method does:
+
+1. `getFcstPeriod`: This method takes four arguments: `inputParm`, `endDay`, `Ndays`, and `model`. It calculates a forecast period ending on `endDay` and lasting `Ndays`. It returns a list of forecast records for the specified period.
+
+2. `getFcstList`: This method takes three arguments: `inputParm`, `dayList`, and `model`. It returns a list of forecast records for each day specified in `dayList`.
+
+3. `logMsg`: This method takes two arguments: `msg` and `significance`. It prints a message to the standard output with a timestamp. The message is only printed if the `significance` is less than or equal to the debug level.
+
+4. `setQuiet`: This method sets the debug level to 0, which suppresses most messages.
+
+5. `setVerbose` and `setDebug`: These methods set the debug level to a specified value.
+
+6. `getDebug` and `getVerbose`: These methods return the current debug level.
+
+7. `getParmPrecision`: This method takes three arguments: `modelname`, `parmname`, and `level`. It returns the precision of a specified parameter.
+
+8. `lastSaved`: This method takes five arguments: `parm`, `model`, `Btime`, `Stime`, and `Etime`. It returns the time that a specified grid was last saved to the database.
+
+9. `smoothpm`: The description of this method is cut off, but it appears to smooth a grid by averaging over a specified number of grid points. If a mask is specified, it only averages over points where the mask is 1. 
+
+It's important to note that this code uses a lot of methods and variables that are not defined in the provided snippet, so it's part of a larger codebase.
+
+This Python code defines two methods: `smoothpm` and `arealOccur`. 
+
+The `smoothpm` method takes three parameters: `grid`, `k`, and `mask`. The `grid` is a two-dimensional array, `k` is an integer that represents the number of grid points, and `mask` is an optional parameter that can be used to specify a subset of the grid for the operation.
+
+The method first checks if `k` is less than 1, and if so, it returns the grid as is. Otherwise, it proceeds to calculate the shape of the grid and double the value of `k`. It then calculates the minimum value of the grid and subtracts it from the grid values to avoid precision loss during cumulative sum operations.
+
+The method then checks if a mask is provided. If not, it calculates the average over the first and second dimensions of the grid, handling edge cases separately. It then adds the minimum value back to the grid.
+
+If a mask is provided, the method clips the mask values between 0 and 1, and performs similar operations as before, but with additional steps to handle potential divide-by-zero errors. The method finally returns the modified grid.
+
+The `arealOccur` method is similar to `smoothpm`, but it works with a logical array of 0 and 1, and checks whether an occurrence (a 1) occurred anywhere in the search square. If a mask is specified, it only searches over the points that have mask=1, not any others. 
+
+The code snippet ends before the full implementation of the `arealOccur` method is shown.
+
+This Python code appears to be part of a larger program, possibly for image processing or data analysis. The code is divided into three main parts:
+
+1. The first part of the code is handling the edges of a 2D grid (possibly an image or a matrix). It's calculating the minimum and maximum values for each edge, and then it's averaging these values over the second (x) dimension to create a new grid 'out'. It also checks where the values in 'out' grid are greater than 0.5 and returns this as a boolean grid.
+
+2. The second part of the code is a method named 'getGridSpacing'. This method calculates the rough grid spacing by getting the distance between the corners of the grid and dividing by the number of points. It does this by getting the latitude and longitude of the corners of the grid, calculating the hypotenuse of the grid, and then calculating the circle distance between the corners. It does this twice, once for each diagonal of the grid, and then averages the two distances to get the average grid spacing.
+
+3. The third part of the code is a method named 'getCircleDistance'. This method calculates the great circle distance between two points given their latitude and longitude. The great circle distance is the shortest distance between two points on the surface of a sphere. The method converts the latitude and longitude from degrees to radians, calculates the difference in longitude, and then uses the haversine formula to calculate the great circle distance. The result is then converted from nautical miles to kilometers.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

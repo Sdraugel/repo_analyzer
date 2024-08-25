@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>offsetTime.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>offsetTime.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided Python code is part of a software developed by Raytheon Company. It appears to be a module for handling Displaced Real Time (DRT) for various applications. 
+
+Displaced Real Time is a concept used in simulations where the system clock is offset by a certain amount to simulate a different time. This is useful in scenarios where you want to test how your system behaves at a particular time without actually waiting for that time to occur.
+
+The code defines several functions that override the standard Python time functions (`time()`, `gmtime()`, `localtime()`, `asctime()`, `ctime()`, and `strftime()`) to return the displaced time instead of the actual current time.
+
+The `setDrtOffset(timeString)` function is used to set the offset for the DRT. It accepts a time string in one of three formats and calculates the offset in seconds from the current time. This offset is then used by the other functions to calculate the DRT.
+
+The `drtOffset()`, `drtTimeStr()`, and `drtLaunchStr()` functions are accessor methods that return the current offset, the time string used to set the offset, and the launch string, respectively.
+
+The `reset()` function resets the time functions to their original state, effectively turning off DRT.
+
+This module also contains some logging functionality, which logs the setting of DRT mode and any problems that occur while setting the simulated time.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

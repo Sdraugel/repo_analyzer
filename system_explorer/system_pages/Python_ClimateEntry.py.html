@@ -1,0 +1,67 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ClimateEntry.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ClimateEntry.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that appears to be part of a larger system for handling and analyzing climate data. It's likely used in conjunction with other software modules, possibly as part of a larger system developed by Raytheon Company.
+
+The script includes a series of function definitions, each of which is designed to perform a specific task related to the processing and analysis of climate data. These tasks include:
+
+1. `get_metars()`: Retrieves METAR weather reports for a specific location and date range.
+2. `get_windrose()`: Retrieves wind rose data for a specific location and date range.
+3. `get_cvdata()`: Retrieves cvdata for a specific location.
+4. `get_cigvistrend_data()`: Retrieves data related to visibility trends.
+5. `get_cigvistrend_metar()`: Retrieves METAR data for visibility trends.
+6. `get_id_nums()`: Retrieves ID numbers for a list of identifiers.
+7. `get_stations_map()`: Retrieves a map of stations.
+8. `start()`, `process()`, `validate()`, `commit()`, `reject()`, `kill()`: These functions are related to the data processing workflow. They likely start the data processing, process the data, validate the processed data, commit the validated data, reject the invalidated data, and kill the process respectively.
+9. `genQCFiles()`: Generates QC (Quality Control) files.
+10. `fixClimateFiles()`: Fixes issues in the climate files.
+
+Each of these functions imports specific modules and uses them to perform its task. The modules imported include `MetarDisplay`, `WindRose`, `cvdata`, `CigVisTrend`, `ClimateDataUtils`, `ClimateDataUpdate`, `JUtil`, `pickle`, `avnqcstats`, and `fixClimateFiles`.
+
+The script also includes a note indicating that it's a base file not intended to be overridden, and that imports should only be done inside methods due to the separate processes involved. 
+
+The top part of the script includes a detailed comment section providing information about the software's development, export control, contractor details, and software history.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

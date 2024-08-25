@@ -1,0 +1,124 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Message.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Message.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code defines a class called `Message` that manages canonical XML messages. The XML format used here is defined in the comments. The `Message` class has several methods to manipulate and extract data from the XML messages.
+
+Here's a brief overview of the methods:
+
+- `__init__(self, bcode=False)`: This is the constructor method that initializes a new instance of the `Message` class. It sets up an empty XML string, a None value for the tree (which will later hold the parsed XML), and a boolean `bcode`.
+
+- `__str__(self)`: This method returns a string representation of the `Message` instance.
+
+- `clear(self)`: This method clears the XML string and the tree.
+
+- `setXML(self, xml)`: This method sets the XML string to parse into the message.
+
+- `getXML(self)`: This method returns the XML string associated with the message.
+
+- `parse(self, xml=None)`: This method parses an XML string. It will parse either the (optional) XML string passed in or the previously set XML string.
+
+- `getMessage(self)`: This method returns the entire message as an ElementTree.
+
+- `checkResponseType(self, type)`: This method checks if the message body contains a response of the specified type.
+
+- `getResponse(self, tag, name, incTag=False)`: This method returns the response(s) that is embedded in the body. The response returned is free of the enclosing XML.
+
+- `__getContents(self, path)`: This is a helper method that extracts the contents of the tag with the specified path. The contents are returned as a list of strings.
+
+The code also includes a custom error type, `MessageError`, which is raised when an error occurs during the execution of these methods.
+
+This code appears to be a part of a Python class that is designed to interact with XML messages. Here's a breakdown of what each method does:
+
+1. `__getAttributes(self,path,name)`: This function retrieves the attributes for an XML attribute. It takes in a path to the desired XML element and the name of the attribute to retrieve.
+
+2. `__checkText(self,path)`: This function checks if the specified XML element has text. It returns True if the element has text and False otherwise.
+
+3. `getHeader(self)`: This function retrieves the header of the previously parsed XML message.
+
+4. `getStrHeader(self)`: This function retrieves the header of the previously parsed XML message as a string.
+
+5. `getBody(self)`: This function retrieves the body of a previously parsed XML message.
+
+6. `getStrBody(self)`: This function retrieves the body of a previously parsed XML message as a string.
+
+7. `getBodyText(self)`: This function is supposed to retrieve the text embedded in the body of the message, but it's not implemented.
+
+8. `getProperty(self,name)`: This function is supposed to retrieve the value of the named property from the message header, but it's not implemented.
+
+9. `getProperties(self)`: This function returns a list of dictionaries representing the properties from the message header. Each property is represented by a dictionary with the structure `{'name':<property name>,'value':<property value>}`.
+
+10. `getContents(self)`: This function returns the nested contents tags from the body of the message as a list of Element objects.
+
+11. `getStrContents(self)`: This function returns a list of nested contents tags from the body of the message, with each tag converted to an XML string.
+
+12. `getMessageText(self)`: This function is supposed to retrieve the text embedded in the message, but it's not implemented.
+
+13. The last method appears to create an XML string with nested header and optional body elements, but the code is cut off. 
+
+Each of these methods also includes error handling, raising a `MessageError` with a custom message if an exception is encountered.
+
+The provided code is part of a Python class that manipulates XML messages. The class has methods to initialize a message, add properties to the message, and check if a property exists in the message. Here's a brief description of each method:
+
+1. `initializeMessage(self,body=False)`: This method initializes an XML message with a root element of 'message' and a sub-element of 'header'. If the `body` argument is `True`, a 'body' sub-element is also added. The XML tree and XML string representations of the message are stored in `self.tree` and `self.xml`.
+
+2. `addProperty(self,attrib=None,name=None,value=None,replace=False)`: This method adds a property to the message header. The property can be specified either as a dictionary `attrib` or as separate `name` and `value` arguments. If `replace` is `True`, the property is added only if a property with the same name does not already exist.
+
+3. `addProperties(self,lst,replace=False)`: This method adds a list of properties to the message header. Each property in the list should be a dictionary with 'name' and 'value' keys. If `replace` is `True`, a property is added only if a property with the same name does not already exist.
+
+4. `__addProperty(self,attrib,replace=False)`: This is a private helper method that adds a property to the message header. It is called by `addProperty()` and `addProperties()`.
+
+The code also mentions a `MessageError` exception, which is presumably defined elsewhere in the code. This exception is raised when an error occurs during the execution of these methods.
+
+This code defines a class with methods to manipulate XML messages. Here's a breakdown of what each part does:
+
+1. `__checkProperty(self,tag,name)`: This method checks if a given XML tag has a property with a specified name. If it does, it returns `True`; if not, it returns `False`. If an error occurs during this process, it raises a `MessageError`.
+
+2. `addBodyText(self,text)`: This method adds a given text to the body of an XML message. If the body is empty, it appends the text to the body. If the body already contains text, it appends the new text to the end of the existing text. If an error occurs during this process, it raises a `MessageError`.
+
+3. `addMessageText(self,text)`: This method adds a given text to the end of an XML message. If the message already contains text, it appends the new text to the end of the existing text. If an error occurs during this process, it raises a `MessageError`.
+
+4. `MessageError(Exception)`: This is a custom exception class that is raised when an error occurs in the methods of the message class. It takes two arguments: `value`, which describes the error, and `cause`, which describes the cause of the error. The `__str__` and `__repr__` methods are overridden to provide a custom string representation of the `MessageError` object.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

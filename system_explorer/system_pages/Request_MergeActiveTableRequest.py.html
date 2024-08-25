@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>MergeActiveTableRequest.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>MergeActiveTableRequest.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code defines a Python class named `MergeActiveTableRequest`. This class seems to be part of a larger software system developed by Raytheon Company, as indicated by the comments at the top of the file.
+
+The `MergeActiveTableRequest` class represents a request to merge active tables in a database or similar data structure. It has several attributes:
+
+- `incomingRecords`: A list of records to be merged into the active table.
+- `tableName`: The name of the table where the records will be merged. It can be either 'OPERATIONAL' or 'PRACTICE', and it defaults to 'PRACTICE'.
+- `site`: The site where the operation is performed. It doesn't have a default value.
+- `timeOffset`: A time offset for the operation, defaulting to 0.0.
+- `xmlSource`: The source of the XML data for the operation. It doesn't have a default value.
+- `fromIngestAT`: A boolean indicating whether the operation is from Ingest Active Table. It defaults to False.
+- `makeBackups`: A boolean indicating whether backups should be made during the operation. It defaults to True.
+
+The class also includes a `__repr__` method for creating a string representation of an instance of the class and a `__str__` method that returns the same string representation.
+
+In addition, the class provides getter and setter methods for all its attributes. The setter for `tableName` includes a check to ensure the table name is either 'OPERATIONAL' or 'PRACTICE', raising a `ValueError` if it's not. The setters for `timeOffset`, `fromIngestAT`, and `makeBackups` also ensure the input values are converted to the correct types (float and boolean, respectively).</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

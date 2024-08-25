@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>GenerateWindWWXML.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>GenerateWindWWXML.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This script is a part of a software that generates an XML file based on the hazards defined in JSON files. The XML file is used as the source of the web graphic for NHC (National Hurricane Center). The script is written in Python and uses several libraries such as SmartScript, TropicalUtility, WindWWUtils, and xml.etree.ElementTree.
+
+The script defines a class named Procedure, which inherits from TropicalUtility.TropicalUtility. The class has several methods:
+
+- `__init__`: This is the constructor of the class. It initializes the class with a database session (dbss) and instantiates the WindWWUtils module.
+
+- `getAdvisoryNames`: This method fetches all of the advisory names from JSON files and returns a list of these names without the .json extension.
+
+- `fetchStormInfo`: This method fetches all the storm information dictionaries. It adds a "Breakpoints" key to the dictionary if it doesn't exist and returns a dictionary with the storm information.
+
+- `parsePhenSig`: This method decomposes the hazard key into phen and sig parts and returns a list of tuples with these parts.
+
+- `execute`: This is the main method of the class. It fetches the active advisory names and the storm information from the JSON files. Then, it creates an XML file for each storm with the storm name as the root element and the hazard information as sub-elements. The XML files are saved in the "/tmp/" directory.
+
+The script also has a global variable `PATH` which is the directory where the XML files will be written to, and `MenuItems` which is a list containing the string "Populate".</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

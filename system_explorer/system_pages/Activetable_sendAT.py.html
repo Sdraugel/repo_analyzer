@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>sendAT.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>sendAT.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a software developed by Raytheon Company. The script is designed to send an active table to a remote site. It seems to be a port of sendAT code from a previous version of the software, AWIPS1.
+
+The script starts by setting up logging, and then defines a function to process command line arguments. The arguments include various parameters such as the sites to send to, filter sites, MHS sites, issue time, count dictionary, VTEC data, server XML info, server host, server port, server protocol, server MHS ID, server site, and a transmit script.
+
+The `process_command_line` function uses the `argparse` module to parse these command line arguments, and returns them as an object.
+
+The `build_request` function takes the parsed command line arguments and uses them to create a `SendActiveTableRequest` object.
+
+The `main` function processes the command line arguments, logs them, builds the request, logs the request, and then sends the request using a `ThriftClient`. If the request fails for any reason, an error is logged and the script exits with a status of 1. If the request is successful but the task was not successful, an error is logged and the script also exits with a status of 1.
+
+In summary, this script is used to send an active table to a remote site, with various parameters that can be specified via command line arguments. It logs its actions and any errors that occur.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

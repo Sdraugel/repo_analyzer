@@ -1,0 +1,72 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>PythonOverriderCore.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>PythonOverriderCore.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is part of a larger software system developed by Raytheon Company. It is designed to merge two or more Python modules into a new module. This functionality is used by both the Jep Python Overrider solution and the Pure Python Overrider solution, which don't have Java dependencies. 
+
+The code includes several functions:
+
+1. `_internalOverride(files)`: This function takes a list of files (Python modules) as an argument and merges them into a single module. The lower localization level methods in the modules take precedence over the higher localization level methods.
+
+2. `_buildLocalizationLevelsList(availableLevels, desiredLevel)`: This function returns a list of available localization levels up to the desired level. If the desired level is not in the available levels, it raises a LookupError.
+
+3. `_combineMembers(tocombine, combinationresult)`: This function combines the members of two modules. It skips built-in functions and attributes starting with '__' or '_'. If the element is a class, it merges the classes, otherwise, it merges the attributes.
+
+4. `_mergeClasses(source, target, className)`: This function merges two classes from the source and target modules. It raises an exception if a legacy Python class is attempted to be merged with a non-legacy Python class.
+
+5. `_mergeAttributes(source, target, attributeName)`: This function merges the attributes of the source and target modules. However, the function's implementation is not provided in the given code.
+
+The code also includes a software history, which documents the changes made to the code over time, including bug fixes and improvements.
+
+This Python code file is performing several operations related to classes and their attributes.
+
+1. `_buildReplaceClassMethodDirective(className, methodName)`: This function is creating a directive to replace a method in a class. It takes the class name and method name as inputs and returns a string that can be executed to set the method of the class.
+
+2. `_compareClasses(clazz1, clazz2)`: This function is comparing two classes. It checks if the number of attributes in both classes is the same. If not, it returns False. If they are the same, it iterates over each attribute and compares them. If it finds any attribute that is not the same in both classes, it returns False. If all attributes are the same, it returns True.
+
+3. `_mergeAttributes(source, target, attributeName)`: This function is merging attributes from the source class to the target class. It takes the source class, target class, and the attribute name as inputs. It creates a directive to set the attribute of the target class to the attribute of the source class and executes it. It then returns the target class.
+
+The main part of the code is merging methods from one class to another. It builds a directive to replace a method in the class and executes it. If the method was an abstract method, it removes it from the list of abstract methods. It then updates the `__abstractmethods__` attribute of the source class to reflect any unimplemented abstract methods. Finally, it merges the attributes from the source class to the target class.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

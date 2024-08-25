@@ -1,0 +1,168 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>RoutineLevel3_3_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>RoutineLevel3_3_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code appears to be a part of a weather forecasting software developed by Raytheon Company. It is designed to generate weather forecasts based on various parameters and conditions. 
+
+The code is primarily written in Python and consists of several string and function definitions, as well as a list of dictionaries that contain test scripts. 
+
+The string definitions `periodVer1` and `periodVer2` appear to be setting version numbers for some period definition.
+
+The `consolidateSkyPopWx` function seems to be used for consolidating weather keys that span all time ranges to produce a more concise weather forecast.
+
+The `repeatingEmbedded_localEffect_threshold` function returns a threshold value for some local effect.
+
+The `localEffectSetup` section contains definitions of several functions that return lists of local effects for different weather parameters (Sky, Wx, Pop). These functions define areas of local effect and set various thresholds.
+
+The `scripts` list contains a series of dictionaries, each representing a test script. Each script has a name, commentary, a list of grids to create (representing different weather conditions), and a list of check strings (expected outputs).
+
+Overall, this code seems to be used for testing a part of the software that generates weather forecasts based on various local effects and conditions.
+
+The provided code appears to be a part of a larger JSON or similar structured data file. It seems to be defining a series of forecast scenarios (F8 to F14), each with a unique name and commentary. Each scenario contains a list of grids to be created and a list of check strings.
+
+The "createGrids" list in each forecast scenario contains tuples that define a forecast grid. The tuples seem to contain the following information in order:
+
+1. The type of forecast (e.g., "Fcst").
+2. The forecast variable (e.g., "PoP", "Sky", "Wx").
+3. The data type of the forecast variable (e.g., "SCALAR", "WEATHER").
+4. The start time of the forecast period.
+5. The end time of the forecast period.
+6. The forecast value or condition.
+7. The area of the forecast (e.g., "all", "BelowElev", "AboveElev").
+
+The "checkStrings" list in each forecast scenario contains strings that describe the weather conditions for that scenario.
+
+For example, in the "F8" scenario, the "createGrids" list defines a forecast of 50% probability of precipitation (PoP) for all areas over a 12-hour period, 20% sky cover below elevation and 70% above elevation for the first 6 hours, and 55% sky cover below elevation and 70% above elevation for the next 6 hours. The weather (Wx) is scattered rain showers (Sct:RW:-:<NoVis>:) for both areas over the 12-hour period. The "checkStrings" list then provides a description of these conditions.
+
+The provided code appears to be a part of a weather forecasting system. It is defining a series of forecast scenarios (F15 to F20), each with its own unique conditions and predictions. 
+
+Each scenario contains:
+
+- A name (e.g., "F15", "F16", etc.)
+- A commentary which describes the conditions of the scenario.
+- A list of "createGrids" which are tuples defining the forecast parameters. These parameters include the forecast type ("Fcst"), the weather element (e.g., "PoP" for Probability of Precipitation, "Sky" for Sky Condition, "Wx" for Weather), the data type (e.g., "SCALAR", "WEATHER"), the start and end time of the forecast (in hours), the forecast value, and the area for which the forecast is applicable.
+- A list of "checkStrings" which are human-readable descriptions of the weather conditions.
+
+For example, the scenario "F15" is a local effect for weather with no timers and sky with timers for one area. The forecast grids are created for different weather elements such as probability of precipitation, sky condition, and weather for different time periods and areas. The checkStrings provide the expected weather conditions in a readable format.
+
+The last scenario "F20" seems to be a special case for eliminating duplicate phrasing for local effects when consolidating. It also includes a note about the chance of rain and morning thunderstorms.
+
+Overall, this code is used to generate and check weather forecasts for different scenarios and conditions.
+
+This code appears to be a part of a weather forecasting system. It contains several forecast scenarios (F21, F22, F23, F24, F25, F26), each with a unique name and commentary that describes the scenario. 
+
+Each scenario has a "createGrids" section where it sets up forecast grids for different weather parameters like "PoP" (Probability of Precipitation), "Sky" (Sky condition), and "Wx" (Weather). The grids are created for specific time periods (0 to 12 hours) and for different elevation levels ("AboveElev", "BelowElev").
+
+The "fileChanges" section seems to be used for modifying some local files ("Phrase_Test_Local", "TextUtility") by adding or replacing some functions (consolidateSkyPopWx, periodVer1, periodVer2).
+
+The "checkStrings" section contains the expected output or the forecast messages that should be generated for each scenario.
+
+For example, the scenario "F21" has no local effect for Weather and Probability of Precipitation. It creates grids for a 50% chance of precipitation, 90% cloud cover, and a chance of rain showers and thunderstorms. The expected output messages include "Cloudy", "Chance of thunderstorms in the morning, then chance of showers in the afternoon", and "Chance of precipitation 50 percent".
+
+The scenario "F25" is a fog local effect scenario. It creates grids for a 5% chance of precipitation, 50% cloud cover, and widespread fog in the morning for below elevation areas. The expected output message is "Leeward, widespread fog in the morning".
+
+This code appears to be part of a larger script related to weather forecasting. It contains several blocks, each representing a different forecast scenario. Each block has a unique name (like "F27", "F28", etc.), a commentary describing the scenario, and a set of instructions to create grids for different weather parameters.
+
+The "createGrids" section contains tuples with instructions for creating grids. These tuples include the type of forecast ("Fcst"), the parameter ("PoP", "Sky", "Wx" which might stand for Probability of Precipitation, Sky condition, and Weather respectively), the type of parameter ("SCALAR" or "WEATHER"), the time range, the value, and the area for which the grid is created.
+
+The "fileChanges" section seems to be related to modifications made to a file named "Phrase_Test_Local" in the "TextUtility" directory. It includes actions like "add" and "replace", and it seems to be related to version control or changes tracking.
+
+The "checkStrings" section contains strings that are likely used to verify the output of the forecast.
+
+The "notCheckStrings" section, which appears in one of the blocks, contains strings that should not appear in the output of the forecast.
+
+Overall, this code seems to be part of a system for generating, modifying, and verifying weather forecasts.
+
+The provided code appears to be a part of a weather forecasting system. It is structured as a list of dictionaries, each representing a different forecast scenario. 
+
+Each dictionary has several keys:
+
+- `name`: A unique identifier for the forecast scenario.
+- `commentary`: A brief description of the scenario.
+- `createGrids`: A list of tuples that define various weather parameters for the forecast. Each tuple includes the type of forecast (e.g., "Fcst"), the weather parameter (e.g., "PoP" for probability of precipitation, "Sky" for sky condition, "Wx" for weather), the format of the parameter (e.g., "SCALAR" or "WEATHER"), the start and end times for the forecast, the value of the parameter, and the area for which the forecast applies (e.g., "all", "BelowElev", "AboveElev").
+- `fileChanges`: A list of tuples that define changes to be made to a file. Each tuple includes the file name, the utility to be used for the change (e.g., "TextUtility"), the type of change (e.g., "add", "replace"), the details of the change, and the action to be taken if the change needs to be undone.
+- `checkStrings`: A list of strings that are expected to be present in the forecast text.
+- `notCheckStrings`: A list of strings that are expected to be absent from the forecast text.
+
+The code is likely used to generate weather forecasts based on the defined parameters and to test the forecasts against the expected results.
+
+This code appears to be part of a weather forecasting application or system. It contains multiple forecast scenarios (F39, F40, F41, etc.) each with associated weather conditions and predictions.
+
+Each scenario includes the following components:
+
+- `name`: This is a unique identifier for each forecast scenario.
+
+- `commentary`: This provides additional information or context about the scenario. It appears to be used for internal documentation purposes.
+
+- `createGrids`: This is a list of tuples, each representing a specific weather condition or element to be forecasted. The tuples include the type of forecast (e.g., "Fcst"), the weather element (e.g., "PoP" for probability of precipitation, "Sky" for sky conditions, "Wx" for weather), the data type (e.g., "SCALAR" or "WEATHER"), the start and end times for the forecast period, the forecast value, and the area for which the forecast applies (e.g., "all", "BelowElev", "AboveElev").
+
+- `checkStrings`: This is a list of strings that appear to be human-readable versions of the forecasts. They might be used for display in a user interface or for generating a textual weather report.
+
+- `fileChanges`: This is a list of changes to be made to other files or parts of the system as part of this forecast scenario. The changes include the file or component to be changed, the type of change (e.g., "add", "replace"), the content of the change, and an action to be taken if the change needs to be undone.
+
+The code is written in Python and appears to be part of a larger system, as it references other components or files (e.g., "Phrase_Test_Local", "TextUtility").
+
+This code appears to be a part of a weather forecasting system. Each block of code represents a different forecast scenario ("F46", "F47", etc.). Each scenario has a name, a commentary describing the scenario, a series of grid creation commands, file changes, and check strings.
+
+The grid creation commands ("createGrids") are tuples that define various weather parameters. For example, ("Fcst", "PoP", "SCALAR", 0, 12, 40, ["BelowElev"]) might represent a forecast (Fcst) of the probability of precipitation (PoP) as a scalar value over a 12-hour period, with a 40% chance of precipitation below a certain elevation (BelowElev).
+
+The "fileChanges" section appears to be instructions for modifying certain files, possibly to adjust the behavior of the forecasting system for this particular scenario.
+
+The "checkStrings" and "notCheckStrings" sections contain phrases that should or should not appear in the forecast output for this scenario. These might be used for testing or validation purposes.
+
+Overall, this code seems to be a part of a testing or configuration system for a weather forecasting model.
+
+This code appears to be a testing script for a weather forecasting system. It's written in Python and is designed to test the functionality of the system's weather prediction and reporting features.
+
+The script contains three main sections, each representing a different test case. Each test case is a dictionary with several key-value pairs:
+
+- "name": a unique identifier for the test case.
+- "commentary": a brief description of what the test case is testing.
+- "createGrids": a list of tuples, each representing a forecast parameter (like "PoP" for probability of precipitation, "Sky" for sky conditions, and "Wx" for weather conditions) and the values to be used in the test case.
+- "checkStrings": a list of strings that are expected to be found in the output of the test case.
+- "notCheckStrings": a list of strings that are not expected to be found in the output of the test case.
+
+The final part of the code is a function called `testScript`. This function takes in a `dataMgr` parameter (presumably a data manager of some sort) and runs the test cases defined earlier in the script. It uses a helper function `generalTestScript` from a module named `TestScript` to run the tests. The `defaults` dictionary defines some default parameters for the tests, including command line variables, the product type, and file changes.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,70 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>MockHazardUtils.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>MockHazardUtils.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that appears to be part of a testing suite for a software developed by Raytheon Company. The script defines a class `MockHazardUtils` that inherits from `HazardUtils`. This class is intended to allow `HazardUtils` to be tested by overriding some of its methods with methods that return dummy objects. 
+
+Here are the main parts of the code:
+
+1. Importing necessary modules: The script imports `HazardUtils` and `MockParm`. `HazardUtils` is likely a utility class for handling hazards, and `MockParm` is likely a mock class for testing.
+
+2. `MockHazardUtils` class: This class is a mock class for testing `HazardUtils`. It overrides several methods from `HazardUtils` to return dummy data or perform dummy operations. These methods include `getGridInfo`, `getGrids`, `getParm`, `getGridShape`, and `createGrid`. The purpose of these methods is to bypass the use of the parm manager, which is likely a component that manages parameters in the actual software.
+
+3. `__dumpParms` method: This private method is used to dump names and values of all parameters to the log. It is used within the `createGrid` method to log the parameters passed to it.
+
+The code also contains a header with information about the software's development, contractor details, and export control restrictions.
+
+This code appears to be part of a larger Python class, and it includes several methods that perform various tasks:
+
+1. `__dumpArgs(self, *args)`: This method logs the arguments passed to it. It checks the type of each argument and formats it accordingly before writing it to the log. If the argument is a byte string, it's written with single quotes around it. If it's a tuple, the method is called recursively for each element of the tuple, and the results are written with parentheses around them. If the argument has a `shape` attribute (which suggests it's a numpy array), its type and shape are written to the log. Any other type of argument is written to the log as is. After the first argument, a comma and a space are written before each subsequent argument.
+
+2. `getDiscreteKeys(self, element)`: This method returns the value associated with the given element in the `discreteKeys` dictionary, or `None` if the element is not in the dictionary.
+
+3. `loadedParms(self)`: This method returns a list of 3-tuples. Each tuple's first element is a key from the `parms` dictionary, and the second and third elements are always the strings 'SFC' and 'Fcst'. This suggests that the `parms` dictionary represents some sort of parameters related to forecasting, but the method doesn't use the values of the dictionary, only the keys.
+
+4. `statusBarMsg(self, message, status, category="GFE")`: This method writes a formatted message to the log. It first checks that the `message` and `status` arguments are not `None` and that `status` is one of the strings 'A', 'R', 'U', or 'S'. If any of these checks fail, it raises a `RuntimeError`. If the `log` attribute is not `None`, it writes a string to the log that includes the `message`, `status`, and `category` arguments.
+
+The code also includes a few lines at the top that seem to be part of another method, but it's not clear what that method does without seeing the rest of it.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

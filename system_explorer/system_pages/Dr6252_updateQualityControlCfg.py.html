@@ -1,0 +1,74 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>updateQualityControlCfg.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>updateQualityControlCfg.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to update XML configuration files for a specific software system, likely related to weather warnings. The script is specifically designed to support the DSW (Dust Storm Warning) and SQW (Snow Squall Warning) WarnGen products.
+
+Here's a breakdown of what the script does:
+
+1. It sets up logging with a specific format and level.
+
+2. It defines a path to the XML configuration files that need to be updated.
+
+3. In the main function, it logs the start of the script and then loops over each XML file found in the defined path.
+
+4. For each XML file, it parses the file into an ElementTree object, which allows for easy manipulation of the XML data.
+
+5. It then looks for specific XML elements (productTypeMap, nnnOfIdent, followupNNN, bulletTypeMap) in the parsed XML data.
+
+6. If these elements are found, it adds new child elements to them with specific key-value pairs related to the DSW and SQW products.
+
+7. If any of these elements are not found, it logs an error message and exits the script with a status code of -1.
+
+8. After updating the XML data, it cleans up the XML string by removing unnecessary newlines and spaces.
+
+9. It then looks for the SegmentedNNN tag in the cleaned-up XML string. If found, it inserts new SegmentedNNN entries for the DSW and SQW products at the appropriate location in the XML string. If not found, it logs an error message and exits the script with a status code of -1.
+
+10. Finally, it writes the updated XML string back to the file, overwriting the original contents.
+
+11. After all files have been processed, it logs a completion message.
+
+The script is designed to be run as a standalone script, as indicated by the `if __name__ == '__main__':` line at the end. This means it can be run directly from the command line.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

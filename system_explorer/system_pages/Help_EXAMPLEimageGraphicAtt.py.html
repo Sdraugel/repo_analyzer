@@ -1,0 +1,65 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>EXAMPLEimageGraphicAtt.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>EXAMPLEimageGraphicAtt.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This is a Python script that appears to be a configuration file for a weather visualization tool, possibly part of the Advanced Weather Interactive Processing System (AWIPS) II, as mentioned in the comments. 
+
+The script starts with a legal notice from Raytheon Company, the developer, stating that the software was developed under a specific contract with the US Government. It also mentions that the software contains export-restricted data and its dissemination requires an export license or other authorization.
+
+The script then imports everything from `gfeConfig`, which is likely a module that contains configuration settings for the Graphical Forecast Editor (GFE) in AWIPS.
+
+The script defines two weather elements to display: surface temperature (`T_SFC:_Official -1`) and surface wind (`Wind_SFC:_Official -1`). These are stored in the `Png_parms` list.
+
+The script then sets various display parameters for the temperature and wind data:
+
+- `Contour_font` sets the size of the contour labels.
+- `T_graphicColor` sets the color of the temperature contours to blue.
+- `T_density` decreases the density of the temperature contours.
+- `Wind_graphicColor` sets the color of the wind barbs to red.
+- `Wind_fontOffset` increases the size of the wind barbs.
+- `Wind_density` increases the density (packing) of the wind barbs.
+
+The numbers assigned to these parameters likely correspond to specific settings within the software.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

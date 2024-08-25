@@ -1,0 +1,114 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Hazard_WCN_MultiPil.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Hazard_WCN_MultiPil.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be part of a larger system, possibly related to weather forecasting or hazard notification. It is a module that defines a class `TextProduct` which inherits from `GenericHazards.TextProduct`. 
+
+The `TextProduct` class has a number of attributes defined in a dictionary called `Definition`. These attributes include various identifiers, names, and settings that seem to be related to the generation of a text-based weather or hazard notification. 
+
+The `__init__` method is the constructor for the `TextProduct` class, which calls the constructor of the parent class.
+
+The `_preProcessProduct` method seems to be used for preparing the forecast data for the product. It appears to extract a list of hazard event tracking numbers (ETNs) from the input data and constructs a phrase that includes these ETNs. This phrase is then included in the product header.
+
+The `_preProcessArea` method seems to be used for preparing the header for a specific area or segment of the forecast. The details of this method are not fully included in the provided code.
+
+The script also includes a software history, which shows that it has been modified over time, with changes made to support mixed case and replace ellipses with commas. 
+
+The top part of the script is a legal notice indicating that the software was developed by Raytheon Company and that it contains export-restricted data. It also provides contact information for the contractor.
+
+This Python code is part of a larger system, possibly a weather forecasting system. It defines a method named `_makeProduct` that generates a forecast or a weather alert message based on the provided arguments.
+
+The method starts by setting the language for the forecast message from a class variable. It then retrieves the issuance time of the forecast and the list of hazards for the specified areas. 
+
+The hazards are then processed to ensure they have a headline (hdln). If a hazard doesn't have a headline, it's created from the phenomenon (phen) and significance (sig) of the hazard using a lookup table (VTECTable).
+
+The method then starts building the forecast message (attrPhrase). The message varies depending on the type and number of hazards. 
+
+If there are two hazards, the method checks their actions. If one hazard is new and the other is cancelled or upgraded, the method generates a message stating that a new watch replaces a portion of the old one. If one hazard is new and the other has expired, the method generates a message stating that a new watch has been issued and the old one has expired or will be allowed to expire.
+
+If there are more or less than two hazards, the method generates a message for each hazard. The message varies depending on the action of the hazard. If the action is 'NEW', a message stating that a new watch has been issued is generated. If the action is 'CON', a message stating that the watch remains valid is generated. If the action is 'EXP', a message stating that the watch will be allowed to expire or has expired is generated.
+
+The method seems to be part of a larger class, as it references several class variables and methods. The code is well-commented, explaining what each section does.
+
+The provided code is a part of a larger program that generates weather forecasts based on certain conditions. Here's a breakdown of what it does:
+
+1. It checks the 'act' attribute of each hazard and generates a phrase based on its value. The 'act' attribute can have values like 'CAN', 'EXA', 'EXB', 'EXT', etc. Each value corresponds to a different type of weather event. For example, 'CAN' might represent a cancelled event, 'EXA' and 'EXB' might represent extended events, and 'EXT' might represent an event that was previously in effect but is now extended.
+
+2. It then adds the generated phrase to the forecast.
+
+3. Depending on the type of phrase generated, it sets up different phrasing for the type of event. For example, if the phrase type is 'NEW', it includes the watch for certain areas. If the phrase type is 'CANCEL', it cancels the watch for certain areas, and so on.
+
+4. It then adds a list of counties, independent cities, marine zones, and cities to the forecast.
+
+5. It wraps the line of the forecast to a certain length.
+
+6. Finally, it returns the forecast.
+
+The method `_postProcessArea` adds a termination string `$$` to the forecast and returns it.
+
+The method `_countFilteredAreaList` counts the number of records found for a particular key in a list of tuples. The key is based on the 'index' element of the tuple. This might be used to count the number of times a certain area appears in the list of areas affected by a weather event.
+
+The code file contains several functions that seem to be part of a larger system, possibly related to geographical data processing. Here's a brief overview of each function:
+
+1. `_getFilteredAreaList`: This function takes an area list, an area dictionary name, and a mode as arguments. It retrieves the area dictionary and filters the area list based on the mode (COUNTY, ZONE, or CITY). It then creates a list of tuples containing information about each area (state, part of state, county). If the area dictionary is missing any information, it logs the problem.
+
+2. `_makeTextFromMarineTuple`: This function takes a tuple of county information, line length, column width, and a main format string as arguments. It extracts marine zones from the tuple and formats them into a string.
+
+3. `_makeTextFromCountyTuple`: This function takes a tuple of county information, line length, column width, main format strings for singular and plural, sub format string, and a mode as arguments. It formats the county information into text based on the mode (byState or byPart).
+
+4. `_byStateTextFromCountyTuple`: This function is similar to `_makeTextFromCountyTuple` but specifically for the 'byState' mode. It counts the areas and formats the county information into text.
+
+The code seems to be part of a larger system that processes and formats geographical data, possibly for display or reporting purposes. It's also worth noting that the code uses error logging to handle missing data or illegal mode specifications, which suggests that it's designed to be robust against data inconsistencies.
+
+This code is written in Python and it consists of three main parts:
+
+1. The first part of the code is a function that takes a tuple of counties as input and formats it into a specific text format. The function iterates through the tuple, grouping names by their state and part of the state. If the state or part of the state changes, the function appends the current group to a list and starts a new one. Special handling is provided for the District of Columbia and Louisiana. The function then formats the grouped data into a string, replacing placeholders in the format strings with actual data.
+
+2. The second part of the code is a function that is very similar to the first one, but it groups names by part of the state only. The function also formats the grouped data into a string, replacing placeholders in the format strings with actual data.
+
+3. The third part of the code is a simple function that returns a list of tuples. Each tuple represents a type of hazard and consists of a hazard code, a list of possible actions for that hazard, and a category for that hazard.
+
+Overall, this code seems to be part of a larger program that deals with geographical data and hazard warnings. The two main functions are used to format this data into a human-readable format.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

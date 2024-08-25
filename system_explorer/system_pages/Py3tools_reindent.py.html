@@ -1,0 +1,85 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>reindent.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>reindent.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is a utility for reformatting Python source code files. It changes the files to use 4-space indents and removes hard tab characters. It also trims excess spaces and tabs from the ends of lines, removes empty lines at the end of files, and ensures that the last line ends with a newline.
+
+The script accepts several command-line options:
+
+- `-d` or `--dryrun`: Analyze files but don't make any changes.
+- `-r` or `--recurse`: Search for all .py files in subdirectories as well.
+- `-n` or `--nobackup`: Don't create a backup file before reindenting.
+- `-v` or `--verbose`: Print informative messages.
+- `--newline`: Specify the newline character to use (CRLF, LF). The default is the same as the original file.
+- `-h` or `--help`: Print usage information and exit.
+
+If no paths are given on the command line, the script operates as a filter, reading a single source file from standard input and writing the transformed source to standard output.
+
+The script uses the `getopt` module to parse command-line options, and the `tokenize` module to read the Python source code. It defines a `Reindenter` class that does the actual work of reindenting the source code. The `check` function is used to process individual files or directories.
+
+If the script changes a file, it by default renames the original file with a .bak extension. If the `-n` or `--nobackup` option is given, it doesn't create a backup. If the `-d` or `--dryrun` option is given, it doesn't actually change the files, but just shows what would be changed.
+
+The provided code is a Python script that appears to be a part of a larger program, likely a code formatter or linter. It processes a file's content, tokenizes it, and modifies the indentation of the lines based on certain rules. Here's a breakdown of the key parts:
+
+1. The `self.lines` list is created from `self.raw`, which seems to be the raw lines of the code file. Each line is right-stripped and tabs are expanded. A `None` is inserted at the start of the list for easier 1-based line numbering.
+
+2. `self.stats` is a list that will hold tuples of line numbers and indent levels. Comment lines are given an indent level of -1.
+
+3. `self.newlines` stores the newlines found in the file, presumably for later use in output generation.
+
+4. The `run` method tokenizes the lines, processes each token, and adjusts the indentation of the lines. It also handles special cases like comment lines and empty lines.
+
+5. The `write` method writes the processed lines (`self.after`) to a file.
+
+6. The `getline` method retrieves lines for tokenization.
+
+7. The `tokeneater` method processes each token and updates the `self.stats` list and `self.level` accordingly.
+
+8. The `getlspace` function counts the number of leading spaces in a line.
+
+9. If the script is run as a standalone program, it calls a `main` function, which is not defined in the provided code.
+
+The script uses the `tokenize` module from Python's standard library to break the code into tokens, which are then processed according to their type (indent, dedent, newline, comment, etc.). The script seems to be designed to handle Python's indentation-based syntax and comments.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

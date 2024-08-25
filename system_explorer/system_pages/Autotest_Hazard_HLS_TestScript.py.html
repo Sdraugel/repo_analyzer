@@ -1,0 +1,149 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Hazard_HLS_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Hazard_HLS_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code appears to be a part of a larger test script for a weather forecasting system, possibly the Advanced Weather Interactive Processing System (AWIPS) used by the National Weather Service in the United States.
+
+The script defines several functions that return hardcoded values related to geographical areas and descriptors. These functions include:
+
+- `_useTestTCP`: Returns a boolean value indicating whether to use a test TCP connection.
+- `_inlandAreas`, `_coastalAreas`, `_marineAreas`: Return lists of area codes representing different types of geographical areas.
+- `_cwa`, `_cwa_descriptor`, `_maor_descriptor`, `_cwa_maor_descriptor`: Return strings representing different descriptors of the geographical area.
+- `_localReferencePoints`, `_localReferencePoints_defaults`: Return information about local reference points, including their names and coordinates.
+
+The script also defines a variable `segmentSetUp` that contains a list of tuples. Each tuple represents a weather hazard segment, including a segment number, a hazard type, and a list of area codes affected by the hazard.
+
+The `makeTestCases` function generates a list of test cases for different hazard scenarios. Each test case is a combination of a hazard, a situation (e.g., "NonEvent", "PreEvent", "Abbreviated", etc.), and a scenario (e.g., "Advancing", "Peripheral", "InSitu", etc.). The function uses the `segCaseDict` dictionary to store the test cases for each hazard. The maximum number of test cases for any hazard is stored in `maxCases`.
+
+The code also contains several comments and a software license notice.
+
+The given code is written in Python and appears to be a part of a larger system for generating and managing test cases related to weather events. Here's a breakdown of what each function does:
+
+1. `makeTestCases()`: This function generates a list of test cases. Each test case is a tuple containing an event context, an uncertainty value, a list of segments (each represented as a tuple of segment number, situation, and scenario), and a list of check strings. The function cycles through all situations and scenarios for each segment.
+
+2. `printTestCases(testCases)`: This function prints out the test cases in a readable format. It takes a list of test cases as input.
+
+3. `getValue(list, index)`: This function returns the value at a given index in a list. If the index is larger than the length of the list, it wraps around to the beginning of the list.
+
+4. `makeScript(testCase, testNum, createData=None)`: This function generates a script for a given test case. The script is a dictionary containing various information about the test case, including a name, commentary, product type, grids start time, grids to create, command line variables, file changes, and check strings.
+
+5. `makeScripts(testNum=None, createData=None)`: This function generates a list of scripts, one for each test case. It uses the `makeScript()` function to generate each script.
+
+6. `cmdLineVars(EventContext='NonEvent', Uncertainty='N/A', segmentList=None, StormInfo='TCPAT5', includeCommentary=False, selectedSections=False)`: This function generates a dictionary of command line variables for a given event context, uncertainty value, segment list, storm info, and whether to include commentary and selected sections.
+
+7. `createHazardGrids()`: This function returns a list of hazard grids. Each grid is represented as a tuple containing various information about the grid.
+
+The code seems to be related to generating and managing test cases for a system related to weather forecasting, specifically for hazardous weather events.
+
+The given Python code defines a function `createDataGrids` which generates a list of tuples representing different types of forecast data grids for a weather event, such as a hurricane. Each tuple represents a specific forecast parameter, its type, duration, value, and the area it applies to.
+
+The function takes several parameters:
+
+- `maxWind` and `maxGust` represent the maximum wind and gust speeds respectively.
+- `prob34` and `prob64` represent the probability of wind speeds exceeding 34 and 64 knots respectively.
+- `timeMax_pws34int` and `timeMax_pws64int` are tuples representing the time intervals for the maximum wind speed to exceed 34 and 64 knots respectively.
+
+The function returns a list of tuples, each representing a forecast data grid. Each tuple contains:
+
+- The type of forecast ("Fcst").
+- The parameter being forecasted (e.g., "Wind", "WindGust", "prob34", "prob64", "pws34int", "pws64int").
+- The type of the parameter ("SCALAR" for single values, "VECTOR" for values with direction).
+- The start and end times for the forecast period.
+- The value of the parameter (for "VECTOR" type, this is a tuple with magnitude and direction).
+- The area the forecast applies to ("all").
+
+The comments in the code indicate that this function is used in the context of testing a system, with different test cases representing different weather event contexts, levels of uncertainty, and segments of the event.
+
+This code appears to be a script for segmenting a Hazardous Weather Outlook (HLS) product. The HLS is a text product issued by the National Weather Service in the United States to inform the public of significant weather events that may occur in the next seven days. 
+
+The code includes various segments, each representing a different weather condition and its associated areas. Each segment is represented as a tuple with three elements: an index number, a description of the weather condition, and a code representing the type of warning or watch, followed by a list of area codes.
+
+The script at the end of the code, "HLS_segmentation_1", seems to be a part of a larger script for testing the segmentation of the HLS product. It includes a commentary explaining what the script is doing and a list of segments with their respective weather conditions and area codes.
+
+The segments are grouped into different categories such as "Conditions High Segments", "PostEvent Low Segments", "ExtraTropical Average Segments", etc. Each category seems to represent a different stage or type of weather event, and the segments within each category describe specific conditions within that stage or type of event. 
+
+For example, in the "Conditions High Segments" category, the first segment (1, 'Conditions', 'Ongoing') (1, 'HU_W', ['FLZ139', 'FLZ142', 'FLZ043']) indicates that there is an ongoing high condition in the areas represented by the codes 'FLZ139', 'FLZ142', and 'FLZ043'. 
+
+The code seems to be written in Python, but it's not a complete script and it's not clear how it would be used in a larger program.
+
+The code appears to be part of a larger script, possibly for a weather forecasting system. It seems to be defining a series of tests or configurations for generating hazard warnings, specifically for hurricanes and tropical storms.
+
+Each block of code is a dictionary with different keys:
+
+- "name": The name of the test or configuration.
+- "productType": The type of product or report being generated.
+- "commentary": A description or commentary about the test or configuration.
+- "gridsStartTime": The start time for the grid data, which seems to be None in all cases.
+- "createGrids": A function call to create grids, possibly for weather data. It also includes specific forecast (Fcst) details like the type of hazard, the time frame, and the areas affected.
+- "cmdLineVars": A string representation of command line variables.
+- "fileChanges": A list of changes to be made to certain files.
+- "checkStrings": A list of strings to check for in the output, such as the name of the weather service.
+
+The first few lines of the code seem to be incomplete or incorrectly formatted, as they don't follow the same structure as the rest of the code.
+
+The "createGrids" key includes calls to functions that aren't defined in the provided code, such as createHazardGrids() and createDataGrids(). These functions presumably create some sort of grid data for the weather forecasts.
+
+The "fileChanges" key includes a reference to "useTest", which isn't defined in the provided code. This might be a variable or function defined elsewhere in the program.
+
+Overall, the code seems to be for testing or configuring the generation of weather hazard reports, but without the full script or additional context, it's hard to be certain about all the details.
+
+This code appears to be part of a larger weather forecasting system. It seems to be written in Python and is focused on generating and testing scripts related to weather forecasts, specifically wind forecasts and hazards.
+
+Here's a breakdown of the code:
+
+1. The first part of the code defines a list of tuples. Each tuple represents a forecast, with details such as the type of forecast ("Wind"), the format ("VECTOR"), the time range (60 to 66 or 66 to 120), the wind speed and direction (10, "W"), and the scope ("all").
+
+2. The `cmdLineVars` variable is assigned the string representation of the result of the `cmdLineVars()` function. This suggests that `cmdLineVars()` returns some command line variables, which are then converted to a string.
+
+3. The `fileChanges` list contains a tuple that specifies a file change operation. It appears to be related to overriding hazard warnings for a specific site.
+
+4. The `checkStrings` list contains strings that may be used to verify certain aspects of the forecast or the system output.
+
+5. The `firstScripts` and `secondScripts` variables are assigned the results of the `makeScripts()` function, which presumably generates scripts for the forecasting system. The `secondScripts` is created based on the length of `firstScripts` and some data grid parameters.
+
+6. The `scripts` variable is updated to include both `firstScripts` and `secondScripts`.
+
+7. The `testScript` function is defined to test the scripts. It sets up some default parameters, including command line variables, whether to publish grids, the VTEC mode, whether to clear the hazards table, the start time for the grids, whether to order strings, and a list of grids to delete. It then calls the `generalTestScript` method of the `TestScript` module, passing in these parameters along with the `scripts` variable and a data manager object. This function likely tests the scripts under the specified conditions and returns the results.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

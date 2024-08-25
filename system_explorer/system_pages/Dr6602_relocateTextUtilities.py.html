@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>relocateTextUtilities.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>relocateTextUtilities.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to relocate certain utility scripts and clean up directories in a specific file system. Here's a breakdown of what each part of the script does:
+
+1. The script starts by setting up a logging system to record the progress and any issues that occur during the script's execution.
+
+2. It defines several constants: `TEXT_UTILS_BASE_PATH` and `TEXT_UTILS_FILE_PATTERN` which are used to locate the utility scripts that need to be moved, and `SITE_CONFIG_PATTERN` which is used to locate site configuration files.
+
+3. The `relocate_text_utils(level)` function is used to move the utility scripts from their current location to a new location. It takes one argument, `level`, which is used to specify the directory level (either 'site' or 'user') of the scripts to be moved. The function uses the `glob` module to find all scripts at the specified level, and the `shutil` module to move them to their new location. If any errors occur during this process, they are logged and the script continues.
+
+4. The `cleanup_configured_utils()` function is used to delete all directories at the 'configured' level. Again, it uses the `glob` module to find these directories and the `shutil` module to delete them. Any errors are logged.
+
+5. The `force_regen_area_dictionary()` function is used to 'touch' all site configuration files, effectively updating their last modified timestamp. This is done using the `subprocess` module to call the Unix 'touch' command. Any errors are logged.
+
+6. The `main()` function is the entry point of the script. It calls the other functions in the correct order to perform the relocation and cleanup tasks. It logs the start and end of the script's execution.
+
+7. Finally, the script checks if it is being run as a standalone program (as opposed to being imported as a module). If it is, it calls the `main()` function to start the script.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

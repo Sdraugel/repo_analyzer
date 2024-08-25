@@ -1,0 +1,194 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>SnowAmtQPFPoPWxCheck.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>SnowAmtQPFPoPWxCheck.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a software developed by Raytheon Company for the US Government. It's a public domain software with no warranty or technical support. The software is named "SnowAmtQPFPoPWxCheck" and it was authored by Jay Smith from WFO Fairbanks.
+
+The software is essentially a weather data analysis tool that checks the consistency of various weather grids. It performs checks on SnowAmt (Snow Amount), QPF (Quantitative Precipitation Forecast), and Wx (Weather) grids. It checks if the corresponding QPF grids add up to a certain amount when SnowAmt is present and above a certain value. It also checks for the presence of certain weather conditions in the Wx grids when SnowAmt or QPF are above certain values. 
+
+The software also handles different cases based on the duration and start time of the SnowAmt and QPF grids. It uses different rules for 6-hour long grids that start at specific times and for grids that do not meet these criteria. 
+
+The software also accounts for the possibility that the SnowAmt and QPF grids are not the same duration and are not aligned on either or both ends. It assumes that the QPF accumulation happens uniformly across the grid's duration and uses the proportional amount of the QPF that corresponds to the SnowAmt grid's duration.
+
+If discrepancies are found in the checks, the software highlights the "bad" grids and creates temporary grids showing where the discrepancies occur. 
+
+The software also contains a note that it does not implement a check for two 6-hour QPF grids vs. one 12-hr PoP grid because neither of those grid definitions is implemented in the GFE baseline. 
+
+The software is subject to US export control laws and its export/transfer/disclosure is restricted.
+
+The provided code appears to be a configuration and explanation for a procedure in a weather forecasting system, likely the Graphical Forecast Editor (GFE) developed by the National Weather Service (NWS). This procedure checks the consistency between different weather prediction grids, specifically QPF (Quantitative Precipitation Forecast) grids and SnowAmt (Snow Amount) grids.
+
+The code describes several scenarios where these grids overlap and how they should be compared for consistency. It also mentions that these checks could be avoided if the QPF and SnowAmt grids are aligned and of the same duration.
+
+The author also explains that the code is optimized to minimize memory usage, which might slow down the procedure's run time. They also mention that the code is heavily documented and contains repeated code to make it easier for novice programmers to understand.
+
+The code then defines a list of menu items and a list of variables for the procedure. These variables include different checks that can be run and a cleanup action.
+
+In the configuration section, the code defines several variables related to the precision of the QPF and SnowAmt grids, the colors used to highlight inconsistent or temporary grids, and the name of the edit area where the procedure will be run.
+
+The author also explains that the procedure could be run over the whole domain or a specified edit area, and mentions that running the procedure over a subset of the entire GFE domain does not provide any performance gains. The text is cut off before the author finishes this explanation.
+
+This Python code is part of a larger system, possibly related to weather forecasting. It defines a class `Procedure` that inherits from `SmartScript.SmartScript`. 
+
+The class has several methods:
+
+1. `__init__(self, dbss)`: This is the constructor method that initializes the class with a `dbss` parameter and calls the parent class's constructor.
+
+2. `__cleanup(self, timeRange)`: This method is used to remove any temporary grids created previously. It also turns off any highlights on the grids.
+
+3. `__checkConfigValueTypes(self)`: This method checks the types of certain configuration values (`inconGridColor`, `tempGridColor`, `cwaEditArea`). If any of them are not strings, it raises an error message and cancels the process.
+
+4. `_runSnowAmtQPFCheck(self, timeRange)`: This method implements a check that if `SnowAmt` is greater than or equal to 0.5, then `QPF` must be greater than or equal to 0.01. It also checks if the `QPF` and `SnowAmt` grids are locked by the user or someone else. If they are, it posts an urgent message and returns from the method. It also checks if there are any `SnowAmt` grids in the time range. If not, it posts an urgent message and returns from the method.
+
+The code also includes some comments that suggest it is related to weather forecasting and possibly used in a marine office context. The `cwaEditArea` variable appears to be related to the area of interest for the forecast.
+
+This code is performing a series of operations on forecast data, specifically related to snow amount (SnowAmt) and quantitative precipitation forecast (QPF). The operations are performed on a grid-by-grid basis.
+
+Here's a high-level overview of what the code does:
+
+1. It retrieves a list of SnowAmt grids and iterates over them.
+
+2. For each SnowAmt grid, it creates a mask (halfInchMask) that indicates where the snow amount is greater than or equal to 0.5.
+
+3. It then retrieves a list of QPF grids that correspond to the same time range as the current SnowAmt grid.
+
+4. If there are no QPF grids for the given time range, it skips the current iteration and moves to the next SnowAmt grid.
+
+5. If QPF grids are available, it iterates over them and performs a series of operations to calculate a weighted sum of the QPF grids (qpfSum).
+
+6. It creates another mask (qpfMask) that indicates where the qpfSum is less than 0.01.
+
+7. It then performs a logical AND operation on the halfInchMask and qpfMask to create a new mask (consistMask) that indicates where both conditions are true.
+
+8. The code then applies a mask to the consistMask array, setting the value to 0 where the cwaMask is false.
+
+9. If there are no true values in the consistMask array (i.e., there are no inconsistencies between the SnowAmt and QPF data), it breaks out of the loop over the QPF grids.
+
+10. If the loop over the QPF grids completes without breaking (i.e., there are inconsistencies in the data), it executes a block of code (not shown) to highlight the grids where the inconsistencies occur.
+
+In summary, this code is checking for inconsistencies between SnowAmt and QPF forecast data. If it finds any inconsistencies, it highlights the grids where these occur.
+
+This code is part of a larger script that checks for inconsistencies in weather forecast data. 
+
+The first part of the code highlights certain grids if the `inconGridColor` variable is set. It then creates a grid that contains all the inconsistencies found in the previous loop. If the `tempGridColor` variable is set, it highlights this inconsistency grid. It then sets the `inconsistent` variable to `True`.
+
+The `_runSnowAmtWxCheck` method checks that if the Snow Amount (`SnowAmt`) is greater than or equal to 0.1, then the Weather (`Wx`) grid must contain certain types of weather, regardless of whether there is any freezing or liquid types. It also checks for locked grids (either locked by the current user or another user) and posts a message if any are found. If there are no Snow Amount grids in the selected time range, it posts a message and returns.
+
+The `_snowAmtWxCheckLocked` method checks the consistency of each individual Weather grid in the case where the Snow Amount grid meets certain duration and start time constraints. It stores the consistency masks for each Weather grid in a list. The "Locked" in the method name refers to the idea that if the Snow Amount grid meets the duration and start time constraints, then it's been "locked". 
+
+The code seems to be part of a larger system for managing and checking the consistency of weather forecast data.
+
+The code appears to be a part of a weather forecasting system, specifically dealing with snow amount (SnowAmt) and weather conditions (Wx). 
+
+The first part of the code creates masks for different weather conditions (S, SW, IP) using the `wxMask` function. These masks are then combined into a `snowMask` using logical OR operations. The `wxMask` is the logical NOT of the `snowMask`. 
+
+Then, a consistency mask (`consistMask`) is created by performing a logical AND operation between `nonZeroMask` and `wxMask`. This mask is used to check the consistency between the snow amount and weather conditions. If there are no inconsistencies, the loop breaks. 
+
+If the loop completes without breaking, it means there are inconsistencies. The code then highlights the inconsistent grids. It also creates temporary grids for each weather grid, adjusting the start and end times to match the corresponding SnowAmt grid. The temporary grids are created using the `createGrid` function.
+
+The second function, `_snowAmtWxCheckUnlocked`, appears to perform a similar check but for 'unlocked' SnowAmt grids. The 'unlocked' term seems to refer to SnowAmt grids that do not meet certain duration and start time constraints. The code again creates masks for different weather conditions, combines them into a `snowMask`, and creates a `wxMask`. 
+
+A consistency mask is then created and if there are inconsistencies, the code highlights the SnowAmt and Wx grids in the `gridTR`. It also creates temporary grids using the Wx grid's time range, but ensures that the temporary grid does not start before the start of the corresponding SnowAmt grid nor end after it. 
+
+In both functions, the code uses a 'truth' table to describe the logical comparison between SnowAmt and weather conditions. It considers different scenarios and labels them as 'Good' or 'Bad' results based on the consistency between the snow amount and weather conditions.
+
+This code is part of a larger program that appears to be a weather forecasting system. It contains two main functions:
+
+1. The first function is unnamed in the provided code, but it seems to be checking for inconsistencies in the SnowAmtWx (Snow Amount Weather) grid. It calculates the duration and offset of a temporary grid, creates a time range using these values, and creates a new grid named 'SnowAmtWxInconsistent'. If inconsistencies are found, it highlights them in the grid using specified colors. If either the temporary grid color or the inconsistent grid color is set, it highlights the respective grids. The function sets a flag 'self.inconsistent' to True if inconsistencies are found.
+
+2. The second function, `_runQPFPoPCheck`, checks if any QPF (Quantitative Precipitation Forecast) grid is non-zero, then one of the corresponding PoP (Probability of Precipitation) grids must also be non-zero. It first checks if the QPF and PoP grids are locked by the current user or another user. If they are locked, it posts a message and returns from the function. Then, it checks if there are any QPF grids in the selected time range. If there are no QPF grids, it posts a message and returns from the function. It then iterates over the QPF grids, for each grid, it checks if there are any corresponding PoP grids. If there are no PoP grids, it posts a message and continues to the next iteration. It then checks for inconsistencies between the QPF and PoP grids. If inconsistencies are found, it creates a new grid named 'QPFPoPInconsistent' and highlights the inconsistencies in the grid using specified colors.
+
+This code is part of a larger program that checks for inconsistencies in weather forecast data. It appears to be written in Python and is likely part of a weather forecasting system.
+
+The first part of the code checks for inconsistencies between two types of weather forecast data: QPF (Quantitative Precipitation Forecast) and PoP (Probability of Precipitation). It checks for the condition where QPF is zero but PoP is greater than 50, which would be inconsistent because it would mean that there is a high probability of precipitation but no actual forecasted amount. If such inconsistencies are found, it highlights the inconsistent grids and sets the 'inconsistent' flag to True.
+
+The second part of the code, the `_runQPFWxCheck` method, checks for another type of inconsistency: if there is a non-zero QPF, then the corresponding Wx (weather) grids must contain a precipitable weather type. It first checks if the QPF and Wx grids are locked by the current user or another user. If they are, it posts a message and returns from the method. If not, it checks for the presence of QPF grids in the specified time range. If there are no QPF grids, it posts a message and returns from the method. If there are QPF grids, it checks for consistency with the corresponding Wx grids.
+
+The third part of the code, the `_qpfWxCheckLocked` method, appears to be incomplete, but it seems to be intended to check for consistency between QPF and Wx grids under certain conditions (when the QPF grid is exactly 6 hours long and starts at 00, 06, 12, or 18 UTC).
+
+This code appears to be part of a weather forecasting system. It is checking for inconsistencies between the Quantitative Precipitation Forecast (QPF) and the weather (Wx) grids. 
+
+The code first retrieves a list of weather grids for a specific forecast and surface (SFC) within a given time range (gridTR). It then creates masks for different types of weather conditions (snow, rain, etc.) using the `wxMask` function. 
+
+The `logical_or` function is used to combine these masks into a 'snowMask' and a 'rainMask'. These two masks are then combined into a 'precipMask' which represents all types of precipitation. 
+
+The 'wxMask' is then created by taking the logical not of the 'precipMask', meaning it represents weather conditions where there is no precipitation.
+
+The 'consistMask' is then created by performing a logical AND operation on the 'qpfNonZeroMask' and the 'wxMask'. This mask represents the consistency between the QPF and the weather grids. If the QPF is greater than or equal to 0.01 and there is precipitation in the weather grid, or if the QPF is less than 0.01 and there is no precipitation in the weather grid, the result is considered good (0). Otherwise, it is considered bad (1).
+
+If there are no inconsistencies (all values in the 'consistMask' are 0), the loop breaks. If there are inconsistencies, the code highlights the problematic grids and creates temporary grids for each inconsistent weather grid. 
+
+The function `_qpfWxCheckUnlocked` seems to perform a similar check, but it is used when the QPF grid is not exactly 6 hours long and starting at 00, 06, 12, or 18 UTC, referred to as "unlocked".
+
+This python script appears to be part of a larger system for weather forecasting. It seems to be checking for inconsistencies in weather forecasting grids and adjusting them if necessary. 
+
+The first part of the script is checking a mask array called `consistMask` and setting its values to 0 where the `cwaMask` array is not true. If there are any true values in the `consistMask` array, it then goes on to adjust the start and end times of a weather grid to match the start and end times of another grid (`gridTR`). It then creates a new grid with these adjusted times and highlights certain grids if certain conditions are met. 
+
+The `_calcTolerance` function calculates a tolerance value based on the precision of a grid.
+
+The `execute` function seems to be the main function that runs the checks and adjustments. It first checks the configuration values and creates a time range. It then checks if a cleanup is needed and if the time range selected is less than an hour, it sets the time range to a default value. It also sends messages to the user about the time range selected and sets some instance variables. 
+
+The script then tries to encode an edit area as a Numeric Python mask and checks if the encoding was successful. If it wasn't, it sets the edit area to the domain. It then gets information about the 'SnowAmt' grid and sets the `cwaMask` to ones for the points in the edit area. 
+
+The script ends abruptly, so it's not clear what happens after this.
+
+The given code appears to be a part of a larger Python program, possibly a weather forecasting or analysis tool. Here's a breakdown of what this specific code snippet does:
+
+1. The first two lines of the code seem to be incomplete, but they appear to be setting up a grid (possibly a 2D array or matrix) called `self.cwaMask` with all elements initialized to 1. The size of the grid is determined by the `gridSize` which seems to be obtained from a function `on().gridSize().x`.
+
+2. The main part of the code is a series of conditional checks based on user input. The user input is stored in a dictionary called `varDict`. Each key in the dictionary corresponds to a specific check that can be run. If a key's value is an empty list `[]`, the corresponding check is not run. If the value is `["Yes"]`, the corresponding check is run.
+
+3. The checks that can be run are:
+   - 'Run SnowAmt/QPF Check?'
+   - 'Run SnowAmt/Wx Check?'
+   - 'Run QPF/PoP Check?'
+   - 'Run QPF/Wx Check?'
+
+   Each of these checks calls a specific method when the condition is true.
+
+4. After running the checks, a message is created. If the `self.inconsistent` flag is set (presumably by one of the checks), the message indicates that inconsistencies were found and highlights certain grids. If no inconsistencies are found, a success message is displayed.
+
+5. The final message is displayed on a status bar, with the message type being 'S' for inconsistencies and 'R' for successful completion.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

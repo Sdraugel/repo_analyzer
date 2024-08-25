@@ -1,0 +1,104 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>VTEC_GHG_Complex2_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>VTEC_GHG_Complex2_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a script written in Python. It appears to be part of a larger system that deals with weather hazards and warnings. Here's a breakdown of what this code does:
+
+1. The top part of the code is a legal notice and copyright information from Raytheon Company. It mentions that the software was developed under a specific contract with the US Government and contains export-restricted data. It also provides the contractor's name and address.
+
+2. The code then declares a list named `scripts`. This list contains dictionaries, each representing a different script or action that the software can perform.
+
+3. Each dictionary in the `scripts` list contains several key-value pairs:
+   - `commentary`: This provides a human-readable explanation of what the script does.
+   - `name`: This is the name of the script.
+   - `productType`: This could be the type of product or output that the script generates.
+   - `clearHazardsTable`, `createGrids`, `deleteGrids`: These keys indicate actions that the script performs. For example, `clearHazardsTable` might clear a table of hazards data, `createGrids` might create grids for different hazard areas, and `deleteGrids` might remove certain grids.
+   - `checkStrings`: This is a list of strings that might be used for testing or validation purposes.
+
+4. The scripts in this code seem to be related to managing and issuing weather warnings, specifically for winter storms. For example, the script named "GHG_Complex2_1" creates a winter storm watch for certain areas, and the script named "GHG_Complex2_2" checks that the winter storm watch remains in effect.
+
+Please note that the code is cut off at the end, so the full functionality of the last script ("GHG_Complex2_3") is not clear.
+
+The given code appears to be part of a larger system that is responsible for generating weather forecasts and alerts. It seems to be written in Python and uses tuples and dictionaries to structure data about weather hazards.
+
+The code seems to be divided into several sections, each representing a different forecast or alert. Each section contains information like the type of hazard (e.g., "WS.A" for Winter Storm Watch, "WS.W" for Winter Storm Warning, "WW.Y" for Winter Weather Advisory), the time period for which the hazard is in effect, and the areas affected by the hazard (represented by codes like "FLZ139", "FLZ239", etc.).
+
+The "checkStrings" list in each section appears to contain the text of a weather alert message, with placeholders for some information that must be filled in later. The text includes details like the issuing service, the time of the alert, the areas affected, and the nature of the hazard.
+
+The "createGrids" list seems to be used for creating or updating the hazard information. It contains tuples with the hazard type, the time period, and the affected areas.
+
+The "commentary" field in the last section describes the changes being made to the hazard information: replacing a Winter Storm Watch with a Winter Storm Warning in one area, and replacing a portion of the Winter Storm Watch with no hazards and a Winter Weather Advisory in another area.
+
+The code provided is a part of a larger script that is likely used by a weather service for generating and managing weather alerts. It appears to be written in Python and is structured as a list of dictionaries, each representing a different weather alert or update.
+
+1. The first dictionary represents a cancellation of a Winter Storm Watch for certain areas, as indicated by the message and the area codes (e.g., "FLZ043-139-142-239-242-010800-").
+
+2. The second dictionary represents a Winter Storm Warning and a Winter Weather Advisory for different areas. It provides the time of the warning, the areas affected, and some precautionary/preparedness actions.
+
+3. The third dictionary represents a message indicating no changes to the existing hazards. It seems to be a placeholder or a template for a weather alert message.
+
+4. The fourth dictionary represents a change in the time of the warning for certain areas. It also creates new grids for the hazards, likely updating the forecast for those areas.
+
+5. The fifth dictionary again represents a message indicating no changes to the existing hazards.
+
+Each dictionary contains several common keys:
+- "commentary": A description of the changes made in this update.
+- "name": A unique identifier for this update.
+- "productType": Likely the type of weather alert being issued.
+- "createGrids", "deleteGrids": These keys are used to manage the forecast grids for different areas.
+- "checkStrings": These are the actual text of the weather alert message. Some lines are commented out, possibly to be filled in with specific details at the time of issuing the alert.
+
+This code appears to be a part of a larger system that generates weather advisories and warnings. It seems to be written in Python and is designed to test the system's functionality. 
+
+The code is divided into several sections, each representing a different test case. Each section contains a "commentary" that describes what the test case is supposed to do, a "name" that identifies the test case, and a "productType" that specifies the type of weather advisory or warning being tested.
+
+The "createGrids" field seems to be used to generate different weather scenarios, with parameters specifying the forecast type, hazard type, the time range, and the affected areas.
+
+The "checkStrings" field contains the expected output of the test case. These strings appear to be formatted as weather advisories or warnings, with placeholders for variable information.
+
+The "testScript" function at the end of the code runs these test cases using the provided data manager. It sets some default parameters, runs the test cases defined in the "scripts" variable (which is not defined in the provided code), and returns the results. 
+
+In summary, this code is used to test the functionality of a weather advisory and warning generation system. It does this by creating various weather scenarios and checking that the system's output matches the expected results.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

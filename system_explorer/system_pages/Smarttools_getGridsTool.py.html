@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>getGridsTool.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>getGridsTool.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a Python script that defines a tool for working with weather data grids. The tool is designed to be used within a larger system, specifically the Advanced Weather Interactive Processing System (AWIPS) II developed by Raytheon Company. 
+
+The tool is named `getGridsTool` and it's a generic smart tool that uses the `SmartScript` class `getGrids` method to get the maximum, sum, or other values of all grids of a certain element defined by `varDict["Element"]` into the active element. The active element should span multiple grids of `varDict["Element"]`. This tool is designed to be called by a procedure and not run interactively.
+
+The tool checks for required arguments in `varDict`. If the required arguments are not present, it raises an error. The tool handles different modes of operation, including "MaxTime" and "Last". In "MaxTime" mode, it determines the grid with the largest percentage time coverage. In "Last" mode, it retrieves the last grid.
+
+The tool also handles cases where the requested data is not available. If the requested grid is not available, it tries to get a grid from the permanent grid. If this is not possible, it returns `None`.
+
+The script also contains metadata about the software, including the author, version, and licensing information. It also contains information about the contractor who developed the software, Raytheon Company, and the U.S. government contract under which the software was developed.
+
+The code snippet you've provided is a part of a function or method. It's returning a value stored in the variable `Wx`. 
+
+The `return` statement in Python ends the execution of a function and sends a result back to the caller. In this case, the function is returning the value of `Wx`. 
+
+However, without additional context, it's not possible to determine what `Wx` represents or how it's being calculated or manipulated in the function.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

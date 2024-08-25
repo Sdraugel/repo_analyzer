@@ -1,0 +1,74 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Show_ISC_Grid.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Show_ISC_Grid.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is part of a software developed by Raytheon Company, and it's a script for creating a discrepancy grid. The discrepancy grid is created with the grid points inside your CWA (County Warning Area) set to the difference between it and its neighbor. 
+
+The code starts with a detailed comment section that includes information about the software, its licensing, and its version history. It then sets a configuration option `maskNonViolators` which determines whether the grid will display all differences or only 'violators'. 
+
+The code then imports necessary libraries and modules such as `numpy`, `ISC_Utility_Local`, `GridInfo`, and `SmartScript`. 
+
+The main part of the code is encapsulated within a class named `Tool` which inherits from `SmartScript.SmartScript`. This class has an `__init__` method for initialization, a `preProcessTool` method, and an `execute` method. 
+
+The `execute` method is where the discrepancy grid is created. It gets the grid with the maximum discrepancy with neighboring points using the `_getDiffGrid` method from the `ISC_Utility_Local` module. If no ISC data is found, it sends a status bar message and cancels the operation. If data is found, it calculates the minimum and maximum values of the discrepancy grid using `numpy` functions.
+
+This code is performing a series of operations on a grid of data, presumably related to weather data given the variable names and comments. Here's a breakdown of what the code is doing:
+
+1. The code first calculates the absolute maximum value between `minVal` and `maxVal` and assigns it to `maxVal`. Then it assigns the negative of `maxVal` to `minVal`. If `maxVal` and `minVal` are equal, it increments `maxVal` by 1 and decrements `minVal` by 1. Both `minVal` and `maxVal` are then converted to float type.
+
+2. It then calculates the range of allowable values for a parameter (`parmRange`) by subtracting the minimum limit from the maximum limit.
+
+3. The code then clips the values in `diffGrid` to the range `-parmRange` to `parmRange`.
+
+4. Depending on the `GridType`, it creates a new grid with the name `newname` and assigns the clipped `diffGrid` to it. The grid has several properties such as time constraints, precision, allowed value range, and units, which are set during its creation.
+
+5. The code then sets the active element of the grid with the Discrepancy color table and a range of minimum and maximum values.
+
+6. If the `GridType` is SCALAR, the function returns and ends here.
+
+7. If the `GridType` is not SCALAR, the code gets a grid with the maximum discrepancy with neighboring points and finds the maximum absolute discrepancy on the grid. It then repeats the steps from 1 to 5 but with different parameters and values.
+
+In summary, this code is manipulating a grid of data, creating new grids based on certain conditions, and setting the active grid with specific properties.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

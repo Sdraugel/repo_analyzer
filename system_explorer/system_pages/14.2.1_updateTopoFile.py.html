@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>updateTopoFile.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>updateTopoFile.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to update any saved displays or procedures that use an old Topo file name. The script is particularly useful when there are saved displays stored outside of localization. For procedures saved in localization, another script called updateTopoFile.sh will automatically call this.
+
+The script uses the xml.etree.ElementTree module to parse and manipulate XML files. The main function in this script is `upgradeBundle(bundleFile)`, which takes a file path to an XML file as an argument.
+
+The function first parses the XML file and gets the root element of the XML document. It then sets a path to iterate over, which depends on whether the root tag of the XML document is 'bundle' or not.
+
+The function then iterates over the XML elements that match the path. If the 'type' attribute of a 'display' element is "d2DMapRenderableDisplay", it further iterates over 'resourceData' elements within 'descriptor/resource'. If the 'type' attribute of a 'resourceData' element is 'topoResourceData', it further iterates over 'topoFile' elements.
+
+If the text of a 'topoFile' element is 'srtm30.hdf', it changes the text to 'defaultTopo.h5'. After all the iterations, it writes the changes back to the XML file.
+
+When the script is run from the command line, it takes command line arguments (which are expected to be file paths to XML files), and calls the `upgradeBundle` function on each of them.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

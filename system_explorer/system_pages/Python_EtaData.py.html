@@ -1,0 +1,82 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>EtaData.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>EtaData.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be a part of a larger software system developed by Raytheon Company under a US government contract. The software is subject to US export control laws. 
+
+The script is named `EtaData.py` and has undergone multiple revisions by different developers, as indicated by the revision history. 
+
+The script imports several Python modules such as `logging`, `math`, `os`, `time`, `netCDF4`, `Avn`, `AvnLib`, and `NoDataException`. It also sets up a logger for logging events.
+
+The script defines several conversion constants, presumably for unit conversion, and a list of parameters that are in use.
+
+The script defines three functions:
+
+1. `_groupToText(g)`: This function takes a dictionary `g` as input and returns another dictionary `d`. The function tries to extract certain values from `g` and convert them into specific formats. If the extraction fails (due to the key not being present), it sets the corresponding value in `d` to an empty string.
+
+2. `_makeTemp(v)`: This function takes a dictionary `v` as input and returns another dictionary `d`. It extracts and converts temperature-related data from `v`.
+
+3. `_makePcp(v)`: This function takes a dictionary `v` as input and processes precipitation-related data. It checks for the presence of certain types of precipitation (rain, snow, freezing rain, etc.) and appends the corresponding codes to a list `plst`.
+
+The script seems to be designed for processing and formatting weather data, possibly for a weather forecasting application.
+
+This code seems to be a part of a weather forecasting system. It reads data from a NetCDF file, which is a format commonly used for storing and interchanging scientific data, and processes the data to generate weather forecasts. 
+
+The `_makeSky` function, for example, calculates the height of the cloud base and the cloud cover. The `_makeVsby` function calculates visibility, and the `_makeObv` function determines if there is fog or mist based on visibility. The `_makeWind` function calculates wind direction and speed. 
+
+The `_NetCDFFile` class reads data from a NetCDF file. It has methods for getting a file, closing a file, making data, and making a table. The `makeData` method retrieves forecast data for a specific location (identified by `ident`) and a specific time (`refTime`). The `makeTable` method generates a report based on the forecast data.
+
+The code also includes several other functions for processing different types of weather data, such as temperature (`_makeTemp`), precipitation (`_makePcp`), and more. 
+
+Overall, this code is likely part of a larger system for generating and presenting weather forecasts based on data stored in NetCDF files.
+
+This Python code contains three functions:
+
+1. The first function is not fully visible in the provided code snippet, but it appears to be formatting and appending data to a list called `rpt`. It does this by iterating over a list of keys (which includes 'HGT2', 'CLD3', 'HGT3', and possibly others), extracting corresponding values from a list of dictionaries `tmp`, and formatting them into a string. The function then returns the `rpt` list.
+
+2. The second function, `_cleanup(path, nhours)`, is designed to remove files from a specified directory (`path`) that are older than a certain number of hours (`nhours`). It does this by comparing the timestamp of each file in the directory to the current time minus `nhours`. If the file's timestamp is older, it attempts to delete the file. If it can't delete a file for some reason (due to an `OSError`), it logs an error message.
+
+3. The third function, `retrieve(model, idlist, retrieveReport, refTime=None)`, retrieves data for a list of identifiers (`idlist`) from a NetCDF file (a common format for storing multi-dimensional scientific data). For each identifier, it attempts to extract the data and, if `retrieveReport` is `True`, create a table view of the data. It then appends this data (and possibly the table) to a list `ids`. If it encounters any errors during this process, it logs an appropriate error message and appends the error message to `ids`. The function then returns the `ids` list.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>StormTotalQPF_ISC.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>StormTotalQPF_ISC.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a software developed by Raytheon Company for the US Government, as per the contract DG133W-05-CQ-1067. It is subject to US export control laws due to the presence of export-restricted data.
+
+The software is in the public domain, provided "as is", without any warranty or technical support. It is named "StormTotalQPF_ISC" and was authored by Brian Meade on December 7, 2006.
+
+The software is a tool that calculates the sum of QPF (Quantitative Precipitation Forecast) grids over a specified time range. This is done in the context of a StormTotalQPF grid, which is a grid that represents the total forecasted precipitation for a storm. The tool adds up the QPF grids for the time intervals within the StormTotalQPF grid's time range.
+
+The script begins by defining some metadata about the tool and importing necessary modules. It then defines a class `Tool` that inherits from `SmartScript.SmartScript`. The class has two methods: `preProcessGrid` and `execute`.
+
+The `preProcessGrid` method is used to process the grid before the main execution. It checks available databases and parameters, and if there are multiple QPF weather elements in the ISC database, it creates a dialog for the user to select the ISC Office Type.
+
+The `execute` method is the main function of the tool. It gets the QPF name for the desired office type and calculates the sum of the QPF grids over the specified time range. The result is then returned.
+
+The script is an absolute override file, which means that a higher priority version of the file will completely replace a lower priority version of the file.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

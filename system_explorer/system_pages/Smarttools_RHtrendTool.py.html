@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>RHtrendTool.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>RHtrendTool.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a part of a software developed by Raytheon Company. It appears to be a tool for analyzing weather data, specifically relative humidity trends (RHtrend). 
+
+The software is subject to U.S. export control laws, meaning it contains data that cannot be exported or transferred without proper authorization. The address and contact information for the contractor, Raytheon Company, is provided.
+
+The software is in the public domain, provided "as is" without any warranty or technical support. 
+
+The code defines a tool type as "numeric" and the weather element to be edited as "RHtrend". It imports all functions from the numpy library, a package for scientific computing with Python.
+
+There are commented sections that suggest the possibility of setting up a screen list and variables to be solicited from the user, but these are not implemented in the current version of the code.
+
+The code then imports the SmartScript module and defines a class named Tool that inherits from SmartScript. This class has an `__init__` method for initialization and an `execute` method that calculates the relative humidity trend by subtracting the minimum relative humidity from the maximum. The result is then returned.
+
+There are also placeholders for optional methods `preProcessTool` and `postProcessTool`, which could be used to perform actions before and after the tool is run, respectively. However, these methods are currently not implemented.
+
+The code also contains explanations about the use of "self" in Python classes and how to handle errors in the tool.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

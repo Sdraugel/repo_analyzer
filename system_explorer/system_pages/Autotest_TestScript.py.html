@@ -1,0 +1,115 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code file seems to be part of a larger system, possibly a weather forecasting system, developed by Raytheon Company. It contains two main functions: `getStandardProductType` and `generalTestScript`.
+
+1. `getStandardProductType` function: This function takes in three parameters: `self`, `dataMgr`, `productType`, and `level`. It is used to get the standard product type based on the site ID, the product type, and the level (which could be "Site", "Baseline", or "Region"). It searches for a product in the list of products (`ceProducts`) that matches the given product type and level. If it finds a match, it sets the product type to the found product and breaks the loop.
+
+2. `generalTestScript` function: This function is more complex and seems to be used for setting up and running test scripts. It takes in four parameters: `self`, `dataMgr`, `scripts`, `defaults`, and `level`. The `scripts` parameter is a list of test scripts in dictionary form. Each script has fields described in `TextProductTest`. The function processes these scripts, sets up the test script for `TextProductTest`, and creates a combinations file for the product if the `comboFlag` is set to 1. It also handles different scenarios based on the `combinations` field in the script. The function then creates a new script dictionary with various fields such as `name`, `productType`, `commentary`, `cmdLineVars`, `database`, `checkMethod`, `checkStrings`, `notCheckStrings`, `orderStrings`, `combinationsFileName`, `combinations`, `createGrids`, `fileChanges`, and `deleteGrids`.
+
+The code also imports the `SiteInfo` module and the `GfePyIncludeUtil` class from the `com.raytheon.uf.common.dataplugin.gfe.python` package. It also uses the `pickle` module, but it doesn't seem to use it in the provided code. 
+
+The code contains several commented out print statements, which were likely used for debugging during development.
+
+The provided code appears to be written in Python and seems to be part of a larger script related to weather forecasting. 
+
+The `getValue` function is a helper function that retrieves a value from a dictionary called `script`. If the key is not found in the `script` dictionary, it tries to get it from a `defaults` dictionary. If the key is not found in either dictionary, it returns a provided default value.
+
+The main part of the code is creating a list of dictionaries, where each dictionary represents a script with various parameters such as "publishGrids", "gridsStartTime", "drtTime", "decodeVTEC", etc. The values for these parameters are fetched using the `getValue` function.
+
+The `general_createGrids` list appears to contain tuples with information about different forecast parameters like temperature (MaxT, MinT, T), dew point (Td), wind, sky condition, weather (Wx), probability of precipitation (PoP), quantitative precipitation forecast (QPF), and snow amount (SnowAmt). Each tuple contains details like the forecast type, the start and end times, default values, and applicable conditions.
+
+Please note that without the full context or the complete code, this is a high-level analysis based on the provided code snippet.
+
+This code appears to be a part of a weather forecasting system. It's defining a series of tuples that represent weather forecasts for different periods of time. Each tuple represents a forecast for a specific type of weather condition (like temperature, wind, sky condition, etc.) over a specific time period.
+
+Each tuple contains the following elements:
+
+1. "Fcst": This likely stands for "Forecast". It's a constant across all tuples, indicating that all these tuples are related to forecasting.
+
+2. The second element represents the type of weather condition being forecasted. For example, "T" stands for temperature, "Wind" for wind conditions, "Sky" for sky conditions, "Wx" for general weather conditions, "PoP" for probability of precipitation, "QPF" for quantitative precipitation forecast, and "SnowAmt" for snow amount.
+
+3. The third element represents the data type of the forecast. For example, "SCALAR" could represent a single numerical value, while "VECTOR" could represent a value with direction, and "WEATHER" could represent a complex weather condition.
+
+4. The fourth and fifth elements represent the start and end times of the forecast period, respectively.
+
+5. The sixth element represents the forecast value. For example, for temperature ("T"), it's a numerical value representing the temperature. For wind ("Wind"), it's a tuple representing the wind speed and direction. For weather ("Wx"), it's a string representing complex weather conditions.
+
+6. The last element represents the area for which the forecast is applicable. In most cases, it's "all", but in some cases, it's a list representing specific areas like "BelowElev" and "AboveElev".
+
+This code is essentially creating a structured data set of weather forecasts for different weather conditions, time periods, and areas.
+
+This code appears to be a series of tuples that represent forecast data for a weather application. Each tuple contains the following elements:
+
+1. The string "Fcst", which likely stands for "Forecast".
+2. A string representing a weather parameter such as "Wind", "Sky", "Wx" (Weather), "PoP" (Probability of Precipitation), "QPF" (Quantitative Precipitation Forecast), "SnowAmt" (Snow Amount), "T" (Temperature), "Td" (Dew Point Temperature), "MaxT" (Maximum Temperature), and "MinT" (Minimum Temperature).
+3. A string indicating the type of the parameter value, such as "SCALAR" for single values or "VECTOR" for values with direction, and "WEATHER" for weather conditions.
+4. Two numbers representing the start and end times of the forecast period.
+5. The forecasted value for the parameter, which could be a number, a tuple (for "VECTOR" type parameters), or a string (for "WEATHER" type parameters).
+6. The string "all", which might indicate that this forecast applies to all areas or all users.
+
+The forecast periods are overlapping, which suggests that the forecasts are updated regularly. The weather conditions for "Wx" are encoded in a specific format that includes visibility and other factors. The "MaxT" and "MinT" forecasts include expressions like "MaxTBegin + 72", which might be placeholders for actual time values to be inserted later.
+
+The provided code seems to be a part of a weather forecasting system. It appears to be written in Python and is defining two lists of tuples, each tuple representing a specific weather forecast or a grid to be deleted.
+
+The first list of tuples represents different weather forecasts. Each tuple contains the following information:
+
+1. The type of forecast (always "Fcst" in this case).
+2. The specific weather variable being forecasted (e.g., "QPF", "SnowAmt", "T", "Td", "Wind", "Sky", "Wx", "PoP", "MaxT", "MinT").
+3. The type of the variable (e.g., "SCALAR", "VECTOR", "WEATHER").
+4. The start and end times of the forecast.
+5. The forecasted value or values for the variable.
+6. The area for which the forecast applies (always "all" in this case).
+
+The second list, `general_deleteGrids`, appears to represent a list of grids to be deleted. Each tuple contains:
+
+1. The type of forecast (always "Fcst" in this case).
+2. The specific weather variable (e.g., "PoP", "MaxT", "MinT", "T", "Td", "WindChill", "HeatIndex", "StormTotalSnow", "SnowLevel", "FzLevel", "RH", "Wind", "Sky", "WindGust", "Wx", "QPF", "SnowAmt", "Hazards", "pwsD34", "pwsN34", "pwsD64", "pwsN64").
+3. The level of the variable (always "SFC" in this case, which might stand for "surface").
+4. The start and end times for which the grid should be deleted.
+
+This code could be part of a larger system that uses these lists to generate weather forecasts and manage the underlying data grids.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

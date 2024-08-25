@@ -1,0 +1,82 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>runProcedure.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>runProcedure.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script, named `runProcedure.py`, is designed to run Procedures from the command line. It was developed and/or modified by Raytheon Company under a US Government contract. The script contains export-restricted data, and its export/transfer/disclosure is restricted by U.S. law.
+
+The script defines two classes: `ProcedureRunner` and `RunProcedure`. 
+
+The `ProcedureRunner` class inherits from `MasterInterface.MasterInterface` and is used to run a procedure given a module name, class name, method name, and other optional arguments. If an `EditActionError` exception is encountered during the procedure execution, it is caught and a `RuntimeError` is raised with a message containing the module name and error information.
+
+The `RunProcedure` class is used to run a procedure given a procedure name, configuration file, start time, end time, time range, edit area, mutable model, and variable dictionary. The class imports the configuration file, logs the configuration file event, checks and sets the mutable model, creates a time range, and sets the edit area.
+
+The script also includes a software history section that logs changes made to the script over time, including the date, ticket number, engineer's name, and description of the change.
+
+Please note that the code provided is not complete, and the full functionality of the `RunProcedure` class is not visible.
+
+This script is designed to run a procedure with a given set of parameters. Here's a breakdown of the code:
+
+1. The `ger().emptyRefSet()` function is called, which seems to clear a reference set. The exact functionality depends on the implementation of `ger()` and `emptyRefSet()`.
+
+2. The `LogStream.logVerbose("varDict=", varDict)` line logs the variable dictionary (`varDict`) with a verbose log level.
+
+3. A `ProcedureRunner` object is created with the procedure name (`procName`).
+
+4. The script checks for import errors in the procedure. If there are any, it logs them and stops the execution.
+
+5. The procedure is instantiated with the class name (`CLASS_NAME`) and a dictionary containing the data manager (`self.__dataMgr`), and then it's run with several parameters.
+
+6. The `decodeTimeStruct(self, timeStruct)` function is defined, which seems to convert a time structure into an absolute time.
+
+7. The `RunProcedure` class is instantiated with several arguments from the command line.
+
+8. The `validateArgs(args=None, parents=[])` function is defined. It uses the `argparse` library to parse command line arguments.
+
+9. The `main()` function is defined. It validates the arguments, sets the displaced real time (`drt`) if provided, runs the procedure, and resets the `drt` if it was set.
+
+10. If the script is run directly (not imported as a module), it calls the `main()` function.
+
+In summary, this script is a command line tool to run a specific procedure with a set of parameters. The parameters are passed as command line arguments. The script also handles logging and error checking.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

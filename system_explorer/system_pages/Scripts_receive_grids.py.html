@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>receive_grids.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>receive_grids.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a larger system developed by Raytheon Company under a contract with the US Government. It appears to be part of the AWIPS II system, a weather forecasting and analysis software package.
+
+The script is designed to process received digital data. It does this by establishing a connection to a service, creating a request, sending the request to the service, and handling the response.
+
+Here's a breakdown of the code:
+
+1. The `main()` function is the entry point of the script. It retrieves connection parameters by calling the `getConnectionParams()` function. It then tries to create a request using the `createRequest()` function and sends this request to a service using a Thrift client. If any exceptions occur during this process, they are caught and printed to the console. If the server response indicates an error, this is also printed to the console.
+
+2. The `getConnectionParams()` function retrieves the host and port for the service connection from environment variables `SVCBU_HOST` and `CDSPORT`.
+
+3. The `createRequest()` function creates a `ProcessReceivedDigitalDataRequest` object. This object is populated with a workstation ID, a site ID, and a received data file. The site ID and received data file are taken from command line arguments.
+
+The script is designed to be run from the command line, and it expects certain command line arguments and environment variables to be set. If these are not set correctly, the script will likely fail.
+
+This script is a part of a larger system, and its full functionality can only be understood in the context of that system.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

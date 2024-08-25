@@ -1,0 +1,80 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>GenericReport.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>GenericReport.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a Python script for a text product, likely used in a weather forecasting system. It is a base file and is not intended to be overridden. The code is part of a software developed by Raytheon Company under a contract with the US Government, and it contains export-restricted data.
+
+The script begins with a detailed comment section that provides information about the software, the contractor, export control, and customization points for the code. It also includes a section for troubleshooting, weather elements needed, associated utilities files, development tasks, and additional information.
+
+The code imports several modules, including TextRules, SampleAnalysis, ForecastNarrative, time, string, types, and copy, as well as ProcessVariableList and AbsTime.
+
+It then defines a class named TextProduct, which inherits from the TextRules and SampleAnalysis classes. This class has a dictionary attribute named Definition, which contains configuration items for the text product. These items include the type of product, the source database, whether or not to include cities in the area header, and others.
+
+The configuration items can be customized according to the needs of the user. For example, the "displayName" item, if not None, defines how the product appears in the Graphical Forecast Editor (GFE) GUI. Other required configuration items include "productName", "fullStationID", "wmoID", "pil", "areaName", "wfoCityState", etc. There are also optional configuration items like "mapNameForCombinations", "database", "outputFile", "debug", "textdbPil", "awipsWANPil", "lineLength", etc.
+
+The code also includes a software history section, which records changes made to the software over time.
+
+This code appears to be part of a larger Python program, possibly for generating weather forecasts or similar reports. It defines a class with several methods for generating and processing these reports.
+
+The class has a dictionary at the top which seems to be used for configuring various aspects of the report, such as the product name, station ID, language, line length, and expiration time.
+
+The `__init__` method initializes the class by calling the `__init__` methods of two parent classes, `TextRules` and `SampleAnalysis`.
+
+The `generateForecast` method appears to be the main method of the class. It takes an argument dictionary and uses it to generate a forecast. It does this by first getting a list of areas to generate the forecast for, then determining the time ranges for the forecast, sampling the data, and finally generating the forecast for each area in the list.
+
+The `_getVariables` method retrieves variables from the argument dictionary and sets them as instance variables for the class.
+
+The `_determineTimeRanges` method sets up the time range for the forecast.
+
+The `_sampleData` method seems to be a placeholder for a method that would sample and analyze the data for the forecast.
+
+The `_preProcessProduct` and `_preProcessArea` methods generate the headers for the product and each area in the forecast.
+
+The `_makeProduct` and `_postProcessArea` methods seem to be placeholders for methods that would generate the forecast for each area and add any necessary post-processing.
+
+Finally, the `_postProcessProduct` method updates the progress percentage and generates a completion message.
+
+The text you've provided appears to be a comment or a section header in a code file, likely indicating that the following section of the code contains methods that are specific to a product. However, without any actual code provided, it's impossible to determine what specific functionality this section of the code provides. Please provide the code under this comment for a more detailed analysis.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

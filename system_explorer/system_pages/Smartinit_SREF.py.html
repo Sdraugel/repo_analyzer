@@ -1,0 +1,64 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>SREF.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>SREF.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is written in Python and seems to be a part of a larger weather forecasting software developed by Raytheon Company. The code is primarily concerned with the creation and manipulation of weather elements derived from the SREF (Short-Range Ensemble Forecast) model.
+
+The code begins with a class definition for `SREFForecaster`, which is a subclass of a `Forecaster` class (not defined in the provided code). The `SREFForecaster` class is initialized with the name "SREF".
+
+The `SREFForecaster` class has several methods:
+
+1. `__init__(self)`: This is the constructor method that initializes an instance of the class. It calls the constructor of the superclass `Forecaster` with the argument "SREF".
+
+2. `levels(self)`: This method returns a list of strings representing different atmospheric pressure levels (in millibars). These levels are likely used for vertical atmospheric soundings.
+
+3. `calcT(self, tmean_FHAG2)`: This method takes a temperature parameter `tmean_FHAG2` and returns its value converted from Kelvin to Fahrenheit.
+
+4. `calcTd(self, dptmean_FHAG2)`: This method takes a dew point temperature parameter `dptmean_FHAG2` and returns its value converted from Kelvin to Fahrenheit.
+
+5. `calcWind(self, uwmean_FHAG10, vwmean_FHAG10)`: This method takes two parameters representing the u and v components of the wind vector at a certain height. It calculates the wind speed and direction, converts the speed from meters per second to knots, and ensures the direction is within the range of 0 to 359.5 degrees.
+
+Finally, there's a `main()` function that creates an instance of `SREFForecaster` and runs it. This is likely the entry point for this module when it's run as a standalone script.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

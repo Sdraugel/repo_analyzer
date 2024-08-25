@@ -1,0 +1,68 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>RoutineLevel1_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>RoutineLevel1_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code seems to be a part of a larger software system developed by Raytheon Company. It is a Python script that appears to be used for generating and formatting various types of weather forecast reports. The script includes a disclaimer about the software being in the public domain and being provided "as is" without any warranty.
+
+The main part of the script defines a list of dictionaries, each representing a different type of report or "product". Each dictionary contains various keys and values that likely dictate how the report is formatted and what information it includes. 
+
+For example, each dictionary includes a "name" key that likely identifies the type of report, a "productType" key that might further categorize the report, a "commentary" key that could be used for logging or debugging, and a "cmdLineVars" key that seems to define various variables used in the report.
+
+Some dictionaries also include a "comboFlag" key that might be used to indicate whether the report includes combinations of different data, a "checkStrings" key that could be used for validation or searching within the report, and a "createGrids" or "fileChanges" key that might be used for modifying the report or the data it's based on.
+
+The script also includes two string variables, def1 and def2, which appear to be used for replacing certain text within a file as specified in the "fileChanges" key of the first dictionary in the list.
+
+This Python code defines a list of dictionaries, each representing a different type of weather forecast formatter. Each dictionary contains the following keys:
+
+- "name": A unique identifier for the formatter.
+- "productType": The type of product that the formatter produces.
+- "commentary": A brief description of the formatter.
+- "cmdLineVars": A string representation of a dictionary containing additional configuration for the formatter.
+- "comboFlag": A flag indicating whether the formatter supports combinations (1 if it does, 0 otherwise).
+- "combinations": If "comboFlag" is 1, this key specifies the type of combinations supported.
+- "checkStrings": A list of strings that are expected to be found in the output of the formatter.
+
+After defining this list, the code imports a module named "TestScript" and defines a function named "testScript". This function takes three arguments: "self", "dataMgr", and "level". It calls a function named "generalTestScript" from the "TestScript" module, passing the list of formatters ("scripts"), an empty dictionary, and the "level" argument to it. The purpose of this function seems to be to test the different weather forecast formatters.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,138 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>FWM.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>FWM.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This is a software header and configuration file. It provides important information about the software, its history, and how to configure it. Here's a breakdown of what it does:
+
+1. **Software Information**: It starts by providing information about the software's development, including the company that developed it (Raytheon Company), the contract under which it was developed, and the restrictions on its export due to U.S. law.
+
+2. **Software History**: It provides a brief history of the software, including the date of a particular modification, the ticket number associated with that modification, the engineer who made the modification, and a description of what was changed.
+
+3. **Description and Copying**: It provides a description of what the software does, and the terms under which it can be copied. In this case, the software is in the public domain and can be used without warranty or technical support.
+
+4. **File Names and Locations**: It provides information about the standard and local file names and locations.
+
+5. **Customization Points**: It provides a list of configuration items that can be customized by the user. These include display name, default edit areas, full station ID, WMO ID code, product pil, and many others.
+
+6. **Weather Elements Needed**: It provides a list of weather elements that are needed by the software to function properly.
+
+7. **Edit Areas Needed**: It provides information about the areas that need to be edited.
+
+8. **Associated Utilities Files**: It provides information about any associated utilities files.
+
+9. **Component Products**: It provides information about any component products.
+
+10. **Development Tasks**: It provides information about any development tasks that are in progress.
+
+11. **Additional Information**: It provides space for any additional information that might be relevant.
+
+This Python code defines a class `TextProduct` that inherits from two other classes, `TextRules` and `SampleAnalysis`. The class is used to generate a text-based product (likely a report or analysis) based on certain parameters and data.
+
+The `TextProduct` class has a dictionary `Definition` that holds various configuration settings and parameters for the product generation. These include identifiers, default areas, optional variables, and other settings.
+
+The class has an `__init__` method that initializes the parent classes, and a `generateForecast` method that generates the product based on the given arguments. This method retrieves variables from the argument dictionary, determines time ranges, samples the data, and then generates the product for each area in the list.
+
+The `_getVariables` method retrieves variables from the argument dictionary and the `Definition` dictionary, and sets them as attributes of the object. It also calculates current times.
+
+The `_determineTimeRanges` method sets up a list of time ranges based on whether a 7-day forecast is enabled or not. It creates different ranges for different variables.
+
+The code also imports three modules: `TextRules`, `SampleAnalysis`, and `time`. The first two are likely custom modules that provide functionality for text rules and sample analysis, while `time` is a standard Python module for time-related functions.
+
+This code appears to be part of a larger program that generates weather forecasts. Here's a breakdown of what each section does:
+
+1. The first section of the code creates a list of time ranges for different weather parameters (MaxMinTRH, WxDur1, WxDur2, and Prior). These ranges are adjusted according to daylight savings time.
+
+2. The `_sampleData` method is used to sample the data using the provided arguments.
+
+3. The `_preProcessProduct` method creates a header for the overall product using various identifiers and timestamps.
+
+4. The `_preProcessArea` method determines the product type based on the length of the area label.
+
+5. The `_makeProduct` method generates a forecast string for each day in the specified range. It does this by extracting and formatting various weather parameters (State of Sky, Temp, RH, LAL1, LAL2, Wind Dir and Speed, Fuel Moisture, T and RH, WxDur1, WxDur2, Wet Flag) for each day.
+
+6. The `_postProcessArea` method doesn't do anything in this code snippet, but it's likely used for additional formatting or processing in the larger program.
+
+7. The `_postProcessProduct` method replaces a placeholder ("%IssueTime") in the forecast string, but the replacement string isn't shown in this code snippet.
+
+Overall, this code is responsible for generating a detailed weather forecast for a specified area and time range.
+
+The code appears to be a part of a larger program that is used for weather forecasting. Here's a brief description of what each part does:
+
+- `self.getCurrentTime(argDict,"%d%H%M", shiftToLocal=0, upperCase=1))`: This line is getting the current time in the format "%d%H%M". The `shiftToLocal` argument is set to 0, meaning no shift to local time, and `upperCase` is set to 1, meaning the output will be in uppercase.
+
+- `self.setProgressPercentage(100)`: This line is setting the progress of some operation to 100%, indicating that the operation is complete.
+
+- `self.progressMessage(0, 100, self._displayName + " Complete")`: This line is displaying a progress message that the operation is complete.
+
+- `return fcst`: This line is returning the forecast.
+
+- `_getAnalysisList(self)`: This method returns a list of tuples, where each tuple contains a string and a method. These could be different types of weather analyses.
+
+- `_getWIMSTime(self, currentTime)`: This method returns a string representing the time 24 hours from the current time.
+
+- `_sky(self, rangeName)`: This method returns a sky value based on the sky and PoP values.
+
+- `_getWxCode(self, rangeName)`: This method returns a weather code based on the weather type.
+
+- `_getWind(self, rangeName, priorRangeName=None)`: This method returns a string representing the wind speed and direction.
+
+- `_getWxDur(self, rangeName)`: This method returns the duration of a particular weather condition.
+
+- `_getStrValue(self, element, rangeName, trendElement=None, priorRangeName=None, stats="avg")`: This method returns a scalar text string value for a given element and range name.
+
+The code is incomplete, so it's difficult to provide a more detailed analysis.
+
+This code appears to be a part of a larger Python class, as it includes several method definitions. Here's a breakdown of what each method does:
+
+1. The first block of code is a method that calculates the difference between a current value and a prior value. If the difference is greater than or equal to zero, it returns the difference as a string with a "+" sign in front. If the difference is less than zero, it simply returns the difference as a string. If the prior value is not defined, it returns the current value as a string.
+
+2. The `_getValue` method is used to return a scalar value based on a specified range name and statistical measure (average, max, or min). It iterates over a list of time ranges until it finds the specified range name, then retrieves the corresponding statistics. If the stats parameter is "avg", it returns the average value. If it's "max", it returns the maximum value, and if it's "min", it returns the minimum value.
+
+3. The `_getWetflag` method retrieves the value of "Wetflag" for a specified range. If the value is `None` or `0`, it returns "N". Otherwise, it returns "Y".
+
+4. The `_reportAsTrends` method checks the product type and whether it should be reported as trends. If the product type is "FCST" and it should be reported as trends for "FCST", or if the product type is "ZONE" and it should be reported as trends for "ZONE", it returns `1`. Otherwise, it returns `0`. 
+
+This code seems to be part of a larger system for analyzing and reporting on weather data, given the references to "Wetflag", "FCST" (possibly forecast), and "ZONE".</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>testDataStore.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>testDataStore.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is a test suite for a data storage system, specifically for the H5pyDataStore class. It uses the h5py library, which is a Pythonic interface to the HDF5 binary data format, to store and retrieve data. The script creates a temporary HDF5 file and performs a series of tests on it, including storing data, partially writing data, retrieving group data, deleting data, and creating a dataset. 
+
+Here's a breakdown of the tests:
+
+1. `testStore`: This function tests the ability of the system to store data. It creates a StoreRequest, sets some parameters, and attempts to store a FloatDataRecord. If the operation fails, it returns False; otherwise, it returns True.
+
+2. `testPartialWrite`: This function tests the ability of the system to partially overwrite existing data. It creates a StoreRequest, sets some parameters, and attempts to store a FloatDataRecord at a specific index. If the operation fails, it returns False; otherwise, it returns True.
+
+3. `testGroupRetrieve`: This function tests the ability of the system to retrieve group data. It creates a GroupsRequest, sets some parameters, and attempts to retrieve a group of data. It always returns True, indicating the test passed.
+
+4. `testDelete`: This function tests the ability of the system to delete data. It creates a DeleteRequest, sets some parameters, and attempts to delete a specific data location. It always returns True, indicating the test passed.
+
+5. `testCreateDataset`: This function tests the ability of the system to create a new dataset. It creates a CreateDatasetRequest, sets some parameters, and attempts to create a new FloatDataRecord. It always returns True, indicating the test passed.
+
+The `main` function runs all the tests and prints out the number of tests that passed and failed. If the script is run as a standalone program, it will execute the `main` function.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

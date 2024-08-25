@@ -1,0 +1,165 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Aviation_Timer.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Aviation_Timer.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be a part of a larger software application related to aviation, possibly a timer or scheduling tool. The script is written by Tom LeFebvre and is in the public domain. 
+
+The script imports several modules, including time, tkinter for GUI, numpy for numerical operations, and some custom modules such as AbsTime, TimeRange, SmartScript, and Aviation_EDASConfig.
+
+The main class in this script is Procedure, which inherits from SmartScript.SmartScript. It contains several methods that seem to be related to creating and managing a graphical timeline or schedule:
+
+- `__init__` initializes the Procedure object.
+- `makeTimeRange` creates a TimeRange object, which likely represents a span of time.
+- `makeTimeScale` creates a GUI for the time scale, including a horizontal line representing the time scale and markers for start and end times. It also handles user interactions with the time scale, such as pressing, releasing, and moving the time markers.
+- `markerCoords` calculates the coordinates of a time marker.
+- `drawTimeMarker` draws a time marker at a specified time.
+- `markerPress` handles the event when a time marker is pressed.
+- `markerMotion` handles the event when a time marker is moved or dragged.
+- `markerRelease` handles the event when a time marker is released.
+
+The script seems to be designed to allow users to interactively adjust the start and end times on a time scale, possibly for scheduling or timing purposes in an aviation context.
+
+The provided code appears to be a part of a larger program, likely a graphical user interface (GUI) written in Python using the Tkinter library. It includes several methods that perform various operations:
+
+1. The first block of code seems to be adjusting start and end markers based on a given release time. It checks whether the release time is less than the start time or greater than the end time, and adjusts the markers accordingly. After this, it resets the start and end markers to False.
+
+2. The `weButtonClicked` method toggles the state of a button (selected or not selected) and changes its color accordingly. It also calls a method `drawTimeSeries` which likely updates a graphical display.
+
+3. The `zoomButtonClicked` method seems to control the zoom functionality of a button. It toggles the state of the button (selected or not selected) and changes its text to "Zoom In" or "Zoom Out". It also adjusts the vertical scale for values and redraws the time series.
+
+4. The `makeBottomButtons` method creates three buttons ("Run", "Run and Dismiss", and "Cancel") at the bottom of a frame.
+
+5. The `timeToX` and `xToTime` methods convert time in seconds to an x-coordinate and vice versa, likely for plotting on a graph.
+
+6. The `yToValue` and `valueToY` methods convert a y-coordinate to a value and vice versa, likely also for plotting on a graph.
+
+7. The `dimColor` method returns a color string that is a fraction of the specified color's brightness.
+
+8. The `makeTimeRangeList` method creates a list of time ranges starting at the current hour to a configured number of hours.
+
+9. The `exit` method destroys all the widgets for the GUI.
+
+10. The `executeCommand` method appears to execute the editing process, but it's incomplete and it's not clear what it does exactly.
+
+The commented out code seems to be previous versions of the `yToValue` and `valueToY` methods.
+
+This code appears to be part of a larger program, possibly a graphical user interface (GUI) for visualizing and editing weather forecast data. Here's a breakdown of what the different parts of the code do:
+
+1. The first block of code is responsible for updating the forecast grids based on user edits. It first retrieves the edit area and encodes it into a mask. Then, it creates a time range for the edits and iterates over all supported weather elements (WEs). If a WE is not selected, it is skipped. For each selected WE, it retrieves the time series data and time ranges. If a time range does not overlap with the edit time range, it is skipped. Otherwise, it fetches the corresponding grid and updates it based on the time series data. The updated grid is then saved to the forecast database.
+
+2. The `executeDismissCommand` method is called when the Run/Dismiss button is clicked. It executes the command and then cancels it.
+
+3. The `cancelCommand` method is called when the Cancel button is clicked. It destroys the master Tkinter widget, effectively closing the GUI.
+
+4. The `mouseEvent` method handles mouse events. It checks if a mouse button was pressed or released, and if the Shift key was pressed or released. It also determines the weather element that was clicked on and the corresponding value. If the mouse button is down and the click is within the valid time range, it updates the time series data and redraws the time series display.
+
+5. The `makeValueScale` method draws the vertical value scale on the canvas. It first calculates the scaling for the y-axis, then draws a box around the time series. It also draws the vertical scale with value labels and horizontal lines for better y-value awareness.
+
+This code appears to be part of a larger Python program that uses the Tkinter library to create a graphical user interface (GUI) for visualizing and interacting with weather data. 
+
+The code contains several functions:
+
+1. The first function draws shadow lines on a canvas to indicate time. It iterates over a range of time and draws a line for each hour. The color of the line depends on whether the hour is a multiple of 6.
+
+2. `makeWEButton` creates a button for a specific weather element. The button's color is determined by a configuration dictionary and when clicked, it triggers the `weButtonClicked` function with the weather element's name.
+
+3. `makeZoomButton` creates a zoom button for a specific weather element. If the zoom factor for that element is not 1.0, it creates a button that triggers the `zoomButtonClicked` function when clicked.
+
+4. `getWEType` returns the type of a specific weather element.
+
+5. `getParmMinMax` returns the minimum and maximum allowed values for a specific weather element.
+
+6. `initializeTimeSeries` initializes a time series dictionary for a specific weather element.
+
+7. `drawTimeSeries` fetches the time series data for a specific weather element and draws it on a canvas.
+
+8. `drawSample` draws a sample value on the canvas.
+
+9. `removeSample` removes the sample value from the canvas.
+
+10. `valueStr` returns a string representation of a value for a specific weather element.
+
+11. `closestReportableValue` returns the closest reportable value for a specific weather element.
+
+12. `editAreaSelected` is triggered when an edit area is clicked on or off. It toggles the selection of the edit area.
+
+The code seems to be part of a larger system for visualizing and editing weather data.
+
+This code is part of a larger program that seems to be a graphical user interface (GUI) tool for editing or viewing data over time. It's likely written in Python and uses the Tkinter library for creating the GUI. Here's a breakdown of what each function does:
+
+1. `makeEditAreaButtons(self, frame)`: This function creates a set of check buttons for each "edit area" defined in the configuration. Each button is associated with a callback function (`cbHandler`) that is triggered when the button is clicked.
+
+2. `getScaleValues(self, weName)`: This function retrieves the minimum, maximum, and tick values for a given element from the configuration. If a zoom button for the element is selected, it adjusts the maximum value and, in the case of the "Sky" element, also adjusts the minimum and tick values.
+
+3. `defineGeometry(self)`: This function defines various geometric parameters for the GUI, such as the size of the canvas, the geometry of the time scale, and the marker dimensions.
+
+4. `displayWindowOnCursor(self)`: This function updates the position of the window to be centered around the current cursor position.
+
+5. `setUpUI(self)`: This function sets up the user interface. It creates a canvas for each supported element, binds mouse events to the canvas, creates a zoom button and a scale for each element, and initializes the time series for each element. It also creates a frame for the time scale and sets the window title.
+
+6. `execute(self, timeRange)`: This function appears to be the main function that runs the tool. It retrieves the configuration for the tool, calculates the start and end times for the display, and sets the edit times. It also seems to be preparing to set the edit times based on the input time range, but the code is cut off.
+
+The code is well-structured and makes good use of object-oriented programming principles. Each function has a clear and distinct responsibility, which makes the code easier to understand and maintain.
+
+This part of the code seems to be initializing a graphical user interface (GUI) for a weather forecasting application. It's written in Python and uses the Tkinter library for the GUI. Here's a breakdown of what it does:
+
+1. It sets up the start and end times for the application, which can be edited by the user. If the start and end times from the GFE (Graphical Forecast Editor) are within the range of the original start and end times, they are used instead.
+
+2. It initializes several variables and dictionaries related to the application's functionality. For example, `_buttonDown`, `_activeWE`, `_shiftButtonDown`, `_grabValue`, `_editAreaDict` are all initialized. It also sets up the default edit areas and colors from the configuration.
+
+3. It creates a new Tkinter window (`_tkmaster`) and a top-level widget (`_master`) within this window. It also sets up a protocol for the 'WM_DELETE_WINDOW' event, which is triggered when the user tries to close the window.
+
+4. It sets up the mouse button used for editing according to the configuration.
+
+5. It defines the weather elements (`_supportedWEs`) that the application can handle. For each of these elements, it creates an empty dictionary in `_weDict`.
+
+6. It calls `defineGeometry()` to fill the `geoDict` with information about the geometries of the weather elements.
+
+7. It sets up the user interface by calling `setUpUI()`.
+
+8. It draws the time series for each weather element by calling `drawTimeSeries()`.
+
+9. Finally, it starts the Tkinter event loop by calling `_master.mainloop()`. This is necessary for the GUI to start responding to user events.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

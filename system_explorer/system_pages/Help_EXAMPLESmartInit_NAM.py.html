@@ -1,0 +1,122 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>EXAMPLESmartInit_NAM.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>EXAMPLESmartInit_NAM.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a weather forecasting software developed by Raytheon Company. It contains a class `NAMForecaster` that inherits from `Forecaster` class (imported from `Init` module). The `NAMForecaster` class is designed to calculate surface weather elements from NAM (North American Mesoscale) model output.
+
+The class has several methods:
+
+- `__init__`: This is the constructor method that initializes the class with the name "NAM".
+
+- `levels`: This method returns a list of levels that will be used to create vertical soundings. These levels are model-dependent.
+
+- `calcMaxT`: This method takes two arguments, `T` and `MaxT`, and returns the maximum of the two. If `MaxT` is `None`, it returns `T`.
+
+- `calcMinT`: This method takes two arguments, `T` and `MinT`, and returns the minimum of the two. If `MinT` is `None`, it returns `T`.
+
+- `calcT`: This method calculates the temperature at the elevation indicated in the topo grid. It uses the model's boundary layers to calculate a lapse rate and then applies that lapse rate to the difference between the model topography and the true topography. 
+
+- `calcTd`: This method calculates the dew point from the specified pressure, temperature, and relative humidity fields.
+
+The script also contains a header with licensing information and a warning about export control restrictions.
+
+This code is a collection of methods that perform various calculations related to weather data. Here's a brief description of what each method does:
+
+1. `calcRH(self, T, Td)`: This method calculates the relative humidity (RH) from temperature (T) and dew point (Td) grids. The calculations are based on formulas that convert temperatures from Fahrenheit to Celsius, and then use these values to calculate the saturation vapor pressures for the given temperatures. The RH is then calculated as the ratio of these pressures, multiplied by 100 to get a percentage.
+
+2. `calcMaxRH(self, RH, MaxRH)`: This method returns the maximum of the specified MaxRH and the RH grids. If MaxRH is None, it returns the RH.
+
+3. `calcMinRH(self, RH, MinRH)`: This method returns the minimum of the specified MinRH and the RH grids. If MinRH is None, it returns the RH.
+
+4. `calcQPF(self, tp_SFC)`: This method calculates the Quantitative Precipitation Forecast (QPF) from the total precipitation field out of the model. It converts the value from millimeters to inches.
+
+5. `calcSky(self, rh_c, gh_c, topo, p_SFC)`: This method calculates the sky condition based on relative humidity, geopotential height, topography, and surface pressure.
+
+6. `calcPoP(self, gh_c, rh_c, QPF, topo)`: This method calculates the probability of precipitation based on QPF and RH cube. It adjusts the probability based on humidity and clips the probability to a maximum of 100%.
+
+7. `calcFzLevel(self, gh_c, t_c)`: This method calculates the freezing level based on height and temperature cubes. It finds the height at which freezing occurs and converts the value to feet.
+
+8. `calcSnowLevel(self, gh_c, t_c, rh_c)`: This method calculates the snow level based on wet-bulb zero height. It finds the level at which the wetbulb temperature crosses zero and converts the value to feet.
+
+The final commented method `Calculates Snow amount based on the Temp, Freezing level, QPF, topo and Weather grid` is not implemented in the provided code.
+
+The provided code is a part of a larger Python script that performs various calculations related to weather conditions. Here's a breakdown of what each function does:
+
+1. `calcSnowAmt(self, T, FzLevel, QPF, topo, Wx)`: This function calculates the amount of snowfall. It first calculates the snow to liquid ratio based on the temperature (T). Then, it calculates the snow amount based on the QPF (Quantitative Precipitation Forecast) and the snow to liquid ratio. Finally, it checks if the weather condition (Wx) is snow, and if not, it sets the snow amount to zero.
+
+2. `calcHaines(self, t_c, rh_c)`: This function calculates the Haines Index, which is a measure of the potential for dry, unstable air to contribute to the development of large or erratic wildfires. The calculation is based on the temperature (t_c) and relative humidity (rh_c) cubes.
+
+3. `calcMixHgt(self, topo, t_c, gh_c)`: This function calculates the mixing height, which is the height at which the atmospheric conditions (temperature and pressure) allow for the mixing of air parcels. It uses the topography (topo), temperature cube (t_c), and height cube (gh_c) for the calculation.
+
+4. `calcWind(self, wind_FHAG10)`: This function converts the wind speed from meters per second to knots. It also clips the wind direction to be within 0 and 359.5 degrees.
+
+5. `calcFreeWind(self, gh_c, wind_c, topo)`: This function calculates the wind speed and direction at 3000 feet above ground level. It uses the height cube (gh_c), wind cube (wind_c), and topography (topo) for the calculation.
+
+6. `calcTransWind(self, MixHgt, wind_c, gh_c, topo)`: This function calculates the average wind vector in the mixed layer, which is defined by the mixing height. It uses the mixing height (MixHgt), wind cube (wind_c), height cube (gh_c), and topography (topo) for the calculation.
+
+The code provided is a Python script that calculates the type, coverage, and intensity of precipitation using a derivation of the Bourgouin algorithm. 
+
+The Bourgouin algorithm determines the type of precipitation by calculating how long a hydrometer is exposed to alternating layers of above and below zero temperature layers. The script calculates at each grid point which of the four Bourgouin cases apply, then applies the appropriate algorithm to that case to further refine the precipitation type. Once the type is determined, other algorithms are used to determine the coverage and intensity.
+
+The `calcWx` function is the main function that implements this algorithm. It takes in several parameters related to weather conditions, such as temperature, pressure, and geopotential height. It then performs a series of calculations to determine the type of precipitation (rain, snow, freezing rain, ice pellets) based on the temperature and pressure at different layers of the atmosphere.
+
+The `calcCWR` function calculates the chance of wetting rain based on the Quantitative Precipitation Forecast (QPF). It categorizes the QPF into four ranges and assigns a corresponding chance of wetting rain to each range.
+
+The code also includes a section that handles cases of showers and thunderstorms, and a section that assigns a 'no weather' condition where the QPF is less than 0.01.
+
+This Python code defines a class method and a main function.
+
+The class method `calcLAL` is part of a class (not fully shown in the provided code) and calculates the Lightning Activity Level (LAL) based on several meteorological parameters: total precipitation, lifted index, and 3-D relative humidity. 
+
+The method starts by creating a new grid `lal` initialized with 1s. It then adds 1 to `lal` if the total precipitation is greater than 0 and the ratio of total precipitation to convective precipitation is greater than 0.5.
+
+Next, it calculates the average relative humidity (`midrh`) from the 7th to 9th elements of `rh_c` and adds 1 to `lal` if `midrh` is greater than 70 and `rh_FHAG2` is less than 30.
+
+Finally, it adds 1 to `lal` if the lifted index (`bli_BL0180`) is less than -3 and another 1 if it's less than -5. The method returns the `lal` grid.
+
+The `main` function simply creates an instance of the `NAMForecaster` class (not shown in the provided code) and runs it. This is typically the entry point of the program. 
+
+Please note that the first part of the code provided seems to be a continuation of a function or method which is not fully included. It seems to be calculating a value `cwr` based on some conditions.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

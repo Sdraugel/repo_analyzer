@@ -1,0 +1,186 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>DefineBreakpoints.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>DefineBreakpoints.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be part of a larger software system, possibly related to weather forecasting or storm tracking, given the references to "stormInfo", "advisories", and "breakpoints". 
+
+The code defines a class named `Procedure` which inherits from `TropicalUtility.TropicalUtility`. The `Procedure` class has several methods for managing and manipulating storm information and related data. 
+
+Here are some of the key methods and their functionalities:
+
+- `__init__`: Initializes an instance of the `Procedure` class with a database session (`dbss`).
+
+- `saveStormInfo`: Saves storm information to JSON files under a specified pil (Product Identifier).
+
+- `getBPZones`: Returns a list of zones for a specified breakpoint dictionary and hazard.
+
+- `makeZoneDict`: Creates a dictionary of hazards and their associated zone lists based on the breakpoint dictionary.
+
+- `makeBPDict`: Creates a dictionary of hazards and their associated breakpoints.
+
+- `breakpointToZoneList`: Returns the corresponding zone list for a given breakpoint name.
+
+- `cancelCommand`: Destroys the tkinter master widget, effectively closing the application.
+
+- `runCommand` and `runDismissCommand`: Save the storm information for the current pil and optionally close the application.
+
+- `makeBottomButtons`: Creates the Execute and Cancel buttons for the application's GUI.
+
+- `startBP` and `endBP`: Return the starting and ending breakpoint names, respectively.
+
+- `singleBP`: Checks if the specified breakpoint is a single (no " - ").
+
+- `findStartBPIndex`: Finds the index where the start breakpoint is the given breakpoint start name.
+
+The code also includes a software history section at the top, which provides a log of changes made to the code over time, including bug fixes and performance improvements.
+
+This code is written in Python and seems to be part of a larger class. The class appears to be managing some sort of list of breakpoints (BPs) and hazards, possibly in a graphical user interface (GUI) given the references to listboxes and color changes. Here's a breakdown of what each method does:
+
+1. `sortBPKeys`: This method sorts a list of breakpoints into two lists: one for linked breakpoints and one for single breakpoints (orphans). It uses two helper functions, `findLinkedIndex` and `findNextAvailableIndex`, to find the next linked breakpoint and the next available index, respectively.
+
+2. `eventToListBox`: This method returns the listbox that corresponds to a specific event. It iterates over a list of hazards and checks if the widget of the current hazard is the same as the event widget.
+
+3. `paintItems`: This method changes the color of listbox entries based on their state. It seems to be used in a context where multiple hazards can be selected at the same time, and the color of the hazards changes based on their selection state.
+
+4. `clearItems`: This method clears the items in the listbox, depending on their state. It sets the background color to white and the foreground color to black, but these colors can be changed if the hazard is in the list of allowed hazard combinations.
+
+5. `allowedComboException`: This method checks if a combination of two hazards is allowed to occur at the same time.
+
+6. `selectedItem` and `deselectedItem`: These methods return the item that was selected or deselected based on the previous selections.
+
+7. `selectListBoxItem` and `deselectListBoxItem`: These methods manage the selection and deselection of items in the listbox. They also manage the painting and clearing of items based on their selection state.
+
+The code seems to be part of a larger system, possibly a GUI for managing and visualizing some sort of hazard or breakpoint system.
+
+The code is written in Python and it appears to be part of a GUI application, possibly using the Tkinter library. The application seems to be dealing with "hazards" and "breakpoints", although the exact nature of these terms is not clear without more context.
+
+Here's a breakdown of what each function does:
+
+1. `isAvailable(self, hazard, item)`: This function checks if a given hazard is available for selection. It iterates over a list of hazards and checks if the given hazard is in the list and if it's allowed to be combined with the other hazards. If the item is already selected, the function returns False, otherwise it returns True.
+
+2. `shiftButtonDown(self, event)`: This function checks if the shift button was pressed during a given event. It does this by performing a bitwise AND operation on the event's state and the hexadecimal value 0x0001.
+
+3. `processContiguousSelection(self, event, listBox, haz)`: This function handles the selection of multiple contiguous items in a list box when the shift key is held down. It determines the start and end items and selects all items in between. It also handles the case where the selection spans over a separator item.
+
+4. `listBoxSelected(self, event)`: This function handles the event of an item being selected in a list box. It determines whether an item was selected or deselected, updates the display, and saves the current selections.
+
+5. `makeListBox(self, frame, bpList, orphanedBPs, label, mode)`: This function creates a list box widget with specific attributes and binds certain events to it. It also adds a scrollbar and a label to the list box.
+
+6. `makeBreakpointList(self, haz)`: This function creates a list of selected breakpoints from a list box.
+
+The code seems to be part of a larger system and without more context, it's hard to determine the exact purpose of the application. However, it's clear that it's a GUI application that allows for complex interactions with a list of items, including multi-selection and handling of special cases like separator items.
+
+This code appears to be part of a larger GUI application, likely written in Python using the Tkinter library for creating the graphical user interface. The code defines several methods for handling user interactions with the application, specifically related to selecting and deselecting items, updating displays, and managing button states.
+
+Here's a brief description of what each method does:
+
+1. `getContiguousBPSegments`: This method returns a list of tuples, each representing a contiguous segment of selected items in a list box.
+
+2. `makeBPString`: This method generates a string representation of the selected items in a list box.
+
+3. `updateBreakpointDisplay`: This method updates the text displayed in the text boxes.
+
+4. `getListBoxItem`: This method returns the index of a specific item in a list box.
+
+5. `deselectPilButton`: This method deselects a specific button and clears the corresponding list box selections.
+
+6. `selectPilButton`: This method selects a specific button, fetches storm information, and updates the list box selections based on the fetched information.
+
+7. `pilButtonSelected`: This method handles the event when a button is selected. It deselects the previously selected button and selects the new one.
+
+8. `makePilButton`: This method creates a new button.
+
+9. `makeHazardLabel`: This method creates a new label.
+
+10. `selectDisplayZonesButton` and `deselectDisplayZonesButton`: These methods handle the selection and deselection of the "Display Zones" button.
+
+11. `displayZonesSelected`: This method handles the event when the "Display Zones" button is clicked.
+
+12. `makeHazardArea`: This method creates the GUI areas that allow the user to display the selected zones.
+
+The code seems to be part of a weather-related application, as it references things like "stormInfo", "hazard", "pil" (possibly referring to Product Identifier Line in weather bulletins), and "breakpoints" (which might refer to specific geographic locations or conditions).
+
+This code appears to be part of a larger Python script that uses the Tkinter library to create a graphical user interface (GUI). The GUI seems to be designed for managing and displaying information related to hazards, possibly in a weather context given the references to "storm info", "breakpoints", and "zones". 
+
+Here's a summary of what the different parts of the code do:
+
+- The first part of the code creates a grid layout in the GUI. It loops through a list of hazards (`self._hazList`), creating a label and a text widget for each hazard. It also creates a button that triggers the `displayZonesSelected()` function when clicked.
+
+- The `getOtherAllowedHazard(self, haz)` function returns the other hazard from the allowed hazard combinations (`self._allowedHazCombos`) that is not the input hazard.
+
+- The `hazardComboSelected(self, haz, item)` function checks if a specific hazard is in the allowed hazard combinations and if it is selected in the list box widget. It returns True if both conditions are met, and False otherwise.
+
+- The `displayZones(self)` function appears to create a grid that allows the user to see the selected zones. It seems to be working with time ranges and some sort of discrete data.
+
+- The `resetZoneDisplay(self)` function resets the zones display grid.
+
+- The `createZoneDisplay(self)` function creates the zones display grid if the `_displayZones` attribute is True. It appears to be working with hazard keys, zone lists, and masks.
+
+- The `updateZoneDisplay(self, haz, item, addHazard)` function updates the zone display with the latest selection. It checks if the hazard was part of an allowed combination and updates the hazard grid accordingly.
+
+- The `getAdvisoryNames(self)` function returns the advisory names based on the current set of JSON files.
+
+- The `fetchStormInfo(self)` function fetches all the storm info dictionaries and stores them in `self._stormInfoDicts`.
+
+- The `setUpUI(self)` function appears to set up the user interface when the program starts. However, the implementation of this function is not provided in the given code.
+
+The provided code is written in Python and uses the Tkinter library to create a graphical user interface (GUI). Here's a breakdown of what the code does:
+
+1. The `execute` function is the main method that sets up the GUI and enters the event loop. It initializes several variables, including lists of hazard types, colors for different hazard types, and other settings for the GUI. It also fetches storm information and sorts the breakpoints.
+
+2. The `setUpUI` function is called at the end of the `execute` function to set up the user interface. This function is not shown in the provided code, but it presumably creates the various widgets (buttons, labels, etc.) that make up the GUI.
+
+3. The code creates a new Tkinter window with the title "Select Breakpoints". This window will be used as the main window for the GUI.
+
+4. The code sets up a protocol to handle the event when the user clicks the "x" button to close the GUI. When this happens, the `cancelCommand` function is called (this function is not shown in the provided code).
+
+5. The code creates several frames (containers for other widgets) and list boxes in the main window. The list boxes are created in a loop that iterates over a list of hazards (`_hazList`), and each list box is associated with a specific hazard.
+
+6. The code also creates a "hazard area" and bottom buttons in the main window, and updates the breakpoint display and zone display.
+
+7. After setting up the GUI, the code enters the Tkinter event loop with the `tk.mainloop()` command. This allows the GUI to respond to user interactions such as button clicks and text input.
+
+Overall, this code is setting up a GUI for selecting and displaying information about storm-related hazards. The GUI includes several list boxes for selecting hazards, buttons for running commands, and areas for displaying information about the selected hazards and breakpoints.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

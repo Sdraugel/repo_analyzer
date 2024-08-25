@@ -1,0 +1,68 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>__init__.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>__init__.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of the `pypies` package. It primarily sets up the configuration and logging for the package, and also defines some exceptions and a wrapper function.
+
+Here's a detailed breakdown:
+
+1. The script starts with a long comment section that includes licensing and contract information, as well as a software history log.
+
+2. It then imports necessary modules and packages, including `IDataStore` and `config` from the current package, and `sys`, `os`, and `pypiesConfigurationManager` from `pypies.config`.
+
+3. The `configure` function is defined to load the configuration for `pypies`. If the configuration fails to load, the program will exit with an error code.
+
+4. The `getLogger` function is defined to set up a logger for the package. It creates a logger named 'pypies' that sends log events to a socket handler on a specified port.
+
+5. The `getHdf5Dir` function is defined to determine the root directory for hdf5 data files. If the directory doesn't exist, it will be created.
+
+6. The `getFullDiskThreshold` function retrieves a threshold value from the configuration that presumably is used to monitor disk usage.
+
+7. The script then calls these functions to set up the configuration, logger, and other variables.
+
+8. The `pypiesWrapper` function is defined as a lambda function that wraps around the `PypiesHandler` from the `handlers` module.
+
+9. Two exception classes, `NotImplementedException` and `StorageException`, are defined for use within the package. Both exceptions take an optional message argument and return this message when converted to a string.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

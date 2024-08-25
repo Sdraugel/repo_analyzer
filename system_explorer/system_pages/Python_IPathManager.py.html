@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>IPathManager.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>IPathManager.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code defines an abstract base class (ABC) named `IPathManager` with the help of the `abc` module. An abstract base class is a class that contains one or more abstract methods and cannot be instantiated. An abstract method is a method declared in an abstract class but does not contain any implementation. Subclasses of this abstract class are generally expected to provide implementations for these abstract methods.
+
+The `IPathManager` class has four abstract methods:
+
+1. `getLocalizationFile(self, name, context=None)`: This method is expected to be overridden by a subclass to provide a way to get a localization file given its name and context.
+
+2. `getTieredLocalizationFile(self, loctype, name)`: This method is expected to be overridden by a subclass to provide a way to get a tiered localization file given its type and name.
+
+3. `listFiles(self, name, extensions, recursive, filesOnly, loctype=None, loclevel=None, locname=None)`: This method is expected to be overridden by a subclass to provide a way to list files given a set of parameters.
+
+4. `getAvailableLevels(self)`: This method is expected to be overridden by a subclass to provide a way to get available levels.
+
+The comments at the top of the code indicate that this software was developed and/or modified by Raytheon Company under a contract with the US Government. The software contains export-restricted data, and its export/transfer/disclosure is restricted by U.S. law. The comments also provide the contractor's name, address, and contact information. The software's history, including the date of its initial creation and the engineer responsible, is also documented.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

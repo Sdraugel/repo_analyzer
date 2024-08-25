@@ -1,0 +1,76 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>AddProductIdToWarnGenTemplates.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>AddProductIdToWarnGenTemplates.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to insert a `productId` tag into `.vm` and `.xml` files located in specific directories. The `productId` is a unique identifier for a product. The script is particularly useful for files related to the `warngen` system, which is a warning generation system.
+
+Here's a detailed breakdown of what the script does:
+
+1. It defines the paths to the `.xml` files and the base template directory that it will work with.
+
+2. It defines several regular expression patterns that it will use to search for specific strings in the files.
+
+3. It defines a function, `__backupFile(orig)`, to create a unique backup file name from the original file. This function is used to ensure that the original file is not lost in case something goes wrong during the process.
+
+4. The `main()` function is where the main logic of the script is implemented. It does the following:
+
+   - It loops over all `.xml` files in the specified path.
+   
+   - It opens each file and reads its contents. If the file does not contain the string `<warngenConfig>`, it skips to the next file because it's not a template configuration file.
+   
+   - It checks if the file already contains a `productId`. If it does, it skips to the next file.
+   
+   - It tries to get the `productId` from the base `.xml` file. If it can't find it there, it tries to get it from the site `.vm` template file.
+   
+   - If it still can't find the `productId`, it prints an error message and skips to the next file.
+   
+   - It then inserts the `productId` tag into the `.xml` file before the `phensig` tag.
+   
+   - It creates a backup of the original `.xml` file and then writes the new contents to the file.
+   
+   - If a site template exists, it attempts to insert the `productId` into it as well, creating a backup of the original template file and then writing the new contents to the file.
+
+5. If the script is run as the main program (not imported as a module), it calls the `main()` function to start the process.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

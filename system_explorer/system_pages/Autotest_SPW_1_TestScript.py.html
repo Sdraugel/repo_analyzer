@@ -1,0 +1,190 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>SPW_1_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>SPW_1_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a part of a weather forecasting software developed by Raytheon Company. It appears to be written in Python and it seems to be creating forecast grids for different weather parameters such as Sky, PoP (Probability of Precipitation), and Wx (Weather). 
+
+The code starts with defining two versions of a period as `periodVer1` and `periodVer2`. 
+
+Then, it defines a list of scripts. Each script contains:
+
+- `commentary`: A string that provides a description of the weather conditions.
+- `createGrids`: A list of tuples that define the forecast grids. Each tuple includes the type of forecast (e.g., 'Fcst'), the parameter being forecasted (e.g., 'Sky', 'PoP', 'Wx'), the type of data (e.g., 'SCALAR', 'WEATHER'), the start and end hours of the forecast period, the value of the forecast, and the elevation level ('AboveElev', 'BelowElev', or 'all').
+- `name`: A unique identifier for each script.
+- `checkStrings`: A list of strings that provide a human-readable summary of the forecast.
+
+The forecast grids seem to be created for two different elevation levels ('AboveElev' and 'BelowElev') and for different time periods (0-6 hours and 6-12 hours). The forecast parameters include the sky condition (percentage of cloud cover), the probability of precipitation, and the weather condition. 
+
+The script also includes export control and licensing information at the beginning, indicating that the software contains export-restricted data and its export/transfer/disclosure is restricted by U.S. law.
+
+The code seems to be part of a larger script related to weather forecasting. It appears to be defining a series of forecast scenarios, each with a different set of conditions. 
+
+Each scenario includes:
+- A 'commentary' string that describes the conditions in a human-readable format.
+- A 'createGrids' list that contains tuples. Each tuple represents a forecast variable (like 'Sky', 'PoP' for Probability of Precipitation, 'Wx' for Weather), its type ('SCALAR' or 'WEATHER'), a time range (like 0 to 6 or 6 to 12), a value, and a list of conditions (like 'AboveElev' or 'BelowElev'). 
+- A 'name' string that seems to be a unique identifier for each scenario.
+- A 'checkStrings' list that contains strings. These strings seem to be human-readable descriptions of the forecast for different areas ('Windward' and 'Leeward').
+
+The forecast variables include:
+- 'Sky' which could represent sky conditions (probably cloud cover percentage).
+- 'PoP' which stands for Probability of Precipitation.
+- 'Wx' which stands for Weather and includes complex weather phenomena like fog, snow showers, and rain showers.
+
+The time range could represent forecast intervals in hours. The conditions 'AboveElev' and 'BelowElev' could represent forecasts for areas above and below a certain elevation.
+
+The 'checkStrings' are likely used to verify the correctness of the forecast generation process by comparing the generated forecast with these predefined strings.
+
+This code appears to be part of a weather forecasting program. It contains three main sections, each representing a different forecast scenario. Each scenario includes a commentary, a series of forecast grids, a unique name, and a set of check strings.
+
+The 'commentary' section provides a textual summary of the forecast scenario, including information about precipitation, sky conditions, and other weather phenomena.
+
+The 'createGrids' section contains a series of tuples, each representing a specific forecast parameter over a certain time period. The parameters include 'Sky', 'PoP' (probability of precipitation), and 'Wx' (weather conditions). Each tuple specifies the forecast type, the parameter, the data type, the start and end times, the forecast value, and the elevation level ('AboveElev' or 'BelowElev').
+
+The 'name' section provides a unique identifier for each forecast scenario.
+
+The 'checkStrings' section contains a series of strings that appear to be used for checking the accuracy of the forecast, possibly against actual weather observations or other forecast models.
+
+Overall, this code seems to be used for generating, storing, and checking weather forecasts for different scenarios and time periods.
+
+The provided code appears to be a part of a larger Python script that is used for weather forecasting. The script contains a list of dictionaries, each representing a specific forecast scenario. Each dictionary contains several key-value pairs:
+
+- 'commentary': This key holds a string that provides a description or commentary on the forecast scenario. It includes information about precipitation, sky conditions, and other weather factors. The commentary also includes a breakdown of the forecast for different time intervals (0-6 hours and 6-12 hours) and for different elevations (AboveElev and BelowElev).
+
+- 'createGrids': This key holds a list of tuples. Each tuple represents a forecast grid and contains information about the forecast type (e.g., 'Sky', 'PoP' for probability of precipitation, 'Wx' for weather), the forecast format (e.g., 'SCALAR', 'WEATHER'), the start and end times for the forecast (in hours), the forecast value, and the elevation for which the forecast is applicable.
+
+- 'name': This key holds a string that appears to be a unique identifier for the forecast scenario.
+
+- 'checkStrings': This key holds a list of strings that provide a human-readable summary of the forecast scenario.
+
+Overall, this script appears to be used for creating and managing detailed weather forecasts for different time intervals and elevations.
+
+The provided code appears to be a part of a weather forecasting system. It contains a series of forecast data and conditions for different time periods and elevations. The forecast data includes information about the sky condition (Sky), the probability of precipitation (PoP), and the weather (Wx).
+
+Each forecast block has the following key components:
+- 'commentary': This is a multiline string that provides a detailed description of the forecast conditions.
+- 'createGrids': This is a list of tuples, each containing the forecast type (e.g., 'Sky', 'PoP', 'Wx'), the forecast method (e.g., 'SCALAR', 'WEATHER'), the forecast period (e.g., 0-6 hours, 6-12 hours), the forecast value, and the elevation level ('AboveElev', 'BelowElev', 'all').
+- 'name': This is a unique identifier for each forecast block.
+- 'checkStrings': This is a list of strings that provide a human-readable summary of the forecast conditions.
+
+The forecast conditions include details such as the cloud cover percentage (Sky), the chance of precipitation (PoP), and specific weather conditions (Wx) like fog, rain showers, and snow showers. These conditions are specified for different time periods and elevations.
+
+The code also includes a note stating that the probability of precipitation is missing, suggesting that this data should be included in the forecast but is currently not available.
+
+The code seems to be part of a weather forecasting system. It is defining weather forecast scenarios with specific parameters for different times and locations. 
+
+Each scenario is represented as a dictionary with the following keys:
+
+- 'commentary': This key holds a string that describes the forecast scenario in a human-readable format. It includes information about precipitation, sky conditions, non-precipitation weather phenomena, and probability of precipitation (PoP) for two time intervals: 0-6 hours and 6-12 hours.
+
+- 'createGrids': This key holds a list of tuples. Each tuple represents a forecast parameter and includes the following elements:
+  - 'Fcst': This seems to be a constant indicating that the tuple represents a forecast.
+  - The second element represents the parameter being forecasted (e.g., 'Sky', 'PoP', 'Wx' which might stand for Weather).
+  - The third element represents the type of the parameter (e.g., 'SCALAR', 'WEATHER').
+  - The fourth and fifth elements represent the time interval for the forecast.
+  - The sixth element represents the value of the forecasted parameter.
+  - The seventh element is a list that seems to indicate the location for which the forecast is made (e.g., 'AboveElev', 'BelowElev').
+
+- 'name': This key holds a string that seems to be an identifier for the forecast scenario.
+
+- 'checkStrings': This key holds a list of strings that seem to be human-readable descriptions of the forecast scenario.
+
+The code includes three forecast scenarios: 'SPW_1_544', 'SPW_1_633', and 'SPW_1_833'. Each scenario has different forecast parameters for different times and locations.
+
+The provided code appears to be a part of a larger script related to weather forecasting. It seems to be written in Python and contains several dictionaries, each representing a specific forecast scenario.
+
+Each dictionary has the following keys:
+
+- 'commentary': This key contains a string that appears to be a detailed description of the weather conditions for specific time intervals (0-6 hours and 6-12 hours) and for different elevations (AboveElev and BelowElev). It includes information about the sky condition (Sky), the probability of precipitation (PoP), and the weather (Wx).
+
+- 'createGrids': This key contains a list of tuples. Each tuple represents a forecast parameter (like Sky, PoP, Wx), its type (SCALAR or WEATHER), the time interval, the value for the parameter, and the elevation level. 
+
+- 'name': This key seems to be an identifier for each forecast scenario.
+
+- 'checkStrings': This key contains a list of strings that seem to be human-readable weather forecasts based on the data provided in 'createGrids'.
+
+The code seems to be designed to create forecasts for different weather scenarios, and it might be part of a larger system that generates weather forecasts for different times of the day and for different elevations.
+
+The provided code appears to be a part of a weather forecasting system. It's defining various weather conditions for different time periods and geographical elevations. 
+
+The code is divided into several sections, each corresponding to a different forecast. Each section contains a commentary, a set of grid creations, a name, and a set of check strings.
+
+1. The 'commentary' provides a textual description of the forecast, including the expected sky conditions (Sky), the probability of precipitation (PoP), and the weather (Wx) for two different time periods (0-6 and 6-12) and two different elevations (AboveElev and BelowElev).
+
+2. The 'createGrids' section appears to be creating forecast grids for different weather parameters (Sky, PoP, Wx) for the same time periods and elevations. The grids are created using the 'Fcst' function, which seems to take the parameter name, type, start time, end time, value, and applicable elevations as arguments.
+
+3. The 'name' is a unique identifier for each forecast.
+
+4. The 'checkStrings' are likely used for testing or validation purposes. They contain expected textual descriptions of the weather conditions.
+
+The code seems to be written in Python, given the syntax and structure. However, without additional context or the full code file, it's difficult to provide a more detailed analysis.
+
+The given code appears to be a part of a weather forecasting application. It contains several dictionaries, each representing a specific forecast scenario. 
+
+Each dictionary contains the following keys:
+
+- 'commentary': This key contains a string that describes the weather conditions for a given period. It includes information about precipitation, sky conditions, non-precipitation conditions, probability of precipitation (PoP), and consolidation. The commentary also includes specific weather conditions for different elevations ('AboveElev' and 'BelowElev').
+
+- 'createGrids': This key contains a list of tuples. Each tuple represents a forecast grid with specific parameters. The parameters include forecast type ('Fcst'), the weather condition being forecasted (e.g., 'Sky', 'PoP', 'Wx'), the type of data ('SCALAR' or 'WEATHER'), the start and end times of the forecast period, the value of the forecast, and the elevation level.
+
+- 'name': This key contains a string that seems to be an identifier for the forecast scenario.
+
+- 'checkStrings': This key contains a list of strings that seem to be human-readable summaries of the forecast for different areas ('Windward' and 'Leeward').
+
+The code is creating forecast grids for different weather conditions, such as sky condition, probability of precipitation, and specific weather phenomena, for two different elevation levels and for two different time periods (0-6 and 6-12). The specific weather conditions and their probabilities are represented in a coded format (e.g., 'SChc:SW:-:<NoVis>:').
+
+This code appears to be part of a weather forecasting system. It is defining a series of forecasts for different periods and conditions, and then running a test script on them.
+
+1. The code first defines a list of dictionaries, each of which represents a forecast. Each forecast includes:
+   - A 'commentary' field, which appears to be a human-readable version of the forecast.
+   - A 'createGrids' field, which is a list of tuples. Each tuple represents a forecast variable (e.g., 'Sky', 'PoP' for probability of precipitation, 'Wx' for weather), the type of the variable (e.g., 'SCALAR', 'WEATHER'), the period for which the forecast applies, the value of the variable, and the elevation level ('AboveElev' or 'BelowElev') to which it applies.
+   - A 'name' field, which is a unique identifier for the forecast.
+   - A 'checkStrings' field, which is a list of strings that seem to be expected results for the forecast.
+
+2. After defining the forecasts, the code imports a module named 'TestScript'.
+
+3. It then defines a function 'testScript' that takes two arguments: 'self' and 'dataMgr'. This function sets some default values and then calls a method 'generalTestScript' from the 'TestScript' module, passing in the current instance ('self'), the 'dataMgr' argument, the previously defined forecasts ('scripts'), and the default values.
+
+In summary, this code is defining a series of weather forecasts and then testing them using a script from the 'TestScript' module.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

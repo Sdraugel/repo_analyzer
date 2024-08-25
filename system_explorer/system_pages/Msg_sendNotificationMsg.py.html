@@ -1,0 +1,76 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>sendNotificationMsg.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>sendNotificationMsg.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script provides a command-line utility to send messages to a system called "alertviz". 
+
+The script starts by importing necessary modules such as `sys`, `argparse`, `os`, `socket`, and `traceback`. It also imports `NotificationMessage` from a package named `awips`.
+
+A class named `PrintHelpOnErrorParser` is defined, which inherits from `ArgumentParser`. This class is designed to print help information and exit the program when an error occurs.
+
+The `main()` function is where the script's primary operations occur. It starts by getting the default host and port from environment variables, or using "localhost" and "9581" if the environment variables are not set. 
+
+The `argparse.ArgumentParser` is used to parse command-line options and arguments. The arguments include host, port, source, category, priority, message, destination, and filtersInput. 
+
+The parsed arguments are then used to create a message that will be sent to the AlertViz system. 
+
+The script checks if the destination is specified and if the category is not 'LOCAL', it raises an error. It also checks if the priority is in the range of 0-5, if not, it raises an error. 
+
+If filtersInput is provided, it is processed into a dictionary. 
+
+The script notes that true local delivery is no longer possible with the current AlertViz design, so it uses global delivery and adds a workstation filter to the message. 
+
+The code snippet ends before showing how the message is actually sent.
+
+This Python script appears to be part of a larger system that sends notification messages to a specified host. The script first checks if the category of the message is 'LOCAL'. If it is, it uses the `socket.getfqdn()` function to get the fully qualified domain name (FQDN) of the destination host. If the destination is not specified, it gets the FQDN of the local host. 
+
+The script then tries to resolve the hostname using `socket.gethostbyname()`. If it fails to resolve the hostname, it prints an error message, prints the traceback, and exits the program with a status code of 1.
+
+If the hostname is resolved successfully, it sets the 'WORKSTATION' filter to the first part of the FQDN (the hostname without the domain).
+
+The script then attempts to create a `NotificationMessage` object with the specified parameters (host, port, message, category, priority, source, filters) and send it. If it fails to send the message, it prints an error message and the traceback.
+
+The script is designed to be run as a standalone program, as indicated by the `if __name__ == "__main__":` line. If it's run as a standalone program, it calls the `main()` function.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

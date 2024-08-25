@@ -1,0 +1,64 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TafToolInterface.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TafToolInterface.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a larger software system developed by Raytheon Company. It appears to be a module that interfaces with a system called AWIPS II, which is a weather forecasting system used by the National Weather Service in the United States. 
+
+The script begins with a legal disclaimer and information about the software's development and export control restrictions. It then provides some historical information about the software's development.
+
+The main part of the script defines a class called `TafToolInterface` that inherits from `MasterInterface`. This class is designed to work as an interface for running and inspecting "smart tools" from Java.
+
+The `TafToolInterface` class has several methods:
+
+1. `__init__(self, scriptPath)`: This is the constructor method that initializes the class. It takes a `scriptPath` as an argument, which is presumably the path to the scripts that this interface will manage. It calls the parent class's constructor and then imports the modules located at `scriptPath`.
+
+2. `getScripts(self)`: This method returns a list of the scripts that have been imported.
+
+3. `getStartupErrors(self)`: This method returns a list of any errors that occurred during the import of the scripts.
+
+4. `runTool(self, moduleName, bbb, fcsts)`: This method runs a specific tool. It takes three arguments: the name of the module to run, a `bbb` parameter, and `fcsts`, which seems to be a list of forecasts. The method converts the Java list of forecasts to a Python list, gets the IDs for each forecast, imports the specified module, and then runs the `updateTafs` method of the module with the `bbb` parameter and a dictionary mapping IDs to forecasts. If forecasts are returned, it joins them into a string and returns it; otherwise, it returns `None`.
+
+The script ends with a comment that it is a base file that should not be overridden, suggesting that it provides core functionality that other parts of the system rely on.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

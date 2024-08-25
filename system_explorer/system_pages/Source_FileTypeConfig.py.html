@@ -1,0 +1,64 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>FileTypeConfig.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>FileTypeConfig.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is written in Python and defines a class named `FileTypeConfig` that inherits from the `ConfigParser` class. The `ConfigParser` class in Python is used for working with INI files. It provides a way of reading and writing data to and from INI files, which are a type of file used for configuration settings.
+
+The `FileTypeConfig` class is designed to handle file type configurations. It has several methods:
+
+1. `__init__`: This is the constructor of the class. It initializes the class with a default configuration, a list of directories to load configurations from, and a file type. If a default configuration is provided, it updates a dictionary `dConf` with it. It then calls the constructor of the parent `ConfigParser` class with `dConf`. If configuration directories are provided, it loads the configurations from these directories.
+
+2. `isAvailable`: This method checks if a configuration section for a given file type is available.
+
+3. `loadConfig`: This method loads configuration from the provided directories. It reads all files with the extension `.cfg` in these directories.
+
+4. `_getConfig`: This is a helper method that tries to get a configuration value using a provided getter function. If the configuration key is not found, it returns None.
+
+5. `getConfig`: This method uses `_getConfig` to get a configuration value as a string.
+
+6. `getBooleanConfig`: This method uses `_getConfig` to get a configuration value as a boolean.
+
+The code also includes a software history comment and a legal notice from Raytheon Company, the developers of the software. The legal notice includes information about export control and the contractor's details.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

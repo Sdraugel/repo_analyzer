@@ -1,0 +1,458 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>HLS.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>HLS.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is written in Python and appears to be part of a larger system, likely for weather forecasting or reporting. This specific file is responsible for creating a Hurricane Local Statement (HLS) product. The HLS product is a public forecast product that provides important information about a tropical cyclone's impacts to local communities.
+
+The code begins with a detailed software history log, documenting changes made to the file over time by different engineers. This includes bug fixes, feature additions, and code cleanups.
+
+Following the log, several Python modules are imported. These modules provide various functionalities that the code relies on, such as mathematical operations, time manipulation, regular expressions, and more.
+
+Next, a class named `TextProduct` is defined, which inherits from `HLSTCV_Common.TextProduct`. This class is likely part of a larger system for handling weather data and generating text-based weather reports.
+
+The `TextProduct` class has a `Definition` dictionary that contains various configuration options for the HLS product. These include settings for the product's display name, output file, source database, and more. The dictionary also contains several placeholders (e.g., `<fullStationID>`, `<wmoID>`, `<wfoCityState>`, etc.) that are likely replaced with actual values when the program runs.
+
+The `Definition` dictionary also includes a `debug` dictionary. This dictionary appears to contain boolean flags for enabling or disabling debugging output for various parts of the program.
+
+Overall, this code file is a configuration and definition module for generating a text-based Hurricane Local Statement (HLS) product.
+
+The provided code is a part of a Python script, which seems to be a part of a larger system, possibly related to weather advisories or hazard warnings. 
+
+The first large block of code is a dictionary where keys are strings that appear to represent method names or properties, and the values are all integers, either 0 or 1. This could be a configuration or settings dictionary, where the integer values represent the state of a feature (enabled or disabled) or a counter.
+
+The line `Definition["debug"] = 0` is setting the debug mode off. If it were set to 1, it would turn on all debug messages.
+
+The `__init__` method is a special method in Python classes, it's called when an object is instantiated from a class. Here, it's calling the `__init__` method of the parent class `TextProduct` from the `HLSTCV_Common` module.
+
+The rest of the code is a series of comments outlining the structure and organization of the code in this file. These comments are providing guidance on what parts of the code need to be overridden, the high-level flow of the formatter, and the various methods related to different aspects of the system like product parts implementation, sampling and statistics, area, zone and segment related methods, and hazards related methods.
+
+This code file appears to be part of a larger system, possibly a weather forecasting system, given the references to storms, wind, flooding rain, and tornado threats. The code is organized into several sections, each focusing on different aspects of the system:
+
+1. Time related methods: This section is currently empty, but it's likely where methods related to time calculations or formatting would go.
+
+2. Storm Information and TCP related methods: Also currently empty, this section would likely contain methods for handling storm data and possibly Transmission Control Protocol (TCP) operations, which are used for network communications.
+
+3. GUI related methods: This section would contain methods related to the Graphical User Interface (GUI) of the system, but it's currently empty.
+
+4. MUST OVERRIDE DEFINITIONS: This section contains methods that likely need to be overridden by a subclass or specific implementation. These methods return data related to geographical areas (inland, coastal), a weather forecast office (cwa), its descriptor, local reference points (cities with their coordinates), and default local reference points.
+
+5. Optional Overrides: This section contains a method that limits the number of reference points that can be chosen, along with a label for the GUI.
+
+6. HLS Product and Segment Parts Definition: This section contains a method that defines the parts of a product, possibly a report or forecast, related to HLS (likely Hurricane Local Statement). It includes a list of parts and some conditional logic to add additional sections based on certain conditions.
+
+7. Analysis Lists, SampleAnalysis Overrides and other analysis related methods: This section contains methods that return lists of analyses to be performed on the data, each with a specific method to be used for the analysis.
+
+8. High level flow of formatter: This section contains a method that generates a forecast. It includes error checking, data sampling, time range determination, and hazard state determination.
+
+Overall, the code is well-structured and organized, but without the rest of the code or system, it's difficult to determine its full functionality.
+
+This Python code appears to be part of a larger system that generates weather advisories, specifically for hazards like wind, storm surge, flooding rain, and tornado threats. It seems to be part of a module that handles the creation, formatting and output of these advisories.
+
+Here's a breakdown of what the different parts of the code do:
+
+1. The code first sets hazard impact categories for each type of threat and archives the current advisory.
+
+2. It then creates a product dictionary containing the advisory details and formats it for output. If there is any previous text, it is applied to the product dictionary.
+
+3. The `_initializeVariables` function initializes various variables needed for the advisory, such as storm information and headlines. It also sets up a UGC (Universal Geographical Code) header using selected zones from a Combinations file. If no Combinations file is found, it defaults to using the entire CWA (County Warning Area).
+
+4. The `_initializeHeadlines` function sets up the main headline for the advisory based on certain conditions.
+
+5. The `_initializeSamplingDict` function initializes a dictionary with various stats related to the different types of threats. These stats include thresholds for catastrophic conditions, input threat levels, and impact ranges.
+
+6. The `_noOpParts` function returns a list of product parts that should be skipped when calling product part methods.
+
+7. The code also contains several functions that set up different parts of the product dictionary, such as the area list, summary headlines, changes in hazards, current hazards, and storm information.
+
+In summary, this code is responsible for initializing, creating, and formatting weather advisories for various types of threats.
+
+The code is part of a larger system that appears to be related to weather forecasting, specifically for storms and wind threats. 
+
+1. The first part of the code is creating a dictionary `stormInfoDict` with keys `location`, `intensity`, and `movement`. The values for these keys are being set to the corresponding attributes of the `self` object.
+
+2. The `_situationOverview` method is creating a situation overview for a product. It first sets a default value for the `situationOverview` key in the `productDict` dictionary. It then attempts to get a previous product with the name "WRKHLS", remove the header, and if the resulting text is not empty, it cleans and frames the text and uses it as the new value for the `situationOverview` key.
+
+3. The `_windSection` method is creating a wind section for a product. It first creates a dictionary `sectionDict` with keys `title`, `impactRange`, `impactLib`, and `additionalImpactRange`. It then retrieves several values related to wind threat from the `self._samplingDict` dictionary. Depending on the values of `impactMin`, `impactMax`, and `inputThreatDominant`, it sets the `impactRange` key in the `sectionDict` dictionary to different strings. It also sets the `impactLib` key to different values depending on the value of `self._GeneralOnsetTime`. It seems to be preparing some kind of report or alert related to wind threats.
+
+The code is incomplete, as it ends with a comment indicating that there is more code to handle additional areas.
+
+This code is part of a larger system that seems to be generating weather impact reports or advisories, specifically for wind and storm surge threats. 
+
+The first part of the code checks if the impact range of wind does not equal to the maximum impact. If so, it generates a phrase that advises on the potential wind impacts based on the general onset time, which could be "check plans", "complete preparations", or "hunker down". These phrases are then added to the "additionalImpactRange" of the "windSection" in the product dictionary if they are not already present. If there is no impact across more than half the area, it generates a phrase stating that little to no impact is anticipated.
+
+The second part of the code defines a function `_surgeSection` which generates a similar report for storm surge threats. It checks the minimum and maximum impact of the storm surge and generates appropriate advisory phrases based on the general onset time. It also checks if the term "life-threatening" needs to be included in the advisory. If the general onset time is "recovery", it generates a list of statements related to emergency response and recovery efforts. 
+
+The code seems to be part of a larger system that generates weather advisories based on various parameters and conditions.
+
+This code is part of a larger system that analyzes the potential impact of a surge (like a storm surge) on a particular area. The code does the following:
+
+1. It splits the `impactRange` string into different parts. The `impactRange` string seems to describe the potential impact of the surge in terms of severity (e.g., "significant", "extensive", "devastating", "catastrophic").
+
+2. It checks if the high end of the impact range is "life-threatening" and if the low end is "limited" or "none". If so, it separates these categories into different variables for further processing.
+
+3. It then checks if there are additional life-threatening surge areas and constructs a phrase (`curPhrase`) to describe the situation. The phrase varies depending on the value of `_GeneralOnsetTime` (which seems to describe the urgency or stage of the surge event) and the severity of the impact.
+
+4. If there are additional areas with a lesser impact (stored in `impactRangeRest`), it constructs another phrase to describe this situation.
+
+5. If there is no impact across more than half the area, it constructs a phrase to describe this situation.
+
+6. It then checks if these phrases are already part of the `additionalImpactRange` in the `sectionDict` dictionary. If not, it adds them.
+
+7. Throughout the code, it prints debug messages to help with troubleshooting.
+
+In summary, this code is used to analyze and describe the potential impact of a surge on different areas, taking into account the severity and extent of the impact. It constructs appropriate phrases to describe the situation and adds them to a dictionary if they are not already present.
+
+This code is part of a larger program that seems to be related to weather forecasting, specifically predicting the impact of flooding rain. 
+
+The `_floodingRainSection` function takes three arguments: `productDict`, `productSegmentGroup`, and `productSegment`. It initializes a dictionary `sectionDict` with several keys such as "title", "impactRange", "impactLib", "additionalImpactRange", and "variedImpacts". 
+
+It then retrieves various values related to the "FloodingRainThreat" from `_samplingDict`, including the minimum and maximum impact, impact range, maximum impact range, and whether the threat is dominant.
+
+The function then checks if both the minimum and maximum impact are "none". If they are, it sets the "impactRange" in `sectionDict` to the retrieved impact range and adds this dictionary to `productDict` under the key "floodingRainSection".
+
+If the impact is not "none", it assigns a qualifier based on the severity of the maximum impact. It then checks if the maximum impact is not "none" and if the minimum and maximum impacts are the same. If they are, it constructs a string message based on the general onset time and adds it to the "impactRange" in `sectionDict`.
+
+If the impacts are not the same across the entire area, it constructs a different string message based on the general onset time and adds it to the "impactRange" in `sectionDict`.
+
+In summary, this function is constructing a dictionary with information about the potential impact of flooding rain, including a message to be displayed based on the severity of the impact and the general onset time. This dictionary is then added to another dictionary, `productDict`, which presumably contains information about various weather threats.
+
+This code is part of a larger system that analyzes and reports on weather conditions, specifically focusing on the impacts of flooding rain and tornadoes. 
+
+The code first checks if the general onset time of the weather event is not in the recovery phase. If it's not, it calls a function to get potential impact statements based on the level of threat posed by the flooding rain. If it is in the recovery phase, it sets the impact library to an empty list.
+
+Next, it checks if the impact range is different from the maximum impact. If it is, it assigns a qualifier to the impact range based on its severity. It then constructs a phrase to describe the potential impacts of the flooding rain based on the general onset time of the weather event. This phrase is then added to a list of additional impact ranges if it's not already present.
+
+If there is no impact across more than half the area, it generates a phrase to indicate this and adds it to the list of additional impact ranges if it's not already present.
+
+The code then creates a dictionary for the flooding rain section and assigns it to the product dictionary.
+
+The code also includes a function for handling tornado threats. It initializes a dictionary for the tornado section and assigns initial values to its keys. It then checks the minimum and maximum impact of the tornado threat and adjusts them if they are too severe. It also assigns a qualifier to the maximum impact based on its severity.
+
+This code is part of a larger system that generates messages or alerts about tornado events. The messages vary depending on the severity of the event (impactMax), the stage of the event (_GeneralOnsetTime), and whether the impact is uniform across the entire area (CWA - County Warning Area) or not.
+
+The _GeneralOnsetTime variable can have four values: "check plans", "complete preparations", "hunker down", and "recovery". Depending on its value, different messages are generated.
+
+If the impact is the same across the entire CWA (impactMin equals impactMax), the message includes the descriptor of the CWA (_cwa_descriptor). If the impacts vary across the CWA, the message prompts to enter the specific area description.
+
+The code also handles additional areas where the impact might be different (impactRange not equal to impactMax), generating messages for these areas as well. The severity of the event in these areas (impactRangeMax) can modify the message, adding qualifiers like "particularly dangerous" or "dangerous".
+
+Finally, the code generates a list of potential impacts (_getPotentialImpactsStatements) unless the event is in the "recovery" stage, in which case an empty list is generated.
+
+This code appears to be a part of a larger system that generates text-based weather reports or alerts, possibly for tornadoes and other severe weather events. 
+
+The code contains several methods that each handle a different section of the report. For example, the `_getImpactsQualifier` method takes an impact level (like "extensive", "devastating", "catastrophic", etc.) and returns a corresponding qualifier string (like "life-threatening ", "dangerous ", "hazardous ", etc.).
+
+The `_coastalHazardsSection`, `_preparednessSection`, `_evacuationStatements`, `_otherPreparednessActions`, and `_additionalSourcesInfo` methods each seem to generate a different section of the report, filling in a dictionary with the relevant information for that section.
+
+The `_applyPreviousText` method seems to handle the case where a new report is being generated, but some sections of a previous report can be reused. It checks which sections of the previous report are valid to use, retrieves the previous report, and then updates the new report with the reusable sections from the previous report.
+
+The code also includes conditionals to handle different scenarios and add appropriate phrases to the report, such as if there are additional impacts from tornadoes or if there is no impact across more than half the area. 
+
+Overall, this code is designed to automate the generation of detailed and specific weather reports or alerts.
+
+This code appears to be part of a larger program that processes and analyzes advisories, possibly related to weather or natural disasters. The specific functions included in this code snippet are:
+
+1. `_getAdvisoryNumberParts(self, advisoryNum)`: This function takes an advisory number as input, splits it into numeric and letter parts, and returns these parts. This is useful for advisories that have a number and a letter, such as "7B".
+
+2. `_determinePreviousTextUse(self)`: This function compares the last two advisories to determine which sections may use text from a previous product. It checks if the current advisory has the same impact as the previous advisory for different sections like wind, surge, and flooding rain. If the impacts are the same, it sets the corresponding section in `usePreviousTextDict` to `True`, indicating that the text from the previous advisory can be used for that section.
+
+The code also includes error handling to provide useful feedback if the current advisory cannot be found or if the impacts in the current advisory differ from those in the previous advisory.
+
+The code also includes a part that seems to be handling missing sections in a product dictionary and logging any problems or issues. 
+
+Please note that the code is incomplete, so there may be additional functionality not covered in this analysis.
+
+This code appears to be part of a larger system that processes and manages advisory messages related to weather events, such as flooding, tornadoes, etc. 
+
+The first part of the code compares the current advisory message (`curAdvisory`) with the previous one (`prevAdvisory`). If certain fields in the current advisory match the corresponding fields in the previous advisory, the system will reuse the text from the previous advisory. If not, it will append the type of threat (e.g., "Flooding Rain", "Tornadoes") to a list called `threatSections`.
+
+The code then checks if there are any sections in `threatSections` that could not be reused. If there are, it generates a message indicating that the threat information has changed and the impact info has been regenerated for these sections.
+
+Next, the code checks the "EventContext" field in the current and previous advisories. If they match, it reuses the text from the previous advisory for certain sections. If not, it generates a message indicating that the event context has changed and the precautionary/preparedness info has been regenerated.
+
+The code also handles the case where it could not find HLS (Hurricane Local Statement) information for the current advisory. It generates a message indicating that no previous text will be used.
+
+The function `_getPreviousHlsText` retrieves text from a previous HLS product, but only if the advisory number associated with that text is close enough. It initializes a dictionary to track various parts of the HLS, retrieves the previous product, and checks if the advisory number from the latest HLS product is close enough to the desired advisory number. If not, it generates a message indicating that the previous HLS text is from the wrong advisory and no previous text will be used.
+
+The code also contains a debug print statement to print the final messages. It returns a flag to indicate if any previous text may be used, as well as which specific sections can be used, and any error messages so far.
+
+This code appears to be part of a larger program that processes and analyzes text data related to weather conditions, specifically tropical cyclones. The code is written in Python and uses regular expressions for text matching and parsing.
+
+The first part of the code iterates over a list of section matches (sectionMatches). For each match, it checks if certain keywords exist in the first element of the section match. These keywords include "WIND:", "SURGE:", "FLOODING RAIN:", "TORNADOES:", and "OTHER COASTAL HAZARDS:". Depending on the keyword found, it assigns a corresponding section key. It then cleans up the text in the section match and stores it in a dictionary (prevHLSdict) under the corresponding section key.
+
+The second part of the code looks for sections related to evacuations and other preparedness information. It extracts these sections, cleans up the text, and stores them in the prevHLSdict dictionary under the keys "evacuationStatements" and "otherPreparednessActions" respectively.
+
+The third part of the code prints the contents of the prevHLSdict dictionary for debugging purposes.
+
+The fourth part of the code defines a function _nextUpdate which updates a dictionary (productDict) with information about when the next update will be issued, based on certain conditions.
+
+The last part of the code defines two helper methods: _impactsKeyFunction and _getPotentialImpactsStatements. The first method is used for sorting purposes, while the second method seems to be incomplete as it ends abruptly.
+
+This code seems to be part of a larger system for processing and analyzing weather-related text data, possibly for generating weather reports or alerts.
+
+The code provided is written in Python and appears to be part of a larger system that analyzes and assesses various types of threats or hazards, possibly related to weather or natural disasters. 
+
+Here's a breakdown of the key parts:
+
+1. The `_impactCategoryToThreatLevel` function: This function takes an impact category as an argument and returns a corresponding threat level. For example, if the impact category is "catastrophic" or "devastating", the function returns "Extreme".
+
+2. The `_determineHazardStates` function: This function initializes two lists, `_currentHazardsList` and `_changesHazardsList`, and then populates them based on the data in `_previousAdvisory`. It also prints debugging information.
+
+3. The `_sampleHLSData` function: This function seems to be sampling data related to different types of threats like "WindThreat", "FloodingRainThreat", "TornadoThreat", and "StormSurgeThreat". It calculates statistics for these threats over different periods and updates a dictionary (`_samplingDict`) with the maximum values of certain parameters for each threat.
+
+4. The `_sampleTCVAdvisory` function: The function name suggests that it samples data from a TCV (Tropical Cyclone Vortex) advisory, but the code for this function is not fully provided.
+
+The code seems to be part of a larger system that analyzes and assesses various types of threats or hazards, possibly related to weather or natural disasters. It uses statistical sampling to assess the severity of these threats and maintains a record of the current and changing hazards.
+
+This code appears to be part of a larger system that is analyzing and processing threat levels for different zones. The threat levels are stored in a dictionary called `advisory["ZoneData"]`. 
+
+The first part of the code iterates through each zone in the `advisory["ZoneData"]` dictionary. For each zone, it checks each key in the zone's dictionary. If the key contains the word "Threat" and does not contain "highestHunkerDown", it proceeds to process the threat level. It keeps track of which threat levels it has seen in the `seenValidThreatLevel` dictionary.
+
+For each valid threat level, it checks if the threat level is lower or higher than the current lowest and highest threat levels stored in `self._samplingDict[key]["inputThreatLow"]` and `self._samplingDict[key]["inputThreatHigh"]` respectively. If it is lower or higher, it updates the respective values. 
+
+The `_sampleRankedDiscreteValue` function seems to determine the dominant threat level for a given threat name from a set of ranked threat levels. It does this by iterating through the ranked threat levels and selecting the one with the highest rank.
+
+The `_sampleMostSignificantDiscreteValue` function seems to update the low and high threat levels for a given threat name based on a new threat level.
+
+The `_getDominantThreatLevel` function determines the dominant threat level from a list of threat levels and their ranks. It does this by selecting the threat level with the highest rank.
+
+The `_getHighestThreat` function compares two threat levels and returns the higher one. The comparison is based on their positions in a predefined order of threat levels. 
+
+Throughout the code, there are several debug print statements that output the progress and results of the operations, which would be useful for debugging and understanding the flow of the code.
+
+This code file seems to be part of a larger system that deals with hazard threats and their impacts. 
+
+The `_getLowestThreat` method is comparing two threat levels and returning the one with the lower level. It uses a dictionary that contains the order of significance of threats and checks the indices of the two threat levels in the order. The one with the lower index is considered the lower threat.
+
+The `_setHazardImpactCategories` method is setting the impact categories for a given threat. It uses the threat's low and high input levels to determine the minimum and maximum impact categories. It also checks for specific conditions, like if the threat is not a "TornadoThreat" and if a deciding field is above a certain threshold, to set the impact categories to "catastrophic". It also determines the dominant impact category across a certain area (CWA) and sets the impact range accordingly.
+
+The `_createWholeDomainEditArea` method seems to be creating an edit area for the whole domain. It uses an instance of `EditAreaUtils` to set up the area and save it.
+
+The `_determineHazards` method is determining the hazards for given segments. It gets a list of hazards for each segment and consolidates them into a dictionary. It separates the areas that contain the hazard by category.
+
+The `_formatLocalTime` method seems to be a method that formats local time, but the code for this method is not provided.
+
+The provided code appears to be part of a larger Python script that deals with time zones, headlines, and storm information.
+
+1. The first part of the code creates a time string in local time. It uses regular expressions to search for a specific time format in a string (presumably a paragraph of text). It then tries to convert the hour portion of the time string to an integer. If it fails, it uses the current hour in GMT. It then creates a time range and converts the start time to Unix time. It also creates a string for each time zone.
+
+2. The `_getTimeZoneList` function takes a list of area names as input and returns a list of time zones. It checks if each area is in a dictionary (`_areaDict`) and if so, it adds the time zone(s) associated with that area to the list. If the list is empty after checking all areas, it adds the current time zone. If the current time zone is in the list but not first, it moves it to the front of the list.
+
+3. The `_grabHeadline` function takes a string of text as input and returns the first headline it finds in the text. It uses regular expressions to search for headlines, which are defined as lines of text surrounded by ellipses or asterisks. If it finds a headline, it removes the surrounding characters and returns the cleaned-up headline. If it doesn't find a headline, it returns an empty string.
+
+4. The `_getStormInfo` function sets some default values for storm information, then retrieves more detailed storm information from a dictionary (`_TCP`). It decodes the storm information, calculates the storm's movement and intensity trends, and prints out the storm information for debugging purposes.
+
+This Python code is part of a larger system that seems to be processing and analyzing storm data, specifically tropical storms, hurricanes, typhoons, and similar weather phenomena.
+
+The first part of the code is printing debug information about a storm, including references, movement trend, and intensity trend.
+
+The `_grabStormInfo` function is designed to extract storm information from a given text product (TCP). It initializes a dictionary to store various pieces of information about the storm, including type, name, time, latitude, longitude, reference, intensity, motion, and other info.
+
+The function then checks if the TCP is not empty. If it is, it uses regular expressions to search for specific patterns in the text that correspond to the storm type and name. It supports multiple formats, including the NHC format and the HPC format.
+
+If the storm type and name are found, they are extracted and stored in the dictionary. If not, the function looks for the HPC format instead.
+
+The function then cleans up the TCP for easier parsing and tries to extract more detailed storm information, such as the storm's time, latitude, longitude, reference, and intensity. It also checks if the storm is stationary or if it has a specific movement.
+
+Finally, the function constructs a paragraph summarizing the storm's information, including its type, name, and position. This paragraph is also stored in the dictionary for later use.
+
+The code seems to be incomplete, as the last line is cut off.
+
+The code appears to be part of a larger script that processes and formats information about storms, likely from the National Hurricane Center (NHC). 
+
+The first part of the code block is formatting the storm's geographic reference, which is retrieved from a dictionary object `dict`. It gets the NHC references, checks if there's more than one reference, and if so, it only keeps the first one. It then expands any abbreviated bearings to full words and adds this reference to the `StormCenter` field in the dictionary.
+
+Next, it adds the maximum sustained wind speed phrase to the `StormCenter` field. If there's information about the storm's motion, it also adds that.
+
+The code then searches for a legacy storm info section in the product. If it finds this section, it cleans it up and stores it in the `StormInfo` field in the dictionary. It also extracts the advisory time and the TPC-provided reference point from this section if they haven't been found already.
+
+Finally, the code tries to find a repeated storm information summary. If it finds this summary, it cleans it up and stores it in a variable `summary`. If the `StormLat` or `StormLon` fields in the dictionary are empty, it searches the product for the storm location section and extracts the storm's latitude and longitude.
+
+Throughout the code, there are several debug print statements that print information useful for debugging if a flag is set.
+
+This code is part of a larger program that appears to be processing and extracting information from a weather-related data source, specifically about storms. The data source is likely a text-based product, possibly a Tropical Cyclone Public Advisory (TCP) given the references in the comments.
+
+The code is using regular expressions to search for specific sections of the data source and extract the relevant information. The information being extracted includes the storm's location (latitude and longitude), intensity (in MPH), and motion. If the relevant information is not already present in the dictionary, the code searches for it in the data source and adds it to the dictionary.
+
+The code also includes some debug printing statements, which are used to output information about the state of the program during its execution, useful for troubleshooting and understanding what the program is doing.
+
+Finally, the code returns the dictionary with all the extracted information.
+
+The `_decodeStormInfo` function seems to be doing a similar task, but with a focus on extracting the storm's time, latitude, longitude, and location from a dictionary. It also adjusts the latitude and longitude for different hemispheres and constructs a storm location pair.
+
+The code provided is a part of a larger program that seems to be processing and analyzing geographic references related to storms. Here's a breakdown of what each section does:
+
+1. The first part of the code is extracting a geographic reference from a text (likely a storm report), and cleaning it up. It removes certain words, handles multiple geographic references by keeping only the first one, and removes any metric distances.
+
+2. It then calculates local references based on the storm's latitude and longitude.
+
+3. The code then compares the National Hurricane Center's geographic reference to the local references. If a local reference matches the national center reference, it discards the national reference.
+
+4. The `_expandBearings` function is replacing abbreviated cardinal directions (e.g., "n" for "north") with their full words.
+
+5. The `_removeKM` function removes references to kilometers from the text. It also handles potential double space issues.
+
+6. The `_cleanText` function cleans up the text for easier string searches. It replaces certain characters, removes extra spaces, and formats paragraphs.
+
+7. The `_calcLocalReferences` function calculates local references based on a list of local reference points and the storm's latitude and longitude.
+
+8. The `_calcReference` function calculates the distance and direction from a given point (latitude and longitude) to another point.
+
+9. The `_distanceFromLatLon` function calculates the distance between two points (given their latitudes and longitudes) in kilometers.
+
+Overall, this code seems to be part of a system that processes storm reports, extracts and cleans up geographic references, and compares these references to local ones.
+
+This code appears to be part of a larger program that deals with weather advisories, likely related to storms. 
+
+The first few methods are used for calculating geographical information:
+
+- The first method calculates the distance between two points on the earth's surface given their latitudes and longitudes. The formula used is the spherical law of cosines. The variable 'R' is not defined in this snippet, but it is likely the radius of the earth.
+- The second method `_bearing` calculates the bearing (direction) from one point to another point on the earth's surface, given their latitudes and longitudes. The bearing is returned in degrees.
+- The third method `_dirInEnglish` converts the bearing in degrees to a string description in English, such as "north", "north-northeast", etc.
+
+The next few methods are related to handling weather advisories:
+
+- The method `_initializeHLSstatus` initializes a dictionary that will hold information about a current weather advisory. The dictionary keys are various types of impacts (wind, storm surge, tornado, flooding rain) and each key has a max, min, and dominant value.
+- The method `_getPreviousHlsAdvisories` retrieves previous advisories for a particular storm. It filters out advisories related to the current storm and stores them in a list.
+- The method `_archiveCurrentAdvisory` archives the current advisory by storing various details about the advisory, such as creation time, storm name, storm number, storm ID, advisory number, and threat levels for wind, storm surge, flooding rain, and tornado.
+
+The commented out code at the end of the snippet suggests that the program may also handle actions related to the advisories, but this functionality appears to be currently disabled.
+
+The provided code seems to be part of a larger Python program that handles advisories related to storms. Here's a breakdown of what the code does:
+
+1. The code first checks if the current advisory is an intermediate advisory or not. This is done by checking if the last character of the "AdvisoryNumber" is alphanumeric. Depending on the result, it formats the advisory filename differently.
+
+2. The `_saveAdvisory` function is called to save the current advisory. This function first synchronizes advisories, then gets the filename for the advisory. It then attempts to save the advisory to a JSON file. If an exception occurs during this process, it logs the problem. If no exceptions occur, it prints a debug message, synchronizes advisories again, and then cleans up advisories.
+
+3. The `_cleanupAdvisories` function is responsible for removing old advisories. It first synchronizes advisories, then gets a list of all advisories. It then determines which advisories to clean up, either because they are older than 7 days or because they are no longer needed. It then attempts to delete these files, logging any exceptions that occur during this process. After this, it synchronizes advisories again.
+
+4. The `_overview_list` function seems to be a GUI-related method that creates a list of options for the user to select from. These options include potential impacts anticipated, storm type/name/info, potential impacts to include and order, local reference points, and general time to onset. The options vary depending on the site.
+
+The provided code appears to be a part of a larger Python program that uses the Tkinter library to create a graphical user interface (GUI). 
+
+The code defines a list of dictionaries, where each dictionary represents a different GUI component, such as a text field or a selection option. Each dictionary contains properties for the GUI component, such as its name, label, options, and default values.
+
+The `_displayGUI` function in the code creates an instance of `Overview_Dialog`, a custom dialog box defined later in the code. It checks the status of the dialog box and returns a dictionary of variables if the status is not "Cancel".
+
+The `Overview_Dialog` class is a custom dialog box that inherits from `HLSTCV_Common.Common_Dialog`. It overrides the `body` method to create a GUI layout based on the list of dictionaries defined earlier. It creates a number of frames and boxes, and populates them with GUI components based on the properties defined in each dictionary. It also handles some special cases for certain components, such as "MainHeadline" and "IncludedImpacts".
+
+The `_makeStep3` function is used to create a specific GUI component. It takes a number of parameters to customize the component, such as its label, default value, and whether it has an entry field.
+
+Overall, this code is responsible for creating and managing a complex GUI layout for a program.
+
+This code appears to be written in Python and uses the tkinter library for creating a graphical user interface (GUI). 
+
+The first part of the code creates a list of check buttons with associated text entry fields. Each check button and entry field pair is packed into a frame and appended to a list. The check buttons allow the user to select certain options, while the entry fields allow the user to input additional data related to each option. The note label provides instructions to the user on how to interact with the check buttons and entry fields.
+
+The `_makeButtons` function creates a frame and populates it with buttons. The buttons are configured with specific commands that are triggered when the button is clicked. The `okCB` function appears to handle the event when the "Ok" button is clicked. It retrieves data from the GUI, processes it, and updates a dictionary with the new data.
+
+The `LegacyFormatter` class appears to be responsible for formatting a text product. It has a method `execute` which processes the product parts and returns a formatted text. The `_processProductParts` method iterates over the product parts and formats each part based on its type. It handles different types of parts like WMO header, UGC header, product header, VTEC records, and area list.
+
+The code snippet ends abruptly and does not show what happens when the name is "areaList" or any other possible names.
+
+The provided code appears to be a part of a larger Python script that processes a dictionary of weather-related data (`productDict`) and formats it into a readable text format. 
+
+The main part of the code is a long `elif` chain that checks the `name` variable against various strings. Depending on the value of `name`, it appends different parts of `productDict` to a `text` string, often processing the data further with methods like `self.processSummaryHeadlines()`, `self.processHazards()`, `self.processStormInformation()`, etc. 
+
+The `name` variable seems to represent different sections of the weather report, such as "issuanceTimeDate", "summaryHeadlines", "newInformationHeader", "changesHazards", "currentHazards", "stormInformation", "situationOverview", "sigPotentialImpacts", etc. 
+
+For example, if `name` equals "issuanceTimeDate", it appends the issuance time and date to the `text` string. If `name` equals "summaryHeadlines", it processes the summary headlines and appends them to the `text` string. If `name` equals "newInformationHeader", it appends a "NEW INFORMATION" header to the `text` string, and so on.
+
+The `_noOpParts()` method returns a list of product parts that should be skipped when calling product part methods. These parts will be handled automatically by the formatters.
+
+The `processWmoHeader()` and `processProductHeader()` methods format the WMO header and product header respectively, and return them as text strings.
+
+In summary, this script seems to be a part of a weather report generator that formats raw weather data into a human-readable text format.
+
+This code appears to be part of a larger system that generates text-based weather reports, possibly for a National Weather Service product or similar. 
+
+The first function takes a string `advisoryText` and appends it to the `text` string. If the length of `advisoryText` is greater than 0, it checks if the length of the `text` string plus the `advisoryText` string exceeds a certain line length. If it does, it adds a newline character to the `text` string, otherwise, it adds a space. It then appends the `advisoryText` and a newline character to the `text` string. If the length of `advisoryText` is not greater than 0, it simply appends a newline character to the `text` string. It then appends some weather service information to the `text` string and returns it.
+
+The second function `processSummaryHeadlines` takes a list of headlines and processes them. If the list is empty or contains only an empty string, it adds a placeholder headline to the `text` string. Otherwise, it iterates over the headlines in the list and indents them, adding them to the `text` string.
+
+The third function `processHazards` takes a list of hazards and a boolean indicating whether the hazards are changes. It processes the hazards differently depending on whether they are changes or not, grouping them together by status, areas, and headlines, and creating text bullets for each group.
+
+The fourth function `_addToGroupedHazards` takes a hazard, a headline, and a dictionary of grouped hazards, and adds the hazard to the appropriate group in the dictionary. It only considers hazards with certain statuses, and handles hazards that are upgrades from other hazards differently. It also prints debug information about the process.
+
+Overall, the code seems to be part of a system for generating formatted text reports from structured weather data.
+
+The provided code appears to be part of a larger system that handles and organizes hazard warnings. The code is written in Python and seems to be part of a class, as indicated by the use of `self`.
+
+1. The first part of the code checks if `sortedAreas` is in `groupedHazards`. If not, it creates a new entry in `groupedHazards` with `sortedAreas` as the key and a dictionary as the value. The dictionary contains `status` as the key and a tuple with `headline` and `upgrades` as the value.
+
+2. If `sortedAreas` is already in `groupedHazards`, it adds to the existing entry. If the `status` is "UPG", it resets the "previous" phensig, determines the upgrade, and adds it to `upgrades`. If the `status` is not "UPG", it appends the `headline` to `sortedHeadlines` and sorts them using the `_sortHazardsType` method. It also checks if `previousPhenSig` is in `VTECTable.upgradeHazardsDict[headline]` and if so, adds it to `upgrades`.
+
+3. The `_sortHazardsType` method is a property that returns a function to sort hazard types. It sorts by priority (warnings first), then by type (storm surge headlines first, hurricane headlines next, and tropical storm headlines last).
+
+4. The `_consolidateGroupedHazards` method combines areas that share the same headlines and status. It creates a new dictionary `newGroupedHazards`, iterates over `groupedHazards`, and consolidates the hazards. If `isChangesHazards` is False, it cleans up the use of "EXA" and merges it with "CON". It also combines areas if they contain the same information.
+
+In summary, this code is managing and organizing hazard warnings by area and status, and it provides functionality to sort and consolidate these hazards.
+
+This code appears to be part of a larger system, possibly for weather forecasting or hazard detection. It is handling and processing hazard data, specifically in relation to areas and their associated hazards.
+
+The first part of the code is combining hazard information for areas that match certain criteria. It then removes the old, uncombined areas from the `newGroupedHazards` dictionary. If no matching information is found, it adds a new area entry to the `newGroupedHazards` dictionary.
+
+The `_createChangesTextParts` function seems to be creating textual descriptions of changes in hazard status. It handles different statuses ("CAN", "NEW", "EXA") differently, creating appropriate text for each. For example, if the status is "CAN", it generates a cancellation message. If the status is "NEW" or "EXA", it generates a message about new or existing hazards, including any upgrades to the hazard level.
+
+The `_createCurrentTextParts` function appears to be similar to `_createChangesTextParts`, but it's creating textual descriptions of the current hazard status. It also handles different statuses ("NEW", "EXA", "CON") and generates appropriate text for each.
+
+The code uses the `VTECTable` (presumably a table of VTEC codes, which are used in the U.S. for encoding weather hazard information) to convert hazard codes into human-readable headlines.
+
+The code also makes extensive use of debug printing, which suggests that it's either still under development or is used in a context where detailed logging is helpful.
+
+This code appears to be part of a larger system that processes and formats weather-related information, possibly for a weather report or forecast.
+
+The first part of the code checks if the number of keys equals the number of headlines or if the number of keys equals 1 and the number of headlines equals the number of phensigs. If either condition is met, it constructs a new text string and appends it to the hazardTextParts list.
+
+The `_areaWords` function takes a list of sorted areas and returns a string of area names. If the list is empty, it returns an empty string. Otherwise, it retrieves the alternate name or UGC name for each area from the area dictionary and appends it to the names list. It then sorts the names list and formats it into a string.
+
+The `processStormInformation` function formats a dictionary of storm information into a readable string. If the dictionary is empty, it simply adds "- None" to the text. Otherwise, it formats the storm references, location, intensity, and movement into a string.
+
+The `processSituationOverview` function formats a situation overview text into a readable string with a title and a line of dashes under the title.
+
+The `processHazardsSection` function formats a dictionary of hazard section information into a readable string. It formats the title, impact range, and impacts into a string. If the general onset time is "recovery" and there are impacts, it adds "|*\n" before and "*|\n" after the impacts. It also formats any additional impact range into a string.
+
+The `processSubParts` function generates text from a list of subparts (e.g., segments or sections) and a list of info dictionaries. It loops through each subpart and info dictionary, processes them into text, and appends the text to the main text string.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

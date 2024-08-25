@@ -1,0 +1,123 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ifpServerText.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ifpServerText.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The code appears to be part of a larger software system developed by Raytheon Company for the US Government. It is subject to US export control laws due to containing export-restricted data.
+
+The code imports several modules such as base64, getopt, json, logging, os, sys, urllib.parse, urllib.request, numpy, and several modules from dynamicserialize.dstypes.com.raytheon.uf.common.dataplugin.gfe.request, dynamicserialize.dstypes.com.raytheon.uf.common.localization, dynamicserialize.dstypes.com.raytheon.uf.common.message, awips, and awips.localization.
+
+The code sets up logging configuration and defines two classes: `textInventoryRecord` and `ifpServerText`. 
+
+The `textInventoryRecord` class is used to create objects that represent a record of text inventory. It has an initializer method that sets up the object with a filename, path, localization context, and a protected status. It also has a string representation method.
+
+The `ifpServerText` class is more complex. It has two dictionaries `EXTENSION_DICT` and `LOCALIZATION_DICT` that map different types of files and localization contexts to their respective extensions and localization types. 
+
+The `ifpServerText` class has an initializer method that sets up the object with several attributes related to the host, port, siteID, user, mode, name, filename, class type, text category, meta info, os user, and a Thrift client. It also has a method to build an inventory if a text category is provided. 
+
+The code ends abruptly, suggesting that it is part of a larger file. The full functionality of the `ifpServerText` class is not clear from the provided code.
+
+The given Python code is a part of a larger program that appears to be a command-line utility for managing different types of objects or resources. These resources could be part of a larger system or application, and the utility provides operations for saving, deleting, retrieving, and inventorying these resources.
+
+The code first checks the type of the object it's dealing with (`__classType`), which could be "EditArea", "EditAreaGroup", "SampleSet", "ColorTable", or a text category. Depending on the object type, it calls the appropriate method based on the operation mode (`__mode`), which could be "SAVE", "DELETE", "GET", or "INVENTORY".
+
+The `__cmdLine` method is used to parse command-line arguments. It uses the `getopt` module to parse the command-line options and arguments, and sets the corresponding instance variables accordingly. If the command-line arguments are not valid (for example, if the same mode is specified more than once, or if a required argument is missing), it raises a `SyntaxWarning` exception.
+
+The command-line options include host (`-h`), port (`-p`), site ID (`-o`), user (`-u`), name (`-n`), filename (`-f`), meta info (`-m`), class type (`-c`), and mode (`-s`, `-d`, `-g`, `-i` for save, delete, get, and inventory, respectively).
+
+The code also performs some sanity checks to ensure that all required arguments are specified. If not, it raises a `SyntaxWarning` exception. If the user is not specified, it defaults to the OS user. It also constructs a URL for a service based on the host and port.
+
+This code is part of a larger program that interacts with a server, likely for managing some kind of inventory. It has several modes of operation, including "INVENTORY", "SAVE", "DELETE", and "GET". 
+
+In each mode, it performs different operations:
+
+- "INVENTORY" mode: It checks if a class type has been provided. If not, it raises a SyntaxWarning.
+- "SAVE" mode: It checks if the name, filename, and class type have been provided. If any of these are missing, it raises a SyntaxWarning. It also checks if the user is either the operating system user or "SITE". If not, it raises a SyntaxWarning.
+- "DELETE" mode: Similar to "SAVE" mode, it checks for the user and for the name and class type. If any of these conditions are not met, it raises a SyntaxWarning.
+- "GET" mode: It checks if the name and class type have been provided. If not, it raises a SyntaxWarning.
+
+The code also checks if a metaInfo attribute is present and if it's one of the valid options. If not, it raises a SyntaxWarning. If the mode is not None, it raises another SyntaxWarning.
+
+The "__usage" method prints out the usage instructions for the program.
+
+The "__buildInventory" method seems to build an inventory of items based on the user and class type. It interacts with a server using a URL built from a fake record and retrieves a JSON response.
+
+The "__saveText" method reads a file from disk and verifies the class based on the contents of the file. It seems to be the beginning of a method for saving a text file.
+
+The provided code is a part of a Python class that seems to be handling operations related to text files and samples. It includes methods for saving, deleting, getting, and inventorying text files and samples. Here's a summary of what each method does:
+
+1. `__verifyClass`: This method checks if a given text contains a specific string (searchString). It's used to verify if the text is written in a specific class format.
+
+2. `__saveSamples`: This method saves a sample set. It calls the `__saveText` method to perform the operation.
+
+3. `__deleteSamples`: This method deletes a sample set. It calls the `__deleteText` method to perform the operation.
+
+4. `__getSamples`: This method retrieves a sample set. It calls the `__getText` method to perform the operation.
+
+5. `__inventorySamples`: This method returns the inventory for sample sets. It seems to be incomplete as the method body is not provided.
+
+6. `__getText`: This method retrieves a text file. If the file name is not in the database (__db), it raises a KeyError. If a filename is provided, the text is written to that file.
+
+7. `__deleteText`: This method deletes a text file. It checks if the file is in the database, and if the user has the correct permissions to delete the file. It also handles the deletion of Python compiled files (.pyc) in the __pycache__ directory.
+
+8. `__deleteFile`: This method sends a DELETE request to a given URL. It handles potential HTTP errors and raises exceptions if necessary.
+
+9. `__inventoryText`: This method prints the inventory of text files in a formatted manner.
+
+The code also includes a block where it checks the class type of the object and verifies it. It then sets up localization context and level based on the user and class type. It creates a record and builds a URL for that record. It then attempts to retrieve the checksum of the file at that URL and sets up a PUT request with the necessary headers. If the request fails, it raises an exception. If it succeeds, it logs the success.
+
+This Python script appears to be a server-side script that interacts with a database or file system to manage and retrieve various types of data. Here's a breakdown of what different parts of the code do:
+
+1. The script defines several methods for managing color tables (`CT`), edit areas (`EA`), and edit area groups (`EAGroup`). These methods include saving, deleting, getting, and inventorying these items. Each of these methods calls a corresponding method with the `Text` suffix, such as `__saveText()`, `__deleteText()`, etc. The actual implementation of these `Text` methods is not provided in the given code.
+
+2. The `__buildUrl` method constructs a URL based on a given record's localization type, localization level, path, and filename.
+
+3. The `__metaInformation` method retrieves and processes meta information based on the value of `self.__metaInfo`. It handles four cases: "sitetimezone", "site", "singleton", and "domain". In each case, it sends a request to a server (presumably using the Thrift framework), processes the response, and either prints the result or writes it to a file.
+
+4. The `main` function creates an instance of the `ifpServerText` class and calls its `process` method. If any exceptions occur during this process, they are logged and the script exits with an error status.
+
+5. The script's entry point is at the bottom. If the script is run directly (as opposed to being imported as a module), it calls the `main` function.
+
+Note: The actual functionality of this script depends heavily on the implementation of the `ifpServerText` class and its methods, which are not included in the provided code.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

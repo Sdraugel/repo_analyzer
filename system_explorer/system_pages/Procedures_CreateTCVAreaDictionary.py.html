@@ -1,0 +1,70 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>CreateTCVAreaDictionary.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>CreateTCVAreaDictionary.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be part of a larger software system, possibly related to weather forecasting or emergency management. The script is designed to create and manage a dictionary (a type of data structure in Python) that represents areas affected by tropical cyclones (TCVs).
+
+The script imports several modules, including `SmartScript` and `LockingFile`, and uses classes from `com.raytheon.uf.common.localization`. It defines a class `Procedure` that inherits from `SmartScript.SmartScript`. 
+
+The `Procedure` class has two methods: `__init__` and `execute`. The `__init__` method is the constructor for the class, which is called when an instance of the class is created. It calls the constructor of the superclass `SmartScript.SmartScript`.
+
+The `execute` method does the main work. It gets the site ID and then constructs a string that represents a Python dictionary. This dictionary, `TCV_AreaDictionary`, contains information about areas affected by tropical cyclones. The dictionary is initially empty, but it is populated with data read from a file named `TCVAreaDictionary.py`.
+
+The script then iterates over all zones returned by the `_getZones` method. For each zone, it adds an entry to the `TCV_AreaDictionary`. If the zone already exists in the dictionary, it updates the existing entry with new data and removes any keys that are no longer needed. The updated dictionary is then formatted as a string and appended to `_tcvAreaDictionaryContents`.
+
+In summary, this script is used to manage a dictionary of areas affected by tropical cyclones. The dictionary is stored as a string in a specific format, and can be updated with new data as needed.
+
+This Python code is part of a larger class or script, and it contains several methods that work together to read, format, and write data. Here's a breakdown of what each method does:
+
+1. `_installDictionary`: This method uses the `subprocess.call` function to execute a command-line script that presumably installs a dictionary to a server. The dictionary file is specified as "/tmp/TCVAreaDictionary.TextUtility".
+
+2. `_getZones`: This method reads a Python file that contains zone data. The filename is constructed using the `self._siteID` attribute. The method then executes the contents of this file and returns the value of the `EASourceMap[zonesKey]` variable from the executed file.
+
+3. `_getFileContents`: This method reads the contents of a file. The file is located using a `PathManager` object, which is created using the `PathManagerFactory.getPathManager` method. The file's location is determined by the `loctype`, `loclevel`, `locname`, and `filename` parameters.
+
+4. `_formatDictionary` and `_formatList`: These two methods are recursive functions that format a dictionary or a list into a string. The string is formatted with indentation levels, represented by the `tabLevel` parameter, and each key-value pair or list item is followed by a comma and a newline character. The formatted string is then returned.
+
+The code at the top, which is not part of any method, appears to be part of a larger block of code that constructs a string (`self._tcvAreaDictionaryContents`) representing the contents of a dictionary. This string is then written to a file at "/tmp/TCVAreaDictionary.TextUtility".</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,64 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Show_Evolution.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Show_Evolution.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that is part of a software tool called BOIVerify version 2.0. The specific part of the tool is named "Show_Evolution". It is designed to add grids to the grid manager that show how a certain grid has evolved over time for all model runs. The grids are fetched from a verification database.
+
+The script imports several modules, including numpy, time, ProcessVariableList, SmartScript, and BOIVerifyUtility. It then defines a class named Tool that inherits from SmartScript.SmartScript. This class has several methods, including:
+
+- __init__: Initializes the class with a database session and calls the parent class's initializer.
+- preProcessTool: Checks if the weather element name is in the ScreenList. If not, it cancels the process. Otherwise, it prepares the tool for processing by setting up a variable list and running a dialog for the user to pick a model.
+- preProcessGrid: Cancels the process if the docancel attribute is set to 1.
+- postProcessTool: Logs a message indicating the completion of the Show_Evolution process.
+- execute: This is the main method of the class. It shows the history of grids over time. It fetches the color table and range for the parameter, gets the start and end of the current time range and gets verification model records that match. It then loops over the verification model records, reads the grid, clips it to the min/max for this parameter, and prepares the grids to be put on the grid manager in the right order.
+
+The script also contains some metadata and licensing information at the top. It mentions that the software was developed and/or modified by Raytheon Company and contains export-restricted data. It also includes some version history and a log of software changes.
+
+This code appears to be part of a larger Python script, likely within a class definition, and it contains two methods: an unnamed method and `getParmInfo`.
+
+The unnamed method seems to be involved in generating a grid for some kind of forecast model. It formats start and end times, logs these times, calculates the run hours, and constructs a parameter name. If the model is not the "Official" model, the model name is appended to the parameter name. It then creates a grid and sets the active element for this grid. The method does not return any explicit value.
+
+The `getParmInfo` method retrieves and returns information about a parameter from a given model. It initializes several variables, then gets a parameter from the model and retrieves various pieces of information about it, including its units, precision, minimum and maximum values, and whether it's a rate parameter. It also builds color map parameters for the parameter, and if these are not None, it retrieves the color map name and the minimum and maximum values for the color map. The method then returns all this information as a tuple.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

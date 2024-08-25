@@ -1,0 +1,82 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Query.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Query.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code file is part of a software developed by Raytheon Company. It appears to be a module for handling and evaluating queries related to weather data. The code defines a class named `Query` with several methods to handle and manipulate weather data.
+
+Here's a brief summary of what each method does:
+
+1. `mask`: This method takes a weather data grid (`wx`), a query string, and a flag (`isreg`) to determine if the query is a regular expression or a literal string. It returns a numeric mask (a grid of 0's and 1's) where the value is 1 if the given query matches.
+
+2. `_cf`: This is a helper method that checks if a field (`f`) is in a list (`lst`).
+
+3. `wxcontains`: This method checks if the weather data (`wx`) contains certain attributes (`cov`, `type`, `inten`, `vis`, `att`). It returns a numeric mask similar to the `mask` method.
+
+4. `contains`: This method checks if the weather data (`wx`) contains certain keys. It returns a numeric mask similar to the `mask` method.
+
+5. `__init__`: This is the constructor method of the `Query` class. It initializes the `Query` object with a `client` and sets up the forecast (`_fcst`) and time (`_time`) attributes based on the operation mode of the client.
+
+6. `eval`: This method evaluates a query string (`queryStr`) and logs the time it takes to execute the query.
+
+7. `getTime` and `setTime`: These methods are getter and setter methods for the `_time` attribute of the `Query` object.
+
+8. `getCode`: This method compiles a string into Python code and returns the compiled code and its names.
+
+9. `getGrid`: This method retrieves a weather grid (`we`) for a specific time.
+
+10. `getParm`: This method attempts to find a parameter (`parm`) in all of the databases.
+
+The code also includes some metadata and a software history log at the beginning.
+
+This code appears to be part of a larger Python class that interacts with a client to retrieve and manipulate data related to weather forecasting. The specific methods in this code snippet are:
+
+1. `getLocals(self, names)`: This method takes a list of names as input. It creates a dictionary `rval` with some predefined keys and values. Then it iterates over the input names. If a name is found in `fcstParms` (forecast parameters), it retrieves the corresponding grid and logs the time taken for this operation. If the name is not found, it checks for the name with a "_SFC" suffix. If this is also not found, it checks if the name is in `editAreas`. If the name is 'topo', it retrieves the topographical grid. If none of these conditions are met, it tries to get the parameter for the name and if it exists, retrieves the corresponding grid. The method returns the dictionary `rval`.
+
+2. `willRecurse(self, name, str)`: This method takes a name and a string as input. It checks if the name is in `editAreas` and returns 1 if it is, and 0 otherwise.
+
+3. `getEval(self, queryStr)`: This method takes a query string as input. It compiles the edit area query, retrieves local variables for the query, and creates global variables for the query. It logs the time taken for each of these operations. It returns the compiled object, global variables, and local variables.
+
+In all these methods, the time taken for each operation is measured using a `TimeUtil` timer and logged using `PERF_LOG.logDuration`. This is likely for performance monitoring purposes.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,122 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>BOIVerifySave.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>BOIVerifySave.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script, named "BOIVerifySave", is designed to save grids from a specified model. The model is specified in the "BOIVerifySaveModel.txt" file, which is removed immediately after use. 
+
+The script is part of a public domain software with no warranty or technical support. It has been updated several times since its original implementation in 2005, with the latest update in 2010.
+
+The script does not appear in any menu and should only be run via the "runProcedure" command after specifying the model to save in a temporary file. 
+
+The script imports several Python libraries, including numpy, time, calendar, os, traceback, SmartScript, and BOIVerifyUtility. 
+
+The main part of the script is a class named "Procedure" that inherits from the "SmartScript" class. The class has an "__init__" method for initialization and an "execute" method that performs the main functionality of the script. 
+
+The "execute" method gets a list of models to save, loops over the specified models, and saves data for each model. If a model is an observed model, it is handled by the "saveObsModel" method. If a model is a singleton model, it is handled by the "saveSingletonModel" method. All other models are handled by the "saveFcstModel" method. 
+
+The script also includes several constants and a log message system for tracking the progress of the script.
+
+The code provided is written in Python and appears to be part of a larger program that deals with saving and logging data related to different types of models, possibly in a scientific or engineering context. The code includes three methods: an unnamed method, `saveObsModel`, and `saveFcstModel`.
+
+1. In the unnamed method, it first retrieves parameters associated with a model. It then iterates over these parameters, checking if they are available for the model. If a parameter is available, it checks the save interval for the parameter. If the save interval is zero, it saves all grids; if non-zero, it saves snapshots at particular times. It then logs the number of new grids saved, skipped, and errors encountered.
+
+2. The `saveObsModel` method is designed to save grids from an observational model. It first retrieves the database ID for the model and checks if it's valid. If it is, it sets up log messages for the model run and loops over parameters saved in the BOIVerify system. For each parameter, it checks if it's available for the model. If it is, it saves all data for the observational models, forcing the base time to be the same as the start time. It then logs the number of new grids saved, skipped, and errors encountered.
+
+3. The `saveFcstModel` method is designed to save grids for a forecast model. It first retrieves the maximum number of old versions to save. If this is not specified, it defaults to 10. It then iterates over the versions, skipping the oldest version unless it's also the latest version. For each valid version, it sets up log messages for the model run and retrieves the model time. The method seems to be incomplete as the code is cut off.
+
+This code appears to be part of a larger system, possibly related to weather forecasting or similar grid-based data analysis. It's written in Python and involves saving and logging data related to different models and parameters.
+
+Here's a breakdown of what the code does:
+
+1. The code initially logs a message indicating that it's checking a certain model.
+
+2. It then begins a loop over parameters saved in the BOIVerify system. For each parameter, it checks if it's available for the current model. If not, it skips to the next parameter.
+
+3. If the parameter is available, it checks the save interval. If the save interval is zero, it saves all grids for that parameter. If it's non-zero, it saves snapshots at particular times.
+
+4. After saving, it logs information about the number of grids saved, skipped, and any errors encountered. If no new grids were saved, it logs a message indicating this.
+
+5. This process is repeated for all parameters. After all parameters have been processed, it deletes the database id and updates the total number of saved parameters.
+
+6. If no grids were saved for any parameter, it logs a message indicating that there are no new grids to archive for the current model.
+
+7. The `saveAllGrids` function is defined to save all grids for a specified database id and parameter. It takes into account different conditions, such as whether to save grids that end before a certain time, and how to set the base time for the saved grid. It returns the number of grids saved, skipped, and errors encountered.
+
+8. The code snippet ends before the `saveAllGrids` function is completed, but it appears to be in the process of handling special cases for setting the base time.
+
+This code appears to be part of a larger program that manages and archives grid data. 
+
+The function `saveSnapshots` is defined to save hourly grids at specified intervals for a given database ID and parameter. It takes several arguments including `dbid`, `parm`, `sint`, `isc`, `exceptBefore`, and `baseTimeForce`. 
+
+The function first retrieves some configuration and model information, then it enters a loop over time periods. For each time period, it creates a time range and retrieves the start and end times. If `exceptBefore` is non-zero, it skips any grids that end before the `exceptBefore` time.
+
+Then, it gets the history of the last time this grid was modified. It loops over the history list and retrieves the username of the person who last modified the grid and the time it was last updated.
+
+Next, it checks the time this grid was last saved. If the grid hasn't been updated since it was last saved, it skips saving it again. Otherwise, it reads in the grid and attempts to save it. If the grid cannot be read or saved, it logs an error message. If the saved grid is identical to the existing one, it skips saving. If the grid is successfully saved, it logs a success message.
+
+Finally, it returns the number of grids saved, skipped, and the number of errors encountered.
+
+The comments in the code provide a good explanation of what each section is doing.
+
+The code is a part of a larger script that is responsible for managing and manipulating data grids. It provides functionalities such as saving grids, extracting grids, and getting the list of models to save. 
+
+1. The first part of the code checks when the grid was last saved. If it has not been updated since the last save, it skips saving it again. If it needs to be saved, it reads the grid in. If the grid cannot be read, it logs an error. It then saves the grid and logs whether the save was successful or not.
+
+2. The `extractGrids` function reads a grid from a database. If the model name is not 'ISC', it simply reads and returns the grid. If the model name is 'ISC' and the time period is more than one hour, it performs more complex processing to read all the ISC grids.
+
+3. The `getSaveModels` function gets a list of models to save. It first tries to read the model name from a file. If the file does not exist or cannot be read, it gets a list of all models in the system except 'Official' and 'ISC'.
+
+4. The `tstring` function converts a GFE time object into a time string in the format YYYYMMDDHH.
+
+The code seems to be a part of a larger system for managing and manipulating data grids, possibly in a weather forecasting or similar data-intensive context.
+
+This code defines three methods in a class:
+
+1. `gstring(self, timetuple)`: This method takes a time tuple in the format (year, month, day, hour) and returns a string in the format YYYYMMDDHH. 
+
+2. `gstring1(self, timetuple)`: This method is similar to `gstring`, but it also includes minutes and separates the year, month, and day with slashes and the hour and minute with a colon. If the input is an integer, it is treated as a Unix timestamp and converted to a time tuple using the `time.gmtime()` function.
+
+3. `getBetterComposite(self, parmName, timeRange)`: This method is more complex. It takes a parameter name and a time range, and it retrieves and processes grid data related to that parameter over the specified time range. It appears to be designed to handle data from a weather or climate model, as it references concepts like "ISC grids" and "SCALAR", "VECTOR", and "WEATHER" grid types. The method performs various operations on the grid data, such as calculating sums, averages, and minimum and maximum values, and it returns different types of data depending on the grid type.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>PersistMonitor.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>PersistMonitor.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is part of a software developed by Raytheon Company for the US Government. The software is subject to export restrictions under U.S. law. 
+
+The specific file, `PersistMonitor.py`, appears to be a module for monitoring METAR data. METAR is a format for reporting current weather information, typically used in aviation. 
+
+The module imports several libraries including `logging` and `time`, as well as several custom modules like `Avn`, `AvnLib`, `MonitorP`, `MetarMonitorP`, and `MetarData`. 
+
+A logger is set up to log events under a specific category. 
+
+The main class in this module, `Monitor`, extends from `MetarMonitorP.Monitor`. It has a method named `__compare` which seems to be comparing current METAR data with some other data (possibly TAF, Terminal Aerodrome Forecast data). 
+
+The `__compare` method retrieves the latest METAR data, checks if the data is missing or cannot be decoded, applies some rules to the data, and returns the result. 
+
+The history of changes and revisions to this file is also documented in detail, including the date, author, and description of each change. 
+
+The comments in the code indicate that this is a base file and should not be overridden.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

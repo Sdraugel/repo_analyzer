@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Haines.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Haines.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is a tool for calculating the Haines Index, a weather index used to indicate the potential for wildfire growth by measuring the stability and dryness of the air over a fire. It's named after its developer, Donald Haines, a meteorologist with the U.S. Forest Service.
+
+The script imports the numpy and SmartScript libraries. It defines a class `Tool` that inherits from `SmartScript.SmartScript`. The class has two methods: `__init__` and `execute`.
+
+The `__init__` method initializes the class with a database session.
+
+The `execute` method performs the main functionality of the script. It first determines the fire weather model to be used based on the value of `fwModel`. Depending on the model, it sets the `modelSource` accordingly.
+
+The script then retrieves temperature and relative humidity data at different atmospheric pressure levels (950, 850, 700, and 500 millibars) for the specified time range and model. If any of these data are not available, it calls the `noData` method.
+
+Next, it calculates the dew point depressions at 850 and 700 millibars. Dew point depression is the difference between the temperature and the dew point temperature at a certain pressure level. It's a measure of how dry the air is.
+
+The script then calculates the Haines Index based on the mode (Low, Mid, or High). The mode determines which atmospheric pressure levels are used in the calculation. The Haines Index is calculated as the sum of two terms: Aterm and Bterm. Aterm is based on the temperature difference between two pressure levels, and Bterm is based on the dew point depression at a certain pressure level. The specific calculations for Aterm and Bterm depend on the mode.
+
+The calculated Haines Index is then returned.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

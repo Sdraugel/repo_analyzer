@@ -1,0 +1,80 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>createUserTopoFile.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>createUserTopoFile.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is used to convert NetCDF topo-like datasets to HDF5 files so they can be viewed within CAVE, a visualization software. It also creates an XML bundle file which contains information about the HDF5 file and the map to be displayed.
+
+The script starts by importing necessary modules such as logging, os, sys, h5py, numpy, scipy.ndimage, and netCDF4. It also imports UsageArgumentParser from awips module.
+
+It sets up logging configuration and defines some constants like DATA_SET_OPTIONS, CRS (Coordinate Reference System), and BUNDLE_TEMPLATE (a XML template for the bundle file).
+
+The script then defines two classes: XMLBundleMaker and HDF5FileMaker.
+
+XMLBundleMaker class is used to create an XML bundle file. It takes in the input path, output path, h5 file name and map name as parameters. The 'run' method of this class creates the XML bundle file. If the map name is not provided, it tries to extract it from the NetCDF file.
+
+HDF5FileMaker class is used to create an HDF5 file from the NetCDF file. It takes in the input path, output path, and interpolation levels as parameters. The 'run' method of this class creates the HDF5 file. It checks if the NetCDF file contains only one gridded dataset and if it uses a supported projection.
+
+The script also contains a software history section that logs the changes made to the software over time. The initial creation was done by an engineer named dgilling on 10/03/18. The software was then updated to support netcdf4-python by the same engineer on 05/07/19.
+
+This script is a utility for converting a NetCDF file to an HDF5 file format, with optional interpolation levels. It also generates an XML bundle file. 
+
+Here is a breakdown of what each part of the script does:
+
+1. The `parse_args` function is used to parse command-line arguments. This includes the input file (a NetCDF file), the output file (an HDF5 file), the number of interpolation levels, and the map name.
+
+2. The `main` function is the entry point of the script. It parses the command-line arguments, creates an HDF5 file from the input NetCDF file using the `HDF5FileMaker` class, and handles any exceptions that may occur. It also generates an XML bundle file using the `XMLBundleMaker` class.
+
+3. The `HDF5FileMaker` class is used to create an HDF5 file from the input NetCDF file. It reads the dimensions and coordinates of the input data, creates a dataset in the output file, and sets its attributes. If interpolation levels are specified, it creates an interpolated dataset for each level.
+
+4. The `setAttributes` method of the `HDF5FileMaker` class is used to set the attributes of a dataset. This includes the width, height, upper left and lower right coordinates, and the coordinate reference system (CRS).
+
+5. The `interpolate` method of the `HDF5FileMaker` class is used to create an interpolated dataset. It rescales the input dataset using a zoom factor, creates a new dataset in the interpolation group of the output file, and sets its attributes.
+
+6. The `magicfloat` function is used to convert a value to a numpy float64 array.
+
+7. The `XMLBundleMaker` class is used to create an XML bundle file. This is not shown in the provided code, but it's mentioned in the `main` function.
+
+8. The script is intended to be run as a standalone program, as indicated by the `if __name__ == '__main__':` line. When run, it executes the `main` function.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,86 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>MergeVTEC.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>MergeVTEC.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that merges two "active" tables together. It was developed by Raytheon Company and is part of the AWIPS II software, which is used for meteorological data processing and forecasting.
+
+Here's a breakdown of what the code does:
+
+1. It imports several Python modules, including argparse, collections, pickle, gzip, logging, os, re, sys, and some custom modules from the AWIPS software.
+
+2. It sets up logging configuration for the script.
+
+3. It defines a class `CaseInsensitiveStringSet` which is a set that ignores case when checking for membership.
+
+4. It defines a class `StoreDrtTimeAction` which is a custom action for argparse to handle a specific command line argument.
+
+5. The main class `MergeVTEC` is defined. This class is responsible for merging two active tables together. The class has several methods:
+   - `__init__`: Initializes the object with several parameters including server host and port, site, remote table name, active table name, and several other options.
+   - `_mergeTable`: Sends the new active table to the server where the actual merge is performed.
+   - `_readActiveTable`: Reads the active table and returns the list of records.
+   - `_convertToNewFormat`: Converts an AWIPS I table to AWIPS 2 internally.
+
+6. The script uses the Thrift protocol for communication with the server. Thrift is a software framework for scalable cross-language services development.
+
+7. The script also uses the pickle module for serializing and deserializing Python object structures, and the gzip module for file compression and decompression.
+
+8. The script uses the logging module to log the progress and any issues that occur during the execution of the script.
+
+9. The script also handles exceptions and errors that may occur during the execution, such as issues with merging or reading the active table.
+
+10. The script includes comments with a software history, detailing changes made to the script over time by different engineers.
+
+This Python script appears to be part of a larger system, possibly for processing weather data or similar information. Here's a breakdown of what each part of the code does:
+
+1. The first block of code appears to be part of a larger function or loop not shown here. It's manipulating a dictionary called `entry`. It's converting some values to integers, setting some other values, and performing some conditional checks to set other values. It's also performing some regular expression searches on text data within the `entry` dictionary.
+
+2. The `process_command_line()` function is setting up command line argument parsing for this script. It's using the `argparse` module to define what command line arguments this script accepts, what type those arguments should be, whether they're required or not, and what help text to display for them.
+
+3. The `merge()` function is a wrapper function that calls another function `MergeVTEC()` with the arguments it receives. The `MergeVTEC()` function is not defined in this script, so it's likely defined elsewhere in the same project.
+
+4. The `main()` function is calling the `process_command_line()` function to parse command line arguments, then it's passing those arguments to the `merge()` function. If any exceptions are thrown during this process, it logs the exception and exits the script with a status of 1 to indicate an error occurred.
+
+5. The final `if __name__ == "__main__":` block is a common Python idiom. It means "if this script is being run directly (as opposed to being imported as a module), then run the `main()` function". This allows the script to be used both as a standalone script and as a module that other scripts can import and use.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

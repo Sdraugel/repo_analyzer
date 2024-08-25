@@ -1,0 +1,64 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>nwpsCG1MOB.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>nwpsCG1MOB.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code appears to be a Python script that is part of a larger software system developed by Raytheon Company. The script is intended to calculate surface weather elements from the nwpsCG1 model output. 
+
+Here's a breakdown of what the code does:
+
+1. The script begins with a block of comments that provide legal and licensing information about the software. It specifies that the software was developed by Raytheon Company under a specific contract with the US Government. It also mentions that the software contains export-restricted data and cannot be disseminated to non-U.S. persons without an export license or other authorization.
+
+2. The next block of comments explains that this is a base file that is not intended to be overridden. However, it can be subclassed to override behavior. It refers to a section of the GFE Online Help for guidance on creating a new smart init.
+
+3. The script then imports two modules, `Init` and `nwpsCG1`. 
+
+4. It defines a class `nwpsCG1MOBForecaster` that inherits from `nwpsCG1Forecaster`. This class has a constructor method (`__init__`) that calls the constructor of the parent class with specific parameters.
+
+5. The script defines a `main` function that creates an instance of `nwpsCG1MOBForecaster`, runs it, and then calls its `notifyGFE` method with the argument 'MOB'.
+
+6. Finally, the script checks if it is being run as a standalone program (as opposed to being imported as a module). If it is being run as a standalone program, it calls the `main` function.
+
+The specific functionalities of the `Init`, `nwpsCG1`, and `nwpsCG1Forecaster` modules, as well as the `run` and `notifyGFE` methods, are not clear from the provided code and would depend on their implementation in the respective modules.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

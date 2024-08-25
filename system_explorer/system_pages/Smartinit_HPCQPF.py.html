@@ -1,0 +1,56 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>HPCQPF.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>HPCQPF.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a software developed by Raytheon Company under a contract with the US Government. The software contains export-restricted data and its dissemination to non-U.S. persons requires an export license or other authorization.
+
+The script defines a module that calculates surface weather elements from HPC QPF model output. The module is defined within a class called `HPCQPFForecaster` that inherits from the `Forecaster` class. 
+
+The `HPCQPFForecaster` class has a constructor method (`__init__`) that initializes an instance of the class with the name "HPCQPF".
+
+The class also includes a method `calcQPF` which calculates HPC QPF from the QPF model. This method takes one argument, `tpHPC_SFC`, and performs a series of operations on it. It first filters out all values above 1000 mm, replacing them with 0.0. Then it divides the remaining values by 25.4. The resulting grid of values is then clipped between 0 and 5 inches, meaning all values below 0 are set to 0 and all values above 5 are set to 5.
+
+The `main` function at the end of the script creates an instance of the `HPCQPFForecaster` class and runs it. This is likely the entry point of the script when it is run as a standalone program.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

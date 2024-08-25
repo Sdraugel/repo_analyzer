@@ -1,0 +1,65 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>GridInfo.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>GridInfo.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is written in Python and appears to be part of a larger software system developed by Raytheon Company for the US Government. It includes a class definition for `GridInfo`, which seems to be used for handling and manipulating grid data, possibly related to geographical or meteorological data.
+
+The `GridInfo` class has an initializer (`__init__`) that takes in several parameters such as `parmID`, `gridLoc`, `maxLimit`, `minLimit`, `units`, `gridTime`, `type`, `timeIndependentParm`, `timeConstraints`, `precision`, `rateParm`, `descriptiveName`, and `gridParmInfo`. If `gridParmInfo` is not provided, it is constructed using the other parameters. If `gridParmInfo` is provided, none of the other parameters except `gridTime` should be specified, otherwise an `IllegalArgumentException` is raised.
+
+The class also includes several methods that return information about the grid, such as:
+
+- `getParmID()`: Returns the ID of the parameter this grid belongs to.
+- `gridLocation()`: Returns the grid location.
+- `maxLimit()` and `minLimit()`: Return the maximum and minimum values allowed for this grid, respectively.
+- `gridTime()`: Returns the time range of this grid.
+- `type()`: Returns the grid type.
+- `units()`: Returns the units of the parameter.
+- `timeIndependentParm()`: Returns whether this is a time-independent parameter.
+- `tc()`: Returns the time constraints of this grid.
+- `precision()`: Returns the precision.
+- `rateParm()`: Returns whether this grid's parameter is a rate parameter.
+
+The code also includes import statements for `TimeRange` and `GridParmInfo` from `com.raytheon.uf.common.dataplugin.gfe.db.objects`, which are likely external modules or libraries used in the code.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,75 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>VTECPartners.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>VTECPartners.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code file appears to be a configuration file for a software system developed by Raytheon Company. The software is related to the VTEC (Valid Time Event Code) system used in meteorology for encoding weather warnings, watches, and advisories.
+
+The code includes a history of changes made to the file, with dates, ticket numbers, the engineer who made the change, and a description of what was changed.
+
+The code defines several lists and dictionaries that seem to be configuration parameters for the software. These include:
+
+- `VTEC_TABLE_REQUEST_SITES`: A list of AWIPS WAN IDs (typically WFO IDs) which identifies the locations from which the software will request their active VTEC table for merge purposes.
+- `VTEC_SPC_SITE` and `VTEC_TPC_SITE`: Lists of site identifiers for SPC and TCV bulletins.
+- `VTEC_MERGE_SITES` and `VTEC_DECODER_SITES`: Lists of office identifiers used to filter out records from offices that aren't in the area of responsibility.
+- `VTEC_CAPTURE_TEXT_CATEGORIES`: A list of product categories that when decoded, the text for each segment is captured.
+- `VTEC_MAPPED_PILS`: A dictionary used for remapping of product pils, required for certain VTEC events.
+- `BackupDict`: A dictionary containing default configuration based on a list of primary/secondary backup sites.
+
+The code also sets several parameters related to the frequency of requests for table updates, purging backups of the active table, and whether the site should respond to VTEC table requests.
+
+The code file is written in Python and appears to be part of a larger system related to weather forecasting or meteorological data processing. The specific functions of the code are:
+
+1. The first part of the code is a dictionary named `BackupDict` where each key-value pair represents a site and its backup sites. The keys are 3-letter site identifiers and the values are tuples of backup sites for the key site.
+
+2. The `get4ID` function converts a 3-letter site identifier to a 4-letter identifier using the `SiteMap` class from the `com.raytheon.uf.common.site` module.
+
+3. The `getISCSites` function returns a list of ISC (Inter-System Communication) sites within a defined domain. It uses the `LocalizationContext` and `PathManagerFactory` classes from the `com.raytheon.uf.common.localization` module to access and manage file paths. It also checks if each site is a known WFO (Weather Forecast Office) site by checking if it's in the `BackupDict`.
+
+4. The `siteList` function returns a list of site identifiers given a host site ID. It includes primary and secondary backup sites, failed sites for which the host site serves as a backup, and ISC sites. It also has an option to return either 3-letter or 4-letter site identifiers.
+
+5. The `auto-configure` section attempts to import a module named `siteConfig`, get a list of ISC sites, and set three variables (`VTEC_TABLE_REQUEST_SITES`, `VTEC_MERGE_SITES`, `VTEC_DECODER_SITES`) using the `siteList` function.
+
+6. The `allow overrides` section attempts to import a module named `localVTECPartners`. If the module is not found, it logs a message stating that the baseline settings are being used. If any other error occurs during the import, it raises the exception.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,90 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Populate_WPC_PQPF.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Populate_WPC_PQPF.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided Python script, named PopulateWithERP.py, is a part of a software that is in the public domain. The script is designed to copy the latest version of high-resolution QPF (Quantitative Precipitation Forecast) grids from the WPC (Weather Prediction Center) grid found in the D2D HPCERP GFE model database. 
+
+The script is structured as follows:
+
+1. Importing necessary modules: The script imports the math, time, AbsTime, SmartScript, and TimeRange modules.
+
+2. Defining a class named Procedure: This class inherits from the SmartScript class and contains several methods.
+
+   - `__init__`: This method initializes the Procedure class.
+   
+   - `getQPFGridDuration`: This method returns the duration for the QPF parameter in hours.
+   
+   - `getWEInventory`: This method fetches the inventory as a list of timeRanges for the specified model and element. It also trims the list to the specified timeRange, if any.
+   
+   - `getModelList`: This method returns a list of model names matching the specified model name, weather element name, and level.
+   
+   - `getERPGrids`: This method fetches the ERP grids at the times specified by the gridTRList. It always fetches the latest model that contains the requested grid.
+   
+   - `makeTimeRangeList`: This method makes a list of timeRanges rounded and synched to the 6-hour synoptic times.
+
+The script also includes a variable `MenuItems` with a single value "Edit" and an empty list `VariableList`.
+
+The script is designed to run four times a day, and it checks the inventory and populates the QPF grids using the latest HPCERP tpHPCndfd or a combination of the latest HPCERP db and the previous one if the latest one is not completely in the system yet. It also copies the guidance into 6 hours QPF grids regardless of the time constraint of your QPF grids.
+
+If a time range is preselected in the Grid Manager, the tool only runs for that time range. Otherwise, if no time range is preselected, the tool runs from the current 6 hours period out to 7 days using the latest guidance available as far out as it is available at the time the tool is run.
+
+This code is part of a larger program that appears to be related to weather forecasting, specifically dealing with Quantitative Precipitation Forecasting (QPF). Here's a breakdown of what the code does:
+
+1. The `makeTimeRangeList` function creates a list of time ranges (`trList`) starting from the current time (`now`) and going forward for a specified number of days (`days`). Each time range is six hours long (`sixHrs`). If a time range overlaps with a `selectedTimeRange` or if the `selectedTimeRange` is not valid, it is added to the `trList`.
+
+2. The `execute` function first sets some model parameters (`_ERPModelName`, `_ERPVarName`, `_ERPLevel`). It then checks if the duration of the QPF grid (`qpfDuration`) is either 1, 3, or 6. If not, it sends a message to the status bar and returns.
+
+3. The function then gets a list of models (`modelList`) using the previously set model parameters. If no models are found, it sends a message to the status bar and returns.
+
+4. The commented out section of the code seems to be for checking the validity of the latest model in the `modelList`. It checks if the model has at least 72 hours of data, if the first grid starts near the model time, and if there are enough grids in the latest model. If any of these checks fail, it sends a message to the status bar and returns.
+
+5. The function then creates a list of time ranges (`trList`) using the `makeTimeRangeList` function and gets the ERP grids (`erpGridDict`) for these time ranges.
+
+6. It checks if all the grids are there in `erpGridDict`. If any grid is missing, it sends a message to the status bar and returns.
+
+7. For each time range in `trList`, it checks if it overlaps with any of the time ranges in `erpGridDict`. If it does, it gets the corresponding grid, converts it from millimeters to inches, and creates a new grid with this data.
+
+The code seems to be part of a larger system for managing and analyzing weather data, specifically related to precipitation forecasting.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

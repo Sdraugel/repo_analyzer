@@ -1,0 +1,64 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>JepRouter.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>JepRouter.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is part of a larger software system developed by Raytheon Company. It serves as an interface to the Data Access Framework (DAF) in the Advanced Weather Interactive Processing System (AWIPS) II, a meteorological display and analysis package developed by the National Weather Service and Raytheon.
+
+The code imports several modules and classes from the DAF and defines several functions that wrap the DAF's Java methods, allowing them to be used in Python. These functions include:
+
+- `getAvailableTimes(request, refTimeOnly)`: This function retrieves available times for a given data request. If `refTimeOnly` is set to True, only reference times are returned.
+- `getGridData(request, times)`: This function retrieves grid data for a given data request and a list of times or a time range.
+- `getGeometryData(request, times)`: This function retrieves geometry data for a given data request and a list of times or a time range.
+- `getAvailableLocationNames(request)`: This function retrieves available location names for a given data request.
+- `getAvailableParameters(request)`: This function retrieves available parameters for a given data request.
+- `getAvailableLevels(request)`: This function retrieves available levels for a given data request.
+- `getRequiredIdentifiers(request)`: This function retrieves required identifiers for a given data request.
+- `getOptionalIdentifiers(request)`: This function retrieves optional identifiers for a given data request.
+- `getIdentifierValues(request, identifierKey)`: This function retrieves the values of a specific identifier for a given data request.
+- `newDataRequest(datatype, parameters=[], levels=[], locationNames = [], envelope=None, **kwargs)`: This function creates a new data request with the specified parameters.
+- `getSupportedDatatypes()`: This function retrieves the data types supported by the DAF.
+
+The code also contains a software history section, which documents changes made to the code over time.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

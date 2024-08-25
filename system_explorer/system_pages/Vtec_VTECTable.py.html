@@ -1,0 +1,68 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>VTECTable.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>VTECTable.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a larger software system developed by Raytheon Company. It contains a dictionary named `VTECTable` that maps VTEC (Volcanic Ash Advisory Center) codes to their corresponding headlines. 
+
+VTEC codes are used by the National Weather Service to issue weather-related warnings, advisories, and watches. Each code is made up of a phenomena code (phen) and a significance code (sig). The phenomena code describes the type of weather event (e.g., 'AF' for ashfall, 'AQ' for air quality, 'AS' for air stagnation, etc.), and the significance code indicates the severity of the event (e.g., 'W' for warning, 'Y' for advisory, 'A' for watch, etc.).
+
+Each entry in the `VTECTable` dictionary is a key-value pair where the key is a VTEC code and the value is another dictionary that contains the phenomena code, significance code, and the associated headline (hdln). For example, the VTEC code 'AF.W' maps to a dictionary with 'phen': 'AF', 'sig': 'W', and 'hdln': 'Ashfall Warning'. 
+
+This script is likely used to parse incoming VTEC codes and generate the appropriate headlines for weather alerts.
+
+The provided code is written in Python and it defines two dictionaries: one for hazard warnings and another for hazard upgrades.
+
+The first dictionary, which doesn't have a name in the provided code, is a mapping of hazard codes to their full meaning. Each key in the dictionary is a hazard code, and the value is another dictionary that describes the hazard. The inner dictionary has three keys: 'phen', 'sig', and 'hdln'. 'phen' stands for phenomenon, 'sig' stands for significance, and 'hdln' stands for headline. For example, the key 'HZ.W' maps to a dictionary with 'phen' as 'HZ', 'sig' as 'W', and 'hdln' as 'Hard Freeze Warning'. This means that the code 'HZ.W' represents a hard freeze warning.
+
+The second dictionary, `upgradeHazardsDict`, defines the relationships between different hazard warnings. Each key in this dictionary is a hazard code, and the value is a list of hazard codes that are upgraded by the key. For example, the key 'WC.W' maps to the list ['WC.A', 'WC.Y']. This means that a 'WC.W' (Wind Chill Warning) hazard upgrades a 'WC.A' (Wind Chill Watch) and a 'WC.Y' (Wind Chill Advisory) hazard.
+
+This code file appears to be part of a hazard management system. It contains two dictionaries, `upgradeHazardsDict` and `downgradeHazardsDict`, which map hazard identifiers to lists of other hazards. These identifiers are likely codes for different types of hazards.
+
+The `checkForUpgrade` function takes four arguments: `pPhen`, `pSig`, `cPhen`, and `cSig`. It combines `pPhen` and `pSig` to form the proposed hazard, and `cPhen` and `cSig` to form the current hazard. The function checks if the proposed hazard is in the `upgradeHazardsDict` dictionary, and if the current hazard is a value associated with the proposed hazard key in the dictionary. If both conditions are met, the function returns 1, indicating that the proposed hazard is an upgrade from the current hazard. If not, it returns 0.
+
+Similarly, the `checkForDowngrade` function works in the same way as `checkForUpgrade`, but it checks if the proposed hazard is a downgrade from the current hazard using the `downgradeHazardsDict` dictionary.
+
+In summary, this code is used to determine if a proposed hazard is an upgrade or downgrade from a current hazard.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,84 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ActiveTable.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ActiveTable.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a larger software system developed by Raytheon Company. It appears to be a module for handling and manipulating active tables, likely in a weather forecasting or meteorological context given the references to VTEC (Voluntary Emission Reduction Action Plan), which is a system used by the National Weather Service for encoding warning and forecast information. 
+
+The script begins with a detailed header that includes legal and contractual information, as well as a software history log that documents changes made to the code over time.
+
+The script then imports necessary modules and classes, including time, copy, os, and several custom modules such as VTECTableUtil, VTECTableSqueeze, VTECPartners, and TropicalCycloneUtil. It also imports some classes from the Java-based Raytheon Unified Common library.
+
+The main class defined in this script is `ActiveTable`, which inherits from `VTECTableUtil.VTECTableUtil`. This class has an `__init__` method for initialization, and a `updateActiveTable` method. 
+
+The `updateActiveTable` method appears to merge previous active tables and new records into a new table. It does this by first removing obsolete records from the old table, then expanding out any UGC codes (Universal Geographic Code, used in weather warnings) that are set to "000" to indicate all zones. It also matches new records with old records, adjusting issue times for ongoing events from the previous year. 
+
+The script makes use of timers to monitor the performance of these operations, logging the duration of each major step.
+
+This code is performing several operations on two sets of records, `newRecords` and `activeTable`, which are presumably lists of dictionaries. The operations include:
+
+1. **Checking for overlaps and resetting issuance time**: The code first checks if the `issueTime` of the old records is the same as the last year. If so, it then checks for certain conditions in the new records such as the action being "EXP", "CAN", "UPG" and the `endTime` being the same as the old record's `endTime`. It also checks for overlaps between the `startTime` and `endTime` of the old and new records. If these conditions are met, it logs an event and resets the `issueTime` of the new record to the last minute of the last year.
+
+2. **Splitting records by issuance year**: The code then splits the new and old records by their issuance year. It creates two dictionaries, `newRecDict` and `oldRecDict`, where the keys are the issuance years and the values are lists of records issued in those years.
+
+3. **Processing each year's records**: For each year, the code processes the old and new records. It checks for certain conditions such as the action of the new record being "ROU", the `etn` of the new record being the same as the old record's `etn`, and whether the new record is of a higher `etn`. If these conditions are met, it sets a flag to not keep the old record.
+
+4. **Adding new records**: Finally, the code adds the new records to the `updatedTable`, except those with the action "ROU". If the action of the new record is "COR", it finds the original action and substitutes it.
+
+The code also makes use of a timer to measure the duration of these operations and logs the durations. It appears to be part of a larger system that processes and updates a table of records, possibly related to weather events or hazards given the references to tropical storms and ETN (Event Tracking Number).
+
+This Python code appears to be part of a larger system that deals with updating and merging records in an active table. Here's a breakdown of what the different parts of the code are doing:
+
+1. The first part of the code checks if the 'act' field of a new record (newR) is equal to "COR". If it is, it logs a problem stating that a "COR match was not found" and discards the record. If the 'act' field is not equal to "COR", it appends the new record to the updated table, sets a flag indicating that changes have been made, and appends certain fields from the new record to a list of changes if they are not already in the list.
+
+2. The next part of the code filters out any captured text and overview text from the records in the updated table if they are not in certain categories.
+
+3. The "__overlaps" and "__containsT" methods are helper functions that check if two time ranges overlap or if a time range contains a specific time, respectively.
+
+4. The "_getTextCaptureCategories" method retrieves a list of product categories that need their text captured. If the list is empty, it returns None.
+
+5. The "activeTableMerge" method updates the active table with new records, removes any records with a 'state' field equal to "Purged", and returns the updated table, the purged records, a list of changes, and a flag indicating whether changes have been made.
+
+6. The "mergeFromJava" function is a larger function that merges records from a Java active table with the Python active table. It logs the number of records in the active table and the new records, converts the Java records to Python records, updates the active table with the new records, logs the number of updated records, purged records, and changes, and returns a result containing the updated records, purged records, and changes.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

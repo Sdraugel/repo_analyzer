@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>testSerializingPython.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>testSerializingPython.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is used to create, serialize, and write out a custom object to a file. 
+
+The script first imports necessary modules and sets the number of trials for timing the serialization process. 
+
+The `main` function initiates a timer for the serialization process, prints out the average time it took to serialize the object over the specified number of trials, creates an instance of the object, serializes it, and writes it out to a file.
+
+The `makeObject` function creates an instance of the `TestStoreRequest` class from the `pypies` library. It sets various properties of the object, including a group name, size, other name, null test, value, boolean flag, float value, float array, integer array, map, set, and enum. The float and integer arrays are initialized with numpy zeros and then the first element is set to a specific value.
+
+The `serialize` function uses the `DynamicSerializationManager` from the `pypies` library to serialize the object into a binary format that can be written out to a file.
+
+The `writeOut` function writes the serialized object to a file located at '/tmp/pyOut'. 
+
+Finally, the script checks if it is being run as a standalone program (as opposed to being imported as a module), and if so, it calls the `main` function to execute the process.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

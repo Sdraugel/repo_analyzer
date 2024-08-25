@@ -1,0 +1,108 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TextDB.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TextDB.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is part of a larger software package developed by Raytheon Company. It contains configuration information specific to a Subscription Manager tool and implements the text database (textdb) Command Line Interface (CLI) tool.
+
+The code starts with importing necessary modules and libraries. It then defines a custom exception class called `MessageError` that is raised when errors occur during message processing. The `MessageError` class includes methods to return a string representation of the error and its cause.
+
+The function `appendIfNotPresent` is defined to append a value to a list associated with a key in a multimap (a dictionary-like data structure that can map each key to multiple values) if the key is not already present in the map.
+
+The `TextDB` class is then defined, which implements the text database Command Line Interface (CLI) tool. This class has several private methods to handle different command line operations, such as printing usage messages, determining if the command line specifies certain operations, and handling legacy commands.
+
+The code ends abruptly, suggesting that this is only a part of the complete file. The last method seems to be checking if the command line specifies an operation that requires processing a trigger script request, but the method is not completed.
+
+Throughout the code, there are comments providing software history, including dates, ticket numbers, engineers, and descriptions of changes made. This is useful for tracking the evolution of the software and understanding the reasons behind certain code modifications.
+
+This code is a series of methods that manipulate and validate command line arguments and data for a program. 
+
+1. `TriggerScriptRequest(self)`: This method checks if any of the commands in `self.commands` are present in `config.triggercmds`. If found, it returns `True`, otherwise `False`.
+
+2. `__correctLegacyCommand(self)`: This method attempts to transform a legacy command into a valid flag-based command. If an error occurs, it raises an `InputOutputError`.
+
+3. `__removeDefault(self)`: This method removes the 'default' key from `self.commands`. If this results in an empty commands dictionary, a 'help' command is added.
+
+4. `__mergeData(self)`: This method merges data lists into space-separated strings and updates entries in `self.commands`.
+
+5. `__checkCommandCount(self)`: This method checks if the number of commands obtained from the command line is appropriate. It raises an `ArgError` if the number of commands is not appropriate.
+
+6. `__readProduct(self)`: This method reads the product value from standard input and adds the text read to the commands dictionary. If an error occurs, it raises an `InputOutputError`.
+
+7. `__generateRequestMessage(self)`: This method generates the request message to be sent to the EDEX server. If any error occurs, it raises a `MessageError`.
+
+The code is written in Python and uses exception handling to manage errors that may occur during the execution of these methods. It also makes use of Python's built-in data structures like dictionaries and lists to store and manipulate data.
+
+The provided code is written in Python and it appears to be part of a larger application, possibly a command-line utility or a server. Here's a high-level overview of what each part of the code does:
+
+1. The first part of the code is appending data to a multimap based on certain conditions. It then sets an operational mode from an environment variable and appends it to the multimap. It finally creates and returns a Message object. If any exception occurs, it raises a MessageError.
+
+2. The `__readCommandLine` method reads and parses command line arguments, checks command count, corrects sub-operations if any, checks for legacy commands and corrects them if found, merges data if required, and validates and modifies commands as needed. It also creates 'command', 'stdin', and 'runner' entries in the commands dictionary. If any exception occurs, it raises an ArgError.
+
+3. The `__processRequestResponse` method processes the response from a server. It reads the properties of the message header and writes the data to either standard output or standard error based on the property name. It returns a status code based on whether an error occurred.
+
+4. The `__submitRequestMessage` method sends a request message to a server using the Thrift protocol and returns the server's response.
+
+5. The `__handleScriptRequest` method handles script requests by modifying the command line to match the micro-engine command line and passing the modified command line to the micro-engine client. It returns the result of executing the micro-engine client.
+
+6. The `__deleteSubscriptions` method deletes subscriptions by calling the execute method of a SubscriptionManager object.
+
+7. The `__hasSubOperations` method checks if the command line has sub operations by checking if any flags in self.commands[CL.DEFAULT_KEY] are in config.mayJoin.
+
+The code also contains some comments that seem to be version history or change logs.
+
+This Python script appears to be a command-line interface for interacting with a text database server. Here's a breakdown of what each part of the code does:
+
+1. The first part of the code checks if a certain flag is present in the configuration and if it's allowed to join. If both conditions are met, it returns True; otherwise, it returns False.
+
+2. The `__correctSubOpCommandLine` method iterates over the keys of the `commands` dictionary. If the default key is found, it modifies the command line by replacing certain flags with their corresponding values from the configuration. It then replaces the original commands dictionary with a new one.
+
+3. The `__correctVersionRequest` method modifies the command line to handle the `-v` flag, which typically stands for version. If the `-v` flag is present, it inserts `-r` or `-a` at the second position of the command line, depending on the length of the command line.
+
+4. The `__correctLdadRequest` method modifies the command line to handle the `-pil` and `-ldad` flags. If either flag is present, it replaces it with `-l`.
+
+5. The `execute` method is the main function of the script. It reads and processes the command line, sends commands to the text database server, processes the return message, and writes results to standard output. If an error occurs during processing, it prints the error message and returns 1. Otherwise, it returns the status of the request.
+
+6. The last part of the script allows the class to be run as an application. If the script is run directly (not imported as a module), it creates an instance of the TextDB class and executes it. The status returned by the `execute` method is used as the exit status of the script.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

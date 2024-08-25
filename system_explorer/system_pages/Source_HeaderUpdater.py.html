@@ -1,0 +1,118 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>HeaderUpdater.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>HeaderUpdater.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that seems to be part of a larger system, possibly for managing software versions or updates. The script is designed to update headers in files, based on the options provided when the script is run. Here's a breakdown of what the code does:
+
+1. The script starts with a shebang line (`#!/awips2/python/bin/python3`) which indicates that the script should be run using Python 3 located at `/awips2/python/bin/`.
+
+2. It then provides some licensing and copyright information.
+
+3. The script imports several modules and functions, including `OptionParser` and `OptionGroup` from `optparse` for parsing command-line options, several functions from `os` for handling file paths and renaming files, `sys` for system-specific parameters and functions, `re` for regular expressions, and `logging` for logging events for this script.
+
+4. It also imports `FileTypeConfig` and `OptionCallback`, which are likely custom modules that are part of the larger system this script belongs to.
+
+5. The script defines several functions:
+   - `getRegex`: This function retrieves or creates a regular expression (regex) associated with a specific file type and regex key.
+   - `getLastMatch`: This function returns the last match from a regex split operation.
+   - `getHeader`: This function reads a header file and replaces certain text based on the file's configuration.
+   - `addOptions`: This function adds several command-line options to the script using `OptionParser`.
+
+6. The `main` function is the entry point of the script. It sets up the command-line parser, adds the options defined in `addOptions`, and then parses the command-line arguments.
+
+The script seems to be designed to be run from the command line, with various options for specifying things like the header file to use, a search string or pattern to look for in the existing header, a limit on the search size, and the file types to include. It also has options for verbose output, updating the file in place with a backup, and reverting to a backup.
+
+This Python script is a command-line utility that performs various operations on a file based on the provided command-line arguments. Here's a breakdown of what it does:
+
+1. The script first parses command-line arguments using `commandLineParser.parse_args()`. 
+
+2. It then checks if a file is provided and sets the `inputFileName` accordingly. If no file is provided, it checks for a file extension option. If neither is provided, it throws an error.
+
+3. The script sets up a logger with the name of the file and sets the log level based on the verbosity level provided in the command-line options.
+
+4. If a `revertSuffix` option is provided, the script attempts to rename the file by appending this suffix. If an error occurs during renaming, it logs the error and returns.
+
+5. The script then loads file type configurations from a directory specified in the command-line options. If no configuration exists for the input file type, it logs an error and returns.
+
+6. The script reads the input file and sets up a search option based on the command-line options.
+
+7. It then checks if the input file already contains an updated header. If not, it attempts to find a header matching a template in the file.
+
+8. If no header match is found and a block comment configuration exists, the script tries to find a header inside a block comment.
+
+9. If no header match is found and a line comment configuration exists, the script prepares to find a header offset by line comments.
+
+This script seems to be part of a larger utility for updating file headers based on templates and configurations. It's designed to be flexible and handle different file types and header formats.
+
+This Python code seems to be part of a script that updates headers in a given file. Here's a detailed breakdown of what it does:
+
+1. It first searches for a header in a block of line comments. If a header is found, it splits the header into its line comment groups and searches for the last header in that block.
+
+2. If a header is found and a `placeAfter` configuration is specified, it checks if the header is directly after the `placeAfter`. If so, it extracts the header from the `placeAfter`.
+
+3. It then verifies that each line in the header begins with a line comment. If a line is found that doesn't start with a line comment, it stops the verification process.
+
+4. If a header is found, it checks if a header file is provided and if the file has not been updated yet. If these conditions are met, it replaces the existing header with a new one.
+
+5. If a header is not found, it checks if a new header should be added (based on the `addMissing` configuration and command line option). If a new header should be added and a header file is provided, it adds the new header after the `placeAfter`, if specified. If `placeAfter` is not found and not required, it adds the new header at the beginning of the file.
+
+6. If no modifications are to be made (e.g., no header file provided or existing header not found), it leaves the file as is.
+
+7. If a backup suffix is provided, it creates a backup of the original file before making any modifications.
+
+8. It writes the updated header (or the original header if no modifications were made) and the rest of the file to the output stream, which could be a file or the standard output.
+
+9. If the output stream is a file and modifications were made, it logs that an in-place update was performed.
+
+This script seems to be designed for updating headers in code files, possibly for adding or updating copyright notices or other metadata. It appears to be highly configurable, allowing for different comment styles, placement of the new header, and optional creation of backup files.
+
+This piece of code is checking if the current script is being run directly or being imported as a module.
+
+In Python, `__name__` is a built-in variable which evaluates to the name of the current module. If a module is being run directly (like when you run a script from the command line), then `__name__` is set to `__main__`.
+
+So, `if __name__ == "__main__":` is checking whether this script is the main module (i.e., the script being run), and if it is, it calls the `main()` function. This is a common idiom in Python files to allow or prevent parts of code from being run when the modules are imported. 
+
+However, in your code, there seems to be a typo. It should be `if __name__ == "__main__":` instead of `_ == "__main__":`.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

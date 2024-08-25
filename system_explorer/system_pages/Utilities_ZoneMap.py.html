@@ -1,0 +1,82 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ZoneMap.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ZoneMap.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code defines a Python class called `ZoneMap` which is a subclass of `SmartScript.SmartScript`. The `ZoneMap` class is used to calculate masks over zones in a more efficient way. It creates an internal grid that uniquely identifies the zone and determines whether it's a coastal or inland zone.
+
+The class has several methods:
+
+1. `__init__(self, dbss)`: This is the constructor of the class. It initializes the class with a list of valid state IDs, a zone map name, an object category, and a coastal mask. It also calls the `getZoneMap` method.
+
+2. `getZoneMap(self)`: This method attempts to fetch the map from the server. If it's not found, it will create it from scratch and then save it for faster access later.
+
+3. `nhcMask(self)`: This method returns the mask corresponding to the national center area of responsibility.
+
+4. `coastalZonesMask(self)`: This method returns the coastal mask fetched in the constructor. If the mask is None, it calculates this in real-time and saves it as an edit area.
+
+5. `makeAndStoreCoastalZoneMap(self)`: This method creates the zoneID grid (map) and returns it. It converts each zoneName to a zoneID and sets the grid to the zoneID over the zone's mask.
+
+6. `getZoneList(self)`: This method returns the entire list of editAreas configured for the system matching the pattern STZNNN, where ST is the stateID, Z is literal, and NNN is the zone number. This filters out all but public zones.
+
+7. `zoneName(self, zoneID)`: This method returns the zoneName for the specified zoneID.
+
+The code also includes a software history that documents changes made to the code over time.
+
+This code is part of a class that seems to be managing geographical zones. It has methods for identifying and manipulating these zones.
+
+1. `zoneName` method: This method takes a state index and a zone number as input and returns a string that represents the zone name. If the state index is greater than or equal to 100, it subtracts 100 from it. The zone name is then formed by concatenating the state ID (from a list of state IDs) and the zone number (padded with zeros to be three digits long).
+
+2. `zoneID` method: This method takes a zone name and an optional zone mask as input and returns the zone ID. If the zone mask is not provided, it attempts to fetch it. If the state ID in the zone name is not in the list of state IDs, or if the zone number cannot be converted to an integer, it sends an error message and returns None. The zone ID is calculated differently depending on whether the zone is a coastal zone or not.
+
+3. `isACoastalZone` method: This method takes a zone mask as input and returns True if the zone is a coastal zone (i.e., if there is an overlap between the zone mask and a coastal mask) and False otherwise.
+
+4. `zoneMapGrid` method: This method returns the zone map, which is a grid of zone IDs.
+
+5. `getOverlappingZoneNames` method: This method takes a mask as input and returns a list of zone names that overlap with the specified mask. It excludes zones with "No State" in their names.
+
+6. `getOverlappingZoneIDs` method: This method takes a mask as input and returns a list of zone IDs that overlap with the specified mask. It only includes zone IDs that are greater than 0.0.
+
+7. `maskFromZoneList` method: This method takes a list of zones as input and returns a mask that covers all the specified zones. It ignores zones that do not have a valid zone ID.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

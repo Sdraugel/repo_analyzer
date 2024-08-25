@@ -1,0 +1,257 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>AllowedHazards_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>AllowedHazards_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The code provided is a script for setting up and testing different hazard scenarios. It appears to be part of a larger system, possibly for weather forecasting or disaster management. 
+
+The script defines three different sets of state IDs (def1, def2, def3) which are likely used to specify different regions for the scenarios.
+
+The 'scripts' list contains dictionaries, each representing a different test scenario. Each scenario has a name, commentary describing the scenario, product type, and a set of actions to be performed. These actions include clearing hazard tables, creating grids with different hazard types for specific state IDs, and checking for specific strings. 
+
+The hazards are represented by codes such as "HU.W", "TY.W", "TR.W", etc., which likely stand for different types of hazards. The state IDs (e.g., "FLZ139", "FLZ142") are likely codes for different zones within the states.
+
+The 'fileChanges' field in the dictionary specifies changes to be made to certain files as part of the scenario, and 'cmdLineVars' likely represents command line variables to be used.
+
+The 'checkStrings' field contains a list of strings that are expected to be present after the scenario is run, likely for verification or testing purposes.
+
+The code also contains a header with copyright and export control information, as well as contractor details. It mentions that the software is in the public domain and provided "as is", without warranty.
+
+The provided code appears to be part of a weather forecasting system. It is defining weather hazards for different zones and setting up forecasts for these zones. 
+
+The "createGrids" section is defining a series of forecast hazards for different zones (identified by codes like "FLZ139", "GMZ873", etc.). Each line in this section is defining a type of hazard (like "DU.W", "DU.Y", "MH.Y", etc.), the time frame for the forecast (0 to 24 hours), and the zone for which this forecast applies.
+
+The "checkStrings" section seems to be a list of strings that are checked in some part of the system. These strings include things like forecast discussion headers, time stamps, and specific weather advisories or warnings for different zones.
+
+The "cmdLineVars" section is defining a series of command line variables, which are likely used elsewhere in the system. These variables include things like the issuer of the forecast, the type of issuance, whether to include previous forecasts, and the numbers of the short term and long term forecasters.
+
+The "fileChanges" section seems to be a list of changes to be made to a file, with each change specified as a tuple containing the name of the file, the type of utility to use, the type of change, the old and new values, and an undo command.
+
+The "comboFlag" seems to be a flag variable, which is often used in programming to indicate whether a certain condition is true or false. In this case, it's set to 0, which usually represents "false" in a binary system.
+
+The provided code seems to be part of a larger program related to weather forecasting. It appears to be written in Python and is structured as a list of dictionaries, each representing a different type of weather hazard. 
+
+Each dictionary contains several key-value pairs:
+
+- "name": Identifies the type of hazard.
+- "productType": Specifies the type of product, such as AFD (Area Forecast Discussion) or ZFP (Zone Forecast Product).
+- "commentary": Provides a description or explanation of the hazard setup.
+- "createGrids": This is a list of tuples, each representing a forecast grid. The tuples contain information about the forecast type, the hazard type, the forecast period, and the specific zones affected.
+- "comboFlag": This could be a boolean flag used for some specific purpose in the larger program, possibly related to whether combinations of hazards should be considered.
+- "fileChanges": This seems to be related to changes in the definition files for different sites.
+- "cmdLineVars": These are command line variables that might be used to customize the execution of the program.
+- "checkStrings": This is a list of strings that are likely used for validation or testing purposes.
+
+The code is setting up different hazards in different zones to test the functionality of the program. It's likely part of a larger system for generating or testing weather forecast products.
+
+This code appears to be part of a weather forecasting system. It is defining various types of weather hazards and their corresponding warnings for different zones in Florida. 
+
+The code is divided into several sections, each associated with a unique name and product type. The "productType" field indicates the type of weather product, and the "name" field is a unique identifier for each section. 
+
+Each section contains a "commentary" field which describes the purpose of the section. The "cmdLineVars" field appears to define some variables related to the product issuance and the issuer. 
+
+The "createGrids" field is an array of tuples, each representing a different weather hazard. The tuples contain information about the forecast, the hazard type, the time frame, the hazard code, and the zones affected.
+
+The "comboFlag" field is a boolean flag, and the "combinations" field is an array of tuples, each containing an array of zones and an empty string.
+
+The "checkStrings" field is an array of strings that appear to be used for generating a weather forecast report. These strings include the forecast product identifier, the zone forecast product for Florida, the issuing service, the date and time of the forecast, the zones affected, the new hazard warning, and the description of the warning. 
+
+In summary, this code is setting up and defining various weather hazards and their warnings for different zones, and it appears to be used for generating weather forecast reports.
+
+This code appears to be a part of a larger weather forecasting system, specifically a segment that deals with various weather hazards. 
+
+The code is structured as a list of dictionaries, each dictionary representing a different weather hazard scenario. Each dictionary contains the following keys:
+
+- "name": The name of the scenario.
+- "productType": The type of product, which seems to be "ZFP" in this case.
+- "commentary": A brief description of the scenario.
+- "cmdLineVars": Command line variables, possibly for further customization of the scenario.
+- "createGrids": A list of tuples, each representing a different hazard and the zones it affects.
+- "comboFlag": A flag used for some internal logic.
+- "combinations": A list of combinations of zones.
+- "checkStrings": A list of strings that are likely used to generate the actual weather forecast message.
+
+The weather hazards are represented by a combination of letters and numbers (e.g., "HW.W", "WI.Y"). Each hazard is associated with one or more zones (e.g., "FLZ139", "FLZ239").
+
+The "checkStrings" list seems to be used for generating the actual weather forecast message. It includes various pieces of information such as the time of the forecast, the zones affected, the specific hazard in effect, and its duration. 
+
+Overall, this code seems to be a part of a system that generates weather forecasts and warnings for different zones based on various weather hazards.
+
+The provided code appears to be a JSON-like structure and is likely part of a larger system used for issuing weather forecasts and warnings. It seems to be setting up different hazard scenarios for testing purposes.
+
+The first part of the code is setting up a test scenario for "ZFP" (Zone Forecast Product) hazards. It's creating a series of hazard grids for different zones, each with a specific hazard code like "LS.A", "UP.W", "UP.Y", etc. These codes likely correspond to specific types of weather hazards. The "checkStrings" array seems to contain the expected output for this test scenario, which includes various weather warnings and advisories.
+
+The second part of the code is setting up a similar test scenario but for "FWF" (Fire Weather Forecast) hazards. It's creating a series of hazard grids for different zones, each with a specific hazard code like "FW.W", "FW.A", "HW.W", etc. These codes likely correspond to specific types of fire weather hazards. The "checkStrings" array for this scenario is not fully provided, but it would likely contain the expected output for this test scenario, which includes various fire weather warnings and advisories.
+
+This code appears to be a part of a weather forecasting system, specifically for issuing various types of weather warnings and advisories.
+
+The first part of the code is issuing warnings for different regions (identified by codes like "FLZ043", "FLZ148", etc.) for various weather conditions like fire weather watch, high wind warning, wind advisory, excessive heat warning, and heat advisory. Each warning is associated with a specific time and date.
+
+The second part of the code, under the name "AllowedHazard_FWFTable", is setting up hazards in different zones to test FWFTable hazards. It creates grids for forecast and hazards, and sets up combinations for different zones. It also contains command line variables and check strings for the forecast.
+
+The third part of the code, under the name "AllowedHazardNSH_1", is setting up hazards in different zones to test NSH hazards. Similar to the second part, it creates grids for forecast and hazards, sets up combinations for different zones, and contains command line variables and check strings for the forecast. The warnings in this part are for marine conditions like hurricane force wind warning and storm warning.
+
+The code you provided is a part of a larger script that is used for setting up and issuing various types of marine warnings and advisories for different coastal zones in Florida. 
+
+The script is divided into multiple blocks, each block representing a different set of warnings or advisories for specific zones. Each block contains information such as the name of the block, the type of product (in this case, 'NSH' which likely stands for Nearshore), a commentary describing the purpose of the block, the grids to create for the forecast, combinations of zones, and the strings to check.
+
+For example, the first block is issuing a Gale Warning, Hazardous Seas Warning, Heavy Freezing Spray Warning, and a Small Craft Advisory for Rough Bar for different coastal zones.
+
+The second block is setting up hazards in different zones to test NSH hazards. It includes a Small Craft Advisory for Winds, a Small Craft Advisory, a Small Craft Advisory for Hazardous Seas, a Brisk Wind Advisory, a Dense Fog Advisory, and a Dense Smoke Advisory.
+
+The third block is also setting up hazards in different zones to test NSH hazards. It includes a Freezing Spray Advisory, an Ashfall Advisory, a Low Water Advisory, and placeholders for a Tornado Watch and a Severe Thunderstorm Watch.
+
+The strings that start with "/O.NEW.KTBW." are the specific codes for the warnings or advisories being issued. The codes following these strings (e.g., "GL.W.0001", "SE.W.0001", etc.) represent the type and number of the warning or advisory. The strings that follow are the details of the warning or advisory, including the effective time and the zones it applies to.
+
+This code is a part of a larger system that is used to generate weather forecasts and warnings for different marine zones. It is written in Python and uses a dictionary data structure to store information about different hazards and their corresponding zones. 
+
+The code is divided into several sections, each representing a different hazard scenario. Each section contains:
+
+- `name`: A unique identifier for the hazard scenario.
+- `productType`: The type of weather product (e.g., NSH for Nearshore Marine Forecast, GLF for Great Lakes Forecast).
+- `commentary`: A description of the hazard scenario.
+- `createGrids`: A list of tuples that define the hazard, its duration, and the affected zone.
+- `comboFlag`: A flag indicating whether the hazard applies to a combination of zones.
+- `combinations`: A list of zone combinations for which the hazard applies.
+- `cmdLineVars`: Variables that can be set from the command line.
+- `checkStrings`: A list of strings that are used to generate the actual forecast text.
+
+The forecast text includes information about the hazard (e.g., hurricane force wind watch, storm watch, gale watch), the affected zone, and the time of the forecast.
+
+The `createGrids` list in each section is used to create a grid of hazards for a specific time period. The grid is defined by a list of tuples, where each tuple contains the forecast type, the hazard type, the hazard duration, and the affected zone.
+
+The `checkStrings` list in each section is used to generate the actual forecast text. This text includes information about the hazard, the affected zone, and the time of the forecast. The text is generated by replacing placeholders in the check strings with actual values.
+
+This code appears to be a part of a larger script that is used to generate and manage weather forecasts and warnings. Each block of code represents a different type of hazard or warning, with specific details about the hazard, its location, and the time it is in effect.
+
+The first block, "AllowedHazardGLF_3", is setting up a hurricane force wind watch for the west one quarter and a storm watch for the east three quarters. The second block, "AllowedHazardGLF_4", is setting up a hazardous seas watch for the west half and a gale watch for the east half.
+
+The third block, "AllowedHazardSRF", is setting up a high surf warning and advisory in different zones. The fourth block, "AllowedHazardCWF_1", is setting up various hazards including a hurricane force wind watch, storm watch, gale watch, hazardous seas watch, and others in different zones.
+
+In each block, the "createGrids" section sets the forecast type, the hazard type, the time period for the forecast, and the zones affected. The "checkStrings" section appears to be a list of strings that are used to generate the actual text of the forecast or warning. The "cmdLineVars" section sets some variables related to the product issuance and groupings. The "comboFlag" and "combinations" sections seem to be related to how different hazards and forecasts are combined or grouped together.
+
+This code appears to be part of a weather forecasting system. It is setting up and defining different types of hazards that can occur in different geographical zones. 
+
+The first part of the code is setting up a hazardous seas watch, a heavy freezing spray watch, and a hurricane watch for different coastal waters and zones.
+
+The second part of the code is defining a series of hazards for a Coastal Waters Forecast (CWF). These hazards include a hurricane warning, tropical storm watch and warning, and typhoon watch and warning for various zones.
+
+The third part of the code is setting up hazards for a Coastal Waters Forecast Pacific (CWF_Pacific). These hazards include a hurricane force wind watch, storm watch, gale watch, hazardous seas watch, heavy freezing spray watch, and a hurricane watch for different zones.
+
+In each part, the code is also defining the forecast grids for the hazards, the combinations of zones for the hazards, and the strings to check for each hazard. 
+
+The "checkStrings" are likely used to verify the correct creation and assignment of the hazards to the zones. The "createGrids" are likely used to define the forecast period and zones for the hazards. The "combinations" are likely used to define the combinations of zones for the hazards.
+
+This code appears to be a part of a larger script that is used to generate and manage weather-related alerts and hazards. It's likely used by a weather service or similar organization. 
+
+Each block of code represents a different type of hazard or alert, defined by the "name" and "productType" fields. For example, the first block is for "AllowedHazardCWFPacific_2", a Coastal Waters Forecast for the Pacific.
+
+The "createGrids" field in each block is used to define the hazard parameters, such as the forecast type, the hazard type, the time frame, and the areas affected.
+
+The "checkStrings" field is used to generate the actual text of the alert, including the alert code, the issuing service, the time of issuance, the areas affected, and the specific alert (e.g., "HURRICANE WARNING IN EFFECT").
+
+The code also includes some other parameters like "vtecMode", "comboFlag", "combinations", and "cmdLineVars", which are likely used to further customize the alert and its distribution.
+
+In summary, this code is used to generate and manage different types of weather-related alerts and hazards.
+
+This code is written in Python and is used to set up and test different types of weather hazards in specific zones. The hazards are related to weather conditions such as fire, coastal flood, lakeshore flood, and non-precipitation weather conditions. 
+
+Each hazard is represented as a dictionary with keys such as "name", "productType", "commentary", "vtecMode", "createGrids", and "checkStrings". 
+
+- "name" is a unique identifier for each hazard.
+- "productType" specifies the type of hazard.
+- "commentary" provides a brief description of the hazard setup.
+- "vtecMode" is a mode identifier, in this case, it's always "O".
+- "createGrids" is a list of tuples that specify the forecast ("Fcst"), the type of hazard ("Hazards"), the mode ("DISCRETE"), the start and end time (0, 24), the hazard code (e.g., "CF.W", "CF.Y", "CF.A", etc.), and the zones affected (e.g., ["FLZ139", "FLZ239"]).
+- "checkStrings" is a list of strings that seem to be used to generate a weather alert message. It includes information such as the alert code, the urgency level, the type of message, the issuing agency, the date and time of the alert, the hazard details, and the zones affected.
+
+The hazard codes seem to follow a specific format: two letters representing the type of hazard, followed by a period, and then a letter representing the severity or status of the hazard. For example, "CF.W" could represent a coastal flood warning, and "LS.A" could represent a lakeshore flood watch.
+
+The provided code appears to be a part of a larger script related to the generation of weather forecasts and warnings. The code is divided into two main sections, each representing a different set of weather hazards.
+
+In the first section, the code is creating a series of weather forecasts and warnings for different zones in Florida (FLZ). The warnings include blowing dust warning, extreme cold warning, excessive heat warning, freeze warning, blowing dust advisory, heat advisory, dense fog advisory, frost advisory, extreme cold watch, excessive heat watch, and freeze watch. Each warning is associated with a specific zone and a specific time period.
+
+In the second section, the code is setting up a different set of weather hazards for testing purposes. These hazards include high wind warning, wind advisory, lake wind advisory, dense smoke advisory, freezing fog advisory, ashfall advisory, and air stagnation advisory. Again, each advisory or warning is associated with a specific zone and a specific time period.
+
+The "checkStrings" array in each section appears to contain the text that would be outputted for each weather warning or advisory, including the specific warning message, the time of the warning, and the zone it applies to.
+
+Overall, this code seems to be part of a system for generating and testing weather warnings and advisories.
+
+The code appears to be a part of a larger system that is used for issuing weather warnings and advisories. It seems to be written in Python and contains a series of dictionaries, each representing a different type of weather hazard.
+
+The first dictionary doesn't have a name key, but it contains a series of strings that appear to be a weather advisory for air stagnation and a hard freeze watch for specific regions.
+
+The second dictionary, "AllowedHazardWSW_1", is setting up different types of winter weather hazards (blizzard, ice storm, lake effect snow, winter storm, and winter weather advisory) for different zones. The "createGrids" key appears to be setting up the forecast for these hazards over a 24 hour period.
+
+The third dictionary, "AllowedHazardWSW_2", is similar to the second but includes different types of hazards (blizzard, lake effect snow, wind chill warning, wind chill advisory, winter storm watch, and wind chill watch).
+
+The fourth dictionary, "AllowedHazardMWW_1", is setting up marine weather hazards (gale warning, hurricane force wind warning, hazardous seas warning, gale watch, hurricane force wind watch, hazardous seas watch) for different marine zones.
+
+In each dictionary, the "checkStrings" key appears to contain the text that would be used in the actual weather warning or advisory.
+
+The provided code seems to be part of a larger system related to weather forecasting, specifically for marine weather warnings. It appears to be written in a format that resembles JSON, which is a lightweight data interchange format.
+
+The code is divided into several sections, each representing a different type of weather hazard. Each section includes the following components:
+
+1. "name": This is the identifier for the specific hazard.
+2. "productType": This specifies the type of product, in this case, it's a local marine weather warning.
+3. "commentary": This provides a brief description of the hazard setup.
+4. "vtecMode": This could be related to the VTEC (Valid Time Event Code), a system used by the National Weather Service for encoding warning information.
+5. "createGrids": This is a list of tuples that seem to define the forecast, the hazard, the type of hazard, the start and end times, the specific hazard code, and the zones affected.
+6. "checkStrings": This is a list of strings that seem to be used for generating the actual warning message.
+
+Each warning message includes details like the warning type, the affected area, the time of the warning, and the duration of the warning.
+
+The code seems to be setting up different types of marine weather hazards like Gale Warning, Hurricane Force Wind Warning, Hazardous Seas Warning, Storm Warning, Heavy Freezing Spray Warning, Ashfall Advisory, Brisk Wind Advisory, Dense Fog Advisory, Low Water Advisory, Small Craft Advisory for Rough Bar, and others. Each of these hazards is associated with specific zones represented by codes like "GMZ876", "GMZ870", etc.
+
+This code appears to be a test script for a weather forecasting application, specifically for testing the handling of marine weather warnings (MWW). 
+
+The script defines a list of dictionaries, each representing a different test case. Each dictionary contains information about the test case, such as the name, product type, commentary, and the expected output strings. 
+
+The first dictionary seems to be testing the creation of a small craft advisory for winds. The second dictionary is testing the creation of multiple types of advisories, including a small craft advisory, a dense smoke advisory, an advisory for hazardous seas, and a freezing spray advisory. 
+
+The third dictionary is for cleaning up after the tests, deleting the hazard grids that were created during testing.
+
+The `testScript` function takes in a data manager object and sets up some default settings for the tests, such as the start time for the grids, the database to use, and whether to publish the grids or decode the VTEC (a code used in weather warnings). It then calls a general test script function, passing in the data manager, the list of test cases, and the default settings. This function likely runs each test case and checks that the output matches the expected output.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

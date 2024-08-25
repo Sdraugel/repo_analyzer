@@ -1,0 +1,98 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>SiteCFG.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>SiteCFG.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python dictionary named `SiteInfo`. This dictionary contains information about different sites in a country, with each site being represented by a unique code (for example, 'ABQ', 'ABR', 'AFC', etc.). 
+
+For each site, the dictionary stores a nested dictionary with the following keys:
+
+- 'region': a two-letter regional identifier, mainly used for the installation of text product templates.
+- 'fullStationID': the full identifier of the station.
+- 'wfoCityState': the city and state where the Weather Forecast Office (WFO) is located.
+- 'wfoCity': the city where the WFO is located.
+- 'state': the state where the WFO is located.
+
+This data structure allows for efficient storage and retrieval of site-specific information. It can be used in a variety of applications, such as weather forecasting, where it's important to know the specific location and region of each site.
+
+The provided code is a part of a larger Python dictionary. Each key in the dictionary is a three-letter code, likely representing different weather forecast offices (WFOs) or stations. The value associated with each key is another dictionary that contains information about the corresponding station.
+
+Each nested dictionary contains the following keys and their respective values:
+
+1. 'region': The region where the station is located. The values are two-letter codes, possibly abbreviations for different regions.
+
+2. 'fullStationID': A longer identifier for the station, which seems to start with a 'K' or 'P' followed by the three-letter station code.
+
+3. 'wfoCityState': The city and state where the station is located. In some cases, it includes two cities.
+
+4. 'wfoCity': The city or cities where the station is located.
+
+5. 'state': The state where the station is located.
+
+This code is likely used to map the three-letter station codes to more detailed information about each station. This could be useful in a variety of applications, such as weather forecasting or data analysis, where the full details of each station are needed.
+
+This code appears to be a part of a larger data structure, likely a dictionary in Python, that stores information about various weather forecast offices (WFO) in the United States. Each key in the dictionary is a three-letter code that represents a specific weather station.
+
+For each weather station, the dictionary stores several pieces of information:
+
+- 'region': A two-letter code representing the region in which the station is located. The codes seem to be 'SR' (Southern Region), 'CR' (Central Region), 'WR' (Western Region), and 'ER' (Eastern Region).
+- 'fullStationID': A four-letter code that likely represents a more specific identifier for the station.
+- 'wfoCityState': The city and state in which the station is located.
+- 'wfoCity': The city in which the station is located.
+- 'state': The state in which the station is located.
+
+This data structure would be useful for looking up information about a specific weather station given its three-letter code.
+
+This code is written in Python and it appears to be a part of a larger script. The code is defining a dictionary called `SiteInfo` (not shown in the provided code snippet) which contains information about different weather forecast offices (WFOs) identified by their station IDs.
+
+Each key in the dictionary is a station ID and the value is another dictionary that contains information about that station. The inner dictionary includes the following keys:
+
+- 'region': The region in which the station is located.
+- 'fullStationID': The full station ID.
+- 'wfoCityState': The city and state where the WFO is located.
+- 'wfoCity': The city where the WFO is located.
+- 'state': The state where the WFO is located.
+
+After defining the dictionary, the code attempts to import a module named `OtherCFG` and update the `SiteInfo` dictionary with the `SiteInfo` dictionary from the `OtherCFG` module. If the import fails, it logs the error message along with the stack trace. The `LogStream.logProblem` function is used to log the error message.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

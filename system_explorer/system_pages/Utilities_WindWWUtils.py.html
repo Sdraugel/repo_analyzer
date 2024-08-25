@@ -1,0 +1,110 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>WindWWUtils.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>WindWWUtils.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is written in Python and appears to be a part of a larger software system related to weather or geographical data, possibly for tracking storms or other weather events. 
+
+The initial comments provide a history of the software's development, including dates, ticket numbers, the engineer who made the changes, and a brief description of the changes. The software is in the public domain and is provided without warranty or technical support.
+
+The code itself is importing several modules: `OrderedDict` from the `collections` module, `TropicalUtility` (which seems to be a custom module), `operator`, and `functools`. 
+
+The main part of the code is defining an `OrderedDict` called `bpZoneDict`. This dictionary maps strings representing geographical locations to lists of strings representing codes for those locations. The locations seem to be primarily coastal areas in the United States and nearby territories, and the codes appear to be related to weather or geographical zones. 
+
+The purpose of this dictionary could be to provide a lookup table for converting between the human-readable location names and the codes used by the software system. The use of an `OrderedDict` suggests that the order of the entries may be significant in some way. 
+
+Without more context, it's hard to say exactly how this dictionary is used in the larger system, but it's likely involved in processing or displaying data related to these locations.
+
+The provided code appears to be a list of tuples, where each tuple consists of a string and a list of strings. The strings in the tuples seem to represent geographical locations or regions, and the lists of strings associated with each location appear to be some sort of identifiers or codes related to those locations.
+
+For example, the tuple ("Sebastian Inlet - Cocoa Beach" , ['FLZ047']) associates the location "Sebastian Inlet - Cocoa Beach" with the code 'FLZ047'. 
+
+This list could be used in a variety of ways depending on the context of the program, such as mapping these codes to their respective locations, organizing data related to these locations, or providing a lookup for these codes. 
+
+However, without further context or comments in the code, it's difficult to determine the exact purpose of this list.
+
+This Python code defines a class named `WindWWUtils` that inherits from `TropicalUtility.TropicalUtility`. The class is designed to handle operations related to wind patterns in different oceanic basins. 
+
+Here are the main components of the class:
+
+1. `__init__`: This is the constructor of the class. It initializes several attributes such as `_historyObjName`, `_historyCategory`, `_basinDomains`, `_basinBins`, and `_maxStorms`.
+
+2. `basinNames`: This method returns the names of all the basins.
+
+3. `maxStorms`: This method returns the maximum number of storms.
+
+4. `forecastBasins`: This method takes a `siteID` as input and returns the list of basins for which the specified `siteID` is responsible.
+
+5. `basinBins`: This method takes a list of basins and returns the list of bins defined for each basin in the list.
+
+6. `etnDict`: This method returns a dictionary that maps basin abbreviations to numbers.
+
+7. `NHCSites`, `HFOSites`, `GUMSites`: These methods return the list of sites for NHC, HFO, and GUM respectively.
+
+8. `getStormInfoDicts`: This method retrieves storm information from a JSON file and converts all the data from unicode to ordinary strings.
+
+9. `breakpointZoneList`: This method returns a list of all the zones included in the breakpoint dictionary.
+
+10. `createBreakpointsDict`: This method reads files specified in `filePaths` and creates a dictionary for easy lookup. It returns a dictionary of the form `(y, x) : (breakpointName, (lat, lon))` where `(y, x)` is the corresponding GFE grid point.
+
+The code snippet ends abruptly, so it's not clear what the `bpInfo` variable does, but it seems to be part of the `createBreakpointsDict` method.
+
+This code is part of a larger Python program that appears to be dealing with geographical data, possibly related to weather or storm tracking. Here's a brief summary of what each method does:
+
+1. `fetchStormInfo(self, hazList)`: This method fetches all the storm info dictionaries. If the "Breakpoints" key is not present in the storm info, it adds it. It also adds an empty list for each hazard in `hazList` if it's not already present in the "Breakpoints" of the storm info.
+
+2. `makeEditAreaName(self, bpName)`: This method converts a breakpoint name into a string that can be used as an editArea. It removes all special characters from the name and replaces them with underscores.
+
+3. `getBPZones(self, bpDict, haz)`: This method returns the list of zones for the specified breakpoint dictionary and hazard. It skips breakpoints that don't have any associated zones.
+
+4. `getAdvisoryNames(self)`: This method fetches all of the advisory names by fetching JSON filenames and stripping the ".json" extension.
+
+5. `makeStormID(self, pil, stormNumber)`: This method creates a stormID from the specified pil and stormNumber. The stormID is a combination of the basinID, stormNumber, and the current year.
+
+6. `stormIDHistory(self)`: This method fetches the list of stormIDs that have been used in the past. If the list doesn't exist, it creates an empty one.
+
+7. `updateStormIDHistory(self, stormID)`: This method updates the storm history with the specified stormID. If the stormID is not already in the history, it adds it.
+
+The code also includes a section where it checks if a given (y, x) coordinate pair is already in a list of breakpoint locations. If it's not, it adds it to the list and updates various other data structures. If it is, it prints a message indicating that the breakpoint is a duplicate.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

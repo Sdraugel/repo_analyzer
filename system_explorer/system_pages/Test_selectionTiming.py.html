@@ -1,0 +1,70 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>selectionTiming.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>selectionTiming.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to read a specific HDF5 file (Hierarchical Data Format version 5) and retrieve certain datasets from it. HDF5 is a data model, library, and file format for storing and managing data. It supports an unlimited variety of datatypes, and is designed for flexible and efficient I/O and for high volume and complex data.
+
+Here's a breakdown of what the script does:
+
+1. It imports the necessary libraries: `h5py` for handling HDF5 files and `numpy` for numerical operations.
+
+2. It specifies the filename of the HDF5 file to be read.
+
+3. It defines a list of dataset names (`dsNames`) that it will look for in the HDF5 file.
+
+4. It creates a list of indices (`indices`). These indices are used to select specific parts of the datasets. The list is populated with numbers from 1 to 18000, incrementing by 10 each time.
+
+5. It defines three functions: `pointRequest`, `hyperRequest`, and `timeIt`.
+
+   - `pointRequest` opens the HDF5 file, iterates over the dataset names, and for each dataset, it creates a point selection (a way of selecting specific elements from the dataset) using the indices. The selected data is then appended to a list, which is returned when the function is done.
+
+   - `hyperRequest` does something similar to `pointRequest`, but instead of a point selection, it creates a hyperslab selection (a way of selecting a block of data from the dataset). It also resizes the result if it's larger than the number of indices.
+
+   - `timeIt` is used to measure the time it takes to run `pointRequest` and `hyperRequest`. It does this by using the `timeit` module, which provides a simple way to time small bits of Python code. It runs each function 10 times and prints the average time taken.
+
+6. The script's entry point is the `main` function, which simply calls `timeIt`. This function is executed when the script is run directly (not when it's imported as a module).
+
+So, in summary, this script is a performance comparison between point selection and hyperslab selection when reading data from an HDF5 file.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

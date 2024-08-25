@@ -1,0 +1,84 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>HazardsComplex1_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>HazardsComplex1_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code appears to be a part of a larger software system developed by Raytheon Company. This specific part of the code seems to be used for testing and managing hazard warnings, possibly related to weather conditions.
+
+The code includes a list of scripts, each represented as a dictionary with various keys. Each script has a name, a product type, a commentary, and other keys that seem to be related to the actions performed by the script.
+
+For example, the first script named "Hazards0" has a commentary "Deleting hazard grids." and it seems to be related to the deletion of some data grids. It also includes a key "deleteGrids" with a list of parameters for the deletion operation.
+
+The other scripts named "Hazards1", "Hazards2", etc., seem to be related to the creation of hazard warnings. They include a "createGrids" key with parameters for creating the hazard warnings and a "checkStrings" key with the expected output or response.
+
+Overall, this code seems to be a part of a testing framework for a system that manages hazard warnings. It provides a way to create, modify, and check hazard warnings in different scenarios.
+
+This code appears to be a part of a script used for generating weather hazard warnings, specifically coastal flood advisories and warnings. It is likely used by the National Weather Service or a similar organization. 
+
+The code is structured into several sections, each representing a different state or update of the hazard warning. Each section contains a name, product type, commentary, createGrids, and checkStrings.
+
+- The "name" field is a unique identifier for each section.
+- The "productType" field indicates the type of hazard warning.
+- The "commentary" field provides a brief description of what changes or updates are being made in that section.
+- The "createGrids" field appears to be used for defining the forecast grid for the hazard. It includes the forecast type, hazard type, time frame, and specific hazard code, as well as the zones affected.
+- The "checkStrings" field contains the actual text of the warning message that will be issued.
+
+The code is designed to handle different scenarios such as adding new zones to the warning, changing the ending time of the warning, removing zones from the warning, and upgrading the warning from an advisory (CF.Y) to a warning (CF.W).
+
+This code appears to be a part of a testing script for a weather forecasting system. It's written in Python and uses a custom module named `TestScript`.
+
+The script is structured as a list of dictionaries, each representing a different test scenario or "hazard". Each dictionary contains several key-value pairs that describe the scenario:
+
+- `"name"`: The name of the test scenario.
+- `"productType"`: The type of weather hazard being tested.
+- `"commentary"`: A brief description of what the test is doing.
+- `"createGrids"`: A list of tuples that define the parameters for the hazard simulation.
+- `"checkStrings"`: A list of strings that are expected to be present in the output of the test.
+- `"deleteGrids"`: A list of tuples that define the parameters for the grids that should be deleted after the test.
+- `"clearHazardsTable"`: A flag indicating whether the hazards table should be cleared after the test.
+
+The `testScript` function at the end of the code uses these dictionaries to run the tests. It takes two arguments: `self` (a reference to the instance of the class where this function is defined) and `dataMgr` (presumably a data manager that handles the interaction with the underlying database). The function sets some default parameters, then calls the `generalTestScript` method from the `TestScript` module, passing the test scenarios and the default parameters.
+
+In summary, this code is used to test a weather forecasting system's ability to correctly generate and handle different types of coastal and lakeshore hazard warnings.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

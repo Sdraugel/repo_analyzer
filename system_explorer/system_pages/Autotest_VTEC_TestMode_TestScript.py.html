@@ -1,0 +1,130 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>VTEC_TestMode_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>VTEC_TestMode_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The code seems to be part of a testing script for a weather forecasting system, possibly the Advanced Weather Interactive Processing System (AWIPS) developed by Raytheon Company. It appears to be testing different modes and products of the system, including Area Forecast Discussion (AFD), Area Forecast Matrices (AFM), and various hazard warnings like winter storm warnings and flood watches.
+
+The code includes definitions for different states (e.g., "ST" and "FL") and default edit areas. It also includes a list of scripts, each representing a different test scenario. Each script includes details like the name of the test, commentary describing the test, the type of product being tested, command line variables, and expected output strings.
+
+The code also includes instructions for creating and modifying grids, which are likely used for representing geographical areas and weather conditions. 
+
+Overall, this code is used to ensure that the weather forecasting system is functioning correctly and producing the expected outputs.
+
+This code appears to be part of a larger system for generating and testing weather forecast messages. It's structured in a way that suggests it's part of a larger JSON or similar data structure. 
+
+1. The first block of code seems to be a test message for a flash flood watch. It includes details about the watch, such as the areas affected and the potential impacts of flooding. It also includes a precautionary message about what a flash flood watch means and what actions people should take.
+
+2. The second block of code is a test message for a fire weather planning forecast. It includes a warning about a red flag (a term used to describe weather conditions that could lead to extreme fire behavior), as well as a forecast for the next few days. 
+
+3. The third block of code is a test message for a spot forecast, which is a detailed weather forecast for a specific location. This forecast includes details about temperature, relative humidity, mixing height, and transport winds for the current day, tonight, and the next day.
+
+Each block of code includes a "name", "productType", and "commentary" field, which seem to be used to describe the type of message being tested. They also include a "createGrids" field, which might be used to specify the forecast data that should be included in the message, and a "checkStrings" field, which seems to contain the actual text of the message. 
+
+The second and third blocks also include a "cmdLineVars" field, which seems to contain additional settings or parameters for the forecast, and a "comboFlag" field, which might be used to specify whether the forecast should be combined with other forecasts.
+
+The provided code appears to be a collection of test configurations for different types of weather forecasting products. Each configuration is represented as a dictionary with various keys. Here's a breakdown of each key:
+
+- "name": This is the name of the test configuration.
+- "productType": This represents the type of weather forecasting product that the test is designed for.
+- "commentary": This provides a brief description of what the test is for.
+- "createGrids": This key is used to specify the grid creation parameters for the test.
+- "checkStrings": This is a list of strings that are expected to be present in the output of the weather forecasting product.
+- "cmdLineVars": This is used to specify command line variables for the test.
+- "comboFlag": This flag is used to specify whether the test should be run in combination with other tests.
+- "combinations": This key is used to specify the type of combinations for the test.
+
+Each dictionary represents a different test mode for a specific type of weather forecasting product. For example, "TESTMODE_FWFTable" is a test mode for the "FWFTable" product type, "TESTMODE_FWM" is a test mode for the "FWM" product type, and so on.
+
+The "checkStrings" key in each dictionary contains a list of strings that are expected to be present in the output of the weather forecasting product. This is likely used to verify that the product is functioning correctly.
+
+The code also includes repeated warnings that these are test messages and should not be used for actual weather forecasting or decision-making.
+
+This code appears to be a series of test configurations for different types of weather forecasts and warnings. Each section is a dictionary containing various keys that define the test scenario. Here's a breakdown of each section:
+
+1. The first section is a test for a Hurricane Force Wind Warning. It includes the warning message and the actions to be taken.
+
+2. The second section is a test for a Short Term Forecast. It includes the forecast message.
+
+3. The third section is a test for a Nearshore Marine Forecast. It includes the forecast message and a warning for a hurricane force wind.
+
+4. The fourth section is a test for a Weather Message. It includes a warning for blowing dust.
+
+5. The fifth section is a test for Point Forecast Matrices. It includes the forecast message for different test areas.
+
+6. The last section is a test for an Offshore Forecast. It includes the forecast message and a warning for a hurricane.
+
+In each section, the "checkStrings" key contains the expected output of the test. The "createGrids" key in some sections defines the forecast conditions for the test. The "cmdLineVars" key sets certain variables for the test, and the "commentary" key provides a description of the test. The "productType" key defines the type of product being tested.
+
+Please note that all these messages are for testing purposes only and do not represent real weather conditions.
+
+This code appears to be a series of test configurations for different types of weather alerts. Each configuration is a dictionary with several keys:
+
+- "name": This is the name of the test configuration.
+- "productType": This indicates the type of weather alert being tested.
+- "commentary": This provides a description or commentary about the test.
+- "createGrids": This appears to be a list of tuples that define some parameters for the test, possibly related to the geographic area or severity of the alert.
+- "cmdLineVars": This appears to be a dictionary of command line variables that can be used in the test.
+- "checkStrings": This is a list of strings that are used in the test message.
+- "comboFlag": This is a flag that could be used to trigger different behaviors in the test.
+- "combinations": This appears to be a parameter related to the test, but it's not clear from this context what it does.
+
+Each test configuration is testing a different type of weather alert, such as a hurricane warning, a red flag warning (for fire weather conditions), a winter storm warning, etc. The test messages are clearly marked as tests and instruct the reader not to take action based on the test message.
+
+The code appears to be a part of a testing script for a weather forecasting system, possibly used by the National Weather Service. 
+
+The script seems to be testing different aspects of the system such as generating weather alerts and forecasts, and handling hazard grids. It's divided into several sections, each testing a different aspect of the system:
+
+1. The first section seems to be testing the system's ability to generate a winter storm warning. It includes the text of the warning message and some precautionary/preparedness actions.
+
+2. The second section, named "TESTMODE_ZFP", appears to be testing the Zone Forecast Product (ZFP) of the system. It includes a test forecast for Florida and checks various strings related to the forecast.
+
+3. The third section, named "TESTMODE_Cleanup", seems to be testing the system's ability to delete hazard grids.
+
+The `testScript` function at the end of the code is the main function that runs these tests. It sets up some default parameters such as the start time for the grids and the database to use, and then calls a general test script function with these parameters and the test scripts defined earlier. 
+
+The test script is designed to run in test mode ("T") and does not publish the grids or decode VTEC (Valid Time Event Code, a system used to encode weather warnings). It also orders the strings in the checkStrings array. 
+
+Please note that the actual functionality might vary depending on the context and the rest of the code in the file.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

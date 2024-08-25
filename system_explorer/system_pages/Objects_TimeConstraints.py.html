@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TimeConstraints.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TimeConstraints.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code defines a class named `TimeConstraints` which is used to manage and validate time constraints for a certain process or task. 
+
+The class has three attributes: `duration`, `repeatInterval`, and `startTime`. These attributes are initialized in the `__init__` method. The `duration` is the length of the task, `repeatInterval` is the time between task repetitions, and `startTime` is when the task starts. All these values are in seconds.
+
+The `__init__` method also includes a validation process. If the `duration`, `repeatInterval`, and `startTime` are all 0, the `TimeConstraints` object is considered valid. Otherwise, several conditions are checked to determine if the values are valid. If they are not, a warning is logged, the `valid` attribute is set to False, and all the attributes are reset to 0.
+
+The class also includes several special methods (`__str__`, `__repr__`, `__eq__`, `__ne__`) to provide string representations of the object, to compare two `TimeConstraints` objects for equality or inequality, and getter methods (`getDuration`, `getRepeatInterval`, `getStartTime`) to return the values of the attributes.
+
+The `anyConstraints` method checks if there are any constraints (i.e., if the duration is not 0), and the `isValid` method returns whether the `TimeConstraints` object is valid.
+
+The constants `HOUR` and `DAY` are defined at the beginning of the code to convert seconds into hours and days, respectively.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

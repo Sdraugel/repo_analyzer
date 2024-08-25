@@ -1,0 +1,56 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>StormTotalQPF.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>StormTotalQPF.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a script for a tool called "StormTotalQPF". The tool is designed to calculate the total quantity of precipitation forecast (QPF) over a specified time range. The tool is developed or modified by Raytheon Company under a contract with the US Government.
+
+The script begins with a legal notice and licensing information. It states that the software is in the public domain, provided "as is", without technical support or warranty. It also mentions that the software contains export-restricted data, and its export/transfer/disclosure is restricted by U.S. law.
+
+The tool's functionality is described: it assigns the sum of the QPF grids over the time range of the StormTotalQPF grid. For example, if a user creates a StormTotalQPF grid from 00z to 18z and runs this tool, the result will be the addition of the 00-06z, 06z-12z, and 12z-18z QPF grids.
+
+The script then sets up a class, "Tool", which inherits from the "SmartScript" class. The "Tool" class has an "__init__" method for initialization and an "execute" method. The "execute" method is called once for each grid, and it calculates the sum of the QPF grids over the specified time range.
+
+The "ToolType" is set to "numeric", and the "WeatherElementEdited" is set to "StormTotalQPF". The script uses the numpy library, and the tool is not hidden (HideTool = 0).</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

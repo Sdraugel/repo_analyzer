@@ -1,0 +1,66 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TablesTiming.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TablesTiming.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be a part of a larger software package developed by Raytheon Company. The script is designed to interact with Hierarchical Data Format (HDF) files using the PyTables library, which is a Python package used for managing hierarchical datasets and designed to efficiently and easily cope with extremely large amounts of data.
+
+The script defines a class `TablesTiming` that inherits from `TimingInterface.TimingInterface`. This class has several methods for interacting with HDF files:
+
+1. `__init__`: This is the constructor method that is called when an object is created from the class. It opens an HDF file with the provided filename and mode (read, write, etc.).
+
+2. `createGroup`: This method creates a group in the root directory of the HDF file. Groups are a way to organize data within the file.
+
+3. `createDataset`: This method creates a dataset within a specified group. The dataset can be a one-dimensional or two-dimensional array of floating point numbers. If the data to be stored is a numpy array, it is iterated over and each value is appended to the dataset.
+
+4. `close`: This method flushes any buffered data to the HDF file and then closes it.
+
+5. `appendValue`: This method appends a value to a specified dataset.
+
+6. `getDataset`: This method retrieves a dataset from the HDF file by its name.
+
+7. `sampleValue`: This method retrieves a value from a specified dataset at a given index.
+
+The script also includes a software history and a TODO comment, which is typically used to indicate future improvements or necessary work to be done in the code. However, the TODO comment does not specify any tasks in this case.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

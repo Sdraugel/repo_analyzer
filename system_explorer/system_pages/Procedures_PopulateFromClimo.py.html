@@ -1,0 +1,86 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>PopulateFromClimo.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>PopulateFromClimo.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a software developed by Raytheon Company. It's a procedure that calculates MinT or MaxT grids based on the NCDC or PRISM climatology grids stored in a netCDF file. The file must be present for this procedure to work. 
+
+The code includes a class `Procedure` that inherits from `SmartScript.SmartScript`. This class has several methods:
+
+- `__init__`: This is the constructor of the class. It initializes the instance of the class.
+
+- `_getWEInventory`: This method gets the list of time ranges at the grid whose element name is `WEName` contains grids. The level of the weather element is assumed to be `LEVEL`. It returns time ranges at which `WEName` has data.
+
+- `_cubicSpline`: This is the main cubic spline method that accepts a list of grids and int time along with a list of times for which grids are to be calculated. This method returns the corresponding list of grids that matches the `interpTimes` list.
+
+- `_spline3_coef`: This method calculates the spline coefficients that are later used to calculate grids at the interpolation times. This method is just a helper method to `_cubicSpline` and should not be called directly.
+
+- `_spline3_eval`: This method accepts the spline coefficients and calculates a grid. This method is a help method to `_cubicSpline` and should not be called directly.
+
+The code also imports several libraries such as `time`, `numpy`, `SmartScript`, and `TimeRange`. It also defines several variables and lists such as `VariableList`, `MenuItems`, `MODEL`, and `LEVEL`.
+
+This Python code is part of a larger program that retrieves and processes climatology grid data. It appears to be designed for weather forecasting. Here's a breakdown of what each part does:
+
+1. The first part is a mathematical computation that calculates a temporary value `tmp` based on an array `t`, `z`, `x`, and `y`. The result is returned after being used in a further calculation.
+
+2. The `parmIsLoaded` method checks if a specific weather element is loaded in the forecast model. It takes a weather element name as an argument, iterates over a list of loaded parameters, and returns 1 if the element is found at the surface level in the forecast model. If the element is not found, it returns 0.
+
+3. The `execute` method is the main method that retrieves climatology grids, assigns appropriate times to each, and calls the `_cubicSpline` method to calculate the grid values in between the given climatology grids. It creates grids of minimum temperature (MinT) or maximum temperature (MaxT) over the selected time range in the Grid Manager.
+
+   - It first checks if the required parameter is loaded. If not, it sends a status bar message and returns.
+   
+   - It then gets the times for all the grids that overlap the selected time range. If no grids are found, it sends a status bar message and returns.
+   
+   - It then retrieves all the grids from the climatology database. If the parameter name is not "MaxT" or "MinT", it sends a status bar message and returns.
+   
+   - If no climatology grids are available, it sends a status bar message and returns.
+   
+   - It then fetches the grids from the climatology database and adjusts their times to the current year.
+   
+   - It then calculates interpolated grids using the `_cubicSpline` method.
+   
+   - Finally, it creates a grid for each interpolated grid, after converting the temperature from Kelvin to Fahrenheit and clipping it to the min/max limits. These grids are then stored in the forecast model.
+
+In summary, this code is for processing and manipulating weather data, specifically temperature, from a climatology database. It checks for the availability of data, retrieves and processes it, and then stores the processed data for use in a forecast model.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,66 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>FixDoubleBoundaries.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>FixDoubleBoundaries.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to update XML files that contain certain constraints related to map data. It appears to be part of a larger system, possibly related to geographical data processing or GIS (Geographical Information System).
+
+Here's a breakdown of what the script does:
+
+1. It imports necessary libraries, including ones for handling XML files, regular expressions, file operations, and logging.
+
+2. It defines some constants: `SITE_PATHS` (paths to directories that contain XML files to be processed), `OLD_CONSTRAINT` (the constraint to be replaced), and `NEW_CONSTRAINT` (the constraint to replace the old one).
+
+3. It sets up a logging system with a specific format and level.
+
+4. It defines a class `CommentedTreeBuilder` that extends `xml.etree.ElementTree.TreeBuilder`. This class is used to parse XML files while preserving comments.
+
+5. It defines a function `processDir(directory)` that walks through a directory and its subdirectories, calling `updateFile(fullPath)` for each XML file it finds.
+
+6. It defines a function `updateFile(path)` that opens and parses an XML file, looks for the old constraint in the file, and if it finds it, replaces it with the new constraint. If the file was changed, it backs up the original file (appending `.bak` to its name), and writes the updated XML back to the original file. If there's an error during this process, it logs the error and returns 1, otherwise it returns 0.
+
+7. It defines a `main()` function that processes either the paths provided as command-line arguments or the paths in `SITE_PATHS` if no arguments were provided. For each path, if it's a directory, it calls `processDir(path)`, and if it's a file, it calls `updateFile(path)`.
+
+8. If the script is run as a standalone program (not imported as a module), it calls `main()` and exits with the status returned by `main()`.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

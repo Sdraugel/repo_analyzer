@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>VectorGridSlice.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>VectorGridSlice.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is part of a larger software developed by Raytheon Company. It's a part of a software product that contains export-restricted data, meaning it's subject to U.S. export laws and regulations.
+
+The code itself defines a class `VectorGridSlice` that inherits from the `ScalarGridSlice` class, which is imported from the `dynamicserialize.dstypes.com.raytheon.uf.common.dataplugin.gfe.slice` module. The `VectorGridSlice` class is likely used to represent a slice of a vector grid in the larger software system.
+
+The `VectorGridSlice` class has the following attributes and methods:
+
+- `dirGrid`: This attribute is initialized as `None` in the constructor (`__init__` method).
+
+- `getNumPyGrid()`: This method returns a tuple containing the results of calling the `getNumPyGrid()` method on `self.scalarGrid` and `self.dirGrid`.
+
+- `getDirGrid()` and `setDirGrid(dirGrid)`: These are getter and setter methods for the `dirGrid` attribute.
+
+- `getMagGrid()` and `setMagGrid(magGrid)`: These are getter and setter methods for the `scalarGrid` attribute, which is inherited from the `ScalarGridSlice` class. The `scalarGrid` attribute is referred to as `magGrid` in these methods, suggesting that it represents the magnitude of the vector grid slice.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

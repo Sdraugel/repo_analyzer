@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>PlotEntry.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>PlotEntry.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be a part of a larger system, possibly related to weather data processing, given the use of modules like `Avn`, `TafDecoder`, and `JUtil`. The script contains several functions that retrieve and process weather data.
+
+The function `getNam(siteObj)` retrieves NAM (North American Mesoscale) data for a given site. It unpickles the `siteObj`, extracts the 'data' from the unpickled object, and then converts it back to a Java object before returning.
+
+The function `getMos(siteObj, model)` works similarly to `getNam(siteObj)`, but it retrieves MOS (Model Output Statistics) data.
+
+The function `getMetars(siteObj, size=99)` retrieves METAR (Meteorological Aerodrome Report) data for a given site. It also sorts the data based on the 'itime' field in the 'dcd' dictionary.
+
+The function `decodeTaf(taf, wmoHeader)` decodes TAF (Terminal Aerodrome Forecast) data. It creates a `TafDecoder.Decoder` object and uses it to decode the TAF data. The decoded data is then put into a dictionary and converted back to a Java object before being returned.
+
+The script also sets up a logger using the `logging` module, with the log category set to `Avn.CATEGORY`.
+
+The comments at the beginning of the script indicate that this software was developed by Raytheon Company and contains export-restricted data. It also mentions that this is a base file not intended to be overridden.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,122 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>CalculateRFD.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>CalculateRFD.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a larger software that calculates the Rate of Fire Development (RFD) based on various weather and environmental parameters. The software is in the public domain and is not supported by any technical support or warranty.
+
+The script imports the numpy library and time module, and defines a class `Tool` that inherits from `SmartScript.SmartScript`. The `Tool` class has an `execute` method that takes in several parameters related to weather and environmental conditions, such as temperature (T), relative humidity (RH), wind speed (Wind), sky conditions (Sky), probability of precipitation (PoP), RFD, percentage of green vegetation (PERCENTGREEN), and a time range for the grid (GridTimeRange).
+
+In the `execute` method, the script first calculates the maximum and minimum values of the input parameters. It then calculates the fuel lag, fine fuel moisture, ignition, and RFD index. It also categorizes the RFD and sets the RFD to zero where significant precipitation is occurring. The method returns the categorized RFD.
+
+The script also includes a method `_create1hrtimelag` that calculates a one-hour time lag based on temperature, relative humidity, and sky conditions. The method categorizes the temperature and relative humidity into several categories and calculates the fuel lag for each category.
+
+The script includes several commented-out lines of code that print the time taken to run each calculation. These lines can be uncommented for debugging or performance analysis purposes.
+
+Note: The actual calculations and the logic behind them are not visible in the provided part of the script.
+
+This code appears to be part of a larger program, possibly related to weather or atmospheric conditions, as it references temperature (Tcat), relative humidity (RHcat), and sky conditions (SKYcat). 
+
+The code is essentially performing a series of operations on multi-dimensional arrays (or grids), using logical conditions to manipulate and categorize data. 
+
+The first section of the code is looping through the 'suntable' and 'cloudtable' arrays, and for each element, it checks if the temperature and relative humidity categories match the current indices. If they do, the value at that location is stored in the 'sunnyfuel' or 'cloudyfuel' arrays. 
+
+The 'SKYcat.any()' condition checks if there are any non-zero values in the SKYcat array. If there are, it means that there are some conditions (possibly related to cloud cover or sunlight) that need to be accounted for, and so the 'cloudyfuel' or 'sunnyfuel' arrays are used to update the 'hrtimelag' array accordingly.
+
+The '_calcfinefuelmoisture' function seems to be categorizing the 'timelagfuel' and 'greeness' data into various categories based on their values. It does this by looping through a range of threshold values and checking if the data falls within these thresholds. If it does, the corresponding category is stored in the 'Fuelcat' or 'GREENcat' arrays. 
+
+The 'laglist' and 'grlist' lists seem to be storing the unique categories that have been assigned, possibly for later use. 
+
+The code also contains several commented-out lines, which seem to represent previous versions of the code or alternative approaches that were considered. 
+
+Please note that without more context or comments in the code, this is a somewhat speculative analysis.
+
+The code appears to be part of a larger program that is calculating and categorizing certain environmental conditions, possibly for a weather or climate model. 
+
+In the first section, it is categorizing a variable called `greeness` into different categories based on its value, and storing these categories in `GREENcat`. It then calculates the fine fuel moisture (`finemoisture`) based on the `greeness` and another variable, `Fuelcat`. The `finemoisture` is then adjusted to replace any zero values with the value of `timelagfuel`. 
+
+The second section of the code, `_calcignition`, seems to be calculating the conditions necessary for ignition, possibly for a fire. It categorizes `finefuel` and `temp` (temperature) into different categories and adjusts the temperature based on the sky condition (`Sky`). It then sorts and reshapes the `finefuel` and `temp` data, and categorizes `finefuel` into different categories based on its value. 
+
+The code also contains several commented out lines, which are not currently being executed but may have been used for debugging or testing purposes. 
+
+Overall, the code seems to be part of a larger system that models environmental conditions and their effects on factors like fuel moisture and ignition potential.
+
+This code appears to be part of a larger program that calculates the risk of fire in a certain area, based on factors such as temperature, fuel availability, wind speed, and ignition sources. It uses a variety of mathematical and logical operations to analyze these factors and produce a risk assessment.
+
+Here's a breakdown of the code:
+
+1. The first part of the code is assigning a count value to a certain range of temperatures and appending the count to a list. It then increments the count and the temperature range (stepper) by 10.
+
+2. The second part of the code is checking if the maximum temperature is greater than or equal to the stepper. If it is, it assigns the count value to a certain range of temperatures and appends the count to a list.
+
+3. The third part of the code is calculating the ignition component based on the temperature and fuel availability. It uses nested while loops to iterate over the temperature and fuel lists, assigning a value from a table to the ignition array for each combination of temperature and fuel.
+
+4. The fourth part of the code is defining a function to calculate the Rangeland Fire Danger Index (RFD). It reshapes and sorts the ignition array, initializes an RFD array of zeros, converts wind speed to mph, and calculates the RFD based on the ignition and wind speed.
+
+5. The fifth part of the code is defining a function to categorize the RFD. It gets the state criteria, initializes a new RFD array of zeros, and iterates over the areas in the state criteria. For each area, it encodes the edit area and initializes a temporary array of zeros.
+
+Overall, this code is using a variety of mathematical and logical operations to analyze the risk of fire in a certain area based on factors such as temperature, fuel availability, wind speed, and ignition sources.
+
+The code file seems to be a part of a larger Python program, possibly related to weather or environmental data analysis. Here's a breakdown of what each part of the code does:
+
+1. The first part of the code is a loop that iterates over a list of configurations (datalist). Each configuration is a list with three elements: category (cat), minimum (min), and maximum (max). The loop applies some conditions to an array (RFD) and assigns the category value to the corresponding elements of another array (tempo). Then, it applies conditions to an array (areamask) and assigns the corresponding elements of the tempo array to a new array (newRfd). The loop continues until it has processed all configurations. The function returns the newRfd array.
+
+2. The `_determinemaxmin` method reshapes and sorts several arrays (RH, T, Wind, PERCENTGREEN) and assigns the minimum and maximum values of each array to instance variables. This method does not return anything.
+
+3. The `_onehrtimelagtable` method returns two lists of values, one for sunny and one for cloudy conditions. These lists seem to be related to some sort of time lag calculation.
+
+4. The `_finefuelmoisturetable` method returns a two-dimensional list that represents a table. This table seems to be used for comparing 1-hour fuel moisture to the percentage of green.
+
+5. The `_ignitioncomptable` method returns a list that represents a table. This table seems to be used for calculating some sort of ignition component based on temperature ranges.
+
+6. The `_RFDtable` method returns a list that represents a table. This table seems to be used for calculating something based on the ignition component and wind speed.
+
+Please note that without additional context or comments in the code, it's hard to determine the exact purpose of these methods.
+
+This code is written in Python and it appears to be a part of a class definition, specifically methods of a class. However, the first part of the code you provided is incomplete and out of context, so it's hard to say exactly what it does.
+
+The `_statecriteria` method is defining a dictionary called `statedict` that contains states as keys and lists of tuples as values. Each tuple represents a category number and a range (low, high). This could be used to classify or categorize some data related to these states based on the given ranges.
+
+The `_preciptthresh` method is returning a value of 65. This method could be used to get a threshold value for precipitation where RFD (Rapid Frequency Deterioration) will be set to low. The comment suggests that if you want this feature disabled, you should set the value to 101. The purpose of this method is likely to provide a single point of change for this value, making the code more maintainable.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

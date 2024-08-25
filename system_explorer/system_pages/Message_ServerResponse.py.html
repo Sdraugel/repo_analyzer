@@ -1,0 +1,63 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ServerResponse.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ServerResponse.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code defines a class named `ServerResponse`. This class is likely used to encapsulate responses from a server, including messages, payload, and notifications.
+
+The class has the following attributes:
+- `messages`: This attribute is used to store any messages that are part of the server's response.
+- `payload`: This attribute is used to store the main content of the server's response.
+- `notifications`: This attribute is used to store any notifications that are part of the server's response.
+
+The class has the following methods:
+- `getMessages`, `getPayload`, `getNotifications`: These are getter methods that return the corresponding attribute.
+- `setMessages`, `setPayload`, `setNotifications`: These are setter methods that set the value of the corresponding attribute.
+- `isOkay`: This method checks if the `messages` attribute is `None` or empty. If it is, the method returns `True`, indicating that there were no error messages in the server's response.
+- `message`: This method returns a string representation of the messages. If there are no messages, it returns an empty string. If there are messages, it concatenates them into a single string, with each message on a new line.
+- `__str__`: This method returns the string representation of the `ServerResponse` object, which is the string representation of the messages.
+- `__bool__`: This method returns the result of the `isOkay` method. This allows a `ServerResponse` object to be used in a boolean context, such as in an `if` statement.
+
+The code at the top of the file is a comment block that provides information about the software's development and export restrictions. It also includes contact information for the contractor that developed or modified the software, Raytheon Company.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

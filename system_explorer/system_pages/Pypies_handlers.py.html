@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>handlers.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>handlers.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is part of a larger software system developed by Raytheon Company. It is a main processing module of a software named pypies, which handles HTTP requests through the Web Server Gateway Interface (WSGI). 
+
+The code imports several modules and libraries, including the Request and Response classes from the werkzeug library, the logging and time modules, and several modules from the pypies and dynamicserialize packages. 
+
+The code then sets up a logger, a timeMap, and a hdf5Dir from the pypies package. It also initializes a datastore using the H5pyDataStore class from the pypies.impl package. 
+
+A dictionary called datastoreMap is created, which maps different types of requests to corresponding methods in the datastore and their string representations. 
+
+The pypies_response function is defined to handle incoming HTTP requests. It deserializes the request, processes it based on the type of request, and then serializes the response before sending it back. 
+
+The function also logs any errors that occur during the deserialization, processing, or serialization steps, and returns an error response if necessary. If an uncaught exception occurs, it is logged and re-raised to return an HTTP error code 500. 
+
+Two helper functions, __prepareResponse and __getType, are defined to serialize the response and determine the type of an exception, respectively. 
+
+The code also contains a detailed software history, which provides a record of changes made to the code over time, including the dates of changes, ticket numbers, the engineers who made the changes, and descriptions of the changes.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

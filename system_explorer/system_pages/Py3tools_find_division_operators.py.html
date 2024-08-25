@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>find_division_operators.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>find_division_operators.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script, named `find_divs.py`, is designed to find and print all division operators in Python files within specified directories. 
+
+Here's a breakdown of what the script does:
+
+1. It first checks if the user has provided at least one argument (a directory name). If not, it prints usage instructions and exits.
+
+2. It defines a function `parse_file(path)`. This function opens a file at the given path, reads its contents, and parses it into an Abstract Syntax Tree (AST) using the `ast.parse` function. The AST represents the structure of the Python code in the file.
+
+3. The function then walks through the AST node by node. If a node represents a division operation (i.e., it is an instance of `ast.Div`), the function prints the file path, the line number of the division operation, and the line of code itself. If a node has a line number, the function updates the `last_lineno` variable with this number.
+
+4. After defining the function, the script iterates over all arguments provided by the user (which are expected to be directory names). For each directory, it walks through all files in the directory and its subdirectories. If a file ends with `.py` (indicating it's a Python file), the script tries to parse the file with the `parse_file` function.
+
+5. If an error occurs while parsing a file (for example, if the file contains invalid Python code), the script catches the exception, prints the traceback to the standard error, and continues with the next file.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

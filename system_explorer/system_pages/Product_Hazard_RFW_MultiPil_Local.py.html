@@ -1,0 +1,74 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Hazard_RFW_MultiPil_Local.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Hazard_RFW_MultiPil_Local.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be a part of a larger system, possibly for weather forecasting or hazard prediction, developed by Raytheon Company. It is specifically named `Hazard_RFW_Local.py`, which suggests that it is related to local hazard warnings, possibly for fire weather (RFW stands for Red Flag Warning, a term used in meteorology to indicate ideal wildfire conditions).
+
+The script starts with a class definition `TextProduct` that inherits from another class `Hazard_RFW_<MultiPil>.TextProduct`. It then modifies the `Definition` dictionary of the parent class.
+
+The code also includes a configuration section where the user can select the type of Red Flag Event and the source for the headline and affected area bullet. Depending on the selections, different phrases and bullet points will be used in the output.
+
+The script contains several commented-out sections. These sections seem to be providing guidelines for further customization of the script, such as adding new types of Red Flag Events, modifying the phrases used in the headlines, and adjusting the bullet points.
+
+The last line of the script defines a list of generic bullet points that will be used if an RFW Type is not selected in the initial GUI.
+
+Please note that the script seems to be incomplete as it ends abruptly.
+
+This code seems to be a part of a larger script that is used for generating weather reports, specifically related to fire weather zones. The script appears to be written in Python.
+
+The script includes a dictionary named `Definition` that is used to store various configuration settings. These settings control how the weather reports are generated and displayed. Here's what each setting does:
+
+1. `locationsBullet`: This sets the name for the location bullet in the report. It is currently set to "Affected area".
+
+2. `numInHeadline`: This controls whether zone numbers or a generic location description is inserted into headlines. If it's set to 1, zone numbers are used.
+
+3. `noNameInBullet`: This determines whether zone names are included in the location bullet. If it's set to 1, zone names are not included.
+
+4. `includeStateName`: This controls whether the state name is included in the "AFFECTED AREA" section of the report. If it's set to 0, the state name is not included.
+
+5. `urlText`: This is the text to insert below the last $$ of the product (WFO URL). This could be a single line or multiple lines. The current setting is commented out, so no URL text will be included.
+
+The `__init__` function is a special method in Python classes. It is called when an object is instantiated from a class. In this case, it appears to be initializing a text product related to fire weather zones, but without the rest of the code, it's hard to say exactly what `Hazard_RFW_<MultiPil>.TextProduct.__init__(self)` is doing.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

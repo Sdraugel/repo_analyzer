@@ -1,0 +1,56 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TPCtcm.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TPCtcm.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is part of a software developed or modified by Raytheon Company, as stated in the comments at the top of the file. The software contains export-restricted data, and its export/transfer/disclosure is restricted by U.S. law.
+
+The code is a base file that is not intended to be overridden but can be subclassed to override behavior. It is related to the Configuration Guides->Smart Initialization Configuration section of the GFE Online Help, which provides guidance on creating a new smart init.
+
+The code imports everything from the Init module and defines a class named TPCtcmForecaster, which inherits from the Forecaster class. The TPCtcmForecaster class has an __init__ method that initializes the class with the name "TPCtcm".
+
+The TPCtcmForecaster class also has a method named calcWind that takes wind_SFC as a parameter. This method calculates the surface wind from the TPC tcm model. It gets the wind grids and wind direction, converts the wind speed from meters per second to knots, clips the wind direction between 0 and 359.5, and returns a tuple of the wind speed and direction.
+
+The main function in the code creates an instance of the TPCtcmForecaster class and runs it.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

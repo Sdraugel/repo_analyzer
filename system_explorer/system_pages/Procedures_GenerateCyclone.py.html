@@ -1,0 +1,198 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>GenerateCyclone.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>GenerateCyclone.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code appears to be part of a software system developed by Raytheon Company for the US Government, specifically for AWIPS II (Advanced Weather Interactive Processing System). The software is in the public domain and is provided without warranty.
+
+The code seems to be a Python script that decodes Tropical Cyclone Messages (TCM). It includes a class `TCMDecoder` with various methods to decode different parts of a TCM, such as the forecast time, center location, maximum sustained winds, eye diameter, and radii.
+
+The `TCMDecoder` class has methods to parse and extract information from the text of a TCM. The `decodeWindForecast`, `decodeCenterLocation`, `decodeMaxSustainedWinds`, `decodeEyeDiameter`, and `decodeRadii` methods are used to extract specific pieces of information from the TCM.
+
+The `VariableList` and `MenuItems` at the top of the script suggest that this code might be part of a larger system with a user interface, where these variables could be used to populate menu items and form fields.
+
+The script also includes import statements for several Python modules, including `time`, `traceback`, `numpy`, `AbsTime`, `Exceptions`, `TimeRange`, and `SmartScript`. These modules provide various functionalities used in the script, such as time manipulation, error handling, and mathematical operations.
+
+Please note that this code snippet is cut off at the end, so the full functionality of the `convert_ddhhmm` method is not visible.
+
+This code is part of a larger program that seems to be analyzing and decoding meteorological data, possibly related to forecasting and tracking storms or hurricanes. 
+
+Here's what each function does:
+
+1. `me()`: This function is not defined in the provided code, so it's unclear what it does.
+
+2. `decodeProductTime()`: This function extracts the time of the product (possibly a weather forecast or report) from the next line of the data. It checks that the time string is valid and converts the base time.
+
+3. `decodeAltFilename()`: This function extracts the alternative filename from the current line of the data.
+
+4. `decodeCenterLocation()`: This function decodes the center location of the storm from the current line of data. If the location string includes "REPEAT", it is ignored. Otherwise, it extracts the latitude, longitude, and valid time, and stores them in `self.currentFcst`.
+
+5. `decodeMaxSustainedWinds()`: This function decodes the maximum sustained winds from the current line of data. It stores the maximum wind and gust in `self.currentFcst`. If the center location and maximum wind are available, it calculates the eye diameter.
+
+6. `decodeMaxWind()`: This function decodes the maximum wind from the current line of data. It stores the maximum wind and gust in `self.currentFcst`. If the center location and maximum wind are available, it calculates the eye diameter.
+
+7. `decodeRadii()`: This function decodes the radii from the current line of data. It checks for the string "KT" in the second slot and decodes the radii in the string. If the radii cannot be decoded, it prints an error message.
+
+The code seems to be part of a larger class (as indicated by the use of `self`) that is not fully included in the provided snippet. The class appears to represent a weather forecast or report, with methods for decoding various parts of the data.
+
+This code appears to be part of a larger program that decodes and processes weather forecast data, specifically related to tropical cyclones. The data includes information about wind speed, forecast time, center location, and the eye diameter of the cyclone. 
+
+Here's a breakdown of the main functions:
+
+1. `decodeWindForecast`: This function decodes a new forecast. It first checks if there is a current forecast and if so, it saves it to a list of forecasts (`fcstList`) before resetting the current forecast. It then decodes the valid time and center location from the current line of text. If the latitude or longitude cannot be decoded, it prints an error message and returns.
+
+2. `decodeEyeDiameter`: This function decodes the diameter of the cyclone's eye from the current line of text and stores it in the current forecast. It also sets the default eye diameter to the decoded value and marks that the eye diameter was found.
+
+3. `decodeTCMProduct`: This function decodes a TCM (Tropical Cyclone Message) product. It initializes some variables, strips the text of the TCM product, and then loops through each line of the product. For each line, it checks if any keywords are present and if so, calls the corresponding function. It then stores the last forecast in the list of forecasts.
+
+4. `decodeLatLonToken`: This function decodes a latitude or longitude token. It checks if the token contains any of the cardinal directions ('N', 'S', 'E', 'W') and if so, it tries to convert the part of the token before the direction to a float. If the direction is 'S' or 'W', it flips the sign of the value. If the token cannot be decoded, it prints an error message and returns None.
+
+5. `decodeJTWCProductTime`, `decodeJTWCTimeCenter`, `decodeJTWCWindForecast`, `decodeJTWCRadii`: These functions decode different parts of a JTWC (Joint Typhoon Warning Center) product, such as the product time, time and center, wind forecast, and radii. They work similarly to the previous functions, decoding different parts of the product and storing them in the current forecast.
+
+The code also includes a few other smaller functions and some code outside of functions that appears to store radii information in the current forecast.
+
+This Python code appears to be part of a larger system for processing and manipulating meteorological data, specifically related to wind forecasts. 
+
+The code defines several classes:
+
+1. `TCMDecoder`: This class seems to be responsible for decoding some kind of forecast data. It has methods for handling different types of forecast data, such as `endJTWCWindForecast` and `stopDecodingJTWC`. It reads lines from a data source, parses them into tokens, and extracts radius data from them.
+
+2. `CircleEA`: This class is used to create circular edit areas and quadrants. It takes a latitude grid, longitude grid, center, and slices as inputs. It calculates distances and angles for each point in the grid relative to the center. It also provides methods to get a specific quadrant and to get the distance grid.
+
+3. `Procedure`: This class seems to be responsible for handling and processing wind forecast data. It has methods for reading data from a text file (`getTextProductFromFile`), decoding depression information (`decodeDepressionInfo`), injecting depression information into a forecast list (`injectDepressionInfo`), getting a weather element inventory (`getWEInventory`), and getting a wind grid most closely matched in time from a specified model (`getClosestWindGrid`).
+
+The code uses several mathematical and logical operations to manipulate and analyze the data, such as trigonometric functions, square root, power, logical and, and comparison operators. It also handles exceptions and prints error messages when necessary.
+
+This code appears to be part of a larger system, possibly related to meteorology or climate modeling, given the references to wind, grids, and radii. Here's a breakdown of the main parts:
+
+1. The first section of the code is trying to find a grid that is closest in time to a target time. If no grid is found, it defaults to a "calm grid". It also prints out messages when no grids or grid info are found for a specific model or time range.
+
+2. The `makeDirectionGrid` function creates a grid where winds blow counter-clockwise about a specified center. It uses a combination of cyclonic circulation and convergence to calculate the wind direction.
+
+3. The `interpRadii` function interpolates radii information based on the specified info. It seems to be used for adjusting the wind radii for different time points.
+
+4. The `interpolateWindFcst` function interpolates the wind forecasts between two specified forecasts. It calculates the changes in latitude, longitude, eye diameter, and max wind over time, and generates a new forecast list.
+
+5. The `smoothGrid` function smooths the specified grid by a specified factor. This could be used to reduce noise or variability in the data. It seems to use a sliding window approach to average nearby values.
+
+The code is not complete and seems to be cut off at the end. The last part appears to be setting up for another loop, possibly to continue the smoothing operation.
+
+This code file seems to be part of a weather forecasting system, specifically dealing with wind and grid data. 
+
+1. `ice(y, None, None)`: This line calls the function `ice` with the arguments `y`, `None`, and `None`. The purpose of this function is not clear from the provided code.
+
+2. The next block of code checks the value of `x` and sets the slices `xTargetSlice` and `xSrcSlice` accordingly. These slices are used to index into arrays later in the code.
+
+3. `target = [yTargetSlice, xTargetSlice]` and `src = [ySrcSlice, xSrcSlice]`: These lines create lists of slices that are used to index into the `sg` and `grid` arrays.
+
+4. `sg[target] += grid[src]` and `count[target] += gridOfOnes[src]`: These lines increment the values in the `sg` and `count` arrays at the indices specified by `target` and `src`.
+
+5. `printFcst(self, f, baseTime)`: This method prints out the forecast data contained in the dictionary `f`.
+
+6. `smoothDirectionGrid(self, dir, factor)`: This method smooths the direction grid without regard to the magnitude.
+
+7. `makeWindGrid(self, mag, dir, gridShape)`: This method creates a wind grid with the given magnitude, direction, and grid shape.
+
+8. `decreaseWindOverLand(self, grid, fraction, Topo)`: This method decreases the wind over land by a given fraction.
+
+9. `getTimeConstraintDuration(self, element)`: This method returns the time constraint duration for a given element.
+
+10. `blendGrids(self, windGrid, bgGrid)`: This method blends the specified wind grid and background grid together.
+
+11. `getLatLonGrids(self)`: This method retrieves or creates latitude and longitude grids.
+
+12. `interpolateQuadrants(self, rDict, pieSlices)`: This method interpolates the specified radii in `rDict` to the number of slices specified in `pieSlices`. This adds more angular resolution to the wind forecast.
+
+This Python code is part of a larger program that creates a Rankine Vortex wind speed grid, which decreases exponentially from known values at known radii. 
+
+The `makeRankine` function takes in several parameters, including a dictionary of radii (`f['radii']`), a center location (`f['centerLocation']`), and a number of pie slices. It then uses these parameters to create a grid of wind speeds. 
+
+The function first checks if the 'maxWind' and 'eyeDiameter' keys are present in the dictionary. If they are, it uses these values to calculate the maximum radius. If the 'eyeDiameter' key is not present, it defaults to a radius of 12.5. 
+
+Next, the function creates a list of wind speeds (`wsList`) and corresponding average radii (`radList`). If no radii are found, it returns a calm grid. 
+
+The function then sorts the radii and wind speeds in descending order and adds an entry to the dictionary with the maximum wind speed and radius. 
+
+The function then iterates over each record in the dictionary and each quadrant to create the grid piece by piece. It calculates the wind speed and radius for each quadrant and applies a mask to the edit area for that quadrant. 
+
+The function also includes checks to ensure that the wind speed never exceeds the maximum allowable wind speed and that the radius is never zero. 
+
+Finally, the function clips the values between zero and the maximum wind speed, applies a wind reduction over land, and returns the grid and direction grid. 
+
+The `execute` function appears to be the main function that runs the program. It sets the tool type, time range, and default eye diameter. It also retrieves the topography and sets the time interpolation interval to the duration. 
+
+However, the code is incomplete and it's not clear what the rest of the `execute` function does.
+
+This code is part of a larger program that appears to be processing and analyzing weather data, specifically related to wind forecasts and cyclones. Here's a breakdown of what each section is doing:
+
+1. The code first retrieves a wind forecast inventory and stores it in a dictionary `self.fcstWindGrids`.
+
+2. It then sets the number of pie slices (possibly for a pie chart visualization), the percentage to decrease wind over land, and the elevation to certain values obtained from a dictionary `varDict`.
+
+3. The code fetches a text product from a database using a product ID. If the product cannot be retrieved, it prints an error message and returns `None`.
+
+4. The fetched product is then decoded using a `TCMDecoder` and the forecast list is printed.
+
+5. It attempts to get alternate information from a file or the text database.
+
+6. If the alternate product is successfully retrieved, it decodes depression info from it.
+
+7. It sets the base decoded time to the valid time of the first entry in the forecast list minus 3 hours.
+
+8. If the user has selected to make grids over a selected time only, it sets `selectionTROnly` to 1.
+
+9. The code then injects the depression info into the forecast list.
+
+10. It interpolates the wind forecasts obtained from the decoder and makes sure the forecast is within the selected time range.
+
+11. If no cyclone forecasts are found within the selected time range, it displays a status bar message. Otherwise, it generates wind grids.
+
+12. It retrieves latitude and longitude grids.
+
+13. For each interpolated forecast, it creates a wind grid and blends it with a background grid. If no background grid is found, it uses a calm background grid.
+
+14. It then creates a grid with the blended data and increments the grid count. It prints the number of grids generated so far.
+
+15. Finally, it returns `None`.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

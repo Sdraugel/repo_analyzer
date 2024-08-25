@@ -1,0 +1,92 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Aviation_CloudBase_Fm_CCL_LCL.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Aviation_CloudBase_Fm_CCL_LCL.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is part of a tool called "LowCloudHeight" that calculates the height of low clouds using either the Lifting Condensation Level (LCL) or the Convective Condensation Level (CCL). This tool is designed to compute the LCL and CCL from the values in T and Td grids and model data.
+
+The tool provides several options for the user to customize the calculation, such as choosing the method for calculating the cloud base (LCL or CCL), selecting the model to use for the calculation (NAM12, RAP13, GFS), and specifying whether to keep or eliminate mid/high clouds.
+
+The code also includes a class definition for the tool, which inherits from the SmartScript class. The class includes methods for getting the closest time range to a specified time range and for executing the cloud base calculation.
+
+The code also imports necessary libraries, sets up variables to be solicited from the user, and sets up dictionaries to hold the model layer and corresponding pressure.
+
+The code also includes a detailed history of modifications and updates to the tool, as well as a disclaimer that the software is in the public domain and is provided without warranty.
+
+This code is part of a weather forecasting model that calculates various atmospheric parameters. It starts by initializing certain variables and converting the topography data from feet to meters. It then loops over different weather models, fetching data for each one. 
+
+For each model, it fetches the temperature (t), relative humidity (rh), and surface pressure (p) data. It also fetches data for the lowest two boundary layers from the model. 
+
+The code then calculates the dew point temperature for the boundary layers and the surface, using the fetched temperature and relative humidity data. It also calculates the vapor pressures using the Bolton form of the Clausius-Clapeyron Equation, which is a way of calculating the saturation vapor pressure of water in air as a function of temperature.
+
+The code then calculates the mixing ratio, which is the ratio of the mass of water vapor to the mass of dry air. It does this for the surface and the boundary layers. 
+
+The code then calculates the average temperature, dew point, and mixing ratio for the boundary layer. 
+
+Depending on the source of the parcel (either surface or boundary layer), it sets the temperature, dew point, and mixing ratio values.
+
+Finally, it calculates the height of the Lifted Condensation Level (LCL) using Espy's equation. The LCL is the height at which a parcel of air, if lifted dry adiabatically, would become saturated. The code then converts this height to hundreds of feet and clips it to a maximum of 250. 
+
+The code creates temporary grids for the mixing ratio and LCL, which can be used for further calculations or visualizations.
+
+The provided code is a part of a larger program that calculates the Convective Condensation Level (CCL) and the model dewpoint. The CCL is the height at which an air parcel becomes saturated when it is heated and lifted convectively. 
+
+The code does the following:
+
+1. It iterates over different layers of the atmosphere (model levels). For each layer, it calculates the temperature in Celsius, checks if the layer is above the ground, calculates the saturation vapor pressure using the Bolton form of the Clausius-Clapeyron Equation, and calculates the saturation mixing ratio.
+
+2. It then checks if the saturation mixing ratio at the new level is less than the boundary layer mixing ratio, if it is above ground level, and if the CCL is still set at zero. If these conditions are met, it approximates the height where the saturation mixing ratio becomes less than the boundary layer mixing ratio using linear interpolation.
+
+3. It stores the level where the temperature goes above freezing, considering only layers above the ground. It then sets parameters for the next iteration of the loop.
+
+4. After iterating over all layers, it calculates the average CCL and adjusts it to be above ground level. It then identifies grid boxes where no CCL was found.
+
+5. It converts the CCL to values used in the CloudBasePrimary grid, which is expressed as hundreds of feet above ground level, and clips the values to keep them between 0 and 250.
+
+6. It creates a temporary grid for the CCL and finds grid boxes where the CCL is above a user-set threshold. Depending on the forecaster's choice, it sets the CloudBasePrimary to the CCL at all grid boxes below the threshold or eliminates the old CloudBasePrimary at all grid boxes above the threshold.
+
+7. If the prediction height method is not "CCL", it sets the CloudBasePrimary to the Lifted Condensation Level (LCL).
+
+8. The code also includes a function `_calcModelDewpoint` that calculates the model dewpoint in degrees Celsius using the temperature and relative humidity. It uses the Bolton form of the Clausius-Clapeyron Equation to calculate the saturation vapor pressure and the vapor pressure, and then calculates the dewpoint.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

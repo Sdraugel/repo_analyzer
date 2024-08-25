@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>_update_metar_slp_values.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>_update_metar_slp_values.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to convert sea level pressure values from hectopascals (hPa) to pascals (Pa) in an hdf5 file. The hdf5 file format is a structured data file format often used for storing large amounts of numerical data, and is widely used in scientific computing.
+
+The script takes one command line argument, which is the name of the hdf5 file to process. If the script is called with the wrong number of arguments, it prints a usage message and exits with an error code.
+
+The script opens the hdf5 file and checks if it contains a dataset named 'seaLevelPress'. If such a dataset exists, the script iterates over its elements. For each element, if its value is between 0 and 1999 (presumably these are the valid range of sea level pressure values in hPa), it multiplies the value by 100 to convert it to Pa, and updates the value in the file. If at least one value was updated, it sets a flag `didstuff` to True.
+
+If an error occurs while processing the file (for example, if the file does not exist or is not a valid hdf5 file), the script catches the exception, prints an error message, and exits with an error code.
+
+Finally, if the `didstuff` flag is True, the script prints a message indicating that the file was updated. Otherwise, it prints a message indicating that no update was needed.
+
+The script is meant to be run as a standalone program, as indicated by the `if __name__ == "__main__":` line at the end. This line ensures that the `main()` function is only called if the script is run directly, and not if it is imported as a module in another script.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

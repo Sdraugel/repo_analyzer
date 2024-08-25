@@ -1,0 +1,74 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>migrateUserSpellingDictionaries.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>migrateUserSpellingDictionaries.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to migrate user-level spelling dictionaries to site-level dictionaries. It's part of a delta script for a specific change request (DR 4781) as indicated in the log message.
+
+Here's a breakdown of what the script does:
+
+1. It imports necessary modules for file handling, logging, running shell commands, and parsing XML files.
+
+2. It defines several constants that represent file paths and commands.
+
+3. It sets up a logger named 'migrateUserSpellingDictionaries' to log debug level and higher messages.
+
+4. It defines several helper functions:
+   - `createDir(dir)`: Creates a directory if it doesn't exist.
+   - `sourceEnvFileGetVariable(envFile, variable)`: Sources an environment file and returns the value of a specified environment variable.
+   - `getSiteID()`: Returns the site ID by sourcing a setup file and getting the value of "AW_SITE_IDENTIFIER".
+   - `getPrimarySites(awSiteID)`: Returns a list of primary sites by sourcing a properties file and getting the value of "PRIMARY_SITES".
+
+5. The `main()` function does the following:
+   - Logs that the script is running.
+   - Reads all user-level spelling dictionaries, combines them into a set to remove duplicates, and logs any errors encountered.
+   - Gets the site ID. If it can't, it logs an error and exits with a return code of -1.
+   - Writes the combined dictionary to a site-level spelling dictionary file.
+   - Updates the userRoles.xml file to include a new permission for the site-level spelling dictionary.
+   - Retrieves a list of primary sites. If it can't, it logs an error and exits with a return code of -1.
+   - Copies the site-level spelling dictionary to each primary site's directory.
+   - Logs that the script has completed.
+
+6. If the script is run as the main program, it calls the `main()` function.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

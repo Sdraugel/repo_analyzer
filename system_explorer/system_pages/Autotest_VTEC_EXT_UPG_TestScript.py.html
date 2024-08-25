@@ -1,0 +1,90 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>VTEC_EXT_UPG_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>VTEC_EXT_UPG_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code appears to be a part of a larger software system developed by Raytheon Company. The code is written in Python and seems to be related to the generation of weather-related hazard warnings.
+
+The code contains a list of dictionaries, each representing a script for a specific event. Each dictionary contains the following keys:
+
+- "commentary": A description of the event.
+- "name": The name of the script.
+- "productType": The type of product, which seems to be related to the type of weather hazard.
+- "drtTime": The time associated with the event.
+- "createGrids": A list of tuples that seem to represent some kind of forecasting data.
+- "checkStrings": A list of strings that appear to be parts of a weather warning message.
+- "clearHazardsTable" and "decodeVTEC": These are flags (boolean values) that control certain aspects of the script's behavior.
+
+The scripts seem to be related to the generation of weather warnings, with different scripts for different scenarios (e.g., clearing out all hazards, setting an initial event, upgrading all and then extending, upgrading in the middle and then extending). Each script generates a specific type of weather warning message, such as a Winter Weather Advisory or a Blizzard Warning.
+
+This code appears to be a part of a testing script for a weather forecast system, possibly for the National Weather Service given the references in the text. It seems to be testing the generation and handling of various weather advisories and warnings, specifically related to winter weather conditions.
+
+The code is structured as a list of dictionaries, each representing a different test case. Each dictionary contains several key-value pairs:
+
+- `commentary`: A brief description of the test case.
+- `name`: The name of the test case.
+- `drtTime`: The time of the test case, possibly in the format YYYYMMDD_HHMM.
+- `productType`: The type of weather advisory or warning being tested.
+- `decodeVTEC`: A flag indicating whether to decode the VTEC (Valid Time Event Code), a coding system used by the National Weather Service for weather warnings and advisories.
+- `createGrids`: A list of tuples representing different weather conditions to be tested.
+- `checkStrings`: A list of strings representing the expected output of the test case.
+
+The last dictionary in the list is a cleanup operation, indicated by the `commentary` value of "Cleanup." and the `clearHazardsTable` key set to 1.
+
+The code at the bottom is the beginning of a function definition for `testScript`, which likely runs these test cases using a data manager object `dataMgr`. The `defaults` dictionary inside this function sets some default parameters for the test cases.
+
+This code seems to be a part of a larger Python script, specifically a method in a class (likely named `TestScript`).
+
+This method is returning a dictionary with some predefined keys and values. The dictionary seems to be related to some sort of testing script configuration or parameters for a weather forecast system or similar, based on the keys and values used.
+
+Here's a breakdown of the keys and values:
+
+1. `"deleteGrids"`: This key is associated with a list of tuples. The tuple `("Fcst", "Hazards", "SFC", "all", "all")` might be representing some parameters to delete certain grids or data points related to a forecast, hazards, and surface conditions for all time and all locations.
+
+2. `"issuedBy"`: This key is associated with a value `None`. It might be a placeholder for who or what system issues some sort of command or data.
+
+3. `"notKeyed"`: This key is associated with a dictionary that maps a tuple `('issued By', 'issuedBy')` to `None`. This might be indicating that these keys are not used or not important in this context.
+
+Finally, the method returns the result of a call to a method named `generalTestScript` which belongs to the parent class or the same class (`TestScript`). This method is passed `self`, `dataMgr`, `scripts`, and `defaults` as arguments. `self` refers to the instance of the class where this method is defined, `dataMgr` could be a data manager handling data operations, `scripts` could be a list or collection of scripts to be run, and `defaults` is likely the dictionary defined in this method.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

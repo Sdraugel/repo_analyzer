@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Hazard_FFA_MultiPil_Local.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Hazard_FFA_MultiPil_Local.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code appears to be part of a larger software system developed by Raytheon Company for the U.S. Government. The code is subject to U.S. export control laws and cannot be disseminated without proper authorization.
+
+The code itself defines a class `TextProduct` that extends from a base `TextProduct` class in the `Hazard_FFA_<MultiPil>` module. This class seems to be related to a hazard or flood watch system, as indicated by the `displayName` attribute set to "Hazard_FFA_<MultiPil> (Flood Watch)".
+
+The `TextProduct` class has a `Definition` dictionary that is a deep copy of the `Definition` dictionary from the base `TextProduct` class. This dictionary is used to define various properties of the `TextProduct` instance.
+
+There are several commented out lines in the `Definition` dictionary that suggest it can be configured to include an EAS phrase in the product header, set a hazard sampling threshold, include an overview headline and section, and determine cities from grids.
+
+The code block that should not be overridden sets the `defaultEditAreas` and `mapNameForCombinations` attributes based on the `areaType`. If `areaType` is "FIPS", these attributes are set to "EditAreas_FIPS_<site>_<MultiPil>" and "FIPS_<site>", respectively. Otherwise, they are set to "EditAreas_PublicZones_<site>_<MultiPil>" and "Zones_<site>", respectively.
+
+The `__init__` method of the `TextProduct` class simply calls the `__init__` method of the base `TextProduct` class. This suggests that no additional initialization is performed when an instance of this `TextProduct` class is created.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

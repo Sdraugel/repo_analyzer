@@ -1,0 +1,72 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>NewTerrain.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>NewTerrain.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is a configuration file for a software developed by Raytheon Company. It is related to the GFE (Graphical Forecast Editor) used for editing topographical data for a Standard Terrain initiative. 
+
+The script starts with a legal disclaimer and information about the software's development and export restrictions. It also provides a brief history of the software's updates.
+
+The script then defines some configuration settings for the GFE. Here are some key points:
+
+1. The script imports all configuration settings from `gfeConfig`, a base configuration file. 
+
+2. It sets `HideConfigFile` to 1, which likely means this configuration file should be hidden from users.
+
+3. It sets `DefaultGroup` to "NewTerrain", which might be the default group of settings or data to be used.
+
+4. It defines `mutableModel` as "EditTopo_NewTerrain", which could be the model that can be edited using this configuration.
+
+5. It defines `dbTypes` as ["EditTopo", "", "D2D"], which are likely the types of databases that can be used or edited.
+
+6. It turns off the split boundary display for performance reasons, as these grids have a 1-second resolution.
+
+7. It defines color tables for different types of topographical data.
+
+8. It sets the order in which grids are managed by the Grid Manager.
+
+9. It sets the layout of the Grid Manager's Topography Editor to "OnLeft".
+
+This script is designed to be used when starting the GFE, and it will bring up a special GFE with just the Topo parameters.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

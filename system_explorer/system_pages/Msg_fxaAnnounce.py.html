@@ -1,0 +1,64 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>fxaAnnounce.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>fxaAnnounce.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is a command-line tool named `fxaAnnounce` that sends notification messages. It was developed by Raytheon Company and has undergone several modifications over time, as indicated by the software history comments.
+
+The script starts by importing necessary modules and defining a usage function that prints out instructions for how to use the command-line tool.
+
+The script then checks if the number of arguments provided in the command line is within the expected range. If not, it calls the usage function to print the instructions and exits the script.
+
+If the number of arguments is within the expected range, the script assigns the first three arguments to `announcement`, `displayerType`, and `importance` respectively. It also initializes `audioFile` and `fltrs` (filters) as `None`.
+
+The script then iterates over the fourth and fifth arguments (if they exist). If an argument contains an equals sign, it's considered a filter and is parsed into a dictionary. If an argument doesn't contain an equals sign, it's considered an audio file path. If neither condition is met, the script calls the usage function and exits.
+
+The script then checks the `importance` argument and assigns a corresponding priority level. If the `importance` argument is not recognized, the script prints an error message, calls the usage function, and exits.
+
+The script then retrieves the hostname and port number from environment variables, or uses default values if the variables are not set.
+
+The script then checks the `displayerType` argument and assigns a corresponding category. If the `displayerType` argument is not recognized, the script prints an error message, calls the usage function, and exits.
+
+Finally, the script creates a `NotificationMessage` object with the parsed arguments and sends the message.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

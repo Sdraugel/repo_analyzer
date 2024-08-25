@@ -1,0 +1,66 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>IToolInterface.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>IToolInterface.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is part of a software developed by Raytheon Company. The software is subject to US export control laws due to containing export-restricted data. The software is designed to be used as a master controller for inspecting and running itools from Java.
+
+The code starts by importing the `sys`, `MasterInterface`, and `Exceptions` modules. 
+
+It then defines a class `IToolInterface` that inherits from `MasterInterface.MasterInterface`. This class is designed to interact with itools scripts.
+
+The `IToolInterface` class has several methods:
+
+1. `__init__(self, scriptPath)`: This is the constructor method that initializes the `IToolInterface` instance. It calls the parent class's constructor and imports modules from the provided script path.
+
+2. `getScripts(self, menu)`: This method returns a set of scripts. It creates an empty `HashSet` from the `java.util` package, then iterates over the scripts in `self.scripts`, converts each script to a string, and adds it to the `HashSet`.
+
+3. `getStartupErrors(self)`: This method returns a list of import errors that occurred during startup. It creates an empty `ArrayList` from the `java.util` package, then iterates over the errors returned by `self.getImportErrors()`, converts each error to a string, and adds it to the `ArrayList`.
+
+4. `runITool(self, moduleName, className, methodName, **kwargs)`: This method runs a specified method from a specified module and class, passing in any additional keyword arguments. If an `Exceptions.EditActionError` is raised during this process, it catches the exception, formats a message with the error type and info, and raises a `RuntimeError` with this message.
+
+5. `getVariableList(self, name)`: This method checks if the module specified by `name` has an attribute `VariableList`. If it does, it returns the `VariableList`; otherwise, it returns `None`.
+
+6. `getVariableListInputs(self, name)`: This method gets the `VariableList` for the module specified by `name` and runs the `getVariableListInputs` method from the `ITool` class in this module, passing in the `VariableList` as an argument.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

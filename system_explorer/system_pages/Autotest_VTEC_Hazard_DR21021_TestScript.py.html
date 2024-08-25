@@ -1,0 +1,97 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>VTEC_Hazard_DR21021_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>VTEC_Hazard_DR21021_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code appears to be a script for testing a weather forecasting and hazard alert system, specifically for the region of central west Florida and the Gulf of Mexico. 
+
+The script is divided into two main parts: 
+
+1. The first part defines several methods that return specific data related to the geographical areas of interest. These methods include:
+   - `_inlandAreas`: Returns a list of codes representing inland areas.
+   - `_coastalAreas`: Returns a list of codes representing coastal areas.
+   - `_marineAreas`: Returns a list of codes representing marine areas.
+   - `_cwa` and `_cwa_descriptor`: Return the code and description for the local weather forecast office.
+   - `_maor_descriptor` and `_cwa_maor_descriptor`: Return descriptions for the major area of responsibility.
+   - `_localReferencePoints` and `_localReferencePoints_defaults`: Return a list of local reference points (names and coordinates) and a list of those to be turned on by default.
+
+2. The second part of the script defines a list of test scenarios (`scripts`). Each scenario is represented as a dictionary containing various properties such as:
+   - `name`: The name of the test.
+   - `productType`: The type of product being tested.
+   - `commentary`: A description of the test.
+   - `checkStrings`: A list of strings to check in the output.
+   - `createGrids`: A list of commands to create hazard grids.
+   - `clearHazardsTable`: A command to clear the hazards table.
+   - `drtTime` and `gridsStartTime`: The disaster recovery test time and the start time for the grids.
+
+The test scenarios seem to simulate various weather events (like tropical storms and hurricanes) and check the system's response to these events.
+
+This code appears to be a part of a larger script that is used for testing and managing hazard forecasts and warnings. It seems to be related to weather forecasting, specifically for marine and tropical hazards. 
+
+The code contains several data structures (dictionaries) each representing a different test scenario or a configuration for a forecast. Each dictionary has several key-value pairs that provide specific information:
+
+- "name": This is likely a unique identifier for each test scenario or configuration.
+- "productType": This could be the type of hazard forecast or warning being tested or configured.
+- "drtTime" and "gridsStartTime": These are likely timestamps related to the forecast or warning.
+- "commentary": This is a description or comment about the test scenario or configuration.
+- "checkStrings": These appear to be codes or identifiers for specific forecasts or warnings.
+- "createGrids": This is a list of tuples that seem to represent specific configurations for hazard forecasts or warnings.
+- "clearHazardsTable": This key, when present, indicates that all hazard tables and grids should be cleared.
+
+The last part of the code is a function definition for `testScript`. This function seems to be used for testing the script with a given data manager and a level (which defaults to "Site"). It sets up some default configurations, but the body of the function is not included in the provided code.
+
+This Python code is part of a testing script, likely for a weather-related application given the variable names and values. It defines a dictionary with various keys and values, which are then passed to a method called `generalTestScript` from the `TestScript` class.
+
+Here's a breakdown of the dictionary:
+
+1. `"SFC", "all", "all"`: This might be a tuple representing some configuration or parameters for the test.
+
+2. `"fileChanges"`: This key is associated with a list of tuples. Each tuple seems to represent a file change event. For example, the tuple `("Hazard_HLS_<site>_Overrides", "TextUtility", "add", overrides, "undo")` might represent adding some overrides to a file named `Hazard_HLS_<site>_Overrides` using a utility called `TextUtility`, and the change can be undone.
+
+3. `"comboFlag"`: This key is associated with the integer `1`, which might be a flag used in the test.
+
+4. `"cmdLineVars"`: This key is associated with a string that seems to represent a dictionary. The dictionary contains various keys and values that might represent command line variables or parameters for the test. The keys are tuples, and the values are strings, `None`, or lists of tuples. The lists of tuples seem to represent segments of a weather event, each with a number, a list of zone codes, a type, an issuance status, an empty list, and a dictionary with two keys (`'usePrev_HU_S_Headline'` and `'userHeadline_HU_S'`) both set to `None`.
+
+The `generalTestScript` method is then called with `self`, `dataMgr`, `scripts`, `defaults`, and `level` as arguments, along with the dictionary. It's not clear what these arguments represent without more context, but they might be other configurations or parameters for the test.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

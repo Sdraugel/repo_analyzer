@@ -1,0 +1,54 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>CivilEmerg_SPW_MultiPil_Local.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>CivilEmerg_SPW_MultiPil_Local.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a software developed by Raytheon Company under a contract with the US Government. The software contains export-restricted data, and its export or transfer is controlled by U.S. law.
+
+The script defines a class `TextProduct` that inherits from a base class `CivilEmerg.TextProduct`. This class is used to produce a "Shelter In Place Warning" text product. The class contains a dictionary `Definition` that holds various attributes of the product, such as its display name, output file, default edit areas, product name, WMO code, product pil, and IDs for storing to AWIPS text database and for transmitting to AWIPS WAN.
+
+The `TextProduct` class has an initializer method `__init__` that calls the initializer of the base class `CivilEmerg.TextProduct`. It also has a method `_makeProduct` that takes in a forecast `fcst`, an edit area `editArea`, an area label `areaLabel`, and a dictionary of arguments `argDict`. This method appends a message to the forecast and returns it.
+
+The script also imports several modules, including `CivilEmerg`, `TextRules`, `string`, `time`, `re`, `os`, `types`, and `copy`.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ZoneCombinerConfig.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ZoneCombinerConfig.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This script appears to be a configuration file for a mapping application, possibly related to weather or geographical data, developed by Raytheon Company. 
+
+The first part of the file provides legal and contact information for the software, including export control restrictions and licensing details.
+
+The next section declares that this is an absolute override file, meaning that a higher priority version of this file will completely replace a lower priority version.
+
+The `tables` dictionary maps old map file names to table names in a database. For example, 'FIPS' corresponds to 'county', 'FIREWXZONES' corresponds to 'firewxzones', and so on.
+
+The `tableColumns` dictionary defines SQL queries for additional data columns needed for a Java class named `ZoneCombinerComp` to manipulate the onscreen map. Each key is a database table name, and the value is a list of strings containing SQL for the fields.
+
+The commented out `centerLat` and `centerLon` variables are used to set the initial position of the map center. If these values are not numeric or are outside the scrollable map area, an error message will be generated and the values will be ignored.
+
+The commented out `zoom` variable sets the initial zoom level of the map. If the value cannot be understood, an error message will be generated and "No zoom" will be selected. If the value is above 8, it will be rounded up to "x8".</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

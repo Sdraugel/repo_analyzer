@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ExecuteAFOSCommands.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ExecuteAFOSCommands.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a software developed by Raytheon Company under a contract with the US government. It contains export-restricted data and can't be disseminated to non-U.S. persons without an export license or other authorization.
+
+The script is a sample to demonstrate the capability of running a batch list of AFOS (Automated Fingerprint Identification Systems) commands through localization. It's not intended to be overridden.
+
+The script imports a module named `BaseTool` and defines a class `ExecuteAFOSCommands` which inherits from `BaseTool.BaseTool`. 
+
+Inside the class, there's a method `process` that takes two arguments: `pythonTextEditorToolCallback` and `arg`. The `arg` is split by commas and for each element in the list, it executes an AFOS command. The result of the command is a list of products. 
+
+For each product, it checks if the product has any content. If it does, it appends the product to a string `rval` followed by a newline character. 
+
+If `rval` is empty after processing all the products, it displays a message saying 'No product in the database matches your request.' 
+
+Finally, it returns `rval`, which is a string containing all the products that have content.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

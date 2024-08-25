@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>HPCGuide.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>HPCGuide.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a larger software system developed by Raytheon Company under a US Government contract. It contains export-restricted data and cannot be disseminated to non-US persons without proper authorization.
+
+The code defines a class named `HPCGuideForecaster` which is a subclass of the `Forecaster` class from the `Init` module. This class is used to perform calculations related to weather forecasting. 
+
+The `HPCGuideForecaster` class has the following methods:
+
+- `__init__`: This is the constructor method that initializes an instance of the class. It calls the constructor of the parent `Forecaster` class with "HPCGuide" as the arguments.
+
+- `calcMaxT`, `calcMinT`, `calcTd`: These methods calculate maximum temperature, minimum temperature, and dew point temperature respectively. They take a temperature value in Kelvin (from the FHAG2 model) as input and convert it to Fahrenheit.
+
+- `calcWind`: This method calculates wind speed and direction. It takes a tuple of magnitude and direction of wind (from the FHAG10 model) as input. The magnitude is converted from meters per second to knots.
+
+- `calcPoP`, `calcSky`: These methods calculate the probability of precipitation and total cloud cover respectively. They take a percentage value as input and clip it to the range 0.0 to 100.0.
+
+The `main` function at the end of the script creates an instance of the `HPCGuideForecaster` class and runs it. This is likely the entry point for this script when it is run as a standalone program.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

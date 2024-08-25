@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ActiveTableVtec.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ActiveTableVtec.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a larger software system developed by Raytheon Company. It primarily deals with the transformation of Java WarningRecords into a Python list of dictionaries that are expected for decoded VTEC (Valid Time Event Code) strings. VTEC is a system used by the National Weather Service for encoding certain weather warning information.
+
+The script contains three main functions:
+
+1. `transformActiveTableToPython(table)`: This function transforms a given table (which could be a Java object or a Python list) into a Python list of dictionaries. Each dictionary represents a record from the active table, with keys corresponding to various attributes of the record (like 'vtecstr', 'etn', 'sig', etc.) and values extracted from the record.
+
+2. `remapPil(phen, sig, pil)`: This function remaps the product pil (Product Identifier) for certain phen/sig/pils. This is necessary because some short-fused hazards issue in one pil and followup/cancel in another pil. The function uses a mapping defined in the `VTECPartners` module.
+
+3. `transfomActiveTableToThrift(table, mode='PRACTICE')`: This function transforms a given Python list of dictionaries (like the one produced by `transformActiveTableToPython`) into a list of Thrift records. Thrift is a software framework for scalable cross-language services development. The function supports two modes: 'PRACTICE' and 'OPERATIONAL', which correspond to two different types of Thrift records.
+
+The script also contains some metadata and licensing information, as well as a software history log.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

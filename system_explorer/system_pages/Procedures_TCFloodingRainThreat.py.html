@@ -1,0 +1,104 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TCFloodingRainThreat.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TCFloodingRainThreat.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code appears to be part of a larger software system, likely related to weather forecasting, given the mentions of terms like "gridded FFG" (Flash Flood Guidance), "QPF" (Quantitative Precipitation Forecast), and "ERP" (Excessive Rainfall Probability). The software is in the public domain and does not come with any warranty or technical support.
+
+The code is written in Python and includes a class definition for a procedure that seems to be part of a grid manipulation system, likely for handling and processing meteorological data. 
+
+The class `Procedure` is a child class of `GridManipulation.GridManipulation` and has methods for creating a list of time ranges (`makeTimeRangeList`), getting a list of database IDs that match a specified model name, weather element name, and level (`getModelList`), and finding the time of the model with a day 3 grid and truncating the modelTime to the last 12Z (`getPpffgBaseTime`).
+
+The code also includes a history of modifications, with notes on what changes were made and why. This is a common practice in software development to keep track of changes and understand the evolution of the code. 
+
+The code also includes a note that it is an "absolute override file," which means that if there is a higher priority version of this file, it will completely replace this one. 
+
+The `MenuItems` variable is set to `["Populate"]`, which suggests that this code might be part of a larger system with a user interface, where "Populate" could be a menu option. 
+
+The code imports several modules, including `numpy` (a powerful numerical computation library in Python), `AbsTime`, `GridManipulation`, and `TimeRange`. The latter three are likely custom modules related to this specific system.
+
+The code provided is written in Python and appears to be part of a larger system, likely related to meteorological data processing or weather forecasting. It contains several methods that perform various operations:
+
+1. `getERPGuidance(self, weName, trList)`: This method fetches ERP (Excessive Rainfall Prediction) probabilistic data using the latest available model. It returns a dictionary with timeRange as the key and grid as the data. If no grids are found for the model/weName combination, it returns an empty dictionary.
+
+2. `getQPFGrid(self, timeRange)`: This method returns the QPF (Quantitative Precipitation Forecast) sum over the specified timeRange. If no QPF grids are found, it returns `None`.
+
+3. `getOverlappingTR(self, tr6, tr24List)`: This method checks for overlapping time ranges between `tr6` and `tr24List` and returns the overlapping time range if found, otherwise `None`.
+
+4. `execute(self, varDict)`: This method appears to be the main method where the execution starts. It fetches ERP grids and creates an empty discrete grid. It also checks if the ERP guidance is available and if not, it sends a message to the status bar. It then creates a grid for each time range in `ppffgTRList` and fetches the QPF grid for each `probTR` in `ppffgTRList`.
+
+The code also contains some commented out debug lines, indicating that the developer was testing or troubleshooting the code. 
+
+Overall, the code appears to be part of a system that processes and analyzes weather data, specifically focusing on rainfall predictions and forecasts.
+
+This code is a part of a larger program that seems to be used for weather forecasting, specifically for predicting the threat of flooding based on rainfall.
+
+Here's a step-by-step breakdown:
+
+1. The code starts by calling a function `D()` with several parameters including `StormFRTQPF`, `SCALAR`, `qpfFcstGrid`, `probTR`, and `precision=2`. This function seems to be used for some kind of data processing or calculation related to weather forecasting.
+
+2. Then, it fetches the `erp` (Estimated Rainfall Potential) grids and references them by time range (24 hours each). It uses the `probTR` (probably stands for Probability Time Range) in this loop and `timeRange.overlaps` to figure out which `erp` grid to use.
+
+3. If the `erp` grid is not found for the given time range, it continues to the next iteration of the loop.
+
+4. If the `erp` grid is found, it creates a flood threat grid of the same shape as the `erp` grid, filled with zeros.
+
+5. It then loops over the `erps` array (excluding the last element), and for each `erp` value, it creates a mask where the `erp` grid values are between the current and the next `erp` value. It uses this mask to set the corresponding flood threat grid values to the index of the current `erp` value in the `threatKeys` array.
+
+6. If the loop index is 4, it creates a different mask where the `erp` grid values are between the previous and the current `erp` value and the `qpfFcstGrid` (Quantitative Precipitation Forecast Grid) values are greater than 10.0. If any values in this mask are true, it sets the corresponding flood threat grid values to the index of the current `erp` value in the `threatKeys` array.
+
+7. After the loop, it creates a grid named `FloodThreat` with the flood threat grid and the `threatKeys` array.
+
+8. It then finds the maximum flood threat value across all flood threat grids.
+
+9. It deletes all `FloodingRainThreat` grids for a large time range.
+
+10. It creates a new time range for the current time plus 6 hours.
+
+11. Finally, it creates a grid named `FloodingRainThreat` with the maximum flood threat grid and the `threatKeys` array for the new time range.
+
+12. The function then ends and returns control to the calling function.
+
+In summary, this code is used to predict the threat of flooding based on the estimated rainfall potential and the quantitative precipitation forecast. It creates two grids, `FloodThreat` and `FloodingRainThreat`, which represent the flood threat for different time ranges.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

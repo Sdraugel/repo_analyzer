@@ -1,0 +1,72 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ISC_Utility_Local.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ISC_Utility_Local.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is a part of a larger software developed by Raytheon Company. It is a local override for the ISC_Utility module, allowing for local modifications to the configuration and routines of the ISC_Utility module.
+
+The script begins with importing necessary modules: ISC_Utility, numpy, SmartScript, and time.
+
+It then defines a class, ISC_Utility_Local, which inherits from the ISC_Utility class in the ISC_Utility module. The class has an initializer method that takes four arguments: dbss, eaMgr, mdMode (with a default value of None), and toolType (with a default value of "numeric"). This method calls the initializer of the parent class with the first three arguments.
+
+The class also has a method named configuration. This method sets several configuration variables, including:
+
+- MAXTOPODIFF: The maximum elevation difference (in feet) for points to be considered in ISC statistics.
+- LANDEDITAREA: The name of an EditArea that contains just land points. If not overridden, the code will calculate the land area by a 'union' of all points found in the CWA editareas.
+- MultiParms: A dictionary that maps a parameter to a tuple of other parameters. This is used for checking multiple parameters.
+- MINPOINTS: The minimum number of points along a border before it considers a failing average threshold "significant".
+- DEFAULT_THRESHOLD and THRESHOLDS: These are used to set thresholds for different parameters.
+
+The comments in the code provide detailed explanations about these variables and how they are used in the software.
+
+This code is a part of a configuration section in a Python program. It defines a list of tuples where each tuple represents a configuration for a specific parameter or a set of parameters. 
+
+Each tuple in the list contains:
+- A tuple of parameter names. For example, ("nsWindSpd","WindGust") are the parameters for the first configuration.
+- A tuple defining the type of the parameter, its value, and some additional settings. For example, ("graduated",(15,(20,10)),("greater_equal",12,0),0) is the configuration for the first set of parameters. Here, "graduated" might be indicating the type of the parameter, (15,(20,10)) could be the values or thresholds for the parameters, ("greater_equal",12,0) might be a condition to be met by the parameters, and 0 could be an additional setting or flag.
+
+The exact meaning and usage of these configurations would depend on the rest of the program where these configurations are used. 
+
+The comment at the end of the code indicates that this is the end of the configuration section.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

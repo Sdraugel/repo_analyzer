@@ -1,0 +1,108 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>VTEC_GHG_Complex3_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>VTEC_GHG_Complex3_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code appears to be a part of a testing suite for a weather forecasting system, possibly the Advanced Weather Interactive Processing System (AWIPS) II, as indicated by the comment at the top of the file. 
+
+The code is written in Python and contains a list of dictionaries, each representing a test case. Each dictionary contains various keys that define the test case, such as:
+
+- "commentary": A description of the test case.
+- "name": The name of the test case.
+- "productType": The type of product being tested.
+- "createGrids": A list of grids to be created for the test case.
+- "checkStrings": A list of strings to be checked in the output.
+
+The test cases seem to be related to the creation of hazard warnings, specifically for winter weather. The "createGrids" key specifies the details of the hazard, such as the forecast type, the hazard type, the time range, and the areas affected. The "checkStrings" key contains the expected output of the test case.
+
+The first test case, "GHG_Complex3_0", appears to be a setup test case that clears out all hazards table and grids. The second test case, "GHG_Complex3_1", tests the creation of a winter weather advisory for multiple areas with different time ranges. The third test case, "GHG_Complex3_2", tests the scenario where no changes are made to the existing hazards.
+
+The code also contains a disclaimer at the top, stating that the software is in the public domain, is provided "as is", and comes with no warranty. It also mentions that the software was developed by Raytheon Company and contains export-restricted data.
+
+The provided code appears to be part of a weather advisory system. It is generating weather warnings for different regions, specifically for winter weather conditions. 
+
+The code includes a list of strings that contain the warning messages for different areas, identified by codes such as "FLZ139" or "FLZ239". These codes likely correspond to specific geographic regions. The messages include information about the type of advisory (Winter Weather Advisory, Wind Chill Advisory), the areas affected, the time the advisory is in effect, and precautionary/preparedness actions that people in the affected areas should take.
+
+The commented out lines (lines starting with '#') are either alternative messages or placeholders for where additional information can be inserted. 
+
+The "createGrids" section seems to be setting up or modifying some kind of forecast grid, possibly for visual representation or further analysis. It's defining different hazard types and their duration for different areas.
+
+The "checkStrings" section appears to be used for testing or validation, ensuring that the correct messages are being generated.
+
+The "commentary" section provides a human-readable explanation of what the code is doing, in this case, creating a specific type of hazard for a large area.
+
+The provided code appears to be a part of a larger script that generates weather advisory messages. The script seems to be written in a format similar to JSON, which is a lightweight data-interchange format that is easy for humans to read and write and easy for machines to parse and generate.
+
+The script contains several advisory messages for different geographical areas, identified by codes like "FLZ061-160-260-010800-" and "FLZ052-155-255-010800-". Each advisory includes the date and time of the advisory, the weather conditions expected, and the precautions that should be taken.
+
+For example, the advisory for the area identified by "FLZ061-160-260-010800-" warns of a Wind Chill Advisory in effect until 6 PM EST Friday and a Winter Weather Advisory from 6 PM Friday to 1 AM EST Saturday. It advises that very cold air and strong winds will combine to generate low wind chills, resulting in frostbite and potentially leading to hypothermia if precautions are not taken. It recommends that if one must venture outdoors, they should wear a hat and gloves.
+
+The script also contains placeholders for additional text (e.g., "|* SEGMENT TEXT GOES HERE *|."), indicating that the script is likely used as a template for generating these advisories.
+
+The given code seems to be a part of a weather forecasting system. It is responsible for generating weather alerts and advisories for different geographical areas, identified by their respective codes. The alerts include warnings about wind chill and winter weather conditions.
+
+The code includes several sections, each representing a different geographical area and the respective weather warnings for that area. Each section includes a timestamp, the type of advisory in effect, and a description of what that advisory means. 
+
+For example, the advisory "WIND CHILL ADVISORY REMAINS IN EFFECT UNTIL 6 PM EST FRIDAY" is followed by a description of what a wind chill advisory means and the precautions to be taken.
+
+The code also includes comments, marked by '#', which are used to provide additional information or notes to the developers. For instance, there are comments indicating that certain parts of the code need to be edited or that there are questions about why there was no Call To Action (CTA) for certain advisories.
+
+The "createGrids" section seems to be responsible for creating a grid-based forecast, where each grid represents a different geographical area and the respective weather conditions for that area. The "checkStrings" section appears to be used for testing or verification purposes.
+
+This code appears to be part of a weather advisory system. It's a script that generates weather advisory messages for different regions, specifically related to wind chill and winter weather conditions. 
+
+The script includes a series of advisory messages, each one associated with a specific region and time. Each message includes a description of the advisory and the precautions that should be taken. 
+
+The script also includes some commented out lines (lines starting with '#'), which are ignored by the program. These could be used for debugging or development purposes. 
+
+There are also two TODO comments, indicating areas where the developer has noted that further work or investigation is needed.
+
+The last part of the script is a function `testScript` that seems to be used for testing the system. It takes in a `dataMgr` parameter and returns the result of the `generalTestScript` function from the `TestScript` module. The `generalTestScript` function is called with several parameters including `dataMgr`, `scripts`, and `defaults`. 
+
+The `defaults` dictionary contains default settings for the test, such as the database name, whether to publish grids, whether to decode VTEC, the start time for the grids, whether to order strings, command line variables, and which grids to delete.
+
+The `scripts` variable is not defined in the provided code, but it likely contains the scripts to be tested. 
+
+The `clearHazardsTable` key with a value of 1 in the dictionary at the end of the code suggests that all hazards are being cleared or cancelled out.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

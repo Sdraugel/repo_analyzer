@@ -1,0 +1,64 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ModuleUtil.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ModuleUtil.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This part of the code file is a Python script that provides a function to dynamically load a Python module into memory from a given file. 
+
+The function `loadModule(filename)` takes a filename as input, which is expected to be the fully qualified name of the file. It then extracts the path and the directory from the filename. 
+
+The directory is then added to the beginning of the system path to ensure that the module can be found by Python's import mechanism. 
+
+The `importlib.invalidate_caches()` function is called to ensure that Python's internal list of modules is up-to-date. 
+
+Then, the module name is extracted from the path and the module is imported using `importlib.import_module(modulename)`. 
+
+If the module has already been imported previously, it is reloaded to ensure that any changes to the module are incorporated. 
+
+Finally, the directory is removed from the system path and the loaded module is returned. 
+
+This function is useful in situations where you need to load Python modules dynamically at runtime, for example, in a plugin system. 
+
+The top part of the file contains a legal notice and metadata about the software, including the contractor's name and address, and a reference to a master rights file for licensing information. It also mentions that the software contains export-restricted data and its export/transfer/disclosure is restricted by U.S. law.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

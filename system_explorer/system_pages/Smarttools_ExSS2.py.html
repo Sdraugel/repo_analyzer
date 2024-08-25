@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ExSS2.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ExSS2.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a part of a software developed or modified by Raytheon Company. It's a Python script that seems to be a part of a weather forecasting system, possibly the Advanced Weather Interactive Processing System (AWIPS).
+
+The script defines a class `Tool` that inherits from `SmartScript.SmartScript`. This class has an `__init__` method for initialization and an `execute` method that retrieves and manipulates Quantitative Precipitation Forecast (QPF) and temperature profile (tp) data.
+
+The `execute` method retrieves QPF and tp data from specified grids. The `getGrids` method is used to retrieve this data, which is likely a method from the `SmartScript` class. The model used to retrieve the tp data is specified in a variable dictionary `varDict`.
+
+After retrieving the QPF and tp data, the script checks where the QPF is equal to 0.0. If it is, the corresponding tp value is used instead. The modified QPF data is then returned.
+
+The script also imports the entire numpy library and uses it for the `where` and `equal` functions, which are used to perform the conditional replacement of QPF values.
+
+The `VariableList` is a list of tuples that seems to define some variables for the tool, in this case, the model to be used. The `ToolType` and `WeatherElementEdited` variables define the type of the tool and the weather element that is being edited, respectively.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

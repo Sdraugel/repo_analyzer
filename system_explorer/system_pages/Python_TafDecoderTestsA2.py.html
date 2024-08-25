@@ -1,0 +1,102 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TafDecoderTestsA2.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TafDecoderTestsA2.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is written in Python and is used to validate the proper functioning of a TAF (Terminal Aerodrome Forecast) Decoder. TAFs are coded 24-hour, aerodrome-specific forecasts, issued four times daily, providing detailed meteorological information for aviation purposes.
+
+The code imports several Python libraries, including pprint for pretty-printing, re for regular expressions, sys for system-specific parameters and functions, time for time-related functions, and a custom library named TafDecoder.
+
+The main part of the code is a list named `Tests` which contains a dictionary. The dictionary has two keys: 'text' and 'results'. The 'text' key contains a long string that represents a TAF report. The 'results' key contains another dictionary that lists expected warnings and errors that should be detected in the TAF report.
+
+The warnings and errors are represented as tuples, where each tuple contains a category (like 'wind', 'sky', 'obv', etc.), a range of characters where the issue occurs, and a description of the issue.
+
+The purpose of this code is to provide a test case for the TAF Decoder. The decoder should be able to parse the TAF report in the 'text' key and produce the warnings and errors listed in the 'results' key. This helps to ensure that the TAF Decoder is functioning correctly and is able to identify potential issues in TAF reports.
+
+The provided code appears to be a list of tuples, where each tuple represents an error or invalid condition in a weather forecast or report. Each tuple contains three elements:
+
+1. The first element is a string that represents the category of the error or invalid condition. The categories include 'sky' for sky conditions, 'obv' for observed weather, 'pcp' for precipitation, 'llws' for low-level wind shear, 'time' for time-related issues, and 'vsby' for visibility.
+
+2. The second element is another tuple of two strings that seem to represent some kind of code or identifier for the specific error or condition within the category.
+
+3. The third element is a string that provides a description of the error or invalid condition, often with a reference to a specific rule or guideline in a manual or standard (e.g., "NWSI 10-813, Appendix C, 1.2.7.1").
+
+This list of tuples could be used in a program to validate weather data and provide meaningful error messages when the data does not meet certain criteria or standards.
+
+The provided code appears to be a series of dictionary entries that represent the analysis of Terminal Aerodrome Forecasts (TAFs). TAFs are weather reports issued by the National Weather Service (NWS) of the United States, providing detailed meteorological forecast information for a specific airport over a 24-hour period.
+
+Each dictionary entry includes two key-value pairs: 'text' and 'results'. 
+
+- 'text' contains the raw TAF data, which includes information about the forecast period, wind speed and direction, visibility, significant weather phenomena, and cloud cover.
+
+- 'results' contains a list of tuples representing errors and warnings identified in the TAF data. Each tuple includes a code representing the type of error or warning (e.g., 'time', 'vcnty', 'sky'), a pair of numbers representing the location of the error in the text, and a string describing the error or warning.
+
+The errors and warnings are based on specific rules and regulations outlined in various NWS instructions and handbooks, such as NWSI 10-813 and FMH#1. These rules cover a wide range of issues, from the use of certain groups in the forecast to the correct formatting of visibility and weather data. 
+
+For example, one of the warnings in the first dictionary entry is for 'time' at location ('67.34', '67.50'), and the description says "The PROB group shall not be used in the first 9 hours of the valid TAF forecast (NWSI 10-813, Appendix C, 1.2.9.4)". This means that the 'PROB' group, which represents the probability of certain weather conditions, should not be used in the first 9 hours of the forecast, according to the specified NWS instruction.
+
+Overall, this code is analyzing TAF data and identifying any potential issues based on NWS guidelines.
+
+This Python script appears to be a part of a testing suite for a TAF (Terminal Aerodrome Forecast) decoder. Here's a breakdown of what the code does:
+
+1. It defines a dictionary, `ScreenColors`, to store color codes for different statuses.
+
+2. It calculates the current day (`D1`) and the next day (`D2`) in the format of 'DD'. 
+
+3. It creates two regular expressions `reD1` and `reD2` to match 'D1' and 'D2' respectively in the text.
+
+4. It defines a dictionary `d` to store errors and warnings.
+
+5. The `prepareText` function replaces 'D1' and 'D2' in the input text with the current and next day respectively. It also splits the text by newline character and prints each line.
+
+6. The `compareResults` function compares the results from the decoder with the expected results. It prints the results with color codes based on the status. It also sets the overall status based on the results.
+
+7. The `PrettyPrintText` and `PrettyPrintMsg` functions print the text and message with color codes based on the status.
+
+8. The `walk` and `walk1` functions recursively traverse a nested list or dictionary. If an error, warning, or fatal error is found, it is added to the `d` dictionary.
+
+9. The `mysort` function is a helper function used to sort the errors and warnings based on their location.
+
+10. In the main section, the script creates a TAF decoder and runs tests on it. If the '-d' argument is passed, it prints the detailed results. Otherwise, it prints the overall status of each test. After each test, it resets the `d` dictionary for the next test.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

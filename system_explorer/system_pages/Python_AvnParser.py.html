@@ -1,0 +1,100 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>AvnParser.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>AvnParser.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The given code is written in Python and appears to be part of a larger software system developed by the Raytheon Company. The software is subject to U.S. export control laws, meaning it contains sensitive information that cannot be freely shared outside the U.S. without proper authorization.
+
+The code file is named `AvnParser.py` and has undergone multiple revisions by various engineers, as indicated by the detailed revision history. Each revision includes the date of creation, the engineer who made the changes, and a brief description of the changes made.
+
+The code imports several modules, including `logging`, `os`, `Avn`, and `AvnConfigParser`. It also sets up a logger for logging events that occur while the software is running.
+
+The code defines several file paths, presumably for configuration files (`server.cfg`, `gui.cfg`, `wxplot.cfg`) and a file named `forecasters`.
+
+Two functions are defined in this code:
+
+1. `_guess(arg)`: This function attempts to convert the input argument, which is expected to be a string, into an integer or a float. If the argument cannot be converted, it is returned as is.
+
+2. `_getProducts(direct)`: This function returns the names of all `.cfg` files in a given directory, with the `.cfg` extension removed. The names are returned in sorted order. The function also reads the content of a file named `DEFAULT` in the given directory.
+
+The code ends with a comment indicating that this is a base file that should not be overridden, suggesting that it provides some fundamental functionality for the software system.
+
+This code is a part of a larger Python file that contains several functions for reading and processing configuration files. Here's a brief description of each function:
+
+1. `_tafProdFilename(product)`: This function generates a filename for a specific product in the 'tafs' directory by appending '.cfg' to the product name.
+
+2. `split(strng, sep=',')`: This function splits a string into chunks separated by a specified separator (default is a comma) and strips leading and trailing blanks.
+
+3. `getClimQCConfig(ident)`: This function reads a configuration file named 'climqc.cfg' for a given identifier. It reads the thresholds and arguments from the file and returns them as a dictionary.
+
+4. `getServerCfg()`: This function reads a server configuration file. It extracts information about tags, access control, and other server-related settings. If the file cannot be processed, it logs an error message and returns None.
+
+5. `getGuiCfg()`: This function reads a GUI configuration file. It extracts information about features, servers, colors, editor tags, menus, monitors, and viewers. If the file cannot be processed, it logs an error message and returns None.
+
+6. `getPlotCfg()`: This function reads a plot configuration file. It extracts information about visibility, ceiling, hours, viewers, selected tags, and print command. If the file cannot be processed, it logs an error message and returns None.
+
+7. `getTafProductCfg(product)`: This function reads a TAF product configuration file for a given product. It extracts information about sites, workpil, and collective. If the file cannot be processed, it logs an error message and returns None.
+
+8. `getTafSiteCfg(ident)`: This function reads a TAF site configuration file for a given identifier. It extracts information about headers, geography, and sites. If the file cannot be processed, it logs an error message.
+
+In all these functions, the AvnConfigParser is used to read the configuration files. It's a custom parser that's likely part of the Avn module. The functions also use the Avn module for getting file paths and handling errors.
+
+The code provided is written in Python and appears to be part of a larger system related to weather forecasting, specifically Terminal Aerodrome Forecasts (TAFs).
+
+Here's a breakdown of what each function does:
+
+1. The first block of code is incomplete, but it seems to be processing a configuration file (possibly .ini format) and populating a dictionary `d` with various settings related to sites and thresholds. It also handles exceptions, logging them and returning `None` if an error occurs.
+
+2. `getTafTemplate(ident, hour)`: This function reads and returns the content of a TAF template file for a given identifier (`ident`) and hour.
+
+3. `getTafProducts()`: This function retrieves the path of TAF products from a configuration directory and returns the products found in that path.
+
+4. `getForecasters()`: This function reads a file containing forecaster information, skipping any lines that start with '#'. It then splits each line into three parts: identifier, xmit, and name. It populates and returns a dictionary where the keys are the names of the forecasters and the values are dictionaries containing the identifier and xmit.
+
+5. `getTafHeaders()`: This function returns a dictionary of AWIPS (Advanced Weather Interactive Processing System) and WMO (World Meteorological Organization) headers for all TAF sites. It retrieves the list of TAF products, gets the site configuration for each product, and extracts the headers.
+
+6. `getAllSiteIds()`: This function reads all TAF configuration files and returns a dictionary of all site IDs. The keys of the dictionary are the types of sites, and the values are dictionaries where the keys are the site IDs.
+
+In general, this code is used to process and retrieve information related to weather forecasting. It handles configuration files, templates, products, forecasters, headers, and site IDs.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

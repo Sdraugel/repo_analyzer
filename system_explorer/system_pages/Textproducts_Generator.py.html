@@ -1,0 +1,116 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Generator.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Generator.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code appears to be a part of a larger Python script that is used to generate site-specific text products. The script is run at installation time to customize a set of text products for a given site. It seems to be a part of a software developed by Raytheon Company, under a contract with the US Government.
+
+The script imports several modules and sets up logging. It also defines some constants and directories to process. It then defines a class `Generator` which is used to generate site-specific text products from base template files. The class has methods to set the site ID and the destination of the generated files.
+
+The script also contains a detailed software history, which provides information about the changes made to the script over time, including the date of the change, the ticket number associated with the change, the engineer who made the change, and a description of the change. 
+
+Please note that the code provided is incomplete and the full functionality of the script can only be determined by analyzing the complete script.
+
+This code is a part of a Python class that manages text products for a given site. The class has methods to set and get site ID and destination directory, create and delete text products, and provide information about the text products. Here's a brief overview of the methods:
+
+1. `setSiteId(siteId)`: This method checks if the given site ID is valid by checking if it exists in `SiteInfo`. If it is valid, it sets the site ID, otherwise, it raises a `LookupError`.
+
+2. `setDestination(value)`: This method sets the output directory where the generated files are placed. It verifies if the directory exists and is writable.
+
+3. `getSiteId()`: This method returns the site ID.
+
+4. `getDestination()`: This method returns the directory where the generated files are placed.
+
+5. `create(siteId, destinationDir)`: This method creates text products for the given site ID and destination directory. It configures the text formatter, sets the destination, deletes any existing files, and creates a new dictionary of product identifiers (PILs).
+
+6. `delete()`: This method deletes text products and removes any empty directories.
+
+7. `info()`: This method provides information about the text products for a given site.
+
+8. `allinfo()`: This method provides information about the text products for all sites.
+
+9. `__Substitutor()`: This is a private class used for substituting values inside file contents and filenames. It has methods for initializing the class and for replacing keywords in the text data.
+
+The `replaceText(contents)` method seems to be incomplete and its functionality cannot be determined from the provided code.
+
+This code is part of a larger program that appears to be handling templates and filenames, specifically replacing template variables with correct values. The code consists of several methods, each with its own functionality:
+
+1. The first method is replacing the contents of a template with the correct values. It builds a substitution dictionary and performs substitution, returning the contents with all template values substituted.
+
+2. The second method is replacing any template variables in the filename with correct values. It also builds a substitution dictionary and performs substitution, returning the updated filename.
+
+3. The third method is getting a list of all template files. It uses a PathManager to get the source directory and list all the files in it.
+
+4. The fourth method is printing the PIL (Product Identifier) dictionary information. It logs the PIL list and its related information.
+
+5. The fifth method is updating the SiteInfo with a PIL dictionary. It reads the a2a data from the database, creates PIL information, and adds the information to the SiteInfo dictionary. It returns the PILs found for the site.
+
+The code seems to be part of a larger system that handles weather data, as it references products, sites, and other terms commonly used in meteorology.
+
+This code is part of a larger Python program and contains several methods that seem to be part of a class. 
+
+1. `__getProductFromFilename(self, regularNameBase)`: This method takes a filename without extension as input and returns a set of products based on the TemplatedProducts dictionary. It first checks if the filename is "NONE", if it is in the DirectFileToProductMapping dictionary, or if the filename contains the word "Product". If none of these conditions are met, it attempts to extract the PIL (Product Identifier) based on the filename. If it still can't identify the product, it logs an error message.
+
+2. `__create(self, srcDir, destDir)`: This method seems to be creating formatters for a site. It takes source and destination directories as arguments. It first tries to create the destination directory, logs an error if it fails, and checks if the destination directory is "textProducts". It then gathers a list of all template files in the source directory and processes these files. For each file, it reads the file contents, gets the file permissions, and determines the products. It then processes each product, gets the PIL information, and extracts the PIL information from the dictionary.
+
+The code seems to be part of a larger system that deals with weather data, as indicated by variables like 'wmoID' (World Meteorological Organization ID) and 'pil' (Product Identifier). The code seems to be processing and formatting weather data products based on templates.
+
+This Python script appears to be part of a larger system that handles file generation, modification, and deletion. Here's a breakdown of what the code does:
+
+1. It defines a class with methods for handling files. The class seems to be designed to work with templates and products, which are likely specific types of files or data in this context.
+
+2. The `addProtection` method adds a filename to a list called `fileList` after modifying the filename.
+
+3. The `getProtectedFiles` method returns the `fileList`, which presumably contains filenames that have been marked as protected.
+
+4. The `__delete` method deletes pre-existing text templates. It first compiles a list of all known products, then it goes through a list of directories, identifies potential files to delete based on the template files in those directories, and attempts to delete them. It also keeps a count of the number of products that were deleted.
+
+5. The `runFromJava` function creates an instance of the Generator class and calls its `create` method with a `siteId` and `destinationDir` as arguments. This suggests that this script may be called from a Java program.
+
+6. In the large block of code at the top, it's replacing text in file contents and filenames, outputting to a file, and handling any errors that occur during these processes. It's also changing file permissions and keeping track of how many products have been written. If a file is protected, it's added to the protection list.
+
+7. The script uses logging to keep track of its processes and any errors that occur. This is useful for debugging and understanding the script's actions.
+
+8. The script also handles wildcard replacements in filenames, which allows it to work with multiple files that follow a similar naming convention but have different specific names.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

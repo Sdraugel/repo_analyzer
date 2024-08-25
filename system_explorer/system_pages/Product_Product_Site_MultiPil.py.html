@@ -1,0 +1,66 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Product_Site_MultiPil.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Product_Site_MultiPil.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This script appears to be a part of a larger software system, possibly for managing or manipulating text products. The code is written in Python and it's mainly used to import and manage different modules (or files) that contain specific definitions and overrides for a product. These modules are likely to be named according to a specific convention: "<product>_<site>_<MultiPil>_Definition", "<product>_<site>_Overrides", and "<product>_<region>_Overrides".
+
+Here's a detailed breakdown:
+
+1. The script imports standard Python libraries and some specific modules (presumably related to the software system it's part of). The specific modules imported are determined by the string variables `siteDefinition`, `siteOverrides`, and `regionOverrides`.
+
+2. The script then retrieves the class objects for the region and site overrides classes. It's important to note that the class and the module name (the file name) must be the same for this to work.
+
+3. The script creates a new class `TextProduct` that inherits from several other classes including the site and region overrides classes, a `Patch_Overrides` class, and a `TextProduct` class from the `<standard>` module.
+
+4. The `TextProduct` class has a `Definition` attribute which is a deep copy of the `Definition` attribute from the `TextProduct` class in the `<standard>` module. This `Definition` attribute is then updated with the definitions from the region and site.
+
+5. The `TextProduct` class also tries to get a `VariableList` attribute from the region and site modules. If these attributes don't exist in the modules, the script simply passes and continues.
+
+6. The `TextProduct` class has an `__init__` method that calls the `__init__` method of the `TextProduct` class in the `<standard>` module.
+
+7. The script also contains comments suggesting that the `Definition` attribute can be overridden for testing purposes, and that the most common override would be to set a unique display name.
+
+The initial part of the code is a legal disclaimer and contract information for the Raytheon Company, which developed or modified the software. It also includes export control information, stating that the software contains export-restricted data and its export/transfer/disclosure is restricted by U.S. law.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

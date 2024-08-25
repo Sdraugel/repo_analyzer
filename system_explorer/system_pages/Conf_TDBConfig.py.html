@@ -1,0 +1,80 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TDBConfig.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TDBConfig.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a configuration file for a tool called "textdb". This tool is likely used for managing and manipulating data in a text-based database. 
+
+The code contains several dictionaries and lists that define various aspects of the tool's functionality:
+
+1. `endpoint`: This dictionary defines the service endpoint for the textdb tool. 
+
+2. `flags`: This dictionary maps command line flags to their corresponding commands and help text. For example, the flag `-r` corresponds to the command `text_get_prod`, which reads data from the database.
+
+3. `products`, `ldadcmds`, `triggercmds`, `mergeData`, `multiData`, and `mayJoin`: These lists categorize different types of commands. For instance, `products` contains commands that have products associated with them, `ldadcmds` contains commands related to the pil (script runner), and `triggercmds` contains commands related to triggers.
+
+4. `convldad` and `convtrig`: These dictionaries map commands to their corresponding formatted strings.
+
+The code also contains a comment block at the top that provides information about the software's development and usage restrictions, as well as a software history log.
+
+Overall, this code is primarily used for setting up the command-line interface for the textdb tool, defining how different flags and commands should be interpreted and executed.
+
+This code is defining a dictionary named `message` which appears to be a mapping of commands to their corresponding parameters and operations. Each key in the dictionary is a command, and the value is a list of tuples, where each tuple represents a parameter or operation related to that command. 
+
+The tuples contain two elements: a string that represents the type of the parameter or operation (like 'ARGS', 'VIEW', 'OP', 'SUBOP', etc.), and a value that could be a string or an integer. The integer values are used as indices or positions in the argument list for the command.
+
+The code also defines several constants at the beginning, which are used as indices or positions in the tuples. For example, `MSG_ARGS` is the position of the arguments count tuple, `MSG_START` is the position of the first tuple used to generate message, `MSG_KEY` is the index into tuple for tuple name, `MSG_VALUE` is the index into tuple for tuple value, and `MSG_VAR_ARGS` is the argument count value indicating variable arguments.
+
+Finally, there is a `USAGE_MESSAGE` string defined, which is a multi-line string that provides usage instructions for the text database command line interface (CLI) tool. This message is displayed when the tool is run with no valid flags or a '-h' flag.
+
+The code you provided is a set of command-line instructions for a text database tool, possibly used for managing and retrieving weather data. It provides various functionalities such as adding, deleting, displaying data, and reviewing commands. 
+
+The first part of the code provides a set of commands to manage product versions, add or delete entries from a state listing, display a list for a certain state, and add or delete a product with a script pathname.
+
+The second part of the code defines two multi-line strings, `AFOS_CMDS` and `AWIPS_CMDS`, which are summaries of AFOS and AWIPS commands respectively. These summaries are displayed when the text database command-line tool is run with the '-c' flag for AFOS commands and the '-k' flag for AWIPS commands. 
+
+AFOS and AWIPS are systems used for weather forecasting and data management. The commands allow users to read all or specific versions of products, read products from the last few hours, read the latest version of all products, read the current-hour version of all products, and read the Nth previous version of a product. 
+
+The commands use a combination of codes to specify the product and site. For example, `CCC` could represent a site code, `NNN` could represent a product code, and `XXX` could represent a specific listing. The exact meaning of these codes would depend on the specific implementation of the tool.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

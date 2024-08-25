@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>MetarCloudCeiling.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>MetarCloudCeiling.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script developed or modified by Raytheon Company under a contract with the US Government. The script contains export-restricted data, meaning it cannot be shared with non-U.S. persons without an export license or other authorization.
+
+The script begins with a detailed comment section that provides information about the software's history, including the date of creation, the ticket number, the engineer who created it, and a brief description.
+
+The script imports the numpy library, which is a library for the Python programming language, adding support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays.
+
+The script defines a function named `execute` that takes two parameters: `skyCover` and `skyLayerBase`. 
+
+The `execute` function calculates the cloud ceiling for a set of stations. The cloud ceiling is the lowest altitude at which the sky is covered by 'BKN' (Broken), 'OVC' (Overcast), or 'VV' (Vertical Visibility, used when the sky is obscured, such as in fog). 
+
+The function assumes that `skyCover` is a 2D array where each column represents a station and each row represents a different level of the sky. The `skyLayerBase` is also a 2D array with the same shape as `skyCover`, but it represents the altitude of the base of each layer.
+
+The function initializes the cloud ceiling to 12000 for each station. Then, for each station, it checks each level of the sky from lowest to highest. If it finds a level where the sky cover is 'BKN', 'OVC', or 'VV', it sets the cloud ceiling for that station to the altitude of that level and stops checking higher levels for that station.
+
+The function returns a 1D numpy array where each element is the cloud ceiling for a corresponding station.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

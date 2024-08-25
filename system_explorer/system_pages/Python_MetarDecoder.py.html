@@ -1,0 +1,120 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>MetarDecoder.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>MetarDecoder.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script named `MetarDecoder.py` developed by Raytheon Company. It's a part of a larger software system developed under a contract with the US Government. The software is subject to U.S. export control laws due to the sensitive nature of the data it handles.
+
+The script is designed to parse and decode METAR weather reports. METAR is a format for reporting current weather information, primarily used in aviation.
+
+The script uses the `tpg` (Text Processing in Python) and `Avn` (Aviation) libraries to perform its tasks. It defines several constants for unit conversions (`IN_TO_MB`, `M_TO_SM`, `MPS_TO_KT`) and a dictionary `_ValidVcnty` to validate certain weather conditions.
+
+The script also defines a local exception class `Error` for handling exceptions specific to this script.
+
+The script uses regular expressions to define patterns for various components of a METAR report, such as sky coverage (`_SkyCov`), cloud information (`_Cld`), visibility (`_vsbytok`), and precipitation (`_pcptok`).
+
+The script also includes a detailed history of revisions, documenting changes made, the authors of those changes, and the reasons for the changes. This is useful for understanding the evolution of the script and troubleshooting any issues.
+
+The script is not intended to be overridden, as stated in one of the comments. This means it should serve as a base file and other scripts or modules should not modify its behavior.
+
+The code provided does not include the entire script, so it's not clear what the final output or full functionality of the script is.
+
+This code is a part of a METAR weather report decoder. METAR is a format for reporting weather information, primarily used in aviation. 
+
+The code includes regular expressions (regex) to parse different parts of the METAR report such as visibility, temperature, wind speed, and more. 
+
+The `_TokList` list contains tuples where the first element is the name of the METAR report component (like visibility, temperature, etc.) and the second element is a regex pattern to match that component in the report.
+
+The `_Tokens` string is a formatted string of all the tokens in `_TokList`.
+
+The `_Rules` string defines the grammar rules for parsing the METAR report.
+
+The `valid_day` function checks if a given day of a month is valid or not.
+
+The `Decoder` class is the main class that decodes the METAR report. It has methods to parse different parts of the report like `alt` for altitude, `ident` for identifier, `itime` for issue time, etc. 
+
+The `__call__` method of the `Decoder` class is the entry point for decoding the METAR report. It takes the METAR report as input and returns a dictionary with the parsed report. 
+
+The `fix_date` method in the `Decoder` class tries to determine the month and year from the report timestamp. 
+
+The `alt`, `ident`, `itime`, `type`, and `vvis` methods in the `Decoder` class parse the altitude, identifier, issue time, type, and variable visibility from the METAR report respectively.
+
+This Python code appears to be part of a larger program that processes and analyzes METAR weather data. METAR is a format for reporting current weather observations, commonly used in aviation.
+
+The code contains several methods, each of which processes a specific part of the METAR data:
+
+1. `sfcvsby(self, s)`: This method processes surface visibility data. It attempts to extract an integer and fractional part of the visibility, and stores the result in a dictionary. If the visibility is greater than a certain threshold, it is converted using a constant `M_TO_SM`.
+
+2. `vsby(self, s)`: This method processes visibility data. It handles different formats of the visibility string, including miles and meters, and stores the result in a dictionary.
+
+3. `wind(self, s)`: This method processes wind data. It extracts the wind direction and speed from the input string, and stores the result in a dictionary. It also handles gusts of wind.
+
+4. `obv(self, s)`, `pcp(self, s)`, `vcnty(self, s)`: These methods process observation, precipitation, and vicinity data respectively. They simply store the input string in a dictionary.
+
+5. `sky(self, s)`: This method processes sky condition data. It parses the input string to determine the cloud cover and ceiling, and stores the result in a dictionary.
+
+6. `vsky(self,s)`: This method processes vertical sky condition data. It attempts to extract the cloud cover and ceiling from the input string, and stores the result in a dictionary.
+
+In all these methods, the data is stored in a dictionary `self._metar` under a key corresponding to the type of data. If there are any errors during processing, these are caught and handled gracefully.
+
+This code is a part of a METAR weather report decoder. METAR is a format for reporting weather information primarily used in aviation. 
+
+The code contains several functions that parse different parts of a METAR report:
+
+1. `vcig(self,s)`: This function parses the visibility and ceiling (vcig) part of the METAR report. It extracts the lower and upper limits of visibility and stores them in a dictionary.
+
+2. `temp(self,s)`: This function parses the temperature (temp) part of the METAR report. It handles both positive and negative temperatures (indicated by 'M' in the report). It also checks if the temperature is within a valid range (-60 to 50) and stores it in a dictionary. If the temperature is not within this range, it records an error.
+
+3. `tempdec(self,s)`: This function is similar to `temp(self,s)`, but it handles decimal temperatures.
+
+4. `pcp1h(self,s)`: This function parses the precipitation in the last hour (pcp1h) part of the METAR report.
+
+5. `mslp(self,s)`: This function parses the mean sea level pressure (mslp) part of the METAR report. It adjusts the pressure based on the altimeter reading and checks for errors.
+
+The `errors(decoded)` function checks the decoded METAR report for any errors or warnings and returns a list of them.
+
+The `main(report)` function is a test function that reads a METAR report, decodes it using the `Decoder()` class, and prints out the decoded report and any errors found.
+
+The last part of the code runs the `main(report)` function if the script is run as a standalone program. It reads the METAR report from standard input.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

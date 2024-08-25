@@ -1,0 +1,64 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>RadLtgMonitor.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>RadLtgMonitor.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script, named RadLtgMonitor.py, is a part of a software developed by Raytheon Company. It is a module that monitors the probability of lightning based on the data from the National Centers for Environmental Prediction (NCEP).
+
+The script starts with a detailed header that includes the software's licensing information, the history of revisions, and the change document history. It also includes the author's name and the last update date.
+
+The script imports the logging and time modules, along with Avn, MonitorP, and RadLtgData modules. It then sets up a logger for logging events.
+
+The script defines two classes: Monitor and two subclasses of MonitorP.Rule named TSInTaf and TSNotInTaf.
+
+The Monitor class has a method named __compare which compares the forecasted lightning data with the current time. If the forecast data is missing or outdated, it logs a debug message. Otherwise, it calculates the time range of the forecast and applies certain rules to it. If an IndexError occurs, it sets the status to NIL.
+
+The TSInTaf class checks if there's thunder in the Terminal Aerodrome Forecast (TAF) but the probability from the guidance is low. If so, it sets a message indicating this discrepancy.
+
+The TSNotInTaf class checks if thunder is not forecasted but the probability from the guidance is high. If so, it sets a message indicating this discrepancy.
+
+Both TSInTaf and TSNotInTaf classes inherit from the MonitorP.Rule class and override its method to implement their own logic. They also have a severity level of 3 and can be uniquely identified in the system.
+
+The script is designed to be a base file and is not intended to be overridden.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

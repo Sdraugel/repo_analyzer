@@ -1,0 +1,66 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>GLAMP.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>GLAMP.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that is part of a software developed by Raytheon Company. The software appears to be a part of a larger system, possibly related to weather forecasting or atmospheric modeling, given the use of terms like "Forecaster", "calcCigHgt", "calcVis", etc.
+
+The script defines a class named `GLAMPForecaster` that inherits from a `Forecaster` class. This class has a set of methods for calculating various parameters, likely related to weather conditions. These methods include:
+
+1. `calcCigHgt`: This method calculates the ceiling height, converting it from meters to feet and assigning a default value of -99 for negative values.
+
+2. `calcVis`: This method calculates visibility, converting it from meters to miles.
+
+3. `calcT` and `calcTd`: These methods convert temperature and dew point temperature from Kelvin to Fahrenheit.
+
+4. `calcSky`: This method clips the total cloud cover at surface level between 0 and 100.
+
+5. `calcWind`: This method calculates wind speed and direction. The wind speed is converted from meters per second to knots.
+
+6. `calcPoP`, `calcPoP6`, and `calcPoP12`: These methods return the probability of precipitation for 1 hour, 6 hours, and 12 hours respectively.
+
+The script also contains a `main` function that creates an instance of the `GLAMPForecaster` class and runs it. This suggests that the script could be run as a standalone program, with the `GLAMPForecaster` class performing some sort of forecasting operation.
+
+The script also includes a substantial amount of metadata and comments, including licensing information, software history, and usage guidelines.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

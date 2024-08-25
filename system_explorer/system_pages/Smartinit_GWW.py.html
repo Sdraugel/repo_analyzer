@@ -1,0 +1,74 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>GWW.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>GWW.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The code provided is a Python script that is part of a larger software developed by Raytheon Company. It is a module that calculates surface weather elements from the GWW model output. The GWW model is likely a weather forecasting model, but the exact details are not provided in the code.
+
+The code defines a class `GWWForecaster` which inherits from a parent class `Forecaster`. This class has several methods to calculate different weather elements:
+
+1. `calcWaveHeight(self, htsgw_SFC)`: This method calculates wave height from the GWW model and converts the value from meters to feet. It also applies certain conditions and masks to the data to handle cases where there is no real wave data or where the elevation is 0.
+
+2. `calcWind(self, wind_SFC)`: This method calculates wind speed and direction from the GWW model. It converts the wind speed from meters/second to knots.
+
+3. `calcSwell(self, WaveHeight, dirpw_SFC)` and `calcSwell2(self, WaveHeight, dirsw_SFC)`: These methods calculate the primary and secondary swell from the GWW model using the wave height and direction.
+
+4. `calcPeriod(self, perpw_SFC)` and `calcPeriod2(self, persw_SFC)`: These methods calculate the primary and secondary periods from the GWW model.
+
+5. `getindicies(self, o, l)`: This method gets the indices at o, l. However, the code for this method is incomplete.
+
+The code also includes a license notice and a warning that the software contains export-restricted data.
+
+This code is defining several methods within a class (presumably `GWWForecaster`), and a main function that runs the `GWWForecaster` class.
+
+1. `slice(0, l)`: This part of the code is creating two slice objects `a` and `b` that can be used to slice a sequence from the start to the `l`th element.
+
+2. `offset(self, a, x, y)`: This method is creating an offset grid for an array `a`. It first calculates the indices `sy1, sy2` and `sx1, sx2` using the `getindicies` method (which is not shown in the provided code). Then it creates a new array `b` that has the same shape as `a` but is filled with zeros. It then sets the value at the offset indices in `b` to be the same as the corresponding value in `a`.
+
+3. `getMaskBorder(self, mask)`: This method takes a binary array `mask` and returns a new array `border` that is the same size as `mask`. It then sets the value at each offset of `mask` to be `True`.
+
+4. `getMaskIndicies(self, mask)`: This method takes a binary array `mask` and returns a list of tuples, where each tuple represents the (x, y) indices of the elements in `mask` that are set to 1.
+
+5. `main()`: This function is the entry point of the program. It creates an instance of the `GWWForecaster` class and runs it. However, the `run` method of `GWWForecaster` is not shown in the provided code.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

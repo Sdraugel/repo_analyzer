@@ -1,0 +1,70 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>AdjustTimes.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>AdjustTimes.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script, named AdjustTimes.py, is part of a software developed by Raytheon Company. The script is used to adjust the times in Terminal Aerodrome Forecasts (TAFs). 
+
+The script starts with a series of import statements to bring in necessary libraries and modules such as Avn, AvnLib, AvnParser, TafDecoder, logging, re, and time.
+
+The script defines a function named `updateTafs(bbb, fcsts)`. This function takes two arguments: `bbb` and `fcsts`. The function is used to update TAFs, which are weather forecasts for specific airports. 
+
+The function iterates over the `fcsts` argument, which appears to be a collection of forecasts. For each forecast, it tries to determine the TAF duration. If it can't be determined from the configuration file, it defaults to 24 hours.
+
+The function then decodes the TAF using the TafDecoder module, and checks if the TAF is valid. If it's not, it logs an info message and continues to the next forecast.
+
+The function then adjusts the times in the TAF using the AvnLib module, and creates a new TAF from the adjusted times. If the TAF contains an 'amd' (amendment), it further adjusts the times based on the amendment.
+
+The function ends with a try/except block to handle any errors that occur during the process. If an error occurs, it adds the forecast identifier to a list of bad identifiers and continues to the next forecast.
+
+The script also contains a detailed history of revisions, noting changes made in each version, who made them, and when they were made. This is useful for tracking the development and maintenance of the software.
+
+This Python code is part of a larger program that seems to be dealing with TAFs (Terminal Aerodrome Forecasts), which are weather reports generated for the aviation industry.
+
+The `updateTafsFromJava` function is the main function in this snippet. It takes two arguments: `bbb` and `fcsts`. `fcsts` is converted from a Java string list to a Python list using the `javaStringListToPylist` function from the `JUtil` module. Then, IDs are extracted from `fcsts` using the `_getIds` function from the `Avn` module. The `updateTafs` function is then called with `bbb` and a dictionary created from `ids` and `fcsts` as arguments. The result is printed out, including its type and length, and then converted back to a Java object using the `pyValToJavaObj` function from the `JUtil` module.
+
+The `updateTafs` function is not fully visible in this snippet, but it seems to be processing the TAF data, possibly updating timestamps. It uses a try-except block to handle any `AvnError` exceptions that might occur during this process. If any errors occur, the identifier (`ident`) causing the error is added to the `badidents` list. If there are any bad identifiers, a warning is logged with the list of bad identifiers. The function returns the updated forecasts (`fcsts`).
+
+The code also includes some string slicing and formatting, and some time manipulation using the `time` module. It's also appending certain strings to the `lines` list based on certain conditions.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

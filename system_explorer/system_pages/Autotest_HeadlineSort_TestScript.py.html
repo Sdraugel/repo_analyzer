@@ -1,0 +1,150 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>HeadlineSort_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>HeadlineSort_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code appears to be part of a weather forecasting system, possibly for generating automated weather alerts or reports. The code contains a list of dictionaries, each representing a different weather event or scenario. Each dictionary contains various pieces of information about the event, such as a commentary describing the event, the name of the event, the product type, and other parameters.
+
+The code also includes a series of tests for different weather scenarios. For example, one test simulates a scenario where a "Blowing Dust Warning" is issued and then downgraded to a "Blowing Dust Advisory". Another test simulates a scenario where multiple weather advisories are issued with different start times.
+
+Each dictionary also contains a "checkStrings" list, which seems to be a list of expected outputs or messages that should be generated for each scenario. These strings include the formatted text of a weather alert, including the warning message, the effective time, and the area affected.
+
+In summary, this code is likely used for testing a system that generates automated weather alerts. The tests ensure that the system correctly generates the expected alerts and messages for a variety of different weather scenarios.
+
+The provided code appears to be a part of a larger script that is used for issuing weather advisories. It's written in Python and seems to be part of a larger system for generating and issuing weather warnings and advisories. 
+
+The code is divided into several sections, each representing a different scenario or setup for issuing weather advisories. Each section contains a set of parameters and information that are used to generate the advisory.
+
+1. The first section is for issuing a heat advisory. It contains the advisory text and the conditions under which the advisory should be issued.
+
+2. The second section is for handling new and continuing events. It checks for three different new events and three different continuing events. It contains the advisory text and the conditions under which the advisory should be issued.
+
+3. The third section is for handling events based on their significance. It starts with a clean hazards table and checks for three events all new, with the same start time, sorted by significance.
+
+Each section also contains a "checkStrings" list which seems to be used for validating the generated advisory. It contains the expected output of the advisory.
+
+The "createGrids" list in each section appears to be used for defining the conditions under which the advisory should be issued. It contains tuples with parameters that probably represent different weather conditions.
+
+Overall, this code is used for generating weather advisories based on different conditions and scenarios.
+
+The provided code appears to be a part of a larger script that is used for generating weather advisories or forecasts. It seems to be written in Python and uses a dictionary-like structure to define various weather events and their corresponding advisories. 
+
+Here's a breakdown of the main components:
+
+1. "commentary": This key is used to provide a description of the weather event or the purpose of the code block.
+
+2. "name": This key is used to assign a unique identifier to each weather event.
+
+3. "drtTime" and "gridsStartTime": These keys are used to specify the date and time related to the weather event.
+
+4. "productType": This key is used to categorize the type of weather event.
+
+5. "decodeVTEC": This key is likely used to indicate whether the VTEC (Valid Time Event Code) should be decoded or not.
+
+6. "clearHazardsTable": This key is used to indicate whether the hazards table should be cleared or not.
+
+7. "createGrids": This key is used to create grids for the forecast area. It includes forecast details like the type of hazard, its duration, and the affected area.
+
+8. "checkStrings": This key is used to provide the actual text of the weather advisory or forecast.
+
+The code also includes some test cases for marine products. It seems to be testing the sorting of events by starting time and by action code. 
+
+Please note that without the full context or the rest of the code, this is just a high-level analysis.
+
+This code appears to be part of a larger script related to weather forecasting, specifically for marine forecasts. It seems to be written in Python and contains several dictionaries, each representing a different setup for a marine forecast. 
+
+Each dictionary includes:
+
+- `commentary`: A description of the setup.
+- `name`: The name of the setup.
+- `drtTime` and `gridsStartTime`: The start times for the forecast.
+- `productType`: The type of forecast (e.g., NSH or Hazard_MWW).
+- `decodeVTEC`, `comboFlag`, `combinations`, `cmdLineVars`: Various configuration settings.
+- `createGrids`: A list of tuples, each representing a forecast grid to be created. Each tuple includes the forecast type, the hazard type, the forecast range, and other related information.
+- `checkStrings`: A list of strings to be included in the forecast.
+
+The code seems to be testing different scenarios for sorting marine forecasts, such as sorting by action code, significance, and alpha phenomena. Each setup includes a different set of hazards and check strings to be included in the forecast. 
+
+It's important to note that some lines of code are commented out, which means they are not executed. These lines seem to provide additional information or options that could be included in the forecast.
+
+This code appears to be part of a system for generating weather advisories for marine conditions. It seems to be written in Python, and it's structured as a series of dictionaries and lists.
+
+The code is divided into several sections, each representing a different type of weather advisory. Each section includes information such as:
+
+- "commentary": A brief description of the advisory.
+- "name": The name of the advisory.
+- "drtTime" and "gridsStartTime": The date and time when the advisory is issued.
+- "productType": The type of weather product, such as "Hazard_MWW" or "Hazard_MWW_Local".
+- "decodeVTEC": A flag indicating whether to decode VTEC (Valid Time Event Code), a system used by the National Weather Service for encoding weather warnings.
+- "comboFlag": A flag indicating whether to combine multiple advisories.
+- "combinations": The areas affected by the advisory.
+- "cmdLineVars": Command line variables, such as the time of product issuance and the issuer.
+- "createGrids": Instructions for creating a grid of weather data. Each grid is defined by a tuple that includes the forecast type, the hazard type, the time range, the hazard code, and the affected area.
+- "checkStrings": A list of strings to be included in the advisory message. These strings include the advisory headline, the advisory details, and precautionary/preparedness actions.
+
+The specific advisories in the provided code are for conditions such as small craft advisories, dense fog advisories, and freezing spray advisories. These advisories are issued for the area "GMZ830", which appears to represent a specific marine zone.
+
+This script appears to be a testing script for a marine weather advisory system. It seems to be testing different types of advisories and warnings, and how they are sorted and displayed. 
+
+The script is divided into several sections, each representing a different test case. Each test case has a "commentary" field that describes what the test is for, a "name" field that gives the test a unique identifier, and various other fields that set up the conditions for the test.
+
+For example, the test case named "HeadlineSort_mww3" is set up to test the sorting of marine advisories based on their significance. It creates a scenario where there is a heavy freezing spray warning and a small craft advisory for winds, and checks that these advisories are displayed correctly.
+
+The test case named "HeadlineSort_mww4" is set up to test the sorting of marine advisories based on the alphabetical order of the phenomena they are warning about. It creates a scenario where there is a brisk wind advisory, a dense smoke advisory, and a freezing spray advisory, and checks that these advisories are displayed in the correct order.
+
+The script also includes a section for clearing the hazard grids, which seems to be a cleanup step to ensure that the testing environment is reset to a clean state before the next test case is run.
+
+The function `testScript` at the end of the script seems to be the main function that runs the tests. It takes in a `dataMgr` parameter, which is likely an object that manages the data used in the tests, and a `defaults` dictionary that sets default values for various parameters used in the tests.
+
+The code you've provided appears to be a function call, but without more context, it's hard to provide a detailed explanation. 
+
+Here's a general interpretation:
+
+`t(self, dataMgr, scripts, defaults)` is calling a function `t` with four arguments: `self`, `dataMgr`, `scripts`, `defaults`. 
+
+- `self` is a common convention for the first parameter in instance methods in Python, referring to the instance of the class the method is being called on.
+- `dataMgr`, `scripts`, `defaults` are other parameters that this function `t` is expecting. 
+
+The function `t` would use these parameters to perform some operations. The specifics of what the function does would be determined by the definition of the function `t`, which is not provided here.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

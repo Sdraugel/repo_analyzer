@@ -1,0 +1,66 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>WestFlow.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>WestFlow.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code file, named `WestFlow.py`, is a script that modifies Terminal Aerodrome Forecasts (TAFs) for specific airports based on the forecast for other airports. TAFs are weather forecasts issued for the area around an airport.
+
+The script is designed to adjust sky and visibility conditions at four airports (KCKB, KEKN, KCRW, and KBKW) based on the forecast for two other airports (KPKB and KHTS). The time periods within the first 12 hours of the forecast are shifted depending on the site: 1 hour for KCKB and KCRW, 2 hours for KEKN, and 3 hours for KBKW.
+
+The script imports several modules, including `copy`, `logging`, `tkinter`, `Avn`, `AvnLib`, and `TafDecoder`. It then defines a logger and several functions to modify the TAFs. These functions include `_fixObvis`, `_nil`, `_shiftTaf`, `_shiftSky`, and four functions to update the TAFs for each of the four airports (`_updateKCKB`, `_updateKEKN`, `_updateKCRW`, and `_updateKBKW`).
+
+The functions perform various modifications to the TAFs, such as shifting the forecast by a certain number of hours, changing the visibility conditions, and adjusting the sky conditions (including the ceiling height and cloud layers). The modifications are based on certain conditions, such as the current visibility and ceiling height.
+
+This code seems to be part of a larger program related to weather forecasting. 
+
+The initial part of the code is checking a dictionary `g` for a key `vsby` and performing some operations on its value. If the value `v` is less than 4.0, it subtracts 0.5. If `v` is less than 0.0, it sets `v` to 0.0. Then it updates the `vsby` value in the dictionary `g` with a new value obtained from the `AvnLib.fixTafVsby(v)` function.
+
+The `_updateWx` and `_shift` dictionaries seem to be used for updating weather forecasts for specific locations (identified by their codes such as 'KCKB', 'KEKN', etc.) and shifting forecasts by a certain number of hours respectively.
+
+The `_updateForecast` function uses these dictionaries to update and shift forecasts for a given location.
+
+The `Gui` class seems to be a graphical user interface for this weather forecasting tool. It has methods for updating forecasts, closing the GUI, and handling OK and Cancel button clicks.
+
+The `updateTafs` function is used to update Terminal Aerodrome Forecasts (TAFs) for specific locations. It checks if forecasts for 'KPKB' and 'KHTS' are present in the `fcsts` dictionary. If not, it logs an exception message and returns None. If they are present, it creates an instance of the `Gui` class and returns the updated forecasts.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

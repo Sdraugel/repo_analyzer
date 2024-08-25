@@ -1,0 +1,119 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Hazards_Overview_Options_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Hazards_Overview_Options_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This script appears to be a testing script for a weather forecasting software developed by Raytheon Company. It tests various options on hazard products, specifically focusing on the inclusion of an overview and an overview headline in the product.
+
+The script defines a list of test scenarios (stored in the `scripts` list). Each scenario is a dictionary with various parameters, including commentary, name, product type, and other parameters related to the creation of hazard grids and checks for certain strings in the product.
+
+The test scenarios include checks for different types of weather hazard products (e.g., "Hazard_WSW_Local" and "Hazard_NPW_Local"), with different configurations of the overview headline and overview. For example, some scenarios test the product with both the overview headline and overview included, some with just the overview headline, some with just the overview, and some with neither.
+
+The script also includes functionality to clear out all hazards table and grids before and after certain tests, as well as the ability to replace certain definitions in the product text.
+
+The script checks the output of each scenario to ensure that certain strings are present or not present, as defined in the "checkStrings" and "notCheckStrings" parameters of each scenario. This is likely used to verify that the software is correctly including or excluding the overview and overview headline as expected.
+
+The code does not appear to include the actual execution of these tests, so this script is likely imported and used by another script that runs the tests and verifies the results.
+
+This code appears to be a series of configurations or test cases related to weather hazard notifications. It includes different scenarios for three types of hazards: NPW (Non-Precipitation Weather), RFW (Red Flag Warning), and CFW (Coastal Flood Warning). 
+
+Each scenario is a dictionary with the following keys:
+
+- "commentary": A description of the scenario.
+- "name": A unique identifier for the scenario.
+- "productType": The type of hazard.
+- "createGrids": A list of tuples representing grids for the forecast.
+- "fileChanges": A list of tuples representing changes to be made to the text product file.
+- "checkStrings": A list of strings that are expected to be present in the output.
+- "notCheckStrings": A list of strings that are expected to not be present in the output.
+- "clearHazardsTable": A flag indicating whether to clear the hazards table.
+- "cmdLineVars": Command line variables to be used in the scenario.
+
+For example, the NPW scenarios test different combinations of overview headlines and overviews, while the RFW scenarios do the same but also include a command line variable. The CFW scenario is not fully shown in the provided code. 
+
+The "clearHazardsTable" key is used to clear all hazards, and the "createGrids" key is used to create a forecast grid for the specified hazard type. The "checkStrings" and "notCheckStrings" keys are used to verify the output of the test case.
+
+This code appears to be a series of configuration objects for testing or generating different types of hazard warnings, specifically for Coastal Flood Warning (CFW) and Flash Flood Watch (FFA). Each object has a unique name, a product type, and various other properties that define the specifics of the warning.
+
+Here's a breakdown of what each key in the objects does:
+
+- "commentary": This seems to be a description of what the object is used for.
+- "name": This is the unique identifier for the object.
+- "productType": This defines the type of hazard warning. It can be "Hazard_CFW_Local" for Coastal Flood Warnings, "Hazard_FFA_Local" for Flash Flood Watch, or None.
+- "createGrids": This appears to be a list of tuples that define some sort of grid for the hazard warning. The specifics of what each value in the tuple means are not clear without more context.
+- "checkStrings": This is a list of strings that are expected to be present in the generated warning.
+- "notCheckStrings": This is a list of strings that are expected to not be present in the generated warning.
+- "fileChanges": This appears to be a list of changes to be made to a file, possibly for testing purposes.
+- "cmdLineVars": This is a dictionary of command line variables and their values.
+- "clearHazardsTable": This is a flag that, when set to 1, indicates that all hazards should be cleared.
+
+The code seems to be testing or generating different scenarios of hazard warnings, such as with an overview, with only an overview headline, with neither an overview nor a headline, and with all hazards cleared.
+
+This code appears to be part of a larger system that is used for managing and generating weather hazard warnings. It seems to be written in Python, and it's structured as a list of dictionaries, each representing a different type of hazard warning.
+
+Each dictionary contains several key-value pairs:
+
+1. "commentary": This provides a human-readable explanation of what this section of the code is doing.
+2. "name": This is the unique identifier for this section of the code.
+3. "productType": This specifies the type of weather hazard warning that is being generated. It can be None, which means no specific hazard type is assigned.
+4. "createGrids": This is a list of tuples, each representing a grid to be created for the forecast. The tuples contain information about the forecast, the type of hazard, whether the hazard is discrete or continuous, the start and end times for the forecast, the hazard code, and the areas affected.
+5. "fileChanges": This is a list of tuples, each representing a file change that needs to be made. The tuples contain information about the file to be changed, the type of change, the changes to be made, and an action to be taken if the change needs to be undone.
+6. "checkStrings": This is a list of strings that should be included in the generated warning.
+7. "notCheckStrings": This is a list of strings that should not be included in the generated warning.
+8. "clearHazardsTable": This is a flag that, when set to 1, indicates that all hazards should be cleared from the table.
+
+The code is divided into several sections, each dealing with a different type of weather hazard warning, such as Flood Watch (FFA), Marine Weather Statement (MWS), Weather Condition Notice (WCN), and Marine Weather Warning (MWW). Each section first clears out all hazards, then checks for specific conditions, and finally generates the appropriate warning if those conditions are met.
+
+This code appears to be part of a testing script in Python, likely for a weather forecasting system given the context clues in the code.
+
+The code starts with a list of dictionaries. Each dictionary seems to represent a test case or condition, with fields for commentary, name, product type, check strings, and whether to clear the hazards table.
+
+The `import TestScript` statement is importing a module named `TestScript`, which presumably contains functions and methods used for testing.
+
+The `testScript` function is defined to take two arguments: `self` and `dataMgr`. The `self` argument is a common convention in Python and refers to the instance of the class where this function is defined. `dataMgr` is likely some sort of data manager that the function uses to perform its operations.
+
+Inside the function, a dictionary named `defaults` is defined. This dictionary contains default settings for the test, such as the database name, whether to publish grids, whether to decode VTEC, the start time for grids, whether to order strings, command line variables, and which grids to delete.
+
+Finally, the function returns the result of calling `TestScript.generalTestScript` with `self`, `dataMgr`, `scripts`, and `defaults` as arguments. This suggests that `generalTestScript` is a method defined in the `TestScript` module that performs the actual test, using the scripts and default settings provided.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

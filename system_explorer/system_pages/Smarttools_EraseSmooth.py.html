@@ -1,0 +1,82 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>EraseSmooth.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>EraseSmooth.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that is part of a software developed by Raytheon Company. This software is designed to perform a specific function called "EraseSmooth". 
+
+The "EraseSmooth" function is used to erase a feature by deleting what is inside a specified area (referred to as the "editArea") and filling it in with a reasonable estimation based on the data outside the editArea. This is done by performing an objective analysis using the points around the outside of the editArea as the data points, and a first guess of a flat field. The results of the analysis are then returned inside the editArea, with the data outside the editArea remaining unchanged.
+
+The software uses the serp routine of the ObjAnal utility to perform the analysis. If the editArea is so large that it would affect performance, the software automatically thins the number of control points. 
+
+The software also includes a "quick" version that does not consider topography in the objective analysis and uses that analysis completely within the editArea. This allows it to run immediately without pausing to ask the user for input. 
+
+The code also includes a history of software changes and a section that sets certain parameters, such as the elevFactor and percent, directly rather than asking the user to provide them.
+
+The code also includes a class definition for a tool that extends the SmartScript class. This tool has a method to execute the erase feature with topography effects. The method includes code to handle both scalar and vector elements.
+
+This code file contains several functions that perform operations on a grid, which is a two-dimensional array. The grid seems to represent some kind of spatial data, possibly geographical or meteorological. Here's a brief description of each function:
+
+1. `doAnal`: This function takes several parameters, including a grid, a list of x and y coordinates, and a mask. It performs some kind of analysis on the grid at the specified points, modifies the grid values inside the mask area, and returns the modified grid.
+
+2. `thinpts`: This function takes a list of x and y coordinates and a number, and it thins the list so that no points are closer than the specified number of grid points to another. It returns the thinned lists of x and y coordinates.
+
+3. `nearest`: This function takes a point (xp, yp) and lists of x and y coordinates. It calculates the distance from the given point to each point in the lists, and returns the coordinates of the nearest point.
+
+4. `within`: This function takes a point (xp, yp), lists of x and y coordinates, and a number. It returns a list of indices of points that are within the specified number of points from the given point.
+
+5. `smoothpm`: This function takes a grid and a number, and optionally a mask. It smooths the grid by averaging over a square of grid points centered at each point. If a mask is provided, it only averages over the points where the mask is 1. The function returns the smoothed grid.
+
+The code also contains some comments and a few lines of code outside of any function, which seem to be part of a larger script or program.
+
+This piece of code appears to be part of a larger function that calculates a smoothed grid of values from an input grid, possibly an image or a 2D array of data points. The smoothing is done by averaging over a sliding window, with special handling for the edges and middle of the grid. 
+
+The code first checks if a mask is applied. If not, it simply adds the minimum value back to the output grid. If a mask is applied, it clips the mask values between 0 and 1, then calculates the cumulative sum of the grid and mask along the y-axis (first dimension). It then handles the edges and middle of the grid separately, calculating the average values for each.
+
+Next, the code repeats the process along the x-axis (second dimension), again handling the edges and middle separately. It also takes care to avoid divide-by-zero errors by using the maximum function to ensure the denominator is at least 1.
+
+Finally, it adds the minimum value back to the output grid, but only for the masked points, and returns the output grid.
+
+This code is likely part of a larger image processing or data analysis function. The use of a mask suggests that it's designed to handle grids where some points may be missing or should be ignored.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

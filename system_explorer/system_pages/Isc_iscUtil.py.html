@@ -1,0 +1,76 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>iscUtil.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>iscUtil.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that seems to be a part of a larger software system developed by Raytheon Company. The script appears to be a utility module for a system called AWIPS II, as indicated by the comments.
+
+This script contains several functions that interact with an IFPServer, which seems to be a part of a weather forecasting system. The functions perform operations like getting, saving, and deleting "Edit Areas" on the server. An Edit Area could be a specific region of a weather model that a meteorologist can modify.
+
+Here's a brief overview of the functions:
+
+- `getEditArea(name, siteID)`: This function retrieves an Edit Area from an active IFPServer for a given site ID.
+- `saveEditAreaGrid(name, refData, siteID)`: This function saves an Edit Area to an active IFPServer for a given site ID.
+- `deleteEditArea(name, siteID)`: This function deletes an Edit Area from an active IFPServer for a given site ID.
+- `transformTime(tr)`: This function transforms a given time range into a different format.
+- `toJavaTimeRange(tr)`: This function converts a given time range into a Java TimeRange object.
+- `swapCoord(coord)`: This function swaps the x and y coordinates of a given coordinate object.
+- `serverBoxText(server)`: This function returns a string representation of a server's information.
+- `sortServers(a, b)`: This function sorts a list of servers based on certain criteria.
+- `createDomainDict(xml)`: This function creates a dictionary of domain information from a given XML string.
+
+The script also imports several modules and libraries at the beginning, which provide additional functionality used in these functions.
+
+This code file appears to be written in Python and contains several functions that are used for processing XML data, logging, and string manipulation. 
+
+1. The first function is unnamed in the provided code, but it seems to be processing XML data to create a dictionary of domain information. It reads an XML file, checks if it is well-formed and contains the necessary tags, then parses the XML to create several dictionaries and lists. It handles errors by logging them and returning None.
+
+2. The `getRequestXML` function takes XML data, a list of selected servers, and a list of selected WEList as input. It uses the `createDomainDict` function to process the XML data and then constructs a new XML request. It also logs the list of servers and their priority.
+
+3. The `getLogger` function is used to set up a logger for the script. It takes the script name, log name, and log level as input. It creates a log file in a specified directory, sets the log level, and formats the log messages. If the log directory does not exist, it attempts to create it.
+
+4. The `tupleToString` function is a utility function that takes any number of arguments and concatenates them into a single string. It's used for converting tuples to strings. 
+
+The code seems to be part of a larger system, possibly for managing servers or network resources, as it involves processing server and domain information from XML data.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

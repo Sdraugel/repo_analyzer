@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ISC_Discrepancies.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ISC_Discrepancies.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is a part of a software developed or modified by Raytheon Company. The script is intended to run a tool called Show_ISC_Highlights on a set of weather elements. 
+
+The script starts by importing necessary modules such as ISC_Utility_Local, SmartScript, time, and ProcessVariableList. It then defines a class named Procedure, which inherits from the SmartScript class. 
+
+In the Procedure class, two methods are defined: __init__ and execute. The __init__ method is the constructor that initializes the Procedure object with a database session (dbss). The execute method is where the main functionality of the script resides. 
+
+In the execute method, the script sets up a utility object, creates a variable list, determines elements and time ranges, and then runs the Show_ISC_Highlights tool for each element over the specified time range. 
+
+If the element is "Wx", the script prints a message saying it's not yet able to identify discrepancies for "Wx" and skips to the next element. If the element is not "Wx", the script prints a message saying it's running discrepancies for the element, then calls the Show_ISC_Highlights tool. 
+
+The script also measures and prints the time it takes to run the tool for each element and the total time it takes to run the tool for all elements. 
+
+The script is in the public domain and is furnished "as is", without technical support, and with no warranty. It is not intended to be overridden.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

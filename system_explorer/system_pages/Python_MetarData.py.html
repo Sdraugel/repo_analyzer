@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>MetarData.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>MetarData.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is a part of a software developed or modified by Raytheon Company. It appears to be a module for retrieving and decoding METAR data. METAR is a format for reporting weather information, primarily used in aviation.
+
+The script begins with a detailed comment section that includes licensing information, the contractor's details, and a software history log that tracks changes made to the script over time.
+
+The script imports several modules: Avn, MetarDecoder, NoDataException, and HoursRefTimePointDataRetrieve. These modules likely contain functions and classes that are used in this script.
+
+The script defines a list of PARAMETERS, which includes 'rawMETAR' and 'timeObs'. These are likely keys used to retrieve specific data from the METAR data.
+
+The main function in the script is `retrieve(siteID, size=1)`. This function takes in a site ID (or a list of site IDs) and a size parameter. It processes the site IDs, splits any comma-delimited strings into separate site IDs, and stores them in a list.
+
+For each site ID, it attempts to retrieve METAR data using the `HoursRefTimePointDataRetrieve.retrieve` function. If no data is found (a `NoDataException` is raised), it simply moves on to the next site ID.
+
+If data is found, it is decoded using a `MetarDecoder.Decoder` instance. The decoded data is then stored in a `Avn.Bunch` object, which is appended to the `metars` list.
+
+The function returns the `metars` list, which contains the decoded METAR data for each site ID that had data available.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

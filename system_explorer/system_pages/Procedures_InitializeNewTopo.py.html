@@ -1,0 +1,70 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>InitializeNewTopo.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>InitializeNewTopo.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a larger software system, likely related to Geographic Information Systems (GIS) or similar terrain mapping applications. The script is designed to manage and manipulate topographical data. Here's a breakdown of what it does:
+
+1. The script imports necessary libraries and modules, including SmartScript, TimeRange, numpy, DisplayMessageDialog, MapUtil, and TopoQuery.
+
+2. It defines a class `Procedure` that inherits from `SmartScript.SmartScript`. This class has an `__init__` method for initialization and an `execute` method that performs the main functionality of the script.
+
+3. In the `execute` method, the script first checks if the current mutable database is the "NewTerrain" database. If not, it displays an error message and ends the procedure.
+
+4. If the current mutable database is the "NewTerrain" database, the script retrieves all times from the `TimeRange.allTimes()` method and finds the "BaseTerrain" database.
+
+5. It retrieves the "GTOPO" parameter from the "BaseTerrain" database, gets the terrain grid for "gtopo30", sets the "GTOPO" parameter to mutable, creates a grid with the "GTOPO" parameter, saves the parameter, and then sets it back to immutable.
+
+6. It does similar operations for the "StdTopo" parameter, but also converts the grid values from meters to feet.
+
+7. It retrieves the "NewTopo" parameter from the "NewTerrain" database and checks if a grid already exists for this parameter. If a grid exists, it asks the user if they want to re-initialize the grid, discarding any edits.
+
+8. If the user agrees or if no grid exists, it creates a new grid for the "NewTopo" parameter and saves the parameter.
+
+9. Finally, it sets the "NewTopo" parameter as the active element.
+
+10. The `getTerrainGrid` method is used to retrieve the terrain grid for a given topographical file. It uses the `TopoQuery` class to get the height data from the file, reshapes the data to the grid shape, and converts the values from meters to feet.
+
+In summary, this script is used to initialize and manipulate topographical data in a terrain mapping application. It handles different topographical parameters, converts units, and allows the user to re-initialize data if necessary.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

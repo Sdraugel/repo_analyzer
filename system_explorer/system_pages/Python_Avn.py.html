@@ -1,0 +1,96 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Avn.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Avn.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This part of the code file is a detailed documentation comment block, also known as a header comment. It provides important information about the software and its history of modifications. 
+
+1. The first section provides legal and contract information about the software. It mentions that the software was developed or modified by Raytheon Company under a contract with the US Government. It also includes export control information, contractor's name, and contact details.
+
+2. The second section provides detailed information about the specific file, named 'Avn.py'. It includes an identifier for the file and its delivery status.
+
+3. The third section is a revision history of the file. It provides a detailed log of changes made to the file over time, including the revision number, status, creation date, the person who made the changes (often by their username), and a description of what was changed or added. This is important for tracking changes, understanding the evolution of the software, and troubleshooting issues. 
+
+For example, in 'Revision 46', a new exception was added for when unknown precipitation (UP) is reported in observation. In 'Revision 45', some unnecessary code was removed, and so on. The revisions go all the way back to 'Revision 11', where a problem with one line TAF reported as NIL was fixed.
+
+This code appears to be part of a larger Python application, specifically the AvnFPS (Aviation Forecast Preparation System) software, which is used for the preparation and monitoring of aviation forecasts.
+
+The top part of the code is a version history, detailing changes made in each revision, from the initial version to revision 10. It includes the date of creation, the status of the revision (delivered or build_release), and a brief description of the changes made.
+
+The code then imports several standard Python libraries (itertools, math, os, time, logging) and defines some constants and variables related to the application. It also sets up logging for the application.
+
+The code then defines a number of functions:
+
+- `DTGImplementationSwitch(t=None)`: This function checks if the current time is greater than or equal to a specific date (5 Nov 2008 00:00:00 GMT). The purpose of this function is not clear from the provided code, but it may be related to a change in the TAF (Terminal Aerodrome Forecast) format after this date.
+- `AvnError(Exception)`, `AvnMissing(AvnError)`, `AvnUnknwnPcp(AvnError)`: These are custom exceptions for the application.
+- `any(seq, pred=bool)`, `all(seq, pred=bool)`, `flatten(listOfLists)`, `pairs(seq)`, `window(seq, n=2)`, `category(v, iterable)`, `accumulate(iterable)`, `nth(iterable, n, m=1)`, `wind_category(dd, ff, dd_threshold, ff_threshold)`, `dd_avg(count, num_wind_dir=8)`: These are utility functions used in the application. They perform various operations such as checking if a condition is true for any or all elements in a sequence, flattening a list of lists, creating pairs or a sliding window from a sequence, categorizing a value based on an iterable, accumulating an iterable, returning a sublist from a list, categorizing wind direction and speed, and calculating an average wind direction.
+
+The code ends with the start of the `dd_avg` function, which appears to calculate an average wind direction based on a count of wind directions. The code provided is incomplete, so the exact operation of this function is not clear.
+
+This Python code file contains a collection of utility functions and classes, each serving a different purpose:
+
+1. `x += r3*math.cos(alpha)`, `y += r3*math.sin(alpha)`: These lines are performing mathematical operations to increment the values of `x` and `y` using trigonometric functions. They are part of a larger function, which is not shown here, and return the angle in degrees of the vector from the origin to point `(x, y)`.
+
+2. `Bunch` class: This class allows you to create an object that can have any number of attributes set at instantiation time. The `values` method returns a list of all the values of the attributes of the object.
+
+3. `frange` function: This function generates a sequence of floating point numbers from `start` to `end` with a step of `inc`.
+
+4. `curry` function: This function is used for function currying, which is a way of constructing functions with any number of parameters.
+
+5. `printExcPlus` function: This function prints traceback information along with a listing of all local variables in each frame when an exception occurs.
+
+6. `playCommand` function: This function returns a command to play an audio file using the `/usr/bin/play` command.
+
+7. `string2time` and `time2string` functions: These functions convert a time string in the format `%y%m%d%H%M` to Unix time and vice versa.
+
+8. `tagToBBB` function: This function is used by several GUIs to map certain tags to other tags.
+
+9. `storeInTextDB` function: This function stores the content of a file in a text database and returns the output of the 'textdb -w' command.
+
+10. `_getIds` function: This function retrieves the first four characters after the first newline character in a string.
+
+11. `getTafPath` function: This function searches for a file in several directories and raises an error if the file cannot be found.
+
+12. `mkgmtime` function: This function converts a time expressed in seconds since the epoch to a struct_time in UTC. It is the inverse function of `time.gmtime()`.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,80 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>MetLib.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>MetLib.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is part of a library called MetLib, which is used for making meteorological calculations on gridded data. The code defines several methods for calculating derivatives of a grid along different axes. 
+
+The `centeredDifference` function calculates the centered difference of a specified grid along a specified axis. It uses forward or backward difference for the edges of the grid so that the returned grid is the same size as the input grid. 
+
+The `forwardDifference` and `backwardDifference` functions calculate the forward and backward difference derivatives of a grid along a specified axis respectively. 
+
+The `d_dx`, `d_dy`, `d_dz` functions return the derivative along the innermost, second innermost, and third innermost axis of the grid respectively. By convention, these axes are referred to as the x, y, and z axes.
+
+The code also includes some error checking to ensure that the specified axis for the derivative calculation is valid for the given grid. If it's not, the functions print an error message and return None.
+
+The code also includes a header with licensing information and a description of the software.
+
+The provided code seems to be a part of a larger program that performs various calculations on grids. These grids could represent a variety of things, but given the context of the functions, it's likely they represent some sort of physical or geographical data. Here's a breakdown of what each function does:
+
+1. `d_dt(grid)`: This function applies the centered difference method on the grid for time derivative calculation. 
+
+2. `dot(vectorGrid1, vectorGrid2)`: This function calculates the dot product of two vector grids. 
+
+3. `gradient(grid)`: This function calculates the gradient of a scalar grid.
+
+4. `divergence(Wind)`: This function calculates the divergence of a Wind grid, which is assumed to be a vector grid specified in u, v components.
+
+5. `vorticity(Wind)`: This function calculates the vorticity of a Wind grid, which is also assumed to be a vector grid specified in u, v components.
+
+6. `advection(windGrid, scalarGrid)`: This function calculates the advection of the scalarGrid by the windGrid. The windGrid is assumed to be a vector specified in u, v components.
+
+7. `getLatLonGrids(gridLoc)`: This utility method generates and returns a grid of latitude and a grid of longitude at each grid point.
+
+8. `makeSpacingGrid(gridLoc)`: This function returns a grid of gridSpacing or the distance from one grid cell to another in meters. 
+
+9. `makeCoriolisGrid(latGrid)`: This function returns a grid of coriolis acceleration based purely on latitude.
+
+The code seems to be part of a larger system, possibly for weather prediction or climate modeling, as it includes calculations for wind divergence, vorticity, and advection, as well as the generation of latitude/longitude grids and Coriolis acceleration.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

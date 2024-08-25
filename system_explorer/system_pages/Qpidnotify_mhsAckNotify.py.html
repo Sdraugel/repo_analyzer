@@ -1,0 +1,70 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>mhsAckNotify.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>mhsAckNotify.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that is responsible for notifying EDEX (a data exchange system) about an ACK (acknowledgement) or NACK (negative acknowledgement) from MHS (Message Handling System). 
+
+The script primarily consists of three classes: `MhsAckNotification`, `MhsAckException`, and `MhsAckConnection`. 
+
+- `MhsAckNotification` is a simple class that holds the details of a notification, including the message ID, sender, and response (either ACK or NACK). 
+
+- `MhsAckException` is a custom exception class that is used to handle exceptions related to broker communication.
+
+- `MhsAckConnection` is a class that manages the connection to the broker. It includes methods for sending a message and closing the connection. The connection uses the Qpid Proton library for messaging, and it supports SSL connections.
+
+The script also includes a `run` function, which is the main function of the script. This function gets the message ID, response, and sender from command line arguments, removes the corresponding .doc file from the MHS data directory, and sends a notification to the broker. The function uses a time limit for connecting to the broker and sending the notification to ensure that these operations do not take too long.
+
+The script uses the `logging` module to log information, warnings, and errors. The log messages include the process ID, timestamp, log level, and message. The logger is named 'mhsAckNotify'.
+
+This code is a part of a Python script that is designed to be run as a standalone program. 
+
+The `if __name__ == '__main__':` line checks if this script is being run directly (not being imported as a module in another script). If it is being run directly, it will call the `run()` function.
+
+The `sys.exit(run())` line is used to exit from Python. The integer value returned by the `run()` function is used as the exit status. In Unix, a 0 exit status usually means that the program finished successfully, while a non-zero status indicates an error.
+
+The `log.exception(f"Failed to send notification [{notif}].")` line is logging an exception message. This is typically done in a try/except block where an error might occur. The `notif` variable is included in the message to provide context about which notification failed to send.
+
+The `return 1` line is used to return an error status (in this case, 1) when an exception occurs, indicating that the program did not finish successfully.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

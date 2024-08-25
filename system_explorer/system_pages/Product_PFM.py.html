@@ -1,0 +1,252 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>PFM.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>PFM.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code file appears to be a configuration and history documentation for a software product developed by Raytheon Company. The software is subject to U.S. export control laws due to containing export-restricted data. 
+
+The software history section documents changes made to the software, including the date, ticket number, engineer responsible, and a description of the changes. For example, on March 15, 2020, an engineer identified as NFTF made a change to use ApparentT instead of WindChill/HeatIndex.
+
+The code file is named PFM.py and it is used to create an AFM or PFM table containing times across the top and weather elements as rows. The user can control various aspects of the table, such as the point at which entries are displayed as ranges versus single values, and can optionally include Heat Index and Wind Chill.
+
+The code also contains a number of user-configurable variables. These include variables for defining how the product appears in the GFE GUI, the full station identifier, the identifier for the location of the WFO, the WMO ID for the product header, the product pil, and the product type. There are also variables for defining the source database for the product, the output location of the finished product, and whether or not debug statements will appear.
+
+The code also includes variables for defining the threshold at which data ranges for temperature, QPF, and snow will be output as ranges rather than single values. There are also variables for controlling whether or not SnowAmt and HeatIndex are included, and if included, the threshold at which HeatIndex is reported.
+
+The provided code appears to be a part of a configuration or documentation file, rather than executable code. It seems to be related to a weather forecasting system or application. Here's a breakdown of what it does:
+
+1. It defines certain parameters related to weather conditions such as heat index and wind chill, and sets thresholds for when these conditions should be reported. For example, the `heatIndexLimit` defines the absolute threshold below which no heat index temperatures will be reported.
+
+2. It provides an option to include or exclude wind chill in the report (`includeWindChill`).
+
+3. It sets rules for separating time zones (`separateByTimeZone`).
+
+4. It lists the weather elements needed for the forecast, such as WindGust, QPF, SnowAmt, HeatIndex, WindChill, MaxT, MinT, T, Td, Wind, Sky, PoP, and Wx.
+
+5. It specifies the format for area naming strings for AFM (Area Forecast Matrices) and PFM (Point Forecast Matrices).
+
+6. It provides additional information about how sampling is done in the product, how the HeatIndex and WindChill rows will appear in the output, and how fields are blanked in the output if those times are before the product issuance time.
+
+7. It provides an example output of a weather forecast report. The report includes information such as date, time, temperature (max/min), dew point, relative humidity, wind direction, wind speed, cloud cover, and precipitation.
+
+Please note that this is not a code file that can be executed. It seems to be more of a configuration or documentation file that provides guidelines and rules for a weather forecasting system or application.
+
+The given Python code appears to be part of a larger weather forecasting system. It's defining a class named `TextProduct` that inherits from two other classes: `TextRules` and `SampleAnalysis`. 
+
+This class seems to be responsible for generating a text-based weather forecast product. It has a list of variables and a dictionary of definitions that configure its behavior. These include settings for product issuance, database source, output file location, edit areas, product IDs, thresholds for temperature, precipitation, and snow ranges, inclusion of snow amount, heat index, wind chill in the output, and more.
+
+The `__init__` method initializes the class by calling the initialization methods of the parent classes.
+
+The `generateForecast` method is the main method of the class. It generates a formatted product for a list of edit areas. It gets the current time, retrieves variables from the argument dictionary and the class's definition, determines time ranges for each possible time zone, samples the data, and generates the product for each area in the list.
+
+The `_getVariables` method retrieves variables from the argument dictionary and the class's definition and sets them as attributes of the class. 
+
+The code seems to be incomplete as it ends abruptly with `if self._trop`.
+
+This Python code appears to be part of a larger program that deals with weather data, possibly related to tropical storms. The code has several functions and methods that perform various tasks.
+
+1. The first part of the code checks if a tropical storm is present. If the variable `icalStorm` is set to "YES", it sets the `_tropicalStorm` attribute to 1, otherwise it sets it to 0. If there's an exception (error), it also sets `_tropicalStorm` to 0.
+
+2. It then sets various attributes related to the layout of a product, such as line length, row label width, and widths for different parts of the product.
+
+3. The `getAreaTZ` function retrieves a list of areas and their respective time zones. It uses the `ModuleAccessor` to get the `AreaDictionary` variable. It then loops through each area, gets its time zone, and stores it in a dictionary. If an area doesn't have time zone information, it logs a warning and uses the default time zone.
+
+4. The `_determineZuluTimeRanges` method determines time ranges that deal with Zulu-time (Coordinated Universal Time or UTC). It sets up the product's time labels, expiration time, and overall time range.
+
+5. The `_shortenPeriods` method shortens the period containing the current time so that the entire period isn't sampled. It modifies the periods and returns them.
+
+6. The `_creTR` function creates and returns a python TimeRange, based on the `baseTime` and the `offset`. The length of the TimeRange is one hour.
+
+7. The `_determineTimeRanges` method appears to determine time ranges, but the code is cut off so it's unclear what exactly it does.
+
+This code is a part of a larger program that is setting up time ranges for a product. It is complex because it handles multiple samplings and two sets of tables (short-term and long-term). The code is designed to work with different time zones and different product issuance times (either "Afternoon" or "Morning").
+
+The code first sets up a dictionary, `tzDict`, to store the time ranges. It then changes the system's time zone to the desired one and calculates the optimal time for the zulu-based product columns. 
+
+The code then determines the offset between potential times and sets up the beginning time range for 3-hourly, 6-hourly, and 12-hourly sampling. 
+
+Next, the code sets up 3-hour, 6-hour, and 12-hour elements in the top portion of the product and 6-hour and 12-hour elements in the bottom portion of the product. 
+
+Finally, the code restores the original time zone and returns the dictionary `tzDict` containing all the time periods and categories for a single time zone. 
+
+The function `_sampleData` is defined but not implemented in the provided code. It is supposed to sample the data for all the time periods and categories for a single time zone.
+
+This code appears to be part of a larger system, possibly a weather forecasting system, given the references to time periods, areas, and products. It defines several methods that are used to prepare and process data for the forecast product.
+
+1. The first method is setting up a list of samples to be taken at different times and from different parts of the product. The samples are taken at intervals of 3, 6, and 12 hours from both the top and bottom of the product. The sample information is then returned as a list of tuples, each containing the analysis list, the time period, and the areas.
+
+2. The `_preProcessProduct` method is used to add a product heading to the forecast string. It checks the product type and appends the appropriate description. It also adds other information such as the WMO ID, station ID, and time, among other things.
+
+3. The `_preProcessArea` method is used to extract and process area information. It checks the product type and performs different operations based on whether the product is an AFM or PFM. It also checks the format of the area strings and raises an error if the format is not as expected.
+
+4. The `_makeProduct` method appears to be used to create the actual forecast product. It calculates period labels, creates a forecast string, and gets statistical lists for different time periods and areas.
+
+Overall, this code seems to be part of a larger system that generates weather forecasts for different areas and time periods.
+
+This code is part of a larger program that is responsible for creating a weather forecast. It is generating a string `fcst` that contains a formatted weather forecast. 
+
+The forecast includes various weather parameters such as maximum and minimum temperatures, temperature, dew point, relative humidity, wind direction, wind speed, wind gust, cloud cover, probability of precipitation, and rainfall amount. The forecast can also include optional parameters such as snow amount, weather conditions, visibility, wind chill, heat index, and weather warnings or advisories. 
+
+The forecast is created for different time periods (3-hour, 6-hour, 12-hour), and the time periods are specified in the `timePeriods` dictionary. The `getStatList` method is used to get the statistics for a particular parameter and time period, and the `makeRow` method is used to format these statistics into a row of the forecast.
+
+The forecast is created in two sections: the main forecast and the extended forecast. The main forecast is created first, and then the code sets up some variables for creating the extended forecast.
+
+The forecast is created in the local time zone, which is set using the `os.environ['TZ']` environment variable and the `time.tzset()` function. 
+
+The code also handles the case where the forecast is being created for multiple areas, specified in the `combinations` variable. If this variable is not `None`, the forecast is created for each area in the `areaList`. 
+
+Finally, the forecast string `fcst` is returned by the code.
+
+The provided code appears to be part of a larger program, possibly a weather forecasting system, given the references to time periods, temperature, wind, dew point, clouds, and other weather-related terms. 
+
+The code is written in Python and seems to be part of a class, as it includes several methods (functions). Here's a high-level overview of what the code does:
+
+1. The code first calculates and stores the end time of certain 12-hour periods in the `zuluHours` list.
+
+2. It then calculates column spacings for 6-hour and 12-hour periods. Column spacings are calculated differently for the first column of each day and all other columns. The code also checks if the start time of a period is in `zuluHours` and adjusts the column spacing for 12-hour periods accordingly.
+
+3. The code resets the time zone to its previous setting.
+
+4. It creates statistical lists for different time periods using the `getStatList` method. These lists seem to be used for further analysis or reporting.
+
+5. The code then calculates labels for different periods and adds them to a forecast string (`fcst`).
+
+6. The forecast string is further updated with information about maximum and minimum temperatures, temperature, dew point, wind direction, wind character, average clouds, probability of precipitation, and weather. This is done by calling the `makeRow` method with different parameters and adding the returned string to `fcst`.
+
+7. The `_createWxRows` method is called to create weather rows and add them to the forecast string.
+
+8. The forecast string is returned at the end of the function.
+
+9. There are also some methods defined at the end of the provided code, but they are not complete, so it's hard to tell what they do.
+
+Please note that without the full code and the context in which it's used, it's hard to provide a more detailed explanation.
+
+This code seems to be a part of a larger Python class that performs various calculations and manipulations on weather data. The class has methods that return lists of tuples, where each tuple consists of a string and a method reference. These methods are likely used to perform specific calculations on the data.
+
+Here's a brief overview of the methods:
+
+1. `_analysisList_bottom_6hr_snap`, `_analysisList_bottom_12hr`: These methods return lists of tuples, which likely represent different types of weather data (temperature, humidity, wind, etc.) and the methods used to calculate their average or other statistical measures.
+
+2. `_hour24zuluLabel`, `_hour24localLabel`: These methods return the starting time of a given time range in either Zulu (Coordinated Universal Time) or local time.
+
+3. `_tempValue`, `_rhValue`, `_popValue`, `_qpfValue`, `_snowValue`, `_mxmnValue`: These methods return strings representing various weather data values (temperature, relative humidity, probability of precipitation, etc.). They handle cases where data might be missing or the time range is earlier than the current time. For missing data, they return "MM", and for time ranges earlier than the current time, they return an empty string.
+
+4. `_rhValue` also includes a calculation for relative humidity based on temperature and dew point.
+
+5. `_qpfValue` and `_snowValue` handle cases where the range of values is significant, returning a string representing the range instead of a single value.
+
+6. `_mxmnValue` returns a string for the max or min temperatures, and it can handle cases where the range of values is significant.
+
+The code seems to be well-structured and modular, with each method handling a specific task. However, without the complete context or the rest of the class, it's hard to provide a more detailed analysis.
+
+This code is defining a set of methods for a class, likely related to weather forecasting or reporting. Each method retrieves and processes weather-related data, such as wind chill, heat index, wind gust, wind direction, wind speed, and wind character.
+
+1. `_windChillValue`: This method calculates and returns the wind chill value. If the wind chill is less than the temperature and below a certain limit, it returns the wind chill rounded to the nearest integer. If the data is missing or the time range is earlier than the current time, it returns an empty string.
+
+2. `_heatIndexValue`: This method calculates and returns the heat index value. If the heat index is greater than or equal to a certain limit and the difference between the heat and temperature is greater than or equal to a certain difference, it returns the heat index rounded to the nearest integer. If the data is missing or the time range is earlier than the current time, it returns an empty string.
+
+3. `_minWindChillValue` and `_maxHeatIndexValue`: These methods return the minimum wind chill value and maximum heat index value, respectively. They return the value only if it's below or above a certain limit, respectively. If the data is missing or the time range is earlier than the current time, they return an empty string.
+
+4. `_windGustValue`: This method calculates and returns the wind gust value. If the gust exceeds the normal wind by 10, it returns the gust value rounded to the nearest integer and converted to MPH. If the data is missing or the time range is earlier than the current time, it returns an empty string.
+
+5. `_windValue`: This method returns the wind value, either direction or speed. If the data is missing or the time range is earlier than the current time, it returns an empty string or "MM".
+
+6. `_windCharValue`: This method returns the wind character based on the wind speed. It converts the speed into a text value category. If the data is missing or the time range is earlier than the current time, it returns an empty string or "MM".
+
+7. `_skyValue`: The method is not fully included in the provided code, but it likely returns a string for sky conditions based on the provided data.
+
+This code is part of a weather forecasting application. It is written in Python and appears to be part of a class that handles weather data.
+
+The first function checks if the start time of a given time range is earlier than the current time. If it is, it returns an empty string. It then retrieves some statistics about the sky and returns a code corresponding to the sky cover percentage. If the data is missing, it returns "MM".
+
+The second function, `_createWxRows`, creates rows for different weather types with their codes as column values. It creates a dictionary of weather types and the periods in which they occurred. It then creates a row for each weather type and adds a column for each period. If the period's start time is later than or equal to the current time, it adds the corresponding coverage code to the forecast.
+
+The third function, `_getWxValues`, retrieves weather values from a list of subkeys. It maps GFE weather types to words used in the AFM/PFM and determines the coverage codes. It also maps GFE coverage/probability codes to AFM coverage/probability codes.
+
+Overall, this code is used to process and present weather data in a specific format.
+
+This Python code is part of a larger program that seems to be related to weather forecasting and hazard warnings. 
+
+The first part of the code defines a dictionary called `pfmCodes` which maps different weather types (like 'T', 'R', 'RW', etc.) to their respective codes. These codes are likely used to represent different weather conditions or phenomena.
+
+The next part of the code checks the product type (either 'AFM' or 'PFM') and maps the weather type and coverage to their respective codes. If the weather type and coverage are not found in the respective dictionary, a question mark is returned. If a weather value is provided, it is appended to the `wxValues` list along with its code.
+
+The `_createWWARows` function seems to create rows for Weather Watches, Warnings, and Advisories (WWA) with codes as column values. It filters hazard records for a given time period and creates a dictionary of hazard values with the periods in which they occurred. It then creates a row for each hazard value in the dictionary.
+
+The `_getWWAValues` function returns a list of hazard records. It also defines a dictionary called `codes` which maps different weather phenomena to their respective labels.
+
+Overall, this code seems to be part of a larger system for processing and presenting weather data and hazard warnings.
+
+The provided code appears to be part of a larger Python program, possibly related to weather forecasting. Here's a breakdown of what each part does:
+
+1. The first part of the code is looping through a list of hazard records (`hazRecs`). For each record, it checks if the 'phen' or 'phen.sig' values are in a dictionary called `codes`. If they are, it appends a tuple of the corresponding code value and 'sig' to the `wwaValues` list.
+
+2. The `_createObVisRows` function seems to create and add forecast rows for visibility observations (ObVis). It loops through a list of periods, getting statistics for each period and determining the ObVis value. If the period start time is in the future, it appends the ObVis value to the `obvisValues` list. If not, it appends an empty string. If there are any ObVis values, it adds a row label and the ObVis values to the forecast (`fcst`), otherwise, it returns the forecast as is.
+
+3. The `_getObVisValues` function returns the ObVis code given a list of weather subkeys. It checks for various types of fog and other visibility conditions, returning the corresponding code.
+
+4. The `_calcPeriodLabels` function calculates period labels and returns them as date, UTC, and local time strings. It determines column widths, calculates zulu labels, sets the time zone, and creates date and local time strings. It then loops through the periods, adding local time values to the local time string and date values to the date string based on the hour and day of the month.
+
+This code seems to be a part of a larger system, possibly for generating weather forecasts or reports. The exact functionality would be clearer with the full context of the code.
+
+This Python code file appears to be part of a larger program, possibly related to weather forecasting or hazard detection. Here's a breakdown of what each part does:
+
+1. The first part of the code is dealing with date and time calculations. It checks if there is enough room for the data, raises an exception if the interval hours are not 3 or 6, and then formats the date string. It also marks the processed date and resets the time zone.
+
+2. The `_latlonCheck` function checks if the latitude and longitude format is correct for PFM (probably a specific format the program requires). It checks the length of the input, the presence of certain characters at specific positions, and whether certain positions contain digits. If all checks pass, it returns 1 (true), otherwise, it returns 0 (false).
+
+3. The `allowedHazards` function returns a list of hazards in VTEC (Valid Time Event Code) format. These hazards are sorted in priority order, with the most important first. Each hazard is represented as a tuple with the hazard code, a list of all actions, and a category.
+
+4. The `__containsT` function checks if a time range contains a specific time. It returns 1 (true) if the time is within the range, otherwise, it returns 0 (false).
+
+5. The `__overlaps` function checks if two time ranges overlap. It returns 1 (true) if they do, otherwise, it returns 0 (false).
+
+6. The `getDefaultPe` function appears to be incomplete, so it's not possible to determine its purpose from the provided code.
+
+The code you provided appears to be a part of a class method in Python, but it seems incomplete. The method is named `rcentage` and it takes one parameter, `parmName`. However, this parameter is not used within the method. The method simply returns a float value of 5.0, regardless of the argument passed to it. 
+
+Please note that the method name `rcentage` and the parameter `parmName` are not very descriptive, so it's hard to determine the intended purpose of this method without additional context. Also, the method name seems to be cut off, it might be a part of a larger word (like 'percentage'). 
+
+Please provide the complete code for a more accurate analysis.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

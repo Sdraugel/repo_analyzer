@@ -1,0 +1,169 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>GenericHazards.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>GenericHazards.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code appears to be a header and configuration section of a software file developed by Raytheon Company for the US Government. The software is subject to US export control laws and cannot be disseminated to non-US persons without proper authorization. 
+
+The software history section provides a log of modifications made to the software, including the date, ticket number, the engineer who made the changes, and a description of the changes.
+
+The code then identifies itself as a base file that is not intended to be overridden. It is a template for creating Hazard Products, and it is in the public domain. It also specifies that it does not come with any warranty or technical support.
+
+The configuration section defines a number of parameters that can be set to customize the software's behavior. These parameters include:
+
+- Display name, product name, station ID, WMO ID, product pil, area name, and city/state of the WFO.
+- Optional configuration items like map name for combinations, source database, output file location, debug mode, AWIPS product identifier, automatic sending, storing, and writing of the product, line length, default edit areas, purge time, inclusion of cities and zone names, EAS phrase, hazard sampling threshold, inclusion of overview headline and section, and product format.
+
+These configuration items allow the software to be tailored to specific needs and environments.
+
+This Python code file appears to be part of a larger system that generates weather forecasts, specifically for hazards. It imports several modules, including `TextRules`, `SampleAnalysis`, `re`, `CallToActions`, and `AbsTime`.
+
+The main class in this file is `TextProduct`, which inherits from `TextRules`, `SampleAnalysis`, and `CallToActions`. This class is used to generate a text-based weather forecast product, with a particular focus on hazards.
+
+The `TextProduct` class has a `Definition` dictionary that contains various settings and parameters for the forecast product. These include the source database, output file location, map background for creating combinations, default edit areas, product identifiers, automatic functions, area dictionary, language, line length, purge time, city inclusion, zone names inclusion, overview inclusion, and hazard sampling threshold.
+
+The `TextProduct` class has an `__init__` method for initialization, and a `generateForecast` method to generate the forecast. The `generateForecast` method retrieves variables, organizes hazards, determines time ranges, and generates the product for each segment in the segment list.
+
+There is also a `_getVariables` method that makes the argument dictionary accessible and gets definition variables and variable list. However, the code is cut off and doesn't show the full implementation of this method.
+
+This code appears to be part of a larger class that generates a forecast product, possibly for weather data. 
+
+The class has several methods:
+
+1. `_determineTimeRanges(self, argDict)`: This method sets up the time range for the forecast, specifically from 0 to 240 hours. It also sets up the issue time, current time, expiration time, and a time label.
+
+2. `_preProcessProduct(self, fcst, argDict)`: This method prepares the forecast product. It sets up the product header, which includes information about the area, the product name, and the time. It also prepares the forecast string.
+
+3. `_preProcessArea(self, fcst, segmentAreas, expireTime, argDict)`: This method prepares the area header for the forecast. It uses the `makeAreaHeader` method to create the header.
+
+4. `_makeProduct(self, fcst, segmentAreas, argDict)`: This method generates the forecast for a specific area. It gets the hazards text and adds it to the forecast.
+
+5. `_postProcessArea(self, fcst, segmentAreas, argDict)`: This method post-processes the area forecast. It simply adds a specific string to the forecast.
+
+6. `_postProcessProduct(self, fcst, argDict)`: This method post-processes the forecast product. It inserts an overview, places line feeds in the CAP tags, prevents empty Call to Action Tags, indents bullet text, and cleans up multiple line feeds. It also updates a progress meter.
+
+7. `allowedHazards(self)`: This method returns an empty list. It's likely overridden in a subclass.
+
+8. `_bulletDict(self)`: This method returns an empty list. It's likely overridden in a subclass.
+
+9. `_bulletOrder(self)`: This method returns an empty list. It's likely overridden in a subclass.
+
+10. `_indentBulletText(self, prevText)`: This method indents bullet text in the forecast. It processes the text and if the first character is a "*", it considers it a bullet and indents it.
+
+The code also has some commented out methods, which seem to be related to handling bullet points in the forecast.
+
+The code is part of a larger system that generates weather bulletins or reports. It appears to be written in Python.
+
+The first part of the code is appending text to the `outText` variable and then printing it. This might be a summary or a conclusion of the report.
+
+The `hazardTimePhrases` method takes a hazard key and returns a time phrase that corresponds to the hazard. This might be used to generate a time-sensitive warning or alert for the hazard.
+
+The `hazardBodyText` method generates the main body of the report. It sorts a list of hazards by importance, then categorizes them into different lists based on their action codes (e.g., new, cancelled, expired, extended, etc.). 
+
+For each hazard in the 'new' list, it generates a phrase that includes the hazard's headline, timing, and name. It also includes a phrase for the location of the National Weather Service office issuing the report. The phrases vary slightly depending on whether it's the first, second, or subsequent hazard in the list.
+
+For hazards in the 'cancelled' list, it generates a phrase indicating that the hazard has been cancelled.
+
+The code ends before it shows how it handles 'expired' hazards, but it's likely to follow a similar pattern to the 'new' and 'cancelled' hazards. 
+
+Overall, the code is designed to generate a detailed and structured weather report based on a list of hazards.
+
+This code is processing a list of hazards, which are represented as dictionaries. The hazards are categorized into different types: expList, extList, upgList, conList, and statementList. For each type of hazard, the code performs a specific operation.
+
+1. For hazards in expList, it checks if the hazard has a defined headline. If not, it skips to the next hazard. If the hazard's end time is less than or equal to the creation time, it appends a phrase stating that the hazard is no longer in effect to the hazardBodyPhrase. If the hazard's end time is greater than the creation time, it appends a phrase stating that the hazard will expire at a certain time.
+
+2. For hazards in extList, it does a similar operation, but it appends a phrase stating that the hazard is now in effect.
+
+3. For hazards in upgList, it checks if the hazard has a defined headline. If not, it skips to the next hazard. It then appends a phrase stating that the hazard is no longer in effect to the hazardBodyPhrase.
+
+4. For hazards in conList, it checks if the hazard has a defined headline. If not, it skips to the next hazard. It then appends a phrase stating that the hazard remains in effect to the hazardBodyPhrase.
+
+5. For hazards in statementList, it simply appends a placeholder for a statement headline to the hazardBodyPhrase.
+
+After processing all the hazards, the code checks if the segment text is very short or blank. If it is, it sets the incTextFlag to 0.
+
+Finally, if there is a new hazard and previous segment text, the code may add bullets to the segment text. It checks if each bullet in the new hazard's bullet list is present in the segment text. If a bullet is not present, it adds it to the segment text at the appropriate position.
+
+This code seems to be part of a larger program that processes hazard warnings. 
+
+The first part of the code checks if there is a cancellation or expiration hazard and previous segment text. If so, it determines which bullets to keep and which to remove from the hazard warning. It does this by iterating through a sorted list of hazards, checking their 'act' attribute, and comparing it against a list of bullets from a dictionary. The bullets to keep are stored in `keepBulletList` and the bullets to remove are stored in `removeBulletList`. It then removes the unnecessary bullets from the segment text.
+
+Next, if the `incTextFlag` is set, the code appends the segment text to the `hazardBodyPhrase`. If `bulletProd` is set, it checks the 'act' attribute of each hazard and appends a wrap-up text or generates a new list of bullets to be added to the `hazardBodyPhrase`.
+
+If the segment doesn't pass the checks, a default statement text is added to the `hazardBodyPhrase`.
+
+The code then adds call-to-action statements to the `hazardBodyPhrase` if the segment is 'NEW' or if the previous text has been discarded due to a CAN/EXP/UPG segment. It does this by iterating through a list of found call-to-actions and removing any that exist in the `forceCTAList`. It then appends any remaining call-to-actions to the `hazardBodyPhrase`.
+
+Finally, the code ensures there is only one CAP tag pair in the `hazardBodyPhrase` using a regular expression. However, the regular expression itself is not shown in the provided code.
+
+This code appears to be part of a larger system, possibly related to weather forecasting or hazard reporting, given the use of terms like 'hazard', 'overview', 'prevOverviewText', 'endTime', 'act', and 'pil'. 
+
+The first part of the code is a method that removes a specific string from the 'hazardBodyPhrase' and returns the modified string.
+
+The 'finalOverviewText' method checks if there is any text in the '__overviewText' attribute. If not, it creates a default text based on the '_includeOverviewHeadline' and '_includeOverview' attributes. If '__overviewText' is not empty, it returns the text as it is.
+
+The 'overviewText' method looks for an overview in the previous product. It iterates over a list of hazards and checks if certain keys are present in each hazard. If the conditions are met, it cleans the overview text and breaks the loop.
+
+The 'useCaptureText' method returns a tuple based on the hazard list. It checks for certain conditions in the hazard list and modifies variables accordingly.
+
+The 'cleanCapturedText' method takes a block of text, wraps it preserving blank lines, then returns the part after 'paragraphs'. It also removes headlines and adds framing codes if specified.
+
+The 'decodeBulletedText' method appears to process a block of text, specifically looking for bulleted lists. It splits the text into sections based on bullet points and processes each section separately. If the text is None, it returns a tuple of None values. 
+
+Overall, this code seems to be involved in processing and formatting text related to weather or hazard reporting.
+
+This code is part of a larger program that appears to be processing and formatting text, specifically related to weather bulletins from the National Weather Service (NWS). Here's a breakdown of what each section does:
+
+1. The first block of code is processing a list of 'bullets' (presumably lines or sections of text). It's looking for a double line feed ('\n\n') to separate the bulleted text from the regular text. It then splits the regular text into lines and removes any lines after the phrase 'The National Weather Service'. After that, it cleans up the text by replacing newline characters with spaces and removing extra line feeds.
+
+2. The next section extracts sections of the bullets into variables: hazard, time, basis, and impact. If there's no regular text after the bullets, it sets the 'regText' variable to None.
+
+3. The 'substituteBulletedText' function formats the input text (capText) with bullet points. If capText is None or has zero length, it uses the default text. The 'frameit' parameter determines whether the text is wrapped in framing codes.
+
+4. The 'convertSingleParas' function takes a block of text and returns a list of paragraphs. It uses regular expressions to replace line feeds with spaces and double line feeds with single ones.
+
+5. The 'ctasFound' function is looking for specific call-to-action (CTA) phrases in the text. It converts the text into single paragraphs, removes spaces, and compares each paragraph to a list of known CTAs. If a match is found, it's added to the 'found' list, which is then returned.
+
+In summary, this code is processing and formatting weather-related text, separating it into bulleted and regular text, and looking for specific phrases (CTAs).</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

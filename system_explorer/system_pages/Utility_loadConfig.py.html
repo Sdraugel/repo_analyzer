@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>loadConfig.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>loadConfig.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is part of a larger software system developed by Raytheon Company. It appears to be a part of a configuration management system, specifically for loading and handling configuration files for a software system. 
+
+The code contains several functions:
+
+1. `loadPreferences(config)`: This function imports a configuration file and loads it into the software system. If the configuration file is invalid or cannot be found, it logs an error message and raises an exception.
+
+2. `loadConfig(configName)`: This function imports a module with the given name and returns its global variables.
+
+3. `getGlobals(mod)`: This function creates a Java HashMap and populates it with the global variables of a given module. The variables are converted to Java types (String, Integer, Double, Boolean) as necessary. If a variable is a list, it is converted to a Java ArrayList.
+
+4. `__fillArray(pylist, jclz)`: This is a helper function that converts a Python list to a Java ArrayList, with elements converted to a specified Java class.
+
+The code also contains a header with legal and contact information, as well as a software history log. The log shows that the code has been updated several times, with changes including error handling improvements and updates to accommodate new versions of dependencies.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

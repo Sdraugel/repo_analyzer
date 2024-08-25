@@ -1,0 +1,82 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>updateRCMConfig.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>updateRCMConfig.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be a utility for updating configuration files for a system or application. The configuration files are XML files located in a specific directory. The script is designed to be run on a host where a certain software (edex_rcm) is installed.
+
+Here's a high-level overview of what the script does:
+
+1. It sets up logging to track its operations.
+
+2. It defines a custom XML parser that can handle comments in XML files.
+
+3. It defines a function `processDir(directory)` that walks through a given directory and its subdirectories, and for each XML file it finds, it calls the `updateFile(path)` function.
+
+4. The `updateFile(path)` function reads the file, parses the XML, and updates certain elements in the XML structure. Specifically, it looks for an `endpointConfig` element and updates or adds sub-elements such as `hostname`, `port`, `vhost`, and `servicePort`. 
+
+5. If the updated XML structure is different from the original, it backs up the original file, then writes the updated XML back to the file. The updated XML is formatted with indentation for readability.
+
+6. The script also handles various error conditions, such as parsing errors in the XML, and logs appropriate error messages.
+
+This script could be used to automate the process of updating configuration files for a system or application, especially when the same changes need to be made across multiple files.
+
+This script is a Python program that is designed to process directories and update files. Here's a breakdown of what the code does:
+
+1. The `main()` function is the entry point of the script. It starts by logging an informational message indicating that it's running a delta script for a specific RODO DR number.
+
+2. It then initializes a variable `status` to 0, which will be used later to determine if the script ran successfully or not.
+
+3. The `searchPaths` variable is set to `CONFIG_PATHS`. If there are command line arguments provided when running the script, `searchPaths` is updated to be those arguments.
+
+4. The script then enters a loop where it iterates over each path in `searchPaths`. For each path, it uses the `glob.glob()` function to find all the paths that match the specified pattern.
+
+5. For each matched path, it checks if the path is a directory or a file. If it's a directory, it calls the `processDir()` function (not shown in the provided code) and updates the `status` variable with the result. If it's a file, it calls the `updateFile()` function (also not shown) and updates `status` accordingly.
+
+6. After all paths have been processed, it checks the `status` variable. If `status` is non-zero (indicating an error occurred), it logs an error message. Otherwise, it logs an informational message indicating the script completed successfully.
+
+7. The script then returns the `status` variable, which is used as the exit code of the script.
+
+8. The last part of the script checks if the script is being run directly (as opposed to being imported as a module in another script). If it is, it calls the `main()` function and exits with the return value of `main()`.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

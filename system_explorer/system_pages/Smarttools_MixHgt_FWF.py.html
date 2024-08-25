@@ -1,0 +1,86 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>MixHgt_FWF.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>MixHgt_FWF.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script, named MixHgt_FWF.py, is a tool for calculating the mixing height in the atmosphere. It is a part of a weather forecasting software and is authored by a user named dtomalak. 
+
+The script starts by importing necessary libraries and defining the class `Tool` that inherits from `SmartScript.SmartScript`. 
+
+The `execute` method is the main function in this script. It takes in three parameters: `GridTimeRange`, `T`, and `Topo`. 
+
+The method begins by determining the model source based on the `FireModel` object. It then constructs the model name using the site ID and the model source. 
+
+The script then prints the model being used for the mixing height calculation and the time range for the mixing height. 
+
+The script then sets the levels of the eta sounding to use and gets the surface pressure and temperature from the eta model. 
+
+The script then converts the surface temperature to Kelvin and the topography field to meters. It computes the difference between the model surface temperature and the forecast surface temperature. 
+
+The script then creates the surface Theta and the Height and Temperature Cubes. It initializes the Mixing Height Grid, the mixDepth variable, and the bottom of the sounding. 
+
+The script then loops through each level in the sounding, computing the potential temperature of the environment at the current level and determining if the mixing height is ready to set. 
+
+The script then calculates the true mixing height and applies a check that the adjusted mixing height can never be greater than the unadjusted mixing height. 
+
+The script then calculates the mixDepth based on various conditions. 
+
+The script seems to be cut off at the end, so the full functionality of the script cannot be determined.
+
+This code is part of a larger program that calculates the mixing height, which is a meteorological term referring to the height in the atmosphere at which air parcels are freely mixed due to atmospheric turbulence. This is important in weather forecasting and environmental studies, particularly in relation to air pollution dispersion.
+
+Here's a breakdown of what the code does:
+
+1. The line `mixDepth[less(sfcTempK,tCube[level])] = 1.0` sets the mixing depth to 1.0 for all instances where the surface temperature (sfcTempK) is less than the temperature at a certain level (tCube[level]). This could be to prevent mixing when the surface temperature is colder than the temperature at a certain height.
+
+2. The line `MixHgt = where(readyToSet, mixDepth, MixHgt)` sets the mixing height (MixHgt) to the mixing depth where a certain condition (readyToSet) is true. If the condition is not met, the mixing height remains the same.
+
+3. The lines `lastTheta = potTemp` and `lastghCube = (ghCube[level] - topoMeters)` set up parameters for the next iteration of a loop, which is not shown in the provided code. These lines store the current potential temperature and the difference between the geopotential height at a certain level and the topographic height for the next iteration.
+
+4. The line `MixHgt = MixHgt * 3.281` converts the mixing height from meters to feet, as 1 meter is approximately 3.281 feet.
+
+5. The line `MixHgt[less(MixHgt, 250.0)] = 250.0` sets a minimum mixing height of 250 feet. This could be to account for plume mixing, which is the dispersion of pollutants in the atmosphere.
+
+6. Finally, the line `return MixHgt` returns the calculated mixing height. This value can then be used elsewhere in the program.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

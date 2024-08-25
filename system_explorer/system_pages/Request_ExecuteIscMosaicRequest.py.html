@@ -1,0 +1,88 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ExecuteIscMosaicRequest.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ExecuteIscMosaicRequest.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is written in Python and defines a class named `ExecuteIscMosaicRequest` that inherits from the `AbstractGfeRequest` class. This class is part of a software developed or modified by Raytheon Company, as indicated by the comments at the beginning of the code.
+
+The `ExecuteIscMosaicRequest` class has an `__init__` method, which is the constructor of the class. This method is called when an object is created from this class and it allows the class to initialize the attributes of the class. The constructor takes a number of arguments, each of which corresponds to an attribute of the class. If no value is provided for an argument when an object is created, the argument will take on its default value as specified in the constructor.
+
+The class also has two special methods: `__str__` and `__repr__`. These methods return a string representation of an object of the class. The `__str__` method is meant to provide a user-friendly string representation of the object, while the `__repr__` method is meant to provide a string representation of the object that, when passed to the `eval` function, will produce an equivalent object.
+
+The `__init__` method also contains some logic to set the `workstationID` and `siteID` attributes based on the values of the `userID` and `databaseID` attributes, respectively.
+
+In addition to the class definition, the code also imports the `AbstractGfeRequest` and `WsId` classes from the `dynamicserialize.dstypes.com.raytheon.uf.common.dataplugin.gfe.request` and `dynamicserialize.dstypes.com.raytheon.uf.common.message` modules, respectively.
+
+The provided code is written in Python and appears to be part of a class definition. The class has a number of instance variables and corresponding getter and setter methods for each variable. 
+
+The first part of the code is concatenating the string representation of various instance variables to the `retVal` string. This could be part of a method that returns a string representation of the object, often used for debugging or logging purposes.
+
+The rest of the code includes getter and setter methods for each instance variable. These methods are used to retrieve (get) or modify (set) the value of the instance variables. 
+
+Here are the instance variables and their corresponding getter and setter methods:
+
+- `userID`: `getUserID`, `setUserID`
+- `databaseID`: `getDatabaseID`, `setDatabaseID`
+- `parmsToProcess`: `getParmsToProcess`, `setParmsToProcess`
+- `blankOtherPeriods`: `getBlankOtherPeriods`, `setBlankOtherPeriods`
+- `startTime`: `getStartTime`, `setStartTime`
+- `endTime`: `getEndTime`, `setEndTime`
+- `altMask`: `getAltMask`, `setAltMask`
+- `replaceOnly`: `getReplaceOnly`, `setReplaceOnly`
+- `eraseFirst`: `getEraseFirst`, `setEraseFirst`
+- `announce`: `getAnnounce`, `setAnnounce`
+- `renameWE`: `getRenameWE`, `setRenameWE`
+- `iscSends`: `getIscSends`, `setIscSends`
+- `inFiles`: `getInFiles`, `setInFiles`
+- `ignoreMask`: `getIgnoreMask`, `setIgnoreMask`
+- `adjustTranslate`: `getAdjustTranslate`, `setAdjustTranslate`
+- `deleteInput`: `getDeleteInput`, `setDeleteInput`
+- `parmsToIgnore`: `getParmsToIgnore`, `setParmsToIgnore`
+- `gridDelay`: `getGridDelay`, `setGridDelay`
+- `logFileName`: `getLogFileName`, `setLogFileName`
+- `additionalRoutingSiteID`: `getAdditionalRoutingSiteID`, `setAdditionalRoutingSiteID`
+- `asynchronous`: `getAsynchronous`, `setAsynchronous`
+
+Each getter method returns the current value of the corresponding instance variable, and each setter method sets the value of the corresponding instance variable to the provided argument.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

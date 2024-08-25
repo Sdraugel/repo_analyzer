@@ -1,0 +1,68 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>JData.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>JData.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that is part of a software developed or modified by Raytheon Company under a contract with the US Government. It contains export-restricted data and its export/transfer/disclosure is controlled by U.S. law.
+
+The script implements a class `JData` that wraps around a Java `IData` object. The `JData` class inherits from `IData` and `JUtil.JavaWrapperClass`. This class is used to interact with the Java `IData` object using Python.
+
+Here's what the methods in the `JData` class do:
+
+- `__init__(self, wrappedObject)`: This is the constructor method that initializes a new instance of the class. It takes a `wrappedObject` as a parameter, which is the Java `IData` object that this `JData` object will wrap around.
+
+- `getAttribute(self, key)`: This method returns the attribute of the Java `IData` object corresponding to the provided key.
+
+- `getAttributes(self)`: This method returns all the attributes of the Java `IData` object as a list of strings.
+
+- `getDataTime(self)`: This method returns the data time of the Java `IData` object.
+
+- `getLevel(self)`: This method returns the level of the Java `IData` object as a string.
+
+- `getLocationName(self)`: This method returns the location name of the Java `IData` object.
+
+- `toJavaObj(self)`: This method returns the original Java `IData` object that this `JData` object is wrapping around.
+
+The script also mentions that this is a base file that is not intended to be overridden. This means that this file provides a base functionality that other files in the software can use, but those other files should not modify the functionality provided by this file.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

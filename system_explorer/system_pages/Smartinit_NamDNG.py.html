@@ -1,0 +1,90 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>NamDNG.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>NamDNG.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that is part of a larger software system developed by Raytheon Company. It appears to be a module for transforming and converting various meteorological data from one format or unit to another. Here's a breakdown of the different sections:
+
+1. The first part of the file is a legal notice and contract details, stating that the software was developed by Raytheon Company under a specific contract with the U.S. Government. It also mentions that the software contains export-restricted data, and its dissemination requires an export license or other authorization.
+
+2. The next part is a comment stating that this is a base file not intended to be overridden, but it can be subclassed to override behavior.
+
+3. The code then imports a module named "Init".
+
+4. The main class in this script is `NamDNGForecaster`, which is a subclass of `Forecaster`. This class contains several methods for converting and transforming meteorological data, such as:
+
+   - `calcWind`, `calcWindGust`, and `calcTransWind`: These methods convert wind speed from meters per second to knots.
+   
+   - `calcQPF3`, `calcQPF6`, and `calcQPF12`: These methods convert precipitation forecast (QPF) from millimeters to inches and clip values greater than 1000mm.
+   
+   - `calcSnowAmt` and `calcSnowAmt6`: These methods convert snowfall amount from meters to inches.
+   
+   - `calcPoP`, `calcPoP6`, and `calcPoP12`: These methods clip the probability of precipitation (PoP) between 0 and 100.
+   
+   - `calcSky`: This method clips the total cloud cover (TCC) between 0 and 100.
+   
+   - `calcVis`: This method converts visibility from meters to statute miles.
+   
+   - `calcT` and `calcTd`: These methods convert temperature and dew point temperature from Kelvin to Fahrenheit.
+   
+   - `calcMaxT3`, `calcMinT3`, `calcMaxT`, and `calcMinT`: These methods convert maximum and minimum temperature from Kelvin to Fahrenheit and compute the maximum and minimum temperature from 3-hour max and min temperature.
+   
+   - `calcRH`: This method calculates relative humidity from temperature and dew point temperature.
+   
+   - `calcMaxRH3`: This method returns the maximum of 3-hour max relative humidity.
+
+Overall, this script is designed to handle and process meteorological data, specifically for the NAM DNG model.
+
+This code is written in Python and contains a class `r_SFC` with four methods and a `main` function.
+
+1. `calcMaxRH(self, MaxRH3, MaxRH)`: This method calculates the maximum relative humidity. If `MaxRH` is None, it returns `MaxRH3`, otherwise it returns the maximum of `MaxRH` and `MaxRH3`.
+
+2. `calcMinRH(self, RH, MinRH)`: This method calculates the minimum relative humidity. If `MinRH` is None, it returns `RH`, otherwise it returns the minimum of `MinRH` and `RH`.
+
+3. `calcMixHgt(self, geh_BLD0)`: This method calculates the mixing height by converting from meters to feet. It multiplies the input `geh_BLD0` by 3.28084 (conversion factor from meters to feet).
+
+4. `calcSnowLevel(self, gh_WBZ0)`: This method calculates the snow level by converting from meters to feet. It multiplies the input `gh_WBZ0` by 3.28084 (conversion factor from meters to feet).
+
+The `main` function calls the `run` method of the `NamDNGForecaster` class. The `NamDNGForecaster` class and its `run` method are not defined in this code snippet, so it's unclear what they do.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

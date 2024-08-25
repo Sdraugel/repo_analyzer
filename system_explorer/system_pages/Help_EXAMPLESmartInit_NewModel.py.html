@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>EXAMPLESmartInit_NewModel.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>EXAMPLESmartInit_NewModel.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that is part of a larger software system developed by Raytheon Company. The script is an example of how to add a new model to the system. The model in this case is called "GWW".
+
+The script imports a module called "Init" and defines a class "GWWForecaster" that inherits from a base class "Forecaster". The "GWWForecaster" class has two methods: "calcWaveHeight" and "calcWind". 
+
+The "calcWaveHeight" method takes a parameter "htsgw_SFC" and calculates a grid where if the "htsgw_SFC" is greater than 50, it assigns 0.0, otherwise it assigns "htsgw_SFC/3.048". It then returns the grid after clipping its values between 0 and 100.
+
+The "calcWind" method takes a parameter "wind_SFC" which is expected to be a tuple or list with at least two elements. It calculates the magnitude and direction of the wind. If the first element of "wind_SFC" is greater than 50, it assigns 0 to the magnitude and direction, otherwise it assigns "wind_SFC[0]*1.94" to the magnitude and "wind_SFC[1]" to the direction. The direction is then clipped between 0 and 359.5. The method returns a tuple of the calculated magnitude and direction.
+
+The "main" function creates an instance of the "GWWForecaster" class and calls its "run" method. This is likely where the main functionality of the script is executed, but since the "run" method is not defined in the provided code, its exact functionality is unknown.
+
+The script also includes a significant amount of comments at the beginning which provide legal and contact information related to the software's development and usage restrictions.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>MinRHTool.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>MinRHTool.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a part of a software developed by Raytheon Company. It appears to be a tool for a weather forecasting system, specifically for calculating the minimum relative humidity (MinRH). 
+
+The software is in the public domain and is provided "as is", without any technical support or warranty. 
+
+The code starts with some metadata about the software and the contractor. It then specifies the type of the tool as "numeric" and the weather element being edited as "MinRH". 
+
+The numpy library is imported for numerical operations.
+
+The code also includes a commented-out section for setting up variables to be solicited from the user. This section is not currently in use, but it could be uncommented and modified to collect user input if needed.
+
+The code then imports the SmartScript module and defines a class called Tool that inherits from SmartScript.SmartScript. This class has an `__init__` method for initialization and an `execute` method that retrieves the minimum relative humidity grid for a given time range from the forecast (Fcst) data.
+
+The `execute` method uses the `getGrids` method from the SmartScript module to retrieve the minimum relative humidity data. The `getGrids` method takes several parameters, including the database source ("Fcst"), the element ("RH"), the level ("SFC"), the time range (GridTimeRange), the statistical method ('Min'), and the version number (0). The method returns the minimum relative humidity grid for the specified time range.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

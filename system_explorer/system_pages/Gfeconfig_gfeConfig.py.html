@@ -1,0 +1,280 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>gfeConfig.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>gfeConfig.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This is a Python configuration file for the Graphical Forecast Editor (GFE) software, which was developed and/or modified by Raytheon Company. 
+
+The file starts with a legal notice about the software's export restrictions, followed by the contractor's details and a reference to a master rights file for licensing information. 
+
+The software history section lists the changes made to the software over time, including the date of the change, the ticket number, the engineer who made the change, and a description of the change.
+
+The configuration settings start with defining the home directory and product directory for the GFE suite. It also defines two boolean variables, yes and no, as True and False respectively.
+
+The file then provides options to hide the configuration file in the Start Up Dialog and sets up configurations for Mutable Parameter and Viewable Database. It also provides options for filtering the displayed data by site ID.
+
+The file further configures the initial GFE startup weather elements, samples, and edit action list. It defines the default group, the order of the weather elements, the initial set of sample sets, the Smart Tools to be displayed on the Spatial Editor and Grid Manager button-3 pop up menus, and keyboard shortcuts.
+
+The file also contains commented out lines, which are not executed as part of the code but provide additional information or optional settings.
+
+This code file appears to be a configuration file for a software program, possibly a Graphical Forecast Editor (GFE) based on the comments. It includes various settings and parameters that control the behavior of the software. 
+
+The first part of the file defines keyboard shortcuts for various actions in the software. Each shortcut is defined by a key (or combination of keys), an action type, and the name of the action. The actions are categorized into EditTool, SmartTool, Procedure, and Toggle. Examples of these actions include "Assign_Value", "AdjustValue_Down", "AdjustValue_Up", "Smooth", "ISC_Discrepancies", etc.
+
+The next part of the file defines the initial set of edit area groups to appear in the edit area and query dialog. It also sets the order of weather element names that will be used to sort the GridManager. 
+
+The file also sets the Auto Save Interval, which defines the interval in minutes that is used to automatically save modified weather elements. 
+
+It also defines the list of entries that appear on the Publish Dialog. These entries are the names of the user-defined selection time ranges.
+
+The file also contains settings for Map Background Configuration, which define the initial loaded set of map backgrounds and specific colors, line widths, line patterns, and font offsets for a map background.
+
+The last part of the file sets the default X resources and fonts for the GFE. 
+
+Please note that many of the settings are commented out (preceded by a '#'), which means they are not currently active but can be activated by removing the '#' symbol.
+
+This code file appears to be a configuration file for a graphical user interface (GUI), possibly for a weather forecasting system or a similar application. It defines various parameters for the GUI, such as font styles, colors, time ranges, and other settings.
+
+Here are some key parts of the code:
+
+1. TextFont0 to TextFont4: These variables define the font styles that will be used in the GUI. The font style is defined as a string in the format "fontname-style-height".
+
+2. bgColor: This variable defines the background color for all display panes in the GUI.
+
+3. SystemTimeRange_beforeCurrentTime and SystemTimeRange_afterCurrentTime: These variables define the time range for the Grid Manager and Temporal Editor in relation to the current time.
+
+4. Selected_color, Selected_fillPattern, TimeScaleLines_color, TimeScaleLines_pattern, etc.: These variables define the color and pattern used in various parts of the GUI, such as the Grid Manager and Temporal Editor.
+
+5. TimeScale_horizSize: This variable defines the initial horizontal size of the grid manager when the application starts.
+
+6. LegendMode and InitialGMDisplayMode: These variables define the initial modes for the Legend and Grid Manager.
+
+7. OfficeDomain_expandLeft, OfficeDomain_expandRight, OfficeDomain_expandTop, OfficeDomain_expandBottom: These variables define the percentage that the office domain will be expanded for the spatial editor full-screen view.
+
+8. ProductOutputDialog_wrapPils and ProductOutputDialog_nonWrapPils: These variables define the settings for the Product Output Dialog.
+
+The commented-out lines of code suggest that there are additional settings that can be configured, such as the initial location of the Edit Action Dialog, the layout of the Grid Manager/Temporal Editor, and the initial size of the Call to Action dialog.
+
+The provided code is a configuration file, likely for a weather-related application given the references to weather elements. It contains various settings and options for the application. Here's a breakdown of the different sections:
+
+1. **Process Monitor Options**: This section sets limits for the number of scripts and text formatters that can be queued, run at the same time, and kept for reference after completion.
+
+2. **Sample and Legend Colors, Sample Shadows**: This section allows customization of colors for various elements of the application, such as samples, legends, and shadows. It also provides options for offsetting sample labels and controlling which weather elements are displayed as samples.
+
+3. **ISC Options**: This section contains settings related to ISC (Inter-System Communication) mode. It controls whether certain information, such as the ISC Update Time and ISC Site Id, is displayed in samples and markers.
+
+4. **Spatial Editor Color Bar Label/Tick Colors**: This section allows customization of colors for various elements in the Spatial Editor's color bar.
+
+5. **GFE Font Sizes**: This section (which is not fully shown) likely allows the user to adjust the font sizes used in various components of the GFE (Graphical Forecasting Environment).
+
+Most of the settings are commented out (preceded by a '#'), which means they are not currently active and the application will use default values or behaviors. The settings that are not commented out (ShowISCUpdateTime, ShowISCSiteID, ShowISCMarkers, ShowISCUpdateTimeMarker, ShowISCSiteIDMarker, ShowISCOfficialSymbolMarker, ShowISCOfficialSymbol) are set to 'yes', meaning these features are enabled.
+
+This code file appears to be a configuration file for a weather grid management system. It sets up various parameters and configurations for the system. Here's a breakdown of what each section does:
+
+1. The first section contains commented-out lines that seem to define font sizes for various elements of the system. These lines are currently inactive due to the '#' symbol at the start of each line.
+
+2. The next section defines the colors and times used to color the Grid Manager in different display modes (last saved, last modified, last published, or last sent). It uses parallel lists of minutes and colors to determine the color of the display box based on the time since the last action.
+
+3. The "Grid Data History configuration" section defines the characters, colors, and patterns that will appear in the Grid Manager grid blocks to indicate the source, origin, and modification states of the grid. It also specifies the text and color for grid blocks that originate from different models.
+
+4. The "Algorithm Configuration" section sets up parameters for the algorithms used in the system. It includes settings for time-weighted averages of multiple grids, the default width of the pencil tool, pencil tool influence sizes, smooth algorithm default value, smooth size choices, and the interpolation algorithm for each weather element.
+
+Overall, this code file is used to customize the appearance and behavior of a weather grid management system.
+
+The code appears to be a configuration file for a weather visualization or modeling tool. Here's a breakdown of the key sections:
+
+1. Interpolation Algorithm Configuration: This section specifies the interpolation algorithm used for different weather elements. For instance, "CUBIC_NOADVECT" is used for most elements, except for Wx, PoP, Sky, and QPF which use "CUBIC_ADVECT".
+
+2. Menu and Dialog Configuration: This section sets up the zoom factor for the Pickup Value Dialog, the maximum value for the Set Delta Dialog, and the default value for the Interpolate Dialog mode.
+
+3. Weather Element Configuration: This section configures the visual representation of different weather elements. It includes settings for generic and specific colors for graphics, line widths, line patterns, font offsets, and density definitions for each parameter. It also sets the initial size of temporal editor panes and defines contour values and intervals for each weather element.
+
+4. Delta Values: This section appears to define the default delta (adjust up, adjust down) value for the adjust operations. However, the code is cut off and doesn't show the complete configuration.
+
+In summary, this code is configuring the visual representation and behavior of a weather-related application, likely used for weather prediction or analysis.
+
+This code file appears to be a configuration file for a weather visualization tool. It sets various parameters related to the display and manipulation of weather data. Here's a breakdown of what the different sections do:
+
+1. **Delta Values**: This section sets the delta values for different parameters. Delta values are used to define the precision of the parameters. For example, a precision of 0 indicates a delta of 1, and a precision of 1 indicates a delta of 0.1. The delta values for FzLevel and SnowLevel are set to 100.0.
+
+2. **Fuzz Values**: This section defines the fuzz values, which are used during a homogeneous area select using the GridPoint Tool. If the fuzz is 2.0 degrees for Temperature and you click on 40 degrees, then all points between 38 and 42 will be selected as long as they are contiguous to the click point.
+
+3. **Visual Types**: This section defines the spatial and temporal editor visualization types for scalar, vector, and weather parameters. There are two modes, graphic and image. The code specifies the visualization types for parameters like Wx, Headlines, Swell, and Swell2.
+
+4. **Bounded Area Visual Attributes**: This section allows the user to turn on/off the boundary, and the text labels, for the bounded area visual.
+
+5. **Wind Barb and Arrow Default Sizes**: This section allows the user to specify the default wind barb and arrow default sizes.
+
+6. **Wind Arrow Scaling**: This section allows the user to specify the default scaling for the wind arrow.
+
+7. **Wind Sample Format**: This section allows the user to specify the default sample format for vector weather elements.
+
+8. **Default Values**: This section allows the user to specify the default values for SCALAR, VECTOR, WEATHER, and DISCRETE on a per-weather element basis.
+
+9. **Weather/Discrete Common Value Definitions**: This section describes common types that appear on the temporal editor popup menu and the spatial editor color bar popup menu. 
+
+Overall, this code file is used to customize the visualization and interaction with weather data in a specific tool.
+
+The provided code seems to be a configuration file for a weather-related application. 
+
+1. The first part of the code defines a list `Hazards_commonValues` which contains strings representing different types of weather hazards. Each string is divided into three parts: the hazard category (e.g., "Watches", "Warnings", "Advisories", "Statements"), the specific type of hazard (e.g., "Fire Weather", "Hydrology", "Coastal Flooding", "Marine", "Non-Precipitation", "Winter Storm"), and a code associated with that hazard (e.g., "FW.A", "FF.A", "FA.A").
+
+2. The next part of the code defines default values for weather dialog. It sets default coverage/probabilities and intensities for different types of weather conditions (e.g., "R", "RW", "S", "SW", "T"). 
+
+3. The third part of the code sets up configuration for Discrete Color Table Algorithm. This includes defining overlap patterns for discrete weather elements and setting up default color and pattern for complex overlapping situations.
+
+4. The last part of the code sets up the default color table configuration for non-weather parameters. It defines the left and right wavelength values for the color in nanometers, and the number of color bins to be used when the default color table is displayed.
+
+This code is defining default color tables for various parameters in a system, likely a weather or climate visualization system. 
+
+Each parameter, such as "RipProb", "ErosionProb", "OverwashProb", etc., is assigned a color table like "GFE/RipProb", "GFE/RunupProbs", etc. These color tables are probably used to visually represent the data associated with each parameter in a graphical user interface, with different colors representing different ranges of values.
+
+For example, the line `MaxT_defaultColorTable="GFE/Mid Range Enhanced"` sets the default color table for the parameter "MaxT" to "GFE/Mid Range Enhanced". 
+
+The code also defines color tables for different satellite weather elements like "visibleEast", "ir11East", etc. 
+
+Towards the end, the code sets both a default color table and minimum and maximum color table values for various parameters related to the GOES-R series of weather satellites. 
+
+Overall, this code is all about setting up default visual representations for a wide range of data parameters.
+
+The provided code appears to be setting up color table values for various bands of a satellite imaging system, likely for the purpose of visualizing different types of data. 
+
+The variables are named in a way that suggests they relate to different bands of light (visible, infrared, etc.) and different types of atmospheric phenomena (ozone, water vapor, etc.). The variables ending in "_defaultColorTable" are assigned string values that appear to be paths or identifiers for specific color tables. The variables ending in "_minColorTableValue" and "_maxColorTableValue" are assigned numerical values that likely represent the range of data values that the color table should represent.
+
+For example, for the "RBand961umEast", the minimum color table value is set to 328.15 and the maximum color table value is set to 164.15. The default color table for this band is set to "GOES-R/IR/IR_Color_Clouds_Winter". 
+
+The code seems to be part of a larger system for processing and visualizing satellite data, where these values are used to control the appearance of the resulting images. Different color tables and ranges are used for different types of data to highlight the features of interest.
+
+The provided code appears to be a configuration file, possibly for a Geographic Information System (GIS) or similar visualization tool. It is defining color tables and their associated minimum and maximum values for various data bands. These bands could be from satellite data or other geospatial data sources.
+
+The first part of the code defines color tables and their ranges for various Infrared (IR) and Visible (VIS) bands. These bands might be related to different atmospheric or surface features, such as ozone, water vapor, vegetation, cloud particle size, etc. For example, the 'ozoneIRBand961umWest' band uses the 'GOES-R/IR/IR_Color_Clouds_Winter' color table with a minimum value of 328.15 and a maximum value of 164.15.
+
+The second part of the code defines color tables and their ranges for various hazard-related parameters, such as tropical winds, inundation (flooding), and storm surge height. For instance, the 'InundationMax' parameter uses the 'GFE/Inundation' color table with a minimum value of 0.0 and a maximum value of 30.0.
+
+In summary, this code is setting up the visual representation of different data layers in a geospatial visualization tool. The color tables and their associated ranges will determine how the data is displayed to the user.
+
+This code appears to be a configuration file for a weather visualization or modeling tool. It's defining a series of variables that set the color tables and ranges for various weather-related parameters. 
+
+1. `TideMSLnc_maxColorTableValue` and `SurgeHtPlusTideMSLnc_minColorTableValue` are setting the maximum and minimum values for the color table of tide and surge height parameters.
+
+2. `prob34_defaultColorTable`, `prob64_defaultColorTable`, `pwsD34_defaultColorTable`, etc., are setting the default color tables for various probability and wind speed parameters.
+
+3. `FloodingRainThreat_defaultColorTable`, `StormSurgeThreat_defaultColorTable`, `TornadoThreat_defaultColorTable`, and `WindThreat_defaultColorTable` are setting the default color tables for various weather threat parameters.
+
+4. `MaxTAloft_defaultColorTable` and `WetBulb_defaultColorTable` are setting the default color tables for maximum temperature aloft and wet bulb temperature parameters.
+
+5. `QPF_LogFactor` and `SnowAmt_LogFactor` are setting the logarithmic factors for the color tables of the QPF (Quantitative Precipitation Forecast) and snow amount parameters.
+
+6. `WetBulb_maxColorTableValue` and `WetBulb_minColorTableValue` are setting the maximum and minimum values for the color table of the wet bulb temperature parameter.
+
+7. `WeatherCoverage_names` and `WeatherCoverage_fillPatterns` are setting the names and fill patterns for different weather coverages.
+
+8. `WeatherType_names` and `WeatherType_colors` are setting the names and colors for different weather types.
+
+9. The last part of the code is incomplete but it seems to be setting up for another set of names and colors for weather types with specific intensities.
+
+This code file appears to be a configuration file for a weather-related application, possibly a weather forecasting tool or a weather data visualization tool. Here's what the different parts of the code are doing:
+
+1. The first part of the code defines color codes for different types of weather conditions. The `s` list contains abbreviations for different weather types, and `WeatherTypeInten_colors` assigns colors to these types. `WeatherGeneric_colors` is a list of colors to be used for weather conditions that are not defined in the `s` list.
+
+2. The next part of the code defines default preferences for the application. These include settings for displaying images, time scale lines, editor time lines, split boundaries, and other features. It also includes settings for the mode of operation for various features like the temporal editor, wind edit mode, missing data mode, and others.
+
+3. The code then defines settings for warnings and alerts that the application might display under certain conditions, such as when the user attempts to edit grids without setting an edit area.
+
+4. The next section defines settings for the contour to grid algorithm, including the default algorithm to use and the subsampling rate for the contour analyzer.
+
+5. The code then sets preferences for time stepping, time scale periods, and drawing colors for various tools.
+
+6. The final part of the code snippet begins to define settings for generating PNG graphic products, including the file type and legends display mode. However, the code snippet ends before these settings are fully defined.
+
+This code is a configuration file for generating PNG images, likely from weather data. It contains various settings and options that can be adjusted to customize the generated images. Here's a breakdown of what some of the sections do:
+
+1. `Png_height` and `Png_width`: These settings define the height and width of the generated images. They are commented out, which means the default value of 400 is used.
+
+2. `Png_image`: This setting specifies the weather element to be displayed in the image. If nothing is specified, all weather elements are displayed.
+
+3. `Png_snapshotTime`: This setting indicates whether a snapshot time should be displayed instead of the valid time of the grid.
+
+4. `Png_smoothImage`: This setting indicates whether the image should be smoothed or not.
+
+5. `Png_parms`: This setting is an alternate way of specifying the weather elements to be displayed. If this entry is specified, the DefaultGroup is ignored.
+
+6. `Png_legend`: This setting allows the user to turn on/off legends for the graphic generation.
+
+7. `Png_descriptiveWeName` and `Png_MaxT_AltName`: These settings allow the user to customize the weather element name displayed in the legend.
+
+8. `Png_legendFormat_Zulu_*` and `Png_legendFormat_LT_*`: These settings define the format of the legend for Zulu and LocalTime.
+
+9. `Png_filenamePrefix` and `Png_baseTimeFormat`: These settings define the prefix and the date/time format for the generated PNG filenames.
+
+10. `Png_interval` and `Png_intervalOffset`: These settings allow the user to specify an interval for which to generate imagery.
+
+11. `Png_fitToDataArea`: This setting is used when the "All Grids over Area" or "Single Grid over Area" option is enabled.
+
+12. `Png_logo` and `Png_logoString`: These settings allow the user to add a "logo bar" to the bottom of each image.
+
+13. `Png_legendLanguage`: This setting allows the user to set an alternate legend language.
+
+14. `Png_omitColorBar`: This setting allows the user to disable the colorbar for images.
+
+Most of these settings are commented out, which means they are not currently in use and the default values or behaviors are being used instead.
+
+This code file appears to be a configuration file for a software system, possibly related to weather forecasting or geospatial data processing given terms like "zone combiner", "grid data", and "product generation scripts". 
+
+The file contains several commented-out settings (lines starting with '#') which could be used to modify the behavior of the software. For example, "Png_wholeDomain" might control whether the software automatically zooms to the full extent of the data, "Png_infoFiles" could toggle the creation of PNG info files, and "Png_historyMask" might enable or disable a special masking feature.
+
+The "INTER SITE COORDINATION" and "ZONE COMBINER CONFIGURATION" sections seem to contain settings related to the coordination between different sites and the configuration of a "zone combiner", including its size and color settings.
+
+The "PRODUCT GENERATION SCRIPTS" section contains a list of scripts that appear under the product generation menu on the software's interface. Each script is a command line command that will be executed when chosen from the menu. The commands use variables like "{host}", "{port}", "{site}", etc., which will be replaced with actual values when the script is executed.
+
+The file also provides detailed notes on how to use and define variables in the scripts, including how to prompt the user for input or to make selections from a GUI.
+
+This part of the code file seems to be a comment section that provides instructions or guidelines on how to use certain features of the code. It does not execute any operations or functions itself, but serves as a guide for developers.
+
+1. It explains how to use the `entryChecks` and `entryButtons` with `EditAreas`. If these are named as "EditAreas", the system will accept either edit area names or edit area group names. If group names are provided, the system will automatically expand them to the corresponding areas.
+
+2. It provides an example of how to use `entryChecks` and `entryButtons` with `EditAreas`. For instance, `{entryChecks: EditAreas: Group1,Group2,Area3,Area4}` and `{entryButtons: EditAreas: Group1,Group2}`.
+
+3. It also provides instructions on how to string multiple command lines together in a script. The format it suggests is `"csh -c (<command line 1>; <command line 2>; <command line 3>)"`. This is a way to run multiple commands in a single line in a C shell (csh) script.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

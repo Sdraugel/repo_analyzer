@@ -1,0 +1,66 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>7724_remove_comms_jmsconnection_element.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>7724_remove_comms_jmsconnection_element.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This script is designed to update specific XML files on a server, specifically the files 'comms.xml' and 'comms-practice.xml' located in the '/awips2/bmh/conf/' directory. The update involves removing the 'jmsConnection' element from these XML files.
+
+Here's a step-by-step breakdown of what the script does:
+
+1. It defines a list of paths to the XML files it will update.
+
+2. The `rewrite_comms_xml` function is defined to handle the updating process for a single file. It first checks if the file exists. If not, it prints a message and skips the file.
+
+3. If the file does exist, it opens the file and parses the XML into an ElementTree object, which allows for easy manipulation of the XML elements.
+
+4. It then searches for all 'jmsConnection' elements in the root of the XML document. If no such elements are found, it prints a message and returns.
+
+5. If 'jmsConnection' elements are found, it creates a backup of the current file, appending the current date to the filename.
+
+6. It then removes all 'jmsConnection' elements from the XML document and writes the updated XML back to the original file.
+
+7. The `main` function loops over all the paths defined at the start of the script, calling `rewrite_comms_xml` for each one. If an exception occurs during the update of a file, it prints an error message and the traceback of the exception.
+
+8. Finally, if the script is run as the main module, it calls the `main` function to start the update process.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

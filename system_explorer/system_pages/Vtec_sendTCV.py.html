@@ -1,0 +1,66 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>sendTCV.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>sendTCV.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a larger software system developed by Raytheon Company. The script is designed to send Tropical Cyclone Vortex (TCV) Advisory Files to VTEC (Vortex Data Exchange) partners. 
+
+The script begins by importing necessary modules and initializing a logger for tracking the script's activities. 
+
+The main function, `runFromJava`, takes two arguments: `siteID` and `config`. This function appears to be called from a Java program, hence the name. The function retrieves various configuration details (like server host, port, protocol version, etc.) and initializes the logging system.
+
+It then purges all 'Can' files using a utility function from the `TCVUtil` module. 
+
+The script then creates a directory for TCV products if it doesn't exist. If there's an error during the creation of this directory (other than the directory already existing), it logs a warning.
+
+A temporary file is created in this directory to store packaged TCV files. 
+
+The script then packages TCV files for the given site ID. If this is successful, it retrieves a list of destination sites from the `VTECPartners` module. If no destination sites are defined, it raises an exception.
+
+The script then creates an XML file containing destination details using the `IrtAccess` module. This XML file is also stored as a temporary file in the TCV products directory.
+
+The script ensures that it doesn't send the TCV files to itself by removing its own ID from the list of destination sites. If there are destination sites remaining, it sends the TCV files and the XML file to these sites.
+
+If there are no TCV files to send, it logs this information. If there's an error at any point during the process of sending TCV files, it logs this exception.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,66 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>EXAMPLElocalConfigNewDB.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>EXAMPLElocalConfigNewDB.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be a configuration file for a server, specifically a local configuration file (`localConfig.py`). It's used to customize the behavior of a software system. The software system appears to be related to weather data, as it mentions weather elements like temperature (T), dew point (Td), relative humidity (rh), and maximum relative humidity (maxrh).
+
+Here's a breakdown of what the code does:
+
+1. It imports everything from `serverConfig` module. This is likely a general configuration file that applies to all instances of the server.
+
+2. It defines new variables `rh` and `maxrh` which represent relative humidity and maximum relative humidity, respectively. These variables are tuples that contain information about the type of data, units, description, maximum and minimum values, and other settings.
+
+3. It defines a time constraint `LT4gap` which starts at 6am, repeats every 24 hours, and is 4 hours long.
+
+4. It defines a new database `Ag` with certain attributes. The database is grid-based and only one version of it is wanted.
+
+5. It defines a new parameter grouping `AG_MODEL` which relates weather elements to time constraints. The temperature, dew point, and relative humidity get the basic 1 hourly time constraints, while maximum relative humidity gets the special time constraint defined earlier.
+
+6. Finally, it defines a variable `dbs` which is a list containing a tuple. The tuple contains the database and the parameter grouping. This line is important for the server to see the new definition. 
+
+The comments indicate that adding a new database is a complex process and must be done in the correct order, suggesting that this file is part of a larger system where changes can have significant effects. 
+
+The initial comments in the file also indicate that this software was developed by Raytheon Company and contains export-restricted data, meaning it's subject to U.S. export laws.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

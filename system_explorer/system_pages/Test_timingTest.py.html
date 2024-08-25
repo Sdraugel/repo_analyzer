@@ -1,0 +1,70 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>timingTest.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>timingTest.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to perform timing tests on various storage plugins for a system referred to as Python Process Isolated Enhanced Storage. 
+
+The script first imports necessary libraries and sets up some initial data. It creates two arrays of random numbers, one 1-dimensional and one 2-dimensional.
+
+The script then defines several functions:
+
+- `createAndAppendTest(interface, array)`: This function creates a group and a dataset in the specified interface, and then appends 500 random values to the dataset.
+
+- `test1D(clz)`: This function tests the performance of the specified class (clz) with 1-dimensional data. It creates and appends data, then retrieves a sample of the data. It also handles file cleanup.
+
+- `test2D(clz)`: Similar to `test1D`, but for 2-dimensional data.
+
+- `create2DTest(interface, twoDimData)`: This function creates a group and a 2-dimensional dataset in the specified interface.
+
+- `sampleTest(interface)`: This function retrieves a dataset and samples values at specified indices.
+
+- `retrieve2DTest(interface)`: This function retrieves a 2-dimensional dataset.
+
+- `main()`: This is the main function that runs the timing tests. It uses the `timeit` module to measure the time taken by each test. It runs each test multiple times (as specified by `ntrials`) and prints the average time taken by each test.
+
+The script tests three different classes for handling data: `TablesTiming`, `H5pyTiming`, and `Netcdf4Timing`. These classes are not defined in this script, so they would need to be imported from elsewhere in the actual application.
+
+The script is designed to be run as a standalone program. If it is run as such (i.e., if its name is "__main__"), it will call the `main()` function and run the timing tests.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

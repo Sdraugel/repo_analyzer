@@ -1,0 +1,130 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TimeDescriptor.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TimeDescriptor.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The code is a Python script that defines a class named `TimeDescriptor`. This class is used to handle and manipulate time-related data. The class inherits from two other classes: `TimeRangeUtils` and `Interfaces`.
+
+The `TimeDescriptor` class has several methods:
+
+1. `__init__`: This is the constructor of the class. It initializes the parent classes.
+
+2. `getCurrentTime`: This method returns a text string of the current time in a given format. It takes several parameters including a dictionary (`argDict`), a string (`format`), and several integer flags (`shiftToLocal`, `upperCase`, `stripLeading`). The method checks if `creationTime` is in `argDict` and uses it as the current time; otherwise, it uses the system's current time. It then formats the time string based on the given parameters.
+
+3. `getIssueTime`: This method returns the issue time formatted and translated. The issue time is retrieved from the `issueRange` in the `argDict` parameter. The time string is then translated based on the `language` in `argDict`. If `upperCase` is set to 1, the time string is converted to uppercase.
+
+4. `getWeekday`: This method checks for long time ranges and returns a weekday text string. If the time range duration is more than 24 hours, it splits the time range into start and end time ranges and gets the weekday descriptor for each. Otherwise, it gets the weekday descriptor for the given time range.
+
+5. `getWeekday_descriptor`: This method returns a weekday text string based on several parameters including a time range, a flag for holidays, a flag for shifting to local time, a label type, flags for today and tomorrow, a holiday module, and flags for next day and split day 24-hour labels.
+
+The script also includes a software history comment section, which documents changes made to the software over time. For example, on February 28, 2018, an engineer named randerso fixed casing in `getWeekday_descriptor` when the combined time period includes a holiday.
+
+This code is a part of a larger system that generates labels for time ranges. It takes into account various factors such as the current local time, shift to local time, duration of the time range, whether the time range falls on a holiday, whether it falls on today or tomorrow, and whether it falls during the day or night. 
+
+The code first determines the local time and the shift to local time. If the shift to local time is 1, it adjusts the start and end times of the time range accordingly. 
+
+Next, it retrieves the appropriate labels based on the label type and checks whether the time range falls on today. If the product issuance is "Next Day", it adjusts the today flag accordingly. 
+
+The code then calculates the start hour, day or night period, and duration in hours of the time range. It also determines whether the time range should be labeled as the next day or split into day and night periods. 
+
+The code then checks whether the time range falls on a holiday. If it does, it retrieves the appropriate holiday label and returns it. 
+
+If the time range falls on today, the code checks the duration and day or night period of the time range and returns the appropriate label. 
+
+If the time range falls on tomorrow, the code adjusts the start time and returns the appropriate label. 
+
+Finally, if the time range falls on a weekday, the code checks the duration and day or night period of the time range and returns the appropriate label. If the time range starts late in the day and lasts for 24 hours, it uses the next day as the label. If the time range is split into day and night periods, it generates a label that includes both periods.
+
+This code defines a set of methods and data structures related to labeling and formatting dates and times. 
+
+1. `getHolidayLabel` method: This method returns a label for a given holiday based on the absolute time provided. If there are no holidays, it returns an empty string.
+
+2. `getPeriodLabel` method: This method returns a label for a given period. It compares the range (in GMT time) to the current local time and returns a label based on the weekday.
+
+3. `getLocalWeekday` and `getLocalWeekdayName` methods: These methods return the local weekday and local weekday name for a given time range. They also take into account holidays and shift to local time.
+
+4. `Labels` method: This method returns a dictionary of different label formats. Each format includes pre and post punctuations, weekday names, and labels for different parts of the day (e.g., "Now", "Today", "Tonight", etc.). The formats vary in terms of capitalization, abbreviation, and punctuation.
+
+The label formats include "SimpleWorded", "Worded", "Capital", "CapitalWithPeriod", "Abbreviated", "CapsAbbreviated", and "Combo". Each format has a different style of presenting the same information, allowing for flexibility in how dates and times are displayed or used in the application.
+
+This code is a part of a larger program that seems to be dealing with time periods and descriptions of those periods. It appears to be written in Python.
+
+1. The first part of the code is a dictionary that maps certain time period descriptions to themselves. This could be used elsewhere in the program to standardize the descriptions.
+
+2. The `timePeriod_descriptor_list` function returns a list of tuples. Each tuple represents a time period and a description of that period. The time periods are calculated based on the current day (retrieved by calling `self.DAY()`) and are represented as hours of the day (0-23). The descriptions are strings that describe the time period.
+
+3. The `lateDay_descriptor` and `lateNight_descriptor` functions return specific strings. These functions are likely used elsewhere in the program to provide descriptions for certain time periods.
+
+4. The `include_timePeriod_descriptor_flag` function seems to be used to determine whether a time descriptor should be included for a given element. It takes several parameters, including a tree, a node, stats by range, an index, and an element. It appears to be used specifically for the "Wind" element and alternates between including and not including the descriptor based on the index.
+
+5. The `timePeriod_descriptor` function returns a descriptor phrase for a given time range. It converts the time range from GMT to local time and returns an empty string if the duration of the time range is more than 12 hours or if the time range equals the time range of the node.
+
+The code is cut off at the end, so it's not possible to see what the rest of the `timePeriod_descriptor` function does.
+
+The code appears to be part of a larger program that works with time ranges and time zones. Here's a breakdown of what each part does:
+
+- The first block of code is trying to find the best match for a given time period in a table. It calculates the difference between the start hour of the period and each entry in the table, and stores the entries with the smallest difference. If no matches are found, it returns an empty string. It then repeats the process for the end hour of the time period.
+
+- The `hourDiff` function calculates the absolute difference in hours between two given hours, taking into account that the maximum difference can be 12 hours (since it's a 24-hour clock).
+
+- The `dayDict`, `monthDict`, and `monthDict1` functions return dictionaries that map numerical representations of days and months to their string representations.
+
+- The `timeRangeLabel`, `hourAmPm`, `periodLabel`, `localTimeRangeLabel`, `localOneHourTRLabel`, `localTRLabel`, `localPeriodLabel`, `localTimeLabel`, `localRangeLabel`, and `localHourLabel` functions are all used to format time ranges and individual times in various ways. These include converting from military time to AM/PM, adding time zone information, and creating labels for different types of time ranges.
+
+- The `determineTimeShift` method (which is not shown in the provided code) presumably calculates the difference between local time and GMT.
+
+- The `localHourLabel` function converts a given time from GMT to local time and formats it as a string.
+
+This part of the code file appears to be part of a larger class or module that deals with time conversion. It contains two methods: 
+
+1. The first method is not fully visible, but it seems to be formatting a time label based on the hour and whether it's AM or PM. It returns this label as a string, right-justified to a certain length.
+
+2. The second method, `strToGMT`, converts a time string in local time to Greenwich Mean Time (GMT) for the current day. The time string must be in a specific format, either 6 or 7 characters long, and in the form of "HHMM AM/PM". 
+
+The method first extracts the hour and minutes from the time string, and converts them to integers. If the time is in the PM, it adds 12 to the hour (unless the hour is 12, in which case it remains the same). If the time is 12 AM, it changes the hour to 0.
+
+Then, it creates a local time object (`AbsTime`) using the current year, month, and day, and the extracted hour and minutes. It also determines the time shift between the local time and GMT.
+
+Finally, it converts the local time to GMT by subtracting the time shift from the local time, and returns this GMT time.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

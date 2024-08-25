@@ -1,0 +1,126 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>FormatterRunner.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>FormatterRunner.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that is part of a larger software system developed by Raytheon Company. The script is primarily focused on running a text formatter to generate text products. 
+
+The script starts by importing several Python modules such as logging, os, stat, sys, and time, as well as several other modules and classes from the software's own libraries.
+
+The script then sets up a dictionary called `displayNameDict` and initializes several constants related to logging, such as `PLUGIN_NAME`, `CATEGORY`, `DEFAULT_LOG_FILENAME`, `FILEMODE`, and `PATH_MGR`.
+
+The script then attempts to set up a logger object. If it encounters an exception during this process, it falls back to a basic logging configuration and logs the exception.
+
+The script defines a function `executeFromJava` which appears to be intended to be called from Java code. This function takes several parameters, including a database ID, site, username, data manager, forecast list, log file, and several others. The function sets up a file logger for the product, redirects stdout and stderr to the logger, logs the start of the text formatter, runs the formatter, logs any exceptions that occur, logs the end of the formatter, and then restores the original stdout and stderr.
+
+The script also defines a function `getPid` which appears to parse a product forecast to extract a product ID. 
+
+The script ends abruptly during the definition of another function `runFormatter`, so it's not clear what this function does. 
+
+The script also includes a software history section that details changes made to the script over time, which can be useful for understanding how the script has evolved. 
+
+The script also includes a disclaimer that it contains export-restricted data whose export/transfer/disclosure is restricted by U.S. law.
+
+The code is a function that performs a series of operations related to forecast generation and handling. Here's a breakdown of what it does:
+
+1. It initializes a dictionary `cmdLineVarDict` which seems to hold command line variables. If the dictionary is not provided, it initializes an empty dictionary.
+
+2. It checks if the `forecastList` is empty. If it is, it logs an error and returns.
+
+3. It checks if both `testMode` and `experimentalMode` are active. If they are, it logs an error and returns.
+
+4. If `drtTime` is provided, it sets an offset for it.
+
+5. It creates a time range if both `startTime` and `endTime` are provided. If not, it sets `timeRange` to None.
+
+6. It checks if `vtecMode` is valid. If not, it logs an error and exits the program.
+
+7. It adjusts the `vtecMode` based on the `testMode` and `experimentalMode`.
+
+8. It creates an `ifpClient` object and retrieves the grid location.
+
+9. It creates a dictionary `argDict` to hold various arguments.
+
+10. It checks for command line switches for certain variables and adds them to `argDict` if they exist.
+
+11. It logs the arguments, adds additional items to `argDict`, sets the site time zone, and creates a `TextFormatter` object.
+
+12. It generates forecasts for each type in `forecastList`, converts them to upper case if required, and logs the forecasts.
+
+13. It tries to write the forecasts to output files and append files. If it fails, it logs an error and exits the program.
+
+14. It attempts to write to a server file if `username` is "SITE".
+
+Please note that the code snippet is incomplete, so the final operation is not fully clear.
+
+This Python code file appears to be part of a larger system, possibly related to weather forecasting, given the repeated references to "forecasts". Here's a breakdown of what each function does:
+
+1. `decodeTimeStruct(timeStruct)`: This function takes a time structure as an input and returns an absolute time object using the year, month, day, hour, and minute from the time structure.
+
+2. `writeToFile(forecasts, outputFile, mode)`: This function writes forecasts to an output file. If an error occurs during the writing process, it logs the error and returns 0. If the process is successful, it changes the file permissions and returns 1.
+
+3. `writeToServerFile(forecasts, outputFile, writeToSite)`: This function writes forecasts to a server file. It determines the context based on the `writeToSite` parameter. If an error occurs during the writing process, it logs the error and returns 0. If the process is successful, it saves the file and returns 1.
+
+4. `importModules(paths)`: This function imports modules from the provided paths. If a module fails to import, it logs the error. It also searches for a 'Definition' within each module and stores it in a dictionary along with the module.
+
+5. `getScripts(paths, getVtecCodes)`: This function imports modules from the provided paths and creates a list of text product metadata. If `getVtecCodes` is true, it also imports VTEC message types.
+
+6. `filterScripts(name)`: This function checks if a file is a Python script and does not end with "Definition".
+
+7. `getDisplayName(definition)`: This function tries to get the 'displayName' from a definition. If it fails, it returns None.
+
+8. `ppDef(definition)`: This function pretty prints a definition dictionary in a more readable format. If the definition is not a dictionary, it returns a string indicating so.
+
+The code also includes a few error handling and logging mechanisms.
+
+This Python code defines four functions: `getVarDict`, `getVTECMessageType`, `getTimeZones`, and `reloadModule`.
+
+1. `getVarDict`: This function takes six parameters: `paths`, `dspName`, `dataMgr`, `ifpClient`, `issuedBy`, and `dataSource`. It first imports some modules using the `importModules` function with `paths` as its argument. Then, it gets the site time zone from the `ifpClient` object and sets it as the current time zone. It retrieves a product definition from a dictionary using `dspName` as the key, and updates the 'database' field of the product definition with `dataSource`. It then creates a `VarDictGroker` object with several parameters and calls its `getVarDict` method.
+
+2. `getVTECMessageType`: This function imports the `VTECMessageType` module and calls its `getVTECMessageType` function with `productCategory` as the argument.
+
+3. `getTimeZones`: This function takes two parameters: `zones` and `officeTZ`. It imports the `AreaDictionary` module and initializes an empty list `timezones`. If `zones` is not `None`, it iterates over `zones` and gets a dictionary for each zone from `AreaDictionary`. It then gets the "ugcTimeZone" from the dictionary and adds it to `timezones` if it's not already there. If `officeTZ` is in `timezones` and it's not the first item, it removes it from `timezones` and inserts it at the beginning. If `timezones` is empty, it adds `officeTZ` to it. Finally, it converts `timezones` to a Java string list and returns it.
+
+4. `reloadModule`: This function takes one parameter: `moduleName`. It checks if `moduleName` is in `sys.modules`. If it is, it removes it from `sys.modules`. Then, it tries to import `moduleName`. If the import fails, it logs an exception message.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

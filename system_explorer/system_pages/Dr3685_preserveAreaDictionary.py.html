@@ -1,0 +1,72 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>preserveAreaDictionary.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>preserveAreaDictionary.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to preserve a site's current configured AreaDictionary.py file as a site-level file, if one doesn't already exist. 
+
+Here's a step-by-step breakdown of what the script does:
+
+1. It sets a constant `AREA_DICTIONARY_PATH` to the path where the AreaDictionary.py files are located.
+
+2. It imports necessary modules: `glob` for file pathnames matching, `os` for interacting with the operating system, `shutil` for high-level file operations, and `traceback` for extracting, formatting and printing stack traces.
+
+3. The `main()` function is defined. This function does the main work of the script.
+
+4. Inside `main()`, it loops over each file that matches the `AREA_DICTIONARY_PATH` pattern using `glob.glob()`. 
+
+5. For each matched file (referred to as `configFile`), it creates a corresponding `siteFile` path by replacing "cave_static/configured" with "cave_static/site" in the `configFile` path.
+
+6. It checks if the `siteFile` already exists using `os.path.exists()`. 
+
+    - If the `siteFile` does not exist, it tries to create the necessary directories for the `siteFile` using `os.makedirs()`. If an `OSError` exception is raised during the creation of directories, it checks if the error is not because the directories already exist (i.e., `errno.EEXIST`). If the error is due to another reason, it prints an error message and the stack trace, then continues with the next iteration of the loop.
+
+    - After the directories have been created (or if they already existed), it tries to copy the `configFile` to the `siteFile` location using `shutil.copy()`. If an error occurs during the copy operation, it prints an error message and the stack trace.
+
+    - If the `siteFile` already exists, it prints a message indicating that the `configFile` is being skipped because the `siteFile` already exists.
+
+7. Finally, if the script is run as a standalone program (i.e., not imported as a module), it calls the `main()` function to start the execution.
+
+In summary, this script is used to ensure that a copy of each AreaDictionary.py file is preserved at the site level, creating necessary directories and handling errors as needed.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

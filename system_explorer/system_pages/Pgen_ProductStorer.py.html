@@ -1,0 +1,56 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ProductStorer.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ProductStorer.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code defines a class named `ProductStorer` that is used to store a PGEN (Product Generation) Activity, which is in XML format, to EDEX (Environmental Data EXchange). 
+
+The class has an initializer method (`__init__`) that takes two parameters: `activityInfo` and `activityXML`. These parameters are used to set the activity information and the XML data of the activity. The initializer also sets the host and port for the Thrift client by getting these values from the environment variables `DEFAULT_HOST` and `DEFAULT_PORT`. If these environment variables are not set, it defaults to "localhost" and "9581" respectively. A Thrift client is then created with the host and port.
+
+The `storeActivity` method is used to send a request to store the activity. It creates a `StoreActivityRequest`, sets the activity information and XML data, and then sends the request using the Thrift client. If the request is successful (i.e., `resp.getResult` is true), it returns the data URI of the response; otherwise, it returns `None`.
+
+The commented out import statement at the top suggests that at some point the code might have used or was planned to use `ByteDataRecord` from the `com.raytheon.uf.common.datastorage.records` package, but currently it's not being used.
+
+The `awips` package used here is a Python package for meteorological data, and `ThriftClient` is a part of it. The `dynamicserialize` package is used for serialization and deserialization of data in a distributed system.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,134 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>RecommendWindWW.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>RecommendWindWW.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is part of a larger software system, likely related to meteorology or weather forecasting, given the use of terms like "storm", "wind", "hazard", and "zone". 
+
+The code starts with a detailed history of changes made to the software, including the date, ticket number, engineer's name, and a brief description of the changes. 
+
+The code then imports several modules and defines a class named `Procedure` that inherits from `TropicalUtility.TropicalUtility`. This class has several methods that perform various tasks:
+
+- `__init__`: Initializes the class with a database session and creates a utility object and a zone map.
+- `getLatestProbWindDBID`: Finds the latest database ID with a specified model name.
+- `fetchGuidanceGrid`: Fetches a specific guidance grid.
+- `fetchNHCZoneMask`: Fetches or creates an edit area that represents a set of zones that are the responsibility of the National Hurricane Center (NHC).
+- `getStormNames`: Gets a list of storm names from a JSON file.
+- `getProbWindThreshold`: Returns a probability wind threshold given specific information.
+- `getFilteredHazardGrid`: Fetches a hazard grid but filters all hazards to specified keys.
+
+The code appears to be part of a system for managing and analyzing weather data, particularly related to storms and wind. It interacts with a database, fetches and processes data, and handles errors.
+
+The provided code seems to be part of a larger system that deals with hazard grids, possibly in the context of weather forecasting or disaster management. Here's a breakdown of what each part does:
+
+1. The first part of the code checks if there are any grids for a particular hazard (named "Hazards"). If no grids are found, it creates an empty grid and returns it. If grids are found, it fetches the first grid and filters it based on some filter keys, then returns the filtered grid.
+
+2. The `getETN` method retrieves the ETN (Event Tracking Number) for a given storm name from a dictionary of storm information. 
+
+3. The `stripETN` method removes the ETN from a hazard key. 
+
+4. The `addETNToHazardKey` method adds a given ETN to a hazard key.
+
+5. The `insertBreakpointHazards` method assigns hazards to an initial hazard grid based on information in a specified storm info file. It also handles the cases where the keys are combined.
+
+6. The `downgradeAllowed` method checks if a downgrade of a hazard is allowed based on the previous and proposed hazards.
+
+7. The `hazardMask` method returns a mask over the areas that matches the specified hazard key.
+
+8. The `makeGuidanceGrid` method creates a hazard grid based purely on the wind probability guidance. It also populates some dictionaries for each hazard.
+
+The code seems to be incomplete, as the last line `etnS` is cut off. It's likely that this line is meant to continue the `makeGuidanceGrid` method.
+
+This code appears to be part of a larger system that is used for weather forecasting, specifically for tracking and predicting wind hazards. The code is written in Python and uses a variety of data structures and methods to analyze and manipulate data related to these hazards.
+
+The first part of the code is a method that processes a list of hazard keys. For each key, it removes the ETN (Event Tracking Number), checks if the hazard is in a specific zone type (either "Coastal" or not), and calculates the wind probability mask. It then finds overlapping zones and calculates the percentage coverage of the hazard in each zone. If the coverage exceeds a certain threshold, the hazard is assigned to the zone.
+
+The code also handles a special case where there is overlap between two specific hazards ("HU.A" and "TR.W"). It calculates the overlap and assigns a combined key if there is any overlap.
+
+The second part of the code is another method that creates a recommended hazard grid based on the processed data. It creates a difference grid to identify areas of change and no change between the filtered hazard grid from the previous forecast and the current guidance grid. It then proposes a new grid based on these changes.
+
+The code also includes debug sections that create various grids for visualizing the data and the changes. These grids are likely used for testing and debugging purposes to ensure the calculations and assignments are correct.
+
+This code appears to be part of a larger system, possibly for weather forecasting or hazard prediction. It contains several methods that perform various tasks:
+
+1. `makeDifferenceGrids`: This method calculates the differences between a previous hazard grid and the guidance and recommended grids. It creates two new grids: "GuidanceMinusPrevious" and "RecommendedMinusPrevious", which represent the differences between the guidance/recommended hazard ranks and the previous hazard rank.
+
+2. `calculateAffectedArea`: This method calculates the area that will be affected by the tool. If an edit area is provided, it returns the mask of that area. Otherwise, it calculates the union of the guidance area and the area covered by any hazards.
+
+3. `getAllGuidanceGrids`: This method fetches all of the guidance grids that will be needed for the algorithms. It seems to be related to wind probabilities for different types of hazards.
+
+4. `makeTimeRange`: This method creates a time range that is used for creating all grids.
+
+5. `hazardRankGrid`: This method converts a given hazard grid to a scalar ranking based on the order in which hazards are found in a predefined list. 
+
+6. `removeAllETNs`: This method removes all ETNs (possibly Event Tracking Numbers) from the keys specified in the hazard grid and returns the keys without ETNs.
+
+7. `makeThresholdGrids`: This method defines grids of thresholds for each hazard and area type (coastal, inland).
+
+8. `downgradeMaskForCombined`: This method calculates a special mask of where downgrades are valid for combined hazards. It seems to be related to handling special rules for combined hazards.
+
+The code uses numpy for numerical operations and seems to be part of a class, as it uses `self` to access instance variables and methods.
+
+This code is part of a larger system that manages and analyzes hazard data. It contains three methods: `TN()`, `makeDiffGrid()`, and `getInlandZones()`. 
+
+1. `TN()` method: This method is not fully included in the provided code. It appears to be processing a storm name and creating a mask for certain hazard conditions (TR.W^HU.A and HU.A^TR.W). It then creates two more masks, `trwMask` and `huaMask`, based on the downgrade wind speed grids. The method then creates a `downgradeMask` that indicates possible downgrade possibilities and returns this mask.
+
+2. `makeDiffGrid()` method: This method calculates the differences between a previous hazard grid and a guidance grid. This difference is crucial as it determines where hazards are upgraded or downgraded. The method creates a grid containing three values, -1, 0, and 1. A value of -1 indicates areas that should be downgraded, 0 represents no change, and a value of 1 indicates areas that should be upgraded. It also checks each guidance hazard to see if the suggested downgrade is allowed. The method then calculates areas where the wind speed probability is below the threshold. These are potential areas for downgrade. The method then calculates the areal coverage over each zone and saves this value for later. If a downgrade is allowed, the grid is set to indicate a downgrade should be done. The method then returns a grid.
+
+3. `getInlandZones()` method: This method fetches the set of inland zones based on the specified Hazard grid. Only zones where a hazard is defined are returned. It calculates the areas where hazards exist and removes any coastal zone areas. The method then finds the list of zones using ZoneMap. The method is not fully included in the provided code. 
+
+Note: The code seems to be part of a larger system, and without the full context, some assumptions have been made based on the provided code.
+
+This code appears to be part of a larger system that deals with storm and hazard information, possibly for weather forecasting or storm tracking. Here's a breakdown of what each part of the code does:
+
+1. `zoneMap.getOverlappingZoneNames(hazMask) zoneDict[hazard] = inlandZones` - This part of the code is getting overlapping zone names from a map using a hazard mask and assigning the inland zones to a dictionary with the hazard as the key.
+
+2. `saveZonesToJSONFile(self, hazardGrid)` - This function saves the inland zones that have a hazard to a JSON file. It first checks if the storm name exists in the storm information dictionary. If it does, it gets all the inland zones that have a hazard and adds them to the storm information. If the storm name doesn't exist, it prints an error message.
+
+3. `removedOldPropGrids(self)` - This function removes all previous Proposed grids.
+
+4. `execute(self, editArea)` - This is the main method that is called when the tool is invoked. It performs several operations such as getting storm information, initializing variables, fetching GUI choices, fetching and creating masks, calculating the affected area, removing old proposed grids, creating guidance and recommended hazard grids, deleting old grids, making difference grids, and saving zones to a JSON file.
+
+The GUI section within the `execute` function is responsible for getting user input and initializing variables based on that input. The rest of the `execute` function seems to be performing operations related to hazard and storm tracking, such as creating and deleting grids, calculating affected areas, and saving data to a JSON file.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

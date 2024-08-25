@@ -1,0 +1,82 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ifpBreakAllLocks.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ifpBreakAllLocks.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a part of a Python script that provides a command-line utility to break all locks in a system. The locks are presumably used to manage access to shared resources or to prevent concurrent access of a data item by more than one thread.
+
+The script was developed by Raytheon Company and contains export-restricted data. The script imports several modules and libraries, including logging, os, sys, and several modules from dynamicserialize.dstypes.com.raytheon.uf.common.dataplugin.gfe, among others.
+
+The script sets up a logging configuration and defines several functions:
+
+- `__WsId()`: Returns a WsId object with a specific program name.
+- `officialDB()`: Checks if a database ID matches any of the official databases.
+- `breakAllLocksGRIDRequest()`: Breaks all locks except those from the official database.
+- `getActiveSites()`: Sends a request to get active sites.
+- `validateArgs()`: Validates command-line arguments.
+- `getLockTablesRequest()`: Creates a request to get lock tables.
+- `getOfficialDbNamesRequest()`: The function is not complete, but it seems like it would create a request to get official database names.
+
+The script also handles command-line arguments, including host, port, siteID, whether to break all locks, and specific database IDs to break locks on. It also validates these arguments and checks if the specified database IDs are valid.
+
+This Python script is designed to break all locks in a database. Here's a step-by-step breakdown of what the code does:
+
+1. The `main` function is the entry point of the script. It starts by logging the start of the process and validating the arguments provided to the script.
+
+2. It creates a `ThriftClient` object, which is used to communicate with a Thrift service. The host, port, and service path are provided as arguments.
+
+3. The script then retrieves the list of active sites from the Thrift service. If it fails to do so, it logs an error message and exits with a status code of 1.
+
+4. The script checks if a site ID was provided as an argument and if it's in the list of active sites. If a site ID wasn't provided and there's only one active site, it uses that site's ID. If the site ID isn't valid or wasn't provided and there's more than one active site, it logs an error message and exits with a status code of 1.
+
+5. The script sends a request to the Thrift service to retrieve the official database names for the site. If it fails to do so or the response indicates an error, it logs an error message and exits with a status code of 1.
+
+6. The script sends another request to the Thrift service to retrieve the lock table for the site. If it fails to do so or the response indicates an error, it logs an error message and exits with a status code of 1.
+
+7. The script creates a request to break all locks in the databases specified in the arguments or all databases if the `allLocks` argument is set to True. It sends this request to the Thrift service. If it fails to do so or the response indicates an error, it logs an error message and exits with a status code of 1.
+
+8. Finally, the script logs that the process of breaking all locks has finished.
+
+The `if __name__ == '__main__':` line at the end of the script ensures that the `main` function is only called if the script is run directly, not if it's imported as a module.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

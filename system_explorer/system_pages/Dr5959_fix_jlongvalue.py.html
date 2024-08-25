@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>fix_jlongvalue.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>fix_jlongvalue.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is a part of a larger file that uses the `lib2to3` library to perform transformations on Python code. The `lib2to3` library is a Python library that provides tools to refactor Python 2.x source code into valid Python 3.x code.
+
+The code defines a class `FixJlongvalue` that inherits from `fixer_base.BaseFix`. This class is used to define a specific transformation rule.
+
+The `BM_compatible` attribute is set to `True`, which means this fixer is compatible with the Bottom Matcher, a tree pattern matching engine used by `lib2to3`.
+
+The `PATTERN` attribute is a string that defines the pattern of the Python code this fixer is looking for. In this case, it's looking for instances where the `longValue` method is called, with or without parentheses.
+
+The `order` attribute is set to `"pre"`, which means this fixer should be applied before other fixers.
+
+The `start_tree` method is called at the beginning of the tree traversal. In this case, it just calls the parent class's `start_tree` method.
+
+The `transform` method is where the actual transformation happens. It takes a node of the syntax tree and a dictionary of match results. If the base of the power operation is present in the results, it clones the base nodes, sets the prefix of the first base node to an empty string, and replaces the original node with a call to the `long` function with the base nodes as arguments. This effectively changes a call to the `longValue` method into a call to the `long` function.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,90 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Hazard_HWO_MultiPil.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Hazard_HWO_MultiPil.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The code you provided is a Python script that is part of a larger software system developed by Raytheon Company. This script is specifically designed to generate a Hazardous Weather Outlook (HWO) report. 
+
+Here's a breakdown of what the code does:
+
+1. The script begins by importing necessary modules such as `GenericReport`, `TextRules`, `string`, `time`, `re`, `os`, `types`, and `copy`.
+
+2. It then defines a class `TextProduct` which is a subclass of `GenericReport.TextProduct`. This class is used to generate the HWO report.
+
+3. The `TextProduct` class has a dictionary `Definition` that contains various parameters for the report, such as the display name, output file, database, debug mode, map name for combinations, default edit areas, product identifiers, area dictionary, language, line length, purge time, header format, and others.
+
+4. The class also has a `VariableList` that contains the type of HWO (either "No Active Weather" or "Active Weather").
+
+5. The `__init__` method is used to initialize the `TextProduct` class.
+
+6. The `_preProcessArea` method is used to prepare the area header for the report. It takes in forecast, edit area, area label, and argument dictionary as parameters.
+
+7. The `_makeProduct` method is used to generate the actual HWO report. It takes in forecast, edit area, area label, and argument dictionary as parameters. It creates the general area phrase, lists all general areas found, adds this general area to the text, and makes the time period headers.
+
+This script is likely part of a larger system that collects weather data, processes it, and then uses this script to generate a formatted HWO report.
+
+This Python code appears to be part of a larger program that generates weather forecasts. Here's a breakdown of what each part does:
+
+- The first part of the code determines the base time for the forecast. If the current hour is less than 3, it subtracts 10800 seconds (3 hours) from the current time. Otherwise, the base time is the current time.
+
+- It then calculates the days for the forecast. `tomorrow` is the day 86400 seconds (1 day) after the base time, and `daySeven` is the day 518400 seconds (6 days) after the base time.
+
+- The code then determines the phrase to use for the first day of the forecast, based on the current hour.
+
+- It also constructs a phrase for the days two through seven of the forecast.
+
+- The next part of the code checks for the "NIL HWO" (No Hazardous Weather Outlook). It does this by iterating over a dictionary of variables and setting attributes on the current object based on the keys and values in the dictionary.
+
+- It then checks if the forecast type is "No Active Weather". If it is, it sets the text for the first day, the next six days, and the spotter text to the return values of the respective methods.
+
+- It then constructs the final forecast string by concatenating all the phrases and texts together, separated by newlines.
+
+- The `_postProcessArea` method simply appends a string to the forecast.
+
+- The `_postProcessProduct` method does some post-processing on the forecast. It breaks the forecast into lines of a certain length, removes multiple line feeds, and updates a progress meter.
+
+- The `getDayOneText`, `getDayTwoSevenText`, `getSpotterText`, and `getSpotterInfoStmt` methods return default texts for the forecast. These methods are likely meant to be overridden in subclasses to provide more specific texts.
+
+- The code also contains placeholders for required and optional overrides, as well as patches. These are likely meant to be filled in with additional code in the future.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

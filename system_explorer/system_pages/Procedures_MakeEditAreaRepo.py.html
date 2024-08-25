@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>MakeEditAreaRepo.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>MakeEditAreaRepo.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script, named `MakeEditAreaRepo.py`, is a part of a software that is in the public domain. It is used to create an edit area repository for saving and retrieving edit areas outside of a system called CAVE. 
+
+The script uses a module named `EditAreaUtilities` to perform its tasks. It also uses other modules like `time`, `SmartScript`, `os`, and `stat`. 
+
+The script defines a class `Procedure` that inherits from `SmartScript.SmartScript`. The class has three methods: 
+
+1. `__init__`: This is the constructor method which initializes the class. 
+
+2. `makeFullDirPath`: This method is used to create a directory tree with appropriate permissions. If the directory specified by `dirPath` does not exist, it creates the directory with the permissions specified by `permissions`.
+
+3. `execute`: This is the main method of the class. It gets the site ID, defines the path for the repository, creates an instance of `EditAreaUtilities` with the defined path, and sets the permissions for the directory and files. It then creates the directory path using the `makeFullDirPath` method. It retrieves a list of edit areas and for each edit area, it tries to encode the edit area and save it using the `EditAreaUtilities` instance. If there is an error during the encoding of an edit area, it prints an error message and continues with the next edit area. After saving all the edit areas, it prints a message with the time taken to save all the edit areas.
+
+The script also contains two empty lists, `MenuItems` and `VariableList`, which are not used in the script. The purpose of these lists is not clear from the provided code. 
+
+It's important to note that the path for the repository is currently set to an empty string. The script will not work as expected until a valid path is defined.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

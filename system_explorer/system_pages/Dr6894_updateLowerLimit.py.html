@@ -1,0 +1,66 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>updateLowerLimit.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>updateLowerLimit.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to update XML files in specified directories. The main purpose is to change the value of the 'lowerLimit' attribute in the 'plotResourceData' element from -9999.0 to -9998.0. 
+
+Here's a breakdown of what the script does:
+
+1. It defines two paths (`SITE_PATHS`) where the XML files to be updated are located.
+
+2. It sets up a logging system to track the script's progress and any errors that occur.
+
+3. It defines a class `CommentedTreeBuilder` that extends `ET.TreeBuilder` to handle comments in XML files.
+
+4. It defines a function `processDir(directory)` that recursively traverses a directory and its subdirectories to find XML files and update them using the `updateFile(path)` function.
+
+5. The `updateFile(path)` function opens an XML file, parses it, and iterates over its elements. If it finds a 'plotResourceData' element with a 'lowerLimit' attribute whose value is less than -9998.0, it updates the value to -9998.0. If any changes were made, it backs up the original file (appending '.bak' to the original filename) and writes the updated XML back to the original file.
+
+6. The `processArgs()` function handles command-line arguments. If any arguments are provided, they are assumed to be paths to directories or files to process. If no arguments are provided, it checks if the script is being run by the user 'awips' on the host 'dx3'. If not, it logs an error and returns -1. If the check passes, it processes the directories specified in `SITE_PATHS`.
+
+7. The `main()` function logs the start of the process, calls `processArgs()`, and logs whether the process was successful or encountered errors.
+
+8. If the script is run directly (not imported as a module), it calls the `main()` function and exits with the status returned by `main()`.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

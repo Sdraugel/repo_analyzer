@@ -1,0 +1,74 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>MixHgt_Init.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>MixHgt_Init.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The code is a Python script for a tool that calculates the mixing height in the atmosphere. The mixing height is the altitude where the potential temperature is greater than the surface potential temperature. It's calculated by first determining the surface potential temperature, then examining increasing levels of temperature until the potential temperature at a certain level exceeds the surface potential temperature. The mixing height is then calculated by interpolating between the level where the potential temperature was exceeded and the level below it. The mixing height is returned in units of feet above ground.
+
+The script uses the numpy library for numerical operations and a module named SmartScript. It defines a class for the tool that inherits from SmartScript. The class has methods for initializing the tool, preprocessing the data, and executing the calculation of the mixing height.
+
+The script also contains a point-based version of the tool, but it's commented out.
+
+The code at the beginning of the script is a legal notice and disclaimer from Raytheon Company, the developer of the software. It states that the software contains export-restricted data and its dissemination requires an export license or other authorization. It also states that the software is in the public domain, is provided "as is", without technical support, and with no warranty.
+
+This code snippet appears to be part of a larger program that calculates the mixing height in the atmosphere. The mixing height is an important concept in meteorology and is used to understand the vertical extent of the atmospheric layer that is directly influenced by the earth's surface.
+
+Here is a step-by-step breakdown of what the code does:
+
+1. It first creates a sounding, which is a vertical profile of temperature at different pressure levels. The pressure levels are represented by the list ["MB600","MB650","MB700","MB750","MB800","MB850","MB900","MB950"]. If no sounding data is available, the `noData()` method is called.
+
+2. It then calculates the potential temperature for each level in the sounding. The potential temperature is the temperature that a parcel of air would have if it were brought adiabatically (i.e., without heat exchange with the environment) to a standard pressure level, here taken as 1000 millibars.
+
+3. It converts the surface temperature from Fahrenheit to Kelvin and retrieves the surface pressure from a model (NAM, North American Mesoscale model) in pascals, which it then converts to millibars.
+
+4. It calculates the surface potential temperature using the same formula as for the sounding levels.
+
+5. It then loops through the sounding to find the height where the potential temperature exceeds the surface potential temperature. This height is the mixing height. If no such height is found, it returns a mixing height of 0.
+
+6. If a mixing height is found, it converts it from meters to feet and subtracts the topography height to get the height above ground level.
+
+7. The `getMixingHeight` function calculates the mixing height between two levels given their heights and temperatures, and the surface temperature. It uses a linear interpolation formula assuming that the potential temperature changes linearly with height. If the denominator (t2 - t1) is zero, it catches the exception and returns the height of the first level.
+
+In summary, this code is used to calculate the atmospheric mixing height based on temperature soundings, surface temperature, and surface pressure data.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>SerpConfig.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>SerpConfig.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is a configuration file for a tool called Serp. It contains a dictionary named `Config` which has a key called `Locations`. The value of `Locations` is another dictionary with two keys: "Zone Cities" and "RAWS+ZoneCities". 
+
+The values for these keys are lists of tuples. Each tuple represents a location and contains three elements: a string representing the name of the location, and two floats representing the latitude and longitude of the location, respectively. 
+
+The "Zone Cities" key contains a list of cities with their respective geographical coordinates. The "RAWS+ZoneCities" key contains a list of cities, similar to "Zone Cities", but also includes additional locations, presumably related to RAWS (Remote Automated Weather Stations).
+
+The script also contains a significant amount of metadata and comments explaining the purpose and usage of the software, its licensing and export control status, and the contractor's information. It also specifies that this is an absolute override file, meaning that a higher priority version of this file will completely replace a lower priority version.
+
+This part of the code file is configuring certain parameters for a program. 
+
+1. `Config["DefaultGroup"] = "Zone Cities"`: This line is setting the default sample group to "Zone Cities". The default group must match one of the sample group labels specified in "Locations" or be "Current Samples". 
+
+2. `Config["MaxPointsInColumn"]=10`: This line is setting the maximum number of points to list in each column of a dialog to 10. If this limit is exceeded, another column is started. The points are distributed as evenly as possible across the columns.
+
+3. `Config["ElevationDefault"]="On"`: This line is setting the default state of elevation effects to "On". When the dialog starts up, the elevation effects will be enabled by default.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

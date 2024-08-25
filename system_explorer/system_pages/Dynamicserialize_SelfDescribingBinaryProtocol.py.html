@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>SelfDescribingBinaryProtocol.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>SelfDescribingBinaryProtocol.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The code is a Python implementation of a binary protocol, specifically a partially compatible AWIPS-II Thrift Binary Protocol. AWIPS (Advanced Weather Interactive Processing System) is a meteorological display and analysis package developed by the National Weather Service and Raytheon for use by the National Centers for Environmental Prediction.
+
+The code starts with a copyright notice and contract details, followed by a brief description of the software and its history.
+
+The code then imports necessary modules and checks the Python version to ensure compatibility. It sets up data types with specific byte orders using the numpy library.
+
+The main part of the code defines a class `SelfDescribingBinaryProtocol` that extends `TBinaryProtocol` from the Thrift library. This class includes methods to read and write different data types including integers, floats, and lists of these types. The protocol is used to serialize and deserialize data, which is essential for data transmission and storage.
+
+The methods in the class use the struct and numpy libraries to pack and unpack data, and the Thrift library's methods to read and write data. The methods that handle lists use numpy's `frombuffer` method to convert data read from the buffer into numpy arrays, and the `asarray` method to convert lists into numpy arrays before writing them to the buffer. 
+
+The protocol is called "self-describing" because each field written includes information about its type and name, which makes it easier to understand the structure of the data without additional documentation.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,68 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>UpdateWarngenCWAFilters.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>UpdateWarngenCWAFilters.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to search and modify specific XML files in a directory. Here's a breakdown of what it does:
+
+1. It sets up a logging system to record the process of the script, including any errors or warnings that may occur.
+
+2. It defines a class `CommentedTreeBuilder` that extends the `TreeBuilder` class from the `xml.etree.ElementTree` module. This class is used to parse XML data, and this subclass is specifically designed to handle comments in the XML data.
+
+3. The `main` function is where the main logic of the script is. It starts by logging that the script is running and sets the `status` variable to 0, which will be used to indicate if any errors occurred during the script's execution.
+
+4. It then uses the `glob` module to find all XML files in the specified directory (`SITE_WARNGEN_PATH`).
+
+5. For each XML file found, it attempts to parse the file into an XML tree structure using the `CommentedTreeBuilder` class. If any errors occur during parsing, it logs the error and skips to the next file.
+
+6. If the root tag of the XML file is not "warngenConfig", it logs a warning and skips to the next file.
+
+7. It then searches through the XML tree for specific tags and attributes. If it finds a "constraint" tag with a "constraintValue" attribute equal to "$warngenCWAFilter" and a "constraintType" attribute of either "LIKE" or "EQUALS", it modifies these attributes.
+
+8. If any changes were made to the XML tree, it backs up the original file, then writes the modified XML tree back to the file. It uses regular expressions to format the XML data into a pretty, human-readable format. If any errors occur during this process, it logs the error and sets the `status` variable to 1.
+
+9. After all files have been processed, it logs whether the script completed successfully or with errors, and returns the `status` variable.
+
+10. If this script is run as a standalone program (as opposed to being imported as a module), it executes the `main` function and exits with the status code returned by `main`.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

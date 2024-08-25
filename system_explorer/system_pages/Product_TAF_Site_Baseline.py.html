@@ -1,0 +1,72 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TAF_Site_Baseline.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TAF_Site_Baseline.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a larger system, likely for managing or manipulating text products. The script is importing modules and defining a class called `TextProduct`.
+
+Here's a breakdown of what the code does:
+
+1. It imports necessary modules: `TAF`, `copy`, and `importlib`.
+
+2. It constructs the names of the definition and override TextUtilities for a site and a region. The actual site and region names are placeholders in this script (`<site>` and `<region>`), which suggests they are replaced with real names in the actual execution.
+
+3. It imports the local site's Product Definition specifications using Python's `importlib` module.
+
+4. It imports a module named `Patch_Overrides`.
+
+5. It defines a class `TextProduct` that inherits from `Patch_Overrides.Patch_Overrides` and `TAF.TextProduct`.
+
+6. Within the `TextProduct` class, it creates a deep copy of `TAF.TextProduct.Definition` and assigns it to `Definition`.
+
+7. It updates `Definition` with the site's definition settings.
+
+8. It sets the `displayName` attribute of `Definition` to "Baseline_TAF".
+
+9. It defines an `__init__` method that calls the `__init__` method of `TAF.TextProduct`.
+
+There are several lines of code that are commented out. If these lines were active, they would import override modules for the site and region, get class objects for the region and site overrides, update the `Definition` with regional settings, and try to get `VariableList` if it's overridden in the region or site.
+
+The comments in the code suggest that this file is a baseline file and should not be edited directly. Instead, site-specific changes should go in override files. This is a common practice in software development to allow for customization without altering the base code.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

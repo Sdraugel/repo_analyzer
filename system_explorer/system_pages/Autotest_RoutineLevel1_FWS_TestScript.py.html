@@ -1,0 +1,406 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>RoutineLevel1_FWS_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>RoutineLevel1_FWS_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be part of a weather forecasting system, possibly for testing purposes. The script is developed by Raytheon Company and contains export-restricted data, which means it can't be exported without proper authorization.
+
+The script imports a module named `TestScript`. The main part of the script is a list named `FWS_createGrids`. This list contains tuples, each representing a forecast parameter. Each tuple contains information about a specific forecast parameter such as the type of forecast ("Fcst"), the parameter name (e.g., "MaxT", "MinT", "MaxRH", "MinRH", "Wind", "TransWind"), the data type ("SCALAR" or "VECTOR"), the start and end times, the value of the parameter, and the area of the forecast ("all").
+
+For example, the tuple `("Fcst", "MaxT", "SCALAR", "MaxTBegin -24", "MaxTEnd -24", 60, "all")` represents a forecast of maximum temperature ("MaxT") which is a scalar value. The forecast begins 24 hours before the "MaxTBegin" time and ends 24 hours before the "MaxTEnd" time. The forecasted value is 60 and it applies to all areas.
+
+The tuples related to "Wind" and "TransWind" parameters are slightly different because they are vectors, not scalars. They include the wind speed and direction (e.g., (10, "SW") represents a wind speed of 10 from the southwest).
+
+The script also contains notes on how to handle test failures, suggesting that it is used for testing a weather forecasting system.
+
+The code appears to be a series of tuples that represent forecast data. Each tuple seems to contain the following information:
+
+1. "Fcst": This could be an identifier for the type of data being represented, in this case, forecast data.
+2. The second element in each tuple is a string that represents the type of weather data being forecasted. This includes "TransWind", "FreeWind", "WindGust", "T", "Td", "RH", "Sky", and "Wx". These could represent different weather parameters like wind, temperature, dew point, relative humidity, sky condition, and weather respectively.
+3. The third element in each tuple is a string that represents the type of the second element. For example, "VECTOR" for wind data, "SCALAR" for temperature, dew point, relative humidity, sky condition, and "WEATHER" for weather.
+4. The fourth and fifth elements in each tuple represent a time range for the forecasted data.
+5. The sixth element varies depending on the type of data. For "VECTOR" type, it's a tuple representing the magnitude and direction of the wind. For "SCALAR" type, it's a numerical value representing the forecasted value of the weather parameter. For "WEATHER" type, it's a string representing the weather condition.
+6. The last element in each tuple is "all", which could possibly mean that the forecast applies to all areas.
+
+This part of the file seems to be setting up or initializing forecast data for different weather parameters over different time periods.
+
+This code appears to be a series of tuples that represent forecast data. Each tuple seems to represent a specific forecast parameter, such as weather conditions ("Wx"), probability of precipitation ("PoP"), lightning activity level ("LAL"), chance of wetting rain ("CWR"), quantitative precipitation forecast ("QPF"), Haines Index ("Haines"), mixing height ("MixHgt"), and marine layer ("MarineLayer").
+
+Each tuple contains the following information:
+
+1. The type of forecast ("Fcst").
+2. The specific forecast parameter (e.g., "Wx", "PoP", "LAL", etc.).
+3. The data type of the forecast parameter. For most parameters, this is "SCALAR", which typically represents a single numerical value. For "Wx", it's "WEATHER", which could represent a more complex data structure.
+4. The start and end time for the forecast, represented as hours relative to a certain point in time.
+5. The forecast data itself. For "SCALAR" data types, this is a single numerical value. For "WEATHER", it's a string that likely encodes various pieces of weather information.
+6. The last element in each tuple is "all", which could represent the area for which the forecast applies.
+
+For example, the tuple `("Fcst", "Wx", "WEATHER", 120, 132, "SChc:ZL:--:<NoVis>:", "all")` represents a weather forecast for all areas from hour 120 to 132, with the weather conditions encoded in the string "SChc:ZL:--:<NoVis>:". 
+
+The tuple `("Fcst", "PoP", "SCALAR", 12, 24, 90 , "all")` represents a forecast of a 90% probability of precipitation for all areas from hour 12 to 24. 
+
+The exact meaning of the encoded weather conditions and the specific units of the scalar values would depend on the larger context of the code or the system in which this code is used.
+
+This code appears to be part of a larger system, likely for weather forecasting, given the variables such as "MarineLayer", "Wind20ft", "VentRate", "Stability", "HrsOfSun", "DSI", and "Sky". 
+
+The first part of the code contains tuples that seem to define forecast variables, their types (SCALAR or VECTOR), time intervals, values, and applicable regions. 
+
+The "Sky_createGrids" list appears to define the percentage of sky cover for specific time intervals.
+
+The "getPreviousProduct" function retrieves a previous product based on a given version number. If the version number is greater than the number of existing products, it returns None. 
+
+The "_callProcessVariableList" function seems to process a list of variables and updates a dictionary with these variables. It also handles some specific cases for "desFireName" and "issuance" variables. 
+
+The last part of the code is incomplete and it's hard to determine what it does without the rest of it. It seems to be setting a value for the key ('Forecaster:', 'forecaster') in the variable dictionary to "FORECASTER C", and likely does more with the "key" and "val" variables.
+
+This code is written in Python and it appears to be part of a larger program that deals with weather forecasting for specific events or incidents, such as wildfires. 
+
+The first function `_makeFcstTimeStatement(self, fcst, argDict)` takes in a forecast and a dictionary of arguments. It retrieves the current time zone and constructs a datetime object (`_fireDateTime`) from a fire time and date. It then appends a formatted string to the forecast, which includes the request words and the fire time. The function then calls `_makeFireTimeRange()` (which is not shown in the provided code), and finally returns the updated forecast.
+
+The second function `_stqProducts(self)` creates a list of multiline strings, each representing a forecast request for a specific event. Each string includes details like the date, time, project name, project type, requesting agency, location, weather conditions, remarks, and requested weather parameters. This function doesn't return anything, but it's likely these strings are used elsewhere in the program.
+
+The code at the top that prints `key` and `val` for each item in `varDict` seems to be part of another function that isn't fully included in the provided code. It's likely this code is used for debugging or logging purposes, as it prints out the contents of a dictionary.
+
+This is not a code file. It appears to be a series of spot forecast requests for a prescribed project named "IFPS TEST". A spot forecast is a special forecast issued to support the protection of life and property and the management of natural resources. They provide detailed meteorological information to people dealing with incidents such as wildfires, hazardous material spills, and search and rescue operations.
+
+Each forecast request includes details such as:
+- The priority, date, and time of the request
+- The name and type of the project
+- The agency and official making the request
+- Contact information for the requesting official
+- The location of the project, including state and coordinates
+- Details about the project site, such as exposure, fuel type, sheltering, elevation, and size
+- Weather conditions at the project site or nearby stations
+- Remarks about the project
+- Specific weather parameters requested for the forecast
+- The site, output file, and timezone for the forecast
+
+The numbers following the weather parameters represent whether the parameter is requested for the morning, afternoon, and night respectively. For example, in "TEMPERATURE: 1,1,0", temperature is requested for the morning and afternoon but not for the night.
+
+The information is repeated for different instances of the project, named "IFPS TEST 3", "IFPS TEST 4", "IFPS TEST 5", and "IFPS TEST 6".
+
+The provided text does not appear to be code from a programming language. Instead, it seems to be a series of formatted data entries or logs. Each entry contains information about a specific "spot forecast request" for a prescribed project named "IFPS TEST". 
+
+Each entry includes the following information:
+
+- Contact details such as fax and emergency phone numbers.
+- Location details including state, latitude (DLAT), longitude (DLON), exposure, fuel type, sheltering, bottom elevation, top elevation, and size in acres.
+- Weather conditions at the project site or from nearby stations.
+- Remarks, which in this case, just contains the word "TEST".
+- Requested weather parameters such as clouds/weather, chance of wetting rain, temperature, relative humidity, eye level wind, smoke dispersion, clearing index, stability class, marine layer, and Haines Index. Each parameter is followed by a series of numbers, possibly indicating the level or intensity of that parameter.
+- Site, output file (OFILE), and timezone information.
+
+The text also indicates that the priority of these requests is "IMMEDIATE", the project type is "PRESCRIBED", and the requesting agency is "WFO Billings". The date and time of the requests are also provided. 
+
+It's important to note that the actual interpretation of this data may vary depending on the specific context or system in which it is used.
+
+The provided code seems to be a part of a larger Python script related to weather forecasting. It appears to be defining various parameters and methods related to weather data and its presentation. Here's a breakdown of what it does:
+
+1. The first part of the code seems to be a string representation of a weather report with various parameters like site elevation, time, wind direction and speed, temperature, relative humidity, and other weather conditions.
+
+2. The next section, `options`, defines several configuration options for the weather report. These include flags to repeat the first period at the end of the report, generate a summary extended forecast, and a dictionary mapping location identifiers to area names and descriptions.
+
+3. The `testOverrides` section defines two methods:
+
+   - `_weInfoList`: This method returns a list of weather parameters that can be requested in the STQ Product. Each parameter is represented as a tuple containing an identifier, a flag indicating if this is a default element, the phrase to include in the product, and a list of search strings that must appear in the STQ product to specify the element.
+
+   - `_rowList`: This method seems to be defining the format of a row in a table that presents wind data. It checks the value of `_tableWindElementSplit` and `colWidth` to decide the format of the wind data.
+
+Overall, this code seems to be part of a larger system that generates weather forecasts and reports.
+
+This Python code appears to be part of a larger system that generates a weather report or forecast. It seems to be responsible for formatting different elements of the weather report, such as wind speed, temperature, humidity, and other meteorological data.
+
+The code is structured around a series of conditional statements that determine how different elements of the weather report are formatted based on certain conditions. For example, if the column width is greater than 7, the eye level wind is formatted differently than if the column width is less than or equal to 7.
+
+The code also handles the inclusion of metric units in the report. If the variable `_includeMetricDispersion` is set to "yes", the report will include measurements in both imperial and metric units.
+
+The function `_ldsi_value` and `_lvori_value` are used to calculate and return the values for the Dispersion Index and LVORI (a measure of visibility reduction due to smoke) respectively. These functions take a statistical dictionary, a time range, and a list of arguments as inputs.
+
+The final part of the code returns a list of tuples, each containing a label for a weather element, a flag indicating whether to include the element in the narrative portion of the report, and a list of tuples pairing a label with a method for retrieving the weather element's value.
+
+The provided code seems to be a part of a larger system, possibly a weather forecasting system. It consists of several methods and definitions that are used to manipulate and analyze data related to weather conditions.
+
+1. The first part of the code contains several methods that seem to be used for setting up and processing data related to two elements: "LDSI" and "LVORI". These methods include:
+   - `ldsi_setUp` and `lvori_setUp`: These methods set up the respective nodes with specific attributes and descriptors.
+   - `ldsi_words` and `lvori_words`: These methods retrieve statistics from the nodes, process them, and set the processed values as words for the nodes.
+
+2. The next part of the code contains several definitions that seem to be configuration options or settings for the system. These include options like whether to use relative humidity (`useRH`), whether to include creation time on GUI (`includeCreationTimeOnGUI`), and the units for tabular mixing height (`tabularMixingHeightUnits`), among others.
+
+3. The last part of the code contains a list of scripts. Each script is represented as a dictionary with keys like "name", "commentary", "productType", "deleteGrids", and "createGrids". These scripts seem to be used for initializing the system (`FWS_Init`) and for generating weather forecasts (`FWS_1`). Each script includes actions like deleting certain grids, creating grids, and making file changes.
+
+Please note that without additional context or the complete codebase, it's challenging to provide a more detailed or accurate analysis.
+
+The code appears to be a Python dictionary and a list of strings. The dictionary contains key-value pairs that describe various aspects of a fire event, such as the fire's latitude, size, name, date and time of occurrence, and various weather-related elements. The keys are tuples of strings, and the values are either numbers, strings, or lists of strings.
+
+The list of strings, named "checkStrings", seems to be a forecast report for the fire event. It includes weather conditions, temperature, humidity, wind speed and direction, and other weather-related information at different times of the day. The report is formatted in a way that makes it easy to read and understand.
+
+The code is likely part of a larger program that uses this data to analyze or predict fire behavior based on weather conditions. For example, it could be used in a fire management system to help authorities make decisions about fire control and prevention.
+
+The provided code seems to be a part of a larger script, possibly written in Python, and it appears to be related to weather forecasting, specifically for fire weather services (FWS). 
+
+The code includes a list of strings that contain weather data and forecasts. These strings include information about wind speed and direction at different heights, dispersion index, chance of precipitation, temperature, relative humidity, dew point, and other weather-related parameters. 
+
+The code also includes a dictionary with keys such as "name", "productType", "commentary", "fileChanges", "createGrids", and "cmdLineVars". Each key is associated with a specific value. For example, the "name" key is associated with the string "FWS_2", and the "productType" key is associated with the string "FWS". 
+
+The "fileChanges" key is associated with a list of tuples, each of which includes information about a file change operation. 
+
+The "cmdLineVars" key is associated with a dictionary that includes various command line variables, such as 'Product Issuance:', 'Issued By', 'Agency:', 'Tomorrow Elements', 'Fire Longitude (Deg)', 'WebSiteTag:', 'Check Items to Include:', 'Forecaster:', 'Type of Fire:', 'Name of Agency Contact', 'Today Elements', 'Fire Latitude (Deg)', 'WFOid:', 'Fire Size (Acres)', 'Name of Fire', 'Tonight Elements', 'Creation Date', 'Creation Time', 'What Type of Forecast?', 'Include Ignition Times?', and 'Name of Agency if not listed'. 
+
+Each of these command line variables is associated with a specific value or a list of values. 
+
+Please note that without the full context or the rest of the code, it's hard to provide a more detailed analysis.
+
+This is a weather forecast script, specifically designed for fire weather services. It provides detailed weather conditions for a specific location and time, which can be used to predict fire behavior. 
+
+The script includes the following information:
+
+- Date and time of the fire
+- Weather conditions including sky/weather, temperature, relative humidity (RH), dewpoint, wind speed and direction at 20 feet and at ridgetop, chance of precipitation (pcpn), Lightning Activity Level (LAL), mixing height, transport winds, dispersion index, LVORI (a measure of the comfort or stress level that fire fighters should expect), smoke dispersal, stability class, marine layer, and Haines Index (a measure of the potential for dry, unstable air to contribute to the development of large or erratic fires)
+- Hourly weather forecast for the rest of the day, tonight, and the next day, including the same parameters as above
+- The forecast is based on the ignition time of the fire
+
+The code also includes a list of checkStrings, which are likely used to validate the forecast data or to check for specific conditions. 
+
+The "drtHour" variable could represent the "dead reckoning time" - the time at which the forecast was made or the time it is intended for. 
+
+The first part of the code seems to be a dictionary with keys as tuples and values as various data related to the fire and weather conditions.
+
+This code appears to be a part of a weather forecasting system, specifically for fire weather services (FWS). It's designed to generate weather forecasts and conditions that are relevant to fire behavior and fire management. 
+
+The code includes various weather parameters such as transport winds, mixing height, dispersion index, smoke dispersal, stability class, marine layer, and Haines Index. These parameters are crucial in predicting fire behavior and planning fire management strategies.
+
+The code also includes time-specific forecasts for different parts of the day (e.g., 6 AM, 10 AM, 2 PM) with parameters like sky coverage, weather type, temperature, relative humidity, wind direction and speed at different altitudes, chance of precipitation, and others.
+
+There are also some metadata about the forecast, such as the forecaster's name, the type of request (prescribed), and the issuance time (afternoon). 
+
+The "cmdLineVars" section seems to be a dictionary of variables that are used in the forecast, including the fire's location (latitude and longitude), the size of the fire, the name of the fire, the type of fire, and other relevant information.
+
+The "checkStrings" section appears to be a list of strings that are used to verify the correctness of the forecast. These strings include various weather conditions and forecasts for different times of the day. 
+
+Overall, this code is likely a part of a larger system that generates and verifies weather forecasts for fire management purposes.
+
+The provided code seems to be part of a larger script that is used for weather forecasting, specifically for fire weather services (FWS). It appears to be written in Python, with some elements of the code being structured as dictionaries and lists.
+
+The code includes a series of weather parameters such as sky coverage, weather type, temperature, relative humidity (RH), wind speed and direction at different heights, mixing height, transport wind, dispersion, chance of precipitation (pcpn), and Haines Index (a measure of the potential for dry, unstable air to contribute to the development of large or erratic wildfires).
+
+These parameters are given for different times of the day, indicating that this is a forecast for specific time intervals. It also includes information for a specific day (Saturday) with more detailed weather conditions.
+
+The code also includes a section that seems to be related to the creation or modification of files or grids, with the "fileChanges" key in the second dictionary. The "cmdLineVars" key in the same dictionary seems to include a series of variables that could be entered or modified by the user, such as the product issuance, the requesting agency, the fire type, the fire's latitude and longitude, and the fire size.
+
+However, without the full context of the code, it's hard to provide a more detailed analysis. For example, it's not clear what the functions "FWS_createGrids", "TextUtility", and "testOverrides" do, as their implementations are not provided. The same applies to the variables "definition0" and "FWS_<site>_Overrides".
+
+This code seems to be part of a larger script that is used to parse and analyze weather forecast data. The data appears to be related to fire weather spot forecasts, which are specialized forecasts issued by meteorological services to assist in wildfire management.
+
+The code includes a dictionary with keys like 'LDSI', 'LVORI', 'DISPERSION INDEX', 'CLEARING INDEX', 'STABILITY CLASS', 'Marine layer', 'Haines Index', and others. These keys are likely related to various meteorological factors that are important in fire weather forecasting. The values associated with these keys are empty, suggesting that they might be filled in later with actual data.
+
+The "drtHour" key seems to represent a specific hour, possibly related to the timing of the forecast or the fire event.
+
+The "checkStrings" key contains a list of strings that appear to be lines from a weather forecast. These might be used to verify the format or content of the forecast data.
+
+The code also contains a "name" key with the value "FWS_5", a "productType" key with the value "FWS", and a "commentary" key with the value "Next Day Issuance". These might be metadata related to the forecast data.
+
+The "fileChanges" key suggests that this script might also be used to make changes to the forecast data files, but without the rest of the code, it's hard to say exactly what those changes might be.
+
+This code appears to be part of a larger script related to weather forecasting, specifically for fire weather services. The script seems to be written in Python or a similar language.
+
+The first part of the code is a list of tuples, each containing two strings and two variables. The strings appear to be identifiers for some sort of operation or function, while the variables (testOverrides, definition0) are likely defined elsewhere in the code.
+
+The "cmdLineVars" section is a dictionary that contains various key-value pairs. The keys are tuples containing two strings each, and the values are various types of data (strings, lists, numbers, and None). These pairs seem to represent various parameters and settings for the weather forecast, such as the type of fire, the elements to include in the forecast for today, tonight, and tomorrow, the latitude and longitude of the fire, and other similar parameters.
+
+The "checkStrings" section is a list of strings that appear to be parts of a weather forecast. The strings include various weather conditions, such as temperature, wind speed and direction, chance of precipitation, and other similar conditions. The strings also include time stamps and other identifiers, which suggest that this list might be used to generate a weather forecast report.
+
+Overall, this code seems to be part of a larger script that generates weather forecasts for fire services, based on various parameters and conditions.
+
+The provided code appears to be a part of a weather forecasting system. It is structured as a list of strings, each representing a line of a weather report. The report includes various weather parameters like temperature, humidity, wind speed and direction, chance of precipitation, and so on. 
+
+The code seems to be divided into two main sections, each representing a different day's forecast. The first section is for the forecast "TONIGHT" and the second section is for "SUNDAY". 
+
+Each section provides detailed weather information for different times of the day. The parameters include sky/weather conditions, temperature, relative humidity (RH), wind conditions at 20 feet and at the ridgetop, chance of precipitation (CWR and Chance of pcpn), Haines Index (an index that measures the potential for dry, unstable air to contribute to the development of large or erratic wildfires), and others.
+
+The last part of the code appears to be metadata related to the forecast, including the forecaster's name, the agency requesting the forecast, and other details. 
+
+Please note that without the full context or the complete code file, this is a high-level interpretation based on the provided code snippet.
+
+The code appears to be part of a weather forecasting system, specifically for predicting conditions that could affect a fire. It includes a variety of meteorological factors such as temperature, humidity, wind speed and direction, and precipitation. 
+
+The first part of the code is a dictionary where each key is a tuple of two strings and the value is the corresponding data. The keys seem to represent different attributes of a fire and the weather conditions, such as the fire's latitude and longitude, the type of fire, the size of the fire, and various weather elements for today and tonight.
+
+The second part of the code, under "checkStrings", seems to be a list of strings that represent a formatted weather forecast report. It includes sections for the discussion, the rest of today, and tonight. Each section includes detailed weather conditions such as sky/weather, temperature, relative humidity (RH), dewpoint, wind conditions, chance of precipitation (pcpn), mixing height, transport winds, dispersion index, and Haines Index (an index that measures the potential for dry, unstable air to contribute to the development of large or erratic fires).
+
+Overall, this code seems to be used for generating a detailed weather forecast report that can be used to predict and manage fire conditions.
+
+This code appears to be part of a weather forecasting system. It's defining a variety of weather conditions and parameters for different times and scenarios. 
+
+The first part of the code seems to be a detailed weather report for a specific day, including weather type, temperature, relative humidity (RH), wind speed and direction at different heights, mixing height, transport wind, dispersion index, chance of precipitation (CWR), and Haines Index, among other parameters. 
+
+The second part provides a forecast for the following day (Saturday), detailing expected weather conditions, temperature, humidity, wind speed and direction, chance of precipitation, mixing height, transport wind, dispersion index, and other parameters at specific times (6 AM, 10 AM, 2 PM).
+
+The last part of the code appears to be a configuration or setup for a forecast product named "FWS_7". It includes some metadata like the name of the forecaster, the type of request, and the agency requesting the forecast. It also specifies some parameters for the forecast, including the elements to include for today, tonight, and tomorrow, the fire type, fire size, and fire location (latitude and longitude). 
+
+This code seems to be part of a larger system, possibly used to generate detailed weather forecasts for specific scenarios, like fire weather services (FWS).
+
+The provided code appears to be a part of a larger script, likely written in Python, which is used for generating weather forecasts. It is designed to create a structured forecast report for a specific location, based on various weather parameters. 
+
+The first part of the code is a dictionary containing key-value pairs of various forecast parameters such as the type of forecast, ignition times, agency name, fire date and time, and timezone. 
+
+The "checkStrings" list contains a series of strings that seem to be part of a forecast report. It includes information about the forecast (like the weather service, date, and time), a discussion section, and detailed weather conditions for tonight and the following day. The weather conditions include parameters like sky/weather, temperature, relative humidity (RH), wind speed and direction, chance of precipitation, and more. 
+
+The next part of the code, "name", "productType", "commentary", "fileChanges", "createGrids", "drtHour", "cmdLineVars", seems to be related to the configuration or metadata of the forecast report. It includes the name of the forecast, the type of product, commentary about the forecast, changes made to the file, the function to create grids for the forecast, the hour of the day relative to which the forecast is made, and command line variables.
+
+Please note that without the complete code or context, this is a high-level interpretation based on the provided code snippet.
+
+The provided code seems to be a part of a larger Python script. It appears to be a dictionary data structure, which is a collection of key-value pairs. This dictionary seems to be storing various types of information related to a weather forecast for a specific location, possibly related to a fire event. 
+
+Here are some key observations:
+
+1. The dictionary keys are tuples, each containing two strings. The first string appears to be a human-readable label, while the second string seems to be a more concise identifier, possibly used in the code.
+
+2. The values in the dictionary vary in type. They include strings, numbers, lists, and `None` values. 
+
+3. The values seem to represent various types of data related to the weather forecast, such as the product issuance, the agency issuing the forecast, elements of the weather for today, tonight, and tomorrow, the longitude and latitude of the fire, the size of the fire, the name of the fire, and more.
+
+4. The "checkStrings" list appears to contain strings that might be used for validation or checking purposes. These strings seem to represent different parts of a formatted weather forecast, including headers, forecast details, and a tabular representation of forecast data.
+
+Overall, this code seems to be a part of a larger program that deals with weather forecasts, particularly in relation to fire events. It might be used for generating, storing, or processing these forecasts.
+
+This code appears to be a part of a weather forecasting system, specifically for fire weather services (FWS). 
+
+The first section provides a detailed forecast for a specific day (Monday), including information about the sky/weather, temperature, relative humidity (RH), dewpoint, wind conditions at different heights and locations, chance of precipitation (pcpn), lightning activity level (LAL), mixing height, transport winds, dispersion index, LVORI (an index used to estimate the comfort or stress level for firefighters), smoke dispersal, stability class, marine layer, and Haines Index (an index used to indicate the potential for wildfire growth). 
+
+The second section defines a product named "FWS_9" with certain attributes and settings. It includes information about the product type, commentary, the function to create grids, command line variables, file changes, and check strings. 
+
+The command line variables include details about the product issuance, issued by, requesting agency, elements for today, tomorrow, and tonight, fire longitude and latitude, website tag, forecaster, type of fire, agency contact, fire size, fire name, creation date and time, forecast type, ignition times, other agency name, fire date and time, table resolutions, timezone, and extended questions.
+
+The file changes section indicates modifications to be made to certain files, with the operation type (add), the content to be added (testOverrides, definitions, definition1), and the operation to undo the changes.
+
+The check strings section contains the expected output or response strings that the system should generate or match. These strings include forecast information, discussion, and details for today's weather conditions. 
+
+This code is likely part of a larger system used to generate and manage weather forecasts for specific use cases, such as fire management.
+
+The provided code is not a traditional programming code but rather a structured text file, which appears to be a detailed weather forecast report. 
+
+Here's a breakdown of the information it provides:
+
+1. It starts with general weather conditions like dispersion, smoke dispersal, stability class, marine layer, and Haines Index. 
+
+2. Then, it provides hourly weather data for a specific day, including sky condition, weather coverage, weather type, temperature, relative humidity, wind direction and speed at different heights, mixing height, wind speed for mixing, dispersion, LVORI (Lower Visibility Occurrence Risk Index), chance of precipitation, LAL (Lightning Activity Level), and Haines Index.
+
+3. The code then provides detailed weather forecasts for specific periods (e.g., Tonight, Saturday, Forecast Days 3 through 7, Sunday, Monday, Tuesday, Wednesday, Thursday). These forecasts include information about sky/weather condition, precipitation, temperature, humidity, dew point, wind conditions, CWR (Chance of Wetting Rain), LAL, mixing height, mixing winds, dispersion index, LVORI, smoke dispersal, stability class, marine layer, and Haines Index.
+
+4. Lastly, it provides an outlook for a future date range (Friday January 08 through Thursday January 14) and ends with a signature line for the forecaster.
+
+This file could be used in a variety of applications, such as a weather forecasting tool, a data source for a climate study, or a feed for a news outlet.
+
+The provided code appears to be a part of a larger Python script that is used for generating weather forecasts for specific locations, possibly for fire management purposes. 
+
+The code defines a dictionary with the key-value pairs representing various parameters and settings for the forecast. These include the name of the forecast, the product type, commentary, creation of grids, command line variables, file changes, and check strings.
+
+The "cmdLineVars" key contains a large dictionary with many parameters such as the type of fire, the latitude and longitude of the fire, the size of the fire, the elements of the forecast for today, tonight, and tomorrow, and many other variables.
+
+The "fileChanges" key seems to be a list of tuples, each representing a change to be made to a file. Each tuple contains the name of the file to be changed, the utility to be used for the change, the type of change, the new content, and an undo command.
+
+The "checkStrings" key contains a list of strings that appear to be lines of a weather forecast. These could be used to verify the output of the forecast generation.
+
+Overall, this code seems to be a part of a larger system for generating and managing weather forecasts, possibly in the context of fire management.
+
+This code appears to be part of a larger system that generates forecast reports, possibly for weather or environmental conditions. The code includes a series of data and parameters related to weather conditions and environmental factors such as wind direction, wind speed, dispersion, chance of precipitation, temperature, humidity, dew point, and others.
+
+The code is organized into several sections, each representing a different time period (e.g., "TONIGHT", "SATURDAY"). Each section includes a series of parameters and their corresponding values. For example, the "TONIGHT" section includes parameters such as sky/weather conditions, minimum temperature, maximum humidity, wind conditions, chance of precipitation, and others.
+
+The code also includes a section named "FWS_Hourly_Sky_Table" which appears to be a configuration or setup for generating an hourly sky table. It includes a series of parameters and their corresponding values, as well as a series of checks to verify the correct generation of the table.
+
+Lastly, there is a section commented as "FIXME" which indicates a part of the code that causes the auto test process to crash and needs to be fixed.
+
+Please note that without the full context or the rest of the code, this is a high-level analysis and some details might be missed.
+
+This code appears to be a part of a larger script that is defining a series of test cases for a product related to weather forecasting. Each test case is defined as a dictionary with various properties:
+
+- "name": This is the name of the test case.
+- "productType": This indicates the type of product being tested, which is "FWS" in all these cases.
+- "commentary": This is a description or comment about the test case.
+- "cmdLineVars": This is likely a variable that is used in the command line when running the test.
+- "callVariables": This is a dictionary of variables that are used in the test case. In this case, it's a dictionary with a single key-value pair, where the key is "testIndex" and the value is the index of the test case.
+- "fileChanges": This is a list of tuples, each representing a file change that is made as part of the test case. Each tuple includes the name of the file being changed, the utility being used to make the change, the type of change being made, the data being used for the change, and an action to be taken after the change.
+- "checkStrings": This is a list of strings that are checked as part of the test case. These strings appear to represent different weather conditions and forecasts.
+
+Each test case seems to be testing different weather conditions and their impact on the product. The "checkStrings" list in each test case contains specific weather conditions for different days (Today, Tonight, Saturday), including sky/weather conditions, chance of rain (CWR), temperature, humidity, wind conditions, and other weather-related factors.
+
+The provided code appears to be a part of a larger Python script that is used for testing. It seems to be testing a product or service related to weather forecasting, specifically related to fire weather services (FWS). 
+
+The script contains a list of dictionaries, each representing a test case. Each dictionary has several keys:
+
+- "name": This is the name of the test case.
+- "productType": This indicates the type of product being tested, which is "FWS" in all cases.
+- "commentary": This provides a description or commentary about the test case.
+- "cmdLineVars": This seems to be a command-line variable related to the test case.
+- "callVariables": This is a dictionary that contains variables used in the test case.
+- "fileChanges": This is a list of tuples, each representing a change to a file. Each tuple contains the name of the file to be changed, the utility to be used for the change, the type of change, the variable list for the change, and the undo command.
+- "checkStrings": This is a list of strings that are expected to be present as a result of the test case.
+
+The test cases seem to be related to different weather conditions and their effects on fire growth and smoke dispersal. For example, the "Haines Index" mentioned in the checkStrings is a tool used to indicate the potential for wildfire growth by measuring the stability and dryness of the air over a fire.
+
+This code appears to be a set of test cases for a weather forecasting system. Each test case is a dictionary with several fields:
+
+- "name": The name of the test case.
+- "productType": The type of product being tested, in this case, it's "FWS".
+- "commentary": A brief description of what the test case is for.
+- "cmdLineVars": The command line variables used in the test case.
+- "callVariables": The variables that are called during the test.
+- "fileChanges": The changes made to the files during the test.
+- "checkStrings": The strings that are expected to be present in the output.
+- "notCheckStrings": The strings that are expected to be absent in the output.
+- "drtHour": The hour at which the test is run.
+
+Each test case seems to simulate different weather conditions and checks if the system correctly forecasts these conditions. For example, the test case "FWS_StqInput_9" simulates a cloudy day with widespread thunderstorms and checks if the system correctly forecasts this. 
+
+The "fileChanges" field indicates changes made to specific files during the test. The changes are specified as tuples, with each tuple containing the name of the file, the utility used to make the change, the type of change (add), the data added, and the action to undo the change.
+
+Overall, this code is used for testing the functionality and accuracy of a weather forecasting system.
+
+This Python script appears to be part of a larger system for managing and testing weather forecast data.
+
+The first section of the code is a list of dictionaries. Each dictionary represents a specific operation or task. The first dictionary is commented out, but it seems to be related to adding some definitions and undoing them. The second dictionary is named "FWS_CleanUp" and its purpose is to clean out grids. It has a list of tuples, each representing a grid to be deleted. The grids are identified by a set of parameters including forecast type, parameter name, surface level, and time range.
+
+The `testScript` function is designed to test the scripts. It sets up some default values for the start time of the grids and the drtTime (which could be a reference to a 'disaster recovery test' or another specific event). It then loops through each script in the scripts list. If the script has a "drtHour" defined, it adjusts the "drtTime" accordingly. Finally, it calls a method `TestScript.generalTestScript` with the data manager, scripts, defaults, and level as arguments. This method is presumably defined elsewhere in the codebase and is likely responsible for actually executing the tests.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

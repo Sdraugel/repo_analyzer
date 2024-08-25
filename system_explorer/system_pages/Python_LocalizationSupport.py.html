@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>LocalizationSupport.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>LocalizationSupport.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a software developed by Raytheon Company. It provides support for reading, writing, and deleting files using localization. The script imports necessary classes and methods from the 'com.raytheon.uf.common.localization' package and the 'LockingFile' module. 
+
+The script defines several constants related to localization types and levels, such as `EDEX_STATIC`, `CAVE_STATIC`, `CAVE_CONFIG`, `COMMON_STATIC`, `BASE`, `CONFIGURED`, `SITE`, and `USER`.
+
+It also defines four functions:
+
+1. `getLocalizationFile(loctype, loclevel, contextname, filename)`: This function retrieves a localization file given the localization type, localization level, context name, and filename. It uses the `PathManagerFactory` to get the `PathManager`, then gets the context and the localization file.
+
+2. `readFile(loctype, loclevel, contextname, filename)`: This function reads the contents of a localization file. It uses the `getLocalizationFile` function to get the file and then reads its contents.
+
+3. `writeFile(loctype, loclevel, contextname, filename, contents)`: This function writes contents to a localization file. It gets the file using the `getLocalizationFile` function, writes the contents to the file, and then saves the changes.
+
+4. `deleteFile(loctype, loclevel, contextname, filename)`: This function deletes a localization file. It gets the file using the `getLocalizationFile` function and then deletes it.
+
+The script also includes a software history section, which records the changes made to the script over time, including the date, ticket number, engineer responsible, and a description of the changes.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

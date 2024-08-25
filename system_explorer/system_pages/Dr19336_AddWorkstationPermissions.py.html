@@ -1,0 +1,66 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>AddWorkstationPermissions.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>AddWorkstationPermissions.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to add workstation-level permissions to all users for all site level userRoles.xml files.
+
+Here's a breakdown of what the code does:
+
+1. It defines the path to the userRoles.xml files and the workstation permissions that need to be added.
+
+2. It imports necessary modules: `glob` for file pathnames pattern matching, `sys` for system-specific parameters and functions, and `xml.etree.ElementTree` for XML parsing and creating.
+
+3. In the `main()` function, it uses `glob.iglob(USER_ROLES_PATH)` to iterate over all the userRoles.xml files in the specified path.
+
+4. For each file, it parses the XML and gets the root element of the XML document.
+
+5. It checks each permission in `WORKSTATION_PERMISSIONS`. If the permission is not found in the XML file, it adds a new "permission" element with the `id` attribute set to the permission. If the permission is already present, it prints a message indicating that.
+
+6. It then checks each "user" element in the XML. If the "userId" attribute of the user is "ALL", it checks whether the user already has the permission. If not, it adds a new "userPermission" element with the text set to the permission. If the permission is already present, it prints a message indicating that.
+
+7. If any changes were made to the XML (either a new permission was added or a new userPermission was added), it writes the updated XML back to the file.
+
+8. The script is meant to be run as a standalone program, as indicated by the `if __name__ == '__main__':` line at the end. If the script is run directly (not imported as a module), it calls the `main()` function to execute the above steps.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

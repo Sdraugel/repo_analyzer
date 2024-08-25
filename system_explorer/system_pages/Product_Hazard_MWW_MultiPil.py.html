@@ -1,0 +1,72 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Hazard_MWW_MultiPil.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Hazard_MWW_MultiPil.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a weather forecasting system, specifically for marine weather warnings. It's developed by Raytheon Company for the US Government, and it's subject to US export control laws.
+
+The script defines a class `TextProduct` that inherits from `GenericHazards.TextProduct`. This class is used to generate text-based weather warning products, such as hurricane warnings, tropical storm warnings, gale warnings, etc. 
+
+The class contains a dictionary `Definition` that holds various configuration items for the product, such as the product's name, the station ID, the WMO ID, the product's pil, the location of the WFO, the product's ID for storing to the AWIPS text database and for transmitting to the AWIPS WAN, and the output file for the product.
+
+The class also defines a method `allowedHazards` that returns a list of hazards that are allowed in MWW (Marine Weather Warning) products. Each hazard is represented as a tuple containing the hazard's code, the actions that can be taken for the hazard, and the hazard's category.
+
+The script also contains some conditional logic to handle special multiple product domains for certain sites.
+
+The script is not intended to be overridden, and it was last updated on 03/15/2020 for HazSimp format.
+
+The provided code appears to be a part of a larger Python program that generates forecasts or advisories related to various weather conditions. Here's a breakdown of what each part does:
+
+1. The first part of the code defines a list of tuples. Each tuple contains a code for a specific weather condition, a variable `allActions` (which is not defined in the provided code), and a string that describes the weather condition.
+
+2. The `_bulletDict` method defines a dictionary where each key is a code for a specific weather condition and the value is a string of bullets, which are likely used to list specific details or precautions related to the weather condition.
+
+3. The `_bulletOrder` method returns the list of bullets.
+
+4. The `_makeProduct` method seems to generate a forecast or advisory. It takes several arguments, including a forecast string, a list of areas, and a dictionary of arguments. It generates a headline, body text, and overview for the forecast or advisory, and then formats the text.
+
+5. The `_postProcessProduct` method further processes the forecast or advisory text. It adds an overview, formats the text, removes any empty sections, indents bullet points, and cleans up multiple line feeds. It also updates a progress meter and adds a URL text from a configuration section.
+
+Overall, this code seems to be part of a weather forecasting system, where it generates and formats advisories for different weather conditions.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

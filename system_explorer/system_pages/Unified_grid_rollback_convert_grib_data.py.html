@@ -1,0 +1,80 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>convert_grib_data.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>convert_grib_data.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to convert and organize weather data from various sources. The data is stored in a PostgreSQL database and in HDF5 files, a common format for storing large amounts of numerical data.
+
+Here are the key components of the script:
+
+1. It imports necessary libraries for file operations, subprocess handling, threading, system interactions, and working with HDF5 files.
+
+2. It sets up some global variables, including the number of threads to use, the maximum number of records to process at a time, the command to interact with the PostgreSQL database, the location of the HDF5 files, and lists of grid names for different geographic regions.
+
+3. It defines a function `queryPostgres(sql)` to execute SQL commands on the PostgreSQL database and return the results.
+
+4. It defines a function `convertModel(modelName)` to convert the data for a specific weather model. This function does the following:
+   - Queries the PostgreSQL database to get information about the weather model's data.
+   - Organizes the data into a new format and stores it in HDF5 files.
+   - Handles errors that occur during the conversion process.
+   - Prints out progress updates and timing information.
+
+5. It defines a function `convertPert(pert)` to convert a perturbation number into a string representation. This is used when organizing the data.
+
+In summary, this script is used to convert and organize weather data from a PostgreSQL database and HDF5 files. It's designed to handle a large amount of data and provide progress updates and timing information.
+
+This script appears to be a part of a larger system that converts grid data into an older grib format. The script is written in Python and uses the h5py library for handling HDF5 files, and threading for parallel processing. 
+
+Here's what each function does:
+
+1. `copyH5`: This function copies an HDF5 dataset from one group to another within the same HDF5 file. It takes as arguments the HDF5 file (`h5`), the URIs of the source (`gribdatauri`) and destination (`griddatauri`) groups, and the name of the dataset to copy (`dataset`).
+
+2. `processModels`: This function continuously pops models from a global list (`models`), converts them using the `convertModel` function, and handles any exceptions that might occur during the conversion. It stops when there are no more models left in the list.
+
+3. `loadAll`: This function prints some information about the conversion process, queries a Postgres database for model names, and adds them to the global `models` list. It then filters out any models that start with "UnknownModel" or are in a blacklist, and waits for the user to press Enter before continuing.
+
+4. `check_table`: This function checks if a table exists in a Postgres database. If the table does not exist, it prints an error message and exits the script.
+
+The script's main block, which runs when the script is executed directly, first checks if the "grib" table exists in the database. If the script was run without any arguments, it calls `loadAll` to load all models. If there were arguments, it treats them as model names and adds them to the `models` list. It then starts a number of threads equal to `numThreads` to process the models in parallel. It prints the total time taken for the conversion process once all threads have finished.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,56 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>JSmartUtils.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>JSmartUtils.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is part of a larger software system developed by Raytheon Company. It provides Java implementations of common smart utility functions to enhance performance. The code is subject to U.S. export control laws due to the inclusion of export-restricted data.
+
+The code defines two functions: `__getMaskIndiciesForJava(mask)` and `fillEditArea(grid, fillMask, borderMask)`.
+
+The `__getMaskIndiciesForJava(mask)` function takes a mask (presumably a 2D numpy array) and returns two Java arrays (`xcoords` and `ycoords`) containing the indices of the set cells in the mask. It first flattens the mask and then finds the indices of the non-zero elements. These indices are then converted to x, y coordinates and stored in two Java arrays.
+
+The `fillEditArea(grid, fillMask, borderMask)` function is intended to speed up certain operations (referred to as "smartInits"). It takes three arguments: a grid and two masks (fillMask and borderMask). It uses the `__getMaskIndiciesForJava(mask)` function to get the indices of the set cells in the fillMask and borderMask. These indices are then used to call the `fillEditArea` method of the `JavaSmartUtils` class, which presumably modifies the grid in some way. The modified grid is then returned.
+
+The code also includes a software history, documenting changes made to the code over time. It's noted that this is a base file and is not intended to be overridden.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

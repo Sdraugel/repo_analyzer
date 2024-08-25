@@ -1,0 +1,56 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>AdjustValue_Down.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>AdjustValue_Down.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script named `AdjustValue_Down.py`. This script is part of a software developed by Raytheon Company under a contract with the US Government. The software contains export-restricted data, and its export/transfer/disclosure is restricted by U.S. law.
+
+The script defines a class `Tool` which inherits from `SmartScript.SmartScript`. The class `Tool` has two methods: `__init__` and `execute`.
+
+The `__init__` method is the constructor for the `Tool` class. It takes one argument `dbss` and calls the constructor of the parent class `SmartScript.SmartScript` with `dbss` as an argument.
+
+The `execute` method takes two arguments: `variableElement` and `variableElement_DeltaValue`. The method adjusts the value of `variableElement` down by `variableElement_DeltaValue` within the Active Edit Area. If `variableElement` is a list, it checks the vector edit mode and adjusts the value accordingly. If the vector edit mode is "Both" or "Magnitude Only", it subtracts `variableElement_DeltaValue` from the first element of `variableElement`. If the vector edit mode is "Direction Only", it subtracts 10.0 from the second element of `variableElement` and takes the modulus of 360. If `variableElement` is not a list, it is treated as a scalar and `variableElement_DeltaValue` is subtracted from it. The method returns the adjusted `variableElement`.
+
+The script also sets some global variables at the beginning: `ToolType` is set to "numeric", `WeatherElementEdited` is set to "variableElement", and `ScreenList` is set to a list containing "SCALAR" and "VECTOR". The numpy module is imported with a wildcard, which means all numpy functions can be used directly without the numpy prefix. The `SmartScript` module is also imported.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

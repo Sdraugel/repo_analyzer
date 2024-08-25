@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Holidays.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Holidays.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to calculate the dates of certain holidays in a given year and return a label for a date if it is a holiday. 
+
+The script starts with a header that includes legal information about the software's development and export restrictions. 
+
+The script then defines several functions:
+
+- `MonthStart(monthStartStr)`: This function takes a string in the format 'Jan 1 2003' and returns the day of the week and the day of the year for the start of the month.
+
+- `ThirdMonday(monthStartDOW, monthStartDOY)`: This function calculates the day of the year for holidays that fall on the third Monday of a month.
+
+- `calculateHolidayList(yearStr)`: This function calculates the dates of several holidays in a given year, including New Year's Day, Martin Luther King Jr. Day, Washington's Birthday, Memorial Day, Independence Day, Labor Day, Columbus Day, Veterans Day, Thanksgiving Day, and Christmas Day. The dates are added to a list called `Holidays`.
+
+- `getHolidayLabel(startTime)`: This function takes a date and checks if it is a holiday by comparing it to the dates in the `Holidays` list. If the date is a holiday, the function returns the label of the holiday. If the date is not a holiday, the function returns an empty string.
+
+The script also includes a static member `_holidayList` that serves as a cache. This is used in the `getHolidayLabel(startTime)` function to store the list of holidays for a given year, so that the list does not need to be recalculated every time the function is called.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

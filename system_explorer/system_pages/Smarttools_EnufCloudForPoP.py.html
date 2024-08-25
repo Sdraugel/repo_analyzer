@@ -1,0 +1,76 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>EnufCloudForPoP.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>EnufCloudForPoP.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The code file appears to be a part of a weather prediction software, possibly for cloud cover and precipitation prediction. It seems to be developed by Raytheon Company under a contract with the US Government. The software is in the public domain and is provided "as is", without any warranty or technical support.
+
+The code defines a tool that is used to ensure there is enough cloud cover to support the corresponding Probability of Precipitation (PoP). The user can decide by how much, or by what factor, the cloud cover should be greater.
+
+The tool is defined as a class `Tool` that inherits from `SmartScript.SmartScript`. It has an `execute` method that takes in `Sky`, `PoP`, and `varDict` as parameters. The `execute` method implements logic to calculate the new value of `Sky` based on the user's choice of operation ("add", "multiply", or "Sky Limit") and other parameters.
+
+The `preProcessTool` method is used to set up some variables before the tool is executed. It retrieves the user's choice of operation and other parameters from `varDict`.
+
+The `VariableList` is a list of tuples that define the variables to be solicited from the user. Each tuple contains the variable's name, default value, type, and other possible values.
+
+The code also includes some commented-out lines which could be used to add more functionality or customization to the tool.
+
+This code is defining and adjusting several parameters related to weather conditions, specifically precipitation probability (PoP) and sky cover.
+
+1. The code first sets the values for `_PoPLimit`, `_SkyLimit`, and `_SkyMin` based on the values provided in `varDict`.
+
+2. The `_PoPLimit` value, which represents the minimum PoP for measurable precipitation, is then adjusted to fall within the range of 15-25%.
+
+3. The `_SkyLimit` value, which represents the minimum sky cover needed to support weather, is adjusted to fall within the range of 50-100%.
+
+4. The `_SkyMin` value, which represents the sky cover for a 5% PoP, is adjusted to fall within the range of 10-100%.
+
+5. The code also ensures that the `_SkyMin` value is less than the `_SkyLimit` value minus 15.
+
+6. Finally, the code computes a slope based on the `_SkyLimit`, `_SkyMin`, and `_PoPLimit` values. This slope might be used in further calculations or visualizations.
+
+The commented out sections at the end of the code provide instructions on how to use the `self` keyword, how to handle errors, and placeholders for methods that could be used to process data before and after it is passed through a grid. 
+
+In Python, `self` is a convention used in object-oriented programming. It refers to the instance of the class, allowing access to the attributes and methods of the class.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

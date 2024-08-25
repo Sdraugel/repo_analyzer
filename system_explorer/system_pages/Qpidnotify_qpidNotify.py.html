@@ -1,0 +1,68 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>qpidNotify.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>qpidNotify.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This script is a command-line tool for sending files to EDEX for ingestion using the QPID broker. EDEX is a data exchange system, and QPID is a messaging system that provides reliable message delivery.
+
+The script starts by importing necessary modules and setting up logging. It then defines a regular expression to match WMO headers in the data.
+
+The `EdexQpidIngest` class is defined with methods to get message headers from the data, start a connection to the QPID server, and send files to EDEX for ingestion. The `startConnection` method retrieves the QPID server hostname from the environment variables and establishes a connection. The `sendToIngest` method logs the number of files to be sent, waits for 5 seconds, and then attempts to send each file to EDEX via the QPID broker. If any errors occur during this process, they are logged and counted.
+
+The `parseArgs` function is used to parse command-line arguments. It expects one or more file paths to be provided. If only one argument is provided and it contains commas, it is split into multiple file paths.
+
+The `main` function parses the command-line arguments, logs them, and creates an instance of the `EdexQpidIngest` class. It then attempts to start a connection to the QPID broker within a 10-second time limit. If the connection fails or times out, an error is logged and the script exits with a status code of 1.
+
+This Python script is designed to send files to a destination, presumably for data ingestion, and it has a built-in time limit for this process. Here's a breakdown of what the code does:
+
+1. `s.exit(1)`: This line is trying to call the `exit` function from an undefined object `s`. This will likely cause an error unless `s` is defined elsewhere in the code.
+
+2. The `try` block: The script attempts to execute the `sendToIngest` method of an object `m` with `args.files` as an argument. This method is expected to send files somewhere for ingestion. The `with time_limit(10):` line suggests that this process is given a maximum of 10 seconds to complete.
+
+3. The `except TimeoutException:` block: If the `sendToIngest` method does not complete within the 10-second time limit, a `TimeoutException` is raised. The script then logs an error message "Failed to send files within timeout period." and exits with a status code of 1, indicating an error occurred.
+
+4. The `except Exception:` block: If any other kind of exception is raised during the execution of the `sendToIngest` method, the script logs the exception with the message "Failed to send files." and exits with a status code of 1.
+
+5. `if __name__ == '__main__': main()`: This is a common Python idiom. If this script is being run directly (as opposed to being imported as a module), it calls a function named `main`. This `main` function is not defined in the provided code, but it presumably contains the setup and function calls necessary for the script to accomplish its task.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

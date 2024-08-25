@@ -1,0 +1,114 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ClimateDataUpdate.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ClimateDataUpdate.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a larger software developed by Raytheon Company. The script is intended to work with climate data, specifically with data from the National Climatic Data Center (NCDC) which is fetched from an FTP site. 
+
+The script first imports necessary modules such as sys, logging, os, time, stat, gzip, tables, numpy, and other custom modules like ClimateDataFilePrep, ClimateParser, and JUtil.
+
+The script then sets up a series of variables, including file paths, year limits, and missing data flags. It also defines a list of reject codes, which are type codes from the raw data for observations that the script does not want to use.
+
+The script defines a class called ClimateStation, which holds various information about a climate data station. This class includes methods to append ids and files, set and get start and ending dates, sort file lists, and determine if the data is large.
+
+Another class, ClimateDataUpdate, is defined to download and write data. This class includes methods to check if the process is cancelled, assess data, and update the monitor.
+
+The script also includes a section of code that tests directories and gets station IDs. 
+
+Please note that this is a base file and is not intended to be overridden. It also contains export-restricted data whose export/transfer/disclosure is restricted by U.S. law.
+
+This code is part of a larger script that appears to be handling climate data from various stations. Here's a breakdown of what each part is doing:
+
+1. The first part of the code is looping through a list of stations (`self.stns`). For each station, it updates a monitor with a message indicating that it's preparing the station, then it prepares HDF files for that station and gets the station's data files.
+
+2. The next part checks if there's any data. If there isn't, it updates the monitor with a message instructing the user to download NCDC data files and enables a script generation button. If there is data or if the bypass flag is set, it parses the downloaded data and resets the bypass flag.
+
+3. The `__testDirs` function checks if a directory (`self.climateDir`) exists, is a directory, and has read/write permissions. If not, it updates the monitor with an appropriate error message and sets the state to False. It then checks if a temporary directory exists within `self.climateDir`. If it doesn't, it tries to create it and set its permissions. If it can't, it updates the monitor with an error message and sets the state to False. If the temporary directory exists but isn't a directory or doesn't have read/write permissions, it updates the monitor with an appropriate error message and sets the state to False. The function then returns the state.
+
+4. The `__prepHDFFiles` function prepares HDF files for a given station. It checks if the process has been canceled, updates the monitor with a message indicating that it's preparing an HDF file for the station, and sets up some file paths. It then checks if certain files exist and handles them appropriately, updating the monitor with any errors.
+
+5. The `__getStationDataFiles` function determines the data files for a given station. It updates the monitor with a message indicating that it's determining the data files for the station, then loops through a list of IDs for the station. For each ID, it checks if the process has been canceled, encodes the ID, and reads lines from a file handle (`self.fh`). It then processes these lines to get a list of elements.
+
+This code is part of a larger program that appears to be processing climate data. Here's a breakdown of what it does:
+
+1. It loops through a list of station identifiers (`idWbanYr`) and checks if the year of the data is within the range of years for which data is available for the station. If it is, it appends the file to the station's data and checks if the file exists in a specified directory. If the file doesn't exist, it updates a monitor with a message indicating the missing file and sets `has_data` to `False`.
+
+2. If the station has large data, it gets the year limits for the station and updates the monitor with a message containing the station ID and year limits.
+
+3. The `__getDataYears` method returns a list of years for which data is available for the station, starting from the station's start year to the current year.
+
+4. The `__parseDownloadedData` method uses a `ClimateParser` to process the data for each station. It counts the total number of lines in the data files, estimates the time to complete processing, and then processes each line of data, appending it to a list. If an error occurs while processing a line, it updates the monitor with an error message. After processing all lines, it writes the data to a HDF (Hierarchical Data Format) file.
+
+5. The `__writeHDFData` method writes the processed data to a HDF file. It loops through the data, checks if the data type is in a list of reject codes, and if it's not, it appends the data to the file. If the year of the data is different from the previous year, it appends a new row to the 'info' table in the file. If the data's date time is later than the station's ending date time, it appends a new row to the 'obs' table in the file.
+
+6. If an exception occurs at any point in the code, it prints the traceback and updates the monitor with the exception message.
+
+This code is part of a larger program that seems to be dealing with climate data. It has several functions that perform different tasks:
+
+1. The first part of the code is checking the value of the variable `col` and based on its value, it assigns a specific value to the variable `datum`. It then tries to perform some operations on `datum` and `row[col]`. If any exception occurs during these operations, it updates a monitor with the exception message and continues to the next iteration.
+
+2. The `__convert2scalar` function is used to convert the input `datum` to a scalar value. If `datum` is a list, it returns the first element. If `datum` is a string, it returns the string itself. Otherwise, it just returns `datum`.
+
+3. The `__get_msng` function returns a value based on the type of the input. If the type is 'int', it returns 0 or a 'Missing' string followed by the type. If the type is 'float', it returns 0.0 or 'Missingfloat'. Otherwise, it returns an empty string.
+
+4. The `__updateMonitor` and `__overwriteMonitor` functions are used to send messages to a monitor.
+
+5. The `validate` function seems to be validating some climate station data. It backs up existing data files, copies new data files from a temporary directory to the main directory, and sends messages to the monitor about the progress.
+
+6. The `commit` function deletes backup files and temporary files, updates the monitor with the progress, and sends a 'make_qc' method to the listener.
+
+7. The `reject` function deletes the new data files if the validation fails and restores the data from the backup files. It updates the monitor with the progress.
+
+8. The `kill` function closes the file handlers and removes the files if the `append` attribute is False. If any exception occurs during these operations, it just passes.
+
+This Python script appears to be part of a larger program that deals with climate data. It contains several methods that handle the loading, dumping, and mapping of station (stn) data.
+
+1. `stnLoad(self, stnPickle)`: This method is used to restore the state of the station data. It takes a byte string (stnPickle) as an argument, which is assumed to be generated by calling `stnDump`. If the byte string is not empty, it unpickles the string into a dictionary and assigns its values to various instance variables. It also attempts to open a file for each station and a file in the climate directory.
+
+2. `stnDump(self)`: This method saves the current state of the station data using pickle. It first tries to close a file handler (`self.fh`) if it exists, then sets it to None. It then creates a dictionary (`stnPickle`) and assigns various instance variables to it. It also creates a dictionary (`fhNames`) that maps each station to its file name, and tries to close each file. The `stnPickle` dictionary is then pickled and sent back to the Java listener.
+
+3. `getStationsMap(self, save=True)`: This method creates a map of stations to their file lists (`f_list`). It sends this map to the Java listener and, if the `save` argument is True, it also calls `stnDump` to save the current state.
+
+The script ends with a block of code that is executed if the script is run as the main program. It changes the current directory to '/home/gilmoredm/avnfps/', creates an instance of `ClimateDataUpdate` called `cd`, and runs it.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

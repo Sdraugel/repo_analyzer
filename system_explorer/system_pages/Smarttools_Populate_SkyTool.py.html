@@ -1,0 +1,90 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Populate_SkyTool.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Populate_SkyTool.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a script for a tool called "Populate_SkyTool" version 1.0. The tool is used to determine Sky Cover based on an exponential function where layer Relative Humidity (RH) is the dependent variable. 
+
+The script starts by importing necessary modules and defining some variables. It then defines a list of variables that will be solicited from the user, such as the model to use, the model run, layer depth, whether to use RH with respect to ice at temperatures below -25C, and several other parameters.
+
+The script then defines a class for the tool, which inherits from the SmartScript class. The class has an `__init__` method to initialize the object and an `execute` method to run the tool. 
+
+The `execute` method starts by extracting the user's choices from the variable dictionary `varDict`. It then determines the model to use based on the user's choice of model and model run. 
+
+The method then retrieves RH values from the numerical model for different boundary layers. It also defines lists for different levels (lvl), temperature (T_lvl), RH (RH_lvl), vapour pressure (e_lvl), saturation vapour pressure over liquid water (es_lvl), saturation vapour pressure over ice (esi_lvl), and RH with respect to ice (RHi_lvl). 
+
+The method then loops over the levels, retrieving temperature and RH grids from the model for each level, and calculating es, e, esi, and RHi for each level. 
+
+The script ends with a comment indicating that if the grid point temperature is less than -25C, the script should use RH over ice, but the code to do this is not shown.
+
+This code is performing a series of calculations to determine the cloud amount in the sky, based on various atmospheric conditions. Here's a breakdown of what it does:
+
+1. If the variable `UseRHi` is set to "Yes", it applies a mask to `RH_lvl[x]` where `T_lvl[x]` is less than 248.
+
+2. It populates four variables `RHPBL030`, `RHPBL3060`, `RHPBL6090`, `RHPBL90120` with the first four elements of `RH_lvl`.
+
+3. It then checks the `layer_depth` variable. If it's "50mb", it calculates the average of every three consecutive elements in `RH_lvl` and assigns them to new variables. If it's not "50mb", it calculates the average of every two consecutive elements in `RH_lvl` and assigns them to new variables.
+
+4. It also calculates the average of every two consecutive elements in `RH_lvl` starting from the 22nd element, regardless of the `layer_depth` value.
+
+5. It creates a list of the four `RHPBL` variables and another list of the four averages calculated in step 4.
+
+6. Depending on the `layer_depth` value, it creates a list of the averages calculated in step 3.
+
+7. It then checks the `lowPBL` variable. If it's "Yes", it assigns the value of `RHPBL030` to the `holder` variable. If it's not "Yes", it checks the `layer_depth` value and assigns the first average from the corresponding list to the `holder` variable.
+
+8. If `lowPBL` is "Yes", it iterates over the `my_PBLlist` list and updates the `holder` variable with the maximum value between `holder` and the current element.
+
+9. It then iterates over the list created in step 6 and updates the `holder` variable with the maximum value between `holder` and the current element.
+
+10. If `hiCLDS` is "Yes", it iterates over the `my_upr_trop_list` list and updates the `holder` variable with the maximum value between `holder` and the current element.
+
+11. It then calculates the cloud amount using a formula that involves the `holder` variable, a calibration factor, and a threshold value.
+
+12. It applies a maximum and minimum limit to the cloud amount.
+
+13. If the minimum limit is greater than the maximum limit, it displays a warning message.
+
+14. Finally, it assigns the cloud amount to the `Sky` variable and returns it.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

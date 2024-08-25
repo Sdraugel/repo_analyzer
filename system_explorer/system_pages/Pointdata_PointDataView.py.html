@@ -1,0 +1,70 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>PointDataView.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>PointDataView.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code defines a wrapper class for a Java object called PointDataView. The purpose of the wrapper class is to provide a Python interface to the Java object, making it easier to interact with the Java object using Python.
+
+Here's a breakdown of the class:
+
+- The constructor (`__init__`) initializes the PointDataView object with a Java PointDataView object and creates an empty list of keys. It then retrieves the parameters from the Java object and adds them to the keys list.
+
+- The `__getitem__` method allows the user to access the data in the Java object using Python's indexing syntax. It checks the type of the value associated with the given key and retrieves the value accordingly.
+
+- The `getType` method retrieves the type of the value associated with the given key from the Java object.
+
+- The `has_key` method checks if a given key is present in the keys list.
+
+- The `keys` method returns the keys list.
+
+- The `__iter__` method allows the user to iterate over the keys in the PointDataView object.
+
+- The `__contains__` method checks if a given key is in the keys list.
+
+- The `getFillValue` method returns a fill value. It is currently hardcoded to return -9999.0.
+
+- The `getNumberAllLevels` method retrieves all levels of a given key from the Java object, converts them to the appropriate Python type, and returns them as a list.
+
+The code also includes a software history comment section and a legal notice from Raytheon Company, indicating that the software was developed under a contract with the US Government and contains export-restricted data.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,314 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>HazardsTable.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>HazardsTable.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The code provided is a Python script that appears to be part of a larger software system developed by Raytheon Company. The software seems to be related to the handling and processing of hazard data, possibly for weather forecasting or similar applications.
+
+The script begins with a large comment block that provides information about the software's development, its export restrictions, and a history of changes made to the software. This is followed by a series of import statements, which import various modules and classes that the script needs to function.
+
+The main part of the script is a class definition for a class named `HazardsTable`, which inherits from `VTECTableUtil.VTECTableUtil`. This class appears to be a utility for interfacing with a hazard grid and generating formatted hazard strings and VTEC strings for formatters. It includes an `__init__` method that sets up the object with various parameters, including an IFP client, edit areas, a product category, a filter method, a database ID, and several others.
+
+The `HazardsTable` class also includes several instance variables that are set up in the `__init__` method. These include a logger, a client for interfacing with the IFP, a database ID, a data manager, a list of edit areas, a product category, a site ID, and several others. 
+
+The `__init__` method also includes logic for setting up various other instance variables based on the input parameters, such as the active table mode and the hazard end time. It also sets up several lists of product and phen/sig keys, and determines the creation time of the object. 
+
+Overall, this script appears to be a utility for handling and processing hazard data in a specific format.
+
+This code appears to be part of a larger system that analyzes and manages hazard data for different geographic areas, possibly for weather forecasting or similar applications. 
+
+Here's a breakdown of the key parts:
+
+- The `__init__` method (not fully visible in the snippet) seems to initialize an instance of the class with various attributes related to geographic areas and hazards.
+
+- The `activeTable`, `rawAnalyzedTable`, `consolidatedTableByID`, `getHazardAreaCombinations` methods are getter methods that return the respective private attributes.
+
+- The `getHazardList` method takes a list or a string representing an area and returns a list of hazards that apply to that area. It seems to handle hazards with a 'seg' attribute differently, creating a copy of the hazard and changing its key.
+
+- The `getVTECString` method returns a string containing the VTEC (Volunteer Examiner Coordinator) strings for a given forecast area and time range. It sorts the hazards depending on the type of product (marine or non-marine) and pairs up upgrade records.
+
+- The `getCities` method returns the cities associated with the hazards that could afflict the cities in the provided city list.
+
+- The `getCitiesForEXP` method gets cities associated with a VTEC with an EXP action, returning None if the grid is deleted.
+
+Overall, this code seems to be part of a system that analyzes, organizes, and retrieves hazard data for different geographic areas.
+
+This code is part of a larger system that deals with hazard events in different cities. It contains several methods that perform various operations related to these events:
+
+1. The first method is an unnamed method that searches through a list of city hazards (`self.__cityHazards`) for records that match specific criteria (`phen`, `sig`, `endTime`). It appends matching records to a list (`matches`) and then calls the `__getCities` method with a list of cities and the matches.
+
+2. The `__getCities` method takes a list of cities and a list of hazards. It checks if the ID of each hazard (converted to uppercase) matches the name of any city (also converted to uppercase) in the city list. If a match is found, the city is added to a new list (`cities`). The method returns this list of cities.
+
+3. The `getCitiesFromPrevious` method takes a list of UGCs (Universal Geographic Codes), a list of checked VTEC (Valid Time Event Code) records, and an optional list of ignored VTEC records. It performs a series of operations to get a list of cities affected by events that were cancelled or expired. It also keeps track of any unmatched records and logs any errors or anomalies found during the process. The method returns a list of cities and a certainty flag.
+
+4. The `__hazardsSort` method is a property that defines a comparison function for sorting hazards based on several criteria: action code, significance, start time, and phenomena. It returns 1, 0, or -1 depending on whether the first hazard is considered higher, equal, or lower priority when compared to the second. It also logs an error if it encounters an invalid action code, significance code, or identical hazards.
+
+This code is part of a larger system that appears to be dealing with marine hazards. The code contains several methods that perform various operations on these hazards.
+
+1. `__marineHazardsSort`: This method is a property that sorts marine hazards based on several factors in a specific order: start time, action code, significance, and phenomena. It uses a custom comparison function `cmpfunc` to determine the order of two hazards. If any of the factors are invalid, it logs an error and treats the two hazards as equal.
+
+2. `__pairUpgradeRecords`: This method reorders a list of hazards so that upgrades and downgrades are sequential. It first identifies hazards that have been upgraded or downgraded, removes them from the original list, and then inserts them back into the list in the correct position. If a match for an upgrade or downgrade cannot be found, it logs an error.
+
+3. Utility functions: The code also contains several utility functions for handling time ranges. These include:
+   - `__printTR`: Pretty-prints a time range or a list of time ranges.
+   - `__printHBZ`: Pretty-prints the hazard by zone table.
+   - `__timeIntersection`: Returns the intersection of two time ranges.
+   - `__nonTimeIntersection`: Returns the non-intersecting time ranges between two time ranges.
+   - `__containsT`: Checks if a time range contains a specific time.
+   
+The code uses a lot of dictionary operations to access specific properties of each hazard, and it also uses list operations to manipulate the order of hazards in a list. It also uses exception handling to deal with potential errors that might occur during these operations.
+
+This code appears to be part of a larger system that manages and manipulates records of events or hazards, possibly in a weather forecasting context. The records are characterized by a start time, end time, a phenomenon (phen) and a significance (sig), among other attributes. 
+
+Here's a breakdown of what each function does:
+
+- `__overlaps(self, tr1, tr2)`: Checks if two time ranges overlap.
+- `__hazardsOverlap(self, h1, h2)`: Checks if two hazard records overlap in time.
+- `__isAdjacent(self, tr1, tr2)`: Checks if two time ranges are adjacent.
+- `__combineTR(self, tr1, tr2)`: Combines two time ranges into one.
+- `__prepETNCache(self, proposedRecord)`: Prepares a cache for Event Tracking Numbers (ETN). If a proposed record matches an existing record in the cache (based on phen, sig, start time, and end time), it adds the record's ID to the existing record. If it doesn't match, it adds a new entry to the cache.
+- `__assignNewETNs(self, activeTable)`: Assigns new ETNs to the cache. It processes each record sequentially, assigning a new ETN if none exists, and reusing an ETN for adjacent or overlapping records, unless doing so would cause a duplication.
+- `__highestETNActiveTable(self, phen, sig, activeTable)`: Finds the highest ETN in the active table for a given phen/sig combination.
+- `__getNewETN(self, pRecord)`: Determines a new ETN to use, based on the ETN cache.
+
+The code is written in Python and uses object-oriented programming principles. The methods are private (as indicated by the double underscore prefix), meaning they are intended to be used only within the class they are defined in.
+
+The provided code is written in Python and it appears to be part of a larger system that analyzes and manipulates hazard data. Here is a breakdown of what each function does:
+
+1. `__singleZoneList(self, comboList)`: This function takes a list of lists (each containing zones) and flattens it into a single list of zones.
+
+2. `__organizeByZone(self, hazardList)`: This function organizes a list of hazards into a dictionary where each key is a zone name and the value is a list of all hazards for that zone.
+
+3. `__organizeByPhenSig(self, hazardList)`: Similar to the previous function, this one organizes a list of hazards into a dictionary. However, the keys in this dictionary are tuples of phenomena and signals, and the values are lists of hazards for each key.
+
+4. `__comboCompare(self, hazardsByZone, zone1, zone2)`: This function compares two lists of hazards for two zones and returns whether the same hazards exist in both zones. The match must be exact.
+
+5. `__recombineZoneGroups(self, hazardsByZone, editAreas)`: This function analyzes the hazards by zone and the list of desired edit area combinations. It ensures that the hazards are the same for every zone in each combination. If not, it separates out those zones and returns the new zone grouping.
+
+6. `__analyzedTable(self, areas, filter)`: This function is the main routine to obtain the analyzed table, which is a composite between the proposed and active tables. It samples the Hazards Grid, combines time entries, gets the active table from the IFPServer, does specific product filtering, performs site filtering on the active table, and performs GEO (edit area) filtering on the active table.
+
+The code also contains several logging statements, which are used to record the progress and results of the operations.
+
+The provided code seems to be a part of a larger Python program, possibly related to weather forecasting or hazard detection. Here's a breakdown of what the given code does:
+
+1. The first part of the code checks if the `ecMode` is equal to "T". If it is, and `testEntry` is true, it appends `a` to `actTable`. If `ecMode` is not "T" and `testEntry` is false, it still appends `a` to `actTable`. Then it filters `actTable` based on `allowedHazardsOnly` and logs the length of the filtered `actTable`.
+
+2. It then merges the proposed and active tables to create an analyzed table, `atable`, and logs its length. The analyzed table is then returned.
+
+3. The `__getActiveTable` function tries to get the VTEC active table from the server using the IFPClient interface and transforms it to Python. If it fails, it logs an exception and raises it.
+
+4. The `__createCityHazards` function evaluates hazards for cities if `__accurateCities` is true. It sets up sample requests, makes a proposed table, consolidates it, removes old entries, handles UFN events, and logs the hazards afflicting cities.
+
+5. The `__makeCityTable` function creates a city hazard table from samples. It iterates over the samples and for each sample, it creates a dictionary `d` with information about the hazard and appends it to `rval`.
+
+6. The `__doSamplingOfHazards` function samples the Hazards Grid in the ifpServer and returns a list of ParmHistos. It determines the ParmID for Hazards out of the given database, sets the TimeRange to sample, determines the sampler request structures, and performs sampling.
+
+7. The `__makeProposedTable` function seems to be incomplete, but it appears to be intended to create a proposed table from samples, similar to the `__makeCityTable` function.
+
+Overall, this code seems to be part of a system for analyzing and reporting on hazards, possibly weather-related, for different cities.
+
+This code appears to be part of a larger system that deals with hazard warnings, possibly for weather events. 
+
+The first function, `parmHistos`, is processing a set of histogram samples (parmHistos). It loops through each sample, extracting various pieces of information such as area ID, number of grid points, and the samples themselves. It then creates a dictionary (`d`) for each sample, populating it with data like the area ID, start and end times, and other relevant information. The function then appends each dictionary to a list (`rval`) which is returned at the end.
+
+The `__getProposedTable` function retrieves a proposed hazards table from the server. It samples hazards from specified areas (`editAreas`), creates a proposed table from these samples, and then adjusts the start and end times for certain events. The processed table is then returned.
+
+The `__timeReduce` function is a utility function that combines adjacent time intervals in a table if their end and start times match.
+
+The `__stripNone` function removes any entries from a table where the 'phensig' key has a value of '<None>'.
+
+The `__stripOld` function removes any entries from a table where the 'endTime' is in the past.
+
+The `__truncateCurrentTime` function adjusts the 'startTime' of any entries in a table that start in the past, setting them to the current hour.
+
+The final comment suggests there may be another function that removes entries that occupy less than a certain threshold, but the code for this function is not included.
+
+The code is a part of a larger system, and it seems to be dealing with data processing and filtering. Here is what each method does:
+
+1. `__coverageFilter(self, atable)`: This method filters a given table based on a coverage threshold. The threshold can be either a percentage of the area covered or a number of grid points covered. If neither is given, the method returns an empty list. After filtering, it removes 'valuePoints' and 'areaPoints' from each item in the table.
+
+2. `__keySet(self, atable, key)`: This method returns a set of unique values found under the specified key in the given table.
+
+3. `__compressTime(self, atable)`: This method sorts the given table by time, groups items by 'phensig' key, and applies some time reduction function to each group.
+
+4. `__consolidateTime(self, atable)`: This method groups items in the given table by 'act' key, then by 'id' key within each group, and applies the `__compressTime` method to each group.
+
+5. `__timeCombine(self, atable)`: This method applies a series of transformations to the given table, including stripping None values, filtering by coverage, consolidating time, stripping old records, and truncating current time.
+
+6. `__copyFields(self, record, fields)`: This method creates and returns a new dictionary containing only the specified fields from the given record.
+
+7. `__convertEXPtoCON(self, aTable)`: This method modifies the given table by converting 'EXP' codes that are still in effect to 'CON' codes.
+
+8. `__handleSPCWatches(self, proposedTable, activeTable)`: This method handles a special case related to SPC Watches. It compares each item in the proposed table with items in the active table and modifies the 'act' key and times of the proposed item based on certain conditions.
+
+The code seems to be a part of a larger system that processes and filters data related to some kind of geographical or meteorological data, possibly related to weather forecasting or hazard detection.
+
+This code appears to be part of a larger system that manages and manipulates event data, possibly related to weather events, as suggested by the use of terms such as 'VTEC' and 'phen'. This part of the code includes several functions that perform various checks and adjustments on the event data.
+
+1. The first function adjusts the start and end times of proposed events based on the active events. If the start or end time of a proposed event is within 30 minutes of the corresponding time of an active event, the proposed event's time is set to match the active event's time.
+
+2. The second function, `__checkForMergedEvents`, checks for events that have merged together. If multiple records match, it identifies the event with the highest 'etn' value. For all other matching events, it generates new 'CAN' records and removes the original entries from the active table. The function then appends the generated 'CAN' events to the proposed table and returns the modified set of records.
+
+3. The third function, `__checkForCONEXT`, checks for continuation ('CON') and extension ('EXT') in time codes. An event is considered continued if two hazards have the same id, phen, sig, and pil, and if the end times match. An event is considered to be extended in time if the event overlaps in time. The function also handles special cases such as convective watches and events that have already ended.
+
+In general, this code is designed to handle and manipulate event data, adjusting event times, handling merged events, and checking for continued or extended events.
+
+This code appears to be part of a larger system that manages and updates event records, possibly related to weather events or similar phenomena. 
+
+The first part of the code is checking if the proposed action is 'EXT' (possibly short for "extended"). If it is, it sets the 'conexted' field of the active event to 1, copies some fields from the active event to the proposed event, and saves the original start and end times of the event for later comparison. If the event is local, it doesn't make any changes.
+
+The second part of the code is a method that checks for 'CAN', 'EXP', and 'UPG' actions (possibly short for "cancel", "expire", and "upgrade"). It iterates over the active events and skips any that are for a different site, have already ended, or are for another product. It then checks if a cancel is needed for the event. If the event is in effect and the proposed event is in the future, it cancels the active event. If the event is a convective watch, it also checks the 'etn' field. If the proposed event is not in the proposed table, it checks if the event should be upgraded, expired, or cancelled.
+
+The third part of the code adds new entries to the proposed table, changes any text to previous text, and removes any VTEC coding from the active table.
+
+The final part of the code is a function that checks the proposed table against the active table to determine 'EXA' or 'EXB', but the code is cut off before we can see what these actions entail. 
+
+Overall, this code appears to be managing and updating a table of active and proposed events based on certain conditions and actions.
+
+This script is part of a larger system that manages and processes hazard warnings. It appears to be designed to handle updates to existing warnings, as well as the creation of new ones. 
+
+The script first checks if a proposed hazard warning is new. If it isn't new, it skips processing the record. 
+
+Next, it assumes that the proposed hazard is an extension of an existing warning (EXA or EXB). It then checks if the proposed hazard matches any active hazards and overlaps in time with them. If it does, it is not an EXA or EXB.
+
+If no match is found, the script checks if the proposed hazard is an EXA. It does this by comparing the proposed hazard with all active hazards again, this time looking for identical times and event tracking numbers (etn). If these conditions are met, the proposed hazard is marked as an EXA.
+
+If the proposed hazard is not an EXA, the script checks if it is an EXB. It does this by looking for overlapping or adjacent times in the active table that do not occur in the past, but ensure that there is an event in the proposed hazard that overlaps with time. If these conditions are met, the proposed hazard is marked as an EXB.
+
+Finally, the script sets the marked records to EXA or EXB unless there is already a record with the same ETN for the same phen/sig in the same zone. It also organizes the hazards by zone and hazard key, and checks if the etn is used. If the etn is not used, the proposed hazard's action, etn, and issue time are set to those of the active hazard, and the text fields are copied from the active hazard to the proposed hazard. 
+
+If the action is 'EXB', the script saves the original time so it can be used later, although the code provided cuts off at this point.
+
+The code provided is a part of a larger Python script that seems to be handling some sort of event or hazard data, possibly related to weather or other environmental conditions. Here's a description of what each part of the code does:
+
+1. `__checkForNEW`: This function checks for any records in the provided table (`pTable`) that have an undefined action. If it finds any, it assigns them an action of 'NEW'. It also checks for a match in the active table for events that are still occurring. If no match is found, it prepares for a new event tracking number (ETN). If a match is found, it assigns the ETN from the active table. It also assigns new ETNs and processes records marked as 'NEW' but have no ETN.
+
+2. `__eliminateEXPCodes`: This function filters out 'EXP' (presumably 'expired') codes from the table. If an event is not yet expired (i.e., its end time is later than the current time), it converts the 'EXP' code to a 'CON' (presumably 'continue') code. Events that are expired are ignored.
+
+3. `__addEXPCodes`: This function looks for events that have a 'CON' code but are within 30 minutes of their ending time. It converts these events to 'EXP'.
+
+4. `__removeEXPWithOngoingCodes`: This function removes 'EXP' codes when another event of the same type is ongoing, but only if they were issued in the same year. 
+
+5. `__addVTECStrings`: This function generates VTEC (Valley Tornado and Extreme Convection) strings for hazards. It extracts various information from the hazard record, such as the product category, VTEC mode, office ID, ETN, and action. If the action is 'NEW' and the start time is earlier than the current time, it adjusts the start time to the current time. 
+
+The code seems to be part of a larger system that tracks and manages events or hazards, possibly for a weather forecasting or emergency management system.
+
+The provided code is a part of a larger system, and it seems to be involved in handling and manipulating data related to events or hazards. Here's a breakdown of what each section does:
+
+1. The first section checks the action type and the start time of an event. If the action is 'NEW' or the previous start time is greater than a certain time, it formats the start time into a specific string format. If not, it sets the start time to a default value. It does a similar check for the end time of the event. It then constructs a string called 'vtec' using various variables and assigns it to 'vtecstr' in the event's dictionary.
+
+2. The second function, '__addHeadlinesIfMissing', checks if a headline is missing in the event data. If it is, it either leaves it blank or assigns a default headline from a table, depending on certain conditions. It also checks for merged events and handles them differently.
+
+3. The next two functions, '__isUpgrade' and '__isDowngrade', determine whether a proposed event is an upgrade or a downgrade from an active event, based on certain conditions.
+
+4. The last function, '__checkForMultipleSegsInSameID', checks for records with the same 'phen' and 'sig' for the same geographical area. If it finds multiple records, it eliminates the ones with lower segment numbers and combines records with different times. The goal is to have only one record per ID for each 'phen' and 'sig'.
+
+This code seems to be part of a larger system for handling and managing event or hazard data, possibly for some kind of alert or notification system.
+
+This code is a part of a larger program that appears to be processing and manipulating a list of hazard records. Here's a breakdown of what the code is doing:
+
+1. The code first checks if a certain key (`rnx`) exists in a dictionary (`trDict`). If it does, it combines the values of `ytr` and `trDict[rnx]` using the `__combineTR` method and assigns it to `trDict[rnx]`. If it does not, it combines `xtr` and `ytr` and assigns it to `trDict[rnx]`.
+
+2. It then calculates the maximum segment number using the `__maxSegNumber` method and assigns it to `maxSN`.
+
+3. The code then iterates over a list of records. For each record, if a certain key (`rn`) exists, it assigns new segment numbers, reassigns starting and ending times, and deletes the temporary markers. It also constructs a new string `phensig` by concatenating several values from the record.
+
+4. It eliminates duplicate records from the list.
+
+5. The code then expands the dictionary `orgHaz` back out to a list `updatedList`.
+
+6. It then combines new segments if possible. If a new segment is found, it finds matching records and assigns them the same segment number and key.
+
+7. It eliminates duplicate entries from `updatedList` and returns the final list.
+
+8. The code also includes a sorting function `__hazardSortSTET` that sorts hazard records by starting time, then ending time.
+
+9. There are also several validation functions such as `__maxSegNumber`, `__checkValidETNcw`, `__validateTropicalETN`, and `__checkValidETNsActions` that perform various checks and validations on the data.
+
+The code seems to be a part of a larger system that handles hazard warnings or alerts, possibly for weather-related events. It's manipulating and validating the data related to these hazards.
+
+This is a piece of Python code that seems to be part of a larger system, possibly for handling weather-related events. It includes several methods that manipulate and validate tables of data, presumably related to weather events.
+
+1. The first block of code checks if a hazard exists with the same ETN (Event Tracking Number), same hazard type, and conflicting actions. If such a hazard is found, an exception is raised with a detailed error message.
+
+2. The `__removeOverdueEXPs` method iterates over a table and removes any records where the action is 'EXP' (presumably meaning expired) and the time since the end of the event is 30 minutes or more.
+
+3. The `__removeIssuedEXPs` method removes any records from a table where the action is 'EXP', the end time of the event is in the future, and the event has already been issued.
+
+4. The `__checkETNdups` method checks for duplicate ETNs in a table. If it finds any, it changes the action of the second occurrence to 'NEW' and assigns it a new ETN.
+
+5. The `__warnETNduplication` method checks for duplicate ETNs in a table and logs a warning if it finds any.
+
+In general, this code seems to be part of a system for managing and validating weather event data, ensuring that each event has a unique ETN and that events are correctly marked as expired or issued as appropriate.
+
+This code is part of a larger system, likely a weather forecasting system, that processes and validates weather event data. The code is written in Python and it appears to be part of a class definition due to the use of 'self'. 
+
+The code contains several methods that perform various operations on the data:
+
+1. `__copyTextFields(self, proposed, active)`: This method copies text fields from the active record to the proposed record if they exist.
+
+2. `__addUpgradeDowngradeRec(self, proposedTable)`: This method adds upgrade or downgrade records from the active table to the proposed table based on certain conditions.
+
+3. `__mergeActiveProposed(self, pTable, activeTable, pil, areas)`: This is a large method that performs several operations on the proposed and active tables. It converts certain records, checks for specific conditions, adds or removes records based on those conditions, and performs validation checks. The operations are logged for debugging purposes. 
+
+The operations include handling special watches, checking for multiple segments, merged events, various actions (CON, EXT, CAN, EXP, UPG, EXA, EXB, NEW), adding upgrade/downgrade records, adding EXP codes, removing certain EXPs, checking valid ETNs/Actions, removing overdue EXPs, checking for ETN duplicates, warning about ETN duplication, adding VTEC strings, adding missing headlines, validating ETNs for specific events, and validating tropical ETNs.
+
+Finally, the method returns the processed and validated proposed table. 
+
+The code also contains a piece of code that sends a system message if a duplicate ETN is found in the formatted product. The message instructs to transmit the product and open a trouble ticket with the NCF.
+
+This piece of code is written in Python and contains several methods, some of which are commented out and no longer in use.
+
+1. The first line `return pTable` is returning the value of a variable named `pTable`. However, without the context of the rest of the function, it's unclear what `pTable` is.
+
+2. The commented out section contains two methods: `__isMarineZone` and `__separateETNtrack`. 
+
+   - `__isMarineZone` checks if the first two characters of the provided id are in the `__marineZonesPrefix` list. If they are, it returns `True`, otherwise `False`.
+   
+   - `__separateETNtrack` checks whether two records (`rec1` and `rec2`) require separate ETN tracks. It checks if the 'phen' and 'sig' values of the two records are the same and if they are in the `__tpcKeys` list. If they are the same and in the `__tpcKeys` list, it checks if one record is a marine zone and the other is not. If they are different or if the 'phen' and 'sig' values are not the same, it returns `True`, otherwise it returns `False`.
+
+3. The `__processJavaCollection` method processes a Java collection object. It creates an iterator for the Java object and iterates through it. If a `processMethod` is provided, it applies this method to each object in the collection. The processed objects are appended to the `retVal` list, which is returned at the end.
+
+4. The `__convertPhensig` method converts a Java object `javaPhensig` into a Python tuple. It does this by converting the Java object to a string, splitting it at the '.' character, and returning the resulting tuple.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

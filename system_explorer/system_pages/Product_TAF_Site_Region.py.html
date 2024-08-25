@@ -1,0 +1,74 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TAF_Site_Region.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TAF_Site_Region.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be part of a larger system, likely for handling text products in a specific format referred to as "TAF". The script is designed to import and apply various definitions and overrides to a text product, based on the site and region.
+
+Here is a breakdown of what the code does:
+
+1. It imports necessary modules, including a generic TAF module, system and copy modules, and importlib for dynamic importing.
+
+2. It constructs the names of the definition and override modules based on the site and region. Note that the site overrides are commented out, meaning they are not currently in use.
+
+3. It imports the local site's Product Definition specifications and Regional Overrides using the names constructed earlier. Again, the site overrides are commented out.
+
+4. It imports a module named Patch_Overrides, presumably to apply some patches or modifications.
+
+5. It retrieves the class objects for the region and site overrides. The site overrides are commented out.
+
+6. It retrieves the region and site definitions into known variable names.
+
+7. It defines a new class, TextProduct, that inherits from several other classes including the region overrides class, the Patch_Overrides class, and the TAF.TextProduct class.
+
+8. Inside the TextProduct class, it deep copies the TAF.TextProduct.Definition and updates it with regional and site definitions.
+
+9. It attempts to get the VariableList from the region module and the site module (the latter is commented out).
+
+10. It sets a display name for the Definition.
+
+11. It defines an initializer function that calls the initializer of the TAF.TextProduct class.
+
+The script seems to be a part of a larger system for handling and modifying text products, with the ability to apply site-specific and region-specific modifications. However, the site-specific parts are currently commented out.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

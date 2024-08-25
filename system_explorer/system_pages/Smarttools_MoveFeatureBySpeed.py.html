@@ -1,0 +1,82 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>MoveFeatureBySpeed.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>MoveFeatureBySpeed.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be a tool for extrapolating features forward or backward in time based on observed or model speed. It is part of a larger software system developed by Raytheon Company. 
+
+The script begins with a series of comments that provide information about the software's development, export restrictions, and licensing. It also includes a history of software changes and the authors who contributed to the development of the tool.
+
+The script then imports several modules, including LogStream, time, numpy, and math. It also sets some global variables and imports the SmartScript module.
+
+The script defines a list of models that can be used by the tool, and allows for additional models to be added or removed based on their availability. It also sets the resolution and appends additional sources to the sourceList.
+
+The script then defines a list of variables that can be selected by the user. These variables include the source of the data, the wind level if a model is being used, the movement speed and direction, and how to backfill upstream edges.
+
+The script defines a class called Tool that inherits from SmartScript.SmartScript. This class has an __init__ method and an execute method. The execute method is where the main functionality of the tool is implemented. It extrapolates features based on the selected source and other user-defined variables. 
+
+The script also includes some code for handling gaps in model grids and expanding the range of time to look for model data.
+
+This code appears to be part of a larger program that processes meteorological data. 
+
+The first part of the code checks if the 'level' variable is in a list of predefined levels (MB925, MB850, MB700, MB500). If it is, it retrieves the wind data for that level using the 'getGrids' method and assigns the speed and direction. If the 'level' is not in the predefined list, it checks for other specific level ranges and builds the levels using the 'buildLevels' method. It then calculates the average wind speed and direction across these levels.
+
+The code then checks if the 'wind' variable is set to "wind". If it is, it converts the wind speed from meters per second to knots.
+
+If the 'source' variable is set to "Observed (enter below)", the code converts the speed from knots to kilometers per hour and calculates the movement over the grid in the x and y directions. It then creates a new grid (newT) and moves the data in the original grid (variableElement) to the new grid based on the calculated x and y movement. If the 'Backfill' variable is set to "Zeros", it also creates a 'changedMask' grid that marks the moved data.
+
+If the 'source' is not "Observed (enter below)", it assumes the source is a model and converts the speed from knots to kilometers per hour.
+
+The code seems to be part of a larger system for processing and analyzing meteorological data, possibly for weather forecasting or climate modeling.
+
+This code appears to be a part of a larger Python program, possibly related to some kind of data processing or simulation. Here's a high-level overview of what the different parts of the code are doing:
+
+1. The first part of the code is performing some calculations on a variable called `variableElement`. It's converting a direction and speed into a vector (`u`, `v`), scaling it by a resolution, and possibly inverting it. Then it's creating a new array of the same shape as `variableElement` and filling it with values from `variableElement` based on the calculated vectors. If the `Backfill` variable is set to certain values, it modifies the new array or a mask array in specific ways.
+
+2. The `buildLevels` function is creating a list of pressure levels from a base level to a top level. The step size between levels depends on the model being used. If the model is in the `RAP` list, the step size is 50, otherwise it's 25.
+
+3. The `logToolUse` function logs a string message with a timestamp. The timestamp is generated from the current time in GMT.
+
+Without more context, it's hard to say exactly what the purpose of this code is. But it seems to be part of a larger system for processing or simulating some kind of data, possibly related to weather or atmospheric science given the references to pressure levels and directions.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,88 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TCWindThreat.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TCWindThreat.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a script for a software that appears to be related to meteorological data, specifically wind threat data. The software is in the public domain and is not supported by any technical team. It has been modified by various authors over the years, with the most recent modification made by P. Santos on April 22, 2021.
+
+The script begins with a disclaimer that it should not be changed without consulting the original developers. It then defines a list of menu items and a list of variables for the software's graphical user interface (GUI).
+
+The script imports several modules, including TropicalUtility, TimeRange, AbsTime, MetLib, math, and numpy. It then defines a class called Procedure that inherits from TropicalUtility.TropicalUtility.
+
+The Procedure class has an __init__ method that initializes the class and a method called getProbGrids. The getProbGrids method appears to extract data from a database related to wind probability grids. It searches for specific models in the database, extracts the data, and returns the last grid of each type.
+
+Another method, make6hrTimeRange, is defined but not completed in the provided code. This method appears to create a time range spanning from the current hour to 6 hours later.
+
+Overall, this code seems to be part of a larger system for analyzing and predicting wind threats, likely for weather forecasting or similar meteorological purposes.
+
+The given code appears to be a part of a larger Python program, possibly related to weather forecasting. Here's a breakdown of what the different methods in the code are doing:
+
+1. `makeDBTimeRange(self)`: This method creates a time range spanning from 24 hours in the past to 10 days in the future.
+
+2. `removeGrids(self, elementList)`: This method removes all previous grids for the elements specified in the `elementList`.
+
+3. `getWindMax(self, timeRange)`: This method fetches a grid that represents the maximum wind speed for the next 3 days. If no wind grids are found, it returns `None`.
+
+4. `execute(self, varDict)`: This is the main function that executes the program. It fetches the model source and defines the model name. It also gets the confidence value from the dialog and sets the percent thresholds and wind thresholds for each confidence category. It then initializes the threat grid, gets and adjusts a grid of maximum wind over the entire storm, and removes the grids for "WindMax". Finally, it creates a new grid for "WindMax".
+
+The code seems to be part of a weather forecasting system, possibly for predicting wind speeds and threats. It uses a probabilistic model to predict wind speeds and assigns threat levels based on the predicted wind speeds. It also handles time ranges for the predictions and can remove old prediction data.
+
+This code appears to be part of a weather forecasting system, specifically for predicting wind threats. It uses a grid-based system to assign threat levels based on wind speed probabilities. 
+
+1. The first part of the code checks if the variable `allWind` is True. If it is, it assigns threat levels to the `threatGrid` based on the maximum wind speed (`windMax`) compared to various thresholds stored in `windDict`. The threat levels are assigned as `lowIndex`, `modIndex`, `highIndex`, and `extremeIndex`.
+
+2. If `allWind` is not True, the code checks if any of the probability grids (`prob34Grid`, `prob50Grid`, `prob64Grid`) are None. If any of them are, it returns and stops executing.
+
+3. It then creates three new grids named "Prob34", "Prob50", and "Prob64" using the respective probability grids.
+
+4. The code then assigns threat levels to the `threatGrid` based on the values in the probability grids compared to various thresholds.
+
+5. It upgrades the threat level based on the maximum wind speed (`windMax`) compared to various thresholds stored in `windDict`. The threat level is upgraded if the current threat level is lower than the new threat level.
+
+6. The previous version of the "WindThreat" grid is removed.
+
+7. Finally, a new "WindThreat" grid is created using the `threatGrid` and other parameters. 
+
+In summary, this code is analyzing wind speed data and assigning threat levels based on the data. It also updates the threat levels if the wind speed exceeds certain thresholds. The results are stored in a grid for further use.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

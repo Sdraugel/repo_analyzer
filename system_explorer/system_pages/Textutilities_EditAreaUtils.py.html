@@ -1,0 +1,110 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>EditAreaUtils.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>EditAreaUtils.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that defines a class called `EditAreaUtils`. This class provides utilities for dealing with Edit Areas in a software developed by Raytheon Company. The class inherits from `TextUtils.TextUtils`, indicating it likely deals with text manipulation or analysis related to these Edit Areas.
+
+The class `EditAreaUtils` has several methods:
+
+1. `__init__`: This is the constructor method that initializes the class instance. It sets up a logger and some initial values.
+
+2. `setUp`: This method is used to set up the instance with a parameter name and level, and an argument dictionary. It seems to be used for intersections and unions.
+
+3. `getIFPClient`: This method returns the `__ifpClient` attribute of the instance.
+
+4. `getGridLoc`: This method returns the `__gridLoc` attribute of the instance.
+
+5. `getAreaList`: This method returns the list of edit areas and display names for the product from the argument dictionary.
+
+6. `currentAreaContains`: This method checks if the current edit area intersects with any of the areas listed in the areaNameList.
+
+7. `currentAreaConsistsOf`: This method checks if the current edit area consists exclusively of areas listed in the areaNameList.
+
+8. `getEditAreas`: This method returns the ReferenceArea given a name or ReferenceID or ReferenceData.
+
+9. `getEditArea`: This method returns an AFPS.ReferenceData object given an edit area name as defined in the GFE.
+
+10. `createLatLonArea`: This method creates a square edit area given a latitude, longitude, and kilometer dimension for the sides.
+
+The code also imports several modules and classes, likely used within the `EditAreaUtils` class. These include `time`, `math`, `logging`, `TextUtils`, `ReferenceData`, `ReferenceID`, `Grid2DBit`, and `ArrayList`.
+
+The code appears to be part of a larger Python class that is dealing with geographical data, specifically grid-based data. It includes several methods for manipulating and analyzing this data. Here's a breakdown of what each method does:
+
+1. `getLatLonAreaName(self, latLonTuple)`: This method generates a name for a given latitude and longitude area. It takes a tuple of latitude, longitude, and dimension, and returns a string that concatenates these values with "Ref" as a prefix.
+
+2. `makeSquare(self, lat, lon, km)`: This method creates a list of points that form a square of a given size around a specific latitude and longitude. The size of the square is specified in kilometers.
+
+3. `makePoint(self, point)`: This method converts a string representation of a point in the format "x,y" into a Coordinate object.
+
+4. `makeArea(self, pointList, refname=None)`: This method creates a Reference Area with a unique ReferenceID. It takes a list of points and optionally a reference name.
+
+5. `getTime(self)`: This method returns a string representation of the current time without spaces or colons.
+
+6. `getIntersectName(self, areaName, localEffectArea)`: This method generates a name for an intersection area.
+
+7. `inQuery(self, tree, areaName, queryStr)`: This method checks if a given area name is part of an intersection.
+
+8. `unionAreas(self, name, area1, area2)`: This method combines two areas (ReferenceData objects) using a logical OR operation and returns a new ReferenceData object.
+
+9. `intersectAreas(self, name, area1, area2)`: This method finds the intersection of two areas (ReferenceData objects) using a logical AND operation and returns a new ReferenceData object.
+
+10. `getCurrentAreaNames(self, tree, areaName=None)`: This method returns the current list of area names being processed. If a Combinations file is being used, there may be multiple names in the list. Otherwise, it will be a list of one edit area name.
+
+The code that was cut off seems to be part of another method, but without the rest of the code, it's hard to say what it does.
+
+This code defines a set of methods in a class that interact with an object called `IFPClient` to manipulate and manage areas. Here's a breakdown of what each method does:
+
+1. `saveEditAreas(self, editAreas)`: This method takes a list of `editAreas` as input, adds them to a Java ArrayList, and then saves this list of areas using the `saveReferenceData` method of the `IFPClient` object.
+
+2. `getComboNumber(self)`: This method increments the `__comboNumber` attribute of the class by 1 and returns the new value. 
+
+3. `getUnion(self, argDict, areaLabels, areaPrefix)`: This method creates a union of areas. It iterates over `areaLabels`, gets the corresponding area using the `getEditArea` method, and then combines these areas using the `unionAreas` method. The union is labeled with a combination of `areaPrefix`, the current time, and the combo number. 
+
+4. `cleanOutEditAreas(self, areaPrefix)`: This method deletes all areas that start with a given `areaPrefix`. It gets a list of all areas from the `IFPClient` object, checks if their names start with the `areaPrefix`, and if they do, it adds them to a list. This list is then passed to the `deleteEditAreas` method for deletion.
+
+5. `deleteEditAreas(self, editAreas)`: This method deletes a list of areas. It accepts a list of areas, which can be either strings, `ReferenceData` objects, or `ReferenceID` objects. It adds the IDs of these areas to a Java ArrayList and then deletes them using the `deleteReferenceData` method of the `IFPClient` object.
+
+The code seems to be part of a larger system that manages geographical or spatial data, possibly for a weather or geographical information system.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>SMConfig.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>SMConfig.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This script appears to be a configuration file for a tool called "Subscription Manager". The script was developed by Raytheon Company under a US government contract and contains export-restricted data.
+
+The script defines several lists of valid arguments and options for different commands related to the Subscription Manager tool. These commands seem to be related to adding, reading, updating, and deleting subscriptions.
+
+Here's a breakdown of the lists defined:
+
+1. `addread`: Defines the arguments needed with the add and read commands. The valid arguments are 'type', 'trigger', and 'runner'.
+2. `update`: Defines the arguments allowed with the update command. The valid arguments are 'index', 'update', and 'operation'.
+3. `runners`: Defines valid script runners. The valid runners are 'pil' and 'ldad'.
+4. `triggers`: Defines valid trigger types. The valid triggers are 'timer', 'data', 'pil', and 'ldad'.
+5. `operations`: Defines valid maintenance operations. The valid operations are 'read', 'add', 'delete', and 'update'.
+
+The script also defines a dictionary called `flags` which seems to be used for decoding command line flags. Each key in the dictionary is a flag, and the value is a tuple containing the command associated with the flag, a help/usage text, and in some cases, the list of valid arguments for that command.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

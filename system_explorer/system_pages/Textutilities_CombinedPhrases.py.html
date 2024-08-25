@@ -1,0 +1,118 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>CombinedPhrases.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>CombinedPhrases.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a larger software package developed by Raytheon Company. The script is named `CombinedPhrases.py` and its main purpose is to produce text forecasts from SampleAnalysis statistics. 
+
+The script imports four other modules: `ScalarPhrases`, `VectorRelatedPhrases`, `WxPhrases`, and `DiscretePhrases`. These modules likely contain methods for generating different types of phrases or sentences for the forecast.
+
+The `CombinedPhrases` class is defined in this script, which inherits from the four imported modules. This means that `CombinedPhrases` can use methods and properties from these parent classes. 
+
+In the `CombinedPhrases` class, there is a method named `weather_orSky_phrase`, which returns a dictionary containing two lists: `phraseList` and `phraseMethods`. The `phraseList` includes two methods `weather_phrase` and `sky_phrase` which likely generate phrases for weather and sky conditions respectively. The `phraseMethods` list includes a method `orSkyTest` which generates a phrase for weather statistics.
+
+The `orSkyTest` method checks if there is any weather data available. If not, it reports the sky condition. It orders the weather phrases, gathers the words for the child phrases, and then decides whether to use weather words or sky words based on the availability of weather data.
+
+The script also includes a detailed comment about a method `skyPopWx_phrase` which is not implemented in this part of the code. This method is supposed to produce a combined Sky, Pop, Wx phrase if appropriate, based on certain rules and algorithms. 
+
+Overall, this script is part of a weather forecasting system that generates textual forecasts from statistical data.
+
+The provided code appears to be part of a larger system that generates weather forecasts in a human-readable format. 
+
+The functions in this code are responsible for the following:
+
+1. `useCombinedSkyPopWx`: This function returns a flag (1 or 0) indicating whether a combined skyPopWx_phrase should be used when generating the forecast.
+
+2. `useSkyPopWx_consolidation`: This function returns a flag (1 or 0) indicating whether the skyPopWx phrase should consolidate weather keys that span all time ranges. This is to produce a more concise forecast.
+
+3. `skyPopWx_excludePoP_flag`: This function returns a flag (1 or 0) indicating whether the probability of precipitation (PoP) should be included in the skyPopWx_phrase.
+
+4. `skyPopWx_phrase`: This function returns a dictionary that defines the methods used to set up, generate words for, and post-process the skyPopWx_phrase.
+
+5. `skyPopWx_setUp`: This function sets up the necessary elements for generating the skyPopWx_phrase, including the resolution, merge method, and element info list.
+
+6. `skyPopWx_separateNonPrecip`: This function separates weather conditions into precipitation and non-precipitation categories.
+
+7. `skyPopWx_consolidateWx`: This function consolidates weather conditions that span all subPhrases into their own phrase.
+
+The code is written in Python and uses object-oriented programming principles. It seems to be part of a larger class, as it references `self`, which is a reference to the instance of the class.
+
+This code is part of a larger program that appears to be related to weather forecasting. It is written in Python and contains several methods that manipulate and analyze weather data.
+
+The first part of the code checks if the debug mode is on, and if so, it prints the contents of two lists: list1 and list2. Then, if both lists have at least one element, it creates a new phrase by splitting the weather phrase into two parts: list1 and list2. It then sets the "includeSky" and "includePoP" attributes of the new phrase and the node to 0. 
+
+The method `checkSkyPopWx` checks if a combined phrase can be produced. It first determines non-empty weather subPhrases. If the length of these subPhrases is more than 2, it cleans up using the `skyPopWx_cleanUp` method. It then checks if PoP (Probability of Precipitation) is to be included in the combined phrase. If PoP is to be included, it removes the independent PoP phrases. Similarly, it checks if Sky is to be included in the combined phrase and if so, removes the independent Sky phrase. It also handles weather phrases, removing non-spawned weather phrases for the node area.
+
+The `getWxExceptions` method returns a list of phrases that do not have the same area label and do not have the same weather stats as the given node.
+
+The `getWxStats` method retrieves the weather statistics for a given node. It uses the "Average" merge method to combine the statistics if there are multiple sets of statistics for the same node.
+
+This code contains three methods that are part of a larger program, possibly related to weather forecasting. 
+
+1. `getNonEmptyWxSubPhrases(self, tree, node)`: This method iterates over the children of a given node in a tree data structure, and checks if they have any weather-related statistics. If they do, and the weather type is not "<NoWx>", the child is added to a list of weather sub-phrases. The method returns this list.
+
+2. `checkIncludePoP(self, tree, node)`: This method checks if the probability of precipitation (PoP) should be included in the weather report. It iterates over sub-phrases of a node, checking for various conditions related to precipitation and weather coverage. Depending on these conditions, it decides whether to include PoP (return 1), not include PoP (return 0), or abort the skyPopWx_phrase and signal that it's done (return -1).
+
+3. `checkIncludeSky(self, tree, node, wxSubPhrases)`: This method checks if the sky condition should be included in the weather report. It checks for various conditions related to weather sub-phrases and sky conditions. Depending on these conditions, it decides whether to include sky condition in the report. The method does not have a return statement, so it's likely that it modifies the node or tree in-place.
+
+The code seems to be part of a larger system that generates weather reports or forecasts, possibly for different regions or times, based on weather data represented in a tree-like structure.
+
+This code appears to be part of a larger program that generates weather forecast phrases based on various weather data inputs. 
+
+The first part of the code is determining whether to include information about the sky condition in the generated phrase. It does this by splitting a time range into two halves and getting the sky statistics for each half. It then checks if the sky conditions are similar in both halves and if the weather conditions are similar. If the sky conditions are similar and the weather conditions are either similar or not, it determines whether to include the sky information or not.
+
+The `skyPopWx_cleanUp` function appears to clean up any non-precipitation nodes that were created during the process, resetting the child list of the node and setting its words to an empty string.
+
+The `skyPopWx_words` function generates a combined sky, precipitation, and weather sub-phrase. It first checks if it should include sky words, and if so, it gets the sky words and checks if they are similar to the previous sky words. If they are, it doesn't repeat them. It then checks if it should include precipitation words, and if so, it generates the appropriate phrase based on the precipitation percentage. Finally, it gets the weather words, and if they are not null or empty, it includes them in the final phrase.
+
+The final part of the function constructs the final phrase based on whether sky words, precipitation words, and weather words should be included, and in what combination. It also ensures that certain words are not repeated in the phrase.
+
+This code appears to be part of a larger program that deals with some sort of sky or weather analysis. 
+
+1. `getSkyWords(self, tree, node)`: This method is responsible for getting sky words. It receives a tree and a node as parameters. It first gets the time range and area label from the node. Then it retrieves the sky statistics from the tree based on the time range and area label. The statistics are averaged if there are multiple values. This sky data is then added to a dictionary of statistics which is stored back into the node. The method `sky_words(tree, node)` is then called, but without knowing its implementation, it's hard to say what it does. After that, it retrieves the 'words' from the node and returns them.
+
+2. `getSkyValue(self, tree, node, skyStats, timeRange)`: This method is responsible for getting the sky value. It receives a tree, a node, sky statistics, and a time range as parameters. It checks the duration of the time range. If it's more than 12 hours, it sets the `dayNight` variable to -1, otherwise it calls the `getPeriod` method with the time range and 1 as parameters to get the `dayNight` value. It then returns the sky value by calling the `sky_value` method with the tree, node, sky statistics, and `dayNight` as parameters.
+
+Without the full context or the rest of the code, it's hard to say exactly what each part does, but this is a general overview based on the provided code.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

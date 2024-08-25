@@ -1,0 +1,64 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>sendGfeMessage.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>sendGfeMessage.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that provides a command-line utility to send messages to an alert visualization (alertViz) server. These messages are GFE-specific, where GFE might refer to a specific system or module within the software.
+
+The script starts by importing necessary modules: `shlex` and `subprocess` for command-line operations, and `UsageArgumentParser` from a package named `awips`.
+
+The `main()` function defines the command-line arguments that the script accepts using the `argparse` module. The arguments include:
+
+- `-h` to specify the host name of the alertViz server
+- `-p` to specify the port of the alertViz server, with a default value of 9581
+- `-r`, `-s`, `-u`, and `-a` to specify the priority of the message. These options are mutually exclusive, meaning only one can be used at a time
+- `-c` to specify the message class, with a default value of "GFE"
+- `-m` to specify the contents of the message. This argument is required
+
+After parsing the arguments, the function constructs a command line to call another script, `sendNotificationMsg`, with the provided arguments. This command is then executed using `subprocess.call()`.
+
+The script is intended to be run as a standalone program, as indicated by the `if __name__ == "__main__":` line at the end. This line ensures that `main()` is called only when the script is run directly, not when it's imported as a module.
+
+The comments at the top of the script indicate that it was developed by Raytheon Company and contains export-restricted data. It also provides some history of the software's development.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,76 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>MonitorP.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>MonitorP.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a part of a larger software system developed by Raytheon Company. This specific part, named "MonitorP.py", appears to be a Python module responsible for monitoring and rule checking. It contains a history of revisions and changes, indicating that it has been updated and maintained over time.
+
+The code starts with some import statements, importing the modules `configparser`, `logging`, `Avn`, and `AvnConfigParser`. It also sets up a logger for logging events.
+
+The function `_guess(arg)` is a helper function that attempts to convert a string argument to an integer or a float. If the conversion is unsuccessful, it returns the original string.
+
+The function `addRules(items, rules, delta)` seems to be a core function that processes a set of rules. It appears to be checking the rules against some data and storing the results. If a rule is unique and its severity is greater than the existing rule's severity, the existing rule is removed and the new rule is added. If the rule is not unique, it is simply added to the result.
+
+The function `addMessages(items, status)` is used to add messages to the items based on their status. If the status of an item is empty, it adds a message indicating that everything is OK. If the item is of type 'cat', it sorts the messages by severity.
+
+Please note that without the full context or the rest of the code, this is a high-level understanding of what the code does.
+
+This code appears to be part of a larger system for monitoring and validating data, likely related to weather forecasting given the references to TAF (Terminal Aerodrome Forecast). 
+
+Here's a breakdown of the different parts:
+
+1. The first part of the code is defining a method to process and sort messages based on their severity. It removes duplicate messages of lower severity and sorts the messages in descending order of severity. It also handles missing data and sets the maximum severity for each item.
+
+2. The `applyRules` function applies a set of rules to some data. If the data is missing, it returns a list of -1s. Otherwise, it applies each rule to the data and records the time if the rule is met. If the rule cannot be applied due to missing data or an unknown precipitation type, it records -1 or -2 respectively.
+
+3. The `getActiveRules` function reads a configuration file to get a list of active rules. It then initializes these rules and returns them.
+
+4. The `Rule` class represents a rule with properties like message, severity, and type. It has methods to initialize the rule and to set a message for the rule.
+
+5. The `Monitor` class represents a monitor that applies a set of rules to a Terminal Aerodrome Forecast (TAF). It has methods to handle missing data and to compare a TAF to the rules.
+
+6. The `compare` method in the `Monitor` class applies the rules to a TAF and returns the results. If an exception occurs, it logs the exception and returns a message indicating a program bug.
+
+7. The `__compare` method is a placeholder to be implemented in a derived class. It's expected to compare a TAF to the rules and return the results.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

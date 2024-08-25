@@ -1,0 +1,80 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>CRMTopoAvg.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>CRMTopoAvg.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be part of a larger software system developed by Raytheon Company. It's primarily concerned with manipulating and analyzing topographical grid data, presumably for some sort of geographical or meteorological application.
+
+The code begins with a series of import statements, bringing in necessary modules and functions for the script to use. It then defines a class called `Procedure` which inherits from `SmartScript.SmartScript`. This class has several methods for retrieving and manipulating topographical grid data.
+
+Here's a brief overview of the methods:
+
+- `__init__(self, dbss)`: This is the constructor for the `Procedure` class. It initializes an instance of the class.
+
+- `getWEInventory(self, modelName, WEName, level)`: This method retrieves a list of time ranges for a given model and weather element at a certain level.
+
+- `getAvgTopoGrid(self)`, `getAvgTopoGridNew(self)`, `getMaxTopoGrid(self)`, `getMaxTopoGridNew(self)`, `getMinTopoGrid(self)`, `getMinTopoGridNew(self)`: These methods retrieve topographical grid data from certain databases, convert the data to feet, and apply certain constraints to the data.
+
+- `execute(self)`: This method executes the main functionality of the `Procedure` class. It retrieves and manipulates topographical grid data.
+
+The script also includes a `MenuItems` list, which defines under which menu item(s) in the GFE (Graphical Forecast Editor) the procedure is to appear. The only item in this list is "Populate".
+
+The script is in the public domain and is furnished "as is", without technical support, and with no warranty, express or implied, as to its usefulness for any purpose.
+
+This part of the code is defining a function called `GridNew()`. Inside this function, it first calls two other functions `getMinTopoGrid()` and `getMinTopoGridNew()`, and assigns their return values to `minTopoGrid` and `minTopoGridNew` respectively.
+
+Next, it calculates the current hour in seconds since the epoch (January 1, 1970), and creates a time range `tr` for this hour.
+
+Then, it creates several grids with different parameters. Each grid is created with a call to `self.createGrid()`, which takes several arguments:
+
+- The first argument is always `"Fcst"`, which could be a category or type of the grid.
+- The second argument is a string that seems to be the name of the grid.
+- The third argument is always `"SCALAR"`, which could be the data type of the grid.
+- The fourth argument is a variable that could be the data for the grid.
+- The fifth argument is the time range `tr` for the grid.
+- The next two arguments are the minimum and maximum allowed values for the grid.
+- The last argument is the precision of the grid.
+
+Finally, the function returns nothing. It seems like the main purpose of this function is to create and configure several grids.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

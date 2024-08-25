@@ -1,0 +1,144 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TableBuilder.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TableBuilder.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code file, named `TableBuilder.py`, is part of a larger software developed or modified by Raytheon Company. It contains methods for building smart table products. The code is in the public domain and is provided "as is", without any warranty or technical support. 
+
+The `TableBuilder` class inherits from `TextUtils.TextUtils` and contains several methods for creating and manipulating tables. Here's a brief description of the methods:
+
+1. `__init__(self)`: This is the constructor method for the class. It doesn't do anything in this case.
+
+2. `columnLabels(self, statDict, argDict, weList)`: This method returns the time labels and the column length for the elements in `weList`.
+
+3. `columnValues(self, statDict, argDict, weList, label)`: This method returns the column values as text strings.
+
+4. `makeRow(self, rowLabel, colWidth, timeRangeList, statList, method, argList=None, rowLabelWidth=None, firstValWidth=None, justify = "r")`: This method produces a row beginning with the label followed by a value for each period.
+
+5. `addColValue(self, fcst, str, width)`: This method adds a column value.
+
+6. `addRowLabel(self, fcst, str, width)`: This method adds a row label.
+
+7. `maxVal(self, stats, timeRange, argList)`: This method returns a scalar text string value representing the max value. The desired element name must be the first element of `argList`.
+
+8. `minVal(self, stats, timeRange, argList)`: This method returns a scalar text string value representing the min value. The desired element name must be the first element of `argList`.
+
+The code also imports several modules and classes at the beginning, such as `importlib`, `AbsTime`, `TextUtils`, `TimeRange`, `WxMethods`, and `DiscreteKey` from `com.raytheon.uf.common.dataplugin.gfe.discrete`.
+
+This code file appears to be part of a larger program that processes and analyzes weather data. It defines several methods to extract and format specific pieces of information from the data.
+
+1. `getStats(stats, element)`: This method is not fully shown in the code snippet, but it seems to retrieve some statistical data for a given element from the `stats` object.
+
+2. `scalarVal(stats, timeRange, argList)`: This method returns a scalar value as a text string for a specific element. The element's name is the first item in `argList`.
+
+3. `vectorVal(stats, timeRange, argList)`: Similar to `scalarVal`, but it returns a vector value as a text string.
+
+4. `wxVal(stats, timeRange, argList)`: This method returns a weather text string value for a specific element. It also performs some string manipulations to standardize the weather phrases.
+
+5. `dayOrNightVal(statDict, timeRange, argList)`: This method returns a min or max value based on the timeRange as Day or Night. It also tries to report a trend.
+
+6. `getCode(stats, timeRange)`: This method returns a weather code based on various weather statistics. It seems to prioritize certain weather conditions over others when determining the code.
+
+In general, these methods are designed to extract and format specific pieces of information from a larger set of weather data. The data is likely stored in the `stats`, `statDict`, and `argList` objects, and the methods use these to generate the desired output.
+
+The provided code is a series of method calls to different functions that each check for specific weather conditions. Each function takes the same parameters: `popMax`, `maxT`, `wxKey`, `sky`, and `windMag`. These parameters likely represent maximum population, maximum temperature, weather key, sky condition, and wind magnitude respectively. 
+
+Each function checks for a specific weather condition using the provided parameters. If the condition is met, the function returns a specific code (a single letter), otherwise it returns `None`. 
+
+The main part of the code calls each of these functions in sequence, checking if the returned code is not `None`. If a code is returned, it is immediately returned by the main code, otherwise the next function is called. If none of the functions return a code, the main code returns `None`.
+
+For example, the `getCode_P` function checks if the wind magnitude is defined and if the weather key contains certain conditions related to a blizzard. If these conditions are met, it returns the code 'P'. 
+
+Similarly, the `getCode_T` function checks if the `popMax` is defined and if the weather key contains conditions related to a thunderstorm. If these conditions are met, it returns the code 'T'. 
+
+This pattern continues for all the other `getCode_` functions, each checking for a different weather condition and returning a corresponding code. 
+
+The `getCode_Y` function is not fully defined in the provided code, so it's not clear what weather condition it checks for or what code it returns.
+
+This code appears to be a part of a larger Python program that is used for weather analysis and prediction. It contains a series of functions that each check for specific weather conditions based on various parameters like maximum temperature, wind magnitude, sky condition, etc. and return a corresponding code if the condition is met.
+
+Here's a brief description of each function:
+
+1. `getCode_Z`, `getCode_M`, `getCode_Q`, `getCode_D`, `getCode_H`, `getCode_K`: These functions check if a specific weather condition is present in the `wxKey` parameter (which seems to be a string representing weather conditions). If the condition is met, they return a corresponding code.
+
+2. `getCode_N`: This function checks if the wind magnitude (`windMag`) is above a certain threshold. If it is, it returns the code "N".
+
+3. `getCode_F`: This function checks if the `wxKey` contains the letter "F" followed by a "+", indicating foggy conditions. If it does, it returns the code "F".
+
+4. `getCode_G` and `getCode_I`: These functions check if the maximum temperature (`maxT`) is above or below a certain threshold, respectively. If the condition is met, they return a corresponding code.
+
+5. `getCode_Sky`: This function checks the sky condition (`sky`) and time of day to return a code representing the sky condition.
+
+6. `getCode_A`: This function always returns the code "A", indicating fair weather.
+
+7. `getScalarVal`, `getVectorVal`, `getWxVal`: These functions return a text representation of a scalar, vector, or weather value, respectively.
+
+8. `wxOrder`, `short_weather_phrase`, `long_weather_phrase`: These functions are used to create a short or long phrase describing the weather based on a given value or set of statistics. 
+
+The code does not include the definitions of some functions like `WxContains`, `shiftedTimeRange`, `getPeriod`, `DAYTIME`, `dirToText`, `wx_phrase`, `makeSubkeyList`, and `weather_value`, which are presumably defined elsewhere in the program.
+
+This code appears to be part of a larger system, possibly related to weather forecasting or analysis. Here's a breakdown of what each function does:
+
+1. `discrete_value(self, element, stats)`: This function returns a string of hazards. It takes a list of stats and converts each subkey into a human-readable hazard description. If no stats are provided or no subkeys are found, it returns an empty string.
+
+2. `long_discrete_phrase(self, element, stats)`: This function is similar to `discrete_value`, but it also includes the percentage of each hazard in the returned string. It separates each hazard description and its percentage with a "|". If no stats are provided or no subkeys are found, it returns "None".
+
+3. `cloudCover(self, element, stats)`: This function returns a text description of cloud cover based on the average sky value provided in the stats. It uses a series of thresholds to determine the appropriate description. If no stats are provided, it returns an empty string.
+
+4. `wxPrecipSubkey(self, subkey)`: This function checks if a given subkey is considered precipitation. It returns 1 if the subkey is a type of precipitation and 0 otherwise.
+
+5. `wxCoveragePercent(self, coverage)`: This function returns the percentage associated with a given coverage description. It uses a dictionary to map descriptions to percentages.
+
+6. `wxDuration(self, statsByRange, timeRange)`: This function calculates the total duration of precipitation within a given time range. It uses the `wxPrecipSubkey` and `wxCoveragePercent` functions to calculate the duration. It appears to be unfinished as the calculated value is not returned or used.
+
+The first part of the code you provided seems to be a part of a larger function that is not fully included. It appears to be processing some kind of weather-related statistics, possibly related to precipitation or other weather conditions.
+
+This code is part of a larger program and includes three methods: `makeMultipleElementTable`, `getMultipleElementTableRanges`, and an unnamed method at the top.
+
+1. The unnamed method at the top of the code appears to be a part of a larger method that is not included in the given code. It seems to be calculating a total value, rounding it, and returning the integer representation of the total.
+
+2. The `makeMultipleElementTable` method is creating a table with multiple elements. It takes several parameters including an area label, a time range, an argument dictionary (`argDict`), a boolean for time range (`byTimeRange`), and a product. It then generates a table for each city in each area of the areaLabel group of combinations. If the table is not empty, it adds a newline character at the beginning and end of the table and returns the table.
+
+3. The `getMultipleElementTableRanges` method is determining the time ranges for a multiple element table. It takes a product issuance, a single value format, and an optional time range as parameters. Depending on the product issuance, it sets the start hour and the number of periods. It then calculates the start time and creates a time range. If the single value format is 1, it sets the number of periods to 1. It then gets a list of periods for the time range and adjusts the first time range if it is an update issuance. Finally, it returns the list of time ranges.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

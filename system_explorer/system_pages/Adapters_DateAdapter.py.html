@@ -1,0 +1,56 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>DateAdapter.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>DateAdapter.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This is a Python script that serves as an adapter for the Java `java.util.Date` class. The purpose of this script is to provide serialization and deserialization methods for instances of `java.util.Date`. Serialization is the process of converting an object's state to a byte stream, and deserialization is the reverse process. 
+
+The `serialize` function takes two arguments: `context` and `date`. The `context` argument is presumably an object that provides a method `writeI64` for writing 64-bit integers. The `date` argument is an instance of `java.util.Date`, and its `getTime` method is called to get the date's time value in milliseconds since the epoch (00:00:00 GMT, January 1, 1970). This time value is then written to the `context`.
+
+The `deserialize` function also takes `context` as an argument. It creates a new `java.util.Date` instance and sets its time value by reading a 64-bit integer from the `context` using its `readI64` method. The `deserialize` function then returns the `Date` instance.
+
+The script also contains a software history log that records changes made to the script over time. The log shows that the script was initially created by an engineer named "dgilling" on December 6, 2010. 
+
+The comment at the top of the script indicates that the software was developed and/or modified by Raytheon Company under a contract with the US Government. It also mentions that the software contains export-restricted data, and its export/transfer/disclosure is controlled by U.S. law.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>RadLtgData.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>RadLtgData.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a larger software developed by Raytheon Company. It is used to retrieve and process meteorological data related to lightning. 
+
+The script starts by importing the necessary modules and setting up some constants and a logger. 
+
+The main function of this script is `retrieve(siteID)`, which retrieves data for a given site ID. The data retrieved are parameters related to lightning, specifically 'ltg1hr', 'ltg2hr', 'stationId', 'refTime', 'fcstHr'. 
+
+The function then processes this data, specifically looking at the lightning data for the next 1 and 2 hours ('ltg1hr' and 'ltg2hr'). It assumes that the first data point is not used in the forecast and starts processing from the second data point. 
+
+The function then calculates the maximum value of the lightning data that falls within the range of 0 to 100, and returns a dictionary containing the time range and the calculated probability. 
+
+If there is no data available for the given site ID, or if there is a KeyError when processing the data, the function returns None. 
+
+This script also contains a detailed history of the software development, including the dates of changes, the engineers who made them, and descriptions of the changes.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

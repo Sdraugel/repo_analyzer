@@ -1,0 +1,84 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>GfeValues.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>GfeValues.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is a part of a software developed by Raytheon Company. It appears to be a part of a weather forecasting system, possibly the Advanced Weather Interactive Processing System (AWIPS). The code contains a number of functions that process weather-related data, such as visibility, wind direction, wind magnitude, and weather conditions. 
+
+The code also includes a class `FakeWxKey`, which seems to be a mock or stand-in for a weather key object used for testing purposes. This class has a method to split a string value into subkeys.
+
+The functions in the code are designed to handle and process different types of weather data:
+
+1. `scalarValue(value)`: Returns a rounded integer value of the input as a string. If the input cannot be rounded and converted, it returns "999".
+
+2. `vsbyValue(value)`: Multiplies the input value by 100, rounds it, and returns it as a string. If the input cannot be processed, it returns "999".
+
+3. `skyValue(value)`: Adds 5 to the input value, divides it by 10, rounds it, and returns it as a string. If the input cannot be processed, it returns "999".
+
+4. `windDirValue(value)`: Divides the input value by 10, rounds it, and returns it as a string. If the input cannot be processed, it returns "999".
+
+5. `windMagValue(value)`: Returns the rounded input value as a string. If the input cannot be processed, it returns "999".
+
+6. `obvisValue(value)`: Finds the first obstruction to vision type and reports that.
+
+7. `wxVal(value, index)`: Gets the Nth weather type, where N is given in `index`.
+
+8. `wxValInst(value, index)`: Gets the Nth weather intensity, where N is given in `index`.
+
+9. `wxValCov(value, index)`: Gets the Nth weather coverage, where N is given in `index`.
+
+10. `wxTstm(value)`: Searches for any reference to thunderstorms and, if found, returns the coverage expected.
+
+11. `wxTstmInt(value)`: Searches for any reference to thunderstorms and, if found, returns the intensity expected.
+
+The code also includes a list of visibility codes and a dictionary to translate weather codes.
+
+This code defines two classes that manipulate and access data in specific ways.
+
+The first class, which is unnamed in the provided code, appears to be a container for subkeys. It defines methods for getting a subkey by its index (`__getitem__`), getting the number of subkeys (`__len__`), and iterating over the subkeys (`__iter__`). The first line of code is a method that returns a string representation of all the subkeys, with each subkey separated by a caret ("^").
+
+The second class, `FakeWxSubkey`, represents a weather subkey with four attributes: coverage (`cov`), type (`type`), intensity (`inten`), and visibility (`vis`). These attributes are initialized by splitting a provided string at each colon. The class also provides methods to return each of these attributes individually. The `__str__` method returns a string representation of the object, with each attribute separated by a colon. 
+
+In summary, the first class is a container for subkeys, and the second class represents a weather subkey with specific attributes.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

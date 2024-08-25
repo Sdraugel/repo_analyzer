@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>CombinationsInterface.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>CombinationsInterface.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This part of the code file is a Python script that defines a function named `getCombinations`. The function is designed to import a module with the name provided as the `comboName` parameter, and then retrieve a list of combinations from that module.
+
+The function works as follows:
+
+1. It initializes an empty ArrayList `outercombos`.
+2. It attempts to import a module with the name provided in `comboName`.
+3. It retrieves a list of combinations from the imported module, which is expected to be stored in an attribute named `Combinations`.
+4. For each combination in the list, it creates a new ArrayList `combos`, adds all the elements of the combination to `combos`, and then adds `combos` to `outercombos`.
+5. It returns `outercombos`.
+
+If the `Combinations` attribute does not exist in the imported module, the function catches an AttributeError. In this case, it logs a debug message with detailed information about the error, including the filename of the imported module, the directory of the module, the last modification time of the file, and the contents of the file. After logging the debug message, it re-raises the AttributeError.
+
+The script also includes a header with licensing information and a software history log.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ActiveTableModeAdapter.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ActiveTableModeAdapter.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is part of a larger software developed or modified by Raytheon Company under a US Government contract. The software contains export-restricted data, meaning its distribution is controlled by US law.
+
+The code itself is an adapter for a class called `ActiveTableMode` from the module `com.raytheon.uf.common.activetable`. An adapter in programming is a design pattern that allows the interface of an existing class to be used as another interface. 
+
+In this case, the adapter provides two functions: `serialize` and `deserialize`. 
+
+- The `serialize` function takes a `context` and a `mode` as parameters. It begins writing a field with the name `__enumValue__` and a type of `TType.STRING`. It then writes the value of the `mode` parameter. Serialization is the process of converting an object's state to a byte stream, primarily for transport or storage.
+
+- The `deserialize` function also takes a `context` as a parameter. It creates a new instance of `ActiveTableMode`, reads and discards the beginning of a field from the context's protocol, and then reads the actual enum value from the context's protocol. Deserialization is the reverse process of serialization; it converts a byte stream back into an object.
+
+The `ClassAdapter` variable is a string that holds the full path of the `ActiveTableMode` class, which is used elsewhere in the software to refer to this class.
+
+The code also contains a software history comment section that tracks changes to the code over time. The only entry here is for the initial creation of the code by an engineer named `wldougher` on `09/29/10`.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

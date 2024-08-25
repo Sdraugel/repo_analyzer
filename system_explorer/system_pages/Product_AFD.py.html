@@ -1,0 +1,166 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>AFD.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>AFD.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This is a Python script for a software developed by Raytheon Company. The software is subject to U.S. export control laws due to containing export-restricted data. The code file is named AFD.py and it is used to create an Area Forecast Discussion product.
+
+The software history is documented in the comments, showing changes made by different engineers at different times. For instance, on Oct 20, 2014, an engineer named 'randerso' made changes to support mixed case, and on Aug 01, 2018, 'dgilling' removed duplicate Tsunami phensigs in allowedHazards.
+
+The code file also contains information about the software's copying rights, stating that it is in the public domain and provided 'as is', without any warranty or technical support.
+
+The code file also provides details about the file names and locations, the weather elements needed (MinT, MaxT, PoP), the edit areas needed, and the associated utilities files.
+
+The file also contains user configurable variables, which include displayName, defaultEditAreas, editAreaSuffix, productName, fullStationID, wmoID, pil, debug, database, outputFile, textdbPil, awipsWANPil, topicDividers, state_IDs, and tieUpdateToPreviousAFD.
+
+These variables are used to customize the behavior of the software, such as how the product appears in the GFE GUI, the edit area names and station IDs, the name of the product, the station identifier, the WMO ID for the product header, the product pil, the source database for the product, the output location of the finished product, the AWIPS product identifier, the topic dividers, the state IDs, and whether the update is tied to the previous AFD.
+
+The provided code is a Python script that appears to be part of a weather forecasting system. It's designed to generate an "Area Forecast Discussion" (AFD) text product, which is a detailed meteorological discussion explaining the analysis and reasoning behind a weather forecast.
+
+The script imports several modules, such as TextRules, SampleAnalysis, time, re (regular expressions), copy, ModuleAccessor, ProcessVariableList, and AbsTime. These modules provide various functionalities to the script, such as time manipulation, text processing, and data sampling.
+
+The script defines a class named TextProduct, which inherits from the TextRules and SampleAnalysis classes. Within this class, a dictionary named Definition is defined. This dictionary contains various configuration options for the AFD product, such as:
+
+- The type of product (smart).
+- The source database (Official).
+- The default edit areas.
+- The output file path.
+- The product name (Area Forecast Discussion).
+- The station ID, WMO code, location of the WFO, product pil, and other identifiers.
+- The language (English) and maximum line length (66 characters).
+- The format of forecaster numbers (Brief, Verbose, or None).
+- Lists of identifiers for short-term, long-term, and aviation forecasters.
+- Whether to use zone names instead of UGC codes, and whether to abbreviate UGCs.
+- A list of topic dividers for different sections of the forecast discussion.
+
+The script also contains comments explaining various parts of the code and providing additional information about the forecast product, such as the rules for sampling grids, the format of the output, and notes on development tasks and additional information.
+
+The code you provided seems to be part of a larger Python script, likely part of a weather forecasting system. Here's a breakdown of what the provided code does:
+
+1. The code defines a class, but the name of the class is not provided in the snippet. The class inherits from two parent classes: `TextRules.TextRules` and `SampleAnalysis.SampleAnalysis`.
+
+2. The `__init__` method is the constructor of the class. It initializes instances of the parent classes.
+
+3. The `generateForecast` method is responsible for generating a forecast. It retrieves variables from a dictionary (`argDict`), organizes hazards, determines time ranges, and processes the forecast. It returns a string (`fcst`) which is the forecast.
+
+4. The `_processVariableList` method processes a list of variables from a given definition. It sets attributes for the instance of the class based on the definition, creates a list of optional topic dividers, and returns a call to the `_callProcessVariableList` method.
+
+5. The `_callProcessVariableList` method creates an instance of the `ProcessVariableList` class, checks the status of the selection, and returns a dictionary of variables if the status is "OK".
+
+6. The `_getVariables` method retrieves variables and definitions from `argDict` and sets them as attributes of the class instance. It also checks for a specific condition related to 'state_IDs' and returns a warning if the condition is met.
+
+7. The `_determineTimeRanges` method calculates time ranges for the product. It creates a time range, gets the current time, and sets up time-related attributes. It also checks if there are any point edit areas and determines time ranges for them if there are.
+
+Please note that without the complete code or additional context, some assumptions had to be made about the functionality of the code.
+
+This code appears to be part of a larger script that is used for weather forecasting. 
+
+The first part of the code is setting up time ranges for different periods of the day, depending on whether the product issuance is in the morning or evening. It accounts for potential time differences between GMT and local time, and creates time ranges for different weather parameters such as temperature and probability of precipitation (PoP).
+
+The second part of the code, the `_addTopicDividers` function, is used to add dividers to a forecast. It loops through a list of topic dividers and adds them to the forecast if certain conditions are met. For example, if the topic name is "PrevDisc" and the `_includePreviousAFD` flag is set to "YES", it will add the previous AFD (Area Forecast Discussion) to the forecast. Similarly, it checks if the topic name is "Update" and if it's tied to the previous AFD, and if so, it adds a divider. 
+
+The `_getTopicDivider` function returns the divider associated with a given topic.
+
+The `_getPreviousAFD` function retrieves the previous Area Forecast Discussion (AFD). It strips off certain parts of the AFD such as the leading MND header and the trailing W/W/A block. It also removes the prelim number block if present. The function then returns the modified AFD.
+
+This code is part of a larger program that appears to be processing and formatting weather forecast data. Here's a breakdown of the different sections:
+
+1. The first section of the code is scanning through a block of text (oldAFD) and performing various operations such as removing preliminary number blocks, stripping out ampersands and leading dots, and appending the modified text to a new list (newAFD). It also checks for multiple newlines and handles them accordingly.
+
+2. The `_makePrelimNumberBlock` function is creating a preliminary number block for the forecast (AFD). It converts latitude, longitude, and dimension entries to editAreas, samples temperature and PoP (probability of precipitation) data, and generates preliminary numbers for each editArea.
+
+3. The `_preProcessProduct` function is creating the MND (Meteorological Non-Directive) header for the AFD. It checks if the issuance is routine, corrected, or updated and appends this information to the MND.
+
+4. The `_makeProduct` function is formatting the product by inserting topic dividers and making the hazard block.
+
+5. The `_makeFirstGuess` function is creating the "first guess" temperature and PoP forecasts for each edit area. It produces temperature forecast substring and PoP forecast substring.
+
+The code uses regular expressions (re) for pattern matching and text manipulation. It also uses string concatenation to build up the forecast (fcst) string. It seems to be part of a weather forecast generation system, possibly for the National Weather Service or a similar organization.
+
+This code is part of a larger system that seems to be dealing with weather forecasting and hazard warnings. 
+
+The first part of the code is a method that adds some data to a forecast string. It retrieves a probability of precipitation (PoP) for a certain time range and area, adds it to the forecast string, and then adds a separator. This process is repeated for each period in a list of periods. 
+
+The `marineNameDict` method returns a dictionary that maps two-letter identifiers to marine area names. By default, it returns an empty dictionary, but the commented-out code shows that it can be modified to return more descriptive names for various marine areas.
+
+The `_makeHazardBlock` method seems to be the main part of this code. It takes a forecast string and a dictionary of arguments, and it adds information about weather hazards to the forecast. It does this by accessing various data sources, identifying the different types of zones (marine, fire weather, and public), and retrieving the hazards for each zone. It then organizes the hazards by state and adds them to the forecast. 
+
+If a state has no hazards, a null phrase is added to the forecast. If a state does have hazards, the method builds phrases describing each hazard and adds them to the forecast. The method also checks for fire weather hazards and eliminates public zones from the fire weather zones list. It does a similar check for other hazards and eliminates fire weather zones from the other zones list. 
+
+Finally, the method retrieves the names of the hazards, the timing of the hazards, and the identifiers of the zones affected by the hazards. If a zone has no hazards, it is skipped. If the system is set to use zone names, the method starts to build a list of zone names, but the code snippet ends before we can see what it does with this list.
+
+This code appears to be part of a larger system, possibly related to weather forecasting or hazard prediction, as it references hazards, forecasts, and weather-related terms such as temperature and precipitation. 
+
+The first part of the code is creating a string that contains a hazard warning. It first sorts a list of zone names, then creates a string from these names. Depending on certain conditions, it may abbreviate these names. It then creates a "phrase" which includes the hazard name, timing, and the list of zones. This phrase is indented differently depending on whether there is a state list associated with it. The phrase is then added to a forecast string, with different indentation rules depending on whether there are multiple states. The forecast string is then returned.
+
+The `_combineHazardRecords` function consolidates hazard records for a hazard block by combining "like" records by "id". "Like" records are those with the same phenomenon, significance, start, and ending times. It does this by comparing each record in a table of hazard records to a consolidated table, and if a match is found, it adds the id of the matching record to the consolidated record's list of ids. If no match is found, it adds the record to the consolidated table.
+
+The `_postProcessProduct` function appends a delimiter and forecaster numbers to the forecast string. The format of the forecaster numbers depends on the value of the `_fcstrNumberFormat` variable.
+
+The `_sampleData`, `_analysisListPop`, and `_analysisListTemp` functions are related to sampling temperature and precipitation data. The `_sampleData` function creates a list of samplers for temperature and precipitation data, and the `_analysisListPop` and `_analysisListTemp` functions define the analysis methods for the precipitation and temperature data respectively.
+
+The `_getMinOrMax` function returns either a maximum or minimum value depending on the availability. It does this by getting a statistical dictionary of the sampled data for a given time range and area, and then retrieving the maximum temperature statistic from this dictionary.
+
+The provided code is written in Python and contains several methods that perform different tasks:
+
+1. The first block of code is a part of an `else` clause. It gets the minimum temperature (`MinT`) from a statistics dictionary (`statDict`) and returns a three-character string representation of the temperature using the `_getTemp` method.
+
+2. The `_getTemp` method: This method takes a value as an argument. If the value is `None`, it returns the string "MMM". Otherwise, it rounds the value to the nearest integer, converts it to a string, and justifies it to the right to make it a three-character string.
+
+3. The `_getPoP` method: This method takes an analysis list, an area, and a time range as arguments. It gets the PoP (Probability of Precipitation) from a statistics dictionary and returns a three-character string representation of the PoP.
+
+4. The `_getForecasterNumber` method: This method takes a number string as an argument. It tries to convert the string to an integer and returns a string representation of the number. If the conversion fails, it returns the original string.
+
+5. The `allowedHazards` method: This method returns a list of tuples. Each tuple contains a hazard code, a list of actions, and a category. The hazard codes and categories are related to different weather conditions like hurricanes, typhoons, storms, gales, hazardous seas, freezing sprays, volcanic ashfall, blizzards, ice storms, winter storms, wind chill, blowing dust, extreme cold, excessive heat, dense fog, freezing fog, hard freeze, and frost.
+
+This code is a list of tuples in Python. Each tuple contains three elements:
+
+1. A string that seems to be a code for a specific type of weather event or condition.
+2. A variable (either `allActions` or `marineActions`) which is likely a set of actions or responses associated with the specific weather event.
+3. A string that appears to be a more human-readable name or description of the weather event.
+
+The list seems to be used for mapping the coded weather events to their corresponding actions and descriptions. For example, the code 'HW.W' is associated with `allActions` and represents a 'High Wind Warning'. Similarly, 'TS.W' is associated with `allActions` and represents a 'Tsunami Warning'. 
+
+Without more context, it's hard to say exactly how this list is used, but it could be part of a weather monitoring or alert system. The codes could be used to trigger specific actions (defined in `allActions` or `marineActions`) when certain weather conditions are detected.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

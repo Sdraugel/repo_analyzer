@@ -1,0 +1,98 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>IrtServer.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>IrtServer.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is part of a larger software system developed by Raytheon Company. It appears to be a Python module that provides functionality related to the Interactive Forecast Preparation System (IFPS) and the Integrated Data Viewer (IDV) for the Advanced Weather Interactive Processing System (AWIPS). 
+
+The code begins with a detailed header that includes information about the software's development, export control restrictions, contractor details, and a software history log. 
+
+The main part of the code defines several functions for logging events, problems, exceptions, and debug information. It also imports several Python modules and libraries, such as pickle, tempfile, os, JUtil, subprocess, traceback, errno, time, copy, iscUtil, and others from the com.raytheon.uf.common.site package.
+
+The `getVTECActiveTable` function is a significant part of the code. It's called when another site has requested the active table. It returns the active table, which is filtered and pickled. The function reads data from a file, decodes it, gets the active table, writes it to a temporary file, converts it to a Python hash using the A1 field naming conventions for cross-version compatibility, and pickles the output to match the A1 file format.
+
+The code ends abruptly with a string that seems to be part of an error message. It's likely that the rest of the code is missing.
+
+The provided code is written in Python and appears to be part of a larger system, possibly related to weather forecasting or meteorology given the references to 'GFE' (which could stand for Graphical Forecast Editor, a tool used by the National Weather Service), 'VTEC' (which could stand for Valid Time Event Code, a system used in weather warnings), and 'TCV' (Tropical Cyclone Vortex).
+
+The code contains several functions:
+
+1. `sendAT`: This function seems to be used to send a table to a requester. It constructs a command with various parameters (like server host, port, protocol, etc.) and executes it using the subprocess module. If there are any issues during the execution, it logs the errors.
+
+2. `putVTECActiveTable`: This function reads a data file and possibly an XML packet, writes them to temporary files, and then calls a command to ingest the active table. The command and its arguments are executed using the subprocess module. If there are any issues during the execution, it logs the errors.
+
+3. `sendWfoMessage`: This function reads a message from a file and logs it. It then sends the message to AlertViz using the NotificationMessage module from AWIPS (Advanced Weather Interactive Processing System).
+
+4. `putTCVFiles`: This function receives TCV files from a site, untars them, purges all existing CAN files, and creates new allCAN files. It also removes JSON files related to canceled storms and copies new JSON files from the temporary directory to the site directory.
+
+The code uses various modules like os, subprocess, tempfile, siteConfig, and others to perform its tasks. It also includes error handling to log any issues that occur during execution.
+
+This Python code appears to be part of a larger application that involves file handling and communication between servers. Here's a breakdown of what each part does:
+
+1. The first part of the code reads JSON data from a file, writes it to another location, and then removes the temporary file. If there's an error during this process, it logs the exception.
+
+2. The second part deletes a temporary directory and its contents. If it fails, it logs the exception.
+
+3. The `getTCVFiles` function appears to be used for sending TCV files from one server to another. It first identifies the local and destination servers, then creates a directory for TCV products if it doesn't exist. It then packages the TCV files and sends them to the destination server. If there are no TCV files to send, it logs an event. If there's an error during this process, it logs the exception.
+
+4. The `irtGetServers` function makes a request to the IRT (Interoperability Requirements and Testing) to get server information.
+
+5. The `makeISCrequest` function makes a request for ISC (Inter-Site Communication) and modifies the incoming XML request to add the source and move the 'welist' into the source address. It then decodes the destinations to determine which sites should get this request. It writes the XML tree to a string and saves it to a file. Finally, it prepares to transmit the request.
+
+The code uses several modules like `IrtAccess`, `TCVUtil`, `siteConfig`, and `xml.etree.ElementTree` for various tasks such as accessing IRT, handling TCV files, site configuration, and XML processing. It also uses the `os` and `tempfile` modules for file and directory operations.
+
+This Python script appears to be part of a larger system, likely a server or service, that processes and sends requests between different parts of the system. 
+
+The script contains three main functions:
+
+1. `sendMHSMessage(subject, adressees, attachments, xmtScript=None)`: This function is used to transmit a request. It does string substitution, creates a required wmoid (World Meteorological Organization identifier), and starts a subprocess to make the call. If the subprocess encounters an error, it logs the exception.
+
+2. `serviceISCRequest(dataFile)`: This function is called with an ISC (Inter-System Communication) request to be serviced. It validates the XML of the request, prepares an output XML file, processes the input request file, and passes the request into a C++ IFPServer (Interchange File Protocol Server).
+
+3. The third function is unnamed and seems to be a part of a larger function or method that is not fully included in the provided code. It appears to be similar to the `sendMHSMessage` function, but it uses a for loop to replace certain strings in the command and then starts a subprocess to make the call.
+
+The script also imports several modules, including `IrtAccess`, `siteConfig`, `xml`, `ElementTree`, `ServiceISCRequest`, and `IFPServer`. These modules are used for various tasks such as accessing certain data, configuring the site, parsing XML, and interfacing with the server. 
+
+In general, this script seems to be part of a system that communicates with different servers or services, processes requests, and handles errors.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

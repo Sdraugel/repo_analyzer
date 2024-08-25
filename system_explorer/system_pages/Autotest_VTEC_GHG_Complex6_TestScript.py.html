@@ -1,0 +1,89 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>VTEC_GHG_Complex6_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>VTEC_GHG_Complex6_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The code provided is a part of a larger script that appears to be used for testing weather hazard scenarios, specifically related to fire weather conditions. The script is written in Python and contains a list of dictionaries, each representing a different test scenario.
+
+Each dictionary in the 'scripts' list contains several keys:
+
+- 'commentary': A description of what the test scenario is doing.
+- 'name': The name of the test scenario.
+- 'productType': The type of hazard being tested.
+- 'createGrids', 'clearHazardsTable', 'deleteGrids': These keys are used to manipulate the data for the test scenario.
+- 'cmdLineVars': Variables that are likely used in the command line when running the test.
+- 'checkStrings': A list of strings that are expected to be present in the output of the test.
+
+The test scenarios include clearing out all hazards, creating a fire weather watch for certain areas, checking that no changes are made to existing hazards, upgrading a fire weather watch to a red flag warning, and again checking that no changes are made to existing hazards.
+
+The code also includes a large comment block at the top which provides legal and contact information related to the software's development and usage. It mentions that the software was developed by Raytheon Company and contains export-restricted data.
+
+The provided code seems to be part of a larger system that generates weather hazard warnings. It appears to be written in Python and uses a dictionary-like structure to define various weather conditions and their corresponding hazard warnings. 
+
+The code is divided into several parts, each representing a different scenario or condition:
+
+1. The first part generates a warning for a "Red Flag Warning" (a term used in the United States to indicate favorable conditions for wildland fire combustion, and rapid spread) in certain areas (FLZ139, FLZ239, FLZ142, FLZ242) from 1 PM to 10 PM EST Friday.
+
+2. The second part creates a new "Fire Weather Watch" (a term used to alert about the possibility of critical fire weather conditions in the near future) for the same areas from Saturday afternoon through late Saturday night.
+
+3. The third part doesn't make any changes to the existing hazards.
+
+4. The fourth part cancels the previously issued "Red Flag Warning" for the specified areas and keeps the "Fire Weather Watch" in effect.
+
+Each part of the code includes a list of "checkStrings" which seem to be the actual text of the warnings or messages that would be issued. These include details like the source of the warning (National Weather Service Tampa Bay Ruskin FL), the time of the warning, and the specific details of the warning.
+
+The "createGrids" field seems to be used to define the time range and areas for the warnings. The "cmdLineVars" field appears to be used to specify certain variables or options for the warnings.
+
+Overall, this code seems to be part of a system for generating and managing weather hazard warnings.
+
+This code appears to be a part of a larger system that deals with weather forecasting, specifically related to fire hazards. It's written in Python and seems to be a test script for a system that generates weather messages.
+
+The code includes a list of dictionaries, each representing a different scenario or test case. Each dictionary contains specific details about the test case, such as the name, product type, and other specific parameters. The "checkStrings" key contains a list of strings that seem to represent a weather message or alert that will be checked in the test.
+
+The "testScript" function at the end is the main function that runs these tests. It takes two parameters: self, which refers to the instance of the class where this function is defined, and dataMgr, which seems to be a data manager that handles the data used in these tests. 
+
+The function sets some default parameters for the test, and then calls a method "generalTestScript" on the TestScript module, passing in the self, dataMgr, scripts (which is not defined in the provided code but is likely a list of scripts to be tested), and the defaults.
+
+In summary, this code is used to test a weather forecasting system's ability to generate correct weather messages or alerts, specifically related to fire hazards.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

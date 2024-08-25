@@ -1,0 +1,66 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>EXAMPLEimageColorTable.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>EXAMPLEimageColorTable.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This is a Python script that appears to be part of a larger software system developed by Raytheon Company. The initial comments indicate that the software is subject to U.S. export control laws, and its dissemination is restricted.
+
+The script seems to be configuring a weather-related image, likely for a graphical forecast editor (GFE) given the import statements. The GFE is a component of the Advanced Weather Interactive Processing System (AWIPS), a meteorological display and analysis package.
+
+Here's a breakdown of what the code does:
+
+1. It imports all the modules from `gfeConfig`, which is likely a configuration file for the GFE.
+
+2. It defines the weather element to display as 'T_SFC:_Official -1', where 'T' likely represents temperature at the surface level. This is assigned to the `Png_parms` variable.
+
+3. It sets `Png_image` to 'T', which means that the image to be created will represent temperature.
+
+4. It sets the default color table for the temperature image to 'Gridded Data', which is likely a predefined color scheme.
+
+5. It sets the maximum and minimum values for the color table to 50.0 and 0.0 respectively. This means that the color scale for the temperature image will range from 0 to 50 degrees.
+
+6. It sets a logarithmic factor for the temperature scale instead of a linear one. This could be used to emphasize differences in temperature at the lower end of the scale.
+
+The script is likely used to generate a temperature map as part of a weather forecast.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

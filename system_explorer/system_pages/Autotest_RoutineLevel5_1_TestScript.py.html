@@ -1,0 +1,162 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>RoutineLevel5_1_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>RoutineLevel5_1_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code appears to be part of a larger testing script for a weather forecasting system, possibly the Advanced Weather Interactive Processing System (AWIPS) II, as mentioned in the comments. 
+
+The initial comments provide information about the software's development, export control restrictions, and licensing details. 
+
+The code then defines several multi-line strings, each representing a different configuration of a Python method `matchToWxInfo_dict`. This method appears to return a dictionary with weather-related keys ("PoP" and "LAL") and their associated values. The different configurations are likely used for different testing scenarios.
+
+Next, the code defines more multi-line strings, each representing a different implementation of the `aggregateCov_algorithm` method. This method seems to be related to some form of data aggregation in the weather forecasting system.
+
+The `checkPercentages` method is defined to check if a certain weather condition (like rain or snow) passes a coverage percentage threshold. If the total coverage of precipitation is more than 15%, the method returns 1, otherwise, it returns 0.
+
+The `noWx_percentage` method returns a fixed value of 30, which could be a threshold for reporting "No Weather" condition.
+
+The `sky_timeDescriptorModeration` method seems to be related to moderating time descriptors for sky conditions.
+
+Finally, a list of dictionaries named `scripts` is defined. Each dictionary in the list represents a different test scenario, including the name of the test, commentary about the test, the grids to be created for the test, and the expected output strings. The provided code snippet includes three test scenarios related to snow accumulation.
+
+This code appears to be a part of a weather forecasting system. It's defining a series of forecast scenarios, each with a name, commentary, and a set of grids that define the forecast conditions. Each scenario also specifies a set of check strings, which seem to be the expected output or conditions that should be met for each scenario.
+
+Here's a brief description of each scenario:
+
+1. The first scenario is named "SnowAccum4" and it describes a situation where there is likely sleet with 2 inches of accumulation.
+
+2. The second scenario "SnowAccum5" describes a situation where there is likely snow and sleet but with no accumulation.
+
+3. The third scenario "SnowAccum6" describes a situation where there is likely snow and sleet with 2 inches of accumulation.
+
+4. The fourth scenario "SnowAccum7" describes a situation where there is likely snow and sleet with no accumulation, but with ice crystals.
+
+5. The fifth scenario "SnowAccum8" describes a situation with areas of blowing snow and a snow amount of 0.05 inches.
+
+6. The next four scenarios "PoPWx1", "PoPWx2", "PoPWx3", "PoPWx4" seem to be testing different algorithms for calculating the probability of precipitation (PoP) with different options like max, mode, max mode, and analysis method.
+
+7. The last scenario "PopWxConsistency1" seems to be testing the consistency of the Pop Wx algorithm.
+
+Each scenario also includes a "createGrids" section which seems to be defining the forecast conditions for each scenario. The parameters include forecast type (Fcst), weather element (like PoP, Wx, SnowAmt), the type of the element (like SCALAR, WEATHER), the start and end times, the value of the element, and the area for which the forecast applies.
+
+The provided code appears to be a part of a larger script that is used for weather forecasting. It seems to be written in Python and includes a series of dictionaries that contain forecast data and configurations for different scenarios.
+
+Each dictionary represents a specific test case or scenario, identified by the "name" key. The "commentary" key provides a description or notes about the test case. The "productType" key specifies the type of product being tested, which appears to be "Phrase_Test_Local" in all cases.
+
+The "createGrids" key contains a list of tuples, each representing a forecast parameter. The tuples include information about the forecast type (e.g., "Fcst"), the weather element being forecasted (e.g., "Sky", "PoP" for Probability of Precipitation, "Wx" for Weather), the data type (e.g., "SCALAR", "WEATHER"), the forecast period (start and end hours), the forecast value, the area for which the forecast applies, and possibly a flag or weight.
+
+The "checkStrings" key seems to contain a list of strings that might be used for validation or testing purposes, but in the provided code, these lists are empty.
+
+The "fileChanges" key includes a list of tuples that represent changes to be made to the file. These could be modifications to the forecast data or other alterations needed for the specific test case. In the provided code, most of these are commented out, indicating they are not currently active.
+
+Overall, this code seems to be part of a testing or simulation framework for a weather forecasting system. It's defining various scenarios with different weather conditions and forecast parameters to validate the performance and accuracy of the forecasting system or model.
+
+This code appears to be part of a larger script related to weather forecasting. It seems to be defining a series of forecast scenarios or test cases, each with a unique name, commentary, and a set of grid-based forecasts. 
+
+Each forecast scenario contains:
+
+- `name`: A unique identifier for the scenario.
+- `commentary`: A description or notes about the scenario.
+- `createGrids`: A list of forecast grids. Each grid is defined by a tuple containing the forecast type (e.g., "Fcst"), the variable being forecasted (e.g., "Sky", "PoP" for probability of precipitation, or "Wx" for weather), the type of data (e.g., "SCALAR" or "WEATHER"), the start and end hours for the forecast, the forecast value, the area for which the forecast applies, and possibly a flag.
+- `checkStrings`: A list of expected output strings, likely used for testing or validation.
+- `fileChanges`: A list of changes to be made to the file, each defined by a tuple containing the file name, the utility to be used, the action to be taken (e.g., "add", "replace", "undo"), and the changes to be made.
+
+The code also includes some specific weather conditions like "Chc:RW:-:<NoVis>:", which might represent a chance of rain with no visibility. 
+
+The code seems to be written in Python, but it's hard to say for sure without more context.
+
+The provided code is a part of a larger script, possibly for weather forecasting. It seems to be a list of dictionaries, each representing a different forecast scenario. Each dictionary contains:
+
+- "name": The name of the scenario.
+- "commentary": A description of the scenario.
+- "createGrids": A list of tuples, each representing a forecast parameter. Each tuple contains:
+  - The type of forecast ("Fcst").
+  - The parameter being forecasted (e.g., "Sky", "PoP" (probability of precipitation), "Wx" (weather)).
+  - The type of the parameter ("SCALAR" or "WEATHER").
+  - The start and end time for the forecast (in hours from the current time).
+  - The forecasted value.
+  - The area for which the forecast applies.
+  - (For "Sky" forecasts) A flag indicating whether the forecast should be adjusted based on other parameters.
+- "checkStrings": A list of strings that appear to be human-readable versions of the forecast.
+- "fileChanges": A list of tuples, each representing a change to be made to a file. Each tuple contains:
+  - The name of the file to be changed.
+  - The utility to be used to make the change.
+  - The action to be performed ("add" or "replace").
+  - The data to be added or replaced.
+  - A flag indicating whether the change should be undone.
+
+The code seems to be creating different weather scenarios and checking the output against expected results. This could be part of a testing suite for a weather forecasting application.
+
+This code appears to be a part of a weather forecasting system. It is defining a series of forecast scenarios with different weather conditions and their corresponding probabilities. Here's a breakdown of what each part of the code is doing:
+
+1. `"name"`: This is the name of the forecast scenario.
+2. `"commentary"`: This provides a description or notes about the scenario.
+3. `"createGrids"`: This is a list of tuples that define the forecast parameters. Each tuple includes the forecast type, the parameter (like sky condition, precipitation, or weather), the type of the parameter, the start and end times for the forecast, the value of the parameter, and the areas where the forecast applies.
+4. `"checkStrings"`: This is a list of strings that seem to be used for testing or validation. They might be expected outputs for the given scenario.
+5. `"fileChanges"`: This is a list of tuples that define changes to be made to certain files. Each tuple includes the file name, the utility to be used, the action to be taken, the function to be used, and the action to undo the change.
+
+The code is defining different scenarios with varying weather conditions like scattered showers, numerous showers, no weather, etc. It also specifies the percentage of the area that will be affected by the weather condition. The code also seems to be testing different methods for aggregating coverage data, as indicated by the comments.
+
+The code appears to be part of a weather forecasting system. It's defining a series of tests or scenarios related to weather conditions, specifically focusing on the sky condition and the probability of precipitation (PoP). 
+
+Each test is defined as a dictionary with several key-value pairs:
+
+- "name": This gives a unique identifier to each test.
+- "commentary": This provides a description or notes about what the test is designed to check.
+- "createGrids": This is a list of tuples, each representing a forecast parameter (like "Sky" or "PoP"), the type of the parameter (like "SCALAR" or "WEATHER"), the time range for the forecast, the forecast value, and the area for which the forecast is valid.
+- "checkStrings" and "notCheckStrings": These are lists of strings that are expected to be present or not present in the forecast text generated by the system.
+- "fileChanges": This is a list of changes to be made to the system for the test.
+
+The tests are checking various conditions like whether the sky condition should be reported based on the PoP, and how the sky condition description changes with time. The code also includes some commented-out lines, which are not currently active but could be used for future tests or modifications.
+
+This code is written in Python and appears to be part of a testing suite for a weather forecasting application. 
+
+The first part of the code is a JSON-like structure that contains an array of strings under the key "checkStrings". These strings seem to be weather forecasts that might be used as test cases or expected outputs.
+
+The second part of the code imports a module named TestScript and defines a function named `testScript`. This function takes two arguments: `self` and `dataMgr`. 
+
+The `testScript` function creates a dictionary named `defaults` with two keys: `cmdLineVars` and `productType`. The `cmdLineVars` key is associated with a string that represents a dictionary of variables that might be used in a command line interface. The `productType` key is associated with the string "Phrase_Test_Local", which could be a type of product or test that the function is meant to handle.
+
+Finally, the function returns the result of calling the `generalTestScript` method from the `TestScript` module, passing `self`, `dataMgr`, `scripts` (which is not defined in the provided code), and `defaults` as arguments. This suggests that `generalTestScript` is a method that performs a general test, possibly on the weather forecasting application, using the provided arguments.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

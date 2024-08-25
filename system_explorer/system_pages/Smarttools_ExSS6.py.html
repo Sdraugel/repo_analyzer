@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ExSS6.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ExSS6.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The code is part of a software developed by Raytheon Company. It is a Python script that seems to be related to weather or climate modeling, specifically dealing with temperature and relative humidity.
+
+The script starts with some metadata and legal information about the software, including the contractor's name and address, and a warning about export restrictions.
+
+The actual code begins by defining some variables and importing the numpy library, which is often used for numerical computations in Python. It also imports a module named SmartScript.
+
+The script then defines a class called Tool, which inherits from SmartScript.SmartScript. This class has an initializer method that calls the parent class's initializer, and an execute method.
+
+The execute method takes three parameters: T (temperature), Td (dew point temperature), and GridTimeRange. It calculates the relative humidity (RH) based on these inputs using some mathematical formulas. The calculated RH is then clipped to ensure it stays within the range of 0 to 100.
+
+Finally, the script creates a grid element named "TempRH" with the calculated RH values, and adds this grid to a model named "TempModel". The grid has a time constraint, a minimum and maximum allowed value, and a unit of "%".</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

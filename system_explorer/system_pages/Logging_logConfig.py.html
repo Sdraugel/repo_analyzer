@@ -1,0 +1,64 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>logConfig.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>logConfig.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is primarily concerned with configuring and managing logging for a software package named pypies. It includes a class named `LogConfig` that sets up various loggers and their configurations.
+
+Here's a breakdown of what the code does:
+
+1. It imports necessary modules such as `logging`, `os`, `logging.handlers`, `logging.config`, and `pypies.config.pypiesConfigurationManager`.
+
+2. The `LogConfig` class is defined with the following methods:
+
+   - `__init__`: This is the constructor method that initializes the `LogConfig` object. It creates an instance of `PypiesConfigurationManager` and checks if the configuration has been loaded. If it has, it configures the loggers (pypiesLogger, minutesLogger, hoursLogger) accordingly. If not, it sets all loggers to a default logger and sets the logging port to a default value.
+
+   - `__configure`: This private method is used to set up the logging configuration. It reads the configuration from the `configurationManager` object, creates a directory for log files if it doesn't exist, and sets up the logging configuration from a file. It also sets the logging port.
+
+   - `__getDefaultLogger`: This private method sets up a default logger that writes logs to a file named `pypies.log` in the `/tmp` directory. The log file is rotated at midnight, and a maximum of 7 log files are kept. Both the logger and the handler are set to the INFO level, and a formatter is set up for the logs.
+
+   - `getPypiesLogger`, `getMinutesLogger`, `getHoursLogger`, `getLoggingPort`: These methods are getter methods that return the respective logger or the logging port.
+
+The code also includes a software history and licensing information, including the fact that the software contains export-restricted data and requires an export license or other authorization for dissemination to non-U.S. persons.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,153 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>RoutineLevel3_2_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>RoutineLevel3_2_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a test script for a weather forecasting system. It sets up different scenarios and checks the output of the system against expected results.
+
+The script contains a list of dictionaries, each representing a different test case. Each test case has a name, a commentary describing the test, a set of grids to create, and a set of strings to check against the system's output.
+
+The "createGrids" field in each test case is a list of tuples, each representing a forecast parameter (like "PoP" for probability of precipitation, "Sky" for sky cover, and "Wx" for weather conditions) and its corresponding values for a certain period.
+
+The "checkStrings" field contains the expected output for each test case. The system's output is compared against these strings to see if it is producing the correct forecasts.
+
+The test cases cover a variety of weather conditions, including different levels of sky cover, probabilities of precipitation, and specific weather phenomena like rain showers, fog, and thunderstorms. This helps ensure that the system can accurately forecast a wide range of weather situations.
+
+The code appears to be a part of a weather forecasting system. It contains a list of dictionaries, each representing a different forecast scenario. 
+
+Each dictionary has the following keys:
+
+- "name": This is the identifier for the scenario.
+- "commentary": This provides a description of the scenario.
+- "createGrids": This is a list of tuples that represent different weather parameters. Each tuple contains information about the forecast type (e.g., "Fcst"), the weather parameter (e.g., "PoP" for probability of precipitation, "Sky" for sky condition, "Wx" for weather), the data type (e.g., "SCALAR", "WEATHER"), the start and end times for the forecast, the value for the parameter, and the area for which the forecast is valid (e.g., "all").
+- "checkStrings": This is a list of strings that describe the weather conditions in a human-readable format.
+
+The code seems to be used for testing or generating different weather scenarios. For example, the dictionary with the name "E10" represents a scenario where the probability of precipitation is 50%, the sky condition changes from 100% to 70%, and there's a slight chance of rain showers transitioning to a chance of snow.
+
+The provided code appears to be a part of a weather forecasting program. It seems to be creating a series of weather forecasts, each with a unique name, commentary, and set of grids that describe the forecasted weather conditions. 
+
+Each forecast contains the following information:
+
+- `name`: A unique identifier for the forecast.
+- `commentary`: A brief description of the forecast.
+- `createGrids`: A list of tuples that describe the forecasted conditions. Each tuple contains the following information:
+  - The type of forecast (e.g., "Fcst").
+  - The weather condition being forecasted (e.g., "PoP" for probability of precipitation, "Sky" for sky cover, "Wx" for weather).
+  - The type of data (e.g., "SCALAR" for a single value, "WEATHER" for a weather condition).
+  - The start and end times for the forecasted condition.
+  - The forecasted value or condition.
+  - The area for which the forecast applies (e.g., "all").
+- `checkStrings`: A list of strings that describe the forecast in human-readable terms.
+
+For example, the forecast with the name "E14" predicts a 50% probability of precipitation and 95% sky cover for the next 12 hours, with a chance of thunderstorms and rain showers. The `checkStrings` for this forecast are "Cloudy with a 50 percent chance of thunderstorms" and "Some thunderstorms may be severe in the afternoon".
+
+The code appears to be a part of a weather forecasting program. It contains a series of forecast scenarios, each identified by a unique name (e.g., "E22", "E23", etc.). Each scenario includes a commentary, a set of grid creation instructions, and a set of check strings.
+
+The "commentary" field provides a brief description of the weather conditions represented by the scenario.
+
+The "createGrids" field contains a list of tuples, each representing a specific weather parameter to be forecasted. The tuples include the type of forecast ("Fcst"), the parameter being forecasted (e.g., "PoP" for Probability of Precipitation, "Sky" for cloud cover, "Wx" for weather conditions), the type of data ("SCALAR" or "WEATHER"), the start and end times for the forecast period, the forecasted value, and the area for which the forecast is valid ("all").
+
+The "checkStrings" field contains a list of strings that represent the expected output of the forecast in human-readable form.
+
+For example, the scenario named "E22" predicts a 50% probability of precipitation, 95% cloud cover, and occasional rain, snow, and a slight chance of light sleet over a 12-hour period. The expected output of this forecast is "Cloudy with occasional rain, snow and slight chance of light sleet".
+
+This code appears to be a part of a weather forecasting system. It is defining a series of forecast scenarios, each with a name, commentary, a set of grids to create, and a set of strings to check. 
+
+Each forecast scenario is defined as a dictionary with the following keys:
+
+- "name": This is a unique identifier for the scenario.
+- "commentary": This is a description of the scenario.
+- "createGrids": This is a list of tuples. Each tuple represents a forecast parameter (like "PoP" for probability of precipitation, "Sky" for sky cover, "Wx" for weather) and its associated values over a certain time period (from hour X to hour Y). The last element in each tuple, "all", likely represents the area over which the forecast is valid.
+- "checkStrings": This is a list of strings that are expected to be generated by the forecast system for this scenario. These could be used for testing or validation purposes.
+
+The code is creating a variety of weather scenarios, including different types of precipitation (rain, snow, sleet, thunderstorms), different intensities and probabilities of these events, and different sky conditions. The scenarios also cover different time periods, with some forecasts for the early morning and others for later in the day.
+
+This code appears to be a series of test cases or forecast scenarios for a weather prediction system. Each test case is a dictionary with the following keys:
+
+- "name": A unique identifier for the test case.
+- "commentary": A comment or description of the test case.
+- "createGrids": A list of tuples that represent weather conditions. Each tuple contains the following elements:
+  - The type of forecast (e.g., "Fcst").
+  - The weather variable being forecasted (e.g., "Sky", "Wx", "PoP").
+  - The type of the variable (e.g., "SCALAR", "WEATHER", "VECTOR").
+  - The start and end times for the forecast.
+  - The forecasted value for the variable.
+  - The area for which the forecast applies (e.g., "all").
+- "checkStrings": A list of strings that seem to be expected outcomes or descriptions of the weather conditions.
+- "fileChanges": A list that seems to be used for tracking changes to the file, but it's empty in all the provided test cases.
+
+For example, the test case with the name "E44" is testing the scenario where there is a 50% chance of precipitation ("PoP") from 0 to 6 hours, the sky is 95% covered ("Sky") during the same period, and there is a chance of thunderstorms, rain, and snow ("Wx"). The expected outcome or description for this scenario is "Chance of rain, thunderstorms and snow in the morning, then widespread rain, thunderstorms and snow in the afternoon".
+
+The given code appears to be a part of a larger script that is used for generating weather forecasts. It is written in a data structure format, possibly JSON or a similar format. Each block of code represents a different forecast scenario, with different wind and gust conditions. 
+
+Each block contains:
+
+- `name`: A unique identifier for the forecast scenario.
+- `commentary`: A brief description of the wind conditions in the scenario.
+- `createGrids`: A list of tuples that define the forecast parameters. Each tuple includes the type of forecast ("Fcst"), the weather condition ("Wind" or "WindGust"), the type of data ("VECTOR" or "SCALAR"), the start and end time for the forecast, the value for the condition, and the area for which the forecast applies ("all").
+- `checkStrings`: A list of strings that describe the wind conditions in more detail.
+- `fileChanges`: A list of changes made to the file, which is empty in all the given blocks.
+
+For example, the block with the name "G16" represents a forecast scenario where the wind speed changes from 15 mph from the north to 0 mph, and the gust speed is 30 mph. The forecast is valid for the first 6 hours (from 0 to 6) and the next 6 hours (from 6 to 12). The checkStrings indicate that the wind is expected to be around 15 mph from the north in the morning, becoming light, with gusts up to 35 mph.
+
+This code appears to be a part of a weather forecasting system. It is defining a series of forecast scenarios, each with a unique name, commentary, grid creation parameters, check strings, and file changes.
+
+Each scenario ("Pass2_G9", "Pass2_G10", etc.) has a different set of conditions. The "createGrids" section within each scenario is defining the forecasted wind conditions for different time periods. For example, in the "Pass2_G9" scenario, the wind is forecasted to be 0 from the North for the first 6 hours, and then 15 from the North for the next 6 hours. The "WindGust" is forecasted to be 0 for the entire 12 hours.
+
+The "checkStrings" section contains the expected output strings for each scenario. These strings are likely used to verify the accuracy of the forecast.
+
+The "fileChanges" section appears to be making a change to a file named "Phrase_Test_Local" in the "TextUtility" directory. It is replacing the line '#dict["Wind"] =  ""' with 'dict["Wind"] =  ""'. The "undo" at the end suggests that this change can be reversed.
+
+The different scenarios seem to be testing various wind and gust conditions to ensure that the forecasting system is functioning correctly under these different conditions.
+
+This script appears to be a part of a weather forecasting system. It's defining a series of tests for wind and wind gust forecasts, and each test is defined as a dictionary with several key-value pairs.
+
+1. "name": This key specifies the name of the test.
+2. "commentary": This key provides a brief description of the test.
+3. "createGrids": This key contains a list of tuples that define the forecast parameters for wind and wind gusts. Each tuple includes the forecast type ("Fcst"), the weather element ("Wind" or "WindGust"), the data type ("VECTOR" or "SCALAR"), the start and end times for the forecast, the forecast value, and the area for which the forecast is valid ("all").
+4. "checkStrings": This key contains a list of strings that are expected to be found in the forecast text output.
+5. "fileChanges": This key contains a list of tuples that define changes to be made to the files used in the test. Each tuple includes the name of the file to be changed, the utility to be used for making the change ("TextUtility"), the type of change to be made ("replace"), the text to be replaced and the replacement text, and the action to be taken if the change needs to be undone ("undo").
+
+The script also includes an import statement for a module named "TestScript", and a function named "testScript" that uses the "TestScript.generalTestScript" method to run the tests defined in the "scripts" variable using the default command line variables and product type specified in the "defaults" dictionary. The "dataMgr" argument passed to the "testScript" function is likely a data manager that provides access to the data needed for the tests.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

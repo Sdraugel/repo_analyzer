@@ -1,0 +1,76 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>updateSkewtDisplays.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>updateSkewtDisplays.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to update saved displays that use older skewT displays to use Nsharp. SkewT and Nsharp are both types of diagrams used in meteorology to plot weather balloon data. The script does this by parsing XML files (which presumably represent the saved displays) and updating specific elements within the XML structure.
+
+The script defines several functions to achieve this:
+
+1. `upgradeBundle(bundleFile)`: This function is the main driver of the script. It takes a file path to an XML file as an argument, parses the XML, and then iterates over specific elements within the XML structure. If it finds elements that need to be updated, it calls other functions to perform the updates.
+
+2. `getPlugins(xmlDisplay)`: This function takes an XML element as an argument and returns a set of plugin names that are used in the display.
+
+3. `getPluginName(resourceData)`: This function takes an XML element as an argument and returns the name of the plugin used by the resource.
+
+4. `getConstraintValue(resourceData, key)`: This function takes an XML element and a key as arguments and returns the value of the constraint associated with the key.
+
+5. `isNsharp(plugin)` and `isHodoVarHeight(plugin)`: These functions take a plugin name as an argument and return a boolean indicating whether the plugin is of a specific type.
+
+6. `convertDisplayToNsharp(xmlDisplay)` and `convertDisplayToHodoVarHeight(xmlDisplay)`: These functions take an XML element as an argument and modify the element to convert the display to a different type.
+
+7. `convertResourceToNsharp(xmlResource)`: This function takes an XML element as an argument and modifies the element to convert the resource to a different type.
+
+The script is designed to be run from the command line and does not have a user interface. It is likely part of a larger system for managing meteorological data.
+
+This script appears to be part of a larger program that manipulates XML data using the ElementTree (ET) module in Python. 
+
+The first part of the script checks for unrecognized resources in a descriptor object and removes them. It also removes resources listed in the `toRemove` list from the descriptor. 
+
+The next part of the script creates a new XML sub-element called `heightScale` under the `descriptor` element. It then sets various attributes for this sub-element such as 'unit', 'name', 'minVal', 'maxVal', 'parameter', 'parameterUnit', 'scale', 'heightType'. It also creates a sub-element under `heightScale` called `labels` and sets its text.
+
+The script then finds an XML element called `gridGeometry` under the `descriptor` element and sets its attributes. These attributes seem to define the range and envelope of a grid.
+
+Finally, if this script is run as a standalone program (i.e., not imported as a module), it will call the `upgradeBundle` function for each command-line argument passed to the script. The purpose of the `upgradeBundle` function is not clear from the provided code, but it likely involves updating or modifying some form of data bundle.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,78 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>CheckWindGust.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>CheckWindGust.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The code is a script for the Advanced Weather Interactive Processing System (AWIPS), which is used by the National Weather Service and other meteorological organizations for weather forecasting. It's written in Python and uses the GFE (Graphical Forecast Editor) module of AWIPS.
+
+The script is named "CheckWindGust" and was written by Tom Mazza. It was last modified by a user named 'yteng' on July 27, 2015. The purpose of the script is to check and possibly correct inconsistencies between the wind speed and wind gust speed in weather forecast data.
+
+The script defines a class named "Procedure" which inherits from the "SmartScript" class provided by the GFE module. The "Procedure" class has several methods for working with weather data, including methods to get a list of weather elements (getWEInventory), to get a list of time ranges locked by others (getLocksByOthers), to get a list of overlapping time ranges (overlappingTRs), to combine inventory lists (combineInventoryLists), and to execute the procedure (execute).
+
+In the 'execute' method, the script checks if the wind gust speed is less than the wind speed, which is an inconsistency. If such an inconsistency is found and the user has chosen to force corrections, the script will correct the wind gust speed to be equal to the wind speed.
+
+The script also defines several variables and imports several modules, including SmartScript, time, TimeRange, and numpy. It also defines a list of menu items and a list of variables for the GFE interface.
+
+The script is intended to be used in the public domain, without warranty or technical support. It also includes a notice about export restrictions due to U.S. law, as it was developed and/or modified by Raytheon Company under a contract with the U.S. Government.
+
+The given code is part of a larger weather prediction system, specifically dealing with wind gusts. Here's what it does:
+
+1. It fetches the wind gust inventory for a given time range and stores it in `tTRList`. It then retrieves the wind gust grids for a given model and level, storing them in `WindGustDict`.
+
+2. It retrieves any locks on the wind gust data by other users to prevent simultaneous modifications.
+
+3. It gets the current month and checks if it falls within a specific range (`startWindChill` and `endWindChill`). If it does, it appends a tuple ("WindChillTool", "WindChill") to the `WindChangeTools` list.
+
+4. It then iterates over the time range list `WindTRList` and checks if each time range exists in the wind gust time range list. If not, it skips to the next iteration.
+
+5. For each time range that exists, it retrieves the corresponding wind speed and wind gust grids. It then creates a mask where the wind gust is less than the wind speed.
+
+6. If there are no points where the wind gust is less than the wind speed, it skips to the next iteration. Otherwise, it sets `errorsFound` to "yes".
+
+7. If `checkOnly` is true, it creates a grid with the mask values. If not, it checks if the time range is locked by another user. If it is, it sends a message to the status bar and skips to the next iteration. If not, it decodes the mask, ensures that wind gust is greater than or equal to wind speed, and creates a new wind gust grid.
+
+8. It then checks if certain tools are loaded and if so, it retrieves grid information, creates grids from scratch if needed, and calls a smart tool.
+
+9. Finally, it sends a message to the status bar indicating whether any errors were found during the process.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

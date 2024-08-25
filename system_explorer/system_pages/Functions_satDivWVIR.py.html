@@ -1,0 +1,63 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>satDivWVIR.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>satDivWVIR.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a software developed by Raytheon Company under a contract with the US Government. It contains export-restricted data and requires an export license or other authorization for dissemination to non-U.S. persons.
+
+The main function of this script is to calculate a derived parameter, termed as WV/IR. This is done in the function named `execute`.
+
+The `execute` function takes two arguments: `Imager_6pp7hh6pp5_micron_IR_ooWVcc` and `Imager_11_micron_IR`, which represent Water Vapor and Imager 11 micron IR respectively. 
+
+The function works as follows:
+
+1. It first converts `Imager_6pp7hh6pp5_micron_IR_ooWVcc` and `Imager_11_micron_IR` to 8-bit unsigned integers (`numpy.uint8`), storing the results in `uWV` and `uIR` respectively.
+2. It then multiplies `uWV` by 0.708 and converts the result back to an 8-bit unsigned integer, storing the result in `WV`.
+3. For `uIR`, it checks where `uIR` is less than 180 and sets those values to 0, storing the result in `IR`.
+4. It then creates a mask where `IR` equals 0.
+5. It applies this mask to `IR` and `WV`, setting the values in `IR` where the mask is True to the corresponding values in `WV`.
+6. Finally, it returns the result, converting it to an 8-bit signed integer (`numpy.int8`) before doing so.
+
+This code also contains a software history comment section, which indicates that a modification was made on August 05, 2015 to cast 0 to `uint8`.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

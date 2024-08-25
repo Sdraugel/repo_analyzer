@@ -1,0 +1,154 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TCStormSurgeThreat.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TCStormSurgeThreat.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is part of a software tool used to predict storm surge threats. It is in the public domain and has been updated by various authors over time. The software uses gridded Mean Sea Level (MSL) to North American Vertical Datum (NAVD) and MSL to Mean Lower Low Water (MLLW) corrections. It has been modified several times to improve handling of time, adapt to new datasets, and improve manual options.
+
+The code includes a list of menu items for a Graphical Forecast Editor (GFE) interface, which includes a "Populate" option. It imports several utility modules, including TropicalUtility and LogStream, as well as numpy for numerical operations, and TimeRange and AbsTime for handling time data.
+
+The code also defines a list of variables for the user interface. These variables include options for forecast confidence, grid smoothing, and the source of the data to make the grids from (PHISH, PETSS, ISC, or manually). There are also settings for manual inundation.
+
+Overall, this code is part of a tool that helps forecasters predict storm surge threats by creating and manipulating data grids. It provides several options for customization, allowing users to adjust settings based on their confidence in the forecast, the behavior of the storm, and the source of their data.
+
+This code is part of a Python class that seems to be used for analyzing and manipulating meteorological data, specifically related to tropical weather events. The class inherits from a parent class `TropicalUtility`.
+
+Here is a breakdown of what each method does:
+
+1. `__init__`: This is the constructor method for the class. It initializes the instance of the class with a database session (`dbss`).
+
+2. `baseGuidanceTime`: This method calculates a base time for guidance. It seems to be used for time normalization.
+
+3. `getAvgTopoGrid`: This method retrieves the average topography for each grid point from a given database (`topodb`). It also performs some transformations on the topography data, such as converting from meters to feet and applying certain limits.
+
+4. `makeNewTimeRange`: This method creates a new time range of a given number of hours (`hours`) from the current time.
+
+5. `getModelIDList`: This method retrieves a list of model identifiers from the available parameters that match a given string (`matchStr`).
+
+6. `getExceedanceHeight`: This method retrieves exceedance height data for a given model (`modelName`), percentile string (`pctStr`), and level. It also performs some transformations on the data, such as converting from meters to feet.
+
+7. `makeInundationTiming`: This method creates inundation timing grids for a given model (`modelName`), percentile string (`pctStr`), level, smooth threat grid (`smoothThreatGrid`), mutable ID (`mutableID`), sea surface elevation array (`ssea`), and mean higher high water mask (`MHHWMask`). It also retrieves and manipulates data from a database.
+
+The code snippet ends abruptly, so it's not possible to provide a full analysis of the `makeInundationTiming` method. The code seems to be part of a larger system, possibly for weather prediction or analysis.
+
+This code appears to be part of a larger system that works with grid data, possibly related to geographic or meteorological data. 
+
+- The `sk = (phishGrid > 0.0) & ssea` line creates a boolean mask where the values in `phishGrid` are greater than 0.0 and `ssea` is True.
+
+- The `smoothedPhish = self.GM_smoothGrid(phishGrid, 3, mask)` line applies a smoothing function to the `phishGrid` using a mask.
+
+- The `grid = phishGrid / 0.3048` line converts the units of the `phishGrid` from meters to feet.
+
+- The `grid.clip(0.0, 100.0, grid)` line ensures that all values in the grid are between 0.0 and 100.0.
+
+- The `grid[~ssea] = 0.0` and `grid[MHHWMask] = 0.0` lines set all values in the grid to 0.0 where `ssea` is False and where `MHHWMask` is True, respectively.
+
+- The `timingGrids.append(grid)` line adds the modified grid to a list of timing grids.
+
+- The `self.createGrid(mutableID, "InundationTiming", "SCALAR", grid, tr, precision=1)` line creates a new grid with the specified parameters.
+
+- The `makeInundationMaxGrid` function creates a maximum inundation grid from a list of timing grids.
+
+- The `deleteAllGrids` function deletes all grids associated with a list of weather elements.
+
+- The `getVDATUM`, `getMSLtoNAVD`, `getMSLtoMLLW`, `getMSLtoMHHW`, `getNAVDtoMLLW`, and `getNAVDtoMHHW` functions retrieve specific types of data from a database, convert the units from meters to feet, and return the result.
+
+- The `copyISCGridstoFcst` function copies a list of weather elements from one database to another, with some additional checks and modifications.
+
+This code appears to be part of a larger program that deals with storm surge modeling. 
+
+The first part of the code is checking the name of a grid (iscWeName) and applying different operations based on its name. If the name is "InundationMaxnc" or "InundationTimingnc", it clips the grid values between 0.0 and 100.0. For other grid names, it clips the values between -30.0 and 100.0. It then creates different types of grids based on the grid name and whether a condition called GridsCheck is true. 
+
+The function `makeTimingTRs` is creating a list of time ranges for making InundationTiming grids. It starts from a base time and ends at an end time, creating time ranges in increments of 6 hours.
+
+The function `getTimingGrids` is creating a list of empty timing grids for each time range created by `makeTimingTRs`.
+
+The `execute` function is the main function that performs a series of operations based on the input parameters. It starts by setting up some variables and checking the makeOption. If makeOption is "PHISH" or "PETSS", it gets the exceedance height from a model and applies a mask to the surge percent grid. It also applies a smoothing operation if the smoothThreatGrid option is set to "Yes". It then calculates the surge percent grid for different vertical datums (MSL, MLLW, etc.) by applying corrections to the surge percent grid in NAVD datum. It seems to be part of a storm surge forecast system, where the surge percent grid represents the probability of storm surge exceeding a certain height.
+
+This code is part of a larger script that seems to be dealing with storm surge data and inundation timing. It's written in Python and uses NumPy for numerical operations. The code is divided into several sections based on the value of `makeOption`.
+
+1. If `makeOption` is not specified, the code calculates the Mean Higher High Water (MHHW) grid and the difference grid between Mean Lower Low Water (MLLW) and MHHW. It also creates a mask where the surge percentage grid MHHW is less than or equal to zero. Then, it calls the `makeInundationTiming` method to create timing grids and the `makeInundationMaxGrid` method to create the maximum inundation grid.
+
+2. If `makeOption` is "ISC", it copies ISC grids to the forecast using the `copyISCGridstoFcst` method. If the surge percentage grid is None, it returns and stops execution.
+
+3. If `makeOption` is "Manually Replace" or "Manually Add", it allows the user to manually input inundation height, start hour, and end hour. It then checks if the selected area intersects with the StormSurgeEditArea. If the start hour is greater than or equal to the end hour, it returns an error message. If the option is "Manually Add", it fetches old grids. It then modifies the surge percentage grid based on the modify mask. It then creates timing grids based on the make option.
+
+In all cases, the code seems to be dealing with storm surge data, calculating different metrics (like MHHW, MLLW), and allowing for manual adjustment of the data. It's likely part of a larger system for modeling or predicting storm surge events.
+
+This code appears to be part of a larger program related to weather forecasting, specifically dealing with storm surge and inundation timing. 
+
+1. The first part of the code creates a grid for "InundationTiming" and then retrieves all the timing grids, setting any grid values that are not over the sea to 0.0. These grids are then stored in the `timingGrids` list. The `makeInundationMaxGrid` function is then called to create a surge percentage grid.
+
+2. In the next section, if the `makeOption` is "UpdateInunMax (Edit Inundation Timing Grids)", it deletes all existing grids related to storm surge and inundation, retrieves the timing grids again, deletes the original timing grids, and then recreates them. The `makeInundationMaxGrid` function is called again to create a new surge percentage grid.
+
+3. The next part of the code adjusts the surge percentage grid values that are between 1.0 and 1.5 to be 1.5. This is done to ensure consistency with the threat level forecast.
+
+4. The code then defines a mapping between UI names and key names for different threat levels and assigns them corresponding threshold values.
+
+5. The code then creates a new time range and deletes old grids for various elements related to storm surge and inundation.
+
+6. If the `makeOption` is not "Manually Replace", "Manually Add", or "UpdateInunMax (Edit Inundation Timing Grids)", it clips the surge percentage grid values between -30.0 and 100.0 and creates new grids for various elements.
+
+7. The code then creates a new grid for "InundationMax" and sets the grid values based on the surge percentage grid and the defined thresholds.
+
+The code is cut off at the end, so it's unclear what happens in the final loop.
+
+This code is part of a larger program that seems to be dealing with geographical data, specifically related to coastal threats, possibly from storms or surges.
+
+Here is a breakdown of what the code does:
+
+1. It first enters a loop over a list of keys (`keyList`). For each key, it does the following:
+    - Retrieves a threshold value (`thresh`) from a dictionary (`threshDict`) using the key.
+    - Gets the index of the key from a list (`threatKeys`) using a method `getIndex()`.
+    - Creates a mask (`coastalMask`) by performing a bitwise AND operation on `ssea` (possibly a grid of sea data) and a comparison of `surgePctGrid` (possibly a grid of surge percentage data) with the threshold. This mask will be True wherever `ssea` is True and `surgePctGrid` is greater than or equal to the threshold.
+    - Updates a grid (`coastalThreat`) at positions where `coastalMask` is True, setting those positions to the key index.
+
+2. After the loop, it calls a method `createGrid()` to create a grid with various parameters. This grid is likely related to the coastal threats, as indicated by the parameter `threatWEName`.
+
+3. It then logs the time taken to compute the coastal threat by subtracting the start time (`t0`) from the current time (`t1`) and multiplying by 1000 to convert seconds to milliseconds.
+
+4. Finally, it returns from the function. The return value is not specified, so it will return None.
+
+Please note that without further context or comments in the code, some assumptions had to be made about the purpose and functionality of the code.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>AbstractGridSlice.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>AbstractGridSlice.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is written in Python and it defines an abstract base class named `AbstractGridSlice`. 
+
+The class `AbstractGridSlice` uses the `abc` module, which stands for Abstract Base Classes. This module provides the infrastructure for defining abstract base classes (ABCs) in Python. 
+
+The `AbstractGridSlice` class has the following methods:
+
+1. `__init__`: This is the constructor method which is called when an object is created from the class and it allows the class to initialize the attributes of the class. In this case, it initializes `validTime`, `gridParmInfo`, and `gridDataHistory` to None. 
+
+2. `getNumPyGrid`: This is an abstract method that is expected to be implemented by any concrete (i.e., non-abstract) subclass. If a subclass does not provide an implementation of this method, attempting to instantiate it will raise a `TypeError`.
+
+3. `getValidTime`, `setValidTime`, `getGridParmInfo`, `setGridParmInfo`, `getGridDataHistory`, `setGridDataHistory`: These are getter and setter methods for the class attributes `validTime`, `gridParmInfo`, and `gridDataHistory`. Getter methods return the value of the class attribute, and setter methods set the value of the class attribute.
+
+The initial comment block is a legal disclaimer and metadata about the software, including the developer (Raytheon Company), the contract under which it was developed, export control information, contractor contact information, and a reference to a file with further licensing information.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

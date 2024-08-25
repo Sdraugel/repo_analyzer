@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Evaluator.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Evaluator.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The given code is a Python script for a class named `Evaluator`. This class is used to evaluate GFE (Grid for Editable data) expressions. The code is part of a software developed by Raytheon Company, as indicated by the comments at the top of the file.
+
+Here's a breakdown of the class and its methods:
+
+1. `__init__`: This is the constructor of the class. It initializes the class with a `dataMgr` object. It sets up a grid location, a query object, and the shape of the grid.
+
+2. `gloc`: This method returns the grid location that was set up in the constructor.
+
+3. `evaluate`: This method takes an expression and an optional `timeInfluence` parameter. It evaluates the expression and returns a reference data object. If the expression is empty, it returns an empty reference set. If the `timeInfluence` is not provided, it defaults to the spatial editor time. It also checks the type and shape of the evaluated grid and raises a TypeError if they do not match the expected values.
+
+4. `willRecurse`: This method returns whether the query will recurse given a name and a string.
+
+5. `cleanUp`: This method currently does nothing but can be overridden to provide cleanup operations if necessary.
+
+The code also imports several modules at the beginning, including `Query`, `DBSSClient`, `numpy`, and `AbsTime`, which are used in the class methods.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

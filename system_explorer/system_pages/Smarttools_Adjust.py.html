@@ -1,0 +1,66 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Adjust.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Adjust.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code appears to be a part of a software tool developed by Raytheon Company. The tool, named "Adjust - Version 1.2", is a single dialog that provides a combination of many simple mathematical operations such as addition, subtraction, multiplication, and division. These operations can be applied with optional elevation effects (most adjustment at mountains or valleys or a specific elevation), and optional edge effects (edge or taper). The tool also provides a single place to specify delta value, edge thickness, and vector edit mode.
+
+The code includes a history of modifications, with the most recent change made on February 6, 2017, where Java .toString() calls were removed.
+
+The code then defines a class named "Tool" which inherits from the "SmartScript" class. The class has methods for pre-processing and post-processing the tool, as well as pre-processing the grid. The pre-processing of the grid involves handling of edit areas and making adjustments based on elevation and edge effects.
+
+The code is written in Python and uses the numpy library for numerical operations.
+
+This code appears to be part of a larger program that performs operations on a grid of data. The grid could represent anything, but given the terms used, it might be related to geographical or meteorological data.
+
+The first part of the code checks the type of edge (either "Flat" or "Edge") and assigns a corresponding grid to the variable `edgegrid`. If neither of these conditions is met, `edgegrid` is assigned a default value.
+
+Then, `edgegrid` is combined with `elevgrid` to create `deltagrid`. If the maximum value in `deltagrid` is less than 1, the code adjusts `deltagrid` to ensure that its maximum value is 1.
+
+The `execute` function takes in three parameters: `variableElement`, `variableElement_GridInfo`, and `varDict`. It performs different operations (add, subtract, multiply, divide) on `variableElement` based on the `action` key in `varDict`. The operation is applied differently if `variableElement_GridInfo` is of type 'VECTOR'.
+
+If the grid type is 'VECTOR', the code checks the `vect` key in `varDict` to determine whether to apply the operation to the magnitude or direction of the vector. The result of the operation is stored in `newval`, which is then returned by the function.
+
+In summary, this code is used to manipulate a grid of data based on the type of edge and the type of grid (vector or not). It can perform different mathematical operations on the data and return the result.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

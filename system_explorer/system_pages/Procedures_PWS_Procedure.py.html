@@ -1,0 +1,110 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>PWS_Procedure.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>PWS_Procedure.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code appears to be part of a larger software system, possibly related to weather forecasting or meteorological data processing. It's written in Python and uses several imported libraries, including SmartScript, AbsTime, TimeRange, and LogStream. 
+
+The code starts with a large comment block that provides information about the software's development, export restrictions, and licensing details. It also includes a history of modifications made to the software.
+
+The code then defines a list of menu items and imports several modules. It also defines several lists of strings, which seem to represent different geographical sites and bins.
+
+The main part of the code is a class named `Procedure`, which inherits from `SmartScript.SmartScript`. This class has several methods:
+
+1. `__init__`: This is the constructor method that initializes the class.
+
+2. `maxGrid`: This method calculates the maximum value at each grid point from a given list of grids.
+
+3. `intGrid`: This method seems to calculate the difference between successive grids in a list.
+
+4. `getModelIDList`: This method returns a list of model IDs that match a specified string.
+
+5. `getWEInventory`: This method gets the grid inventory for the specified information.
+
+6. `getLatestPWSModel`: This method determines the latest PWS (Probabilistic Wind Speed) model currently available.
+
+7. `getModelTimeRange`: This method examines the full inventory and computes a time range that encompasses all grids.
+
+The code seems to be dealing with some form of gridded data, possibly related to weather or climate models. It includes functionality for processing and analyzing this data, such as finding the maximum value in a grid, calculating differences between grids, and managing grid inventories.
+
+This code appears to be part of a larger program that processes and manipulates weather data, particularly related to wind speed probabilities. Here's what each part of the code does:
+
+1. The commented-out lines at the top seem to be previous versions of the code or debugging lines. They are not currently doing anything.
+
+2. The `return modelTR, minTime, maxTime` statement returns three variables: `modelTR`, `minTime`, and `maxTime`. These variables are not defined in the provided code, so they must be defined elsewhere in the program.
+
+3. The `makePWSScratch` method appears to retrieve and check the inventory of a certain weather element (pwsWE) from a specific model. If the inventory is good (i.e., contains more than one item), it logs a message. If the inventory is bad, it deletes the command and logs a message.
+
+4. The `makePWSGrid` method fetches the inventory of two weather elements (pwsWE and probWE) from a specific model, sorts them, fetches the grids in the correct time order, calculates a new grid based on these fetched grids, and clips the grid at 100.0 percent.
+
+5. The `MakeTOAandTODGrids` method seems to create new grids based on certain conditions. It fetches a grid, creates a new grid for a specific time range, and sets certain values in the new grid based on the fetched grid.
+
+6. The `execute` method seems to be the main method that runs when this program is executed. It checks the site ID and sets a list of buttons based on the site ID. If the variable dictionary is `None`, it seems to create a GUI for user interaction.
+
+Please note that without the full context of the code, some assumptions have been made based on common coding practices.
+
+This Python code is part of a larger system that processes and analyzes meteorological data, specifically related to storms and wind probabilities. Here's a breakdown of what this segment of code does:
+
+1. It starts by processing a list of variables related to wind probability. If the status of this process is not "OK", the function returns and ends.
+
+2. Next, it fetches the model source and defines the model name based on the source. If the source is unknown, an error message is displayed and the function ends.
+
+3. It then fetches the latest model ID. If no model ID is found, an error message is displayed and the function ends.
+
+4. It checks if a storm is selected. If not, an error message is displayed and the function ends.
+
+5. It then checks the storm name against a dictionary of storm names. If the storm name is in the dictionary, it replaces the storm name with the corresponding value from the dictionary.
+
+6. It fetches the time range for different models. If the time range is not valid, the function ends.
+
+7. It then creates a list of time of arrival/departure (TOA/TOD) grids for the selected storm. If no TOA/TOD grids are found, an error message is displayed.
+
+8. It then populates the cumulative probabilities (prob34 and prob64) and calculates and populates the interval probabilities (pws34int and pws64int) from the cumulative probabilities. These are for use by the new HLS formatter as well as their companion graphical component, the Tropical Impact Graphics.
+
+9. It then populates the incremental probabilities (pwsD34, pwsD64, pwsN34, and pwsN64) for use by the Tropical ZFP and CWF, the so-called expressions of uncertainty.
+
+10. Finally, it posts the model time used to the GFE status bar.
+
+Overall, this code is used to process, analyze, and display meteorological data related to storm and wind probabilities.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

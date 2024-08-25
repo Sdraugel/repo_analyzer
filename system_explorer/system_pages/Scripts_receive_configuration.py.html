@@ -1,0 +1,56 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>receive_configuration.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>receive_configuration.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a larger system developed by Raytheon Company, as indicated by the comments at the top of the script. The script is designed to process received configuration requests using Thrift, a software framework for scalable cross-language services development.
+
+The script begins by importing necessary modules and packages, including system-specific parameters and functions, operating system interfaces, and specific classes from the dynamicserialize package and the awips package.
+
+The main function of the script is defined in the `main()` function. It gets connection parameters from the `getConnectionParams()` function, which retrieves host and port information from environment variables. Then, it tries to create a request using the `createRequest()` function and send it to a server using a Thrift client. If any exception occurs during this process, it prints an error message and exits the program with a status code of 1. If the server response is not okay, it also prints an error message and exits the program with a status code of 1.
+
+The `createRequest()` function creates a `ProcessReceivedConfRequest` object, sets its workstation ID to "receive_configuration", sets its site ID to the seventh command-line argument (converted to uppercase), and sets its received configuration file to the sixth command-line argument. It then returns this object.
+
+The script is executed if it's run as a standalone file, not imported as a module. The execution starts from the `main()` function.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,149 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>XmlTafEncoder.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>XmlTafEncoder.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The given code is a part of a Python file named `xmlTafEncoder.py`. The purpose of this file is to encode a Python dictionary consisting of Terminal Aerodrome Forecast (TAF) components into an XML document according to the IWXXM 3.0 TAF schema. The file was authored by Mark Oberfield from MDL/OSTI/NWS/NOAA and has undergone several changes since its initial creation.
+
+The code imports several modules including `io`, `logging`, `os`, `re`, `time`, `uuid` and some custom modules like `TafDecoder`, `UFStatusHandler`, and `XmlTafConfig`.
+
+The main class in this code is `Encoder`, which is used to encode a Python dictionary consisting of TAF components into an XML document. The class has several attributes and methods:
+
+- The `__init__` method initializes the encoder with a set of predefined namespaces, US TAF amendment parameters, cloud layer regex, and other attributes. It also calls the `parseCodeRegistryTables` method with `codesFile` and `PreferredLanguageForTitles` as parameters.
+
+- The `__call__` method is a special method that allows the class instances to be called as functions. It takes a decoded TAF and a TAC string as inputs, sets up the XML document root element, sets the namespace attributes, checks for non-Annex 3 elements, sets the schema location, and sets the report status. If there was a decoding problem, it sets the attributes to indicate the failure. Finally, it calls the `doIt` method and returns the XML document.
+
+The `doIt` method is not shown in the provided code, so its functionality cannot be determined from the given code snippet.
+
+This code appears to be a part of a larger Python class that is used for processing and decoding TAF (Terminal Aerodrome Forecast) data. TAFs are weather reports issued for the area around an airport. 
+
+The `doIt` method is the main function that orchestrates the decoding process. It first ensures that issuance time and aerodrome identifier are available. Then it tries to decode the valid time of the TAF. If it fails, it removes the last child from the XML document. 
+
+Next, it sets the base forecast, which is the initial prevailing condition of the TAF. If there is no initial forecast, it sets the `nilReason` attribute to a certain URL. 
+
+Then, it iterates over the rest of the forecast groups and applies changes to them. It also tries to find limits to amendments, if any. 
+
+Finally, it provides an option to insert a URL to NWS Instruction on TAFs.
+
+The other methods (`itime`, `aerodrome`, `vtime`, `baseFcst`, `changeGroup`) are helper functions that are used to decode specific parts of the TAF data and add them to the XML document. These methods use the ElementTree XML API (`ET`) to create and manipulate the XML document. They also use the `uuid` module to generate unique identifiers for the XML elements. 
+
+For example, `itime` sets the issuance time of the TAF, `aerodrome` sets the aerodrome identifier, `vtime` sets the valid time of the TAF, `baseFcst` sets the base forecast, and `changeGroup` applies changes to the forecast groups. 
+
+Please note that the code is incomplete, and the `changeGroup` method is not fully shown.
+
+This code appears to be a part of a larger program that processes meteorological data, specifically aerodrome forecasts. It seems to be written in Python and uses the ElementTree (ET) module for XML manipulation.
+
+Here's a breakdown of what each part of the code does:
+
+1. The first part of the code creates a new XML element called 'MeteorologicalAerodromeForecast' and sets some attributes based on the 'token' dictionary.
+
+2. The 'result' method sets some attributes of the parent XML element. It also iterates over 'ForecastResults' and calls the corresponding method for each element. If the 'token' dictionary doesn't contain a key for a particular element, it simply ignores it and moves on.
+
+3. The 'wind' method creates a 'surfaceWind' element and sets its attributes based on the 'token' dictionary. It handles different cases based on the wind direction and speed.
+
+4. The 'vsby' method sets the 'prevailingVisibility' attribute of the parent XML element.
+
+5. The 'pcp' method iterates over a list of weather phenomena and sets the 'weather' attribute for each one.
+
+6. The 'wxrPhenomenonSearch' method tries to find weather phenomena codes in a dictionary. If it can't find a code, it splits the weather string into two and tries again.
+
+7. The 'nsw' method sets the 'nilReason' attribute of the 'weather' element.
+
+8. The 'sky' method creates a 'cloud' element and sets its attributes based on the 'token' dictionary. It handles different cases based on the cloud layer.
+
+9. The 'doCloudLayer' method sets the attributes of a 'CloudLayer' element based on a regular expression match.
+
+Overall, this code seems to be transforming meteorological data into a specific XML format. The 'token' dictionary likely contains the raw data, and each method is responsible for processing a different aspect of that data.
+
+The given code seems to be part of a larger Python script that is used for parsing and manipulating XML data using the ElementTree (ET) module. It appears to be related to weather data, specifically Terminal Aerodrome Forecasts (TAFs).
+
+The first part of the code checks for specific cloud types ('CB' for Cumulonimbus and 'TCU' for Towering Cumulus) and sets the 'xlink:href' attribute for the 'cloudType' element accordingly.
+
+The 'llws' function creates a new XML element 'NonConvectiveLowLevelWindShear' with child elements for wind direction and speed, and a 'layerAboveAerodrome' element. The 'layerAboveAerodrome' function is defined later, which creates an XML element with the same name and sets its 'lowerLimit' and 'upperLimit' attributes.
+
+The 'amd' function seems to be parsing and handling amendments to the TAFs. It uses regular expressions to extract time-related information from the amendment string, and creates a 'TAFAmendmentLimitations' XML element with child elements for each amendable TAF parameter.
+
+The 'nonAnnexElementsCount' function counts the number of non-annex elements in the decoded TAF.
+
+The 'parseCodeRegistryTables' function appears to parse an XML file (presumably containing code registry tables) and stores the parsed data in a dictionary. It uses the 'iterparse' function from the ElementTree module to iterate over the XML elements in the file.
+
+Please note that the code seems to be incomplete, as it ends abruptly.
+
+The given code appears to be part of a larger Python program that deals with meteorological data, specifically Terminal Aerodrome Forecasts (TAFs), which are weather forecasts for the area around an airport. The code is divided into several functions and a class.
+
+1. The first part of the code seems to be handling some kind of XML data (`concept.find(label).text`). It tries to find a specific label in the concept and assign its text to the variable `text`. If it fails due to an `AttributeError`, it tries to find an alternative label based on the preferred language. The `finally` clause assigns a tuple of `uri` and `text` to `self.codes[key]`.
+
+2. The `checkVisibility` function appears to convert a given value into meters, based on the unit of measure (`uom`) provided. It then modifies the value based on certain conditions and returns the modified value.
+
+3. The `fix_date` function seems to adjust a given time (`tms`) based on the current time.
+
+4. The `XmlTafEncoder` class is designed to construct Meteorological Bulletins consisting of one or more IWXXM TAF documents having the same WMO Abbreviated Header Line (AHL). It has several methods:
+   - The `__init__` method initializes the encoder and decoder and sets up some other properties.
+   - The `encode` method converts traditional alphanumeric (TAC) text into IWXXM form and caches it for later retrieval.
+   - The `write` method returns `<MeteorologicalBulletin>` documents until the cache of unique 'AHL' codes is exhausted.
+
+The code ends abruptly, suggesting that there is more to the `write` method or additional methods in the `XmlTafEncoder` class.
+
+This Python code appears to be part of a larger program that is processing meteorological data, possibly from a weather bulletin. 
+
+Here's a breakdown of what the code is doing:
+
+1. It's trying to pop an item from the list `self.docs[self.ahl]` and append it as a child to an XML element named 'meteorologicalInformation'. If the list is empty (which would raise an `IndexError`), it deletes the key `self.ahl` from the dictionary `self.docs` and breaks out of the loop.
+
+2. It creates a new XML sub-element named 'bulletinIdentifier' under the 'bulletin' element.
+
+3. It assigns a formatted string as the text of the 'bulletinIdentifier' element. The string is a filename that includes various identifiers and a timestamp.
+
+4. It serializes the 'bulletin' XML element and its children into a byte stream, making some adjustments to the byte stream.
+
+5. It tries to write the byte stream to a file in a specified directory. The filename is the text of the 'bulletinIdentifier' element. If it encounters an `OSError` (e.g., if the file can't be opened for writing), it logs an error message and returns `None`.
+
+6. It prepares a list of arguments to be passed to a function or command. The arguments include the 'ahl' identifier and the filename of the XML document.
+
+7. It returns the list of arguments, converted to a Java object using a function `JUtil.pyValToJavaObj`.
+
+8. There's also a separate method `getAHL` that returns the 'ahl' identifier.
+
+The 'ahl' identifier seems to be a key piece of data in this code, but without more context, it's hard to say exactly what it represents. It could be a unique identifier for a weather bulletin or some other piece of meteorological data.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

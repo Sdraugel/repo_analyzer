@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Show_ISC_Area.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Show_ISC_Area.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a part of a software developed by Raytheon Company, under contract with the US Government. It is a script written in Python and is used to create an edit area containing points in a specific area (CWA) that, when compared to a neighbor's ISC grids, violate the discrepancy criteria for a particular parameter and point.
+
+The code begins by defining the type of tool being used, the weather element being edited, and the screen list. It then imports necessary modules, including numpy, ISC_Utility_Local, GridInfo, and SmartScript.
+
+The main class, `Tool`, is a subclass of `SmartScript.SmartScript`. It has an `__init__` method for initialization, a `preProcessTool` method, and an `execute` method. The `execute` method is where the main functionality of the tool is implemented. It creates an edit area of discrepant grid points, gets a grid of 0/1 where violating threshold, and sets the edit area equal to points that violated any threshold.
+
+The `execute` method also handles different types of grids (scalar or vector) and provides appropriate error messages if there's no ISC data for the given weather element name. It also provides a status bar message to indicate the end of the tool's execution and the result of the discrepancy check.
+
+The code also contains a detailed history of changes and modifications made to the software over time.
+
+This piece of code is part of a larger Python script. It's using string formatting to create a message that includes a number (num) and a string (WEname). The formatted message is then passed to a method/function called statusBarMsg with two arguments - the formatted message and a string "R".
+
+The statusBarMsg method/function is likely to be a custom function defined elsewhere in the code. It probably updates a status bar in a user interface, displaying the formatted message and applying some kind of action or status indicated by the string "R". 
+
+However, without more context, it's hard to say exactly what the statusBarMsg function does or what "R" stands for. It could be a status code, a color code, or something else entirely.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

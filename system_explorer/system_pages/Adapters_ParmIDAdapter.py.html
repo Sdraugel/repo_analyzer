@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ParmIDAdapter.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ParmIDAdapter.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a software developed by Raytheon Company. It contains an adapter for a specific class, `com.raytheon.uf.common.dataplugin.gfe.db.objects.ParmID`, from the software's database objects.
+
+The script starts with a detailed comment section that includes information about the developer, the contract under which the software was developed, export control details, and the contractor's contact information. It also mentions a "Master Rights File.pdf" for further licensing information.
+
+The main part of the script defines an adapter for the `ParmID` class. It imports the `ParmID` class from the `com.raytheon.uf.common.dataplugin.gfe.db.objects` module. 
+
+The `ClassAdapter` variable is assigned the string of the fully qualified name of the `ParmID` class. 
+
+Then, two functions are defined: `serialize` and `deserialize`. 
+
+The `serialize` function takes two parameters: `context` and `parmId`. It writes the string representation of `parmId` to the `context`. 
+
+The `deserialize` function also takes `context` as a parameter. It reads a string from the `context`, uses it to create a new instance of `ParmID`, and returns this new instance. 
+
+In essence, this script is used for serializing and deserializing instances of the `ParmID` class, which is likely used to save and load these instances from a database or a file.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

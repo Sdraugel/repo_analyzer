@@ -1,0 +1,56 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>EnumSetAdapter.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>EnumSetAdapter.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that serves as an adapter for the Java class `java.util.EnumSet`, which is a specialized Set implementation for use with enum types. This adapter provides serialization and deserialization methods for `EnumSet` objects, allowing them to be converted to and from a format that can be easily stored or transmitted.
+
+The `serialize` function takes a context and an `EnumSet` object as arguments. It first writes the size of the set and the class of the enum to the context. Then it iterates over the set and writes each value to the context.
+
+The `deserialize` function also takes a context as an argument. It reads the size of the set and the class of the enum from the context. Then it reads each value from the context and appends it to a list. Finally, it returns a new `EnumSet` object constructed with the class name and the list of values.
+
+The `ClassAdapter` list at the top of the script indicates the Java classes that this adapter is designed to handle, namely `java.util.EnumSet` and `java.util.RegularEnumSet`.
+
+The comments at the top of the script provide some legal information about the software, including the fact that it contains export-restricted data and was developed by Raytheon Company. The software history section provides a log of changes made to the software over time.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

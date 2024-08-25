@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>updateMonitorTextBox.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>updateMonitorTextBox.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to update XML configuration files for a system called "MONITOR". The script can be run with a path to a specific XML file or a directory containing multiple XML files. If no path is provided, it will process all XML files in the directories listed in the `CONFIG_PATHS` variable.
+
+The script uses the `xml.etree.ElementTree` and `xml.dom.minidom` libraries to parse and manipulate the XML files. It also uses the `os`, `sys`, `glob`, `shutil`, `re`, and `logging` libraries for file and system operations, pattern matching, and logging respectively.
+
+The script defines a class `CommentedTreeBuilder` that extends `ET.TreeBuilder` to handle XML comments. 
+
+The `processDir` function is used to process a directory and its subdirectories recursively. It calls the `updateFile` function for each XML file it finds.
+
+The `updateFile` function opens and parses an XML file, checks if it is an "alertConfiguration" file, and then looks for elements with the tag "category" and an attribute "categoryName" of "MONITOR". If it finds such an element and its "textBox" attribute is not "0", it changes the "textBox" attribute to "0" and marks the file as changed.
+
+If a file is marked as changed, the script backs it up by creating a copy with the extension ".DR7659.bak", then it writes the updated XML back to the original file. If there's an error while updating the file, it logs the error and returns 1, otherwise, it returns 0.
+
+The `main` function is the entry point of the script. It logs the start of the script, processes the paths provided as arguments (or the default `CONFIG_PATHS` if no arguments are provided), and logs whether the script completed successfully or with errors.
+
+If the script is run directly (as opposed to being imported as a module), it calls the `main` function and exits with the status returned by `main`.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

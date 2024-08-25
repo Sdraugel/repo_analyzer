@@ -1,0 +1,110 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>GridData.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>GridData.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script named `GridData.py`. This script is part of a software developed and/or modified by Raytheon Company under a contract with the US Government. The software contains export-restricted data, and its export/transfer/disclosure is restricted by U.S. law.
+
+The script appears to be used for retrieving and processing weather data at airport locations from the Gridded Forecast Editor (GFE), and building a data structure from that data. It has been partially ported from a previous version of the software, AWIPS 1 GridData.py.
+
+The script has a detailed revision history, with notes on updates, bug fixes, and improvements made over time by different contributors. The revisions are marked with the date of creation, the name of the contributor, and a brief description of the changes made.
+
+The script imports several modules, including `logging`, `time`, `Avn`, `AvnConfigParser`, `AvnLib`, `AvnParser`, `GfeValues`, `JUtil`, and `PointDataView`. 
+
+The script also defines a dictionary `_WxCode` that maps weather condition abbreviations to their respective codes. For example, 'L' is mapped to 'DZ' (Drizzle), 'R' is mapped to 'RA' (Rain), 'RW' is mapped to 'SHRA' (Showers of Rain), and so on. 
+
+Please note that the actual functionality of the script (e.g., how it retrieves and processes the data, and how it builds the data structure) is not included in the provided code.
+
+This Python code appears to be a part of a larger script that deals with weather data, possibly from the Automated Weather Interactive Processing System (AWIPS). The script is designed to process and translate weather data from one format to another.
+
+Here's a breakdown of what the code does:
+
+1. It defines several dictionaries (`_WxCode`, `_IntCode`, `Translate`) that map one set of codes or keys to another. These are likely used to translate weather data from one format to another.
+
+2. It defines a list of keys (`_Keys`) and parameters (`Parameters`) that are likely used when processing the weather data.
+
+3. It sets up a logger (`_Logger`) for logging events or errors that occur while the script is running.
+
+4. It defines several functions (`_wxcode`, `_intcode`, `_vis`, `_cldHgt`, `_cig`, `_skycode`, `_stripmsng`, `_winddir`, `_windspd`, `_getData`, `_createRecord`) that perform various operations on the weather data. These functions include converting codes to other codes, converting values to other values, handling missing data, and organizing the data.
+
+5. The `_getData` function appears to retrieve and organize weather data from a given source, while the `_createRecord` function creates a record of the weather data for a given time.
+
+6. The code also handles exceptions, ensuring that if an error occurs while processing the data, the script can handle it gracefully and continue running.
+
+In summary, this script is designed to process, translate, and organize weather data.
+
+This code consists of several functions that seem to be part of a larger program related to weather forecasting. The functions are used to retrieve, format, and analyze weather data. 
+
+1. `_setPop(config, prbStr, dt)`: This function returns a probability string from a configuration dictionary based on a time condition.
+
+2. `_makePeriod(prbConfig, rec, itime)`: This function creates a dictionary with weather data for a specific period. It includes data such as wind speed and direction, precipitation probability, cloud cover, visibility, and more.
+
+3. `_readPrbConf()`: This function reads a configuration file and returns a dictionary with weather probabilities for different weather conditions before and after 9 hours.
+
+4. `makeData(siteID, timeSeconds)`: This function retrieves and formats data for a specific site and time.
+
+5. `formatData(siteID, timeSeconds, data)`: This function formats the retrieved data. If the data is not available or outdated, it raises an error.
+
+6. `__formatData(data, siteID)`: This function formats the data for a specific site.
+
+7. `makeTable(siteID, timeSeconds)`: This function creates a table with weather data for a specific site and time. If the data is not available, it raises an error.
+
+8. `retrieveData(siteID, timeSeconds, parameters=Parameters)`: This function retrieves data for a specific site and time.
+
+9. `retrieveMapData(siteIDs, timeSeconds, parameters=Parameters)`: This function retrieves data for multiple sites and times.
+
+The code also includes a `KeyError` exception handler, which simply passes the exception, meaning it does nothing when a `KeyError` occurs. This might be part of a larger try-except block not shown in the provided code.
+
+This Python code defines a function `_retrieveMapData` that retrieves map data for a given set of site IDs, a specified time in seconds, and a set of parameters. The function uses several imported modules, including `GetPointDataRequest` from `com.raytheon.uf.common.dataplugin.gfe.request`, `Coordinate` from `org.locationtech.jts.geom`, `GuidanceUtil` from `com.raytheon.viz.aviation.guidance`, and `LocalizationManager` from `com.raytheon.uf.viz.core.localization`.
+
+The function first gets the current site ID from the `LocalizationManager` and sets it as the site ID for a `GetPointDataRequest` task. It then constructs a database ID from the site ID and sets it for the task.
+
+Next, the function loops over the provided site IDs. For each site ID, it retrieves the latitude and longitude from the site's configuration, creates a `Coordinate` object from these values, and adds the coordinate to the task. It also sets the number of hours and start time for the task.
+
+The function then adds each parameter in the provided set of parameters to the task. It retrieves the point data containers (PDCs) for the task using `GuidanceUtil.getGFEPointsData`.
+
+The function initializes an empty dictionary `results` to store the results. If no PDCs are retrieved, it logs a message that data is not available for each site ID and adds an entry to the `results` dictionary with the site ID as the key and `None` as the value. It then returns the `results` dictionary.
+
+If PDCs are retrieved, the function loops over the site IDs again. For each site ID, it checks if there is a corresponding PDC. If there is, it retrieves the data from the PDC. If there is no corresponding PDC or if the retrieved data is `None`, it logs a message that data is not available for the site ID. It then adds an entry to the `results` dictionary with the site ID as the key and the retrieved data (or `None`) as the value. Finally, it returns the `results` dictionary.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,64 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>FileFilter.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>FileFilter.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code defines a class named `FileFilter` that is used to filter files based on certain criteria. The criteria are specified in a CSV file that is passed to the `FileFilter` when it is instantiated. The CSV file contains rows of filter types, patterns, and comments.
+
+The `FileFilter` class has several methods:
+
+- `__init__(self,filterFile=None)`: This is the constructor method. It initializes the `FileFilter` object with empty lists for `excludes`, `includes`, and `fileTypeIncludes`. If a `filterFile` is provided, it calls the `loadFilters` method.
+
+- `loadFilters(self,filterFile)`: This method opens the `filterFile`, reads it as a CSV file with the columns "filterType", "pattern", and "comment", and populates the `excludes`, `includes`, and `fileTypeIncludes` lists based on the filter type.
+
+- `getExcludes(self)`, `getIncludes(self)`, `getExcludeRegex(self)`, `getIncludeRegex(self)`, `getFileTypeIncludeRegex(self)`: These methods return the `excludes`, `includes`, `excludeRegex`, `includeRegex`, and `fileTypeIncludeRegex` lists respectively.
+
+- `_getRegex(self,patternList)`: This is a private method that takes a list of patterns and returns a list of compiled regular expressions.
+
+- `_isExcludedFile(self,fileName)`: This is a private method that checks if a given file name matches any of the exclude regular expressions.
+
+- `getFilteredFiles(self,fileList)`: This method takes a list of file names and returns a filtered list based on the `excludes`, `includes`, and `fileTypeIncludes` criteria. If no criteria are specified, it returns the original list.
+
+The code also contains a header comment that provides information about the software's development, export restrictions, and licensing.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

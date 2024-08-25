@@ -1,0 +1,251 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>RoutineLevel1_ZFP_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>RoutineLevel1_ZFP_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The given code is a part of a weather forecasting software. It is written in Python and is used to define and create weather forecast grids. 
+
+The first section of the code contains information about the software, its developer, and licensing details. It also includes export control details as the software contains export-restricted data. 
+
+The second section, labeled as "File Changes", is defining several variables (fc1_1 to fc1_8). These variables appear to be strings that represent different settings or configurations for the software. The "#" symbol in Python is used for comments, so when it's present, the line is ignored by the Python interpreter. The lines without the "#" symbol are active configurations.
+
+The third section, labeled as "Create Grids", is creating several lists of tuples (cg_3_6 to cg_15_18). Each tuple represents a forecast grid for a specific time period (e.g., 3 to 6 hours, 6 to 9 hours, etc.). Each grid contains forecast data for different weather parameters like temperature (T), dewpoint (Td), wind, sky condition, weather (Wx), probability of precipitation (PoP), quantitative precipitation forecast (QPF), snow amount (SnowAmt), relative humidity (RH), wind chill, heat index, wind gust, storm total snow, snow level, and freezing level (FzLevel). The values for these parameters are hardcoded in this code snippet.
+
+The code is defining a series of weather forecast data for different time periods. Each block of code represents a different time period, and within each block, there are tuples that represent different weather parameters.
+
+Each tuple has the following structure:
+1. "Fcst" - This indicates that the data is a forecast.
+2. The second element of the tuple represents the type of weather parameter being forecasted. For example, "T" for temperature, "Td" for dew point temperature, "Wind" for wind speed and direction, "Sky" for sky cover, "Wx" for weather conditions, "PoP" for probability of precipitation, "QPF" for quantitative precipitation forecast, "SnowAmt" for snow amount, "RH" for relative humidity, "WindChill" for wind chill, "HeatIndex" for heat index, "WindGust" for wind gust, "StormTotalSnow" for total snowfall during a storm, "SnowLevel" for snow level, "FzLevel" for freezing level, "MaxT" for maximum temperature, and "MinT" for minimum temperature.
+3. The third element of the tuple indicates the type of the data. For example, "SCALAR" for a single value, "VECTOR" for a value with direction, and "WEATHER" for weather conditions.
+4. The fourth and fifth elements represent the start and end times of the forecast period.
+5. The sixth element represents the forecasted value of the weather parameter. For "VECTOR" type, it's a tuple with the magnitude and direction. For "WEATHER" type, it's a string representing the weather conditions.
+6. The seventh element indicates the area for which the forecast is applicable. In this case, it's "all" for all areas. For "QPF", there are two forecasts for different elevations ("BelowElev" and "AboveElev").
+
+The time periods are represented in hours, for example, "15, 18" represents a forecast from the 15th hour to the 18th hour. The forecast data is grouped into different lists, each representing a different time period.
+
+The provided code appears to be a series of Python lists containing tuples. Each tuple represents a forecast (denoted by "Fcst") with various parameters. The parameters include:
+
+1. The type of forecast (e.g., "T" for temperature, "Td" for dew point temperature, "Wind" for wind speed and direction, "Sky" for sky cover, "Wx" for weather, "PoP" for probability of precipitation, "QPF" for quantitative precipitation forecast, "SnowAmt" for snow amount, "RH" for relative humidity, "WindChill" for wind chill, "HeatIndex" for heat index, "WindGust" for wind gusts, "StormTotalSnow" for storm total snow, "SnowLevel" for snow level, "FzLevel" for freezing level, "MaxT" for maximum temperature, "MinT" for minimum temperature).
+
+2. The type of data (e.g., "SCALAR" for a single value, "VECTOR" for a value with direction, "WEATHER" for weather conditions).
+
+3. The start and end time of the forecast period.
+
+4. The forecast value(s). For vectors, this includes both a magnitude and a direction. For weather, this includes a coded string representing the expected conditions.
+
+5. The area for which the forecast applies (e.g., "all", "BelowElev", "AboveElev").
+
+Each list (e.g., `cg_33_36`, `cg_36_39`, `cg_39_42`, etc.) represents a different forecast period, with the numbers indicating the start and end times of the period. For example, `cg_33_36` represents the forecast for the period from 33 to 36, `cg_36_39` represents the forecast for the period from 36 to 39, and so on.
+
+This code seems to be a part of a weather forecasting system. It's defining a series of forecast (Fcst) parameters for different time intervals. Each tuple represents a forecast parameter, its type, the start and end time of the forecast, the value of the parameter, and the scope of the forecast.
+
+Here's a breakdown of the tuples:
+
+- The first item "Fcst" is likely short for "Forecast".
+- The second item represents the parameter being forecasted such as "Wx" (Weather), "PoP" (Probability of Precipitation), "QPF" (Quantitative Precipitation Forecast), "SnowAmt" (Snow Amount), "RH" (Relative Humidity), "WindChill", "HeatIndex", "WindGust", "StormTotalSnow", "SnowLevel", "FzLevel" (Freezing Level), "T" (Temperature), "Td" (Dew Point Temperature), "Wind", and "Sky".
+- The third item indicates the type of the parameter, which can be "SCALAR" or "VECTOR".
+- The fourth and fifth items represent the start and end times of the forecast.
+- The sixth item is the value of the parameter.
+- The last item "all" likely indicates that the forecast applies to all areas.
+
+The variables `cg_57_60`, `cg_60_63`, `cg_63_66`, `cg_66_69`, `cg_69_75`, and `cg_75_81` are lists of these tuples, each representing a different time interval for the forecast. The numbers in the variable names likely represent the start and end times of these intervals.
+
+The last part of the code that's cut off seems to be continuing the pattern of defining forecast parameters for the `cg_75_81` time interval.
+
+This code appears to be a part of a weather forecasting system. It contains a series of Python lists, each representing a forecast for a specific time period. Each list contains tuples, where each tuple represents a specific weather parameter forecast.
+
+Each tuple has the following structure:
+- The first element "Fcst" probably stands for "Forecast".
+- The second element represents the type of weather parameter being forecasted, such as temperature ("T"), dew point ("Td"), wind ("Wind"), sky condition ("Sky"), weather condition ("Wx"), probability of precipitation ("PoP"), quantitative precipitation forecast ("QPF"), snow amount ("SnowAmt"), relative humidity ("RH"), wind chill ("WindChill"), heat index ("HeatIndex"), wind gust ("WindGust"), total snow from storm ("StormTotalSnow"), snow level ("SnowLevel"), and freezing level ("FzLevel").
+- The third element represents the data type of the forecasted parameter. It could be "SCALAR" for single values or "VECTOR" for values with direction (like wind).
+- The fourth and fifth elements represent the start and end time of the forecast period, probably in hours.
+- The sixth element represents the forecasted value for the weather parameter. For "VECTOR" type, it's a tuple containing the magnitude and direction.
+- The last element "all" probably means this forecast applies to all areas.
+
+The code is divided into different blocks, each representing a different forecast period. For example, `cg_81_87` represents the forecast from hour 81 to hour 87, `cg_87_93` represents the forecast from hour 87 to hour 93, and so on.
+
+The provided code appears to be a set of weather forecast data. Each block of data (e.g., `cg_123_129`, `cg_129_135`, etc.) represents a different time period for the forecast. The numbers in the block name (e.g., `123_129`) likely represent the start and end times for the forecast period.
+
+Each line within a block represents a different weather parameter. For example, `("Fcst", "T", "SCALAR", 123, 129, 78, "all")` is forecasting temperature (`T`) for the time period 123 to 129, with a value of 78 (units are not specified). The `"all"` likely indicates that this forecast applies to all areas being considered.
+
+The parameters being forecasted include temperature (`T`), dewpoint (`Td`), wind (as a vector, with direction and speed), sky cover (`Sky`), weather conditions (`Wx`, with a coded string indicating specific conditions), probability of precipitation (`PoP`), quantitative precipitation forecast (`QPF`), snow amount (`SnowAmt`), relative humidity (`RH`), wind chill, heat index, wind gusts, total snow from a storm (`StormTotalSnow`), snow level, freezing level (`FzLevel`), and maximum/minimum temperatures (`MaxT`, `MinT`).
+
+The specific weather conditions (`Wx`) are coded with a string like `"Pds:ZL:--:<NoVis>:"`, which likely represents a specific set of conditions (e.g., periods of freezing drizzle with no visibility).
+
+Overall, this code is a way to represent a detailed weather forecast for multiple time periods and a variety of weather parameters.
+
+This code is defining a series of forecasts for different weather conditions over different time periods. Each forecast is defined as a tuple with the following structure:
+
+- The string "Fcst", which probably stands for "Forecast".
+- The name of the forecasted condition (e.g., "T" for temperature, "Td" for dew point temperature, "Wind" for wind speed and direction, "Sky" for sky cover, "Wx" for weather conditions, "PoP" for probability of precipitation, "QPF" for quantitative precipitation forecast, "SnowAmt" for snow amount, "RH" for relative humidity, "WindChill" for wind chill, "HeatIndex" for heat index, "WindGust" for wind gust, "StormTotalSnow" for storm total snow, "SnowLevel" for snow level, "FzLevel" for freezing level).
+- The type of the forecasted condition (e.g., "SCALAR" for scalar values, "VECTOR" for vector values, "WEATHER" for weather conditions, "DISCRETE" for discrete values, "SFC" for surface values).
+- The start and end times of the forecast period.
+- The forecasted value or values.
+- The string "all", which probably indicates that the forecast applies to all locations.
+
+The forecasts are grouped into lists for different time periods (e.g., cg_159_165, cg_165_171, cg_171_177, cg_177_183, cg_183_189), and there are also separate lists for specific conditions (e.g., cg_hazard, cg_WindChill, cg_HeatIndex, cg_StormTotalSnow, cg_MaxT, cg_MinT).
+
+In summary, this code is defining a detailed set of weather forecasts for different conditions and time periods.
+
+This code appears to be part of a larger weather forecasting program. It's defining a series of variables that contain tuples of forecast data. Each tuple seems to represent a specific forecast parameter, its type, the time range for the forecast, the forecast value, and the area for which the forecast applies.
+
+The first part of the code defines several lists of tuples, each representing a different weather parameter. For example, `cg_PoP` represents the probability of precipitation (PoP) at different time intervals, and `cg_MaxRH` and `cg_MinRH` represent the maximum and minimum relative humidity (RH), respectively.
+
+The `general_createGrids` variable seems to be a concatenation of several other variables, likely representing a comprehensive set of forecast data.
+
+The `sparse_deleteGrids` and `sts_createGrids` variables appear to be related to specific types of forecasts, perhaps for wind chill and heat index, and storm total snow, respectively.
+
+The `imet_createGrids` and `imet2_createGrids` variables seem to be related to another type of forecast, possibly a specific forecasting model or method.
+
+The `tropical` function appears to generate a list of forecast data for tropical weather conditions, taking into account whether it's daylight or not.
+
+The `tonight` and `sat_thru_thurs` variables are lists of strings that seem to represent textual descriptions of the forecast for specific periods.
+
+Overall, this code seems to be part of a system for generating, manipulating, and presenting weather forecast data.
+
+This code seems to be a part of a weather forecasting application. It is generating weather forecasts for different days of the week, from Saturday to Friday. The forecasts include details about the expected temperature, wind speed, wind chill, and precipitation. 
+
+The code also includes comments that suggest certain lines have been removed or modified due to specific test cases (e.g., `# Take this out because test ZFP8 has this as Period_6_14 instead of Period_4_5`). 
+
+The `latLonEditAreas` variable appears to define geographical areas with specific latitude and longitude coordinates. 
+
+The `scripts` list contains dictionaries that define different test scripts for the application. Each script includes a commentary, name, product type, command line variables, a flag to indicate whether it's a combination of forecasts, and a list of check strings that seem to be used for validation or testing. 
+
+The `createGrids` function, which is commented out, might be used to create a grid of weather data, but it's not clear from this code snippet what that function does exactly. 
+
+In the second script, the `cmdLineVars` dictionary suggests that the product issuance is set to 'Morning with Pre-1st Period' and the issuedBy is set to None. 
+
+Overall, this code seems to be used for generating and testing weather forecast reports.
+
+The code provided is a part of a larger program that seems to be used for generating weather forecast reports. Each section of the code represents a different forecast update, each with a different time and weather conditions. 
+
+Each section contains the following keys:
+
+- "commentary": This is a string that describes the type of update (e.g., "Morning Update", "Afternoon Update Test at 2 p.m.", etc.).
+- "name": This is a unique identifier for each update (e.g., "ZFP_3", "ZFP_4", etc.).
+- "productType": This indicates the type of product, which in this case is "ZFP" for all updates.
+- "cmdLineVars": This is a dictionary that contains metadata about the update, such as the product issuance and who issued it.
+- "comboFlag": This is a flag variable that could be used to indicate whether certain conditions are met. In this case, it's set to 1 for all updates.
+- "checkStrings": This is a list of strings that describe the weather conditions for the update.
+- "createGrids": This seems to be a function or method that is used to create grids for the weather forecast. It's the same for all updates.
+- "drtHour": This indicates the hour of the day when the update is issued.
+
+The "checkStrings" list in each section contains strings that describe the weather conditions for the update. These strings include information about the weather, temperature, wind speed and direction, and other weather-related conditions. 
+
+The "+ tonight_thru_thurs", "+ sat_thru_thurs + thursNite_fri" parts seem to be concatenating additional weather forecast information to the "checkStrings" list. These could be lists or variables defined elsewhere in the code that contain weather forecast information for the mentioned periods.
+
+The given code appears to be part of a larger script that is used to generate weather forecasts for different time periods. It seems to be written in Python and uses a dictionary-like structure to store information related to the forecasts. 
+
+The code is divided into several blocks, each block representing a specific forecast period (e.g., "REST OF TONIGHT", "FRIDAY", "FRIDAY NIGHT", etc.). Each block contains details like the expected weather conditions, temperatures, wind speeds, and other relevant information for that period. 
+
+Here's a brief description of what each key in the dictionary-like structure does:
+
+- "commentary": This seems to be a note or description about the forecast or the block of code.
+- "name": This could be an identifier for the block of code or forecast.
+- "productType": This could be a classification or type of the forecast.
+- "cmdLineVars": This could be command line variables that might be used in the script.
+- "comboFlag": The purpose of this is not clear from the given code, but it could be a flag used to trigger certain conditions in the script.
+- "checkStrings": This appears to be a list of strings that should be included in the forecast.
+- "notCheckStrings": This appears to be a list of strings that should not be included in the forecast.
+- "createGrids", "deleteGrids": These could be functions or methods that create or delete data grids related to the forecast.
+- "drtHour": This could be the hour at which the forecast is relevant or was created.
+- "fileChanges": This could be a list of changes made to the file or script.
+
+The last part of the code seems to be incomplete, so it's hard to provide a complete analysis.
+
+The code provided is a part of a larger script that seems to be used for generating weather forecast reports. It appears to be written in Python and uses a dictionary data structure to store information about different types of weather forecasts.
+
+Each dictionary represents a different forecast scenario and contains several key-value pairs:
+
+1. "commentary": This key provides a brief description of the forecast scenario.
+2. "name": This key provides a unique name for the forecast scenario.
+3. "productType": This key indicates the type of forecast product being generated.
+4. "cmdLineVars": This key seems to store command line variables, possibly for customizing the forecast generation process.
+5. "comboFlag": This key is a boolean flag, but it's not clear from the provided code what it represents.
+6. "drtHour": This key represents the hour of the day when the forecast is issued.
+7. "createGrids": This key is associated with a function that presumably creates grids for the forecast.
+8. "fileChanges": This key is associated with a list of tuples, each representing a file change operation.
+9. "checkStrings": This key is associated with a list of strings that seem to represent the actual text of the forecast.
+
+The forecast text includes information about the date and time of the forecast, the forecast for different times of the day (today, tonight, Saturday, Saturday night), and specific weather details for a location (City 4).
+
+In summary, this code is part of a larger script that generates different types of weather forecasts.
+
+This code appears to be part of a larger script that generates weather forecasts. It's written in Python and uses dictionaries to define different forecast scenarios. Each dictionary represents a different forecast scenario, with key-value pairs providing details about the scenario.
+
+1. "commentary": This key provides a brief description of what the forecast scenario is about.
+2. "name": This key gives a unique identifier to each forecast scenario.
+3. "productType": This key indicates the type of product, which is 'ZFP' in all scenarios. 'ZFP' could be an abbreviation for 'Zone Forecast Product'.
+4. "cmdLineVars": This key seems to hold command line variables for product issuance and who issued the forecast.
+5. "comboFlag": This key might be a flag to indicate whether a combination of conditions is required.
+6. "checkStrings": This key holds a list of strings that are expected to be present in the forecast.
+7. "notCheckStrings": This key holds a list of strings that are not expected to be present in the forecast.
+8. "createGrids": This key contains a list of tuples, each representing a grid of forecast data. Each tuple includes the type of forecast (e.g., 'Fcst'), the variable being forecasted (e.g., 'SnowAmt'), the type of data (e.g., 'SCALAR'), the start and end times for the forecast, the forecast value, and the area for which the forecast applies.
+9. "drtHour": This key appears in one of the scenarios and might represent a specific hour related to the forecast, possibly the 'directorate hour'.
+10. "fileChanges": This key appears in one of the scenarios and might be used to track changes made to the forecast file.
+
+Overall, this code seems to be part of a system for generating, checking, and possibly updating weather forecasts.
+
+This code appears to be a part of a larger script that is used to generate weather forecast reports. It contains multiple dictionaries, each representing a different type of weather report.
+
+1. The first dictionary is for an afternoon update report. It includes a name, product type, command line variables, a flag, check strings, a function to create grids, and a specific hour for the report.
+
+2. The second dictionary is for an evening update report. It is similar to the first one but with different check strings and report hour.
+
+3. The next three dictionaries are for testing tropical phrasing in weather reports. They are similar to the first two dictionaries but with different check strings that include tropical storm and hurricane conditions. The first one is for a general forecast product, the second one is for a coastal waters forecast, and the third one is for a Pacific coastal waters forecast.
+
+The "checkStrings" field in each dictionary contains strings that are likely used to verify the generated report's content. The "createGrids" field seems to reference a function that creates grids, possibly for visual representation of the weather data. The "cmdLineVars" field contains command line variables that might be used to customize the report generation. The "comboFlag" field is set to 1 in all dictionaries, but without further context, it's unclear what this flag represents.
+
+The code also includes comments that provide additional context and information about the code and its functionality.
+
+This code appears to be part of a larger Python script that is used for managing and testing weather conditions, specifically related to tropical storms and hurricanes.
+
+The first part of the code is a list of dictionaries. Each dictionary represents a specific action or condition. The first dictionary seems to be related to the creation of a grid for a tropical storm, with the key "createGrids" calling a function named tropical(). The second dictionary, with the name "ZFP_CleanUp", is used to clean out grids, as indicated by the "commentary" key. The "deleteGrids" key calls a function named general_deleteGrids from the TestScript class.
+
+The second part of the code defines a function named testScript. This function takes three parameters: self, dataMgr, and level with a default value of "Site". The function first sets the start time and the drtTime (which could stand for Disaster Recovery Time) using the getAbsFromLocal method. It then creates a dictionary named defaults that contains these times and an "internalStrip" key set to 0.
+
+The function then loops over a list named scripts (which is not defined in the provided code). For each script in the list, it checks if the script has a key named "drtHour". If it does, it sets the "drtTime" key of the script to the time returned by the getAbsFromLocal method with the "drtHour" as an argument.
+
+Finally, the function calls the generalTestScript method from the TestScript class, passing in the self, dataMgr, scripts, defaults, and level parameters, and returns its result. This suggests that the function is used to run a general test on the scripts with the specified parameters.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

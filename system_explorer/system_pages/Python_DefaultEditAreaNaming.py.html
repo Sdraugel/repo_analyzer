@@ -1,0 +1,54 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>DefaultEditAreaNaming.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>DefaultEditAreaNaming.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This part of the code file contains two functions: `defaultEditAreaNaming` and `getEditAreaName`.
+
+The `defaultEditAreaNaming` function takes two parameters: `info` and `eanDefinition`. It's used to define the default edit area naming convention. The `eanDefinition` can be a string or a list. If it's a string, the function checks if this string is a key in the `info` dictionary. If it is, it returns the corresponding value; if it's not, it returns the string itself. If `eanDefinition` is a list, the function iterates over its elements. For each element, if it's a key in the `info` dictionary, it appends the corresponding value to a string `s`, separated by an underscore. If it's not a key in the dictionary, it appends the element itself to `s`. If `eanDefinition` is neither a string nor a list, the function returns an empty string.
+
+The `getEditAreaName` function takes two parameters: `info` and `nameAttr`. If `nameAttr` is a callable function, it calls this function with `info` as the argument and returns the result. If `nameAttr` is not callable, it calls the `defaultEditAreaNaming` function with `info` and `nameAttr` as arguments and returns the result.
+
+Before the functions, there's a block of comments that provide information about the software, including the developer, contract details, export control details, and licensing information. It also specifies that this is a base file that is not intended to be overridden.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

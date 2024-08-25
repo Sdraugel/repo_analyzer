@@ -1,0 +1,59 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>localConfig.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>localConfig.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This part of the code file appears to be a configuration script for a server, likely related to a product or system developed by Raytheon Company. The script is written in Python.
+
+The initial section is a comment block that provides legal and contractual information about the software, including the fact that it contains export-restricted data. It also provides the contractor's name and address, and refers to a document for further licensing information.
+
+The script then imports a module named `serverConfig` and all of its contents. This module likely contains configuration settings for the server.
+
+The next few lines modify certain settings in the `serverConfig` module:
+
+- `ISC_ROUTING_TABLE_ADDRESS['ANCF']` is set to "http://localhost:8081". This could be the address of a routing table for Inter-System Communication (ISC) on the server.
+- `REQUEST_ISC`, `SEND_ISC_ON_SAVE`, and `SEND_ISC_ON_PUBLISH` are all set to 0, which likely disables these ISC-related options.
+  
+Finally, a dictionary named `SITES` is updated with an entry for 'OAX'. The associated value is a tuple containing various parameters, which could represent geographical coordinates, grid dimensions, timezone, and a grid system (Grid211). This might be the configuration for a site or location that the server interacts with or manages data for.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

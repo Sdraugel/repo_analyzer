@@ -1,0 +1,59 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>MakeTmpGrid.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>MakeTmpGrid.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a software developed by Raytheon Company, as mentioned in the comments. The software is in the public domain and is furnished "as is", without any warranty or technical support.
+
+The code defines a class named `Tool` which inherits from `SmartScript.SmartScript`. This class is used to create a temporary grid of the active element. The active element can be of type "SCALAR", "VECTOR", or "WEATHER", as defined by the `ScreenList` variable.
+
+The `Tool` class has several methods:
+
+- `__init__`: This is the constructor method that initializes the `Tool` object.
+- `execute`: This method creates a temporary grid of the active element. It takes several parameters including the name of the weather element (`WEname`), a variable element, information about the variable element grid (`variableElement_GridInfo`), and a grid time range (`GridTimeRange`).
+- `preProcessTool`: This method sets up the tool for invocation from the user as an Edit Action or Procedure. It sets the model to "Temp", the grid name to "None", and the called from to "User". It also checks if a dictionary (`varDict`) is provided and updates the model and grid name accordingly.
+- `postProcessTool`: This method sets the temporary grid as active and fits the color bar to fit the data. It checks if the tool was called interactively and makes the temporary grid active.
+
+The code also contains some comments about the history of changes made to the software, the author of the software, and the licensing information.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

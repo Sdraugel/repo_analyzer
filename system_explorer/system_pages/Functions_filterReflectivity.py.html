@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>filterReflectivity.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>filterReflectivity.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This is a Python script developed by Raytheon Company under a contract with the US Government. The script is subject to U.S. export control laws due to containing potentially export-restricted data.
+
+The script is designed to calculate the equivalent potential temperature, also known as Theta E or EPT. 
+
+The main function in this script is `execute()`, which takes two arguments: `reflectivity` and `snr` (Signal-to-Noise Ratio). 
+
+The function imports the `NaN` (Not a Number) constant from the numpy library and sets a threshold for the SNR at 1.0. 
+
+Then it checks the `snr` array and wherever the `snr` value is less than the threshold, it replaces the corresponding `reflectivity` value with `NaN`. 
+
+Finally, the function returns the modified `reflectivity` array. 
+
+This function might be used in meteorology or climate science, where equivalent potential temperature is a commonly used metric.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,54 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>PythonOverrider.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>PythonOverrider.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The code is a part of a software developed or modified by Raytheon Company. It's a Python script that is used to override Python modules with each other and return a new module. 
+
+The script first checks if the 'jep' module is available in the system. If it is, it imports the PathManager from the 'jep' module. If 'jep' is not available, it sets up some default values for the Thrift host and port, and imports the PythonOverriderPure module. It also checks if a specific setup file exists and if it does, it retrieves the host and port information from that file.
+
+The main function in this script is `importModule()`, which takes several arguments including the name and path of the file in localization, the localization type, level, site, and user. Depending on whether 'jep' is available or not, it uses different ways to import the module. If 'jep' is not available, it uses the PythonOverriderPure module to import the module. If 'jep' is available, it uses the PathManager to get the tiered localization file and the available levels, builds a list of localization levels, and then uses the PythonOverriderCore module to override the files and return the new module.
+
+The script also contains a software history section, which records the changes made to the script over time.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

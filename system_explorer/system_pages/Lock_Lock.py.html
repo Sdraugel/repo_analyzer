@@ -1,0 +1,54 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Lock.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Lock.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script defines a class named `Lock`. The `Lock` class is designed to represent a time-locked resource, with attributes for a parameter ID (`parmId`), a workstation ID (`wsId`), a start time (`startTime`), and an end time (`endTime`). 
+
+The class includes methods to retrieve each of these attributes (`getParmId`, `getWsId`, `getStartTime`, `getEndTime`). There's also a `getTimeRange` method that creates a `TimeRange` object (from the `dynamicserialize.dstypes.com.raytheon.uf.common.time` module) using the start and end times, if it hasn't been created already. 
+
+The `__repr__` method is a special method in Python that returns a string representation of the object. In this case, it returns a string that includes the start and end times (converted to a human-readable format) and the workstation ID.
+
+The script also includes a header with licensing information and a software history log. The software was developed and/or modified by Raytheon Company, and it contains export-restricted data. The history log includes the dates of modifications, the ticket numbers associated with those modifications, the engineers who made the modifications, and descriptions of what was changed.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

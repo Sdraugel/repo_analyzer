@@ -1,0 +1,66 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>RemoveWx.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>RemoveWx.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a part of a weather analysis tool developed by Raytheon Company. It's a script that removes mentions of a specific weather condition from a dataset, leaving all other data untouched. The weather conditions are represented by specific codes, such as "T" for Thunder, "R" for Rain, and so on.
+
+The script is designed to work with a graphical user interface (GUI), where the user can select the weather condition they want to remove from a list. 
+
+Here's a brief overview of what the code does:
+
+1. It imports necessary libraries and modules, including numpy and WxMethods.
+
+2. It defines a list of weather codes that the user can choose to remove from the dataset.
+
+3. It defines a class called Tool that inherits from the SmartScript class. This class has methods to preprocess, postprocess, and execute the main function of the tool.
+
+4. The `preProcessTool` method saves the current combine mode and sets it to "Replace". The `postProcessTool` method sets the combine mode back to its original state after the tool has run.
+
+5. The `execute` method is the main function of the tool. It takes the weather data and a dictionary of variables as input. It removes the specified weather code from the data and returns the modified data.
+
+6. The `execute` method works by creating a table of all keys that need changing and what they will change to. It then updates the weather data with the new keys.
+
+This script is a part of a larger system, and it's designed to be used in conjunction with other scripts and tools.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

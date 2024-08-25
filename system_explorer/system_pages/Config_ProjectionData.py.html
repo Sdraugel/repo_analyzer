@@ -1,0 +1,64 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ProjectionData.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ProjectionData.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is written in Python and defines a class named `ProjectionData`. This class is likely used to represent geographical projection data, which is a way of representing the curved surface of the Earth on a flat map.
+
+The `ProjectionData` class has several attributes, each representing a different piece of information about the projection. These attributes include:
+
+- `projectionID`: An identifier for the projection.
+- `projectionType`: The type of projection.
+- `latLonLL`: The latitude and longitude of the lower-left corner of the projection.
+- `latLonUR`: The latitude and longitude of the upper-right corner of the projection.
+- `latLonOrigin`: The latitude and longitude of the origin point of the projection.
+- `stdParallelOne` and `stdParallelTwo`: The standard parallels of the projection, which are the latitudes at which the projection accurately represents distances.
+- `gridPointLL` and `gridPointUR`: The grid points of the lower-left and upper-right corners of the projection.
+- `latIntersect`: The latitude where the projection intersects.
+- `lonCenter` and `lonOrigin`: The central and origin longitudes of the projection.
+
+The class also includes getter and setter methods for each of these attributes, which are used to retrieve and modify the values of these attributes, respectively.
+
+Finally, the `keys` method returns a list of all the attribute names as strings. This could be used for various purposes, such as iterating over all attributes of an instance of the class.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,56 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>CivilEmerg_FRW_MultiPil_Local.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>CivilEmerg_FRW_MultiPil_Local.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a software developed by Raytheon Company under a US government contract. The software is subject to US export control laws and cannot be disseminated to non-US persons without proper authorization. The software is in the public domain and comes with no warranty or technical support.
+
+The script defines a class `TextProduct` which is a subclass of `CivilEmerg.TextProduct`. This class is used to produce a Fire Warning product. The class has a dictionary attribute `Definition` which contains various properties of the product like its name, output file, WMO code, product pil, etc.
+
+The class has an `__init__` method which is a constructor that initializes the base class `CivilEmerg.TextProduct`.
+
+The class also has a method `_makeProduct` which takes in four parameters: `fcst`, `editArea`, `areaLabel`, and `argDict`. This method appends a message to the `fcst` string and returns it. The message is a standard phrase indicating that the message is transmitted at the request of the source.
+
+The script also imports several modules at the beginning such as `CivilEmerg`, `TextRules`, `string`, `time`, `re`, `os`, `types`, and `copy`.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

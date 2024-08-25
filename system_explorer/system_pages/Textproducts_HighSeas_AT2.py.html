@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>HighSeas_AT2.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>HighSeas_AT2.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a larger software system, presumably named "HighSeas". The script imports several modules and uses them to construct a class named `TextProduct`. 
+
+The script starts by importing necessary modules, including `HSF`, `sys`, `copy`, and `importlib`. It also constructs the names of two modules, `HighSeas_AT2_Definition` and `HighSeas_AT2_Overrides`, which are specific to the local site.
+
+The script then uses `importlib` to dynamically import these two modules. It also imports another module named `Patch_Overrides`.
+
+Next, the script retrieves the class object for the site overrides from the `siteOverrides` module. It also retrieves the `Definition` object from the `siteDefModule`.
+
+The `TextProduct` class is then defined, inheriting from `siteOverrides_object`, `Patch_Overrides.Patch_Overrides`, and `HSF.TextProduct`. The `Definition` attribute of the `TextProduct` class is a deep copy of `HSF.TextProduct.Definition`, which is then updated with the `localDefinition`.
+
+The script also tries to get a `VariableList` from the `siteDefModule`. If this fails (for example, if `VariableList` is not defined in `siteDefModule`), it simply passes and continues.
+
+Finally, the `__init__` method of the `TextProduct` class is defined, which simply calls the `__init__` method of `HSF.TextProduct`.
+
+In summary, this script is setting up a class named `TextProduct` that is customized for a specific site, using definitions and overrides from modules specific to that site.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

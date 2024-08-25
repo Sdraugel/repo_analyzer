@@ -1,0 +1,90 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TCImpactGraphics_KML.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TCImpactGraphics_KML.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a larger software system that is in the public domain. It appears to be designed to generate KML (Keyhole Markup Language) files, which are used to display geographic data in an Earth browser such as Google Earth. 
+
+The script imports several modules, including `os`, `numpy`, `AbsTime`, `SmartScript`, `TCVDictionary`, `TimeRange`, and `ReferenceData` from the `com.raytheon.uf.common.dataplugin.gfe.reference` package. 
+
+The `MenuItems` variable is defined as a list containing the string "Populate". 
+
+The `editAreaDict` dictionary is defined with keys representing different types of threats (StormSurgeThreat, WindThreat, FloodingRainThreat, TornadoThreat) and values representing different areas. 
+
+The `threatPhraseDict` dictionary is defined with keys representing different types of threats (Wind, Storm Surge, Flooding Rain, Tornado) and values representing different levels of threat (Extreme, High, Mod, Elevated, None) with corresponding descriptions.
+
+The script then defines a class `Procedure` that inherits from `SmartScript.SmartScript`. This class has an `__init__` method that initializes the parent class, a `makeTimeRange` method that creates a time range, and a `makeThreatKML` method that generates a KML file for a given threat. 
+
+The `makeThreatKML` method creates a new KML file with a filename based on the threat type, writes the KML header to the file, and defines several styles for different threat levels. The method appears to be incomplete as the code is cut off.
+
+This code is part of a larger script that generates a KML (Keyhole Markup Language) file. KML is a file format used to display geographic data in an Earth browser, such as Google Earth or Google Maps. 
+
+The code is specifically designed to handle different types of weather threats such as "StormSurgeThreat", "WindThreat", "FloodingRainThreat", and "TornadoThreat". For each type of threat, it writes a corresponding image URL to the KML file. 
+
+The script retrieves the site ID and appends it to the base URL to form the complete image URL. The site ID is fetched using the `getSiteID()` function and is converted to lowercase.
+
+The code then goes on to process a list of threat keys. For each key, the code generates a mask, creates an edit area from the mask, and extracts polygons from the edit area. 
+
+The threat level and potential impacts are retrieved from a dictionary and written to the KML file. The code also handles different threat levels such as "Extreme", "High", "Mod", "Elevated", and others, assigning a different style URL for each.
+
+The polygons are written to the KML file with their coordinates. If a polygon has an interior ring (a hole), this is also written to the KML file.
+
+Finally, the KML file is closed and the function returns. The `execute()` function appears to be the main function that drives the process, creating a time range and a list of threat types, and then processing each threat type.
+
+This part of the code is manipulating and processing geographical data, likely for weather forecasting or similar applications. Here's a breakdown of what each line is doing:
+
+1. `rea = editAreaDict[threatWEName]`: This line is retrieving a value from the dictionary `editAreaDict` using `threatWEName` as the key. The retrieved value is stored in the variable `rea`.
+
+2. `editArea = self.getEditArea(localEditArea)`: This line is calling the method `getEditArea` of the current class (`self`) with `localEditArea` as the argument. The result is stored in the variable `editArea`.
+
+3. `threatEditArea = self.encodeEditArea(editArea)`: This line is calling the method `encodeEditArea` of the current class (`self`) with `editArea` as the argument. The result is stored in the variable `threatEditArea`.
+
+4. `threatGrid_kml = np.where(threatEditArea, threatGrid, threatGrid-9.0)`: This line is using the numpy `where` function to create a new array `threatGrid_kml`. If `threatEditArea` is true, the corresponding value from `threatGrid` is used, otherwise the value from `threatGrid` minus 9.0 is used.
+
+5. `self.makeThreatKML(threatWEName,threatKeys,threatGrid_kml)`: This line is calling the method `makeThreatKML` of the current class (`self`) with `threatWEName`, `threatKeys`, and `threatGrid_kml` as arguments.
+
+6. `os.system("/awips2/GFESuite/hti/bin/kml_legend.sh")`: This line is running the shell script `kml_legend.sh` located in the specified directory. This script is likely creating a legend for the KML (Keyhole Markup Language) file, which is used to display geographic data in an Earth browser.
+
+7. `return`: This line is ending the function and returning control to the caller. Since there's no value after `return`, the function will return `None`.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

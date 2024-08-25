@@ -1,0 +1,82 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>GridMonitor.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>GridMonitor.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script named GridMonitor.py. It appears to be a part of a larger system, possibly for weather monitoring or forecasting, developed by Raytheon Company. The code is subject to U.S. export control laws, so it cannot be exported or transferred without proper authorization.
+
+The code starts with a detailed header that includes the software's history, showing various revisions, their creation dates, and the developers who made them. This kind of documentation is common in software development to track changes and understand the evolution of the software.
+
+The actual code starts with importing several modules, which are likely used in the rest of the script. These modules include Avn, AvnLib, GridData, JUtil, MonitorP, TafDecoder, TafGen, logging, pickle, and time. It also imports SiteGridManager from com.raytheon.viz.aviation.monitor.
+
+Then, a class named Monitor is defined, which inherits from MonitorP.Monitor. This class seems to be designed for monitoring grids, possibly related to weather data. It has a constructor (__init__ method) that initializes the Monitor object with certain information and arguments, and sets up a decoder.
+
+The class also includes a method named __makeData, which appears to be responsible for creating and formatting data related to the grid. It seems to interact with a site grid manager, retrieve map data, format the data, generate a Terminal Aerodrome Forecast (TAF) using the TafGen module, and decode the TAF.
+
+However, the provided code is incomplete, and the full functionality of the Monitor class and the __makeData method cannot be determined without the rest of the code.
+
+The code is written in Python and seems to be part of a larger system that deals with weather data, specifically Terminal Aerodrome Forecasts (TAFs) and grid forecasts. 
+
+The first part of the code checks if the string 'fatal' is in a dictionary `dcd`. If it is, it raises an `AvnError`. If not, it returns a dictionary with 'hourly' and 'text' keys. 
+
+The `__compare` method seems to compare a TAF with a grid forecast. It first checks if a forecast is available. If not, it logs a debug message. If a forecast is available, it proceeds to compare the forecast with the TAF over a range of hours. It applies certain rules to the data and stores the results in a dictionary. If an `IndexError` occurs, it logs an exception and sets the status to `NIL`.
+
+The `_WX` function checks if a string `s` contains another string `wx`. It has a special case for the string 'SN', which seems to be related to snow conditions.
+
+The code then defines several classes (`DDDelta`, `FFDelta`, `VsbyCatDelta`) that inherit from `MonitorP.Rule`. These classes seem to represent different rules that can be applied to the TAF and grid data. Each rule has a `method` function that implements the specific rule. The rules seem to deal with wind direction (`DDDelta`), wind speed (`FFDelta`), and visibility (`VsbyCatDelta`). 
+
+Each rule class has an `__init__` method that sets up some default values, which can be overwritten by a configuration file. The `method` function of each rule class implements the specific rule, and handles cases where data is missing by raising an `AvnMissing` exception.
+
+This code consists of several classes that extend from a parent class `MonitorP.Rule`. Each class represents a different rule for monitoring meteorological data. 
+
+1. `CigCatDelta`: This class checks if the difference between the ceiling categories of TAF (Terminal Aerodrome Forecast) and grids is equal to or greater than a specified number of categories (`ncat`). If the difference is equal to or greater than `ncat`, it returns `True`; otherwise, it returns `False`. If the key is not found in the data, it raises an `AvnMissing` exception.
+
+2. `SkyMismatch`: This class checks if the difference between the sky cover categories of TAF and grids is equal to or greater than a specified number of categories (`ncat`). If the difference is equal to or greater than `ncat`, it returns `True`; otherwise, it returns `False`. If the key is not found in the data, it raises an `AvnMissing` exception.
+
+3. `WxTafDelta`: This class checks if any weather condition from a specified list (`wx`) is forecasted in TAF but not present in the grids. If such a condition is found, it returns `True`; otherwise, it returns `False`.
+
+4. `WxGridsDelta`: This class checks if any weather condition from a specified list (`wx`) is present in the grids but not forecasted in TAF. If such a condition is found, it returns `True`; otherwise, it returns `False`.
+
+In all these classes, the `method` function is the main function that implements the rule check. The `__init__` function is used to initialize the rule with default values, which can be overwritten by a configuration file. The `setmsg` function is used to set the message that will be displayed if the rule check returns `True`.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

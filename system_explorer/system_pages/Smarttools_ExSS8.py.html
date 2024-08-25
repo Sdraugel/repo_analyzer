@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ExSS8.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ExSS8.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a part of a software developed by Raytheon Company. It's a Python script that appears to be part of a weather prediction or analysis tool. Here's a breakdown of what it does:
+
+1. The script imports the entire numpy library and a module named SmartScript.
+
+2. It defines a class named Tool that inherits from SmartScript.SmartScript. This class has two methods: `__init__` and `execute`.
+
+3. The `__init__` method is the constructor for the Tool class. It takes an argument `dbss` and passes it to the constructor of the parent class.
+
+4. The `execute` method is where the main functionality of the class lies. It takes two arguments, `PoP` and `Wx`. `PoP` seems to be a measure of the probability of precipitation, and `Wx` seems to be some form of weather data.
+
+5. The `execute` method uses a function `wxMask` (presumably from the parent class) to filter `Wx` based on certain conditions, and assigns corresponding values to `PoP`. For example, if `Wx` matches the condition "<NoCov>:", `PoP` is set to 0. If `Wx` matches the condition "^Chc:", `PoP` is set to 25, and so on. The "^" in "^Chc:" and "^Sct:" is a regular expression anchor that ensures the match must start at the beginning of the string.
+
+6. Finally, the `execute` method returns the `PoP` array with the new values.
+
+The code appears to be a part of a larger system, as it references external modules and uses a specific data structure. It's likely used to calculate the probability of precipitation based on certain weather conditions.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

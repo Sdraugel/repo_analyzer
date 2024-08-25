@@ -1,0 +1,122 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Hazards_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Hazards_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code appears to be a part of a testing script for a weather forecasting system, possibly for the Advanced Weather Interactive Processing System (AWIPS) as mentioned in the comments. The script tests various types of weather hazard forecasts, such as Coastal Flood Advisory (CFW), Flash Flood Watch (FFA), and Hazardous Weather Outlook (HWO). 
+
+The script defines a number of test cases, each represented as a dictionary with keys such as "name", "productType", "commentary", "createGrids", "cmdLineVars", and "checkStrings". 
+
+- "name" is the name of the test case.
+- "productType" is the type of weather product being tested.
+- "commentary" provides a brief description of the test case.
+- "createGrids" is a list of tuples, each representing a forecast grid to be created for the test.
+- "cmdLineVars" are command line variables that might be used in the test.
+- "checkStrings" are strings that are expected to be found in the output of the test.
+
+The script also includes some definitions (def1, def2, def3) that seem to be initializing some settings or parameters for the tests.
+
+The code at the top of the file is a legal disclaimer and copyright notice from Raytheon Company, the contractor who developed this software. It also contains export control information, stating that the software contains data whose export is restricted by U.S. law.
+
+This code appears to be a series of test cases for different weather products. Each test case is a dictionary with various keys that define the test. 
+
+1. The "name" key is the name of the test case.
+2. The "productType" key indicates the type of weather product that the test is for.
+3. The "commentary" key provides a description of what the test is for.
+4. The "comboFlag" key is a flag used for some kind of combination operation.
+5. The "combinations" key is a list of combinations to be tested.
+6. The "cmdLineVars" key is a dictionary of command line variables.
+7. The "gridsStartTime" key is the start time for the grids.
+8. The "fileChanges" key is a list of changes to be made to the file for the test.
+9. The "notCheckStrings" key is a list of strings that should not be present in the output.
+10. The "checkStrings" key is a list of strings that should be present in the output.
+
+The test cases are for different types of weather products, including "Hazard_HWO_Local", "Hazard_MWS_Local", and "Hazard_MWW_Local". The "Hazard_HWO_Local" tests appear to be for a hazardous weather outlook product, while the "Hazard_MWS_Local" tests are for a marine weather statement product, and the "Hazard_MWW_Local" tests are for a marine weather message product.
+
+The "createGrids" key in some of the test cases is a list of grids to be created for the test. Each grid is defined by a tuple with the following elements: the type of forecast, the type of hazard, the type of grid, the start and end times for the grid, the hazard code, and the area for the grid.
+
+The "fileChanges" key in some of the test cases is a list of changes to be made to the file for the test. Each change is defined by a tuple with the following elements: the type of product, the type of text product, the type of change, the definitions to be replaced, and the undo command.
+
+The provided code appears to be a part of a larger Python script that is used for generating weather forecasts and warnings. It contains a list of dictionaries, each representing a different type of weather product or warning.
+
+1. The first dictionary represents a weather warning related to ashfall. It contains information about the warning, including the areas it covers, the time it was issued, and the precautions to be taken.
+
+2. The second dictionary, "NPW1", is for testing a National Public Weather (NPW) product with an Air Stagnation Outlook (AS.O). It includes the creation of forecast grids and checks for specific strings in the forecast.
+
+3. The third dictionary, "NPW2", is similar to the second but tests the NPW product with an Ashfall Warning (AF.W).
+
+4. The fourth dictionary, "RFW1", is for testing a Red Flag Warning (RFW) product related to fire weather (FW.W). 
+
+The "createGrids" field in each dictionary seems to be used for creating forecast grids with specific parameters. The "checkStrings" field contains strings that are expected to be present in the generated forecast or warning.
+
+Please note that some parts of the code are commented out, which means they won't be executed. These commented parts seem to contain additional information or instructions that could be included in the weather warnings or forecasts.
+
+The provided code seems to be a part of a larger script that is used for generating weather alerts. It appears to be written in Python and contains a list of dictionaries, each representing a different type of weather alert.
+
+1. The first dictionary represents a "Fire Weather Message" (FW.W). It includes forecast details, the area affected, and the warning message. It also includes placeholders for an overview headline and overview text that must be edited before the message is sent.
+
+2. The second dictionary represents a "Tornado Watch" (TO.A). It includes the areas affected by the watch, the time period of the watch, and the counties included in the watch.
+
+3. The third dictionary represents a "Blizzard Warning" (BZ.W). It includes the areas affected, the time period of the warning, and the warning message. It also includes placeholders for an overview headline and overview text that must be edited before the message is sent.
+
+4. The fourth dictionary represents an "Air Quality Alert" (AQ.Y). It includes the areas affected, the time period of the alert, and the source of the alert.
+
+In each dictionary, the "createGrids" key contains a list of tuples, each representing a forecast, with details about the type of hazard, its duration, its code, and the area it affects.
+
+The "checkStrings" key contains a list of strings that seem to be the actual text of the weather alert message. Some of these strings are placeholders that need to be filled in with the appropriate information before the message is sent.
+
+The "cmdLineVars" key in the first and fourth dictionaries contains additional variables that can be set from the command line when the script is run.
+
+The provided code seems to be a part of a larger Python script. It appears to be related to weather forecasting and issuing alerts, specifically related to air quality. Here's a breakdown of what the code does:
+
+1. The first part of the code is a list of strings that seems to be a message or alert related to air quality. The strings include geographical locations, a timestamp, and information about an air quality alert issued by the North Carolina Department of Environmental and Natural Resources. The alert is about a Code Orange Air Quality Alert for Ozone, indicating that ground-level ozone concentrations may approach or exceed unhealthy standards. The message also provides a link to the North Carolina Division of Air Quality website for additional information.
+
+2. The second part of the code imports a module named `TestScript`.
+
+3. The third part of the code defines a function `testScript(self, dataMgr)`. This function seems to be a part of a larger class, as it takes `self` as an argument, which is a common practice in object-oriented programming in Python. The function also takes another argument `dataMgr`, which might be a data manager of some sort.
+
+   Inside the function, a dictionary named `defaults` is defined with several key-value pairs. These pairs seem to be default settings or parameters for the test script. The function then returns the result of calling `TestScript.generalTestScript(self, dataMgr, scripts, defaults)`. It appears that `generalTestScript` is a method from the `TestScript` module that takes four arguments: `self`, `dataMgr`, a variable named `scripts` (which is not defined in the provided code), and `defaults`.
+
+Please note that without the full context or the rest of the code, this analysis might not be completely accurate.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

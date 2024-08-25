@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>replaceCountyNamesLpi.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>replaceCountyNamesLpi.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to replace references to a file named 'us_county.lpi' in a bundle or procedure with references to a new view called 'county_names' in the 'maps' database. The script is written to be used in a command-line interface, where it takes two arguments: an input file and an output file.
+
+The script uses the xml.etree.ElementTree module to parse and manipulate XML data. It defines three main functions: `upgradeBundle`, `checkResources`, and `convertResource`.
+
+1. `upgradeBundle`: This function takes an input file and an output file as arguments. It parses the input file into an XML tree, gets the root of the tree, and checks if the root tag is 'bundle'. Depending on the root tag, it sets the path to iterate through the XML tree. It then checks the resources in the XML tree using the `checkResources` function. If any resources are updated, it writes the updated XML tree to the output file.
+
+2. `checkResources`: This function takes an XML element and a path as arguments. It iterates through the XML tree, looking for resources. If it finds a resource of type 'mapResourceGroupData', it recursively checks its resources. If it finds a resource of type 'lpiResourceData' with a filename of 'us_county.lpi', it converts the resource using the `convertResource` function and marks it as updated.
+
+3. `convertResource`: This function takes a resource as an argument and modifies it. It changes the resource type to 'dbPointMapResourceData', removes the filename, and adds a table with the text 'mapdata.county_names'. It also modifies the capabilities of the resource, removing certain capabilities and adding others. It sets the density to max so all county names are displayed, and sets the label field to 'name'. It also modifies the properties of the resource, setting certain properties to specific values.
+
+The script is run from the command line, and it expects two arguments: an input file and an output file. If these are not provided, it prints a usage message and exits with an error code.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

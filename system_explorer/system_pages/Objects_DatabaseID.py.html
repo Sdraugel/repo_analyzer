@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>DatabaseID.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>DatabaseID.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code defines a class named `DatabaseID`. The class is used to handle and manipulate identifiers for a database. 
+
+The class has several attributes including `siteId`, `format`, `dbType`, `modelName`, `modelTime`, `modelId`, and `shortModelId`. These attributes are initialized in the `__init__` method and can be accessed and modified through getter and setter methods.
+
+The `__init__` method also includes logic to decode a given database identifier (`dbIdentifier`) and set the class attributes accordingly. If the decoding fails, the attributes are set to default values.
+
+The `__encodeIdentifier` method is used to generate a model identifier and a short model identifier based on the current attribute values.
+
+The `__decodeIdentifier` method is used to parse a given database identifier and set the class attributes accordingly. It returns a boolean indicating whether the decoding was successful.
+
+The `decodeDtg` and `__decodeDtg` methods are used to parse a date-time group string and set the `modelTime` attribute. The `getModelTimeAsDate` method is used to get the `modelTime` attribute as a date object.
+
+The `__str__`, `__repr__`, `__hash__`, `__cmp__`, `__eq__`, and `__ne__` methods are used to define how instances of the class should be represented as a string, how they should be hashed, how they should be compared for equality and inequality, and how they should be compared for ordering.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

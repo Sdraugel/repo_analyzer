@@ -1,0 +1,68 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>StatsThread.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>StatsThread.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that creates a statistics logging thread for a software called pypies. The script is designed to log various statistics related to the performance of the software, such as the time taken to receive data, deserialize, decompress, get lock, open file, get group, repack, read, store, create record, close file, release lock, and serialize.
+
+The script defines a class named `StatsThread` that inherits from the `Thread` class in the `threading` module. This class is initialized with a `logCfg` parameter, which is presumably a configuration for the logging system. The `StatsThread` class has several methods:
+
+- `__init__`: This method initializes the `StatsThread` instance with a `logCfg` and sets up some initial statistics and a lock for thread-safe operations.
+- `run`: This method starts the thread, which runs indefinitely. Every minute, it logs the minute statistics and clears them. If the current minute is 59 (i.e., the end of the hour), it also logs the hour statistics and clears them.
+- `addRecord`: This method adds a new record to the minute and hour statistics. It locks the thread while doing so to prevent race conditions.
+- `__addNewStat`: This is a helper method used by `addRecord` to add a new statistic to a given dictionary.
+- `_createLogStatement`: This is another helper method that creates a log statement from a given dictionary of statistics.
+
+The script also defines some constants at the top, such as `STORE_DIR`, `STORE_DIR_LEN`, `SECTION_KEYS`, and `SIZE_UNITS`. These constants are used in the `StatsThread` class methods.
+
+This code is part of a larger program that appears to be processing and formatting data related to some kind of transactions, possibly related to network or web requests. 
+
+The main part of the code is building a string (`stmt`) that contains information about each transaction. The information includes the plugin name, request, section, count, average time, fastest time, and slowest time. If the `timeKey` is 'size', it adjusts these values using the `_adjustSize` method.
+
+The `_adjustSize` method converts a given entry into a float and then scales it down by dividing it by 1024 repeatedly until it is less than 1024 or it has been scaled down a certain number of times (determined by the length of `SIZE_UNITS`). The resulting value is then returned as a string, formatted to one decimal place and appended with the appropriate size unit (from `SIZE_UNITS`).
+
+If there are no transactions to report, the string `stmt` is appended with 'No transactions reported'.
+
+Finally, the `stmt` string is returned by the function. This string could then be printed, logged, or used elsewhere in the program.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

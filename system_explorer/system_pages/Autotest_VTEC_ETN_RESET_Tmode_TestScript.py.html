@@ -1,0 +1,120 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>VTEC_ETN_RESET_Tmode_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>VTEC_ETN_RESET_Tmode_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code appears to be part of a weather forecasting system, specifically for generating warnings about winter storms. It's a Python script that contains a list of dictionaries, each representing a different script or event in the system.
+
+The dictionaries contain various pieces of information about each event, such as:
+
+- "commentary": A description of what the script does.
+- "name": The name of the script.
+- "productType": The type of product that the script generates. This could be a type of weather warning or forecast.
+- "drtTime": The time at which the script runs.
+- "createGrids": This appears to be a list of instructions for creating forecast grids. Each tuple in the list contains information about the grid, such as its type, the range of values it covers, and the area it covers.
+- "vtecMode": This could be a mode of operation for the script. The values "T" and "O" could stand for "Test" and "Operational", respectively.
+- "checkStrings": This is a list of strings that appear to be parts of a weather warning message. The script might check that these strings are present in the generated message, or it might use them to construct the message.
+
+The code also contains some commented-out lines that look like they were used for testing. These lines start with a "#" symbol.
+
+The code is part of a software developed and/or modified by Raytheon Company, under a contract with the US Government. The software contains export-restricted data, and its export/transfer/disclosure is restricted by U.S. law.
+
+This code appears to be a part of a larger script for issuing weather warnings, specifically Winter Storm Warnings. It looks like it's written in Python and contains a series of dictionaries, each representing a different event or test event.
+
+Each dictionary contains:
+
+- "commentary": A brief description of the event.
+- "name": The name of the event.
+- "drtTime": The date and time of the event.
+- "productType": The type of weather warning.
+- "vtecMode": This could be a mode for the type of event, with "T" possibly standing for "Test" and "O" for "Operational".
+- "createGrids": A list of tuples that seem to define some sort of forecast or hazard grid. The tuples contain a mix of strings, integers, and lists, which could represent different parameters or attributes of the grid.
+- "checkStrings": A list of strings that seem to form a weather warning message.
+
+The code seems to be for both testing and operational purposes. The test events are clearly marked with phrases like "THIS MESSAGE IS FOR TEST PURPOSES ONLY" and "THIS IS A TEST MESSAGE. DO NOT TAKE ACTION BASED ON THIS TEST MESSAGE". The operational events, on the other hand, contain more serious messages like "WINTER STORM WARNING REMAINS IN EFFECT FROM MIDNIGHT TONIGHT TO MIDNIGHT EST SATURDAY NIGHT". 
+
+The code also appears to increment some sort of event tracking number (ETN) with each new event.
+
+This code appears to be a part of a weather forecasting system, specifically for issuing weather warnings and advisories. It is written in Python and is structured as a list of dictionaries, each representing a different weather event or operation.
+
+1. The first dictionary represents a weather message for a Winter Storm Warning in Pinellas, Florida. It includes details like the time of the warning and the expected conditions.
+
+2. The second dictionary represents a cleanup operation. It doesn't contain any specific weather information, but it has a command to clear the hazards table.
+
+3. The third dictionary simulates a set of events related to a High Surf Advisory in Coastal Pasco, Florida. It includes details like the start time of the event, the type of hazard, and the forecast grids for the event.
+
+4. The fourth dictionary simulates another High Surf Advisory event in Coastal Pasco, Florida. It includes similar details as the third dictionary.
+
+5. The fifth dictionary cancels the High Surf Advisory issued earlier. It includes a command to cancel the advisory and a message indicating that the advisory has been cancelled.
+
+6. The sixth dictionary issues a new High Surf Advisory in operational mode. It includes details like the start time of the event, the type of hazard, and the forecast grids for the event.
+
+The code also includes placeholders for text segments that need to be edited or filled in with specific information. These placeholders are indicated by the "|* SEGMENT TEXT GOES HERE *|" string.
+
+The given code appears to be a part of a weather forecasting system. It seems to be written in Python and is used to generate weather alerts or advisories. The code is divided into several sections, each representing a different scenario or advisory.
+
+1. The first section issues a High Surf Advisory for certain areas, with the advisory in effect until a specified time.
+
+2. The second section cancels the previously issued High Surf Advisory.
+
+3. The third section issues a High Wind Warning for certain areas, with the warning in effect until a specified time.
+
+4. The fourth section issues a new High Surf Advisory for certain areas, with the advisory in effect until a specified time.
+
+5. The fifth section specifies the expiry time for the High Surf Advisory issued in the fourth section.
+
+6. The last section issues a new High Surf Advisory with a new Event Tracking Number (ETN), with the advisory in effect until a specified time.
+
+Each section contains a list of "checkStrings" which seem to be the actual text of the advisory message. The "createGrids" field seems to be used to define the geographical area for which the advisory is applicable. The "productType" field indicates the type of weather hazard, and the "drtTime" and "gridsStartTime" fields specify the time related to the advisory.
+
+This code is a Python script that appears to be part of a testing framework for a weather forecasting system. 
+
+The script contains a list of dictionaries, each representing a test case or a set of instructions. Each dictionary has several keys such as "name", "productType", "clearHazardsTable", and "checkStrings". These keys likely correspond to different parameters or actions within the system being tested. For example, "clearHazardsTable" might be an instruction to clear a specific data table in the system.
+
+The test cases include commentary for clarity, and some of them contain a list of strings under the "checkStrings" key. These strings seem to be weather advisories or alerts, which might be used to verify the system's output against expected results.
+
+The function `testScript` is defined to run these test cases. It takes two arguments: `self` (which is a common convention in Python for referring to the instance of the class where this method is defined) and `dataMgr` (which might be a data manager that handles interactions with the system's database).
+
+The `testScript` function sets up some default settings, such as the database name, whether to publish grids, whether to decode VTEC (a coding system used in weather alerts), the start time for the grids, and others. It then calls a method `generalTestScript` from the `TestScript` module, passing in the instance of the class (`self`), the data manager (`dataMgr`), the test cases (`scripts`), and the default settings (`defaults`). This method likely runs the test cases with the given settings and returns the results.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

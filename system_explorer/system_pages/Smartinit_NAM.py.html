@@ -1,0 +1,224 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>NAM.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>NAM.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be part of a larger weather forecasting system, possibly related to the Advanced Weather Interactive Processing System (AWIPS) II mentioned in the comments. 
+
+The script begins with a legal notice and software history, followed by a description of the file and its purpose. It mentions that this file is a base file and not intended to be overridden, but can be subclassed to override behavior.
+
+The script then defines a configuration setting `USE_WETBULB`, which is a flag to decide whether to use wetbulb for calculating snow level and precipitation type. The comments explain the implications of using wetbulb.
+
+The script then imports a module named `Init` and defines a class `NAMForecaster` that extends a class named `Forecaster`. The `NAMForecaster` class has an `__init__` method for initialization, a `levels` method that returns a list of string values, and a `calcT` method that calculates temperature at real topography instead of model topography. 
+
+The `calcT` method takes a large number of parameters related to temperature, humidity, wind, pressure, and topography. It uses these parameters to set up a boundary layer cube (`self.setupBLCube`), and then calculates temperature values (`tval`) based on the boundary layer height (`BLH`) and temperature (`BLT`), and the real topography (`topo`). The calculation is done in a loop for each layer in the boundary layer height.
+
+The code snippet ends before the loop is finished, so it's not clear what happens to the calculated temperature values.
+
+This code file appears to be a part of a weather forecasting model, possibly for a specific geographic region with varying topography. It contains several functions that calculate different weather parameters based on input data. Here's a breakdown of the functions:
+
+1. The first part of the code restricts the increase in areas where inversions are present. It also restricts the lapse rates below the model surface. The lapse rate is the rate at which atmospheric temperature decreases with an increase in altitude.
+
+2. The `calcTd` function calculates the dew point temperature. The dew point is the temperature at which the air would need to cool to in order to reach saturation (assuming constant pressure and water vapor content). This function takes into account the topography and uses different methods for areas where the real topography is above or below the model topography.
+
+3. The `calcRH` function calculates the relative humidity based on the temperature and dew point. Relative humidity is the amount of moisture in the air compared to the maximum amount of moisture the air could hold at the same temperature.
+
+4. The `dewFromTandRH` function calculates the dew point temperature from the temperature and relative humidity.
+
+5. The `calcWx` function appears to determine the precipitation type based on a derivation of the Bourgouin algorithm. It uses a sounding of wetbulb temperature and finds areas above and below freezing. It also makes guesses at where there will be showers or thunderstorms based on the Lifted Index (LI) from the model.
+
+Overall, this code is used to calculate various weather parameters and conditions based on input data.
+
+This code appears to be part of a weather prediction program. It's analyzing various atmospheric conditions to determine the type of weather expected. Here's a breakdown of what the code is doing:
+
+1. It starts by defining several variables that represent different weather conditions at various atmospheric levels. These variables include temperature, relative humidity, wind speed, and pressure at different heights above the ground.
+
+2. It checks whether the program should use wetbulb temperature or regular temperature for its calculations.
+
+3. It gets the temperature at levels above the real topography (not the model topography).
+
+4. It calculates the number of zero crossings and the areas above and below freezing of the wetbulb sounding. This is done by iterating over the range of the boundary layer height (BLH) and calculating the areas and crossings for each level.
+
+5. It defines a list of basic weather types that the program is choosing between. These types are represented as strings.
+
+6. It then determines the weather type based on the number of zero crossings and the areas above and below freezing. It does this by applying a series of logical conditions to the calculated areas and crossings.
+
+7. It adjusts the weather type for areas where the Lifted Index (LI) is less than 2, indicating convective weather conditions (e.g., thunderstorms).
+
+8. It handles the case where the weather is off the grid, meaning it doesn't fit into any of the defined categories.
+
+9. Finally, it matches the probability of precipitation (PoP) with the weather type and removes non-occurring weather.
+
+The code is complex and uses a lot of mathematical and logical operations to analyze the atmospheric conditions and predict the weather.
+
+This code appears to be a part of a weather prediction program. It contains several functions that calculate different weather parameters. Here's a breakdown of what each function does:
+
+1. The first part of the code is a conditional loop that checks for different weather combinations based on the variable `popcat`. If `popcat` is 0, it sets the corresponding index in `wxgrid` to 0 and continues to the next iteration. For all other `popcat` values, it checks if any weather combinations exist and adds those to the `wxgrid`.
+
+2. The code then calculates the probability of thunder based on the instability index `bli_BL0180`. It assigns different levels of thunder probability based on the value of this index.
+
+3. The `calcQPF` function calculates the Quantitative Precipitation Forecast (QPF), which is the expected amount of liquid precipitation. It converts the input from millimeters to inches.
+
+4. The `calcPoP` function calculates the Probability of Precipitation (PoP), which is the chance of precipitation at a location. It uses several parameters like temperature at different heights, relative humidity, wind speed, and QPF to calculate PoP. It also uses a hyperbolic tangent function to adjust the PoP based on QPF and average boundary layer relative humidity.
+
+5. The `calcCWR` function calculates the Chance of Wetting Rain, which is the probability of at least 0.1 inches of rain. It uses a similar algorithm as `calcPoP` but requires more model QPF to get the same chances, and higher boundary layer relative humidity to get the adjustment.
+
+Please note that this is a high-level analysis of the code. The exact functioning of the code might depend on other parts of the program and the specific inputs it receives.
+
+The code provided seems to be a part of a larger program that deals with weather or climate data. It consists of several methods or functions that perform different calculations related to weather parameters. 
+
+1. The first function seems to calculate the Chance of Wetting Rain (cwr). It uses several parameters like temperature, relative humidity, wind speed at different boundary layer levels, surface pressure, and others. It calculates the cwr using a formula that involves these parameters and some constant values.
+
+2. The second function, `calcSky`, calculates the cloud coverage percentage in each layer based on the relative humidity in that layer. It then adds up the percentages in the layers. The function also contains some logic to weight high clouds less in the coverage than low clouds. It also contains some logic to handle surface fog and to smooth the calculated sky coverage.
+
+3. The third function, also named `calcSky`, calculates the Sky condition (fractional cloud cover) from model relative humidity at specific pressure levels. It uses reduced equations from Walcek, MWR June 1994. It adds up the amount of fractional clouds calculated at each layer based on topography (i.e., no clouds below ground) then divides by a suggested number of layers to produce an average sky.
+
+The code seems to be written in Python and uses some mathematical and scientific computing libraries like NumPy. It also seems to be using some specific meteorological or climatological libraries or modules, as indicated by the specific functions and methods used.
+
+The code is performing a series of operations to manipulate and analyze data related to atmospheric conditions, specifically relative humidity (RH) and pressure at different boundary layer levels. Here's a breakdown of what it does:
+
+1. It starts by creating two empty lists, `bl_Pcube` and `bl_RHcube`, which are intended to store pressure and relative humidity data respectively for different boundary layer levels.
+
+2. The code then populates the `bl_RHcube` with relative humidity data for different boundary layer levels and converts it into an array.
+
+3. It then calculates the pressure for each boundary layer level based on a surface pressure `tmpP_SFC` and adds these to the `bl_Pcube` list, which is also converted into an array.
+
+4. The code constructs a model level pressure cube `pmb` and converts both the boundary layer pressures and model level pressures to sigma levels (a non-dimensional vertical coordinate).
+
+5. It then accounts for topography in the model cube and creates new RH and sigma cubes.
+
+6. The code then checks which boundary layer levels have pressures greater than the lowest "significant" model level pressure and inserts these levels into the new RH and sigma cubes.
+
+7. It then inserts boundary layer RH into the RH cube where appropriate and adds the top of the layer just examined to the RH and sigma cube.
+
+8. The code then calculates the maximum possible sky fraction `fmax` and computes the sky fraction for both pressure cubes.
+
+9. It computes the RH depression at 37% `f100` and calculates the critical RH threshold to use as a filter.
+
+10. The code then computes the sky fraction for the model cube and where RH is less than the critical value, it sets it to 0 contribution.
+
+11. It compresses the cubes vertically and if the length of `f` is greater than or equal to 5, it multiplies the 5th element by 0.
+
+In summary, the code is manipulating and analyzing data related to atmospheric conditions, specifically relative humidity and pressure at different boundary layer levels, and calculating the sky fraction for these levels.
+
+This code appears to be a part of a larger weather forecasting or meteorological analysis program. It contains several methods for calculating different meteorological parameters.
+
+1. The first part of the code is a warning that some data is missing and that the calculation will be incomplete. It then modifies the last element of the list `f` by multiplying it by 0.25 and divides the entire list by 100. It then calculates a value `sky` by iterating over the list `f` and performing a certain operation. The value of `sky` is then multiplied by 100 and returned.
+
+2. The `calcWind` method calculates the wind speed and direction at different elevations. It takes into account various parameters such as temperature, relative humidity, wind speed at different boundary layers, surface pressure, topography, and time. It uses these parameters to calculate the wind speed and direction at the real elevation rather than the model elevation. The wind speed is then converted to knots, and both the wind speed and direction are returned.
+
+3. The `calcMixHgt` method calculates the height to which a parcel above a 'fire' would rise above ground level. It assumes that a parcel above a fire is very hot, but the fire is very small, so that entrainment quickly makes it only a few degrees warmer than the environment. The method returns the mixing height.
+
+4. The `calcSnowAmt` method calculates the amount of snow based on the surface temperature and the model QPF (Quantitative Precipitation Forecast) amount. It uses a simple snow ratio based on the surface temperature to calculate the snow amount.
+
+The comment at the end suggests that many of the models have had a freezing level in the `gh` field, but it's not clear what this is referring to without more context.
+
+This code file appears to be a part of a larger weather or climate modeling system. It contains several methods that perform calculations related to atmospheric conditions. 
+
+1. `calcFzLevel`: This function multiplies a given parameter `gh_FRZ` by 3.28. The parameter could be representing the freezing level in some units, and the multiplication could be a conversion to another unit (possibly feet, as 1 meter is approximately 3.28 feet).
+
+2. `calcSnowLevel`: This is a more complex function that calculates the snow level based on a number of parameters. It appears to be determining the height at which the temperature crosses from above freezing to below freezing, which is where snow would form. The function takes into account various atmospheric conditions at different altitudes, such as temperature, relative humidity, and wind. The result is smoothed to reduce noise, and any missing data points are handled. The final snow level is returned in feet.
+
+3. `calcTransWind`: This function calculates the average winds in the layer between the surface and the mixing height. It takes into account various parameters at different altitudes, similar to the `calcSnowLevel` function. The result is smoothed and returned in knots.
+
+4. `calcLAL`: This function seems to calculate a parameter called LAL, which might be related to the Lifted Index, a measure used in meteorology to assess the stability of the atmospheric column and the potential for severe weather. The function seems to take into account various atmospheric conditions at different altitudes, similar to the previous functions. However, the function definition is cut off, so it's not clear what the full implementation looks like.
+
+This code appears to be part of a larger program that performs various calculations related to weather forecasting or climate modeling. 
+
+The first function `setupBLCube` seems to be setting up a boundary layer cube with various parameters like temperature, relative humidity, wind speed at different heights, surface pressure, topography, etc. It then calculates a variable `lal` which is incremented based on different conditions of the boundary layer lifted index (`bli_BL0180`). It also increments `lal` based on the relative humidity at the top and bottom of the boundary layer.
+
+The `calcHaines` function calculates the Haines index, a weather index used to indicate the potential for wildfire development due to weather conditions. It uses temperature and relative humidity as inputs. The Haines Index calculation function is commented out in the provided code.
+
+The `calcMaxT`, `calcMinT`, `calcMaxRH`, and `calcMinRH` functions calculate the maximum and minimum temperature and relative humidity respectively. If the maximum or minimum values are not provided, it simply returns the temperature or relative humidity.
+
+The `Wetbulb` function calculates the wet bulb temperature, which is the lowest temperature that can be reached by evaporating water into the air. It uses temperature, relative humidity, and pressure as inputs.
+
+The `TMST` function calculates the parcel temperature given the equivalent potential temperature (`thte`), pressure, and a guess temperature. If the guess temperature is less than 1, it makes a more reasonable guess.
+
+This code appears to be part of a larger program that deals with meteorological data. It contains several functions that perform calculations related to atmospheric conditions.
+
+1. The first block of code is a loop that iteratively corrects a temperature value (`tgnu`) up to 100 times or until the maximum correction (`mcor`) is less than a small value (`epsi`). This is likely a numerical method to find an accurate value for `tgnu`.
+
+2. The `RHDP` function calculates the dew point based on temperature and relative humidity.
+
+3. The `THTE` function calculates the equivalent potential temperature (Theta-E) given pressure, temperature, and dew point. This is a commonly used parameter in meteorology.
+
+4. The `TLCL` function calculates the temperature at the lifting condensation level (LCL), which is the height at which an air parcel becomes saturated when lifted adiabatically.
+
+5. The `MIXR` function calculates the mixing ratio given dew point and pressure. The mixing ratio is the mass of water vapor per unit mass of dry air.
+
+6. The `VAPR` function calculates the vapor pressure from the dew point or saturation vapor pressure from the temperature.
+
+7. The `setupBLCube` function appears to be setting up a data structure (a "cube") that contains various atmospheric parameters (temperature, relative humidity, wind, dew point, etc.) at different levels in the boundary layer of the atmosphere. This is likely used for further calculations or analysis.
+
+This code is written in Python and appears to be part of a larger program related to meteorology or atmospheric physics. It's performing various calculations related to atmospheric conditions and layers. Here's a breakdown of the key components:
+
+1. The first part of the code is assigning values to different atmospheric levels (pressure, temperature, magnitude, direction, relative humidity, dew point) based on the index `usethislev`. If any of these levels are not found, the code assigns values from the last pressure level. The results are then appended to their respective lists.
+
+2. The `MHGT` function calculates the hydrostatic height at the top of a layer given average temperature, dew point, pressure at the top and bottom of the layer, and the height at the bottom of the layer.
+
+3. The `TVRT` function calculates the virtual temperature given temperature, dew point, and pressure.
+
+4. The `SCLH` function calculates the scale height given temperature, dew point, and pressure.
+
+5. The `getArea` function calculates the area above/below freezing in J/kg (m2/s2).
+
+6. The `getAreas` function calculates areas above/below freezing, and includes a flag if it crosses in this layer.
+
+7. The `getTopoE` function gets a cube of wetbulb temperatures above the real topography - not above the model topography. It returns the wetbulb temperatures and heights.
+
+In general, this code is manipulating and calculating various atmospheric properties, likely as part of a larger weather forecasting or climate modeling system.
+
+This code defines a set of methods for a class, likely used for some sort of data processing or analysis. 
+
+1. `smoothpm`: This method smooths a given array by averaging over +/- k gridpoints in each direction. If k is zero or negative, it returns the original array. The smoothing is done by shifting the array in all directions within the range of -k to k, adding up the values of the array that are greater than -9000, and dividing by the number of valid points. If there are no valid points, the original value is kept.
+
+2. `offset`: This method shifts an array by a specified number of x and y gridpoints. The edge points that are unknown are set to -9999.0. This method is used in the smoothing process.
+
+3. `getindicies`: This method is used to get the indices for slicing an array. It takes an offset and the length of the array as input and returns two slices that can be used to shift the array.
+
+4. `dirlinear`: This method performs a linear interpolation that is suitable for directions, where the values should never exceed 360 degrees. It ensures that interpolations that cross the 360-degree barrier "go the right way" rather than flip back in the opposite direction. It does this by adjusting the y-values that are being interpolated if the difference between them is greater than 180 degrees.
+
+5. `main`: This is the main function that runs the program. It appears to be running a method called `run` on an instance of a class called `NAMForecaster`. However, the definition of this class and method is not included in the provided code.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

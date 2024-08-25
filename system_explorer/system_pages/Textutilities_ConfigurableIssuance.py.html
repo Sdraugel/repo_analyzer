@@ -1,0 +1,68 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ConfigurableIssuance.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ConfigurableIssuance.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a larger software system developed by Raytheon Company. The script is named ConfigurableIssuance.py and it contains methods for setting up configurable issuance. The author of the script is identified as "hansen".
+
+The script begins by importing several modules: TimeRangeUtils, time, TimeRange, and AbsTime.
+
+The main class in this script is ConfigurableIssuance, which inherits from TimeRangeUtils.TimeRangeUtils. The class has two methods: `__init__` and `getIssuanceInfo`.
+
+The `__init__` method is the constructor for the class and it simply calls the constructor of the parent class.
+
+The `getIssuanceInfo` method is more complex. It takes four arguments: productIssuance, issuanceList, and an optional creationTime. This method appears to be used for setting up the issuance of a product. It calculates various time-related variables and returns an Issuance object.
+
+The `convertIssuanceHour` method is a helper function used within `getIssuanceInfo`. It takes three arguments: issuanceHour, currentHour, and currentMinutes. It checks if the issuanceHour is a string and if so, it replaces the string "issuanceHour" with the current hour. If the current minutes are greater than the minutes past the hour, it increments the current hour by one, but ensures it doesn't exceed 23. It then evaluates the issuanceHour string as a Python expression and returns the result.
+
+The script also contains a significant amount of metadata and comments, including information about the developer, licensing, and usage restrictions.
+
+This code defines several methods and a class in Python.
+
+1. `getEntry(self, productIssuance, issuanceList)`: This method is designed to find a specific entry in a list (`issuanceList`). It iterates over the list and checks if the first element of each entry (`issuanceDescription`) is equal to the `productIssuance`. If it finds a match, it sets the `found` variable to 1 and breaks the loop. If no match is found after checking all entries, it returns `None`. If a match is found, it returns the matching entry.
+
+2. `issuanceHour_minutesPastHour(self)`: This method returns the integer 65. The comments suggest this value is used to determine when to move to the next hour in the context of reporting hazards. The hour is truncated (rounded down) by default, except for the 23rd hour, which is always truncated and doesn't roll over to the next day.
+
+3. `class Issuance`: This is a class definition for an object called `Issuance`. The `Issuance` class has an initializer method (`__init__`) that sets up several instance variables using the arguments passed when an `Issuance` object is created. These variables represent various properties of an issuance, such as its entry, time range, expiration time, issue time, narrative definition, and several properties related to a period (presumably a time period). The class also includes a series of getter methods, each of which returns the value of a specific instance variable. These methods allow other parts of the code to access the properties of an `Issuance` object.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

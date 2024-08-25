@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>logProcess.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>logProcess.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is a custom logging server that receives log records from multiple processes over a TCP connection and logs them according to a local logging policy. 
+
+At the start, the script imports necessary modules and sets a log threshold. It then imports a custom log configuration from `logConfig` module. 
+
+The `LogRecordStreamHandler` class is a handler for streaming logging requests. It receives log records in pickle format over a TCP connection, deserializes them, and logs them according to the local logging policy. If the log message is a dictionary containing timing information and the total time exceeds a certain threshold, it constructs a detailed log message with timing entries.
+
+The `LogRecordSocketReceiver` class is a TCP server that listens for incoming log records. It can be stopped by setting its `abort` attribute to a truthy value.
+
+The `main` function starts the TCP server and keeps it running until it is stopped. 
+
+This script is designed to be run as a standalone program. When run as a script, it starts the TCP server and keeps it running until it is stopped. 
+
+The comments at the top of the script indicate that it was developed by Raytheon Company for the US Government, and it contains export-restricted data. The software history shows that it has been modified multiple times, with the most recent modification being made to fix issues related to Python 3 compatibility.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

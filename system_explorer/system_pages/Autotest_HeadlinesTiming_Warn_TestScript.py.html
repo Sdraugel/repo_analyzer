@@ -1,0 +1,105 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>HeadlinesTiming_Warn_TestScript.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>HeadlinesTiming_Warn_TestScript.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code appears to be part of a testing suite for a weather forecasting system, possibly the Advanced Weather Interactive Processing System (AWIPS) II, developed by Raytheon Company. The code is written in Python and contains a list of dictionaries, each representing a different test case for issuing a winter storm warning.
+
+Each dictionary in the `scripts` list represents a test case and contains the following keys:
+
+- `commentary`: A brief description of the test case.
+- `name`: The name of the test case.
+- `productType`: The type of weather warning being issued.
+- `drtTime`: The time the warning is issued, in the format YYYYMMDD_HHMM.
+- `createGrids`: A list of tuples representing the forecast grids to be created for the test case. Each tuple contains the type of grid, the hazard type, the time range for the hazard, and the area affected by the hazard.
+- `checkStrings`: A list of strings expected to be found in the warning message.
+- `clearHazardsTable` and `comboFlag`: Other parameters used in the test case.
+
+The test cases are designed to check the system's handling of winter storm warnings issued at different times and for different durations. For example, one test case checks a warning issued at midnight for a 3-hour event, while another checks a warning issued at midnight for a 4-9 hour event.
+
+This code appears to be a series of tests or configurations for a weather forecasting system, specifically for issuing Winter Storm Warnings. Each test or configuration is represented as a dictionary with several key-value pairs. 
+
+Here's a breakdown of the keys and their values:
+
+1. "commentary": This provides a description of what the particular test or configuration is for.
+
+2. "name": This is the name of the test or configuration.
+
+3. "drtTime": This seems to be a timestamp related to the test or configuration.
+
+4. "productType": This is the type of weather forecast product being tested or configured. In this case, it's "Hazard_WSW_Local", which likely stands for "Hazard - Winter Storm Warning - Local".
+
+5. "createGrids": This is a list of tuples that specify some parameters for the forecast grid. The tuples include a forecast type ("Fcst"), a hazard type ("Hazards"), a grid type ("DISCRETE"), some numerical values (e.g., -100, 100), a hazard code (e.g., "WS.W" for Winter Storm Warning), and a list of areas affected (e.g., ["FLZ139"]).
+
+6. "checkStrings": This is a list of strings that seem to be parts of the forecast message that will be issued. The strings include the urgency of the message, the issuing authority, the specific warning code and time, the area affected, and the warning message itself.
+
+The code seems to be running these tests or configurations for different durations of a Winter Storm Warning, from 0-25 hours to 0-55 hours, and also for different start and end times. The commented out lines appear to be alternate or previously used warning messages.
+
+This code appears to be a series of test cases for a weather forecasting system, specifically for issuing winter storm warnings. Each test case is a dictionary with several key-value pairs:
+
+- "commentary": This provides a brief description of what the test case is testing.
+- "name": This is the name of the test case.
+- "drtTime": This is the simulated time at which the forecast is issued.
+- "productType": This indicates the type of weather warning being issued.
+- "createGrids": This is a list of tuples that describe the forecast. The tuples contain the forecast type, the hazard type, the forecast method, the start and end times of the forecast period, the hazard code, and the affected area.
+- "checkStrings": This is a list of strings that are expected to be in the issued warning.
+
+Each test case seems to simulate a different scenario for issuing a winter storm warning, such as different issuance times, event times, and durations. The system being tested likely uses these test cases to ensure that it can correctly issue warnings under a variety of conditions.
+
+This code appears to be a test script for a weather forecasting system, specifically for issuing and testing winter storm warnings. The script is written in Python and uses a custom module named `TestScript`.
+
+The code consists of a list of dictionaries, each representing a different test case. Each dictionary contains the following keys:
+
+- `commentary`: A string describing the test case.
+- `name`: The name of the test case.
+- `drtTime`: The date and time for the test case.
+- `productType`: The type of weather warning being tested.
+- `createGrids`: A list of tuples representing the forecast grids to be created for the test case.
+- `checkStrings`: A list of strings that are expected to be present in the output of the test case.
+- `clearHazardsTable`: A flag indicating whether the hazards table should be cleared.
+
+The `testScript` function takes two arguments: `self` and `dataMgr`. `self` is a common convention in Python for the first parameter of instance methods, which refers to the object the method is being called on. `dataMgr` is likely a data manager that provides access to the data needed for the tests.
+
+The function sets up some default values and then calls the `generalTestScript` method from the `TestScript` module, passing in the test cases (`scripts`) and the default values (`defaults`). The `generalTestScript` method likely runs each test case and checks that the output matches the expected `checkStrings`.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,64 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>FWS_Site_MultiPil_Baseline.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>FWS_Site_MultiPil_Baseline.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be part of a larger software system, possibly related to weather forecasting given the reference to GFE (Graphical Forecast Editor) and FWS (Forecast Weather Service). The script is designed to import and integrate different modules and definitions for a specific site and product.
+
+The script begins with a large comment block providing information about the software's development, export control restrictions, contractor details, and licensing information. It also includes a software history log for tracking changes.
+
+The script then imports several modules: FWS, Patch_Overrides, copy, and importlib. 
+
+The script constructs the names of the definition and override TextUtilities for a specific site and product. It then uses the importlib module to dynamically import these modules at runtime. 
+
+The script retrieves the class object for the national and regional overrides class, as well as the local Definition object. It also gets the region and site definitions into a known variable name.
+
+The script then defines a new class, TextProduct, which inherits from three other classes: the nationalOverrides class, the Patch_Overrides class, and the FWS.TextProduct class. 
+
+The TextProduct class has a Definition dictionary which is a deep copy of the FWS.TextProduct.Definition dictionary. This Definition dictionary is then updated with the national and local definitions. 
+
+The script also retrieves a VariableList from the nationalOverrides module if it exists and updates the Definition dictionary with a display name for testing purposes.
+
+Finally, the script defines an initializer method for the TextProduct class which calls the initializer of the FWS.TextProduct class.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

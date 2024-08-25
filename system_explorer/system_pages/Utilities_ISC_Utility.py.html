@@ -1,0 +1,163 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ISC_Utility.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ISC_Utility.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script for a software developed by Raytheon Company. The software is in the public domain and is provided as is, without any warranty or technical support. 
+
+The script is a utility for ISC (Inter-System Coordination) tools, specifically version 3.05, and is named ISC_Utility. It has been developed and updated by various authors, with the last update made by 'dgilling' in 2017. 
+
+The script imports several modules such as numpy, SmartScript, time, TimeRange, and GridParmInfo from com.raytheon.uf.common.dataplugin.gfe.db.objects. 
+
+The main class, ISC_Utility, inherits from SmartScript.SmartScript. It initializes with several parameters and methods to set up the tool type, refresh the border pairs, calculate pairs, and obtain pair info from cache. 
+
+The script also includes a configuration section for all ISC tools. This function sets up the default configuration for the set of ISC tools, and can be overridden and modified as needed. 
+
+The code also contains a lot of comments which explain the purpose and functionality of different parts of the script. These comments also contain the history of updates and changes made to the script. 
+
+Please note that the code provided is incomplete and cuts off midway through a comment.
+
+This code is part of a larger program that seems to be related to weather forecasting. It appears to be written in Python and is defining several configuration parameters and a method for a class.
+
+The configuration parameters include:
+
+1. `MultiParms`: This is a dictionary where each key-value pair represents a parameter and its associated values. The comments suggest these are related to weather forecasting, such as relative humidity (RH), maximum temperature (MaxT), etc.
+
+2. `MINPOINTS`: This is a constant that represents the minimum number of points along a border before it considers a failing average threshold "significant".
+
+3. `DEFAULT_THRESHOLD` and `THRESHOLDS`: These are configuration parameters for thresholds used in the program. The comments suggest these thresholds are related to weather forecasting parameters like temperature, wind speed, precipitation, etc. The thresholds can be of different types ("constant", "topo", "graduated") and have different conditions and values associated with them.
+
+The method `_getPairInfo` is defined to calculate pairInfo data structure from edit areas. Each entry in pairInfo is a tuple with a label and a pairlist. The label is a string with CWA (County Warning Area) neighbor name and the pairlist is a list of tuples where each entry is a tuple with coordinates inside and outside CWA and a topography difference.
+
+The method starts by setting up the home edit area, then gets grids with home edit area shifted 1 pixel each direction and the topography difference when shifted 1 pixel in each direction. It then loops through other ISC_xxx edit areas except the one for the home edit area, comparing the edit area to the shifted home edit areas looking for common points and checking that the topography difference is less than MAXTOPODIFF.
+
+This code appears to be part of a larger system that checks and caches certain data related to geographical information, possibly for a weather system or a similar application. 
+
+The first part of the code is looping through a 2D array (eah), and for each point that matches certain conditions (pair[y,x]==1), it calculates some values, checks if the point is on the coast (where land and water meet), and appends the results to a list of pairs. If there are any pairs, it appends the site name and the pairs to the pairInfo list.
+
+The _getCachedPairs method tries to retrieve a cached object based on a name and category. It checks if the cached object is still valid based on a time limit and a geoInfo validation. If the cached object is not valid or does not exist, it returns None.
+
+The _cachePairs method saves the pairInfo structure data, along with the current time and grid location info to a database. The name of the saved object is a combination of the provided name and the site ID.
+
+The _getLandEditArea method retrieves a grid representing land areas. If a specific area is specified in the configuration, it uses that. Otherwise, it adds up all the corresponding areas from a list of edit areas.
+
+The _getThresholdInfo method returns a thresholdInfo structure for a specified parameter. It loops through a list of thresholds until it finds the one that matches the parameter name.
+
+The _getListing method simply returns a list.
+
+The _checkParmBorders method checks the borders for a specific parameter, which could involve checking more than one grid. It loops over each parameter, checks the borders for each one, and updates the status messages accordingly. It also keeps track of the total number of violations, warnings, and checks.
+
+The provided code appears to be a part of a larger Python program that checks and validates grid data. 
+
+The `_checkGridBorders` function is the main function in this code snippet. It checks the borders for a single grid, which might be a vector, so it might actually check two grids. It returns a tuple containing status, the total number of pairs checked, the number of violations, and the number of warnings.
+
+The function first gets grid info and returns a status of 1 if no grid info is found. It then checks if the grid info is empty and returns a status of 1 if it is. It then attempts to get ISC data and returns a status of 2 if it fails. It checks if the grid type is either SCALAR or VECTOR and returns a status of 3 if it's neither.
+
+If the grid type is SCALAR, it appends the grid info to a list. If it's VECTOR, it checks each part separately and appends the info to the list. It then loops over the grids, usually one but possibly two for vectors, and checks all borders for each grid. It accumulates the total number of checks, violations, and warnings, and returns these values along with a status of 0.
+
+The `_checkAllBorders` function checks all borders for a single scalar grid that has a condition grid and bits indicating where ISC data was available. It returns the total number of pairs checked, the total number of borders that were in violation, and the total number of borders that were in warning. It gets the threshold info for the parameter, loops over each neighbor's border, and checks each border. It accumulates the total number of checks, violations, and warnings, and returns these values.
+
+This code is part of a larger program that checks and processes grid data. It contains three main functions:
+
+1. `_meetConditions(self, conditions, x1, y1, x2, y2, condgrid)`: This function checks whether certain conditions are met for a given grid. It takes in a set of conditions, coordinates, and a grid. It then checks whether the values at the coordinates in the grid meet the conditions. The conditions can be 'none', 'greater', 'greater_equal', 'less', or 'less_equal'. If a flag `bothFlag` is set, it checks if both conditions are met, otherwise, it checks if either condition is met.
+
+2. `_getDiffGrid(self,parmName,GridTimeRange,vectordir=0,maskNonViolators=0)`: This function retrieves a difference grid for a given parameter name and time range. It can also handle vector grids and mask non-violators. It retrieves grid information, checks the grid type, and processes the grid based on its type. It also retrieves threshold information for the parameter and checks whether each point in the grid violates the threshold. If the difference across a border is too large or if the border is a coast, the point passes the check.
+
+3. The first part of the code seems to be a part of a larger function that is not fully included. It checks the return value of some operation and increments counters for warnings and violations based on the return value.
+
+This code is part of a larger program, likely related to geographic data analysis, given the use of terms like "border", "coastline", "topodiff" (possibly topographical difference), and "ISC data" (which could refer to International Seismological Centre data, or another dataset named ISC in this context).
+
+The code defines a method `_checkOneBorder` which takes several parameters: `grid`, `condgrid`, `bits`, `pairList`, and `thresholdInfo`. This method appears to analyze a set of points (`pairList`) on a border in a grid system, checking various conditions and calculating differences and thresholds.
+
+The method calculates several statistics, including the total number of pairs (`totalnum`), the number of pairs that have been checked (`numchecked`), the number of pairs that violate a certain threshold (`numviolate`), as well as the total bias, difference, and threshold.
+
+The method checks for several conditions for each pair of points:
+- If the topographical difference is too large or if the pair is on the coastline, it skips the pair.
+- If the ISC data is not available for the point, it skips the pair.
+- If certain conditions are not met (checked by the `_meetConditions` method), it skips the pair.
+
+If the pair passes all these conditions, it calculates the difference between the values at the pair of points, adjusts the difference if a certain flag is set, and adds the difference to the total bias and difference. It then calculates a threshold based on the type of threshold specified and adds it to the total threshold.
+
+Finally, it checks if the absolute difference is less than or equal to the threshold. If it is, the pair passes; if not, it increases the count of pairs that violate the threshold.
+
+The method returns a grid of differences (`diffGrid`) at the end.
+
+This code appears to be part of a larger Python program, possibly related to weather forecasting or a similar field involving grid-based data analysis. Here's a breakdown of what each section does:
+
+1. The first section calculates the average bias, average absolute difference, and average threshold from accumulated totals. If no values have been checked (`numchecked` is 0), these averages are set to 0.0. It then sets up a return value based on certain conditions. If the average difference is greater than the average threshold and the average threshold is greater than 0.0, it checks if the number of checked values is greater than a minimum number of points. If it is, the return value is set to 2, otherwise it's set to 1. The function then returns several values including the return value, total number, number checked, number violated, average bias, average difference, and average threshold.
+
+2. The `_getBitsAndISC` function seems to retrieve the ISC (Inter-System Communication) composite for a given weather element (WEname), grid information (GridInfo), and grid time range (GridTimeRange). It checks if the grid type is scalar or vector and returns different values accordingly.
+
+3. The `_getBetterComposite` function appears to handle multiple ISC grids within the time range of the grid you want. It retrieves the type, rateParm flag, and limits for the parameter name passed in. It checks if ISC grids exist for this parameter and retrieves a list of all ISC time-blocks that fit in the time range of the specified grid. It then sets up a sum grid/counter for averaging and loops through each time range to get the ISC composite for that hour. It adds to sums, or min/max, and finally calculates average/max/min, etc. 
+
+The code is cut off at the end, so it's not clear what the `makeTimeMsg` function does.
+
+The provided code appears to be written in Python and contains several methods that perform various operations related to time management, data retrieval, and data processing. Here's a brief description of each method:
+
+1. `makeTimeMsg(self, tr)`: This method generates a formatted string representing a time range. The time range can be within a single day (e.g., "Mon (6/5) 12-18Z:") or span across two days (e.g., "Mon (6/5) 18Z - Tue (6/6) 03Z:").
+
+2. `_getElementList(self, excludeWxDiscrete=1)`: This method retrieves a sorted list of currently displayed mutable model elements, excluding nonSCALAR and nonVECTOR elements by default.
+
+3. `_getTimeRangeList(self)`: This method retrieves a list of all publish times, with "All Grids" and "Selected Time" added at the top of the list.
+
+4. `_convertTimeRange(self, trName)`: This method converts a given time range name into a time range object. It handles special cases for "All Grids" and "Selected Time".
+
+5. `_getCachedGrid(self, name, category, timeLimit)`: This method retrieves a cached grid if it exists, is not too old, and has the same geoinfo. If any of these conditions is not met, it returns None.
+
+6. `_cacheGrid(self, name, grid, category)`: This method caches a grid with the given name, grid data, and category.
+
+7. `_checkViolate(self, bits, criteria, areamask, discGrid, threshold)`: This method checks if a grid violates certain conditions. It creates a mask of points inside the site edit area that have a difference with a neighbor's grid points (defined by areamask) that have a magnitude greater than a threshold.
+
+8. `_nbmask`: The description for this method is incomplete, but it seems to replicate the NDFD neighboring points algorithm, which checks border conditions.
+
+This code defines two methods in Python. 
+
+The first method, `_nbmask`, is designed to analyze a set of data points (referred to as 'border pairs') that are either inside or outside a specified area (CWA). It checks if these points meet certain criteria, such as having an elevation difference of less than 1000 feet, having available ISC data, and being within a specified area mask. 
+
+The method then calculates various statistics based on these points, including the average difference between border pairs, the average elevation difference, the overall average of the values, the minimum average value (either inside or outside), and the total number of pairs used in the calculation. 
+
+The method uses a variety of mathematical and logical operations to perform these calculations, such as bitwise shifting, logical AND/OR operations, and summation/reduction operations. It also checks for edge cases where no points meet the criteria, in which case it returns zero for all the calculated statistics.
+
+The second method, `_dirdiff`, calculates the smallest difference between two directions. It takes into account that directions are circular (i.e., 0 degrees is the same as 360 degrees) and uses conditional logic to ensure that the calculated difference is always less than or equal to 180 degrees. This method is used within the `_nbmask` method to calculate the difference between data points.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Aviation_Utils.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Aviation_Utils.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is a part of a software that is in the public domain. It is named `Aviation_Utils` and was authored by `lefebvre`. The software doesn't come with any technical support or warranty.
+
+The script imports a module named `SmartScript` and defines a class `Aviation_Utils` that inherits from `SmartScript.SmartScript`.
+
+The `Aviation_Utils` class has an initializer method `__init__` that takes two parameters: `dbss` and `eaMgr` (with a default value of `None`). This method calls the initializer of the parent class with `dbss` as the argument.
+
+The class also has a method `getModelWeights` that takes two parameters: `dialogNames` and `varDict`. This method is used to get the model weights from the dialog names and variable dictionary.
+
+The method initializes an empty list `models` and an empty dictionary `modelWeights`. It also initializes a variable `sumWeights` to 0.0.
+
+It then iterates over the `dialogNames`. For each `model` in `dialogNames`, it gets the associated weight from `varDict`. If the weight is 0, it skips to the next model. It assumes the latest run of the model and if the model starts with "Previous", it cleans up the model name and adjusts the run.
+
+It then gets the D2D database ID of the model and its identifier. If the model identifier is valid, it stores the weight for this model in `modelWeights`, adds the weight to `sumWeights`, and if the model identifier is not already in `models`, it adds it.
+
+Finally, it returns the `models` list and the `modelWeights` dictionary.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

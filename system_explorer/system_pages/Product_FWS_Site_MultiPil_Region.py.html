@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>FWS_Site_MultiPil_Region.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>FWS_Site_MultiPil_Region.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is part of a larger software system, possibly related to weather forecasting (as suggested by the mention of GFE FWS formatter in the software history). The script seems to be a base file that is not intended to be overridden by other modules or scripts. 
+
+The script begins with a detailed comment block that includes licensing information, the contractor's details, and a disclaimer stating that the software is in the public domain and comes without any warranty or technical support. 
+
+The script imports several modules, including `FWS`, `Patch_Overrides`, `copy`, and `importlib`. It then constructs the names of the definition and override TextUtilities. 
+
+It uses the `importlib` module to dynamically import modules using the names constructed earlier. It then retrieves the class objects for the national and regional overrides class and the local Definition object from these modules.
+
+The script defines a new class `TextProduct` that inherits from several other classes, including the national and regional override classes, `Patch_Overrides.Patch_Overrides`, and `FWS.TextProduct`. 
+
+The `TextProduct` class has a `Definition` attribute, which is a dictionary that is updated with the definitions from the national, regional, and local levels. It also checks if the `VariableList` attribute is overridden in the national and regional FWS Overrides and updates it accordingly.
+
+The `TextProduct` class also has an `__init__` method that calls the `__init__` method of the `FWS.TextProduct` class, indicating that `TextProduct` is a specialized version of `FWS.TextProduct`.
+
+The script seems to be part of a system where different sites can have their own definitions and overrides, but also inherit definitions and overrides from the regional and national levels.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

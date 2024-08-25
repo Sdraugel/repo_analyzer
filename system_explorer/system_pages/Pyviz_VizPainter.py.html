@@ -1,0 +1,68 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>VizPainter.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>VizPainter.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code defines a class `VizPainter` that is used for creating and managing visualizations or graphics. It appears to be part of a larger software system developed by Raytheon Company, as indicated by the comments at the top of the file.
+
+The `VizPainter` class has several methods:
+
+1. `__init__`: This is the constructor method that initializes a new instance of the class. It sets up the display, background color, and target for the visualization.
+
+2. `__del__`: This is the destructor method that is called when an instance of the class is about to be destroyed. It disposes of the resources and the target associated with the instance.
+
+3. `getDescriptor`: This method returns the descriptor of the display.
+
+4. `getTarget`: This method returns the target of the display.
+
+5. `addVizResource`: This method adds a visualization resource to the descriptor's resource list.
+
+6. `paint`: This method paints the visualization on the target. It takes into account the frame time and canvas. If the target needs refresh or any resource is not painted, it continues painting.
+
+7. `outputImage`: This method writes the buffered image to a file. The file format is determined by the file extension of the filename. If the filename does not end with a supported format, '.png' is added to the filename.
+
+8. `_changeTime`: This private method changes the frame time of the descriptor to a specified time.
+
+The code also imports several modules and defines some constants at the beginning. The `SUPPORTED_FORMATS` constant is a tuple of supported file formats for output images, and `PAINT_TIMEOUT` is a constant that specifies the maximum time allowed for painting the visualization.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

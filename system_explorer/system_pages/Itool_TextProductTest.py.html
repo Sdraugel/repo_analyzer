@@ -1,0 +1,170 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TextProductTest.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>TextProductTest.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This part of the file is a combination of legal information, metadata, and instructions for use.
+
+The legal information includes details about the software's development, restrictions on its export due to U.S. law, and the contractor's details. It also states that the software is in the public domain and is provided without warranty or technical support.
+
+The metadata includes the name of the software, "TextProductTest", but the author's name is not provided.
+
+The instructions for use are detailed and seem to be intended for a technical audience. They outline the steps to set up a site with all products, bring up GFETEST with a TestConfig file, bring up the iTools dialog, activate and test various products, and monitor the progress of these products. 
+
+The instructions also provide guidance on how to abort a script while it's running and how to create a custom test script. The latter includes information on the structure and contents of the script, such as required and optional fields, and how to create and delete grids.
+
+The provided code appears to be a part of a larger Python script that is used for testing and managing grid data. Here are the key functionalities of the code:
+
+1. The script starts with a detailed comment section explaining various parameters and options that can be set in the script. These parameters include start and end hours for grid creation, data value for the grid, edit areas for the value, default value, file changes, and more.
+
+2. The script imports several Python modules such as `errno`, `importlib`, `os`, `sys`, `time`, `AbsTime`, and `TimeRange`. These modules provide various functionalities like handling system-specific parameters and functions (`os`, `sys`), working with time-related functions (`time`, `AbsTime`, `TimeRange`), and dynamic loading of Python modules (`importlib`).
+
+3. The script defines a constant `OUTPUT_DIR` which is a string representing the directory where the output files will be stored.
+
+4. The script sets up two variables `HideTool` and `InitialActivation` with values 0 and 1 respectively. The purpose of these variables is not clear from the provided code, but they might be used later in the script to control some behaviors.
+
+5. The script defines a list `VariableList` which appears to be used for soliciting user input. The list contains a tuple with a description of the test script name and a list of possible test script names. The user is likely prompted to select one of these options.
+
+Without the full context or the rest of the script, it's difficult to provide a more detailed analysis. However, it seems like this script is part of a larger system for managing and testing grid data, possibly in a meteorological or geographical context given the mention of "WEATHER" and "grids".
+
+This code appears to be a part of a testing framework for a larger software system, specifically for testing text products. It is written in Python and seems to be interacting with a Java-based system (possibly a weather forecasting system given the references to "GFE" and "VTEC", which are weather-related terms).
+
+The first part of the code is a list of test scripts that can be run, each with a descriptive name. These scripts are likely separate modules that contain specific tests for different parts of the system.
+
+The code then imports several modules and sets up a couple of classes: `ProcessInfo` and `ITool`. The `ProcessInfo` class seems to be a simple data holder for information about a process, while `ITool` class extends `ISmartScript` and seems to be the main class for running the tests.
+
+In the `ITool` class, the `execute` method is defined which takes a dictionary of variables (`varDict`). This method appears to set up and run the tests based on the provided variables. It opens an output file, sets a reporting mode, checks if setupTextEA needs to be run, imports the necessary test scripts, and then runs the test scripts. It also keeps track of the number of passed and failed tests.
+
+The test scripts are run in a loop, and if the number of failures exceeds a certain limit (`_failLimit`), the loop breaks and the testing stops. There's also a sleep command to avoid potential race conditions with file changes. 
+
+The code also includes a listener (`__listener`) which observes 'edex.alerts.vtec' notifications, likely for logging or handling specific events during the testing process.
+
+This code appears to be part of a larger system, possibly for testing or running scripts. Here's a high-level overview of what each function does:
+
+1. `_pareTestScript`: This function takes a test script and processes it. It first creates a list of test names from the script. It then presents these tests to the user for selection. If the user cancels, the function returns None. If the user makes a selection, the function creates a new script containing only the selected tests.
+
+2. `_runTestScript`: This function runs a test script. It first sets some default values, then processes an entry from the test script. It performs various operations on the entry, such as clearing the hazards table, creating a combinations file, deleting grids, creating grids, making a writable copy, and filing changes. It then runs the product and writes the product to the `OUTPUT_DIR`. Finally, it executes a message.
+
+3. `_getCmdLineVars`: This function retrieves command line variables from an entry. If the variables are a dictionary, it returns them as is. If the variables are a method, it calls the method to get the variables.
+
+4. `_setDefaults`: This function sets default values for the database and user.
+
+5. `_clearHazardsTable`: This function clears the hazards table if the `clearHazardsTable` entry is set.
+
+6. `_createCombinationsFile`: This function creates a combinations file if the `combinationsFileName` and `combinations` entries are set.
+
+Overall, this code seems to be part of a system for running and managing test scripts.
+
+This Python code is part of a larger program, and it contains three methods: `_createGrids`, `_makeWritableCopy`, and `_fileChanges`.
+
+1. `_createGrids` method: This method is responsible for creating grids based on the input `entry`. It first checks if the grid creation process should be run, and if the grid creation parameters have changed since the last run. If the conditions are met, it creates new grids based on the parameters given in `entry`. The grids are created for different types of elements (DISCRETE, WEATHER, VECTOR, etc.) and are stored in the `createdGrids` dictionary. If the `publishGrids` flag is set in the `entry`, the created elements are published.
+
+2. `_makeWritableCopy` method: This method creates writable copies of certain files. It retrieves the list of files to be copied from the `entry` and tries to create a writable copy for each file. If the copy operation fails, it increments a failure counter and logs the failure. If there are no failures, it logs a success message.
+
+3. `_fileChanges` method: This method modifies specified files based on the instructions given in the `entry`. It retrieves the list of files to be modified from the `entry` and for each file, it reads the file, modifies it based on the specified `changeType` and `strings`, and then writes the modified content back to the file. If there's a failure in reading the file, it raises an exception. Currently, only the "add" change type is implemented, which appends the specified `strings` to the file content.
+
+This Python script appears to be part of a larger program that performs various operations on text files and time-related data. Here's a breakdown of what each part does:
+
+1. The first part of the code checks if the `changeType` variable is equal to "replace". If it is, the code checks if `strings` is a tuple. If `strings` is a tuple, it is converted to a list. Then, for each tuple in `strings`, it finds the first tuple element in `text` and replaces it with the second tuple element. If the first tuple element is not found in `text`, it outputs a failure message. Finally, it writes the modified `text` to a file. If there is an error while writing, it outputs a failure message and raises an exception.
+
+2. The `_determineMaxMinBeginEnd` function calculates the start and end times for maximum temperature, minimum temperature, maximum relative humidity, and minimum relative humidity based on the local time and whether it is daylight saving time.
+
+3. The `_translateHour` function takes an hour as input. If the hour is a string that contains a time string (e.g., "MaxTBegin"), it replaces the time string with its corresponding value and evaluates the result.
+
+4. The `_deleteGrids` function deletes grids specified in the `entry` dictionary. If the `startHour` or `endHour` is "all", it deletes all times. Otherwise, it deletes grids within a specific time range.
+
+5. The `executeMsg` function processes messages if `_process` is not `None`. For each finished message in the status, it calls the `_doExecuteMsg` function.
+
+6. The `_doExecuteMsg` function performs various operations based on the `entry` dictionary. It cleans up file changes and writable copies, outputs the name of the entry and the elapsed time, and checks if the state is "Failed". If the state is "Failed", it outputs a failure message. If the state is not "Failed", it checks if the `checkMethod` function returns `True`. If `checkMethod` returns `False`, it outputs a failure message. If `checkMethod` returns `True`, it outputs a success message.
+
+This code seems to be part of a larger program, possibly a testing or validation tool, that processes and checks certain strings (forecasts, `fcst`) against a set of conditions. Here's a high-level overview of what each section does:
+
+1. The code first prepares the forecast string for checks. It replaces newline characters with spaces, and optionally performs an 'internal strip' operation. It also replaces instances of "... " with "...".
+
+2. If `checkStrings` is provided, it checks if the forecast string contains any of the strings in `checkStrings`. If the check passes, it outputs a message saying "STRING SEARCHES PASSED" unless the reporting mode is "Pretty".
+
+3. If `notCheckStrings` is provided, it checks if the forecast string does not contain any of the strings in `notCheckStrings`. If the check passes, it outputs a message saying "'NOT' STRING SEARCHES PASSED" unless the reporting mode is "Pretty".
+
+4. The `success` variable is set to `True` if all checks (`check1`, `check2`, `check3`) pass. Depending on the success or failure, it increments a counter (`_passed` or `_failures`), logs a message, and updates the status bar.
+
+5. If the number of failures exceeds a limit (`_failLimit`), it performs a cleanup operation and stops processing.
+
+6. If the forecast was successful and `decodeVTEC` is requested, it runs a VTEC decoder and waits for a notification. If the wait time exceeds 20 seconds, it outputs a timeout message.
+
+7. Finally, it performs another cleanup operation.
+
+The code also includes several methods (`_cleanUp`, `_cleanUpWritableCopies`, `_cleanUpFiles`, `_checkStrs`) that are used within the main flow. These methods perform tasks such as resetting time offsets, making writable copies of files, deleting or undoing file changes, and checking if forecast strings contain or do not contain certain substrings.
+
+This code appears to be part of a larger Python script that is used for testing and validation purposes. It seems to be checking strings within forecast data and reporting on the results. Here's a breakdown of what each part of the code does:
+
+1. The first part of the code is checking if a substring exists in a forecast string. If it does not find the substring, it calls the `_failed` method, which outputs a failure message. If it does find the substring, it checks if the string is in the correct order.
+
+2. The `_checkStr` method checks if a given substring exists in the forecast string. If it does, it returns the index of the substring and a flag indicating whether the string was found in the raw or stripped forecast string.
+
+3. The `_failed` method is used to output a failure message when a string check fails. It constructs a message indicating what string it was looking for and what the product result was.
+
+4. The `_finished` method is called when all tests have been completed. It outputs a message indicating the number of scripts run, tests passed, and tests failed. It also sends a user alert message.
+
+5. The `cleanUp` method is used to abort the script and close the output file.
+
+6. The `__runVTECDecoder` method appears to be running a decoder on a forecast, possibly to convert it into a different format or to extract certain information.
+
+7. The `main` function sets up the environment and loads the necessary modules for the script to run. It appears to be setting up a user context for a testing environment, loading configuration preferences, and setting up a data manager instance. It also modifies the Python path to include necessary directories.
+
+This script appears to be a part of a larger Python application, possibly for testing or running some text products. 
+
+Here's a breakdown of what the code does:
+
+1. The first two for loops are appending the paths returned by `GfePyIncludeUtil.getTextProductsIncludePath()` and `GfePyIncludeUtil.getCombinationsIncludePath()` to the system path. These functions presumably return a string of paths separated by colons, which are then split into individual paths and added to the system path. This is typically done to allow Python to import modules from those directories.
+
+2. It then tries to create a directory specified by the `OUTPUT_DIR` variable. If the directory already exists (which raises an `OSError` with `errno` set to `EEXIST`), it ignores the error. If the error is due to another reason, it outputs the error message and the name of the file that caused the error.
+
+3. It gets another path from `GfePyIncludeUtil.getIToolIncludePath()`, instantiates an `IToolInterface` with that path, and then instantiates a `TextProductTest` on that interface.
+
+4. It creates a `ProcessVariableList` with the name 'TextProductTest' and a variable list, then gets a dictionary from that list. If the dictionary is `None` or empty, it returns and ends the execution.
+
+5. If the dictionary is not `None` or empty, it runs the `TextProductTest` on the `IToolInterface` with the method 'execute' and the variable dictionary as arguments.
+
+6. The last part is a common Python idiom which checks if the script is being run directly (as opposed to being imported as a module). If it is, it calls the `main()` function. This function is not defined in the provided code, so it's presumably defined elsewhere in the same file.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

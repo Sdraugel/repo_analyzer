@@ -1,0 +1,64 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>JsonSupport.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>JsonSupport.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is a Python script that provides support for loading and saving Python objects from/to localization files using JSON (JavaScript Object Notation) serialization. JSON is a lightweight data-interchange format that is easy for humans to read and write and easy for machines to parse and generate.
+
+Here is a breakdown of what the code does:
+
+1. It imports the `json` module, which provides methods to manipulate JSON data, and the `LocalizationSupport` and `JUtil` modules, which are presumably custom modules for localization and Java utility functions respectively.
+
+2. It defines four functions:
+
+   - `loadFromJson(localizationType, siteID, fileName)`: This function reads a file specified by the `fileName`, `siteID`, and `localizationType` parameters using the `readFile` function from the `LocalizationSupport` module. It then uses the `json.loads` function to parse the JSON data from the file into a Python object, which it returns.
+
+   - `saveToJson(localizationType, siteID, fileName, object)`: This function takes a Python `object` and converts it into a JSON string using the `json.dumps` function with specified formatting options. It then writes this JSON string to a file specified by the `fileName`, `siteID`, and `localizationType` parameters using the `writeFile` function from the `LocalizationSupport` module.
+
+   - `loadJsonFromJava(localizationType, siteID, fileName)`: This function uses the `loadFromJson` function to load a Python object from a JSON file, then converts this Python object to a Java object using the `pyValToJavaObj` function from the `JUtil` module, and returns the Java object.
+
+   - `saveJsonFromJava(localizationType, siteID, fileName, javaObject)`: This function takes a Java `javaObject` and converts it into a Python object using the `javaObjToPyVal` function from the `JUtil` module. It then uses the `saveToJson` function to save this Python object as JSON data in a file.
+
+The code also contains a software history log and a notice that the file is a base file not intended to be overridden. The notice at the top of the file indicates that the software was developed by Raytheon Company and contains export-restricted data.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

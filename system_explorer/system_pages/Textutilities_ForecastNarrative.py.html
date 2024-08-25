@@ -1,0 +1,258 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ForecastNarrative.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ForecastNarrative.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code is written in Python and is a part of a larger software system developed by the Raytheon Company. The software is related to weather forecasting, specifically narrative forecasts. The code includes a class definition for a Node, which appears to be part of a tree data structure. 
+
+The Node class includes methods for:
+- Initializing a new node with a list of child nodes and methods.
+- Getting the index of a node in its parent's list of children.
+- Getting the parent of a node.
+- Getting the component (second level ancestor) of a node.
+- Getting the name of the component of a node.
+- Getting the next sibling of a node.
+- Getting the previous sibling of a node.
+- Setting the value of a node's attribute.
+- Getting the value of a node's attribute, with a default value if the attribute doesn't exist.
+- Printing the node's details, including its methods and attributes.
+- Copying a node.
+- Inserting a child node before or after a sibling node.
+- Removing a node.
+
+The code also includes import statements for various modules and libraries that the software relies on, such as time, types, TextRules, SampleAnalysis, Translator, logging, AbsTime, TimeRange, and several modules from the com.raytheon package. 
+
+The code is in the public domain and is provided "as is", without any warranty or technical support. The software history shows that it has been updated over time, with the most recent update fixing a bug introduced by Python 3 updates.
+
+The provided code appears to be a part of a Python script that defines classes and methods for managing a tree data structure. The tree is composed of nodes, each of which can have a parent and a list of children. Here's a breakdown of the main functionalities:
+
+1. Node Removal: The code includes a method for removing a node from its parent's child list.
+
+2. Child Search: There's a method to find a child node based on a given attribute and its value.
+
+3. Progeny Retrieval: A method is provided to retrieve all progeny (children, grandchildren, etc.) of a node.
+
+4. Node Replacement: The code includes a method to replace a node in the parent's child list with a list of new nodes.
+
+5. Time Range: There's a method to get the time range associated with a node or its ancestors.
+
+6. Statistical Data: The code includes a method to get a statistical dictionary associated with a node, and it handles disabled elements and subkeys.
+
+7. Area Label: There's a method to get the area label associated with a node or its ancestors.
+
+8. Ancestor and Descendant Search: The code includes methods to get or set an attribute in an ancestor of a node, and to get an attribute in a descendant of a node.
+
+9. Narrative Class: This class inherits from the Node class and another class called TextRules. It seems to be the root of the tree and has methods for printing the tree, getting topography data, making new nodes, and handling components and phrases.
+
+Please note that without the full context or the complete code, some assumptions had to be made in this analysis.
+
+The provided code seems to be part of a larger Python program that deals with managing and manipulating phrases and statistics in a dictionary-like data structure. Here's a breakdown of what the different parts of the code do:
+
+1. `copyPhrase` function: This function creates a copy of a given node (or phrase) with the option to modify certain attributes like timeRange, areaLabel, and parent. It also allows specific attributes to be copied from the original node.
+
+2. `addPhrase` function: This function creates a new phrase that follows a given phrase. It uses the `copyPhrase` function to create the new phrase and then inserts it after the given phrase in its parent node.
+
+3. `addPhraseDef` function: Similar to `addPhrase`, but instead of copying an existing phrase, it creates a new phrase using a given phrase definition.
+
+4. `StatisticsDictionary` class: This class extends from `TextRules.TextRules` and seems to be a specialized dictionary for storing and retrieving statistical data. It has the following methods:
+    - `__init__`: Initializes the dictionary and library attributes.
+    - `set`: Sets a value in the dictionary using a sequence of keys.
+    - `get`: Retrieves a value from the dictionary using a sequence of keys. It also has options for merging data and intersecting with other data.
+
+The `get` method in the `StatisticsDictionary` class is quite complex. It attempts to retrieve a value from the dictionary and if it can't find an exact match, it gathers stats from anything overlapping the time range. It also has logic to handle duplicates and ensure the resulting stats are in chronological order. The method also seems to have some commented out debug print statements.
+
+This code file appears to be part of a larger system, possibly related to weather forecasting or some kind of data analysis. The code is written in Python and contains several functions and a class.
+
+The first function `getMergedStats` seems to be merging some statistical data based on a given method, element, time range, area label, and data type. The function returns the merged value.
+
+The next two functions, `printDictionary` and `printDict`, are used for printing the contents of a dictionary. If an element is specified, it prints the dictionary for that element. If the value in the dictionary is another dictionary, it recursively prints its contents as well.
+
+The `ForecastNarrative` class appears to be a subclass of `TextRules` and `SampleAnalysis`. The class is used to process a narrative-type text product. It has several methods, including `__init__`, `getNarrativeData`, `ut`, `sampler`, `statisticsDictionary`, `issuanceInfo`, and `generateForecast`.
+
+The `__init__` method initializes the class with several attributes, including a logger.
+
+The `getNarrativeData` method seems to be the main method of the class. It takes several arguments and performs a series of operations such as setting up general attributes, breaking out the definition into components and sampling information, calling the samplers, and creating a statistics dictionary. If there's an error at any point, it returns the error.
+
+The `ut`, `sampler`, `statisticsDictionary`, and `issuanceInfo` methods are simple getter methods that return the respective attributes.
+
+The `generateForecast` method appears to create a narrative tree and then generates a forecast for a given edit area and area label. If the edit area is not provided, it fetches it from the argument dictionary.
+
+This code appears to be part of a larger program that is generating or manipulating a narrative tree structure. The narrative tree structure seems to be a data structure that holds information related to a narrative or story, with different nodes representing different parts of the narrative.
+
+The code first initializes or updates certain attributes of the narrative tree, such as the edit area, area label, and a change flag. It also retrieves some values from the narrative tree, such as the trace and combinations, and stores them in the appropriate variables.
+
+The main part of the code is a while loop that continues as long as changes are being made to the narrative tree. Within this loop, the code traverses the tree and makes changes. If the number of passes exceeds a certain limit or if no changes are being made and the words attribute of the narrative tree is None, the code attempts to recover from the error by doing a "last chance" pass or a "fix it" pass.
+
+The traverseTree method is defined to traverse the narrative tree from the top down. It executes methods at each level of the tree and checks if any changes have been made. If changes have been made at the current level or at a child's level, it returns True, indicating that changes have been made.
+
+The __breakOutDefinition method seems to be setting up some lists and dictionaries related to the narrative tree, but it's not clear from the provided code what exactly it's doing.
+
+Finally, the code prints the time taken for phrase generation, retrieves the words from the narrative tree, and returns these words. If the narrative tree has been fixed, it also logs any problems.
+
+This Python code is part of a larger system that seems to be dealing with some sort of time series or geospatial data analysis. It appears to be part of a class, as it uses the `self` keyword to reference instance variables and methods. Here's a breakdown of what the code does:
+
+1. The first line `return self.__compList` is returning a private instance variable `__compList`. This variable seems to be a list of components that the class is dealing with.
+
+2. The code then initializes several variables, including `firstTime`, `samplerRequests`, `statisticsDict`, and `moreAreas`. It also records the current time in `time1`.
+
+3. A loop is then started which iterates over `self.__compList`. For each component, it performs several operations including creating analysis lists, handling additional areas, handling intersect areas, and adding to samplerRequests and statisticsDict.
+
+4. The `__breakOutTimeRange` function seems to be used to break down a given time range into smaller components based on some rules. It takes several parameters including `argDict`, `timeRange`, `narrative`, `currentLocalTime`, and `shift`. It calculates the local time at midnight and then iterates over the `narrative` to create a list of tuples containing forecast type and time range.
+
+5. The code also contains several commented-out print statements, which were likely used for debugging purposes.
+
+Overall, this code seems to be part of a larger system that's dealing with some sort of time series or geospatial data, and is performing complex operations like sampling, intersection, and breaking down time ranges.
+
+The code is written in Python and seems to be part of a larger system, possibly related to weather forecasting or a similar time-series data analysis system.
+
+1. The first part of the code handles a time range for a component. If the period is zero, it sets the duration to 1 hour, else it sets the duration to the period. It then creates a time range for the component.
+
+2. It then gets the definition for the component. If the component subtype is "Phantom", it sets the forecast definition to an empty dictionary. If not, it gets the forecast definition from a function `getFcstDef`. If the definition is not found, it raises an exception.
+
+3. The component is then appended to a list of components, `compList`.
+
+4. The `__getAnalysis` method takes an analysis and returns the element and a tuple of the method and arguments.
+
+5. The `__findMethods` method finds the entries in the analysisList for a given element and returns a list of tuples of the method and arguments for that element.
+
+6. The `__intersectEditAreas` method intersects the local effect area with all the edit areas in `self.__areaList` and returns a list of intersected areas.
+
+7. The `__addToRequests` method adds to a list of sampler requests. It also updates a dictionary `statisticsDict` with the element, area label, time range, and other related information.
+
+8. The `findEditArea` method returns a given edit area or a cached edit area for a given label. If the area is not in the cache, it is added.
+
+9. The `__parmID` method returns a parameter ID for a given element, either from cache or by calling the `getParmID` method.
+
+10. The `__createStatisticsDictionary` method sets up a skeleton tree and node, and expands the `__statisticsDict` dictionary. It gets conversion information and units for each element in the dictionary.
+
+This code is a part of a larger program that seems to be performing some sort of statistical analysis on data related to weather elements (like WindChill, WindGust, etc.). Here's a breakdown of what's happening in this code:
+
+1. The code first retrieves conversion, adjustment, and rounding methods for a given weather element from a product object, presumably to later manipulate the data related to that element.
+
+2. It then loops over an area dictionary, which appears to contain data for different geographical areas. For each area, it retrieves an edit area and a dictionary of time ranges.
+
+3. For each time range, it retrieves a list of method arguments, a component name, and a statistics dictionary. It then gets a parameter histogram for the current weather element, area, and time range.
+
+4. The code then loops over the method arguments list, gets statistics for each argument, converts these statistics using the previously retrieved methods, and stores the converted statistics.
+
+5. After all statistics have been processed, the code makes another pass over the area dictionary to remove the method arguments list and component name from the time range dictionary, leaving only the statistics dictionary.
+
+6. The processed statistics are then stored in a statistics dictionary object.
+
+7. Two helper methods, `__getStatistics` and `__convertStatistics`, are defined. The first method retrieves statistics for a given weather element, time range, and area. The second method converts these statistics based on the data type of the weather element.
+
+The commented out lines in the code suggest that the developer was using print statements for debugging purposes. They might have been trying to track the values of certain variables at different stages of the program's execution.
+
+This Python code is part of a larger system, possibly related to data analysis or processing. It consists of several methods that perform different tasks:
+
+1. The first code block is a conditional structure that checks if the variable `max` is not `None`. If it is not, it converts `max` using `convertMethod`, adjusts it if `adjustMethod` is a method, and then rounds it using `productSelf.roundValue`. It also applies ranges to `min` and `max` and stores them in `stats`. If `max` is `None`, it performs similar operations on `stats`. If `dataType` equals `self.VECTOR()`, `stats` is updated with `dir`. The results are appended to `newList`. If `simpleStatFlag` is `True`, it returns the first element of `newList`, otherwise, it returns `newList`.
+
+2. The `__storeStatistics` method takes several arguments and stores the statistics in a dictionary `trDict` for different time ranges. It also handles exceptions and special cases.
+
+3. The `__createNarrativeTree` method creates a narrative tree with various components and sets its properties. It doesn't return any value.
+
+4. The `getDataType` method retrieves the data type of an element from a cache. If the element is not in the cache, it retrieves the grid parameter information and determines the grid type, which is then stored in the cache and returned.
+
+5. The `getLimits` method retrieves the minimum and maximum values of a grid parameter.
+
+6. The `makeComponent` method creates a component with phrases and subphrases, sets its properties, and returns it.
+
+Please note that the code is incomplete, so the full context and functionality might not be fully captured in this analysis.
+
+This Python code appears to be part of a larger system that generates or manipulates phrases, possibly as part of a natural language processing system. 
+
+The `makePhrase` method is the core of this code snippet. It takes a `phraseDef` parameter, which can be a tuple or a simple method. If it's a tuple, it can contain an optional list of arguments and/or an optional local effect expressed as a list of LocalEffect objects or as a method. The method then creates a new `phraseNode` object, which is an instance of a `Node` class, and sets various attributes on it based on the `phraseDef` and the optional arguments and local effects.
+
+The `errorMsg` method generates an error message when there are too many passes on a tree or when the tree returns empty words. It also provides some troubleshooting advice.
+
+The `getProblemPhrases` method returns a string that describes problem phrases in the system. It iterates over a list of problem phrases and adds information about each one to the string.
+
+The `addMethods` method is a helper method that adds information about methods to a string. It's used by `getProblemPhrases`.
+
+The `errorTraverse` method seems to be used for debugging. It prints out information about a node and its children. If a leaf node (a node with no children) doesn't have any words, it adds an error message to the node and appends the node to the list of problem phrases.
+
+Note that the code is incomplete, so it's not entirely clear what the final part of the `errorTraverse` method does.
+
+This code is written in Python and appears to be part of a larger class or module. It defines three methods:
+
+1. `getSkeleton(self, timeRange, areaLabel)`: This method creates a tree structure with nodes that contain various attributes such as time range, area label, product time range, combinations, and edit area. It also creates a node that is a child of the tree, and assigns it attributes like time range, area label, and component name. The method then returns the tree and node.
+
+2. `errorTraverse(child, attrList=attrList)`: This method is not fully included in the provided code, but it appears to traverse through a list of child nodes and perform some error checking or handling.
+
+3. `getMergedStats(self, value, mergeMethod, elementName, timeRange, areaLabel, dataType=None)`: This method merges statistics based on the provided merge method. It can handle different data types and merge methods such as "List", "MergeBins", "Min", "Max", "MinMax", "Sum", and "Average". The method also handles cases where the value is None or the data type is not specified. It returns the merged statistics.
+
+Overall, the code seems to be part of a larger system that works with tree-like data structures and performs operations on them like traversing, creating a skeleton, and merging statistics.
+
+This code appears to be part of a larger program that processes and analyzes statistical data. Here's a breakdown of what each section does:
+
+1. The first section checks if the merge method is "Max". If so, it iterates over a list of values, and if a value is greater than the current maximum, it updates the maximum. If no maximum is found, it returns None. Otherwise, it returns the maximum value and its corresponding direction.
+
+2. The second section checks if the merge method is "MinMax". If so, it iterates over a list of values, updating the minimum and maximum as it goes. If no minimum or maximum is found, it returns None. Otherwise, it applies a range to the minimum and maximum values and returns them along with their direction.
+
+3. The third section handles the cases where the merge method is either "Sum" or "Average". It iterates over a list of values, summing them and counting the number of values. If the count is zero, it returns None. If the merge method is "Sum", it returns the sum and its direction. If the merge method is "Average", it calculates the average, rounds it, and returns it along with its direction.
+
+4. The fourth section handles the case where the data type is "Weather". It iterates over a list of values, adding them to a list. It then filters the list and returns it.
+
+5. The fifth section handles the case where the data type is "Discrete". It iterates over a list of values, adding them to a list, and then returns the list.
+
+6. The `isStatsByRange` function checks the data type of the value and performs different checks based on the data type. It returns a boolean value indicating whether the value is a list of certain types of tuples.
+
+7. The `screenStatsByRange` function filters a list of statistics by a given time range, returning a new list of statistics that overlap with the time range.
+
+8. The `mergeBins` function merges bins of data over a given time range, returning a single time-weighted bin list. If the input value is None or empty, it returns None. 
+
+The code seems to be incomplete as the last function `mergeBins` is not finished.
+
+This code is part of a function that merges multiple bin lists into one. Each bin list is a list of tuples, where each tuple represents a bin with a low value, a high value, and a percentage. 
+
+The function first initializes `numBins` as the length of the bin list and creates two empty lists: `newPercents` and `newBins`. It then populates `newBins` with the low and high values from the original bin list, and `newPercents` with zeros.
+
+Next, the function iterates over `value`, which is assumed to be a list of tuples. Each tuple in `value` contains a bin list and a subRange. The function calculates a weight for each bin list based on the duration of the subRange relative to the total time range. If the time range is greater than the subRange, the weight is set to 1.0 to ensure the percentage never exceeds 100. 
+
+The function then uses this weight to adjust the percentages in the bin list, adding them to the corresponding entries in `newPercents`.
+
+Finally, the function combines the low and high values in `newBins` with the adjusted percentages in `newPercents`, and returns the new bin list. 
+
+Please note that the `return None` at the beginning of the code seems out of place and would cause the function to exit immediately, returning None. It might be part of an error checking mechanism not shown in this code snippet.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

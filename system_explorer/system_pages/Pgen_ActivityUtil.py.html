@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ActivityUtil.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ActivityUtil.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is a utility for interacting with the PGEN (Product Generation) products from EDEX (Environmental Data Exchange). It contains a class called `ActivityUtil` that provides several methods for retrieving and processing data from the EDEX server.
+
+Here's a summary of what each method does:
+
+1. `getActivityMap`: This method sends a `RetrieveActivityMapRequest` to the EDEX server to get a list of PGEN Activity Types, Subtypes, Labels, refTimes, and associated dataURIs in the PGEN database tables. It uses the host and port specified in the environment variables `DEFAULT_HOST` and `DEFAULT_PORT`, or defaults to "localhost" and "9581" if these are not set. It then generates a map (dictionary) of this data using the `__generateMap` method.
+
+2. `__generateMap`: This private method takes the response from the EDEX server and generates a map (dictionary) of activity types/subtypes, labels, refTimes, and dataURIs. The map's keys are the activity types in the form "type(subtype)", and the values are lists of dictionaries containing the activity details.
+
+3. `matcher`: This method compares a command line string with an activity string. It uses string methods to check if the command line string matches the activity string, allowing for wildcard characters ("*") at the start or end of the command line string.
+
+4. `stringMatcher`: This method also compares a command line string with an activity string, but it uses regular expressions for matching. It allows for wildcard characters ("*") anywhere in the command line string.
+
+5. `__parseResponse`: This private method parses an XML response from the uEngine and extracts the value for the `dataURI` field. If multiple values are returned, it uses the last one.
+
+Overall, this script is designed to interact with the EDEX server, retrieve PGEN activity data, and provide utility functions for processing and matching this data.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

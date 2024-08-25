@@ -1,0 +1,56 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ExSS5.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ExSS5.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This code is a part of a software developed by Raytheon Company. The software is in the public domain and is provided without any warranty or technical support. The software is subject to U.S. export control laws and requires an export license or other authorization for dissemination to non-U.S. persons.
+
+The software appears to be a tool for analyzing weather data. It is specifically designed to work with temperature data ("T") and uses the numpy library and a module named SmartScript.
+
+The main class in this code is named "Tool" and it inherits from the SmartScript class. The Tool class has an `__init__` method for initialization and an `execute` method that performs the main functionality of the tool.
+
+The `execute` method takes in a GridTimeRange, Topo, and varDict as parameters. It accesses QPF and tp grids directly, converts Topo to meters, and creates sounding cubes for temperature. It then initializes a temperature grid with values of -200 and works "upward" in the cubes to assign temperature values. The method uses conditions to determine when to set the temperature value and when to keep the value already set. It also handles the first level by extrapolating. Finally, it converts the temperature from Kelvin to Fahrenheit and returns the result.
+
+The code also handles exceptions, specifically in the part where it interpolates between levels. If an error occurs during interpolation, it will handle the first level by extrapolating.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

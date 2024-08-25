@@ -1,0 +1,64 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>AddGfeCombinationsPermissions.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>AddGfeCombinationsPermissions.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The script is written in Python and is designed to add a specific permission to all users in the system. Here's a breakdown of what it does:
+
+1. It defines a path to the user roles files (`USER_ROLES_PATH`), and the permission to be added (`COMBINATIONS_PERMISSION`).
+
+2. It imports necessary modules: `glob` for file pathnames matching, `sys` for system-specific parameters and functions, and `xml.etree.ElementTree` for XML parsing and creating.
+
+3. The `main()` function is defined, which does the main work of the script.
+
+4. It loops over all the XML files in the `USER_ROLES_PATH` using `glob.iglob()`, which returns an iterator that produces the same values as `glob.glob()` without actually storing them all simultaneously.
+
+5. For each file, it parses the XML and gets the root element.
+
+6. It then iterates over all "user" elements in the XML. For each user, it checks the "userId" attribute. If the "userId" is "ALL", it then checks if the user already has the `COMBINATIONS_PERMISSION`.
+
+7. If the user already has the permission, it prints a message indicating this. If the user does not have the permission, it adds a new "userPermission" sub-element to the "user" element with the text set to `COMBINATIONS_PERMISSION`, and then writes the updated XML back to the file.
+
+8. The script is set to execute the `main()` function if it is run as a standalone file (i.e., not imported as a module in another script).</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

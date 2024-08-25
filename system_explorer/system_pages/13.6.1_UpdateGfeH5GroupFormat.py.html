@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>UpdateGfeH5GroupFormat.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>UpdateGfeH5GroupFormat.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to update the format of HDF5 (Hierarchical Data Format) group names in a file system. HDF5 is a data model, library, and file format for storing and managing data. It supports an unlimited variety of datatypes, and is designed for flexible and efficient I/O and for high volume and complex data.
+
+The script is specifically targeted at files located in the "/awips2/edex/data/hdf5/gfe" directory. It looks for files with the extension ".h5", which are HDF5 files, and ignores files that end with "_GridParm.h5".
+
+The script defines two regular expressions, `oldGroupFormat` and `newGroupFormat`, to match the old and new group name formats respectively. The old format is something like "T::SFC::2013_07_04_06--2013_07_04_07" and the new format is like "T::SFC::20130704_0600--20130704_0700".
+
+The `updateFile` function opens each HDF5 file, retrieves the group names, and checks whether each group name matches the old or new format. If a group name matches the old format, it is converted to the new format. If a group name matches the new format, it is left as is. If a group name doesn't match either format, a message is printed.
+
+The `repack` function repacks the HDF5 files using the `h5repack` tool. This tool can be used to copy an HDF5 file to a new file with or without compression and or/chunking.
+
+The `processDir` function recursively processes directories, updating the HDF5 files and repacking them. It skips directories named 'Topo' and 'climo'.
+
+The `main` function starts the processing at the root directory specified by `hdf5loc`.
+
+In summary, this script is used to update the format of group names in HDF5 files and repack the files.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Curing_from_Green.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Curing_from_Green.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is named "Curing_from_Green.py" and is a part of a public domain software. It is used to populate a percentage green grid for the Rangeland Fire Danger Index. 
+
+The script imports the SmartScript module and the math and numpy libraries. It defines a class named "Tool" that inherits from the SmartScript class. 
+
+In the `execute` method, it reads data from text files named "ne.green.txt" and "ia.green.txt" located in the "/data/local/PercentGreen/" directory. These files contain percentage green data for the states of Nebraska (NE) and Iowa (IA) respectively. 
+
+The script then filters out areas in the database that have a FIPS code (a unique identifier for geographic areas in the US) of length 6 and whose first two characters match the state keys (NE and IA). If the third character in the FIPS code is "C", the area is considered a valid FIPS code and is added to the `FIPSonly` list.
+
+For each state, the script reads the corresponding data file, cleans the data, and stores it in a dictionary (`datadict`) where the keys are the FIPS codes and the values are the corresponding data values from the file.
+
+Finally, the script creates a new grid (`newgreen`) with the same shape as the input grid (`Curing`). For each zone in the `datadict`, it encodes the edit area and assigns the corresponding data value to the `newgreen` grid. If no new data is found, it defaults to zero. The script then calculates the `Curing` grid as 100 minus the `newgreen` grid and returns it. 
+
+This script is likely used for environmental or geographical analysis related to fire danger prediction.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

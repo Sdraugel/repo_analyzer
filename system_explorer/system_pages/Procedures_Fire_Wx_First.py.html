@@ -1,0 +1,79 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Fire_Wx_First.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Fire_Wx_First.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This script, named `Fire_Wx_First.py`, appears to be part of a weather forecasting system related to fire weather conditions. It's written in Python and uses a module named `SmartScript` which seems to provide methods for manipulating weather data.
+
+The script defines a class `Procedure` that inherits from `SmartScript.SmartScript`. This class has two methods: `__init__` and `execute`. 
+
+The `__init__` method is the constructor for the class and it initializes the parent class with the `dbss` parameter.
+
+The `execute` method does the main work. It loads a group of weather elements related to fire weather (`FireWx`), saves the selected model type (`fwModel`), and determines the start and end times based on the current hour. 
+
+It then deletes old grids of data for various weather elements like `MaxRH`, `MinRH`, `Haines`, `MixHgt`, `TransWind`, `VentRate` in the specified time range.
+
+Depending on the selected model (`fwModel`), it creates new scratch grids for these weather elements with different parameters.
+
+The script then calls various tools (presumably defined elsewhere in the system) to populate and process the data for these weather elements. These tools include `MaxRH_Tool`, `MinRH_Tool`, `Haines`, `MixHgt_FWF`, `TransWind_NoVar`, `VentRate`, and `LAL_Tool`.
+
+Finally, it interpolates the data for `MixHgt`, `VentRate`, `TransWind`, `Haines` to hourly grids.
+
+There are several commented out lines in the script that suggest additional functionality that could be included, such as calculating the average values of certain parameters, calculating the hours of sun, and calculating a parameter called `RFD`.
+
+The script also includes a `VariableList` which seems to be used for setting up a user interface for selecting the model type. There are also commented out lines that suggest additional options that could be added to this interface.
+
+The code is performing the following operations:
+
+1. It sets the variable `dur` to 10.
+2. It sets the variable `startt` to 14.
+3. It calculates the `timelength` by adding `dur` and `startt`.
+4. It creates a time range `rfd_tr` using the `createTimeRange` function, with `startt`, `timelength`, and "Zulu" as arguments.
+5. It calls the `createFromScratchCmd` function with the arguments `['RFD']`, `rfd_tr`, 1, and 1. This function seems to create a command from scratch for the 'RFD' (Rainfall Deficit) parameter.
+6. It calls the `callSmartTool` function with the arguments "CalculateRFD", "RFD", None, `rfd_tr`, and `varDict`. This function seems to be a tool that performs some calculation on the 'RFD' parameter.
+7. It calls the `createFromScratchCmd` function again, this time with the arguments `['RFDmax']`, `rfd_tr`, 0, and `timelength`. This function seems to create a command from scratch for the 'RFDmax' parameter.
+8. It calls the `callSmartTool` function again, this time with the arguments "RFDmax", "RFDmax", None, `rfd_tr`, and `varDict`. This function seems to be a tool that performs some calculation on the 'RFDmax' parameter.
+
+In summary, this code creates time ranges and commands for the 'RFD' and 'RFDmax' parameters, and then performs some calculations on these parameters using a smart tool. The specific details of these operations would depend on the implementation of the `createTimeRange`, `createFromScratchCmd`, and `callSmartTool` functions, as well as the contents of `varDict`.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

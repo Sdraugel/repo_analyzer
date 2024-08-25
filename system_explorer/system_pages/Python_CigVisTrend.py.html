@@ -1,0 +1,96 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>CigVisTrend.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>CigVisTrend.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This is a Python script named `CigVisTrend.py` developed by Raytheon Company. The script is subject to U.S. export control laws and contains technical data that may not be exported or disclosed without an export license or other authorization.
+
+The script appears to be part of a larger software system, possibly related to aviation forecasting (as suggested by the use of METAR, which is a format for reporting weather information). It seems to be used for displaying ceiling/visibility trend based on selected initial conditions, which could be useful for flight planning.
+
+The script imports several modules, including `os`, `sys`, `numpy`, `tables`, `Avn`, `AvnConfigParser`, and `ClimLib`. It also defines several variables and a function named `ff_range`.
+
+The `ff_range` function appears to be used for categorizing wind speed (`ff` likely stands for "force of wind") into different categories based on the provided value. The categories are defined in the `CatDict` dictionary.
+
+The script also contains a detailed history of changes made to it, including the date of the change, the person who made the change, and a brief description of what was changed. This is a common practice in software development to keep track of modifications and to understand why they were made.
+
+Please note that without the complete context or the rest of the code, some assumptions have to be made based on the provided information.
+
+The provided code is a part of a larger Python program that seems to be related to weather data processing, specifically dealing with visibility and ceiling (the height above the ground from which prominent objects on the ground can be seen and identified) trends.
+
+Here's a brief description of what each function does:
+
+1. `vsby_range(value)`, `cig_range(value)`: These functions take a value as input and check if it falls within a certain range defined by the 'vsby' and 'cig' keys in the CatDict dictionary. If the value is not within the range, a ValueError is raised.
+
+2. `_cigCat(v)`, `_visCat(v)`: These functions take a value as input and return a category number based on the input value. If the value is not less than a certain threshold, the NumCat value is returned.
+
+3. `squeeze(matches, tref)`: This function eliminates multiple events within the same time window from the matches list. It returns the sorted values.
+
+4. `process_data_worst(count, data, ref_t, num_hours, table, listener)`: This function processes weather data and updates count dictionaries based on the visibility and ceiling values. It also checks if a listener has been canceled and raises a KeyboardInterrupt if it has.
+
+5. `Gui()`: This is a class that seems to be used for creating a graphical user interface (GUI). It has methods for getting site configurations, retrieving METAR data (a format for reporting weather information), and analyzing weather trends.
+
+The `trend` method in the `Gui` class uses various helper functions to select data based on time and weather conditions. It seems to be the main function for analyzing weather trends.
+
+The code ends abruptly, so it's not possible to provide a complete analysis of the `trend` method or the `Gui` class.
+
+This code is part of a larger program that performs data analysis on weather data. The specific functions it performs are:
+
+1. It checks if certain conditions are met in the data (visibility, precipitation, etc.) and returns either True or False based on these conditions.
+
+2. It converts units of various weather parameters like wind direction, wind speed, visibility, etc. using the `ClimLib.us2hd_*` functions.
+
+3. It rounds the current hour to the nearest full hour.
+
+4. It creates a time selector based on the day and hour.
+
+5. It selects days that match certain criteria and calculates statistics for different weather parameters.
+
+6. It processes the data and calculates frequencies of different categories.
+
+7. The `get_data` function takes a dictionary of selection criteria, an ID, a number of hours, a filename, and a listener as arguments. It checks if the file exists, opens it, and reads the data. It then processes the data and sends it to the listener.
+
+8. The listener receives the processed data and sends it to the user. If the listener is cancelled, it raises a KeyboardInterrupt exception.
+
+In general, this code is used for analyzing and processing weather data based on certain selection criteria. It also includes error handling to ensure the file exists and the listener is not cancelled.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

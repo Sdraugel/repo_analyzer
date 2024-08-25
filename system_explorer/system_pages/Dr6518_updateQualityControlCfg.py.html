@@ -1,0 +1,92 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>updateQualityControlCfg.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>updateQualityControlCfg.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The given Python script is designed to update XML configuration files related to weather warnings. It's specifically designed to support the DSW (Dust Storm Warning) and SQW (Snow Squall Warning) WarnGen products.
+
+Here's a breakdown of what the script does:
+
+1. It sets up logging for the script, with a specific format and level.
+
+2. It defines the path to the XML configuration files that need to be updated.
+
+3. In the main function, it logs the start of the script and then loops over all the XML files in the defined path.
+
+4. For each file, it parses the XML and gets the root of the XML tree.
+
+5. It then looks for specific elements in the XML tree (`productTypeMap`, `followupNNN`, `nnnOfIdent`, `bulletTypeMap`) and checks if certain key-value pairs are present in these elements.
+
+6. If these key-value pairs are not present, it adds them to the respective elements.
+
+7. If it cannot find the specific elements in the XML tree, it logs an error message and continues with the next file.
+
+8. After updating the XML tree, it makes a backup of the original file.
+
+9. It then cleans up the updated XML tree by removing unnecessary newlines and spaces.
+
+10. Finally, it tries to add new entries for 'DSW' and 'SQW' to the 'SegmentedNNN' tags in the XML. If this fails, it logs an error message.
+
+The script is designed to be run from the command line and does not take any arguments. It logs its progress and any errors that occur during execution.
+
+This script is designed to update XML files by inserting a new 'SegmentedNNN' entry if it does not already exist in the file. Here's a breakdown of what the code does:
+
+1. It formats a string 'SegmentedNNN' with a variable 'pil'. 
+
+2. It checks if this formatted string already exists in the 'pretty_xml' string (which presumably contains the content of the XML file). 
+
+3. If the 'SegmentedNNN' entry does not exist, it finds the last occurrence of the '</SegmentedNNN>' closing tag in 'pretty_xml', and calculates the index where the new 'SegmentedNNN' entry should be inserted.
+
+4. It then creates the new 'SegmentedNNN' entry, ensuring it is indented correctly and followed by a newline character.
+
+5. The 'pretty_xml' string is then updated by slicing it at the calculated index, inserting the new 'SegmentedNNN' entry, and appending the rest of the original 'pretty_xml' string.
+
+6. If the '</SegmentedNNN>' tag cannot be found (raising a ValueError), or any other exception occurs, an error message is logged and the script continues to the next file.
+
+7. If no exceptions are raised, the updated 'pretty_xml' string is written back to the file.
+
+8. Once all files have been processed, a log message is printed to indicate the completion of the script.
+
+9. The script is designed to be run as a standalone program, and will call the 'main' function if it is run directly (i.e., not imported as a module).</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

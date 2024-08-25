@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>BatchHeaderUpdater.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>BatchHeaderUpdater.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is a command-line utility that updates the headers of files. The script was developed or modified by Raytheon Company under a US Government contract. 
+
+The script starts by defining its version number and importing necessary modules. The `optparse` module is used for parsing command-line options and arguments, and `HeaderUpdater` is presumably a custom module for updating file headers.
+
+The `main()` function is the main entry point of the script. It first sets up an `OptionParser` object to handle command-line arguments. The usage message and version information are specified, and an option group is added for specifying a file that contains a list of files to process. The `HeaderUpdater` module is also given a chance to add its own command-line options.
+
+The script then parses the command-line arguments. If a single argument is provided, it's assumed to be the name of a file containing a list of files to process. If no argument is provided, or if the argument is "-", the script reads from standard input instead.
+
+The script then reads the list of files to process, either from the specified file or from standard input. It processes each file in turn by calling `HeaderUpdater.main()` with the command-line options and the file name.
+
+Finally, the script checks if it's being run as a standalone program (as opposed to being imported as a module). If it is, it calls the `main()` function to start the script.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

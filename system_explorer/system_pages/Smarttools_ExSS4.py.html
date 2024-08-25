@@ -1,0 +1,76 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ExSS4.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>ExSS4.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script appears to be part of a larger software system, possibly related to weather or atmospheric data analysis, developed by the Raytheon Company. It includes a class definition for a tool that calculates temperature (T) from model data.
+
+Here's a breakdown of what the code does:
+
+1. It imports necessary modules and defines some variables.
+
+2. It defines a class `Tool` that inherits from `SmartScript.SmartScript`. This class has two methods: `__init__` and `execute`.
+
+3. The `__init__` method is the constructor for the class. It initializes the class with `dbss`, a database session.
+
+4. The `execute` method is where the main functionality of the tool resides. It takes three arguments: `GridTimeRange`, `Topo`, and `varDict`.
+
+5. Inside the `execute` method, it does the following:
+
+   - Retrieves the model data from `varDict`.
+
+   - Converts the topography data (`Topo`) from feet to meters.
+
+   - Creates sounding cubes for temperature at different atmospheric pressure levels (1000mb, 850mb, 700mb, 500mb).
+
+   - Initializes a temperature grid (`T`) with values of -200, which is an out-of-range value used to identify values that have not been set yet.
+
+   - Iterates over the height levels in the sounding cubes. For each level, it identifies where the geopotential height is greater than the topography and the temperature has not been set yet. In these locations, it sets the temperature to the corresponding value from the temperature cube.
+
+   - Converts the temperature from Kelvin to Fahrenheit.
+
+   - Returns the temperature grid in Fahrenheit.
+
+This tool seems to be used for generating a temperature profile based on model data and topography. It's likely used in meteorological or climate studies.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

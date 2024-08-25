@@ -1,0 +1,60 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>updateCoordinates.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>updateCoordinates.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to update the format of coordinates in XML files located in specific directories. It's intended to be run on dx3/dv3 systems.
+
+The script starts by importing necessary libraries and setting up some constants and regular expressions. The regular expressions are used to identify the old coordinate format in the XML files and define the new format.
+
+The script uses Python's logging library to log its activities. The logger is configured to include timestamps, log levels, and messages in its output.
+
+The `processDir` function is used to process a directory. It walks through the directory and its subdirectories, and for each XML file it finds, it calls the `updateFile` function.
+
+The `updateFile` function opens an XML file, reads its contents, and uses the `subn` method of the `re` module to replace all occurrences of the old coordinate format with the new format. If any replacements were made, it creates a backup of the original file (appending a specific DR number and "bak" to the filename), and then writes the updated contents back to the original file. If there's an error reading or writing a file, it logs the error and returns 1, otherwise it returns 0.
+
+The `main` function is the entry point of the script. It logs that it's starting, then processes each path in the `CONFIG_PATHS` list (or command line arguments if provided). For each path, it checks if it's a directory or a file and calls the appropriate function. If any errors occurred (indicated by a non-zero return value), it logs an error message, otherwise it logs a completion message.
+
+The script is intended to be run as a standalone program, as indicated by the `if __name__ == '__main__':` line at the end. If the script is run directly (rather than being imported as a module), it calls the `main` function and exits with its return value.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

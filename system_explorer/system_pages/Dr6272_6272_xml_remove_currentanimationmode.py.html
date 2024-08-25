@@ -1,0 +1,70 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>6272_xml_remove_currentanimationmode.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>6272_xml_remove_currentanimationmode.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is designed to update XML bundle files in a specific directory by removing the "currentAnimationMode" elements and attributes. 
+
+Here's a step-by-step breakdown of what the script does:
+
+1. It starts by finding all XML files in the "/awips2/edex/data/utility/*/*/*/bundles" directory and its subdirectories. The script uses a shell command to find these files and stores their paths in a list.
+
+2. For each XML file, it parses the file into an ElementTree object, which allows the script to interact with the XML data in a Pythonic way.
+
+3. It then tries to find a specific sequence of nested elements in the XML tree: 'displayList' -> 'displays' -> 'descriptor'. If any of these elements are not found, it skips to the next file.
+
+4. Within the 'descriptor' element, it looks for the 'currentAnimationMode' element and attribute. If either is found, it proceeds to the next step. If not, it skips to the next file.
+
+5. Before making any changes, it creates a backup of the current file by copying it and appending ".bak" to the filename.
+
+6. It then removes the 'currentAnimationMode' attribute from the 'descriptor' element, if it exists. If the 'currentAnimationMode' element exists, it also removes this from the 'descriptor' element.
+
+7. It then attempts to write the updated XML tree back to the original file, preserving the UTF-8 encoding and including the XML declaration. If this fails for any reason, it restores the original file from the backup.
+
+8. Finally, it attempts to delete the backup file. If this fails, it simply moves on to the next file.
+
+9. Once all files have been processed, it prints a message to indicate that it's done.
+
+The script is designed to be run as a standalone program, and will exit with the return value of the main() function when run.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

@@ -1,0 +1,85 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>serpFile.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>serpFile.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code appears to be a Python script for a tool named "serpFile" version 2.0. This tool is designed to read a comma-delimited file containing location and control point information, which is used to perform operations on a grid. The file contains station IDs, latitudes, longitudes, and data values. 
+
+The tool is designed to be run without user input, making it suitable for automated tasks like cron jobs. It ignores lines with less than four comma-delimited values, and only uses the first four fields of lines with more than four comma-delimited values. It also ignores stations located off the GFE grid and multiple sites lying on the same GFE grid point.
+
+The tool operates on the current grid, using the values supplied in the file and stores the results back into the same grid. It performs clipping so that the values of the new grid do not exceed the allowable values for the grid. It works only for scalar grids, not vectors or weather/discrete elements.
+
+The script also contains a configuration section where the filename to read and the elevation factor can be set. The elevation factor is used for elevation adjustment. 
+
+The script uses several imported Python libraries including numpy, SmartScript, ObjAnal, os, and re. The main class of the script is Tool which inherits from SmartScript.SmartScript. It has several methods including execute (the main method), getDataLocations, and readFILE.
+
+The execute method reads data lines from the file, sets up data locations from the file, performs objective analysis on the data, clips the new data to the grid min/max, and returns the clipped data.
+
+The getDataLocations method is used to read data values from the data lines. 
+
+The readFILE method is not shown in the provided code, but it's presumably used to read the data file.
+
+The script also contains copyright and licensing information, as well as authorship and version history.
+
+This code is written in Python and it seems to be part of a larger program that deals with geographical data. It contains two main sections:
+
+1. The first section is a function that processes a list of data lines, each containing an identifier, latitude, longitude, and a value. The function performs several operations:
+
+   - Cleans up the latitude, longitude, and value strings by removing any non-numeric characters.
+   - Converts the cleaned strings to floating point numbers.
+   - Checks if the latitude and longitude values are within valid ranges.
+   - Converts the latitude and longitude to grid cell coordinates.
+   - Checks if the grid cell coordinates are valid and if they have been used before.
+   - Checks if the value is within a valid range and adjusts it if necessary.
+   - Appends the processed data to a list and returns it.
+
+2. The second section is a function that reads a file and returns a list of data lines. It performs several operations:
+
+   - Checks if the file exists.
+   - Reads the file line by line.
+   - Ignores lines that are empty, start with a comment symbol (#), or do not contain at least 4 comma-separated fields.
+   - Returns a list of valid data lines.
+
+The overall purpose of this code seems to be to read geographical data from a file, process it, and store it in a structured format for further use.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

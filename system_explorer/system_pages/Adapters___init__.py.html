@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>__init__.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>__init__.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is part of a larger software package developed by Raytheon Company. It appears to be a part of a dynamic serialization system, specifically the `__init__.py` file for the `dynamicserialize.adapters` package.
+
+The code begins with a large comment block providing information about the software's development, export control restrictions, licensing information, and a brief history of software updates.
+
+The main purpose of this code is to manage the registration and discovery of adapter classes for serialization. These adapters are used to convert complex data types into a format that can be easily stored or transmitted, and then convert them back into their original form.
+
+The `__all__` list at the top of the file declares the names of all modules in the package that should be imported when `from dynamicserialize.adapters import *` is used.
+
+The `classAdapterRegistry` dictionary is used to store references to the adapter classes that have been registered.
+
+The `getAdapterRegistry` function discovers and registers all adapter classes in the package. It uses the `pkgutil.iter_modules` function to iterate over all modules in the package's path, adding any new ones to the `__all__` list and registering their adapters.
+
+The `registerAdapters` function is used to import and register the adapter classes from a list of module names. It imports each module, retrieves its `ClassAdapter` attribute (which should be a class or a list of classes), and adds it to the `classAdapterRegistry` dictionary. If a module doesn't have a `ClassAdapter` attribute, it raises a `LookupError`.
+
+Finally, the `getAdapterRegistry` function is called at the end of the file to perform the initial discovery and registration of adapters when the package is imported.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

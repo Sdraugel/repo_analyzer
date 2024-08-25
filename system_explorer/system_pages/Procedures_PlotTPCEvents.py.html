@@ -1,0 +1,68 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>PlotTPCEvents.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>PlotTPCEvents.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script, developed by Raytheon Company, is part of a software that handles and processes meteorological data. The main purpose of this script is to synchronize hazards from the Tropical Prediction Center (TPC) that are in the active table for some zones.
+
+The script contains a class named `Procedure` that inherits from `SmartScript.SmartScript`. This class has methods for handling and processing hazard data. The key methods are `getWatches` and `removeHazardByZone`.
+
+The `getWatches` method returns active and cancelled watches. These watches are represented as dictionaries with keys of (phen, sig) and values of zone IDs. The method filters through a VTEC table, and processes only records from the right pil and only looks at the KNHC records. It then categorizes the records into active and cancelled events.
+
+The `removeHazardByZone` method removes all tropical grids from the Hazards inventory that contain the specified phen, sig for the given zone. The zone can be a single zone name, or a list of zones.
+
+The script also contains metadata about the software's history, licensing information, and the contractor's details. It also specifies that the software is in the public domain and is furnished "as is", without technical support, and with no warranty.
+
+This code appears to be part of a larger script that manages hazard events, specifically tropical events, in a weather forecasting system. It is written in Python and seems to be using a custom library called HazardUtils.
+
+The `execute` function is the main function in this code snippet. It first checks if the necessary conditions are met to run the tool, such as whether the Hazards Weather Element is loaded in the GFE (Grid Forecast Editor, a tool used in meteorology), whether there are temporary hazard grids loaded, and whether there are conflicting locks on Hazards. If any of these conditions are not met, it cancels the execution and displays an appropriate message.
+
+Next, it retrieves active and cancelled tropical events. It then removes any cancelled watches from the grids and any active events to handle any slight grid time differences from previous runs.
+
+The script then sets a time range for the active events (48 hours from the current time) and adds these active events to the hazard grids. It also logs verbose information about the added events.
+
+Finally, it logs a completion message indicating that the PlotTPCEvents operation completed normally, along with the number of active events.
+
+The `removeHazardByZone` function, which is called in the `execute` function, appears to remove a specific hazard from a specific zone in the hazard grids. It does this by iterating over unique keys (presumably representing different hazards), getting subkeys for each unique key, and checking if the hazard phenotype and signal match the given phenotype and signal. If a match is found, the hazard is removed from the hazard grids.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

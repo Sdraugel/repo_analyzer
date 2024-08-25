@@ -1,0 +1,220 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>MetarMonitorP.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>MetarMonitorP.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This part of the file is a header and a version history log for a software file named MetarMonitorP.py. 
+
+The header contains information about the software's origin, export control restrictions, the contractor's details, and licensing information. 
+
+The version history log provides a detailed record of changes made to the software file over time. Each entry in the log includes the revision number, the status of the revision (e.g., DELIVERED, INITIALIZE, REVIEW, UNDER WORK), the date and time the revision was created, the username of the person who made the revision (e.g., OBERFIEL, GILMOREDM, TROJAN), and a brief description of the changes made in the revision. 
+
+The changes include various modifications, additions, and removals of code, adjustments to logic and functionality, and fixes for issues. The log helps developers track the evolution of the software, understand why changes were made, and potentially identify when and where bugs were introduced.
+
+The provided code is a Python script that seems to be part of a larger system, possibly related to aviation weather monitoring. Here are the key parts:
+
+1. The top part of the script is a detailed version history, documenting changes made to the code over time. Each entry includes the revision number, the date it was created, the author, and a brief description of the changes made.
+
+2. The script imports several modules, including `copy`, `logging`, `math`, `Avn`, and `MonitorP`. It also sets up a logger for logging events that occur while the program is running.
+
+3. The script defines a class `Monitor` which inherits from `MonitorP.Monitor`. This class has a `Namespace` attribute set to the global namespace of the script.
+
+4. The script defines several functions (`_WX`, `_fmt`, `format_msg`) that perform various operations such as checking if a string contains a specific substring, formatting visibility and cloud cover data, and formatting a message based on TAF (Terminal Aerodrome Forecast) and METAR (Meteorological Aerodrome Report) data.
+
+5. The script defines a class `DDDelta` which inherits from `MonitorP.Rule`. This class represents a rule that checks if the wind directions in the TAF and METAR data differ by a certain degree and if the wind speed is above a certain threshold. The class has methods for initializing an instance, setting default values for the rule's parameters, and checking if the rule is violated based on the provided TAF and METAR data.
+
+In summary, this script appears to be part of a system for monitoring weather conditions at an aerodrome, with a focus on wind direction and speed. It provides functionality for checking if certain conditions are met and formatting the resulting data.
+
+The code provided is written in Python and it defines several classes that inherit from a base class called `MonitorP.Rule`. These classes are used to monitor and analyze wind and sky conditions based on data from TAF (Terminal Aerodrome Forecast) and METAR (Meteorological Aerodrome Report) reports.
+
+1. `FFDelta`: This class checks if the wind speeds/gusts from TAF and METAR reports differ by a certain amount (ff). It also checks if either wind speed is greater than or equal to a certain value (ff1).
+
+2. `XFFMetar`: This class checks if the METAR runway cross wind speed is greater than or equal to a certain speed (ff). It also takes into account the runway index from the site configuration file.
+
+3. `LFFMetar`: This class checks if the METAR runway head or tail wind meets or exceeds a certain speed (ff). The speed is positive for tailwind and negative for headwind. It also uses the runway index from the site configuration file.
+
+4. `CigCatDelta`: This class checks if the TAF and METAR ceiling (the height above the ground or water of the base of the lowest layer of cloud) differ by a certain number of categories (ncat). It can also use variability information from the METAR remarks if given.
+
+In each class, the `method` function is the main function that performs the checks based on the TAF and METAR data. If any of the checks fail, it sets an appropriate message using the `setmsg` function and returns `True`. If all checks pass, it returns `False`. If the required data is not found in the TAF or METAR reports, it raises an `AvnMissing` exception.
+
+This Python code defines three classes that are used to monitor and compare weather data from two different sources: TAF (Terminal Aerodrome Forecast) and METAR (Meteorological Aerodrome Report). The classes are `VsbyCatDelta`, `VsbyTafThresh`, and an unnamed class. Each class has a `method` function that takes in TAF and METAR data as arguments and performs various checks and comparisons.
+
+1. The unnamed class: This class compares the sky conditions (ceiling heights) from the TAF and METAR data. It first gathers the highest ceilings from both sources. If the same category is found between both observation and forecast, it returns early. It then calculates the differences between the forecast and observation and checks if they differ by a certain number of categories (`ncat`). If they do, it sets a message indicating the number of categories they differ by and returns True. If not, it returns False.
+
+2. `VsbyCatDelta`: This class is similar to the unnamed class, but it compares the visibilities instead of the sky conditions. It first gathers the lowest and highest visibilities from both sources. If the same category is found between both observation and forecast, it returns early. It then calculates the differences between the forecast and observation and checks if they differ by a certain number of categories (`ncat`). If they do, it sets a message indicating the number of categories they differ by and returns True. If not, it returns False.
+
+3. `VsbyTafThresh`: This class checks if the highest visibility in the TAF data is less than or equal to a certain threshold (`vsby1`). If it is, it checks if the METAR visibility is greater than another threshold (`vsby2`). If both conditions are met, it returns True. If not, it returns False.
+
+In all three classes, if a KeyError is encountered, an `AvnMissing` exception is raised. This likely indicates that a required key was not found in the TAF or METAR data.
+
+The code defines several classes that inherit from the `MonitorP.Rule` class. Each class represents a different rule for monitoring weather conditions based on METAR (Meteorological Aerodrome Report) and TAF (Terminal Aerodrome Forecast) data.
+
+1. `VsbyMetarThresh`: This class checks if the METAR visibility is less than or equal to a certain threshold (`vsby1`) and the TAF visibility is greater than another threshold (`vsby2`). The thresholds can be set in the configuration file or default to 3.0. The class also allows for using variability information from the METAR remarks if it's turned on.
+
+2. `CigTafThresh`: This class checks if the TAF ceiling is less than or equal to a certain threshold (`cig1`) and the METAR ceiling is greater than another threshold (`cig2`). The thresholds can be set in the configuration file or default to 3100. The class also allows for using variability information from the METAR remarks if it's turned on.
+
+3. `CigMetarThresh`: This class checks if the METAR ceiling is less than or equal to a certain threshold (`cig1`) and the TAF ceiling is greater than another threshold (`cig2`). The thresholds can be set in the configuration file or default to 3100. The class also allows for using variability information from the METAR remarks if it's turned on.
+
+4. `WxTafDelta`: The code for this class is incomplete, but it seems to be intended to monitor weather conditions that occur in the TAF but not in the METAR.
+
+Each class has a `method` function that takes in TAF and METAR data and returns `True` if the conditions specified by the rule are met, and `False` otherwise. If a KeyError is encountered, an `AvnMissing` exception is raised.
+
+This code contains several classes that are used to monitor and analyze weather conditions as reported in METAR and TAF reports. METAR and TAF are types of weather reports used in aviation.
+
+1. `ts: wx (list)`: This class checks if certain weather conditions (FZRA, FZDZ, PL) are forecasted in the TAF report but do not occur in the METAR report. If the conditions are forecasted but not observed, a message is set and the method returns True.
+
+2. `WxMetarDelta`: This class checks if certain weather conditions occur in the METAR report but are not forecasted in the TAF report. If the conditions are observed but not forecasted, a message is set and the method returns True.
+
+3. `WxMetar`: This class checks for the occurrence of a specific weather condition (TS) in the METAR report. If the condition is observed, a message is set and the method returns True.
+
+4. `WxVsbyDelta`: This class checks for the occurrence of a specific weather condition (DZ) in the METAR report while it is not in the TAF report, with visibility less than or equal to a certain value. If the condition is observed and the visibility is less than or equal to the specified value, a message is set and the method returns True.
+
+5. `FltCatDelta`: This class compares TAF and observations with respect to aviation flight categories. The severity and message are determined by an algorithm. The method is not fully shown in the provided code.
+
+Each class inherits from `MonitorP.Rule` and overrides the `__init__` and `method` functions. The `__init__` function sets some default values that can be overwritten by a configuration file. The `method` function implements the specific check for each class.
+
+This code seems to be part of a larger program that is analyzing and comparing weather data, specifically visibility and ceiling (cloud height) data, from two different sources: a forecast (taf) and an observation (mtr). 
+
+The first part of the code checks if the 'remarks' and 'strict' arguments are present and sets their values accordingly. If 'remarks' or 'strict' is a string and starts with 'a', 'y', 't', or '1', the corresponding variable (use_rmks or strict) is set to True. If it's not a string, it checks if it's equal to 1. If the key doesn't exist, it passes for 'remarks' and sets 'strict' to True.
+
+Then, it retrieves visibility and ceiling thresholds from the sitedata and makes sure both lists have the same length by padding the shorter one with -1.
+
+It creates two sets, mCset and mVset, which will hold categories of visibility and ceiling data. It adds the category of the visibility and ceiling from the observation to these sets. If 'remarks' is set to True, it also adds the low and high visibility and ceiling categories from the remarks of the observation.
+
+It then calculates the minimum and maximum flight categories from the observation. It also calculates the prevailing and occasional flight categories from the forecast.
+
+If 'strict' is not set to True and the observation's flight categories fall within the forecast's flight categories, it checks if the forecast's prevailing and occasional categories match with the observation's categories. If they do, it returns False, otherwise, it calculates the minimum distance between the forecast's and observation's categories and sets a message and severity based on the difference.
+
+If the observation's flight categories don't fall within the forecast's flight categories, it calculates the difference between the forecast's and observation's categories and sets a message and severity based on the difference. The severity is represented as a color, with 6 being the highest severity (purple) and 1 being the lowest (yellow).
+
+The code seems to be part of a system that checks the accuracy of weather forecasts by comparing them with actual observations and flags discrepancies.
+
+The provided code is written in Python and appears to be part of a larger system for monitoring weather conditions, specifically visibility and ceiling (the altitude of the lowest layer of clouds), as they relate to aviation operations. 
+
+There are three classes defined: an unnamed class, `FuelAlternate`, and `AirportOpsThresh`. Each of these classes inherits from `MonitorP.Rule`, suggesting they are part of a rule-based system for monitoring weather conditions.
+
+The unnamed class checks for disagreements between two sets of visibility and ceiling data (`t_p_vis` vs `t_o_vis` and `t_p_cig` vs `t_o_cig`). If there's a disagreement, it raises a minor flag (severity level 2) and sets a message indicating which category (ceiling or visibility) differs.
+
+The `FuelAlternate` class checks if either the Terminal Aerodrome Forecast (TAF) or METAR weather falls below alternate fuel requirements. It uses visibility and ceiling thresholds for alternate fuel loading for aircraft. If the weather conditions require additional fuel and an alternate airport, it sets a message with the relevant information.
+
+The `AirportOpsThresh` class alerts when either TAF or METAR visibility or ceiling falls below an airport operations criteria and the observation and forecast disagree. It sets the severity level to 5, indicating a more serious situation than in the unnamed class.
+
+In all classes, the `method` function is used to perform the main logic of the class. It takes in TAF and METAR data and uses this to check against the specific conditions defined for each class. If certain conditions are met, it will set a message and return `True`, otherwise it will return `False`. 
+
+All classes also handle `KeyError` exceptions, which are raised when a dictionary key is not found. In this case, they raise an `Avn.AvnMissing` exception, which is likely a custom exception defined elsewhere in the code.
+
+This code is written in Python and is part of a system for monitoring and comparing weather forecasts (TAFs) and observations (METARs) with respect to ceiling and visibility categories. It's designed to satisfy CAC (Centralized Aviation Forecasting) requirements.
+
+The code defines a class `CAC_FltCatDelta` which inherits from `MonitorP.Rule`. The class has a method `method` which takes two arguments: `taf` and `mtr`. `taf` is a dictionary containing TAF (Terminal Aerodrome Forecast) data, and `mtr` is a dictionary containing METAR (Meteorological Aerodrome Report) data.
+
+The `method` function does the following:
+
+1. It checks if there are optional parameters in the TAF data, and sets up variables for remarks.
+
+2. It retrieves the thresholds for visibility and ceiling from the site data.
+
+3. It adjusts the length of the threshold lists to be equal.
+
+4. It categorizes the METAR data according to the thresholds and adds them to sets.
+
+5. It makes a copy of the sets and adds additional categories based on variable visibility and ceiling data from the METAR data.
+
+6. It calculates the minimum and maximum flight categories from the METAR data.
+
+7. It retrieves and categorizes the previous and occasional visibility and ceiling data from the TAF data.
+
+8. It calculates the minimum flight category from the TAF data.
+
+9. It calculates the difference between the flight categories of the forecast and the observations.
+
+10. If the remarks are used and the difference is greater than zero, it recalculates the minimum and maximum flight categories from the METAR data and checks if the forecast flight category falls within the range.
+
+11. If the forecast flight category falls within the range, it sets a message and returns True, otherwise, it checks if the difference between the forecast and the observation is zero.
+
+The code also includes error handling for `KeyError` exceptions, which occur when a dictionary key is not found. If a `KeyError` is encountered, it raises an `AvnMissing` exception, which is presumably defined elsewhere in the code.
+
+The code is part of a larger system that monitors and verifies weather conditions for flight operations. It appears to be written in Python and is object-oriented.
+
+The code defines a class `CAC_AirportOpsThresh` which inherits from `MonitorP.Rule`. This class is used to alert when either TAF (Terminal Aerodrome Forecast) or METAR (Meteorological Aerodrome Report) ceiling or visibility falls below an airport's operational criteria. 
+
+The class has an `__init__` method which sets some default values and a `method` which takes in TAF and METAR data and checks if the visibility and ceiling values are below certain thresholds. 
+
+The code checks the difference between observed and forecasted weather conditions (`delta_lo`) and assigns a severity level based on this difference. The severity level is color-coded, with 6 being purple (the most severe) and 2 being light green (the least severe). 
+
+If there's a disagreement between the ceiling or visibility category, a minor flag is raised. Messages are set depending on the conditions and the function returns either True or False based on the checks. 
+
+The code also handles exceptions, specifically a `KeyError`, and raises an `AvnMissing` error when required data is missing. 
+
+The comments in the code provide a good understanding of what each part of the code does, making it easier to understand the logic and flow of the program.
+
+The provided code is written in Python and it seems to be part of a larger program related to weather monitoring, specifically visibility thresholds in METAR and TAF reports. METAR and TAF are types of weather forecast reports used in aviation.
+
+The code defines three classes: `CAC_VsbyMetarThresh`, `CAC_VsbyTafThresh`, and an unnamed class. Each class appears to represent a different rule for monitoring visibility thresholds.
+
+1. `CAC_VsbyMetarThresh`: This class checks if the METAR visibility is less than a certain threshold (`vsby1`) and the TAF visibility is greater than or equal to another threshold (`vsby2`). If certain conditions are met, it sets a message and returns True, otherwise it returns False.
+
+2. `CAC_VsbyTafThresh`: This class checks if the TAF visibility is less than a certain threshold (`vsby1`) and the METAR visibility is greater than or equal to another threshold (`vsby2`). Similar to the first class, it sets a message and returns True or False based on certain conditions.
+
+3. The unnamed class: This class checks visibility thresholds (`visThresh` and `cigThresh`) and sets messages based on whether the thresholds are met or not. It also checks for other conditions like `tempoCheck` and `use_rmks`.
+
+The `setmsg` method is used to set a message based on the conditions checked. The `format_msg` function, which is not defined in the provided code, is used to format the message.
+
+The code also handles exceptions, specifically `KeyError`, which is raised when a dictionary key is not found. If such an error occurs, it raises `Avn.AvnMissing`, which seems to be a custom exception defined elsewhere in the program.
+
+The code uses comments to explain what each part does, which is a good practice for code readability and maintainability.
+
+This code appears to be part of a weather forecasting system, possibly for aviation purposes, given the use of terms like METAR and TAF. 
+
+The first part of the code is checking various conditions related to forecasted and actual weather conditions (possibly visibility). If certain conditions are met, it returns False, otherwise it checks a few more conditions and sets a message based on the results. 
+
+The `split('|')[1]` line is likely splitting a string on the '|' character and taking the second element of the resulting list.
+
+The `CAC_WxTafDelta` class is a rule for monitoring weather conditions. It checks if certain weather phenomena (like 'FZRA', 'FZDZ', 'PL') are forecasted in the TAF (Terminal Aerodrome Forecast) but do not occur in the METAR (Meteorological Aerodrome Report). 
+
+If these conditions are met, it sets a message and returns True, otherwise it returns False. The `Avn.any` function seems to be a helper function used to check if any element of a list satisfies a certain condition. 
+
+The `Avn.AvnMissing` and `Avn.AvnUnknwnPcp` are exceptions that are raised when certain keys are not found in the dictionaries or when an unknown precipitation type is encountered. 
+
+The `format_msg`, `tafThreshStr`, `metarThreshStr`, `taf`, `mtr`, `use_rmks`, `tempoCheck`, `fcst`, `tafThresh`, `metar`, `metarThresh` are variables that are not defined in the provided code, but they are likely defined elsewhere in the program.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

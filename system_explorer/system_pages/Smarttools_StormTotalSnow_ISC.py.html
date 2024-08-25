@@ -1,0 +1,62 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>StormTotalSnow_ISC.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>StormTotalSnow_ISC.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>The provided code appears to be a tool for a weather forecasting system, specifically for calculating the total snowfall over a given time range. The tool is written in Python and uses the SmartScript module, which is likely a part of the larger system this tool is designed for. 
+
+Here's a breakdown of what the code does:
+
+1. The tool is defined as a numeric tool that edits the "StormTotalSnow" weather element. It is not hidden in the user interface.
+
+2. The tool imports the SmartScript and ProcessVariableList modules, which are likely part of the larger system this tool is a part of.
+
+3. The tool is defined as a class that inherits from SmartScript.SmartScript. It has two main methods: `preProcessGrid` and `execute`.
+
+4. In the `preProcessGrid` method, the tool checks all available databases for ones that have the type "ISC" and contain data about snow amount ("SnowAmt"). If there's more than one such database, it prompts the user to choose one.
+
+5. In the `execute` method, the tool calculates the total snowfall over a given time range. It does this by summing the snow amounts from the chosen database over the specified time range. The result is then returned as the new value for the "StormTotalSnow" weather element.
+
+6. The code also contains some metadata and licensing information at the top. It mentions that the software was developed and/or modified by Raytheon Company under a contract with the US Government, and that it contains export-restricted data. It also states that the software is in the public domain and is provided "as is", without any warranty or technical support.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

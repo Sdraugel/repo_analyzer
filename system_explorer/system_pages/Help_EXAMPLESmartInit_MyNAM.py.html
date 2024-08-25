@@ -1,0 +1,58 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>EXAMPLESmartInit_MyNAM.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>EXAMPLESmartInit_MyNAM.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python script is a modification of an existing algorithm from the NAM (North American Mesoscale) model, and it also adds a new relative humidity (RH) algorithm. The script is developed or modified by Raytheon Company under a US Government contract. The software contains export-restricted data, and its export or transfer is controlled by US law.
+
+The script defines a new class `MyNAMForecaster` that inherits from the `NAMForecaster` class from the NAM module.
+
+In the `MyNAMForecaster` class, two methods are defined:
+
+1. `calcSnowAmt(self, T, QPF)`: This method calculates the amount of snow based on temperature `T` and Quantitative Precipitation Forecast `QPF`. If the temperature `T` is less than or equal to 32 (presumably Fahrenheit), the snow amount is calculated as 10.0 times `QPF`. Otherwise, the snow amount is 0.
+
+2. `calcRH(self, rh_FHAG2)`: This method calculates the relative humidity. It takes `rh_FHAG2` as an argument and clips its value between 0 and 100, ensuring the relative humidity stays within this range.
+
+The `main()` function runs the `MyNAMForecaster` class.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

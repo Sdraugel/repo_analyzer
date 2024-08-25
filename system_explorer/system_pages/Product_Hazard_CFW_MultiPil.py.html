@@ -1,0 +1,72 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Hazard_CFW_MultiPil.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Hazard_CFW_MultiPil.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code is part of a software developed by Raytheon Company, as per a contract with the US Government. The software contains export-restricted data, and its dissemination requires an export license or other authorization.
+
+The code defines a class `TextProduct` which is a subclass of `GenericHazards.TextProduct`. This class is used to create and manage text-based products related to coastal and lakeshore flooding hazards.
+
+The class contains several attributes in the `Definition` dictionary, which define various aspects of the text product, such as its name, default edit areas, map name for combinations, product name, station ID, WMO ID, product ID, output file format, and other configuration items.
+
+The `__init__` method is used to initialize the class, and it calls the initialization method of the parent class.
+
+The `allowedHazards` method returns a list of hazards that are allowed in CFW products. Each hazard is represented as a tuple containing the hazard code, a list of all actions, and the hazard type.
+
+The `_bulletDict` method returns a dictionary that sets the default bullets for each hazard phenomenon. The bullets are represented as a string of hazard codes separated by commas.
+
+The code also includes a software history comment section, which records the date, ticket number, engineer, and description of updates made to the software.
+
+This code is part of a larger program that generates a forecast or hazard report, likely for a weather application. The report is created based on a set of inputs and conditions, and then formatted for output.
+
+Here's a breakdown of what each function does:
+
+1. `_bulletOrder(self)`: This function sets the default order of bullet points in the forecast.
+
+2. `_makeProduct(self, fcst, segmentAreas, argDict)`: This function creates the main content of the forecast. It first sets the language of the forecast. Then it generates a headline for the forecast based on the hazard information in `argDict` and the areas in `segmentAreas`. After that, it generates the body of the forecast, which includes hazard details and calls-to-action. It also removes any attribution section before the bullets or cancellation framing code. If an overview exists for the product, it calculates it. Finally, it cleans up the forecast and returns it.
+
+3. `_postProcessProduct(self, fcst, argDict)`: This function post-processes the forecast. It inserts an overview if one exists, checks if the forecast is urgent, and removes the EAS line if it's not. It also renames the product based on VTEC codes, formats the forecast for better readability, and removes any empty framing code. It also indents the bullet text, cleans up multiple line feeds, and adds a URL text from the configuration section. Finally, it returns the processed forecast.
+
+The code uses regular expressions (re) for string manipulation and pattern matching, which is common in text processing tasks.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        

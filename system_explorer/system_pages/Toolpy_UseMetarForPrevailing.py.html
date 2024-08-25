@@ -1,0 +1,56 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>UseMetarForPrevailing.py Details</title>
+            <style>
+                .container {
+                    width: 60%;
+                    margin: 50px auto;
+                }
+                h2 {
+                    text-align: center;
+                }
+                .description {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>UseMetarForPrevailing.py</h2>
+                <div class="description">
+                    <p><strong>Description:</strong></p>
+                    <p>This Python code file is named `UseMetarForPrevailing.py` and it's a part of a software developed or modified by Raytheon Company under a contract with the US Government. It contains export-restricted data and its export/transfer/disclosure is restricted by U.S. law.
+
+The code is mainly about updating Terminal Aerodrome Forecasts (TAFs) using METAR data. METAR is a format for reporting current weather information, while TAFs are weather forecasts for aviation. 
+
+The main function in this code is `updateTafs(bbb, fcsts)`. It takes two arguments, `bbb` and `fcsts`. `bbb` is not used in this function, while `fcsts` is a dictionary of forecasts displayed in the editor window. The function returns a dictionary of modified forecasts.
+
+The function works by iterating over each forecast in `fcsts`, decoding the TAF for each forecast, adjusting the times, retrieving the latest METAR record from the database, updating the TAF with the METAR data, and finally making a new TAF from the updated data. If there are any exceptions during this process, the forecast identifier is added to `badidents` and a warning is logged.
+
+The code also includes a detailed history of revisions and changes, including the date, the engineer who made the change, and a description of the change.</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="javascript:history.back()"><button>Back</button></a>
+                </div>
+            </div>
+        </body>
+        </html>
+        
